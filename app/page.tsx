@@ -1,5 +1,6 @@
 import { MousePointer } from "./components/mouse-pointer";
 import { Form } from "./components/waitlist-form";
+import { BlurShape } from "./components/blur-shape"
 import { getHome } from "@/lib/cosmic";
 
 export default async function Home() {
@@ -7,11 +8,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      <div className="relative grid h-[80%] w-[80%] place-items-center opacity-20 blur-3xl dark:opacity-10 lg:h-[750px] lg:w-[750px]">
-        <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-lime-400 blur-3xl" />
-        <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-400 blur-3xl" />
-        <div className="absolute bottom-0 left-0 right-0 mx-auto h-96 w-96 rounded-full bg-indigo-400 blur-3xl" />
-      </div>
+      <BlurShape />
       <div className="absolute inset-0 mx-auto w-full p-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">
