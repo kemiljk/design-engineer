@@ -4,7 +4,7 @@ import { MousePointer } from "./components/mouse-pointer";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="opacity-30 dark:opacity-20 w-[750px] h-[750px] relative grid place-items-center blur-3xl">
+      <div className="opacity-20 dark:opacity-10 w-[750px] h-[750px] relative grid place-items-center blur-3xl">
         <div className="w-96 h-96 left-0 top-0 absolute bg-lime-400 rounded-full blur-3xl" />
         <div className="w-96 h-96 right-0 top-0 absolute bg-cyan-400 rounded-full blur-3xl" />
         <div className="w-96 h-96 mx-auto left-0 right-0 bottom-0 absolute bg-indigo-400 rounded-full blur-3xl" />
