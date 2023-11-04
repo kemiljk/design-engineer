@@ -1,7 +1,10 @@
-import { Button } from "@/components/ui/button";
 import { MousePointer } from "./components/mouse-pointer";
+import { Form } from "./components/waitlist-form";
+import { getHome } from "@/lib/cosmic";
 
-export default function Home() {
+export default async function Home() {
+  const home = await getHome();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="opacity-20 dark:opacity-10 w-[750px] h-[750px] relative grid place-items-center blur-3xl">
@@ -31,12 +34,9 @@ export default function Home() {
               </span>
             </h1>
             <p className="max-w-3xl mx-auto font-sans text-3xl leading-snug tracking-tight text-center text-slate-600 dark:text-slate-400">
-              A new platform to help Design Engineers learn, find their next
-              role, hear from experts, and demonstrate their skills
+              {home.metadata.description}
             </p>
-            <Button size="lg" variant="primary">
-              Register interest
-            </Button>
+            <Form />
           </div>
         </div>
       </div>
