@@ -10,6 +10,7 @@ export const cosmic = createBucketClient({
 interface Home {
   metadata: {
     description: string;
+    pill: string;
   };
 }
 

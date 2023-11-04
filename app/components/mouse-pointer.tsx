@@ -1,8 +1,7 @@
 export const MousePointer: React.FC = () => {
   return (
     <svg
-      width="46"
-      height="46"
+      className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 w-6 h-6 md:w-10 md:h-10"
       viewBox="0 0 46 46"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
