@@ -50,7 +50,10 @@ export const Form = () => {
   }
 
   return (
-    <form className="inline-flex gap-2 w-full max-w-xl" onSubmit={submit}>
+    <form
+      className="flex flex-col md:flex-row gap-2 w-full max-w-xl"
+      onSubmit={submit}
+    >
       <Input
         type="email"
         required
