@@ -65,7 +65,7 @@ export const Form = () => {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <Button size="lg" variant="primary" disabled={submitting}>
+      <Button type="button" size="lg" variant="primary" disabled={submitting}>
         {submitting ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />

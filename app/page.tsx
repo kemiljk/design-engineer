@@ -3,7 +3,6 @@ import { Form } from "./components/waitlist-form";
 import { BlurShape } from "./components/blur-shape";
 import { Logo } from "./components/logo";
 import { getHome } from "@/lib/cosmic";
-import Icon from "./components/icon";
 
 export default async function Home() {
   const home = await getHome();
@@ -11,7 +10,6 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
       <div className="inline-flex w-max items-baseline gap-3">
-        {/* <Icon className="h-12 w-12 text-blue-500 dark:text-blue-300" /> */}
         <Logo className="h-auto w-24 text-blue-500 dark:text-blue-300" />
       </div>
       <BlurShape />
