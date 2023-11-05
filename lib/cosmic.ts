@@ -14,6 +14,32 @@ interface Home {
   };
 }
 
+interface Config {
+  metadata: {
+    site_name: string;
+    site_description: string;
+    meta_image: {
+      imgix_url: string;
+    };
+    site_url: string;
+  };
+}
+
+// Site config
+export const getConfig = cache(async (): Promise<Config> => {
+  const config = await Promise.resolve(
+    cosmic.objects
+      .findOne({
+        type: "config",
+        slug: "config",
+      })
+      .props("slug,title,metadata")
+      .depth(1),
+  );
+
+  return config.object;
+});
+
 // Home page
 export const getHome = cache(async (): Promise<Home> => {
   const home = await Promise.resolve(
@@ -23,7 +49,7 @@ export const getHome = cache(async (): Promise<Home> => {
         slug: "home",
       })
       .props("title,metadata")
-      .depth(1)
+      .depth(1),
   );
 
   return home.object;
