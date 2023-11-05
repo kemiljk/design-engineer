@@ -8,11 +8,13 @@ export default async function Home() {
   const home = await getHome();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      <div className="inline-flex w-max items-baseline gap-3">
-        <Logo className="h-auto w-24 text-blue-500 dark:text-blue-300" />
+    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+      <div className="flex w-max items-baseline gap-3">
+        <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
       </div>
-      <BlurShape />
+      <div className="absolute inset-0 grid place-content-center">
+        <BlurShape />
+      </div>
       <div className="absolute inset-0 mx-auto w-full p-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">

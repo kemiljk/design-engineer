@@ -14,7 +14,7 @@ const sans = Manrope({
 });
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 1,
 };
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${serif.variable} ${mono.variable} ${sans.variable} bg-white dark:bg-slate-950 font-sans overflow-x-hidden`}
+        className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white p-4 font-sans dark:bg-slate-950 md:p-16`}
       >
         {children}
       </body>
