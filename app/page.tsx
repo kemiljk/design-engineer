@@ -3,19 +3,23 @@ import { Form } from "./components/waitlist-form";
 import { BlurShape } from "./components/blur-shape";
 import { Logo } from "./components/logo";
 import { getHome } from "@/lib/cosmic";
+import Icon from "./components/icon";
 
 export default async function Home() {
   const home = await getHome();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      <Logo className="h-auto w-24 text-blue-500 dark:text-blue-300" />
+      <div className="inline-flex w-max items-baseline gap-3">
+        {/* <Icon className="h-12 w-12 text-blue-500 dark:text-blue-300" /> */}
+        <Logo className="h-auto w-24 text-blue-500 dark:text-blue-300" />
+      </div>
       <BlurShape />
       <div className="absolute inset-0 mx-auto w-full p-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">
             <div className="flex justify-center">
-              <p className="flex w-max rounded-full border border-lime-500 bg-white/10 px-2 py-1.5 text-xs font-medium leading-none text-lime-700 dark:border-lime-600 dark:bg-slate-950/10 dark:from-inherit dark:text-lime-300 md:px-4 md:py-3 md:text-base">
+              <p className="flex w-max rounded-full border border-lime-400 bg-white/10 px-2 py-1.5 text-xs font-medium leading-none text-lime-700 dark:border-lime-800 dark:bg-slate-950/10 dark:from-inherit dark:text-lime-300">
                 {home.metadata.pill}
               </p>
             </div>
