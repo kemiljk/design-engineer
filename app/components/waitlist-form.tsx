@@ -18,12 +18,15 @@ export const Form = () => {
     const newWaitlist = {
       type: "waitlists",
       title: email,
-      trigger_webhook: true,
     };
     try {
       await fetch("/api/waitlist", {
         method: "POST",
         body: JSON.stringify({ email: newWaitlist }),
+      });
+      await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify({ email: email }),
       });
     } catch (err) {
       setSubmitting(false);
@@ -40,8 +43,8 @@ export const Form = () => {
 
   if (submitted) {
     return (
-      <div className="">
-        <span className="">
+      <div>
+        <span className="text-slate-600 dark:text-slate-400">
           Thanks for signing up! We will be in touch soon.
         </span>
       </div>
@@ -51,7 +54,7 @@ export const Form = () => {
 
   return (
     <form
-      className="flex flex-col md:flex-row gap-2 w-full max-w-xl"
+      className="flex w-full max-w-xl flex-col gap-2 md:flex-row"
       onSubmit={submit}
     >
       <Input

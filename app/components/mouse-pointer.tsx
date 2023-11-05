@@ -1,7 +1,7 @@
 export const MousePointer: React.FC = () => {
   return (
     <svg
-      className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 w-6 h-6 md:w-10 md:h-10"
+      className="absolute -bottom-4 -right-4 h-6 w-6 md:-bottom-8 md:-right-8 md:h-10 md:w-10"
       viewBox="0 0 46 46"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ export const MousePointer: React.FC = () => {
           width="37.3073"
           height="36.907"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
