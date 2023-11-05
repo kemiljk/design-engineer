@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Viewport, Metadata } from "next";
 import { Lora, JetBrains_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -13,10 +13,17 @@ const sans = Manrope({
   variable: "--font-sans",
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export const metadata: Metadata = {
   title: "DesignEngineer.xyz",
   description:
     "A new platform to help Design Engineers learn, find their next role, hear from experts, and demonstrate their skills",
+  viewport: 
 };
 
 export default function RootLayout({
@@ -27,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${serif.variable} ${mono.variable} ${sans.variable} bg-white dark:bg-slate-950 font-sans`}
+        className={`${serif.variable} ${mono.variable} ${sans.variable} bg-white dark:bg-slate-950 font-sans overflow-x-hidden`}
       >
         {children}
       </body>
