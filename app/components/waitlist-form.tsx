@@ -28,6 +28,10 @@ export const Form = () => {
         method: "POST",
         body: JSON.stringify({ email: email }),
       });
+      await fetch("/api/waitlisted", {
+        method: "POST",
+        body: JSON.stringify({ email: email }),
+      });
     } catch (err) {
       setSubmitting(false);
       setError(true);

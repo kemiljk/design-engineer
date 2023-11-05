@@ -14,3 +14,12 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     </p>
   </div>
 );
+
+export const EmailWaitlistTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+  email,
+}) => (
+  <div>
+    <h1>New d×e waitlist subscriber!</h1>
+    <p>{email} just signed up.</p>
+  </div>
+);
