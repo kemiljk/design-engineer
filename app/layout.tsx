@@ -17,13 +17,12 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-}
+};
 
 export const metadata: Metadata = {
   title: "DesignEngineer.xyz",
   description:
     "A new platform to help Design Engineers learn, find their next role, hear from experts, and demonstrate their skills",
-  viewport: 
 };
 
 export default function RootLayout({
