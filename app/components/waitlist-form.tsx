@@ -57,30 +57,35 @@ export const Form = () => {
   }
 
   return (
-    <form
-      className="flex w-full max-w-xl flex-col gap-2 md:flex-row"
-      onSubmit={submit}
-    >
-      <Input
-        type="email"
-        required
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+    <div className="flex w-full max-w-xl flex-col gap-2 text-center">
+      <form
+        className="flex w-full max-w-xl flex-col gap-2 md:flex-row"
+        onSubmit={submit}
+      >
+        <Input
+          type="email"
+          required
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <Button size="lg" variant="primary" disabled={submitting}>
-        {submitting ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            <span>Registering interest...</span>
-          </>
-        ) : (
-          "Register interest"
-        )}
-      </Button>
+        <Button size="lg" variant="primary" disabled={submitting}>
+          {submitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <span>Registering interest...</span>
+            </>
+          ) : (
+            "Register interest"
+          )}
+        </Button>
 
-      {error ? <div className="">{error}</div> : null}
-    </form>
+        {error ? <div className="">{error}</div> : null}
+      </form>
+      <span className="text-xs text-slate-500">
+        We respect your privacy and will never share your email.
+      </span>
+    </div>
   );
 };
