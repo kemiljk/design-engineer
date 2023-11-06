@@ -19,7 +19,7 @@ export default async function Home() {
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">
             <div className="flex justify-center">
-              <p className="flex w-max rounded-full border border-lime-400 bg-white/10 px-2 py-1.5 text-xs font-medium leading-none text-lime-700 dark:border-lime-800 dark:bg-slate-950/10 dark:from-inherit dark:text-lime-300">
+              <p className="flex w-max rounded-full border border-lime-400 bg-white/10 px-2 py-1.5 text-xs font-medium leading-none text-lime-700 dark:border-lime-800 dark:bg-slate-950/10 dark:from-inherit dark:text-lime-300 md:text-sm">
                 {home.metadata.pill}
               </p>
             </div>
