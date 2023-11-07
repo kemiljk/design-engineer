@@ -23,10 +23,10 @@ export default async function Home() {
         <BlurShape />
       </div>
       <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
-      <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24 z-1">
+      <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">
-            <div className="flex justify-center">
+            <div className="flex justify-center z-1">
               <InfoPill>{home.metadata.pill}</InfoPill>
             </div>
             <PageTitle />
