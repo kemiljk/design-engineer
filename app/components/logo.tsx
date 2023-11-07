@@ -31,8 +31,8 @@ export const Logo = ({ className }: Props) => {
           y2="116.091"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3BA7F6" />
-          <stop offset="1" stop-color="#1554E0" />
+          <stop stopColor="#3BA7F6" />
+          <stop offset="1" stopColor="#1554E0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_73_30"
@@ -42,8 +42,8 @@ export const Logo = ({ className }: Props) => {
           y2="116.091"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3BA7F6" />
-          <stop offset="1" stop-color="#1554E0" />
+          <stop stopColor="#3BA7F6" />
+          <stop offset="1" stopColor="#1554E0" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_73_30"
@@ -53,8 +53,8 @@ export const Logo = ({ className }: Props) => {
           y2="116.091"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#3BA7F6" />
-          <stop offset="1" stop-color="#1554E0" />
+          <stop stopColor="#3BA7F6" />
+          <stop offset="1" stopColor="#1554E0" />
         </linearGradient>
       </defs>
     </svg>

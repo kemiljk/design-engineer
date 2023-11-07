@@ -2,20 +2,22 @@ import { MousePointer } from "./components/mouse-pointer";
 import { Form } from "./components/waitlist-form";
 import { BlurShape } from "./components/blur-shape";
 import { Logo } from "./components/logo";
-import { getHome } from "@/lib/cosmic";
+import { getHome, getPosts } from "@/lib/cosmic";
+import * as Type from "@/lib/types";
+import { BlogCard } from "@/components/BlogCard";
+import cn from "classnames";
 
 export default async function Home() {
   const home = await getHome();
+  const posts = await getPosts();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
-      <div className="flex w-max items-baseline gap-3">
-        <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
-      </div>
+    <main className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 lg:p-24">
+      <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
       <div className="absolute inset-0 grid place-content-center">
         <BlurShape />
       </div>
-      <div className="absolute inset-0 mx-auto w-full p-4 md:p-16 lg:max-w-5xl lg:p-24">
+      <div className="mx-auto w-full p-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">
             <div className="flex justify-center">
@@ -49,6 +51,22 @@ export default async function Home() {
             <Form />
           </div>
         </div>
+      </div>
+      <div className="mt-16 flex w-full flex-wrap justify-evenly gap-8">
+        {posts.map((post: Type.Post) => {
+          let rotation = Math.floor(Math.random() * 25) - 12;
+          const rotationClass = rotation < 0 ? `-rotate-6` : `rotate-3`;
+          return (
+            <BlogCard
+              key={post.id}
+              post={post}
+              className={cn(
+                rotationClass,
+                "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
+              )}
+            />
+          );
+        })}
       </div>
     </main>
   );

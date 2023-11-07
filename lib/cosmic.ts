@@ -1,4 +1,5 @@
 import { createBucketClient } from "@cosmicjs/sdk";
+import * as Type from "./types";
 import { cache } from "react";
 
 export const cosmic = createBucketClient({
@@ -7,26 +8,8 @@ export const cosmic = createBucketClient({
   writeKey: process.env.NEXT_PUBLIC_BUCKET_WRITE_KEY as string,
 });
 
-interface Home {
-  metadata: {
-    description: string;
-    pill: string;
-  };
-}
-
-interface Config {
-  metadata: {
-    site_name: string;
-    site_description: string;
-    meta_image: {
-      imgix_url: string;
-    };
-    site_url: string;
-  };
-}
-
 // Site config
-export const getConfig = cache(async (): Promise<Config> => {
+export const getConfig = cache(async (): Promise<Type.Config> => {
   const config = await Promise.resolve(
     cosmic.objects
       .findOne({
@@ -41,7 +24,7 @@ export const getConfig = cache(async (): Promise<Config> => {
 });
 
 // Home page
-export const getHome = cache(async (): Promise<Home> => {
+export const getHome = cache(async (): Promise<Type.Home> => {
   const home = await Promise.resolve(
     cosmic.objects
       .findOne({
@@ -53,4 +36,16 @@ export const getHome = cache(async (): Promise<Home> => {
   );
 
   return home.object;
+});
+
+// Blog post
+export const getPosts = cache(async (): Promise<Type.Post[]> => {
+  const { objects: posts } = await cosmic.objects
+    .find({
+      type: "blog-posts",
+    })
+    .props("id,slug,title,metadata")
+    .depth(1);
+
+  return posts;
 });
