@@ -5,6 +5,8 @@ import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
 
+const dynamic = "force-dynamic";
+
 export default async function Stats() {
   const stats = await getStats();
   const statsArray = await getStat();
