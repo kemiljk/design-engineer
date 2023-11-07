@@ -19,13 +19,10 @@ export default async function Home() {
 
   return (
     <main className="relative flex h-full min-h-screen flex-col items-center justify-between overflow-hidden lg:p-24">
-      <div className="absolute inset-0 grid place-content-center">
-        <BlurShape />
-      </div>
       <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
       <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
-          <div className="flex flex-col items-center gap-10">
+          <div className="relative flex flex-col items-center gap-10">
             <div className="flex justify-center z-1">
               <InfoPill>{home.metadata.pill}</InfoPill>
             </div>
@@ -34,6 +31,9 @@ export default async function Home() {
               {home.metadata.description}
             </p>
             <Form />
+            <div className="absolute -z-1 inset-0 grid place-content-center">
+               <BlurShape />
+            </div>
           </div>
         </div>
       </div>
