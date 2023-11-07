@@ -14,7 +14,7 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <main className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 lg:p-24">
+    <main className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden lg:p-24">
       <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
       <div className="absolute inset-0 grid place-content-center">
         <BlurShape />
