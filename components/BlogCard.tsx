@@ -25,7 +25,7 @@ export function BlogCard({
     <Link href={post.metadata.url} className={className}>
       <Card
         key="1"
-        className="mx-auto max-w-xs overflow-hidden rounded-3xl shadow transition-all duration-500 ease-in-out hover:shadow-xl"
+        className="mx-auto max-w-xs overflow-hidden rounded-3xl transition-all duration-500 ease-out hover:shadow-xl"
       >
         <CardHeader className="flex items-center justify-center p-6 text-center">
           <Avatar>
@@ -55,7 +55,7 @@ export function BlogCard({
         <CardContent className="grid gap-4 px-0 pb-6">
           <Image
             alt="Article image"
-            className="aspect-content object-cover"
+            className="aspect-content border-y border-neutral-50 object-cover dark:border-neutral-800"
             height={100}
             width={500}
             src={`${post.metadata.image.imgix_url}?w=800&auto=format,compression`}
