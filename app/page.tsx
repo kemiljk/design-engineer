@@ -73,13 +73,13 @@ export default async function Home() {
             className="mb-4"
           />
           <div className="flex gap-4">
-            <Link href="https://designtechnologist.club/slack">
+            <Link href="https://designtechnologist.club/slack?ref=designengineer.xyz">
               <Button variant={"secondary"} className="gap-2">
                 <SlackIcon className="h-4 w-4" />
                 Join Slack
               </Button>
             </Link>
-            <Link href="https://designtechnologist.club/book">
+            <Link href="https://designtechnologist.club/book?ref=designengineer.xyz">
               <Button variant={"outline"} className="gap-2">
                 <BookAIcon className="h-4 w-4" />
                 Read Handbook
