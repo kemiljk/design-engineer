@@ -19,7 +19,7 @@ export default async function Home() {
       <div className="absolute inset-0 grid place-content-center">
         <BlurShape />
       </div>
-      <div className="mx-auto w-full p-4 md:p-16 lg:max-w-5xl lg:p-24">
+      <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="flex flex-col items-center gap-10">
             <div className="flex justify-center">
