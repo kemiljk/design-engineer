@@ -34,7 +34,7 @@ export default async function Home() {
         </div>
       </div>
       <div>
-        <div className="flex w-full flex-col items-center">
+        <div className="mt-8 flex w-full flex-col items-center md:mt-0">
           <SectionTitle>While you wait</SectionTitle>
           <p className="text-zinc-500 dark:text-zinc-400">
             Some articles from Design Engineers
