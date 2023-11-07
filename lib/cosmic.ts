@@ -1,5 +1,3 @@
-"use server"
-
 import { createBucketClient } from "@cosmicjs/sdk";
 import * as Type from "./types";
 import { cache } from "react";
