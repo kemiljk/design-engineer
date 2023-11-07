@@ -60,7 +60,7 @@ export default async function Home() {
             );
           })}
         </div>
-        <div className="mt-8 flex w-full flex-col items-center md:mt-16">
+        <div className="mt-16 flex w-full flex-col items-center md:mt-24">
           <SectionTitle>Find your community</SectionTitle>
           <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
             Chat with hundreds of like-minded folks at Design Technologist Club
