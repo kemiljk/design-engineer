@@ -82,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white p-4 font-sans dark:bg-black md:p-16`}
+        className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white p-4 font-sans dark:bg-black md:p-16 lg:p-24`}
       >
         {children}
       </body>
