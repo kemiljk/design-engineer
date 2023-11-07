@@ -20,7 +20,7 @@ export default async function Home() {
   return (
     <main className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden lg:p-24">
       <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
-      <div className="absolute inset-0 grid place-content-center">
+      <div className="absolute inset-0 grid place-content-center -z-1">
         <BlurShape />
       </div>
       <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24 z-1">
