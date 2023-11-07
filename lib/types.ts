@@ -37,3 +37,12 @@ export type Post = {
     published_date: string;
   };
 };
+
+export type Stats = {
+  total: number;
+};
+
+export type Stat = {
+  title: string;
+  created_at: string;
+};

@@ -49,3 +49,25 @@ export const getPosts = cache(async (): Promise<Type.Post[]> => {
 
   return posts;
 });
+
+// Stats page
+export const getStats = cache(async (): Promise<Type.Stats> => {
+  const stats = await Promise.resolve(
+    await cosmic.objects.find({ type: "waitlists" }).props("title").depth(1),
+  );
+
+  return stats;
+});
+
+export const getStat = cache(async (): Promise<Type.Stat[]> => {
+  const stat = await Promise.resolve(
+    await cosmic.objects
+      .find({
+        type: "waitlists",
+      })
+      .props("title,created_at")
+      .depth(1),
+  );
+
+  return stat.objects;
+});

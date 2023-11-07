@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import DTClubLogo from "./components/dtclub-logo";
 
 export default async function Home() {
   const home = await getHome();
@@ -21,12 +22,12 @@ export default async function Home() {
     <main className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 md:p-16 lg:p-24">
       <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
       <div className="absolute inset-0 grid place-content-center">
-         <BlurShape />
+        <BlurShape />
       </div>
       <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="grid h-full w-full place-items-center">
           <div className="relative flex flex-col items-center gap-10">
-            <div className="flex justify-center z-1">
+            <div className="z-1 flex justify-center">
               <InfoPill>{home.metadata.pill}</InfoPill>
             </div>
             <PageTitle />
@@ -65,13 +66,7 @@ export default async function Home() {
           <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
             Chat with hundreds of like-minded folks at Design Technologist Club
           </p>
-          <Image
-            src="/dtc_logo.svg"
-            alt="Design Technologist Club"
-            width={300}
-            height={100}
-            className="mb-4"
-          />
+          <DTClubLogo className="mb-4 w-64 text-neutral-950 dark:text-neutral-50" />
           <div className="flex gap-4">
             <Link href="https://designtechnologist.club/slack?ref=designengineer.xyz">
               <Button variant={"secondary"} className="gap-2">
