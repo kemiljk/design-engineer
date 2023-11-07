@@ -8,6 +8,10 @@ import { BlogCard } from "@/components/BlogCard";
 import cn from "classnames";
 import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
+import { Button } from "@/components/ui/button";
+import { BookAIcon, SlackIcon } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default async function Home() {
   const home = await getHome();
@@ -55,6 +59,33 @@ export default async function Home() {
               />
             );
           })}
+        </div>
+        <div className="mt-8 flex w-full flex-col items-center md:mt-16">
+          <SectionTitle>Find your community</SectionTitle>
+          <p className="mb-4 text-zinc-500 dark:text-zinc-400">
+            Chat with hundreds of like-minded folks at Design Technologist Club
+          </p>
+          <Image
+            src="/dtc_logo.svg"
+            alt="Design Technologist Club"
+            width={300}
+            height={100}
+            className="mb-4"
+          />
+          <div className="flex gap-4">
+            <Link href="https://designtechnologist.club/slack">
+              <Button variant={"secondary"} className="gap-2">
+                <SlackIcon className="h-4 w-4" />
+                Join Slack
+              </Button>
+            </Link>
+            <Link href="https://designtechnologist.club/book">
+              <Button variant={"outline"} className="gap-2">
+                <BookAIcon className="h-4 w-4" />
+                Read Handbook
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </main>
