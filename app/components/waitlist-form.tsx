@@ -57,7 +57,7 @@ export const Form = () => {
   }
 
   return (
-    <div className="flex w-full max-w-xl flex-col gap-2 text-center">
+    <div className="z-2 flex w-full max-w-xl flex-col gap-2 text-center">
       <form
         className="flex w-full max-w-xl flex-col gap-2 md:flex-row"
         onSubmit={submit}
