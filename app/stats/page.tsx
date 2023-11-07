@@ -29,7 +29,7 @@ export default async function Stats() {
               Our current data from Waitlist signups
             </p>
           </div>
-          <div className="flex flex-col justify-center gap-4 md:flex-row">
+          <div className="flex flex-col justify-center items-center gap-4 md:flex-row">
             <InfoPill>{stats.total} total waitlisted</InfoPill>
             <InfoPill>{statsToday.length} signed up today</InfoPill>
           </div>

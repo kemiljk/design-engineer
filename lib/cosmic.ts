@@ -1,3 +1,5 @@
+"use server"
+
 import { createBucketClient } from "@cosmicjs/sdk";
 import * as Type from "./types";
 import { cache } from "react";
@@ -51,15 +53,15 @@ export const getPosts = cache(async (): Promise<Type.Post[]> => {
 });
 
 // Stats page
-export const getStats = cache(async (): Promise<Type.Stats> => {
+export const getStats = async (): Promise<Type.Stats> => {
   const stats = await Promise.resolve(
     await cosmic.objects.find({ type: "waitlists" }).props("title").depth(1),
-  );
+  ); 
 
   return stats;
-});
+};
 
-export const getStat = cache(async (): Promise<Type.Stat[]> => {
+export const getStat = async (): Promise<Type.Stat[]> => {
   const stat = await Promise.resolve(
     await cosmic.objects
       .find({
@@ -70,4 +72,4 @@ export const getStat = cache(async (): Promise<Type.Stat[]> => {
   );
 
   return stat.objects;
-});
+};
