@@ -1,5 +1,6 @@
 import type { Viewport } from "next";
 import { Lora, JetBrains_Mono, Manrope } from "next/font/google";
+import PlausibleProvider from "next-plausible";
 import { getConfig } from "@/lib/cosmic";
 import "./globals.css";
 
@@ -84,7 +85,9 @@ export default function RootLayout({
       <body
         className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
       >
-        {children}
+        <PlausibleProvider domain="designengineer.xyz">
+         {children}
+        </PlausibleProvider>
       </body>
     </html>
   );
