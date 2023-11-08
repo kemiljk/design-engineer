@@ -13,7 +13,7 @@ import { BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
 import DTClubLogo from "./components/dtclub-logo";
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 export default async function Home() {
   const home = await getHome();
