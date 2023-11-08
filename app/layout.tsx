@@ -86,7 +86,7 @@ export default function RootLayout({
         className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
       >
         <PlausibleProvider domain="designengineer.xyz">
-         {children}
+          {children}
         </PlausibleProvider>
       </body>
     </html>

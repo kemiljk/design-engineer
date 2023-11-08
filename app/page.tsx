@@ -11,8 +11,9 @@ import SectionTitle from "./components/section-title";
 import { Button } from "@/components/ui/button";
 import { BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import DTClubLogo from "./components/dtclub-logo";
+
+export const revalidate = 0;
 
 export default async function Home() {
   const home = await getHome();
