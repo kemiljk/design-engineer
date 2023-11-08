@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import * as Type from "@/lib/types";
 
 const dynamic = "force-dynamic";
+const revalidate = 0
 
 export default async function Stats() {
   const stats = await getStats();
