@@ -6,7 +6,7 @@ import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
 
-export const revalidate = 1;
+export const dynamic = "force-dynamic";
 
 export default async function Stats() {
   const stats = await getStats();
@@ -32,7 +32,7 @@ export default async function Stats() {
               Our current data from Waitlist signups
             </p>
           </div>
-          <div className="flex flex-col justify-center items-center gap-4 md:flex-row">
+          <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
             <InfoPill>{stats.total} total waitlisted</InfoPill>
             <InfoPill>{statsToday.length} signed up today</InfoPill>
           </div>
