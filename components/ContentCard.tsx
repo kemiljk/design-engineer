@@ -7,10 +7,11 @@ import {
   Card,
 } from "@/components/ui/card";
 import * as Type from "@/lib/types";
+import { getThumbnail } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-export function BlogCard({
+export function ContentCard({
   post,
   className,
 }: {
@@ -21,8 +22,19 @@ export function BlogCard({
   const initials =
     nameParts[0][0] + (nameParts.length > 1 ? nameParts[1][0] : "");
 
+  const url = post.metadata.video_url || "";
+  const thumbnailUrl = getThumbnail(url);
+
   return (
-    <Link href={post.metadata.url} className={className}>
+    <Link
+      href={
+        post.metadata.is_external_link
+          ? post.metadata.url
+          : `/posts/${post.slug}`
+      }
+      className={className}
+      target="_blank"
+    >
       <Card
         key="1"
         className="mx-auto max-w-xs overflow-hidden rounded-3xl transition-all duration-500 ease-out hover:shadow-xl"
@@ -58,7 +70,11 @@ export function BlogCard({
             className="aspect-content border-y border-neutral-50 object-cover dark:border-neutral-800"
             height={100}
             width={500}
-            src={`${post.metadata.image.imgix_url}?w=800&auto=format,compression`}
+            src={
+              post.metadata.image
+                ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
+                : thumbnailUrl
+            }
           />
           <div className="px-6">
             <h2 className="text-lg font-bold leading-tight">{post.title}</h2>

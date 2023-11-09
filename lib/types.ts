@@ -24,8 +24,11 @@ export type Post = {
     image: {
       imgix_url: string;
     };
+    video_url: string;
     content: string;
+    is_external_link: boolean;
     url: string;
+    categories: Category[];
     author: {
       title: string;
       metadata: {
@@ -37,6 +40,13 @@ export type Post = {
     published_date: string;
   };
 };
+
+interface Category {
+  title: string;
+  metadata: {
+    color: string;
+  };
+}
 
 export type Stats = {
   total: number;

@@ -4,7 +4,7 @@ import { BlurShape } from "./components/blur-shape";
 import { Logo } from "./components/logo";
 import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
-import { BlogCard } from "@/components/BlogCard";
+import { ContentCard } from "@/components/ContentCard";
 import cn from "classnames";
 import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
@@ -48,10 +48,10 @@ export default async function Home() {
         </div>
         <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
           {posts.map((post: Type.Post) => {
-            let rotation = Math.floor(Math.random() * 25) - 12;
-            const rotationClass = rotation < 0 ? `-rotate-6` : `rotate-3`;
+            const rotationClass =
+              Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
             return (
-              <BlogCard
+              <ContentCard
                 key={post.id}
                 post={post}
                 className={cn(

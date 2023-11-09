@@ -5,6 +5,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: "imgix.cosmicjs.com",
+      },
+      {
+        protocol: 'https',
+        hostname: "img.youtube.com",
       }
     ],
   }
