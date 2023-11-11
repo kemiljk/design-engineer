@@ -45,7 +45,8 @@ export const getPosts = cache(async (): Promise<Type.Post[]> => {
       type: "content-posts",
     })
     .props("id,slug,title,metadata")
-    .depth(1);
+    .depth(1)
+    .sort("random");
 
   return posts;
 });
