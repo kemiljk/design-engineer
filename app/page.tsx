@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
 import DTClubLogo from "./components/dtclub-logo";
+import SubmitArticle from "./components/submit-article";
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +62,9 @@ export default async function Home() {
               />
             );
           })}
+        </div>
+        <div className="mt-8 flex w-full flex-col items-center md:mt-12">
+          <SubmitArticle />
         </div>
         <div className="mt-16 flex w-full flex-col items-center md:mt-24">
           <SectionTitle>Find your community</SectionTitle>
