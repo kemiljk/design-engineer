@@ -82,7 +82,7 @@ export default function SubmitForm() {
             />
             <Input
               type="email"
-              placeholder="Your Email"
+              placeholder="Your email"
               name="reply_to"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -90,7 +90,7 @@ export default function SubmitForm() {
             />
             <Input
               type="text"
-              placeholder="Article Title"
+              placeholder="Article title"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}

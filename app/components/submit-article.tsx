@@ -19,7 +19,7 @@ export default function SubmitArticle() {
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-20 bg-gray-950/40 backdrop-blur-sm" />
-        <Drawer.Content className="fixed bottom-0 left-0 right-0 z-30 mt-24 flex h-auto flex-col overflow-visible rounded-t-lg bg-white dark:border dark:border-gray-800 dark:bg-gray-950 md:mx-auto md:w-2/3 lg:w-1/2">
+        <Drawer.Content className="fixed bottom-0 left-0 right-0 z-30 mt-24 flex h-auto flex-col overflow-visible rounded-t-2xl bg-white dark:border dark:border-gray-800 dark:bg-gray-950 md:mx-auto md:w-2/3 lg:w-1/3">
           <div className="flex flex-col overflow-auto p-4">
             <Drawer.Title
               className={`font-sans text-xl font-medium text-black dark:text-white`}
