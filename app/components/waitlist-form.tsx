@@ -48,7 +48,7 @@ export const Form = () => {
   if (submitted) {
     return (
       <div>
-        <span className="text-slate-600 dark:text-slate-400">
+        <span className="text-gray-600 dark:text-gray-400">
           Thanks for signing up! We will be in touch soon.
         </span>
       </div>
@@ -57,7 +57,7 @@ export const Form = () => {
   }
 
   return (
-    <div className="relative z-2 flex w-full max-w-xl flex-col gap-2 text-center">
+    <div className="z-2 relative flex w-full max-w-xl flex-col gap-2 text-center">
       <form
         className="flex w-full max-w-xl flex-col gap-2 md:flex-row"
         onSubmit={submit}
@@ -83,7 +83,7 @@ export const Form = () => {
 
         {error ? <div className="">{error}</div> : null}
       </form>
-      <span className="text-xs text-slate-500">
+      <span className="text-xs text-gray-500">
         We respect your privacy and will never share your email.
       </span>
     </div>

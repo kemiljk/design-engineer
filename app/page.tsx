@@ -4,7 +4,7 @@ import { BlurShape } from "./components/blur-shape";
 import { Logo } from "./components/logo";
 import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
-import { ContentCard } from "@/components/ContentCard";
+import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
 import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
@@ -33,7 +33,7 @@ export default async function Home() {
               <InfoPill>{home.metadata.pill}</InfoPill>
             </div>
             <PageTitle />
-            <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-slate-600 dark:text-slate-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
+            <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
               {home.metadata.description}
             </p>
             <Form />

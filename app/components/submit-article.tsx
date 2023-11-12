@@ -18,8 +18,8 @@ export default function SubmitArticle() {
         </Button>
       </Drawer.Trigger>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 z-20 bg-black/40 backdrop-blur-sm" />
-        <Drawer.Content className="fixed bottom-0 left-0 right-0 z-30 mt-24 flex h-auto flex-col overflow-visible rounded-t-lg bg-white dark:border dark:border-zinc-700 dark:bg-zinc-800 md:mx-auto md:w-2/3 lg:w-1/2">
+        <Drawer.Overlay className="fixed inset-0 z-20 bg-gray-950/40 backdrop-blur-sm" />
+        <Drawer.Content className="fixed bottom-0 left-0 right-0 z-30 mt-24 flex h-auto flex-col overflow-visible rounded-t-lg bg-white dark:border dark:border-gray-800 dark:bg-gray-950 md:mx-auto md:w-2/3 lg:w-1/2">
           <div className="flex flex-col overflow-auto p-4">
             <Drawer.Title
               className={`font-sans text-xl font-medium text-black dark:text-white`}
@@ -27,7 +27,7 @@ export default function SubmitArticle() {
               Submit an Article
             </Drawer.Title>
             <Drawer.Description
-              className={`mb-4 mt-2 font-sans text-sm leading-normal text-zinc-500 dark:text-zinc-300`}
+              className={`mb-4 mt-2 font-sans text-sm leading-normal text-gray-500 dark:text-gray-300`}
             >
               Submit your article for inclusion on our site.
             </Drawer.Description>
