@@ -79,6 +79,12 @@ export function ContentCard({
                   ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
                   : thumbnailUrl
               }
+              placeholder="blur"
+              blurDataURL={
+                post.metadata.image
+                  ? `${post.metadata.image.imgix_url}?w=20&auto=format,compression`
+                  : thumbnailUrl
+              }
             />
           )}
           <div className="px-6">
