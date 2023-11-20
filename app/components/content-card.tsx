@@ -41,12 +41,15 @@ export function ContentCard({
       >
         <CardHeader className="flex items-center justify-center p-6 text-center">
           <Avatar>
-            <AvatarImage
-              alt="Author's avatar"
-              className="h-10 w-10 rounded-full object-cover"
-              src={`${post.metadata.author.metadata.image.imgix_url}?w=400&auto=format,compression`}
-            />
-            <AvatarFallback>{initials}</AvatarFallback>
+            {post.metadata.author.metadata.image ? (
+              <AvatarImage
+                alt="Author's avatar"
+                className="h-10 w-10 rounded-full object-cover"
+                src={`${post.metadata.author.metadata.image.imgix_url}?w=400&auto=format,compression`}
+              />
+            ) : (
+              <AvatarFallback>{initials}</AvatarFallback>
+            )}
           </Avatar>
           <div className="text-center">
             <CardTitle className="text-base font-semibold">
@@ -65,17 +68,19 @@ export function ContentCard({
           </div>
         </CardHeader>
         <CardContent className="grid gap-4 px-0 pb-6">
-          <Image
-            alt="Article image"
-            className="aspect-content border-y border-neutral-50 object-cover dark:border-neutral-800"
-            height={100}
-            width={500}
-            src={
-              post.metadata.image
-                ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
-                : thumbnailUrl
-            }
-          />
+          {(post.metadata.image || thumbnailUrl) && (
+            <Image
+              alt="Article image"
+              className="aspect-content border-y border-neutral-50 object-cover dark:border-neutral-800"
+              height={100}
+              width={500}
+              src={
+                post.metadata.image
+                  ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
+                  : thumbnailUrl
+              }
+            />
+          )}
           <div className="px-6">
             <h2 className="text-lg font-bold leading-tight">{post.title}</h2>
             <p className="line-clamp-3 w-full pt-3 text-sm text-gray-600 dark:text-gray-400">
