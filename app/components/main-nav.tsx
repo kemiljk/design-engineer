@@ -16,25 +16,56 @@ const MainNav: React.FC = async () => {
           user && "justify-between",
         )}
       >
-        <Link href="/">
+        <Link
+          href="/"
+          className="duration-250 rounded-full p-1 transition-all ease-in-out hover:cursor-default hover:bg-gray-100 hover:dark:bg-gray-800"
+        >
           <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300" />
         </Link>
-        {user && (
-          <>
-            <div className="flex-1" />
-            <ul className="flex items-center gap-4">
-              <li className="text-sm">
-                <Link
-                  className={buttonVariants({ variant: "ghost" })}
-                  href="/stats"
-                >
-                  Stats
-                </Link>
-              </li>
-              <UserButton afterSignOutUrl="/" />
-            </ul>
-          </>
-        )}
+        <>
+          <div className="flex-1" />
+          <ul className="flex items-center gap-4 text-sm">
+            <li>
+              <Link
+                className={buttonVariants({ variant: "ghost" })}
+                href="/about"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={buttonVariants({ variant: "ghost" })}
+                href="/posts"
+              >
+                Posts
+              </Link>
+            </li>
+            {user && (
+              <>
+                <li>
+                  <Link
+                    className={buttonVariants({ variant: "ghost" })}
+                    href="/stats"
+                  >
+                    Stats
+                  </Link>
+                </li>
+                <UserButton
+                  appearance={{
+                    elements: {
+                      userButtonAvatarBox:
+                        "hover:cursor-default hover:opacity-80",
+                      userButtonPopoverActionButton:
+                        "hover:cursor-default hover:opacity-80",
+                    },
+                  }}
+                  afterSignOutUrl="/"
+                />
+              </>
+            )}
+          </ul>
+        </>
       </div>
     </nav>
   );
