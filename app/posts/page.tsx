@@ -5,7 +5,7 @@ import { ContentCard } from "../components/content-card";
 import { cn } from "@/lib/utils";
 import SubmitArticle from "../components/submit-article";
 
-const PostsPage = async () => {
+const PostsPage: React.FC = async () => {
   const posts = await getPosts();
 
   return (
