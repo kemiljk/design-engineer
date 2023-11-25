@@ -1,9 +1,8 @@
 import React from "react";
 import { getAbout } from "@/lib/cosmic";
-import * as Type from "@/lib/types";
 import Markdown from "react-markdown";
 
-const AboutPage: React.FC<Type.About> = async () => {
+const AboutPage: React.FC = async () => {
   const about = await getAbout();
 
   return (
