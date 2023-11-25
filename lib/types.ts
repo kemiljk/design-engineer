@@ -56,3 +56,10 @@ export type Stat = {
   title: string;
   created_at: string;
 };
+
+export type About = {
+  title: string;
+  metadata: {
+    content: string;
+  };
+};

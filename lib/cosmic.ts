@@ -72,3 +72,17 @@ export const getStat = async (): Promise<Type.Stat[]> => {
 
   return stat.objects;
 };
+
+export const getAbout = async (): Promise<Type.About> => {
+  const about = await Promise.resolve(
+    await cosmic.objects
+      .findOne({
+        type: "about",
+        slug: "about-dxe",
+      })
+      .props("title,metadata")
+      .depth(1),
+  );
+
+  return about.object;
+};

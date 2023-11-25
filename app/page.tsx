@@ -8,7 +8,7 @@ import cn from "classnames";
 import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
 import { Button } from "@/components/ui/button";
-import { BookAIcon, SlackIcon } from "lucide-react";
+import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
 import DTClubLogo from "./components/dtclub-logo";
 import SubmitArticle from "./components/submit-article";
@@ -47,7 +47,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
-            {posts.map((post: Type.Post) => {
+            {posts.slice(0, 4).map((post: Type.Post) => {
               const rotationClass =
                 Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
               return (
@@ -62,8 +62,13 @@ export default async function Home() {
               );
             })}
           </div>
-          <div className="mt-8 flex w-full flex-col items-center md:mt-12">
+          <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
+            <Link href="/posts">
+              <Button variant={"outline"} className="gap-2">
+                See all articles <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
           <div className="mt-16 flex w-full flex-col items-center md:mt-24">
             <SectionTitle>Find your community</SectionTitle>
