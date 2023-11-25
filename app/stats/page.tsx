@@ -20,10 +20,7 @@ export default async function Stats() {
     return formattedToday === formattedCreatedAt;
   });
   return (
-    <main className="flex h-full min-h-screen flex-col items-center overflow-hidden p-4 md:p-16 lg:p-24">
-      <Link href="/">
-        <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300 lg:w-20" />
-      </Link>
+    <main>
       <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="flex flex-col items-center gap-10">
           <div className="mt-8 flex w-full flex-col items-center md:mt-0">

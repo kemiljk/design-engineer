@@ -1,8 +1,10 @@
 import type { Viewport } from "next";
 import { Lora, JetBrains_Mono, Manrope } from "next/font/google";
 import PlausibleProvider from "next-plausible";
+import { ClerkProvider } from "@clerk/nextjs";
 import { getConfig } from "@/lib/cosmic";
 import "./globals.css";
+import MainNav from "./components/main-nav";
 
 const serif = Lora({
   subsets: ["latin"],
@@ -81,14 +83,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
-      >
-        <PlausibleProvider domain="designengineer.xyz">
-          {children}
-        </PlausibleProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
+        >
+          <PlausibleProvider domain="designengineer.xyz">
+            <MainNav />
+            {children}
+          </PlausibleProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
