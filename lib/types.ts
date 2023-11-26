@@ -63,3 +63,17 @@ export type About = {
     content: string;
   };
 };
+
+export type Privacy = {
+  title: string;
+  metadata: {
+    content: string;
+  };
+};
+
+export type Terms = {
+  title: string;
+  metadata: {
+    content: string;
+  };
+};

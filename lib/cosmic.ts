@@ -86,3 +86,31 @@ export const getAbout = async (): Promise<Type.About> => {
 
   return about.object;
 };
+
+export const getPrivacy = async (): Promise<Type.Privacy> => {
+  const privacy = await Promise.resolve(
+    await cosmic.objects
+      .findOne({
+        type: "privacy-policy",
+        slug: "privacy-policy",
+      })
+      .props("title,metadata")
+      .depth(1),
+  );
+
+  return privacy.object;
+};
+
+export const getTerms = async (): Promise<Type.Terms> => {
+  const terms = await Promise.resolve(
+    await cosmic.objects
+      .findOne({
+        type: "terms-of-service",
+        slug: "terms-of-service",
+      })
+      .props("title,metadata")
+      .depth(1),
+  );
+
+  return terms.object;
+};

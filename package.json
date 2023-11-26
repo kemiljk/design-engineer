@@ -18,6 +18,7 @@
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "framer-motion": "^10.16.5",
     "lucide-react": "^0.292.0",
     "next": "latest",
     "next-plausible": "^3.11.1",
