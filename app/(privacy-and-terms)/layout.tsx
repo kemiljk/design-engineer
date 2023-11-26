@@ -1,13 +1,6 @@
 import React from "react";
-import SectionTitle from "../components/section-title";
 
-function Layout({
-  children,
-  title,
-}: {
-  children: React.ReactNode;
-  title: string;
-}) {
+function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main>
       <div className="mx-auto w-full p-4 pt-16 md:p-16 lg:max-w-5xl lg:p-24">
