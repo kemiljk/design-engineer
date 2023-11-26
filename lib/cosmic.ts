@@ -105,7 +105,7 @@ export const getTerms = async (): Promise<Type.Terms> => {
   const terms = await Promise.resolve(
     await cosmic.objects
       .findOne({
-        type: "terms-of-service",
+        type: "terms-and-conditions",
         slug: "terms-of-service",
       })
       .props("title,metadata")
