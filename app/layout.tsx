@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { getConfig } from "@/lib/cosmic";
 import "./globals.css";
 import MainNav from "./components/main-nav";
+import Presence from "./components/presence";
 
 const serif = Lora({
   subsets: ["latin"],
@@ -90,7 +91,7 @@ export default function RootLayout({
         >
           <PlausibleProvider domain="designengineer.xyz">
             <MainNav />
-            {children}
+            <Presence>{children}</Presence>
           </PlausibleProvider>
         </body>
       </html>
