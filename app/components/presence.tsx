@@ -13,8 +13,7 @@ export default function Presence({ children }: { children: React.ReactNode }) {
         cursor: null,
       }}
     >
-      <PresenceProvider />
-      {children}
+      <PresenceProvider>{children}</PresenceProvider>
     </RoomProvider>
   );
 }

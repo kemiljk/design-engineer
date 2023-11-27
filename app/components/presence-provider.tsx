@@ -12,7 +12,7 @@ const COLORS = [
   "#7986CB",
 ];
 
-function PresenceProvider() {
+function PresenceProvider({ children }: { children: React.ReactNode }) {
   const [{ cursor }, updateMyPresence] = useMyPresence();
   const others = useOthers();
 
@@ -36,10 +36,11 @@ function PresenceProvider() {
         })
       }
     >
-      <div className="hidden">
+      <div className="text-sm text-red-500">
         {cursor
           ? `${cursor.x} × ${cursor.y}`
           : "Move your cursor to broadcast its position to other people in the room."}
+        {children}
       </div>
       {
         /**
