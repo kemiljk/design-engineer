@@ -36,7 +36,7 @@ function PresenceProvider({ children }: { children: React.ReactNode }) {
         })
       }
     >
-      <div className="text-sm text-red-500">
+      <div className="text-transparent">
         {cursor
           ? `${cursor.x} × ${cursor.y}`
           : "Move your cursor to broadcast its position to other people in the room."}
