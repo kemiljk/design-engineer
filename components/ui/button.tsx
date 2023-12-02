@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           "bg-gray-900 text-gray-50 hover:bg-gray-900/90 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90",
         primary:
-          "bg-blue-500 text-gray-50 hover:bg-blue-500/90 dark:bg-blue-300 dark:text-blue-950 dark:hover:bg-blue-400 transition-all duration-150 ease-in-out shadow-inner shadow-white/20 border border-blue-600 dark:border-blue-400 hover:ring-2 hover:ring-offset-2 hover:ring-blue-600 dark:hover:ring-blue-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600 dark:focus-visible:ring-blue-300",
+          "bg-gradient-to-b from-blue-500 to-blue-600 text-gray-50 hover:bg-blue-500/90 dark:bg-gradient-to-b dark:from-blue-300 dark:to-blue-400 dark:text-blue-950 dark:hover:bg-blue-400 transition-all duration-150 ease-in-out shadow-inner shadow-white/30 border border-blue-600 dark:border-blue-400 hover:ring-2 hover:ring-offset-2 hover:ring-blue-600 dark:hover:ring-blue-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600 dark:focus-visible:ring-blue-300",
         destructive:
           "bg-red-500 text-gray-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-gray-50 dark:hover:bg-red-900/90",
         outline:
