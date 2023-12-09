@@ -41,6 +41,26 @@ export type Post = {
   };
 };
 
+export type Story = {
+  id: string;
+  title: string;
+  slug: string;
+  metadata: {
+    is_available: boolean;
+    content: string;
+    categories: Category[];
+    design_engineer: {
+      title: string;
+      metadata: {
+        image: {
+          imgix_url: string;
+        };
+      };
+    };
+    published_date: string;
+  };
+};
+
 interface Category {
   title: string;
   metadata: {

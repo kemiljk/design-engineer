@@ -7,6 +7,28 @@ import { cn } from "@/lib/utils";
 
 const MainNav: React.FC = async () => {
   const user = await currentUser();
+  const links = [
+    {
+      index: 0,
+      title: "About",
+      href: "/about",
+    },
+    {
+      index: 1,
+      title: "Stories",
+      href: "/stories",
+    },
+    {
+      index: 2,
+      title: "Posts",
+      href: "/posts ",
+    },
+    {
+      index: 3,
+      title: "Stats",
+      href: "/stats",
+    },
+  ];
 
   return (
     <nav className="fixed z-[999] w-full bg-white/5 px-4 py-2 backdrop-blur-md dark:bg-black/5 md:px-16 lg:px-24">
@@ -25,22 +47,16 @@ const MainNav: React.FC = async () => {
         <>
           <div className="flex-1" />
           <ul className="flex items-center gap-4 text-sm">
-            <li>
-              <Link
-                className={buttonVariants({ variant: "ghost" })}
-                href="/about"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={buttonVariants({ variant: "ghost" })}
-                href="/posts"
-              >
-                Posts
-              </Link>
-            </li>
+            {links.map((link) => (
+              <li key={link.index}>
+                <Link
+                  className={buttonVariants({ variant: "ghost" })}
+                  href={link.href}
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
             {user && (
               <>
                 <li>

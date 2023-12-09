@@ -11,6 +11,8 @@ export default authMiddleware({
     "/terms-of-service",
     "/posts",
     "/posts/[slug]",
+    "/stories",
+    "/stories/[slug]",
   ],
 });
 
