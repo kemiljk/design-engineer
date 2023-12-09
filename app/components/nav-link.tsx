@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { MobileNavContext } from "./mobile-nav-container";
 
 export default function NavLink(link: {
   index: number;
@@ -11,7 +12,7 @@ export default function NavLink(link: {
   href: string;
 }): React.JSX.Element {
   const path = usePathname();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const { isOpen, toggle } = React.useContext(MobileNavContext);
 
   return (
     <li key={link.index}>
@@ -21,7 +22,7 @@ export default function NavLink(link: {
           `${path == link.href && " !border !border-blue-500 !text-blue-500"}`
         }
         href={link.href}
-        onClick={() => setIsOpen(false)}
+        onClick={() => toggle}
       >
         {link.title}
       </Link>
