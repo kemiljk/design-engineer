@@ -70,6 +70,8 @@ export type Story = {
         company: {
           metadata: { logo: { imgix_url: string } };
         };
+        twitter: string;
+        website: string;
       };
     };
     published_date: string;
