@@ -1,10 +1,10 @@
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
-  CardTitle,
+  Card,
+  CardContent,
   CardDescription,
   CardHeader,
-  CardContent,
-  Card,
+  CardTitle,
 } from "@/components/ui/card";
 import * as Type from "@/lib/types";
 import { getThumbnail } from "@/lib/utils";

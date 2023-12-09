@@ -1,10 +1,11 @@
+import { getStat, getStats } from "@/lib/cosmic";
+import * as Type from "@/lib/types";
+import { format } from "date-fns";
 import Link from "next/link";
+
 import InfoPill from "../components/info-pill";
 import { Logo } from "../components/logo";
-import { getStat, getStats } from "@/lib/cosmic";
 import SectionTitle from "../components/section-title";
-import { format } from "date-fns";
-import * as Type from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 

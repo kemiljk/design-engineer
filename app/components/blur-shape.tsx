@@ -1,8 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
-export const BlurShape = () => {
+export const BlurShape = ({ className }: { className?: string }) => {
   const animation1 = {
     animate: {
       x: ["0px", "25px", "-25px", "-50px", "0px"],
@@ -40,7 +41,12 @@ export const BlurShape = () => {
   };
 
   return (
-    <div className="relative grid h-[300px] w-[300px] place-items-center opacity-20 blur-xl md:h-[500px] md:w-[500px] lg:h-[750px] lg:w-[750px] lg:blur-3xl">
+    <div
+      className={cn(
+        `relative grid h-[300px] w-[300px] place-items-center opacity-20 blur-xl md:h-[500px] md:w-[500px] lg:h-[750px] lg:w-[750px] lg:blur-3xl`,
+        className,
+      )}
+    >
       <div className="relative h-full w-full">
         <motion.div
           {...animation1}

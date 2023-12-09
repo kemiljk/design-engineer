@@ -1,17 +1,18 @@
-import PageTitle from "./components/page-title";
-import { Form } from "./components/waitlist-form";
-import { BlurShape } from "./components/blur-shape";
+import { ContentCard } from "@/app/components/content-card";
+import { Button } from "@/components/ui/button";
 import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
-import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
-import InfoPill from "./components/info-pill";
-import SectionTitle from "./components/section-title";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
+
+import { BlurShape } from "./components/blur-shape";
 import DTClubLogo from "./components/dtclub-logo";
+import InfoPill from "./components/info-pill";
+import PageTitle from "./components/page-title";
+import SectionTitle from "./components/section-title";
 import SubmitArticle from "./components/submit-article";
+import { Form } from "./components/waitlist-form";
 
 export const dynamic = "force-dynamic";
 

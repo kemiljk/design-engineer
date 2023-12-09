@@ -1,4 +1,5 @@
 import React from "react";
+
 import SectionTitle from "../components/section-title";
 
 function Layout({ children }: { children: React.ReactNode }) {

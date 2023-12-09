@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import React from "react";
 
 export default function SubmitForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -123,8 +123,8 @@ export default function SubmitForm() {
               {isSubmitted
                 ? "Sent!"
                 : isSubmitting
-                ? "Sending"
-                : "Submit article"}
+                  ? "Sending"
+                  : "Submit article"}
             </Button>
           </>
         )}

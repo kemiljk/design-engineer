@@ -1,6 +1,7 @@
 import { createBucketClient } from "@cosmicjs/sdk";
-import * as Type from "./types";
 import { cache } from "react";
+
+import * as Type from "./types";
 
 export const cosmic = createBucketClient({
   bucketSlug: process.env.NEXT_PUBLIC_BUCKET_SLUG as string,

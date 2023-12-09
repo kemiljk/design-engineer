@@ -1,9 +1,9 @@
 import {
-  CardTitle,
+  Card,
+  CardContent,
   CardDescription,
   CardHeader,
-  CardContent,
-  Card,
+  CardTitle,
 } from "@/components/ui/card";
 import * as Type from "@/lib/types";
 import Image from "next/image";

@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import * as Type from "@/lib/types";
 import { getStories } from "@/lib/cosmic";
+import * as Type from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { StoryCard } from "../components/story-card";
+import React, { useEffect } from "react";
+
 import ConsoleFun from "../components/console-fun";
+import { StoryCard } from "../components/story-card";
 
 const StoriesPage: React.FC = async () => {
   const stories = await getStories();

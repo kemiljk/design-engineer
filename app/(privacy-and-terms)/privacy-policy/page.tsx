@@ -1,5 +1,5 @@
-import React from "react";
 import { getPrivacy } from "@/lib/cosmic";
+import React from "react";
 import Markdown from "react-markdown";
 
 const PrivacyPolicyPage: React.FC = async () => {

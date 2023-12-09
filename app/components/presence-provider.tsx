@@ -1,4 +1,5 @@
-import { useOthers, useMyPresence } from "@/liveblocks.config";
+import { useMyPresence, useOthers } from "@/liveblocks.config";
+
 import Cursor from "../components/cursor";
 
 const COLORS = [

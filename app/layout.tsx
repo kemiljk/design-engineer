@@ -1,12 +1,13 @@
-import type { Viewport } from "next";
-import { Lora, JetBrains_Mono } from "next/font/google";
-import KKSans from "next/font/local";
-import PlausibleProvider from "next-plausible";
-import { ClerkProvider } from "@clerk/nextjs";
 import { getConfig } from "@/lib/cosmic";
-import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import type { Viewport } from "next";
+import PlausibleProvider from "next-plausible";
+import { JetBrains_Mono, Lora } from "next/font/google";
+import KKSans from "next/font/local";
+
 import MainNav from "./components/main-nav";
 import Presence from "./components/presence";
+import "./globals.css";
 
 const serif = Lora({
   subsets: ["latin"],

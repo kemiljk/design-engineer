@@ -1,9 +1,10 @@
 "use client";
 
-import { Drawer } from "vaul";
-import { XIcon } from "lucide-react";
-import SubmitForm from "./submit-form";
 import { Button } from "@/components/ui/button";
+import { XIcon } from "lucide-react";
+import { Drawer } from "vaul";
+
+import SubmitForm from "./submit-form";
 
 export default function SubmitArticle() {
   return (

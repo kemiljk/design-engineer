@@ -1,9 +1,9 @@
-import React from "react";
-import { Logo } from "./logo";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { UserButton, currentUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { UserButton, currentUser } from "@clerk/nextjs";
+import Link from "next/link";
+import React from "react";
+
+import { Logo } from "./logo";
 import NavLink from "./nav-link";
 
 const MainNav: React.FC = async () => {

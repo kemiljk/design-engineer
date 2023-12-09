@@ -1,5 +1,5 @@
-import React from "react";
 import { getTerms } from "@/lib/cosmic";
+import React from "react";
 import Markdown from "react-markdown";
 
 const TermsOfServicePage: React.FC = async () => {

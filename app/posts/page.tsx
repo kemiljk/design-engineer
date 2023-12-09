@@ -1,8 +1,9 @@
-import React from "react";
-import * as Type from "@/lib/types";
 import { getPosts } from "@/lib/cosmic";
-import { ContentCard } from "../components/content-card";
+import * as Type from "@/lib/types";
 import { cn } from "@/lib/utils";
+import React from "react";
+
+import { ContentCard } from "../components/content-card";
 import SubmitArticle from "../components/submit-article";
 
 const PostsPage: React.FC = async () => {

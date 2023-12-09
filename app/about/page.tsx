@@ -1,5 +1,5 @@
-import React from "react";
 import { getAbout } from "@/lib/cosmic";
+import React from "react";
 import Markdown from "react-markdown";
 
 const AboutPage: React.FC = async () => {
