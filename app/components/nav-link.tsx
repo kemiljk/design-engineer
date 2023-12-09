@@ -22,7 +22,7 @@ export default function NavLink(link: {
           `${path == link.href && " !border !border-blue-500 !text-blue-500"}`
         }
         href={link.href}
-        onClick={() => toggle}
+        onClick={() => toggle()}
       >
         {link.title}
       </Link>
