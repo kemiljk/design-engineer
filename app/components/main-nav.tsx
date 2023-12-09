@@ -1,13 +1,13 @@
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { UserButton, currentUser } from "@clerk/nextjs";
+import { XIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 import { Logo } from "./logo";
-import NavLink from "./nav-link";
-import { XIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { MobileNavButton, MobileNavContainer } from "./mobile-nav-container";
+import NavLink from "./nav-link";
 
 const MainNav: React.FC = async () => {
   const user = await currentUser();

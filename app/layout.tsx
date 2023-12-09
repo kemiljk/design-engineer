@@ -6,9 +6,9 @@ import { JetBrains_Mono, Lora } from "next/font/google";
 import KKSans from "next/font/local";
 
 import MainNav from "./components/main-nav";
+import { MobileNavProvider } from "./components/mobile-nav-container";
 import Presence from "./components/presence";
 import "./globals.css";
-import { MobileNavProvider } from "./components/mobile-nav-container";
 
 const serif = Lora({
   subsets: ["latin"],
