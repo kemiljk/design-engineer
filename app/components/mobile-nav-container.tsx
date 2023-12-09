@@ -31,7 +31,11 @@ export const MobileNavButton = () => {
   const { isOpen, toggle } = React.useContext(MobileNavContext);
 
   return (
-    <nav className="fixed top-0 z-[999] flex w-full justify-end bg-white/5 px-4 py-2 backdrop-blur-md transition-all ease-in-out dark:bg-black/5">
+    <nav
+      className={`fixed top-0 z-[999] flex w-full origin-top transform justify-end bg-white/5 px-4 py-2 backdrop-blur-md transition-transform duration-200 ease-in-out dark:bg-black/5 ${
+        isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+      }`}
+    >
       <Button
         variant="ghost"
         className={`${isOpen ? "hidden" : "flex"} z-[999]`}
