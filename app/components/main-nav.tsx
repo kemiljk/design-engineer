@@ -94,12 +94,12 @@ const MainNav: React.FC = async () => {
         >
           <Link
             href="/"
-            className="duration-250 rounded-full p-1 transition-all ease-in-out hover:cursor-default hover:bg-gray-100 hover:dark:bg-gray-800"
+            className="duration-250 absolute left-4 top-2 rounded-full p-1 transition-all ease-in-out hover:cursor-default hover:bg-gray-100 hover:dark:bg-gray-800"
           >
             <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300" />
           </Link>
           <>
-            <ul className="flex flex-col items-center gap-4 text-sm">
+            <ul className="flex flex-col items-center gap-4 pt-6 text-sm">
               {links.map((link) => (
                 <NavLink key={link.index} {...link} />
               ))}
