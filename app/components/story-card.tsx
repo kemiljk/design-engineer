@@ -67,7 +67,7 @@ export function StoryCard({
               <>
                 <CardTitle>{story.title}</CardTitle>
                 <p className="line-clamp-3 w-full pt-3 text-sm text-gray-600 dark:text-gray-400">
-                  {story.metadata.content.slice(0, 200)}...
+                  {story.metadata.snippet.slice(0, 200)}...
                 </p>
               </>
             ) : (

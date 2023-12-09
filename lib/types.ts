@@ -12,6 +12,9 @@ export type Config = {
     meta_image: {
       imgix_url: string;
     };
+    logo: {
+      imgix_url: string;
+    };
     site_url: string;
   };
 };
@@ -47,13 +50,25 @@ export type Story = {
   slug: string;
   metadata: {
     is_available: boolean;
-    content: string;
+    snippet: string;
     categories: Category[];
+    qna: {
+      metadata: {
+        qna: {
+          question: string;
+          answer: string;
+        }[];
+      };
+    };
     design_engineer: {
       title: string;
       metadata: {
         image: {
           imgix_url: string;
+        };
+        role: string;
+        company: {
+          metadata: { logo: { imgix_url: string } };
         };
       };
     };
