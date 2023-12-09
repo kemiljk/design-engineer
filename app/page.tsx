@@ -65,8 +65,9 @@ export default async function Home() {
           <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
             <Link href="/posts">
-              <Button variant={"outline"} className="gap-2">
-                See all articles <ArrowRight className="h-4 w-4" />
+              <Button variant={"outline"} className="group text-center">
+                See all articles{" "}
+                <ArrowRight className="w-0 overflow-hidden opacity-0 transition-[width] duration-100 ease-[cubic-bezier(0.64_0.57_0.67_1.53)] group-hover:ml-1 group-hover:w-4 group-hover:opacity-100" />
               </Button>
             </Link>
           </div>
