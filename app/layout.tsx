@@ -8,6 +8,7 @@ import KKSans from "next/font/local";
 import MainNav from "./components/main-nav";
 import Presence from "./components/presence";
 import "./globals.css";
+import { MobileNavProvider } from "./components/mobile-nav-container";
 
 const serif = Lora({
   subsets: ["latin"],
@@ -92,8 +93,10 @@ export default function RootLayout({
           className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
         >
           <PlausibleProvider domain="designengineer.xyz">
-            <MainNav />
-            <Presence>{children}</Presence>
+            <MobileNavProvider>
+              <MainNav />
+              <Presence>{children}</Presence>
+            </MobileNavProvider>
           </PlausibleProvider>
         </body>
       </html>
