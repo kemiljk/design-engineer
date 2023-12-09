@@ -3,6 +3,7 @@
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 
 export default function NavLink(link: {
   index: number;
@@ -10,6 +11,7 @@ export default function NavLink(link: {
   href: string;
 }): React.JSX.Element {
   const path = usePathname();
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <li key={link.index}>
@@ -19,6 +21,7 @@ export default function NavLink(link: {
           `${path == link.href && " !border !border-blue-500 !text-blue-500"}`
         }
         href={link.href}
+        onClick={() => setIsOpen(false)}
       >
         {link.title}
       </Link>
