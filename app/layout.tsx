@@ -1,5 +1,6 @@
 import type { Viewport } from "next";
-import { Lora, JetBrains_Mono, Manrope } from "next/font/google";
+import { Lora, JetBrains_Mono } from "next/font/google";
+import KKSans from "next/font/local";
 import PlausibleProvider from "next-plausible";
 import { ClerkProvider } from "@clerk/nextjs";
 import { getConfig } from "@/lib/cosmic";
@@ -13,8 +14,8 @@ const serif = Lora({
   variable: "--font-serif",
 });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const sans = Manrope({
-  subsets: ["latin"],
+const sans = KKSans({
+  src: "/fonts/KKSansVF.woff2",
   variable: "--font-sans",
 });
 

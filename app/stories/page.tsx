@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Type from "@/lib/types";
 import { getStories } from "@/lib/cosmic";
 import { cn } from "@/lib/utils";
 import { StoryCard } from "../components/story-card";
+import ConsoleFun from "../components/console-fun";
 
 const StoriesPage: React.FC = async () => {
   const stories = await getStories();
@@ -24,6 +25,7 @@ const StoriesPage: React.FC = async () => {
           );
         })}
       </div>
+      <ConsoleFun />
     </section>
   );
 };

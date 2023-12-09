@@ -4,27 +4,36 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { UserButton, currentUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import NavLink from "./nav-link";
 
 const MainNav: React.FC = async () => {
   const user = await currentUser();
   const links = [
     {
       index: 0,
+      title: "Home",
+      href: "/",
+    },
+    {
+      index: 1,
       title: "About",
       href: "/about",
     },
     {
-      index: 1,
+      index: 2,
       title: "Stories",
       href: "/stories",
     },
     {
-      index: 2,
-      title: "Posts",
-      href: "/posts ",
-    },
-    {
       index: 3,
+      title: "Posts",
+      href: "/posts",
+    },
+  ];
+
+  const protectedLinks = [
+    {
+      index: 0,
       title: "Stats",
       href: "/stats",
     },
@@ -48,25 +57,13 @@ const MainNav: React.FC = async () => {
           <div className="flex-1" />
           <ul className="flex items-center gap-4 text-sm">
             {links.map((link) => (
-              <li key={link.index}>
-                <Link
-                  className={buttonVariants({ variant: "ghost" })}
-                  href={link.href}
-                >
-                  {link.title}
-                </Link>
-              </li>
+              <NavLink key={link.index} {...link} />
             ))}
             {user && (
               <>
-                <li>
-                  <Link
-                    className={buttonVariants({ variant: "ghost" })}
-                    href="/stats"
-                  >
-                    Stats
-                  </Link>
-                </li>
+                {protectedLinks.map((link) => (
+                  <NavLink key={link.index} {...link} />
+                ))}
                 <UserButton
                   appearance={{
                     elements: {
