@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { MenuIcon, XIcon } from "lucide-react";
+import { Logo } from "./logo";
+import Link from "next/link";
 import React from "react";
 
 export const MobileNavContext = React.createContext({
@@ -32,6 +34,12 @@ export const MobileNavButton = () => {
 
   return (
     <nav className="fixed top-0 z-[999] flex w-full origin-top transform justify-end bg-white/5 px-4 py-2 backdrop-blur-md transition-transform duration-200 ease-in-out dark:bg-black/5 md:hidden">
+        <Link
+            href="/"
+            className="duration-250 rounded-full p-1 transition-all ease-in-out hover:cursor-default hover:bg-gray-100 hover:dark:bg-gray-800"
+          >
+            <Logo className="h-auto w-8 text-blue-500 dark:text-blue-300" />
+          </Link>
       <Button
         variant="ghost"
         className={`${isOpen ? "hidden" : "flex"} z-[999]`}

@@ -26,7 +26,9 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
               src={story.metadata.design_engineer.metadata.image.imgix_url}
             ></AvatarImage>
           </Avatar>
-          {story.title}
+          <div className="sticky top-4 z-[9999999]">
+            {story.title}
+          </div>
         </h1>
         <div className="flex items-center justify-center gap-4">
           <Avatar className="h-10 w-10">
