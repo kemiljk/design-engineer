@@ -60,7 +60,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         </p>
         {story.metadata.qna.metadata.qna.map((qna: any) => (
           <div className="mt-6 space-y-4">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 sticky top-10">
               <Avatar className="bg-zinc-100 dark:bg-zinc-800">
                 <AvatarImage src={metadata.logo.imgix_url}></AvatarImage>
               </Avatar>
