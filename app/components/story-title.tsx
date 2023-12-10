@@ -23,10 +23,10 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
   return (
     <div key={story.id} className="sticky top-3 z-[9999999] h-full" ref={ref}>
       <motion.h1
-        className={`flex flex-col items-center gap-4 text-xl font-black tracking-tight text-black dark:text-white md:text-3xl`}
+        className={`flex flex-col items-center gap-4 text-xl tracking-tight text-black dark:text-white md:text-3xl`}
         animate={{
           scale: isSticky ? 1 : 1.5,
-          fontWeight: isSticky ? 700 : 900,
+          fontWeight: isSticky ? 700 : 800,
         }}
         transition={{ duration: 0.2 }}
       >

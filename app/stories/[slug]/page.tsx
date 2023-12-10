@@ -1,11 +1,10 @@
 import React from "react";
 import { getConfig, getStory } from "@/lib/cosmic";
-import Markdown from "react-markdown";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { StoryTitle } from "@/app/components/story-title";
 import { QnABlock } from "@/app/components/qna-block";
-import CopyButton from "@/app/components/CopyButton";
+import CopyButton from "@/app/components/copy-button";
 
 const StoryPage = async ({ params }: { params: { slug: string } }) => {
   const story = await getStory(params.slug);

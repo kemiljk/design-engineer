@@ -4,11 +4,13 @@ import * as Toast from "@radix-ui/react-toast";
 import { CheckCircleIcon, LinkIcon } from "lucide-react";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 export default function CopyButton({ url }: { url: string }) {
   const [open, setOpen] = React.useState(false);
   const timerRef = React.useRef(0);
-  const pathname = `${window.location.origin}/stories/${url}`;
+  const pathname = usePathname();
+  const path = `${window.location.origin}${pathname}`;
 
   React.useEffect(() => {
     return () => clearTimeout(timerRef.current);
@@ -27,7 +29,7 @@ export default function CopyButton({ url }: { url: string }) {
             timerRef.current = window.setTimeout(() => {
               setOpen(true);
             }, 100);
-            navigator.clipboard.writeText(pathname);
+            navigator.clipboard.writeText(path);
           }}
         >
           <LinkIcon className="mr-2 h-4 w-4" />
@@ -43,7 +45,7 @@ export default function CopyButton({ url }: { url: string }) {
             Copied to clipboard!
           </Toast.Title>
         </Toast.Root>
-        <Toast.Viewport className="fixed right-0 top-0 z-[2147483647] m-0 flex w-[390px] max-w-[100vw] list-none flex-col gap-[12px] p-[var(--viewport-padding)] outline-none [--viewport-padding:_24px] md:bottom-0" />
+        <Toast.Viewport className="fixed right-0 top-10 z-[2147483647] m-0 flex w-[390px] max-w-[100vw] list-none flex-col gap-[12px] p-[var(--viewport-padding)] outline-none [--viewport-padding:_24px] md:bottom-0" />
       </div>
     </Toast.Provider>
   );
