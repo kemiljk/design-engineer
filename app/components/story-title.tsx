@@ -1,16 +1,16 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import * as Type from "@/lib/types";
 
-function debounce<F extends (...args: any[]) => void>(fn: F, ms: number): (...args: Parameters<F>) => void {
-  let timer: NodeJS.Timeout | null = null;
-
-  return (...args: Parameters<F>) => {
-    if (timer) {
-      clearTimeout(timer);
+function throttle<F extends (...args: any[]) => void>(func: F, limit: number): (...args: Parameters<F>) => void {
+  let inThrottle: boolean;
+  return function(this: any, ...args: Parameters<F>) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
     }
-    timer = setTimeout(() => fn(...args), ms);
   };
 }
 
@@ -24,8 +24,8 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
     }
   };
 
-  useEffect(() => {
-    const debouncedHandleScroll = debounce(checkStickiness, 10); // Adjust debounce time as needed
+  useLayoutEffect(() => {
+    const debouncedHandleScroll = throttle(checkStickiness, 10); // Adjust debounce time as needed
     window.addEventListener("scroll", debouncedHandleScroll);
     return () => {
       window.removeEventListener("scroll", debouncedHandleScroll);
