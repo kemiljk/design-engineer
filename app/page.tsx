@@ -3,11 +3,10 @@ import { Button } from "@/components/ui/button";
 import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import cn from "classnames";
-import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { BlurShape } from "./components/blur-shape";
-import DTClubLogo from "./components/dtclub-logo";
 import InfoPill from "./components/info-pill";
 import PageTitle from "./components/page-title";
 import SectionTitle from "./components/section-title";
@@ -22,7 +21,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 md:px-16 lg:px-24">
+      <div className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 md:px-16 md:pb-16 lg:px-24 lg:pb-24">
         <div className="absolute inset-0 grid place-content-center">
           <BlurShape />
         </div>
@@ -71,28 +70,6 @@ export default async function Home() {
                 <ArrowRight className="w-0 overflow-hidden opacity-0 transition-[width] duration-100 ease-[cubic-bezier(0.64_0.57_0.67_1.53)] group-hover:ml-1 group-hover:w-4 group-hover:opacity-100" />
               </Button>
             </Link>
-          </div>
-          <div className="mt-16 flex w-full flex-col items-center md:mt-24">
-            <SectionTitle>Find your community</SectionTitle>
-            <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
-              Chat with hundreds of like-minded folks at Design Technologist
-              Club
-            </p>
-            <DTClubLogo className="mb-4 w-64 text-neutral-950 dark:text-neutral-50" />
-            <div className="flex gap-4">
-              <Link href="https://designtechnologist.club/slack?ref=designengineer.xyz">
-                <Button variant={"secondary"} className="gap-2">
-                  <SlackIcon className="h-4 w-4" />
-                  Join Slack
-                </Button>
-              </Link>
-              <Link href="https://designtechnologist.club/book?ref=designengineer.xyz">
-                <Button variant={"outline"} className="gap-2">
-                  <BookAIcon className="h-4 w-4" />
-                  Read Handbook
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

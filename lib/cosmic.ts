@@ -78,6 +78,18 @@ export const getStory = cache(async (slug: string): Promise<Type.Story> => {
   return story;
 });
 
+// Resources page
+export const getResources = cache(async (): Promise<Type.Resource[]> => {
+  const { objects: resources } = await cosmic.objects
+    .find({
+      type: "resources",
+    })
+    .props("slug,title,metadata")
+    .depth(2);
+
+  return resources;
+});
+
 // Stats page
 export const getStats = async (): Promise<Type.Stats> => {
   const stats = await Promise.resolve(

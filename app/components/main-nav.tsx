@@ -32,6 +32,11 @@ const MainNav: React.FC = async () => {
       title: "Posts",
       href: "/posts",
     },
+    {
+      index: 4,
+      title: "Resources",
+      href: "/resources",
+    },
   ];
 
   const protectedLinks = [

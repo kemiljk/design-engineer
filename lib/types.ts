@@ -85,6 +85,23 @@ interface Category {
   };
 }
 
+export interface Resource {
+  slug: string;
+  title: string;
+  metadata: Metadata;
+}
+
+interface Metadata {
+  description: string;
+  links: Link[];
+}
+
+interface Link {
+  icon_name: string;
+  text: string;
+  url: string;
+}
+
 export type Stats = {
   total: number;
 };
