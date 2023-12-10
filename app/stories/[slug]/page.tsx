@@ -20,15 +20,13 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <article className="mx-auto w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
       <div className="flex flex-col gap-4">
-        <h1 className="flex flex-col items-center gap-4 text-2xl font-black text-black dark:text-white md:text-5xl">
-          <Avatar className="h-40 w-40">
+      <Avatar className="h-40 w-40">
             <AvatarImage
               src={story.metadata.design_engineer.metadata.image.imgix_url}
             ></AvatarImage>
           </Avatar>
-          <div className="sticky top-4 z-[9999999]">
+        <h1 className="flex flex-col sticky top-4 z-[9999999] items-center gap-4 text-2xl font-black text-black dark:text-white md:text-5xl">
             {story.title}
-          </div>
         </h1>
         <div className="flex items-center justify-center gap-4">
           <Avatar className="h-10 w-10">
