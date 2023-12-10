@@ -7,7 +7,7 @@ const AboutPage: React.FC = async () => {
 
   return (
     <article className="prose prose-gray dark:prose-invert">
-      <h1>{about.title}</h1>
+      <h1 className="prose-h1:tracking-tight">{about.title}</h1>
       <Markdown>{about.metadata.content}</Markdown>
     </article>
   );
