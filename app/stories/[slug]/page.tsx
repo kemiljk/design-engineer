@@ -3,11 +3,12 @@ import { getConfig, getStory } from "@/lib/cosmic";
 import Markdown from "react-markdown";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import { TwitterIcon } from "lucide-react";
+import { StoryTitle } from "@/app/components/story-title";
 
 const StoryPage = async ({ params }: { params: { slug: string } }) => {
   const story = await getStory(params.slug);
   const { metadata } = await getConfig();
+
   const date = new Date(story.metadata.published_date).toLocaleDateString(
     "en-gb",
     {
@@ -20,14 +21,12 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <article className="mx-auto w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
       <div className="flex flex-col items-center gap-2 md:gap-4">
-      <Avatar className="h-40 w-40">
-            <AvatarImage
-              src={story.metadata.design_engineer.metadata.image.imgix_url}
-            ></AvatarImage>
-          </Avatar>
-        <h1 className="flex flex-col sticky top-3 z-[9999999] items-center gap-4 text-3xl font-black tracking-tight text-black dark:text-white md:text-5xl">
-            {story.title}
-        </h1>
+        <Avatar className="h-40 w-40">
+          <AvatarImage
+            src={story.metadata.design_engineer.metadata.image.imgix_url}
+          ></AvatarImage>
+        </Avatar>
+        <StoryTitle story={story} />
         <div className="flex items-center justify-center gap-4">
           <Avatar className="h-10 w-10 border border-zinc-100 dark:border-zinc-800">
             <AvatarImage
@@ -59,12 +58,12 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
           {date}
         </p>
         {story.metadata.qna.metadata.qna.map((qna: any) => (
-          <div className="mt-6 space-y-4">
-            <div className="flex items-center gap-4 sticky top-14 bg-white dark:bg-black h-max py-2">
+          <div key={qna.question} className="mt-6 space-y-4">
+            <div className="sticky top-14 flex h-max items-center gap-4 bg-white py-2 dark:bg-black">
               <Avatar className="bg-zinc-100 dark:bg-zinc-800">
                 <AvatarImage src={metadata.logo.imgix_url}></AvatarImage>
               </Avatar>
-              <h3 className="text-lg leading-snug font-medium text-black dark:text-white md:text-xl ">
+              <h3 className="text-lg font-medium leading-snug text-black dark:text-white md:text-xl ">
                 {qna.question}
               </h3>
             </div>
