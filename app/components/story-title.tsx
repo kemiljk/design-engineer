@@ -3,6 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import * as Type from "@/lib/types";
 
+function debounce(fn, ms) {
+  let timer;
+  return _ => {
+    clearTimeout(timer);
+    timer = setTimeout(_ => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
 export const StoryTitle = ({ story }: { story: Type.Story }) => {
   const [isSticky, setSticky] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -14,9 +25,10 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", checkStickiness);
+    const debouncedHandleScroll = debounce(checkStickiness, 10); // Adjust debounce time as needed
+    window.addEventListener("scroll", debouncedHandleScroll);
     return () => {
-      window.removeEventListener("scroll", checkStickiness);
+      window.removeEventListener("scroll", debouncedHandleScroll);
     };
   }, []);
 
