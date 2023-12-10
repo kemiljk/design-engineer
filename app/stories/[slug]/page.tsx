@@ -64,7 +64,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
               <Avatar className="bg-zinc-100 dark:bg-zinc-800">
                 <AvatarImage src={metadata.logo.imgix_url}></AvatarImage>
               </Avatar>
-              <h3 className="text-lg font-medium text-black dark:text-white md:text-xl ">
+              <h3 className="text-lg leading-snug font-medium text-black dark:text-white md:text-xl ">
                 {qna.question}
               </h3>
             </div>
