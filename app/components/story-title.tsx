@@ -27,10 +27,10 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
       ref={ref}
     >
       <motion.h1
-        className={`flex flex-col items-center text-3xl tracking-tight text-black dark:text-white md:text-5xl`}
+        className={`flex flex-col items-center tracking-tight text-black dark:text-white md:text-5xl`}
         animate={{
           scale: isSticky ? 0.5 : 1,
-          fontWeight: isSticky ? 700 : 800,
+          fontWeight: isSticky ? 600 : 800,
         }}
         transition={{ duration: 0.2 }}
       >
