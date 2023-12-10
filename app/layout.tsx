@@ -90,7 +90,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
+          className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans antialiased dark:bg-black`}
         >
           <PlausibleProvider domain="designengineer.xyz">
             <MobileNavProvider>
