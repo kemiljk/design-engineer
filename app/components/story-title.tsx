@@ -3,14 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import * as Type from "@/lib/types";
 
-function debounce(fn, ms) {
-  let timer;
-  return _ => {
-    clearTimeout(timer);
-    timer = setTimeout(_ => {
-      timer = null;
-      fn.apply(this, arguments);
-    }, ms);
+function debounce<F extends (...args: any[]) => void>(fn: F, ms: number): (...args: Parameters<F>) => void {
+  let timer: NodeJS.Timeout | null = null;
+
+  return (...args: Parameters<F>) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => fn(...args), ms);
   };
 }
 
