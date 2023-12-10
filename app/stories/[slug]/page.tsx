@@ -5,6 +5,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { StoryTitle } from "@/app/components/story-title";
 import { QnABlock } from "@/app/components/qna-block";
+import CopyButton from "@/app/components/CopyButton";
 
 const StoryPage = async ({ params }: { params: { slug: string } }) => {
   const story = await getStory(params.slug);
@@ -61,6 +62,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         {story.metadata.qna.metadata.qna.map((qna: any) => (
           <QnABlock story={story} metadata={metadata} qna={qna} />
         ))}
+        <CopyButton url={story.slug} />
       </div>
     </article>
   );
