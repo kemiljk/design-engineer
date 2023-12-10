@@ -31,7 +31,7 @@ export default function CopyButton({ url }: { url: string }) {
           }}
         >
           <LinkIcon className="mr-2 h-4 w-4" />
-          Copy link
+          Copy and Share
         </Button>
         <Toast.Root
           open={open}
