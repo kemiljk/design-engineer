@@ -52,10 +52,8 @@ export function ContentCard({
             )}
           </Avatar>
           <div className="text-center">
-            <CardTitle className="text-base font-semibold">
-              {post.metadata.author.title}
-            </CardTitle>
-            <CardDescription className="text-xs text-zinc-500 dark:text-zinc-400">
+            <span className="text-base">{post.metadata.author.title}</span>
+            <CardDescription className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
               {new Date(post.metadata.published_date).toLocaleDateString(
                 "en-gb",
                 {
@@ -88,7 +86,9 @@ export function ContentCard({
             />
           )}
           <div className="px-6">
-            <h2 className="text-lg font-bold leading-tight">{post.title}</h2>
+            <CardTitle className="text-lg leading-tight">
+              {post.title}
+            </CardTitle>
             <p className="line-clamp-3 w-full pt-3 text-sm text-gray-600 dark:text-gray-400">
               {post.metadata.content.slice(0, 200)}...
             </p>
