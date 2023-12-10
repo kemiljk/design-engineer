@@ -29,7 +29,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
             {story.title}
         </h1>
         <div className="flex items-center justify-center gap-4">
-          <Avatar className="h-10 w-10">
+          <Avatar className="h-10 w-10 border border-zinc-100 dark:border-zinc-800">
             <AvatarImage
               src={
                 story.metadata.design_engineer.metadata.company.metadata.logo
