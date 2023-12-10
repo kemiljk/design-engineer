@@ -24,7 +24,10 @@ const ResourcesPage: React.FC = async () => {
         <SnapCard>
           {resource.map((item: Type.Resource) => {
             return (
-              <div className="mx-auto flex h-full w-full flex-col items-stretch p-4">
+              <div
+                key={item.slug}
+                className="mx-auto flex h-full w-full flex-col items-stretch p-4"
+              >
                 <div className="flex-1">
                   <SectionTitle>{item.title}</SectionTitle>
                   <p className="mb-4 mt-2 w-full text-zinc-500 dark:text-zinc-400">
