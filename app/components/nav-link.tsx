@@ -13,13 +13,20 @@ export default function NavLink(link: {
 }): React.JSX.Element {
   const path = usePathname();
   const { isOpen, toggle } = React.useContext(MobileNavContext);
+  
+  const [isActive, setIsActive] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsActive(path === link.href || window.location.href.includes(link.href));
+  }, [path, link.href]);
+
 
   return (
     <li key={link.index} className="w-full md:w-max">
       <Link
         className={
           buttonVariants({ variant: "ghost" }) +
-          `${path == link.href && " !border !border-blue-500 !text-blue-500"} w-full md:w-max`
+          `${isActive && " !border !border-blue-500 !text-blue-500"} w-full md:w-max`
         }
         href={link.href}
         onClick={() => toggle()}
