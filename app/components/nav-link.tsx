@@ -19,7 +19,7 @@ export default function NavLink(link: {
       <Link
         className={
           buttonVariants({ variant: "ghost" }) +
-          `${path == link.href && " !border !border-blue-500 !text-blue-500"}`
+          `${path == link.href && " !border !border-blue-500 !text-blue-500"} w-full md:w-max`
         }
         href={link.href}
         onClick={() => toggle()}
