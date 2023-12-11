@@ -33,7 +33,7 @@ export const MobileNavButton = () => {
   const { isOpen, toggle } = React.useContext(MobileNavContext);
 
   return (
-    <nav className="fixed top-0 z-[999] flex w-full origin-top transform justify-between bg-white/20 px-4 py-2 backdrop-blur-xl transition-transform duration-200 ease-in-out dark:bg-black/20 md:hidden">
+    <nav className="fixed top-0 z-[999] flex w-full origin-top transform justify-between bg-white/50 px-4 py-2 backdrop-blur-xl transition-transform duration-200 ease-in-out dark:bg-black/50 md:hidden">
         <Link
             href="/"
             className="duration-250 rounded-full p-1 transition-all ease-in-out hover:cursor-default hover:bg-gray-100 hover:dark:bg-gray-800"
