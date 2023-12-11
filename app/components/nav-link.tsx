@@ -30,7 +30,7 @@ export default function NavLink(link: {
       <Link
         className={
           buttonVariants({ variant: "ghost" }) +
-          `${isActive && " !border !border-blue-500 !text-blue-500 !bg-blue-50 dark:!bg-blue-800"} w-full md:w-max`
+          `${isActive && " !border !border-blue-500 !text-blue-500 !bg-blue-50 dark:!bg-blue-950"} w-full md:w-max`
         }
         href={link.href}
         onClick={() => toggle()}
