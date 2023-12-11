@@ -15,7 +15,7 @@ export default function NavLink(link: {
   const { isOpen, toggle } = React.useContext(MobileNavContext);
 
   return (
-    <li key={link.index}>
+    <li key={link.index} className="w-full md:w-max">
       <Link
         className={
           buttonVariants({ variant: "ghost" }) +
