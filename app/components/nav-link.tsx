@@ -17,7 +17,11 @@ export default function NavLink(link: {
   const [isActive, setIsActive] = React.useState(false);
 
   React.useEffect(() => {
+  if (link.href === "/") {
+    setIsActive(path === link.href)
+  } else {
     setIsActive(path === link.href || window.location.href.includes(link.href));
+    }
   }, [path, link.href]);
 
 
