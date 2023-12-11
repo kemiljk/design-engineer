@@ -60,7 +60,7 @@ export const MobileNavContainer = ({
 
   return (
     <nav
-      className={`fixed top-0 z-[999999999] flex h-screen w-full origin-top transform justify-end bg-white/5 p-4 backdrop-blur-md transition-transform duration-200 ease-in-out dark:bg-black/5 md:hidden ${
+      className={`fixed top-0 z-[999999999] flex h-screen w-full origin-top transform justify-end bg-white/20 p-4 backdrop-blur-xl transition-transform duration-200 ease-in-out dark:bg-black/20 md:hidden ${
         isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
       }`}
     >
