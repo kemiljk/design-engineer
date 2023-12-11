@@ -15,7 +15,7 @@ const ResourcesPage: React.FC = async () => {
   const posts = await getPosts();
 
   return (
-    <div className="mx-auto mt-16 flex h-full w-full max-w-5xl flex-col items-center md:my-24">
+    <div className="mx-auto px-4 md:px-0 my-16 flex h-full w-full max-w-5xl flex-col items-center md:my-24">
       <SectionTitle>Resources</SectionTitle>
       <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
         A collection of resources for Design Engineers
