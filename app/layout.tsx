@@ -84,17 +84,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
       <html lang="en">
         <body
           className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
         >
           <PlausibleProvider domain="designengineer.xyz">
             <MainNav />
-            <Presence>{children}</Presence>
+           {children}
           </PlausibleProvider>
         </body>
       </html>
-    </ClerkProvider>
   );
 }
