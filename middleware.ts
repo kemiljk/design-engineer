@@ -6,6 +6,13 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
   publicRoutes: [
     "/",
+    "/api/",
+    "/api/article-subnission",
+    "/api/receive-subnission",
+    "/api/send",
+    "/api/send-submission",
+    "/api/waitlist",
+    "/api/waitlisted",
     "/about",
     "/privacy-policy",
     "/terms-of-service",
