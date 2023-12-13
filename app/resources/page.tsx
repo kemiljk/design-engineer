@@ -21,9 +21,9 @@ const ResourcesPage: React.FC = async () => {
         A collection of resources for Design Engineers
       </p>
       <SnapCardContainer>
-        <SnapCard>
           {resource.map((item: Type.Resource) => {
             return (
+            <SnapCard>
               <div
                 key={item.slug}
                 className="mx-auto flex h-full w-full flex-col items-stretch p-4"
@@ -53,8 +53,8 @@ const ResourcesPage: React.FC = async () => {
                 </div>
               </div>
             );
+           </SnapCard>
           })}
-        </SnapCard>
       </SnapCardContainer>
       <div className="mx-auto mt-8 text-center">
         <SectionTitle>External Posts</SectionTitle>
