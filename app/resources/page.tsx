@@ -52,8 +52,8 @@ const ResourcesPage: React.FC = async () => {
                   })}
                 </div>
               </div>
-            );
-           </SnapCard>
+             </SnapCard>
+            ); 
           })}
       </SnapCardContainer>
       <div className="mx-auto mt-8 text-center">
