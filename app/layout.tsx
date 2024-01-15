@@ -84,8 +84,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ClerkProvider>
+    <ClerkProvider>
+      <html lang="en">
         <body
           className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
         >
@@ -94,7 +94,7 @@ export default function RootLayout({
             <Presence>{children}</Presence>
           </PlausibleProvider>
         </body>
-      </ClerkProvider>
-    </html>
+      </html>
+    </ClerkProvider>
   );
 }
