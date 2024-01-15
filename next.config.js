@@ -3,15 +3,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
+        protocol: "https",
         hostname: "imgix.cosmicjs.com",
       },
       {
-        protocol: 'https',
+        protocol: "https",
         hostname: "img.youtube.com",
-      }
+      },
     ],
-  }
-}
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

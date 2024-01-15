@@ -123,8 +123,8 @@ export default function SubmitForm() {
               {isSubmitted
                 ? "Sent!"
                 : isSubmitting
-                ? "Sending"
-                : "Submit article"}
+                  ? "Sending"
+                  : "Submit article"}
             </Button>
           </>
         )}

@@ -32,7 +32,7 @@ export default async function Home() {
                 <InfoPill>{home.metadata.pill}</InfoPill>
               </div>
               <PageTitle />
-              <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
+              <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 md:text-2xl lg:max-w-3xl lg:text-3xl dark:text-gray-400">
                 {home.metadata.description}
               </p>
               <Form />
