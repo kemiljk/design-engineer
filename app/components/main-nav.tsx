@@ -65,7 +65,7 @@ const MainNav: React.FC = async () => {
           </Link>
           <>
             <div className="flex-1" />
-            <ul className="flex items-center gap-4 text-sm">
+            <ul className="flex items-center gap-1 text-sm">
               {links.map((link) => (
                 <NavLink key={link.index} {...link} />
               ))}
@@ -98,7 +98,7 @@ const MainNav: React.FC = async () => {
           className={cn("flex w-full flex-col items-end justify-start pt-4")}
         >
           <>
-            <ul className="flex flex-col items-center gap-4 pt-6 text-sm w-full">
+            <ul className="flex w-full flex-col items-center gap-4 pt-6 text-sm">
               {links.map((link) => (
                 <NavLink key={link.index} {...link} />
               ))}

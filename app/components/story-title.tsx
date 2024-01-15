@@ -3,9 +3,12 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import * as Type from "@/lib/types";
 
-function throttle<F extends (...args: any[]) => void>(func: F, limit: number): (...args: Parameters<F>) => void {
+function throttle<F extends (...args: any[]) => void>(
+  func: F,
+  limit: number,
+): (...args: Parameters<F>) => void {
   let inThrottle: boolean;
-  return function(this: any, ...args: Parameters<F>) {
+  return function (this: any, ...args: Parameters<F>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
@@ -33,13 +36,9 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
   }, []);
 
   return (
-    <div
-      key={story.id}
-      className="sticky z-[9999999] h-full top-1"
-      ref={ref}
-    >
+    <div key={story.id} className="sticky top-1 z-[9999999] h-full" ref={ref}>
       <motion.h1
-        className={`flex flex-col items-center tracking-tight text-black dark:text-white text-5xl`}
+        className={`flex flex-col items-start text-5xl tracking-tight text-black dark:text-white`}
         animate={{
           scale: isSticky ? 0.5 : 1,
           fontWeight: isSticky ? 600 : 800,
