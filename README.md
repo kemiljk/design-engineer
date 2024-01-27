@@ -22,7 +22,7 @@ You'll need some API keys to get going, but they'll be managed outside of this r
 
 ### Fonts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Manrope, a custom Google Font.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load fonts.
 
 ### Components
 
@@ -35,6 +35,18 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 - We currently have 6 API routes for handling email sending and content upload (for article submissions and the Waitlist)
 - These data are handled via [Resend](https://www.resend.com/) and [Cosmic](https://www.cosmicjs.com/) respectively
+
+### Authorisation
+
+- We use Clerk to authorise users, allowing easy handling of sign up and account access without having to set up all the infra ourselves
+- If you have access, you can get to our Dashboard [here](https://dashboard.clerk.com/apps/app_2Y0Ftk8612Qthp9hAf6swk4E8SG/instances/ins_2Yfs5euG0GZj2W7sowMcehSeY76)https://dashboard.clerk.com/apps/app_2Y0Ftk8612Qthp9hAf6swk4E8SG/instances/ins_2Yfs5euG0GZj2W7sowMcehSeY76.
+- Currently we catch all routes and allow them through the auth barrier, except the `/stats` page
+-   In the future we'll be able to lock any route we need to behind auth, such as individual user pages, draft posts, etc.
+
+### Interactivity
+
+- We have limited interactive elements on the site, but we do leverage Liveblocks to show live cursors
+- Currently this doesn't provide much utility or interest, but it'll become more interesting as the platform grows
 
 ## View Live
 
