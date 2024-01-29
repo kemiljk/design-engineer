@@ -18,14 +18,14 @@ export default function SubmitJob({
         <Button
           variant="secondary"
           className="w-full md:w-max"
-          name="Work with Me Button"
+          name="Submit Job Button"
         >
           Submit a Job
         </Button>
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="duration-250 fixed inset-0 z-20 bg-gray-950/40 backdrop-blur-sm transition-all ease-out" />
-        <Drawer.Content className="duration-250 fixed bottom-0 left-0 right-0 z-30 mt-24 flex h-auto flex-col overflow-visible rounded-t-2xl bg-white transition-all ease-out dark:border dark:border-gray-800 dark:bg-gray-950 md:mx-auto md:w-2/3 lg:w-1/3">
+        <Drawer.Content className="duration-250 fixed bottom-0 left-0 right-0 z-30 mt-24 flex h-auto flex-col overflow-visible rounded-t-2xl bg-white transition-all ease-out dark:border dark:border-gray-800 dark:bg-gray-950 md:mx-auto md:w-2/3 lg:w-1/2">
           <div className="flex flex-col overflow-auto p-4">
             <Drawer.Title
               className={`font-sans text-xl font-medium text-black dark:text-white`}

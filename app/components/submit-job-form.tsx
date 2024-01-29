@@ -161,6 +161,10 @@ export default function SubmitJobForm({
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            <hr />
+            <p className="text-sm font-bold text-gray-700 dark:text-gray-300">
+              Job Details
+            </p>
             <div className="flex w-full items-center gap-4">
               <Input
                 type="text"
@@ -187,11 +191,16 @@ export default function SubmitJobForm({
               >
                 <SelectTrigger className="w-full">
                   <SelectValue
-                    placeholder="Job location (main)"
+                    placeholder="Location (main)"
                     defaultValue={location}
                   />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent
+                  position={"popper"}
+                  sideOffset={4}
+                  side={"bottom"}
+                  className="max-h-60 overflow-y-scroll"
+                >
                   {locations.map((location) => {
                     return (
                       <SelectItem key={location.id} value={location.id}>
@@ -203,12 +212,14 @@ export default function SubmitJobForm({
               </Select>
               <Select onValueChange={(e) => setIndustry(e)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue
-                    placeholder="Job industry"
-                    defaultValue={industry}
-                  />
+                  <SelectValue placeholder="Industry" defaultValue={industry} />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent
+                  position={"popper"}
+                  sideOffset={4}
+                  side={"bottom"}
+                  className="max-h-60 overflow-y-scroll"
+                >
                   {industries.map((industry) => (
                     <SelectItem key={industry.id} value={industry.id}>
                       {industry.title}
