@@ -1,4 +1,4 @@
-import { EmailSubmissionTemplate } from "../../components/email-template";
+import { JobSubmissionTemplate } from "../../components/email-template";
 import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -11,10 +11,9 @@ export async function POST(request: NextRequest) {
       from: "dxe <hello@designengineer.xyz>",
       to: [res.email],
       subject: "Thanks for submitting a job",
-      react: EmailSubmissionTemplate({
+      react: JobSubmissionTemplate({
         email: res.email,
       }) as React.ReactElement,
-      text: "Thanks for submitting a job! We'll be in touch when it's been approved.",
     });
 
     return NextResponse.json(data);

@@ -55,9 +55,11 @@ export default function SubmitJobForm({
       let company;
       try {
         // Try to find the company
-        company = await cosmic.objects.findOne({
+        const getCo = await cosmic.objects.findOne({
           slug: newJobCompany.slug,
         });
+
+        company = getCo.object;
       } catch (error: any) {
         // If the company doesn't exist, insert a new one
         if (error.status === 404) {
@@ -69,10 +71,12 @@ export default function SubmitJobForm({
           });
 
           // Fetch the newly created company
-          company = await cosmic.objects.findOne({
+          const getCo = await cosmic.objects.findOne({
             slug: newJobCompany.slug,
             props: "slug",
           });
+
+          company = getCo.object;
         } else {
           throw error;
         }
@@ -84,7 +88,7 @@ export default function SubmitJobForm({
         type: "jobs",
         slug: title.toLowerCase().replace(/ /g, "-") + "-" + Date.now(),
         metadata: {
-          company: company.object.id,
+          company: company.id,
           industry: industry,
           location: location,
           description: summary,
@@ -104,7 +108,11 @@ export default function SubmitJobForm({
       });
       await fetch("/api/receive-job-submission", {
         method: "POST",
-        body: JSON.stringify({ email: email }),
+        body: JSON.stringify({
+          email: email,
+          title: title,
+          company: company.title,
+        }),
       });
       setIsSubmitted(true);
       setTimeout(() => {
