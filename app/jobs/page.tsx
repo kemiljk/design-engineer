@@ -16,7 +16,7 @@ const Jobs = async () => {
 
   return (
     <>
-      <div className="mt-20 flex w-full max-w-3xl justify-end">
+      <div className="mt-4 md:mt-20 flex w-full max-w-3xl justify-end">
         <SubmitJob
           industries={ind
             .sort((a, b) => a.title.localeCompare(b.title))
@@ -83,7 +83,7 @@ const Jobs = async () => {
                 </div>
               </div>
             </CardTitle>
-            <CardDescription className="line-clamp-3 text-gray-800 dark:text-gray-200">
+            <CardDescription className="text-gray-800 dark:text-gray-200">
               <div className="mb-4 flex items-center gap-4 md:hidden">
                 {job.metadata.industry.map((industry) => (
                   <p
@@ -97,7 +97,7 @@ const Jobs = async () => {
                   </p>
                 ))}
               </div>
-              <Markdown className="m-auto h-max text-sm">
+              <Markdown className="m-auto h-max text-sm line-clamp-3">
                 {job.metadata.description}
               </Markdown>
             </CardDescription>
