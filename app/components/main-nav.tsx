@@ -9,7 +9,7 @@ const MainNav: React.FC = async () => {
   const user = await currentUser();
 
   return (
-    <nav className="fixed z-[999] w-full bg-white/5 px-4 py-2 backdrop-blur-md md:px-16 lg:px-24 dark:bg-black/5">
+    <nav className="fixed z-[999] w-full bg-white/5 px-4 py-2 backdrop-blur-md dark:bg-black/5 md:px-16 lg:px-24">
       <div
         className={cn(
           "flex h-10 w-full items-center justify-center",
@@ -39,6 +39,14 @@ const MainNav: React.FC = async () => {
                 href="/posts"
               >
                 Posts
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={buttonVariants({ variant: "ghost" })}
+                href="/jobs"
+              >
+                Jobs
               </Link>
             </li>
             {user && (

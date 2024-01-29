@@ -77,3 +77,49 @@ export type Terms = {
     content: string;
   };
 };
+
+export type Job = {
+  id: string;
+  title: string;
+  metadata: {
+    company: Company;
+    location: Location[];
+    industry: Industry[];
+    description: string;
+    url: string;
+  };
+};
+
+type Company = {
+  id: string;
+  slug: string;
+  title: string;
+  type: string;
+  metadata: CompanyMetadata | null;
+};
+
+type CompanyMetadata = {
+  logo: Logo;
+};
+
+type Logo = {
+  url: string;
+  imgix_url: string | null;
+};
+
+export type Location = {
+  id: string;
+  slug: string;
+  title: string;
+};
+
+export type Industry = {
+  id: string;
+  slug: string;
+  title: string;
+  metadata: IndustryMetadata;
+};
+
+type IndustryMetadata = {
+  colour: string;
+};

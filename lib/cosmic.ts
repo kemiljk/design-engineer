@@ -114,3 +114,34 @@ export const getTerms = async (): Promise<Type.Terms> => {
 
   return terms.object;
 };
+
+export const getJobs = async (): Promise<Type.Job[]> => {
+  const jobs = await Promise.resolve(
+    await cosmic.objects
+      .find({
+        type: "jobs",
+      })
+      .props("id,title,metadata")
+      .depth(1),
+  );
+
+  return jobs.objects;
+};
+
+export const getIndustries = async (): Promise<Type.Industry[]> => {
+  const industries = await cosmic.objects
+    .find({ type: "industries" })
+    .props("id,slug,title,metadata")
+    .depth(1);
+
+  return industries.objects;
+};
+
+export const getLocations = async (): Promise<Type.Location[]> => {
+  const locations = await cosmic.objects
+    .find({ type: "locations" })
+    .props("id,slug,title,metadata")
+    .depth(1);
+
+  return locations.objects;
+};
