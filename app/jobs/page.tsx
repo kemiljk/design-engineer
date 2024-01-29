@@ -44,14 +44,14 @@ const Jobs = async () => {
               )}
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <h1 className="text-center text-lg text-black dark:text-white">
+                  <div className="flex flex-wrap items-center gap-x-1 md:gap-x-2">
+                    <h1 className="text-center text-base leading-snug text-black dark:text-white md:text-lg">
                       {job.title}
                     </h1>
                     <span className="text-base text-gray-700 dark:text-gray-300">
                       @
                     </span>
-                    <h2 className="text-lg text-black dark:text-white">
+                    <h2 className="text-base leading-snug text-black dark:text-white md:text-lg">
                       {job.metadata.company.title}
                     </h2>
                   </div>
@@ -68,7 +68,7 @@ const Jobs = async () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="hidden items-center gap-4 md:flex">
                   {job.metadata.industry.map((industry) => (
                     <p
                       key={industry.id}
@@ -84,6 +84,19 @@ const Jobs = async () => {
               </div>
             </CardTitle>
             <CardDescription className="line-clamp-3 text-gray-800 dark:text-gray-200">
+              <div className="mb-4 flex items-center gap-4 md:hidden">
+                {job.metadata.industry.map((industry) => (
+                  <p
+                    key={industry.id}
+                    style={{
+                      backgroundColor: `${industry.metadata.colour}55`,
+                    }}
+                    className="rounded-full px-2 py-1 text-center text-xs text-black dark:text-white"
+                  >
+                    {industry.title}
+                  </p>
+                ))}
+              </div>
               <Markdown className="m-auto h-max text-sm">
                 {job.metadata.description}
               </Markdown>
