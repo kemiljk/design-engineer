@@ -1,11 +1,5 @@
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
-import {
-  CardTitle,
-  CardDescription,
-  CardHeader,
-  CardContent,
-  Card,
-} from "@/components/ui/card";
+import { Avatar } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import * as Type from "@/lib/types";
 import { getThumbnail } from "@/lib/utils";
 import Image from "next/image";
@@ -25,6 +19,10 @@ export function ContentCard({
   const url = post.metadata.video_url || "";
   const thumbnailUrl = getThumbnail(url);
 
+  const image =
+    post.metadata.author.metadata.image &&
+    post.metadata.author.metadata.image.imgix_url;
+
   return (
     <Link
       href={
@@ -36,26 +34,29 @@ export function ContentCard({
       target="_blank"
     >
       <Card
-        key="1"
-        className="mx-auto max-w-xs overflow-hidden rounded-3xl transition-all duration-500 ease-out hover:shadow-xl"
+        key={post.id}
+        className="mx-auto max-w-xs overflow-hidden transition-all duration-500 ease-out"
+        isPressable
+        shadow="sm"
       >
-        <CardHeader className="flex items-center justify-center p-6 text-center">
-          <Avatar>
-            {post.metadata.author.metadata.image ? (
-              <AvatarImage
-                alt="Author's avatar"
-                className="h-10 w-10 rounded-full object-cover"
-                src={`${post.metadata.author.metadata.image.imgix_url}?w=400&auto=format,compression`}
-              />
-            ) : (
-              <AvatarFallback>{initials}</AvatarFallback>
-            )}
-          </Avatar>
-          <div className="text-center">
-            <CardTitle className="text-base font-semibold">
-              {post.metadata.author.title}
-            </CardTitle>
-            <CardDescription className="text-xs text-zinc-500 dark:text-zinc-400">
+        <CardHeader className="flex items-start justify-center gap-4 pt-6 text-center">
+          {post.metadata.author.metadata.image ? (
+            <Avatar
+              alt="Author's avatar"
+              className="h-10 w-10 rounded-full object-cover"
+              src={`${image}?w=400&auto=format,compression`}
+              name={initials}
+            />
+          ) : (
+            <Avatar
+              alt="Author's avatar"
+              className="h-10 w-10 rounded-full object-cover"
+              name={initials}
+            />
+          )}
+          <div className="flex flex-col text-start text-base font-semibold">
+            {post.metadata.author.title}
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">
               {new Date(post.metadata.published_date).toLocaleDateString(
                 "en-gb",
                 {
@@ -64,10 +65,10 @@ export function ContentCard({
                   day: "numeric",
                 },
               )}
-            </CardDescription>
+            </p>
           </div>
         </CardHeader>
-        <CardContent className="grid gap-4 px-0 pb-6">
+        <CardBody className="flex flex-col gap-4 px-0 pb-4">
           {(post.metadata.image || thumbnailUrl) && (
             <Image
               alt="Article image"
@@ -87,13 +88,13 @@ export function ContentCard({
               }
             />
           )}
-          <div className="px-6">
-            <h2 className="text-lg font-bold leading-tight">{post.title}</h2>
-            <p className="line-clamp-3 w-full pt-3 text-sm text-gray-600 dark:text-gray-400">
+          <h2 className="px-4 text-lg font-bold leading-tight">{post.title}</h2>
+          <CardFooter className="w-full text-sm text-gray-600 dark:text-gray-400">
+            <p className="line-clamp-3">
               {post.metadata.content.slice(0, 200)}...
             </p>
-          </div>
-        </CardContent>
+          </CardFooter>
+        </CardBody>
       </Card>
     </Link>
   );

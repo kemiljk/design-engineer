@@ -1,9 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Loader2 } from "lucide-react";
+import { Button, Input } from "@nextui-org/react";
 
 export const Form = () => {
   const [email, setEmail] = useState("");
@@ -58,29 +56,50 @@ export const Form = () => {
   return (
     <div className="z-2 relative flex w-full max-w-xl flex-col gap-2 text-center">
       <form
-        className="flex w-full max-w-xl flex-col gap-2 md:flex-row"
+        className="flex w-full max-w-xl flex-col items-center justify-center gap-2 md:flex-row"
         onSubmit={submit}
       >
         <Input
           type="email"
+          variant="bordered"
+          size="sm"
+          radius="lg"
           required
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="w-full md:w-80"
+          classNames={{
+            inputWrapper: [
+              "bg-white/30",
+              "dark:bg-black/10",
+              "backdrop-blur-xl",
+              "backdrop-saturate-200",
+              "text-black/90 dark:text-white/90",
+              "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+              "border-blue-500/20 dark:border-blue-300/50",
+            ],
+          }}
         />
 
-        <Button size="lg" variant="primary" disabled={submitting}>
+        <Button
+          type="submit"
+          size="lg"
+          color="primary"
+          variant="solid"
+          isDisabled={submitting}
+          isLoading={submitting}
+        >
           {submitting ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               <span>Registering interest...</span>
             </>
           ) : (
-            "Register interest"
+            <span>Register interest</span>
           )}
         </Button>
 
-        {error ? <div className="">{error}</div> : null}
+        {error ? <div>{error}</div> : null}
       </form>
       <span className="text-xs text-gray-500">
         We respect your privacy and will never share your email.

@@ -6,6 +6,7 @@ import { getConfig } from "@/lib/cosmic";
 import "./globals.css";
 import MainNav from "./components/main-nav";
 import Presence from "./components/presence";
+import { Providers } from "./providers";
 
 const serif = Lora({
   subsets: ["latin"],
@@ -87,11 +88,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden bg-white font-sans dark:bg-black`}
+          className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden font-sans antialiased`}
         >
           <PlausibleProvider domain="designengineer.xyz">
-            <MainNav />
-            <Presence>{children}</Presence>
+            <Providers>
+              <MainNav />
+              <Presence>{children}</Presence>
+            </Providers>
           </PlausibleProvider>
         </body>
       </html>

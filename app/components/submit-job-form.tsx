@@ -1,16 +1,8 @@
-"use client";
-
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Button } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
+import { Textarea } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 import { cosmic } from "@/lib/cosmic";
 
 export default function SubmitJobForm({
@@ -134,32 +126,26 @@ export default function SubmitJobForm({
   };
 
   return (
-    <form
-      onSubmit={sendEmail}
-      autoFocus
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    >
-      <div className="mb-3 flex flex-col gap-3 overflow-visible">
+    <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
+      <div className="mb-3 flex flex-col gap-3 overflow-visible px-4">
         {isSubmitted ? (
           <div>Submitted!</div>
         ) : (
           <>
             <Input
+              autoFocus
               type="name"
-              placeholder="Your name"
-              name="from_name"
+              label="Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
+              isRequired
             />
             <Input
               type="email"
-              placeholder="Your email"
-              name="reply_to"
+              label="Your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+              isRequired
             />
             <hr />
             <p className="text-sm font-bold text-gray-700 dark:text-gray-300">
@@ -168,92 +154,82 @@ export default function SubmitJobForm({
             <div className="flex w-full items-center gap-4">
               <Input
                 type="text"
-                placeholder="Job role"
-                name="title"
+                label="Job role"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                required
+                isRequired
               />
               <Input
                 type="text"
-                placeholder="Company"
-                name="company"
+                label="Company"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                required
+                isRequired
               />
             </div>
-            <div className="flex w-full items-center gap-4">
+            <div className="z-50 flex w-full items-center gap-4">
               <Select
-                name="location"
-                required
-                onValueChange={(e) => setLocation(e)}
+                label="Location (main)"
+                value={location}
+                className="w-full"
+                isRequired
+                items={locations}
+                selectedKeys={[location]}
+                onChange={(e) => setLocation(e.target.value)}
+                popoverProps={{
+                  classNames: {
+                    base: "before:bg-default-200",
+                    content: "p-0 border-small border-divider bg-background",
+                  },
+                }}
               >
-                <SelectTrigger className="w-full">
-                  <SelectValue
-                    placeholder="Location (main)"
-                    defaultValue={location}
-                  />
-                </SelectTrigger>
-                <SelectContent
-                  position={"popper"}
-                  sideOffset={4}
-                  side={"bottom"}
-                  className="max-h-60 overflow-y-scroll"
-                >
-                  {locations.map((location) => {
-                    return (
-                      <SelectItem key={location.id} value={location.id}>
-                        {location.title}
-                      </SelectItem>
-                    );
-                  })}
-                </SelectContent>
+                {(location) => (
+                  <SelectItem key={location.id} value={location.id}>
+                    {location.title}
+                  </SelectItem>
+                )}
               </Select>
-              <Select onValueChange={(e) => setIndustry(e)}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Industry" defaultValue={industry} />
-                </SelectTrigger>
-                <SelectContent
-                  position={"popper"}
-                  sideOffset={4}
-                  side={"bottom"}
-                  className="max-h-60 overflow-y-scroll"
-                >
-                  {industries.map((industry) => (
-                    <SelectItem key={industry.id} value={industry.id}>
-                      {industry.title}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
+              <Select
+                label="Industry"
+                className="w-full"
+                isRequired
+                value={industry}
+                items={industries}
+                selectedKeys={[industry]}
+                onChange={(e) => setIndustry(e.target.value)}
+              >
+                {(industry) => (
+                  <SelectItem key={industry.id} value={industry.id}>
+                    {industry.title}
+                  </SelectItem>
+                )}
               </Select>
             </div>
             <Input
               type="text"
-              placeholder="Job posting URL"
-              name="url"
+              label="Job posting URL"
               value={url}
               onChange={(e) => setURL(e.target.value)}
-              required
+              isRequired
             />
             {url && !isValidURL(url) && (
               <div className="text-red-500">Please enter a valid URL</div>
             )}
             <Textarea
-              placeholder="Job description summary"
-              name="message"
+              label="Job description summary"
               aria-label="Your summary"
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
-              required
+              isRequired
             />
             <Button
-              variant="primary"
+              color="primary"
               type="submit"
               name="Submit message"
               aria-label="Submit message"
               className="mx-auto disabled:opacity-50 md:w-max"
-              disabled={isSubmitting}
+              isDisabled={isSubmitting}
+              isLoading={isSubmitting}
             >
               {isSubmitted ? "Sent!" : isSubmitting ? "Sending" : "Submit job"}
             </Button>

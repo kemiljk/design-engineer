@@ -1,9 +1,7 @@
-"use client";
-
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
+import { Textarea } from "@nextui-org/react";
 
 export default function SubmitForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -61,20 +59,16 @@ export default function SubmitForm() {
   };
 
   return (
-    <form
-      onSubmit={sendEmail}
-      autoFocus
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    >
-      <div className="mb-3 flex flex-col gap-3 overflow-visible">
+    <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
+      <div className="mb-3 flex flex-col gap-3 overflow-visible px-4">
         {isSubmitted ? (
           <div>Submitted!</div>
         ) : (
           <>
             <Input
+              autoFocus
+              label="Your name"
               type="name"
-              placeholder="Your name"
               name="from_name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -82,7 +76,7 @@ export default function SubmitForm() {
             />
             <Input
               type="email"
-              placeholder="Your email"
+              label="Your email"
               name="reply_to"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -90,7 +84,7 @@ export default function SubmitForm() {
             />
             <Input
               type="text"
-              placeholder="Article title"
+              label="Article title"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -98,14 +92,14 @@ export default function SubmitForm() {
             />
             <Input
               type="text"
-              placeholder="Article URL"
+              label="Article URL"
               name="url"
               value={url}
               onChange={(e) => setURL(e.target.value)}
               required
             />
             <Textarea
-              placeholder="Article summary"
+              label="Article summary"
               name="message"
               aria-label="Your summary"
               value={summary}
@@ -113,12 +107,13 @@ export default function SubmitForm() {
               required
             />
             <Button
-              variant="primary"
+              color="primary"
               type="submit"
               name="Submit message"
               aria-label="Submit message"
               className="mx-auto disabled:opacity-50 md:w-max"
-              disabled={isSubmitting}
+              isDisabled={isSubmitting}
+              isLoading={isSubmitting}
             >
               {isSubmitted
                 ? "Sent!"

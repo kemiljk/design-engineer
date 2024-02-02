@@ -7,7 +7,7 @@ import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
 import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
-import { Button } from "@/components/ui/button";
+import { Button } from "@nextui-org/react";
 import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
 import Link from "next/link";
 import DTClubLogo from "./components/dtclub-logo";
@@ -65,8 +65,13 @@ export default async function Home() {
           <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
             <Link href="/posts">
-              <Button variant={"outline"} className="gap-2">
-                See all articles <ArrowRight className="h-4 w-4" />
+              <Button
+                endContent={<ArrowRight className="h-4 w-4" />}
+                color="default"
+                variant="flat"
+                className="gap-2"
+              >
+                See all articles
               </Button>
             </Link>
           </div>
@@ -79,14 +84,22 @@ export default async function Home() {
             <DTClubLogo className="mb-4 w-64 text-neutral-950 dark:text-neutral-50" />
             <div className="flex gap-4">
               <Link href="https://designtechnologist.club/slack?ref=designengineer.xyz">
-                <Button variant={"secondary"} className="gap-2">
-                  <SlackIcon className="h-4 w-4" />
+                <Button
+                  startContent={<SlackIcon className="h-4 w-4" />}
+                  color="default"
+                  variant="flat"
+                  className="gap-2"
+                >
                   Join Slack
                 </Button>
               </Link>
               <Link href="https://designtechnologist.club/book?ref=designengineer.xyz">
-                <Button variant={"outline"} className="gap-2">
-                  <BookAIcon className="h-4 w-4" />
+                <Button
+                  startContent={<BookAIcon className="h-4 w-4" />}
+                  color="default"
+                  variant="bordered"
+                  className="gap-2"
+                >
                   Read Handbook
                 </Button>
               </Link>

@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { Button } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { getIndustries, getJobs, getLocations } from "@/lib/cosmic";
 import { Job } from "@/lib/types";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import SubmitJob from "../components/submit-job";
 import * as Type from "@/lib/types";
+import { ArrowUpRight } from "lucide-react";
 
 const Jobs = async () => {
   const jobs = await getJobs();
@@ -16,7 +17,7 @@ const Jobs = async () => {
 
   return (
     <>
-      <div className="mt-4 md:mt-20 flex w-full max-w-3xl justify-end">
+      <div className="mt-4 flex w-full max-w-3xl justify-end md:mt-20">
         <SubmitJob
           industries={ind
             .sort((a, b) => a.title.localeCompare(b.title))
@@ -32,7 +33,7 @@ const Jobs = async () => {
             key={job.id}
             className="mx-auto flex w-full flex-col items-start justify-center gap-4 p-4"
           >
-            <CardTitle className="flex w-full items-center gap-4 text-black dark:text-white">
+            <CardHeader className="flex w-full items-center gap-4 text-black dark:text-white">
               {job.metadata.company.metadata?.logo && (
                 <Image
                   className="h-11 w-11 rounded-full object-cover"
@@ -45,13 +46,13 @@ const Jobs = async () => {
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
                   <div className="flex flex-wrap items-center gap-x-1 md:gap-x-2">
-                    <h1 className="text-center text-base leading-snug text-black dark:text-white md:text-lg">
+                    <h1 className="text-center text-base leading-snug text-black md:text-lg dark:text-white">
                       {job.title}
                     </h1>
                     <span className="text-base text-gray-700 dark:text-gray-300">
                       @
                     </span>
-                    <h2 className="text-base leading-snug text-black dark:text-white md:text-lg">
+                    <h2 className="text-base leading-snug text-black md:text-lg dark:text-white">
                       {job.metadata.company.title}
                     </h2>
                   </div>
@@ -82,8 +83,8 @@ const Jobs = async () => {
                   ))}
                 </div>
               </div>
-            </CardTitle>
-            <CardDescription className="text-gray-800 dark:text-gray-200">
+            </CardHeader>
+            <CardBody className="text-gray-800 dark:text-gray-200">
               <div className="mb-4 flex items-center gap-4 md:hidden">
                 {job.metadata.industry.map((industry) => (
                   <p
@@ -97,12 +98,17 @@ const Jobs = async () => {
                   </p>
                 ))}
               </div>
-              <Markdown className="m-auto h-max text-sm line-clamp-3">
+              <Markdown className="m-auto line-clamp-3 h-max text-sm">
                 {job.metadata.description}
               </Markdown>
-            </CardDescription>
+            </CardBody>
             <Link href={job.metadata.url} target="_blank">
-              <Button variant="outline">View Job ↗</Button>
+              <Button
+                endContent={<ArrowUpRight className="size-4 text-current" />}
+                variant="bordered"
+              >
+                View Job
+              </Button>
             </Link>
           </Card>
         ))}
