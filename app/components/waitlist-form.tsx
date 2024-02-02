@@ -7,11 +7,9 @@ export const Form = () => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
-    setError(false);
     setSubmitting(true);
     const newWaitlist = {
       type: "waitlists",
@@ -32,7 +30,6 @@ export const Form = () => {
       });
     } catch (err) {
       setSubmitting(false);
-      setError(true);
       return;
     }
     setSubmitting(false);
@@ -64,7 +61,7 @@ export const Form = () => {
           type="email"
           variant="bordered"
           radius="lg"
-          required
+          isRequired
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -98,8 +95,6 @@ export const Form = () => {
             <span>Register interest</span>
           )}
         </Button>
-
-        {error ? <div>{error}</div> : null}
       </form>
       <span className="text-xs text-gray-500">
         We respect your privacy and will never share your email.
