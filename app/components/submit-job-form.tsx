@@ -133,6 +133,7 @@ export default function SubmitJobForm({
         ) : (
           <>
             <Input
+              size="md"
               autoFocus
               type="name"
               label="Your name"
@@ -141,6 +142,7 @@ export default function SubmitJobForm({
               isRequired
             />
             <Input
+              size="md"
               type="email"
               label="Your email"
               value={email}
@@ -153,6 +155,7 @@ export default function SubmitJobForm({
             </p>
             <div className="flex w-full items-center gap-4">
               <Input
+                size="md"
                 type="text"
                 label="Job role"
                 value={title}
@@ -160,6 +163,7 @@ export default function SubmitJobForm({
                 isRequired
               />
               <Input
+                size="md"
                 type="text"
                 label="Company"
                 value={company}
@@ -169,6 +173,7 @@ export default function SubmitJobForm({
             </div>
             <div className="z-50 flex w-full items-center gap-4">
               <Select
+                size="md"
                 label="Location (main)"
                 value={location}
                 className="w-full"
@@ -190,6 +195,7 @@ export default function SubmitJobForm({
                 )}
               </Select>
               <Select
+                size="md"
                 label="Industry"
                 className="w-full"
                 isRequired
@@ -206,6 +212,7 @@ export default function SubmitJobForm({
               </Select>
             </div>
             <Input
+              size="md"
               type="text"
               label="Job posting URL"
               value={url}

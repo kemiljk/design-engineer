@@ -66,6 +66,7 @@ export default function SubmitForm() {
         ) : (
           <>
             <Input
+              size="md"
               autoFocus
               label="Your name"
               type="name"
@@ -75,6 +76,7 @@ export default function SubmitForm() {
               required
             />
             <Input
+              size="md"
               type="email"
               label="Your email"
               name="reply_to"
@@ -83,6 +85,7 @@ export default function SubmitForm() {
               required
             />
             <Input
+              size="md"
               type="text"
               label="Article title"
               name="title"
@@ -91,6 +94,7 @@ export default function SubmitForm() {
               required
             />
             <Input
+              size="md"
               type="text"
               label="Article URL"
               name="url"
@@ -101,7 +105,6 @@ export default function SubmitForm() {
             <Textarea
               label="Article summary"
               name="message"
-              aria-label="Your summary"
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
               required
@@ -110,7 +113,6 @@ export default function SubmitForm() {
               color="primary"
               type="submit"
               name="Submit message"
-              aria-label="Submit message"
               className="mx-auto disabled:opacity-50 md:w-max"
               isDisabled={isSubmitting}
               isLoading={isSubmitting}

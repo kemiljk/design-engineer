@@ -56,13 +56,13 @@ export const Form = () => {
   return (
     <div className="z-2 relative flex w-full max-w-xl flex-col gap-2 text-center">
       <form
-        className="flex w-full max-w-xl flex-col items-center justify-center gap-2 md:flex-row"
+        className="flex h-16 w-full max-w-xl flex-col items-center justify-center gap-2 md:flex-row"
         onSubmit={submit}
       >
         <Input
+          size="md"
           type="email"
           variant="bordered"
-          size="sm"
           radius="lg"
           required
           placeholder="Email"
