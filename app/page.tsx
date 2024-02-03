@@ -69,7 +69,7 @@ export default async function Home() {
                 endContent={<ArrowRight className="h-4 w-4" />}
                 color="default"
                 variant="flat"
-                className="gap-2"
+                className="w-full md:w-max gap-2"
               >
                 See all articles
               </Button>
@@ -88,7 +88,7 @@ export default async function Home() {
                   startContent={<SlackIcon className="h-4 w-4" />}
                   color="default"
                   variant="flat"
-                  className="gap-2"
+                  className="w-full md:w-max gap-2"
                 >
                   Join Slack
                 </Button>
@@ -98,7 +98,7 @@ export default async function Home() {
                   startContent={<BookAIcon className="h-4 w-4" />}
                   color="default"
                   variant="bordered"
-                  className="gap-2"
+                  className="w-full md:w-max gap-2"
                 >
                   Read Handbook
                 </Button>
