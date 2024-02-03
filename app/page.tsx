@@ -7,9 +7,8 @@ import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
 import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
-import Link from "next/link";
 import DTClubLogo from "./components/dtclub-logo";
 import SubmitArticle from "./components/submit-article";
 
@@ -64,8 +63,9 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
-            <Link href="/posts">
               <Button
+                as={Link}
+                href="/posts"
                 endContent={<ArrowRight className="h-4 w-4" />}
                 color="default"
                 variant="flat"
@@ -73,7 +73,6 @@ export default async function Home() {
               >
                 See all articles
               </Button>
-            </Link>
           </div>
           <div className="mt-16 flex w-full flex-col items-center md:mt-24">
             <SectionTitle>Find your community</SectionTitle>
@@ -83,18 +82,19 @@ export default async function Home() {
             </p>
             <DTClubLogo className="mb-4 w-64 text-neutral-950 dark:text-neutral-50" />
             <div className="flex gap-4">
-              <Link href="https://designtechnologist.club/slack?ref=designengineer.xyz">
                 <Button
                   startContent={<SlackIcon className="h-4 w-4" />}
+                  as={Link}
+                  href="https://designtechnologist.club/slack?ref=designengineer.xyz"
                   color="default"
                   variant="flat"
                   className="w-full md:w-max gap-2"
                 >
                   Join Slack
                 </Button>
-              </Link>
-              <Link href="https://designtechnologist.club/book?ref=designengineer.xyz">
                 <Button
+                  as={Link}
+                  href="https://designtechnologist.club/book?ref=designengineer.xyz"
                   startContent={<BookAIcon className="h-4 w-4" />}
                   color="default"
                   variant="bordered"
@@ -102,7 +102,6 @@ export default async function Home() {
                 >
                   Read Handbook
                 </Button>
-              </Link>
             </div>
           </div>
         </div>
