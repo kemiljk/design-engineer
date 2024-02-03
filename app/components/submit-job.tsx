@@ -37,6 +37,7 @@ export default function SubmitJob({
         onClose={onClose}
         scrollBehavior="inside"
         placement="top-center"
+        size="xl"
       >
         <ModalContent>
             <ModalHeader
@@ -44,14 +45,14 @@ export default function SubmitJob({
             >
               Submit a Job
             </ModalHeader>
-            <p
+            <ModalBody>
+             <p
               className={`mb-4 text-sm leading-normal text-gray-500 dark:text-gray-300`}
             >
               Submit your role for inclusion on our site. It should be for a
               role that is relevant to a software Design Engineer, UI Engineer,
               UX Engineer, Design Technologist or similar.
             </p>
-            <ModalBody>
             <SubmitJobForm industries={industries} locations={locations} />
             </ModalBody>
         </ModalContent>
