@@ -86,6 +86,7 @@ export const Form = () => {
           variant="solid"
           isDisabled={submitting}
           isLoading={submitting}
+          className="w-full md:w-max"
         >
           {submitting ? (
             <>
