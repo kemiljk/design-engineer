@@ -29,7 +29,6 @@ export default function SubmitArticle() {
         isOpen={isOpen}     
         onOpenChange={onOpenChange}
         scrollBehavior="inside"
-        placement="top-center"
         size="xl"
         >
         <ModalContent>

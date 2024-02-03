@@ -35,8 +35,7 @@ export default function SubmitJob({
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         onClose={onClose}
-        scrollBehavior="inside"
-        placement="top-center"
+        scrollBehavior="inside" 
         size="xl"
       >
         <ModalContent>
