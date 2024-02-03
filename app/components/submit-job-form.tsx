@@ -127,7 +127,7 @@ export default function SubmitJobForm({
 
   return (
     <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
-      <div className="mb-3 flex flex-col gap-3 overflow-visible px-4">
+      <div className="mb-3 flex flex-col gap-3">
         {isSubmitted ? (
           <div>Submitted!</div>
         ) : (
@@ -153,7 +153,7 @@ export default function SubmitJobForm({
             <p className="text-sm font-bold text-gray-700 dark:text-gray-300">
               Job Details
             </p>
-            <div className="flex w-full items-center gap-4">
+            <div className="flex flex-col md:flex-row w-full items-center gap-4">
               <Input
                 size="md"
                 type="text"
@@ -171,7 +171,7 @@ export default function SubmitJobForm({
                 isRequired
               />
             </div>
-            <div className="z-50 flex w-full items-center gap-4">
+            <div className="flex flex-col md:flex-row w-full items-center gap-4">
               <Select
                 size="md"
                 label="Location (main)"

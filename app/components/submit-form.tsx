@@ -60,7 +60,7 @@ export default function SubmitForm() {
 
   return (
     <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
-      <div className="mb-3 flex flex-col gap-3 overflow-visible px-4">
+      <div className="mb-3 flex flex-col gap-3 overflow-visible">
         {isSubmitted ? (
           <div>Submitted!</div>
         ) : (
