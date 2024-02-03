@@ -37,12 +37,12 @@ export default function SubmitArticle() {
             >
               Submit an Article
             </ModalHeader>
-            <p
+            <ModalBody>
+              <p
               className={`mb-4 text-sm leading-normal text-gray-500 dark:text-gray-300`}
             >
               Submit your article for inclusion on our site.
             </p>
-            <ModalBody>
             <SubmitForm />
             </ModalBody>
         </ModalContent>
