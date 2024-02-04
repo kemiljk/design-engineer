@@ -12,7 +12,10 @@ export default function CopyButton() {
   const path = `${window.location.origin}${pathname}`;
 
   React.useEffect(() => {
-    return () => clearTimeout(timerRef.current);
+    const timer = timerRef.current;
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
