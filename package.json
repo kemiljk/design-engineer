@@ -29,6 +29,7 @@
     "react-dom": "latest",
     "react-markdown": "^9.0.0",
     "resend": "latest",
+    "sonner": "^1.4.0",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"
   },

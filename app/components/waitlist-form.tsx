@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Button, Input } from "@nextui-org/react";
+import { Toaster, toast } from "sonner";
 
 export const Form = () => {
   const [email, setEmail] = useState("");
@@ -34,21 +35,12 @@ export const Form = () => {
     }
     setSubmitting(false);
     setSubmitted(true);
+    toast.success("You have been added to the waitlist!");
     setTimeout(() => {
       setSubmitted(false);
       setEmail("");
     }, 5000);
   };
-
-  if (submitted) {
-    return (
-      <div>
-        <span className="text-gray-600 dark:text-gray-400">
-          Thanks for signing up! We will be in touch soon.
-        </span>
-      </div>
-    );
-  }
 
   return (
     <div className="z-2 relative flex w-full max-w-xl flex-col gap-2 text-center">
@@ -79,6 +71,7 @@ export const Form = () => {
           }}
         />
 
+        <Toaster richColors position="top-center" />
         <Button
           type="submit"
           size="lg"
