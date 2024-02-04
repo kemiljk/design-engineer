@@ -1,0 +1,4 @@
+{
+    "git.ignoreLimitWarning": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
