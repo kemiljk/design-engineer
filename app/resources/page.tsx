@@ -67,7 +67,7 @@ const ResourcesPage: React.FC = async () => {
           return (
             <Link href={post.metadata.url} target="_blank" key={post.slug}>
               <SnapCard>
-                <div className="mx-auto flex h-full w-full flex-col items-start">
+                <div className="mx-auto -mt-1 flex h-full w-full flex-col items-start">
                   {(post.metadata.image || thumbnailUrl) && (
                     <Image
                       alt="Article image"

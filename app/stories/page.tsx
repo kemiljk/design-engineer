@@ -14,7 +14,7 @@ const StoriesPage: React.FC = async () => {
 
   return (
     <section>
-      <div className="mx-auto w-full p-4 pt-20 md:px-16 lg:px-24">
+      <div className="mx-auto w-full p-4 md:px-16 lg:px-24">
         <div className="flex flex-col items-center gap-10">
           <div className="flex w-full flex-col items-center md:mt-0">
             <SectionTitle>Stories</SectionTitle>
