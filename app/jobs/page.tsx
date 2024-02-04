@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardHeader, Button, Link } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, CardFooter Button, Link } from "@nextui-org/react";
 import { getIndustries, getJobs, getLocations } from "@/lib/cosmic";
 import { Job } from "@/lib/types";
 import Image from "next/image";
