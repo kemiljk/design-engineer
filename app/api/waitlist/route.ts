@@ -12,7 +12,8 @@ export async function POST(request: NextRequest) {
     const data = await resend.contacts.create({
       email: res.email.title,
       unsubscribed: false,
-      audience_id: waitlist,
+      // @ts-ignore
+      audienceId: waitlist,
     });
 
     return NextResponse.json(data);
