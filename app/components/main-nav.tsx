@@ -57,7 +57,7 @@ const MainNav: React.FC = async () => {
                 />
               </>
             )}
-            <li className="hidden w-28 md:block">
+            <li>
               <ThemeSwitcher />
             </li>
           </ul>
