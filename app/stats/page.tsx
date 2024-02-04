@@ -1,10 +1,9 @@
-import Link from "next/link";
-import InfoPill from "../components/info-pill";
-import { Logo } from "../components/logo";
 import { getStat, getStats } from "@/lib/cosmic";
 import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
+import { Chip } from "@nextui-org/react";
+import { CalendarCheck, Clipboard } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -30,8 +29,24 @@ export default async function Stats() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-            <InfoPill>{stats.total} total waitlisted</InfoPill>
-            <InfoPill>{statsToday.length} signed up today</InfoPill>
+            <Chip
+              variant="flat"
+              size="lg"
+              color="success"
+              startContent={<Clipboard className="size-4" />}
+              className="gap-1.5"
+            >
+              {stats.total} total waitlisted
+            </Chip>
+            <Chip
+              variant="flat"
+              size="lg"
+              color="success"
+              startContent={<CalendarCheck className="size-4" />}
+              className="gap-1.5"
+            >
+              {statsToday.length} signed up today
+            </Chip>
           </div>
         </div>
       </div>
