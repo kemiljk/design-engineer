@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { cosmic } from "@/lib/cosmic";
 
 export default function SubmitJobForm({
@@ -24,13 +24,18 @@ export default function SubmitJobForm({
   const [location, setLocation] = React.useState("");
   const [industry, setIndustry] = React.useState("");
 
-  const isValidURL = (value: string) => {
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    return urlRegex.test(value);
-  };
-
   const handleFocus = () => setFormFocus(true);
   const handleBlur = () => setFormFocus(false);
+
+  const locationTitleToId = locations.reduce((acc, location) => {
+    acc[location.title] = location.id;
+    return acc;
+  }, {});
+
+  const industryTitleToId = industries.reduce((acc, industry) => {
+    acc[industry.title] = industry.id;
+    return acc;
+  }, {});
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,10 +89,9 @@ export default function SubmitJobForm({
           industry: industry,
           location: location,
           description: summary,
-          url: url,
+          url: `https://${url}`,
         },
       };
-      console.log(newJobSubmission);
       await fetch("/api/job-submission", {
         method: "POST",
         body: JSON.stringify({
@@ -153,7 +157,7 @@ export default function SubmitJobForm({
             <p className="text-sm font-bold text-gray-700 dark:text-gray-300">
               Job Details
             </p>
-            <div className="flex flex-col md:flex-row w-full items-center gap-4">
+            <div className="flex w-full flex-col items-center gap-4 md:flex-row">
               <Input
                 size="md"
                 type="text"
@@ -171,45 +175,37 @@ export default function SubmitJobForm({
                 isRequired
               />
             </div>
-            <div className="flex flex-col md:flex-row w-full items-center gap-4">
-              <Select
+            <div className="flex w-full flex-col items-center gap-4 md:flex-row">
+              <Autocomplete
                 size="md"
                 label="Location (main)"
                 value={location}
                 className="w-full"
                 isRequired
-                items={locations}
-                selectedKeys={[location]}
-                onChange={(e) => setLocation(e.target.value)}
-                popoverProps={{
-                  classNames: {
-                    base: "before:bg-default-200",
-                    content: "p-0 border-small border-divider bg-background",
-                  },
-                }}
+                defaultItems={locations}
+                onInputChange={(e) => setLocation(locationTitleToId[e])}
               >
                 {(location) => (
-                  <SelectItem key={location.id} value={location.id}>
+                  <AutocompleteItem key={location.id} value={location.id}>
                     {location.title}
-                  </SelectItem>
+                  </AutocompleteItem>
                 )}
-              </Select>
-              <Select
+              </Autocomplete>
+              <Autocomplete
                 size="md"
                 label="Industry"
                 className="w-full"
                 isRequired
                 value={industry}
-                items={industries}
-                selectedKeys={[industry]}
-                onChange={(e) => setIndustry(e.target.value)}
+                defaultItems={industries}
+                onInputChange={(e) => setIndustry(industryTitleToId[e])}
               >
                 {(industry) => (
-                  <SelectItem key={industry.id} value={industry.id}>
+                  <AutocompleteItem key={industry.id} value={industry.id}>
                     {industry.title}
-                  </SelectItem>
+                  </AutocompleteItem>
                 )}
-              </Select>
+              </Autocomplete>
             </div>
             <Input
               size="md"
@@ -218,10 +214,14 @@ export default function SubmitJobForm({
               value={url}
               onChange={(e) => setURL(e.target.value)}
               isRequired
+              startContent={
+                <div className="pointer-events-none flex items-center">
+                  <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                    https://
+                  </span>
+                </div>
+              }
             />
-            {url && !isValidURL(url) && (
-              <div className="text-red-500">Please enter a valid URL</div>
-            )}
             <Textarea
               label="Job description summary"
               aria-label="Your summary"
