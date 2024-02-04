@@ -55,10 +55,10 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         <p className="text-center font-mono text-zinc-500 dark:text-zinc-400">
           {date}
         </p>
-        {story.metadata.qna.metadata.qna.map((qna: any) => (
-          <QnABlock story={story} metadata={metadata} qna={qna} />
+        {story.metadata.qna.metadata.qna.map(({ qna, index }: any) => (
+          <QnABlock story={story} metadata={metadata} qna={qna} key={index} />
         ))}
-        <CopyButton url={story.slug} />
+        <CopyButton />
       </div>
     </article>
   );

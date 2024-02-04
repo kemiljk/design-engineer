@@ -10,7 +10,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { WaitlistForm } from "../components/waitlist-form";
 
 const StoriesPage: React.FC = async () => {
-  const stories = await getStories();
+  // const stories = await getStories();
 
   return (
     <section>
@@ -31,11 +31,13 @@ const StoriesPage: React.FC = async () => {
           </CardHeader>
           <CardBody className="mr-auto flex flex-col items-start gap-4 text-zinc-600 dark:text-zinc-300">
             <p>
-              We've got some great people lined up from some of the world's best
-              companies. Stay tuned for when we're ready to start revealing them
-              to you.
+              We&apos;ve got some great people lined up from some of the
+              world&apos;s best companies. Stay tuned for when we&apos;re ready
+              to start revealing them to you.
             </p>
-            <p>Join our waitlist to be the first to know when they're ready.</p>
+            <p>
+              Join our waitlist to be the first to know when they&apos;re ready.
+            </p>
             <WaitlistForm width="full" />
           </CardBody>
         </Card>

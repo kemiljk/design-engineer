@@ -23,11 +23,8 @@ const ResourcesPage: React.FC = async () => {
       <SnapCardContainer>
         {resource.map((item: Type.Resource) => {
           return (
-            <SnapCard>
-              <div
-                key={item.slug}
-                className="mx-auto flex h-full w-full flex-col items-stretch p-4"
-              >
+            <SnapCard key={item.slug}>
+              <div className="mx-auto flex h-full w-full flex-col items-stretch p-4">
                 <div className="flex-1">
                   <SectionTitle>{item.title}</SectionTitle>
                   <p className="mb-4 mt-2 w-full text-zinc-500 dark:text-zinc-400">
@@ -64,8 +61,6 @@ const ResourcesPage: React.FC = async () => {
       </div>
       <SnapCardContainer>
         {posts.map((post: Type.Post) => {
-          const nameParts = post.metadata.author.title.split(" ");
-
           const url = post.metadata.video_url || "";
           const thumbnailUrl = getThumbnail(url);
 
