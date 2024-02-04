@@ -46,7 +46,7 @@ const Jobs = async () => {
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
                   <div className="flex flex-wrap items-center gap-x-1 md:gap-x-2">
-                    <h1 className="text-center text-base leading-snug text-black dark:text-white md:text-lg">
+                    <h1 className="text-start text-base leading-snug text-black dark:text-white md:text-lg">
                       {job.title}
                     </h1>
                     <span className="text-base text-gray-700 dark:text-gray-300">
