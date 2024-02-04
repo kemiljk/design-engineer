@@ -10,7 +10,10 @@ const PostsPage: React.FC = async () => {
 
   return (
     <section>
-      <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
+      <div className="mx-auto mt-4 flex w-full max-w-5xl justify-end md:mt-20">
+        <SubmitArticle />
+      </div>
+      <div className="mt-12 flex w-full max-w-5xl flex-wrap  justify-evenly gap-8">
         {posts.map((post: Type.Post) => {
           const rotationClass = Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
           return (
@@ -24,9 +27,6 @@ const PostsPage: React.FC = async () => {
             />
           );
         })}
-      </div>
-      <div className="mt-8 flex w-full flex-col items-center md:mt-12">
-        <SubmitArticle />
       </div>
     </section>
   );

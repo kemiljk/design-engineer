@@ -16,7 +16,7 @@ const Jobs = async () => {
   const loc: Type.Location[] = await getLocations();
 
   return (
-    <>
+    <section>
       <div className="mt-4 flex w-full max-w-3xl justify-end md:mt-20">
         <SubmitJob
           industries={ind
@@ -36,7 +36,7 @@ const Jobs = async () => {
             <CardHeader className="flex w-full items-center gap-4 text-black dark:text-white">
               {job.metadata.company.metadata?.logo && (
                 <Image
-                  className="h-11 w-11 rounded-full object-cover"
+                  className="h-11 w-11 rounded-full border border-zinc-100 object-cover dark:border-zinc-700"
                   src={job.metadata.company.metadata?.logo.imgix_url ?? ""}
                   width={120}
                   height={120}
@@ -46,13 +46,13 @@ const Jobs = async () => {
               <div className="flex w-full justify-between">
                 <div className="flex flex-col">
                   <div className="flex flex-wrap items-center gap-x-1 md:gap-x-2">
-                    <h1 className="text-center text-base leading-snug text-black md:text-lg dark:text-white">
+                    <h1 className="text-center text-base leading-snug text-black dark:text-white md:text-lg">
                       {job.title}
                     </h1>
                     <span className="text-base text-gray-700 dark:text-gray-300">
                       @
                     </span>
-                    <h2 className="text-base leading-snug text-black md:text-lg dark:text-white">
+                    <h2 className="text-base leading-snug text-black dark:text-white md:text-lg">
                       {job.metadata.company.title}
                     </h2>
                   </div>
@@ -98,7 +98,7 @@ const Jobs = async () => {
                   </p>
                 ))}
               </div>
-              <Markdown className="m-auto line-clamp-3 h-max text-sm">
+              <Markdown className="m-auto line-clamp-3 h-max w-full text-sm">
                 {job.metadata.description}
               </Markdown>
             </CardBody>
@@ -113,7 +113,7 @@ const Jobs = async () => {
           </Card>
         ))}
       </article>
-    </>
+    </section>
   );
 };
 
