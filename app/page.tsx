@@ -1,5 +1,5 @@
 import PageTitle from "./components/page-title";
-import { Form } from "./components/waitlist-form";
+import { WaitlistForm } from "./components/waitlist-form";
 import { BlurShape } from "./components/blur-shape";
 import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
@@ -19,7 +19,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 pt-16 md:px-16 lg:px-24">
+      <div className="mb-20 flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 pt-16 md:px-16 lg:px-24">
         <div className="absolute inset-0 grid place-content-center">
           <BlurShape />
         </div>
@@ -42,7 +42,7 @@ export default async function Home() {
               <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
                 {home.metadata.description}
               </p>
-              <Form />
+              <WaitlistForm width="full" />
             </div>
           </div>
         </div>
@@ -81,36 +81,6 @@ export default async function Home() {
             >
               See all articles
             </Button>
-          </div>
-          <div className="mt-16 flex w-full flex-col items-center md:mt-24">
-            <SectionTitle>Find your community</SectionTitle>
-            <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
-              Chat with hundreds of like-minded folks at Design Technologist
-              Club
-            </p>
-            <DTClubLogo className="mb-4 w-64 text-neutral-950 dark:text-neutral-50" />
-            <div className="flex gap-4">
-              <Button
-                startContent={<SlackIcon className="h-4 w-4" />}
-                as={Link}
-                href="https://designtechnologist.club/slack?ref=designengineer.xyz"
-                color="default"
-                variant="flat"
-                className="w-full gap-2 md:w-max"
-              >
-                Join Slack
-              </Button>
-              <Button
-                as={Link}
-                href="https://designtechnologist.club/book?ref=designengineer.xyz"
-                startContent={<BookAIcon className="h-4 w-4" />}
-                color="default"
-                variant="bordered"
-                className="w-full gap-2 md:w-max"
-              >
-                Read Handbook
-              </Button>
-            </div>
           </div>
         </div>
       </div>

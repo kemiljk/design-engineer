@@ -123,3 +123,61 @@ export type Industry = {
 type IndustryMetadata = {
   colour: string;
 };
+
+export type Story = {
+  id: string;
+  title: string;
+  slug: string;
+  metadata: {
+    is_available: boolean;
+    snippet: string;
+    categories: Category[];
+    qna: {
+      metadata: {
+        qna: {
+          question: string;
+          answer: string;
+        }[];
+      };
+    };
+    design_engineer: {
+      title: string;
+      metadata: {
+        image: {
+          imgix_url: string;
+        };
+        role: string;
+        company: {
+          metadata: { logo: { imgix_url: string } };
+        };
+        twitter: string;
+        website: string;
+      };
+    };
+    published_date: string;
+  };
+};
+
+interface Category {
+  title: string;
+  metadata: {
+    color: string;
+  };
+}
+
+export interface Resource {
+  slug: string;
+  title: string;
+  metadata: Metadata;
+}
+
+interface Metadata {
+  description: string;
+  links: Link[];
+}
+
+interface Link {
+  icon_name: string;
+  text: string;
+  url: string;
+}

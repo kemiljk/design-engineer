@@ -145,3 +145,41 @@ export const getLocations = async (): Promise<Type.Location[]> => {
 
   return locations.objects;
 };
+
+// Stories page
+export const getStories = cache(async (): Promise<Type.Story[]> => {
+  const { objects: story } = await cosmic.objects
+    .find({
+      type: "stories",
+    })
+    .props("id,slug,title,metadata")
+    .depth(1)
+    .sort("order");
+
+  return story;
+});
+
+// Story post
+export const getStory = cache(async (slug: string): Promise<Type.Story> => {
+  const { object: story } = await cosmic.objects
+    .findOne({
+      slug,
+      type: "stories",
+    })
+    .props("id,slug,title,metadata")
+    .depth(2);
+
+  return story;
+});
+
+// Resources page
+export const getResources = cache(async (): Promise<Type.Resource[]> => {
+  const { objects: resources } = await cosmic.objects
+    .find({
+      type: "resources",
+    })
+    .props("slug,title,metadata")
+    .depth(2);
+
+  return resources;
+});

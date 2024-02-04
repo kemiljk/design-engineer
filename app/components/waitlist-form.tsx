@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { Button, Input } from "@nextui-org/react";
 import { Toaster, toast } from "sonner";
 
-export const Form = () => {
+export const WaitlistForm = ({ width }: { width: string }) => {
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -42,10 +42,24 @@ export const Form = () => {
     }, 5000);
   };
 
+  const getWidthClass = (width: string) => {
+    return {
+      sm: "w-40",
+      md: "w-80",
+      lg: "w-96",
+      xl: "w-120",
+      full: "w-full",
+    }[width];
+  };
+
+  const widthClass = getWidthClass(width);
+
   return (
-    <div className="z-2 relative flex w-full max-w-xl flex-col gap-2 text-center">
+    <div
+      className={`z-2 relative flex w-full ${widthClass} flex-col gap-2 text-center`}
+    >
       <form
-        className="flex w-full max-w-xl flex-col items-center justify-center gap-2 md:flex-row"
+        className={`flex w-full ${widthClass} flex-col items-center justify-center gap-2 md:flex-row`}
         onSubmit={submit}
       >
         <Input
