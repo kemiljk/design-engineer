@@ -1,10 +1,8 @@
 import React from "react";
-import { Button } from "@nextui-org/react";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Button, Link } from "@nextui-org/react";
 import { getIndustries, getJobs, getLocations } from "@/lib/cosmic";
 import { Job } from "@/lib/types";
 import Image from "next/image";
-import Link from "next/link";
 import Markdown from "react-markdown";
 import SubmitJob from "../components/submit-job";
 import * as Type from "@/lib/types";
@@ -98,18 +96,20 @@ const Jobs = async () => {
                   </p>
                 ))}
               </div>
-              <Markdown className="m-auto line-clamp-3 h-max w-full text-sm">
+              <Markdown className="line-clamp-3 h-max w-full text-sm">
                 {job.metadata.description}
               </Markdown>
             </CardBody>
-            <Link href={job.metadata.url} target="_blank">
+            <CardFooter>
               <Button
+                as={Link}
+                href={job.metadata.url} target="_blank"
                 endContent={<ArrowUpRight className="size-4 text-current" />}
                 variant="bordered"
               >
                 View Job
               </Button>
-            </Link>
+            </CardFooter>
           </Card>
         ))}
       </article>
