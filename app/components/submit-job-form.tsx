@@ -209,7 +209,7 @@ export default function SubmitJobForm({
             </div>
             <Input
               size="md"
-              type="text"
+              type="url"
               label="Job posting URL"
               value={url}
               onChange={(e) => setURL(e.target.value)}

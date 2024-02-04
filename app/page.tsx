@@ -5,9 +5,8 @@ import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
-import InfoPill from "./components/info-pill";
 import SectionTitle from "./components/section-title";
-import { Button, Link } from "@nextui-org/react";
+import { Button, Link, Chip } from "@nextui-org/react";
 import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
 import DTClubLogo from "./components/dtclub-logo";
 import SubmitArticle from "./components/submit-article";
@@ -27,11 +26,20 @@ export default async function Home() {
         <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
           <div className="grid h-full w-full place-items-center">
             <div className="relative flex flex-col items-center gap-10">
-              <div className="z-1 flex justify-center">
-                <InfoPill>{home.metadata.pill}</InfoPill>
+              <div className="flex justify-center">
+                <Chip
+                  variant="bordered"
+                  color="success"
+                  classNames={{
+                    base: "bg-gradient-to-br from-indigo-100 to-green-100 dark:from-indigo-700 dark:to-green-700 border border-green-400 dark:border-white/50",
+                    content: "text-green-700 dark:text-white",
+                  }}
+                >
+                  {home.metadata.pill}
+                </Chip>
               </div>
               <PageTitle />
-              <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 md:text-2xl lg:max-w-3xl lg:text-3xl dark:text-gray-400">
+              <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
                 {home.metadata.description}
               </p>
               <Form />
@@ -63,16 +71,16 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
-              <Button
-                as={Link}
-                href="/posts"
-                endContent={<ArrowRight className="h-4 w-4" />}
-                color="default"
-                variant="flat"
-                className="w-full md:w-max gap-2"
-              >
-                See all articles
-              </Button>
+            <Button
+              as={Link}
+              href="/posts"
+              endContent={<ArrowRight className="h-4 w-4" />}
+              color="default"
+              variant="flat"
+              className="w-full gap-2 md:w-max"
+            >
+              See all articles
+            </Button>
           </div>
           <div className="mt-16 flex w-full flex-col items-center md:mt-24">
             <SectionTitle>Find your community</SectionTitle>
@@ -82,26 +90,26 @@ export default async function Home() {
             </p>
             <DTClubLogo className="mb-4 w-64 text-neutral-950 dark:text-neutral-50" />
             <div className="flex gap-4">
-                <Button
-                  startContent={<SlackIcon className="h-4 w-4" />}
-                  as={Link}
-                  href="https://designtechnologist.club/slack?ref=designengineer.xyz"
-                  color="default"
-                  variant="flat"
-                  className="w-full md:w-max gap-2"
-                >
-                  Join Slack
-                </Button>
-                <Button
-                  as={Link}
-                  href="https://designtechnologist.club/book?ref=designengineer.xyz"
-                  startContent={<BookAIcon className="h-4 w-4" />}
-                  color="default"
-                  variant="bordered"
-                  className="w-full md:w-max gap-2"
-                >
-                  Read Handbook
-                </Button>
+              <Button
+                startContent={<SlackIcon className="h-4 w-4" />}
+                as={Link}
+                href="https://designtechnologist.club/slack?ref=designengineer.xyz"
+                color="default"
+                variant="flat"
+                className="w-full gap-2 md:w-max"
+              >
+                Join Slack
+              </Button>
+              <Button
+                as={Link}
+                href="https://designtechnologist.club/book?ref=designengineer.xyz"
+                startContent={<BookAIcon className="h-4 w-4" />}
+                color="default"
+                variant="bordered"
+                className="w-full gap-2 md:w-max"
+              >
+                Read Handbook
+              </Button>
             </div>
           </div>
         </div>

@@ -3,12 +3,13 @@ import { Logo } from "./logo";
 import { Link } from "@nextui-org/react";
 import { UserButton, currentUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { ThemeSwitcher } from "./theme-switcher";
 
 const MainNav: React.FC = async () => {
   const user = await currentUser();
 
   return (
-    <nav className="fixed z-[999] w-full bg-white/5 px-4 py-2 backdrop-blur-md md:px-16 lg:px-24 dark:bg-black/5">
+    <nav className="fixed z-[999] w-full bg-white/5 px-4 py-2 backdrop-blur-md dark:bg-black/5 md:px-16 lg:px-24">
       <div
         className={cn(
           "flex h-10 w-full items-center justify-center",
@@ -21,6 +22,9 @@ const MainNav: React.FC = async () => {
         <>
           <div className="flex-1" />
           <ul className="flex items-center gap-4 text-sm">
+            <li className="hidden w-28 md:block">
+              <ThemeSwitcher />
+            </li>
             <li>
               <Link isBlock color="foreground" href="/about">
                 About
