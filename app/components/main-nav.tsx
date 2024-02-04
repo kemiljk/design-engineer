@@ -22,9 +22,6 @@ const MainNav: React.FC = async () => {
         <>
           <div className="flex-1" />
           <ul className="flex items-center gap-4 text-sm">
-            <li className="hidden w-28 md:block">
-              <ThemeSwitcher />
-            </li>
             <li>
               <Link isBlock color="foreground" href="/about">
                 About
@@ -60,6 +57,9 @@ const MainNav: React.FC = async () => {
                 />
               </>
             )}
+            <li className="hidden w-28 md:block">
+              <ThemeSwitcher />
+            </li>
           </ul>
         </>
       </div>
