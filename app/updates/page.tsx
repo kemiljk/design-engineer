@@ -24,6 +24,12 @@ const Updates = async () => {
     console.log(error);
   }
 
+  emails.sort(
+    (a, b) =>
+      new Date(b.data.created_at).getTime() -
+      new Date(a.data.created_at).getTime(),
+  );
+
   return (
     <section>
       <article className="mx-auto mt-8 flex w-full max-w-5xl flex-col gap-20 text-foreground md:flex-row">
