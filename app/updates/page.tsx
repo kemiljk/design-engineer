@@ -41,6 +41,7 @@ const Updates = async () => {
               </Chip>
             </div>
             <div
+              className="!text-current"
               dangerouslySetInnerHTML={{ __html: email?.data?.html ?? "" }}
             />
           </>
