@@ -41,7 +41,7 @@ const Updates = async () => {
               </Chip>
             </div>
             <div
-              className="!text-zinc-950 dark:!text-zinc-50"
+              className="prose dark:prose-invert prose-zinc"
               dangerouslySetInnerHTML={{ __html: email?.data?.html ?? "" }}
             />
           </>
