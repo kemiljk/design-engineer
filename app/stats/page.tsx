@@ -22,7 +22,7 @@ export default async function Stats() {
     <main>
       <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
         <div className="flex flex-col items-center gap-10">
-          <div className="mt-8 flex w-full flex-col items-center md:mt-0">
+          <div className="flex w-full flex-col items-center md:mt-0">
             <SectionTitle>The latest stats</SectionTitle>
             <p className="text-zinc-500 dark:text-zinc-400">
               Our current data from Waitlist signups

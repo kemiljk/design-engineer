@@ -28,6 +28,11 @@ const MainNav: React.FC = async () => {
     },
     {
       index: 4,
+      title: "Jobs",
+      href: "/jobs",
+    },
+    {
+      index: 5,
       title: "Resources",
       href: "/resources",
     },
