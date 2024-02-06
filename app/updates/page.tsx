@@ -30,7 +30,7 @@ const Updates = async () => {
       new Date(a.data.created_at).getTime(),
   );
 
- return (
+  return (
     <section>
       <article className="mx-auto mt-8 flex w-full max-w-5xl flex-col gap-20 text-foreground md:flex-row">
         {emails.map((email, index) => (
@@ -46,7 +46,7 @@ const Updates = async () => {
                 <div
                   dangerouslySetInnerHTML={{
                     __html: email.data.html.replace(
-                      /style="color:#?(000000|067df7);?"/g,
+                      /style="color:#?([0-9a-fA-F]+);?"/g,
                       ''
                     ).replace(
                       /\[([^[]*?)\]\(https:\/\/x\.com\/dxe_xyz\/status\/(\d+)\?s=20\)/g,
