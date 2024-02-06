@@ -40,11 +40,17 @@ const Updates = async () => {
                 {new Date(email?.data?.created_at).toLocaleString() ?? ""}
               </Chip>
             </div>
-            <div
-              className="prose dark:prose-invert prose-zinc"
-              dangerouslySetInnerHTML={{ __html: email?.data?.html
-              .replace(/color:\s*(rgb\(\s*0\s*,\s*0\s*,\s*0\s*\)|#000000);?/gi, '')
-              .replace(/\[(.*?)\]\(https:\/\/x\.com\/dxe_xyz\/status\/(\d+)\?s=20\)/g, '<a href="https://x.com/dxe_xyz/status/$2?s=20">$1</a>'), ?? "" }}
+            {email?.data?.html && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: email.data.html.replace(
+                      /style="color:#?(000000|067df7);?"/g,
+                      ''
+                    ).replace(
+                      /\[(.*?)\]\(https:\/\/x\.com\/dxe_xyz\/status\/(\d+)\?s=20\)/g,
+                      '<a href="https://x.com/dxe_xyz/status/$2?s=20">$1</a>'
+                    ),
+                  }} 
             />
           </>
         ))}
