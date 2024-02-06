@@ -49,8 +49,8 @@ const Updates = async () => {
                       /style="color:#?([0-9a-fA-F]+);?"/g,
                       ''
                     ).replace(
-                      /\[([^[]*?)\]\(https:\/\/x\.com\/dxe_xyz\/status\/(\d+)\?s=20\)/g,
-                      '<a href="https://x.com/dxe_xyz/status/$2?s=20">$1</a>'
+                      /<a href="\[(.*?)\]\((.*?)\)" style="color:#067df7;text-decoration:none" target="_blank"><img src="(.*?)" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" \/><\/a>/g,
+                      '<a href="$2"><img src="$3" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" /></a>'
                     ),
                   }}
                 />
