@@ -42,7 +42,7 @@ const Updates = async () => {
             </div>
             <div
               className="prose dark:prose-invert prose-zinc"
-              dangerouslySetInnerHTML={{ __html: email?.data?.html.replace(/color: *rgb\(0 *, *0 *, *0 *\)|color: *#000000/g, '') ?? "" }}
+              dangerouslySetInnerHTML={{ __html: email?.data?.html.replace(/color: *rgb\(0 *, *0 *, *0 *\)|color: *#000000/g, '').replace(/\[([^[]+)\]\((https:\/\/x\.com\/dxe_xyz\/status\/\d+\?s=20)\)/g, '<a href="$2">$1</a>') ?? "" }}
             />
           </>
         ))}
