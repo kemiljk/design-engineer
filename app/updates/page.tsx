@@ -51,7 +51,7 @@ const Updates = async () => {
                     ).replace(
                       /<a href="\[(.*?)\]\((.*?)\)" style="color:#067df7;text-decoration:none" target="_blank"><img src="(.*?)" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" \/><\/a>/g,
                       '<a href="$2"><img src="$3" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" /></a>'
-                    ),
+                    ).replace('vide', 'via'),
                   }}
                 />
               )}
