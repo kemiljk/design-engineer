@@ -1,10 +1,7 @@
 import React from "react";
-import { currentUser } from "@clerk/nextjs";
 import Nav from "./nav";
 
 const MainNav: React.FC = async () => {
-  const user = await currentUser();
-
   const links = [
     {
       index: 0,
@@ -51,7 +48,7 @@ const MainNav: React.FC = async () => {
     },
   ];
 
-  return <Nav links={links} protectedLinks={protectedLinks} user={user} />;
+  return <Nav links={links} protectedLinks={protectedLinks} />;
 };
 
 export default MainNav;

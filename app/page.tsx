@@ -7,15 +7,20 @@ import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
 import SectionTitle from "./components/section-title";
 import { Button, Link, Chip } from "@nextui-org/react";
-import { ArrowRight, BookAIcon, SlackIcon } from "lucide-react";
-import DTClubLogo from "./components/dtclub-logo";
+import { ArrowRight } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
+import SubmitJob from "./components/submit-job";
+import { getIndustries, getJobs, getLocations } from "@/lib/cosmic";
+import JobCard from "./components/job-card";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const home = await getHome();
   const posts = await getPosts();
+  const jobs = await getJobs();
+  const ind: Type.Industry[] = await getIndustries();
+  const loc: Type.Location[] = await getLocations();
 
   return (
     <main>
@@ -46,14 +51,62 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-8">
           <div className="mt-8 flex w-full flex-col items-center md:mt-0">
             <SectionTitle>While you wait</SectionTitle>
-            <p className="text-zinc-500 dark:text-zinc-400">
-              Some articles from Design Engineers
-            </p>
           </div>
-          <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
+          <div className="flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
+            <h3 className="flex justify-start text-center text-2xl font-medium text-zinc-700 dark:text-zinc-200">
+              The latest jobs for Design Engineers
+            </h3>
+            <Button
+              as={Link}
+              href="/jobs"
+              endContent={<ArrowRight className="h-4 w-4" />}
+              color="default"
+              variant="flat"
+              className="w-full gap-2 md:w-max"
+            >
+              See all jobs
+            </Button>
+          </div>
+          <div className="mt-4 grid w-full grid-cols-1 justify-evenly gap-8 lg:grid-cols-2">
+            {jobs.slice(0, 4).map((job: Type.Job) => (
+              <JobCard job={job} key={job.id} />
+            ))}
+          </div>
+          <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
+            <SubmitJob
+              industries={ind
+                .sort((a, b) => a.title.localeCompare(b.title))
+                .map((industry) => ({
+                  id: industry.id,
+                  title: industry.title,
+                }))}
+              locations={loc
+                .sort((a, b) => a.title.localeCompare(b.title))
+                .map((location) => ({
+                  id: location.id,
+                  title: location.title,
+                }))}
+            />
+          </div>
+          <div className="mt-8 flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
+            <h3 className="flex justify-start text-center text-2xl font-medium text-zinc-700 dark:text-zinc-200">
+              Some articles from Design Engineers
+            </h3>
+            <Button
+              as={Link}
+              href="/posts"
+              endContent={<ArrowRight className="h-4 w-4" />}
+              color="default"
+              variant="flat"
+              className="w-full gap-2 md:w-max"
+            >
+              See all articles
+            </Button>
+          </div>
+          <div className="mt-4 flex w-full flex-wrap justify-evenly gap-8">
             {posts.slice(0, 4).map((post: Type.Post) => {
               const rotationClass =
                 Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
@@ -71,16 +124,6 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
-            <Button
-              as={Link}
-              href="/posts"
-              endContent={<ArrowRight className="h-4 w-4" />}
-              color="default"
-              variant="flat"
-              className="w-full gap-2 md:w-max"
-            >
-              See all articles
-            </Button>
           </div>
         </div>
       </div>

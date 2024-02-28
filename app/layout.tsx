@@ -85,8 +85,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
+    <html lang="en">
+      <ClerkProvider>
         <body
           className={`${serif.variable} ${mono.variable} ${sans.variable} overflow-x-hidden font-sans antialiased`}
         >
@@ -97,7 +97,7 @@ export default function RootLayout({
             </Providers>
           </PlausibleProvider>
         </body>
-      </html>
-    </ClerkProvider>
+      </ClerkProvider>
+    </html>
   );
 }

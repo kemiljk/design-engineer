@@ -12,18 +12,16 @@ import {
   NavbarMenu,
 } from "@nextui-org/react";
 import { Logo } from "./logo";
-import { UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import { ThemeSwitcher } from "./theme-switcher";
 import { usePathname } from "next/navigation";
 
 export default function Nav({
   links,
   protectedLinks,
-  user,
 }: {
   links: { index: number; title: string; href: string }[];
   protectedLinks: { index: number; title: string; href: string }[];
-  user: any;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -54,7 +52,7 @@ export default function Nav({
             </Link>
           </NavbarItem>
         ))}
-        {user && (
+        <SignedIn>
           <>
             {protectedLinks.map((item, index) => (
               <NavbarItem
@@ -81,7 +79,7 @@ export default function Nav({
               afterSignOutUrl="/"
             />
           </>
-        )}
+        </SignedIn>
         <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
@@ -102,7 +100,7 @@ export default function Nav({
             </Link>
           </NavbarMenuItem>
         ))}
-        {user && (
+        <SignedIn>
           <>
             {protectedLinks.map((item, index) => (
               <NavbarMenuItem
@@ -129,7 +127,7 @@ export default function Nav({
               afterSignOutUrl="/"
             />
           </>
-        )}
+        </SignedIn>
         <NavbarMenuItem>
           <ThemeSwitcher />
         </NavbarMenuItem>

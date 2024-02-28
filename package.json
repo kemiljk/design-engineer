@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,css,scss}\""
   },
   "dependencies": {
-    "@clerk/nextjs": "latest",
+    "@clerk/nextjs": "^4.29.7",
     "@cosmicjs/sdk": "latest",
     "@liveblocks/client": "latest",
     "@liveblocks/react": "latest",
