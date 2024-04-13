@@ -17,16 +17,7 @@ const jobTitles = [
 
 function SpecBuilderFunction() {
   const { completion, input, setInput, handleInputChange, handleSubmit } =
-    useCompletion(); // OPENAI PARAMS
-
-  // const {
-  //   messages,
-  //   input,
-  //   setMessages,
-  //   setInput,
-  //   handleInputChange,
-  //   handleSubmit,
-  // } = useChat(); // CLAUDE PARAMS
+    useCompletion();
 
   return (
     <div className="mx-auto max-w-3xl p-4">
@@ -58,7 +49,6 @@ function SpecBuilderFunction() {
           Generate Job Spec
         </Button>
       </form>
-      {/* OPENAI */}
       {completion && (
         <div className="mt-12 max-w-3xl rounded-md">
           <div className="flex w-full justify-between">
@@ -68,7 +58,7 @@ function SpecBuilderFunction() {
                 isIconOnly
                 size="sm"
                 variant="ghost"
-                startContent={<CopyIcon />}
+                startContent={<CopyIcon size={16} />}
                 onClick={() => {
                   navigator.clipboard.writeText(completion);
                 }}

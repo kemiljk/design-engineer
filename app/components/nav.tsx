@@ -13,7 +13,7 @@ import {
 } from "@nextui-org/react";
 import { Logo } from "./logo";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import { ThemeSwitcher } from "./theme-switcher";
+// import { ThemeSwitcher } from "./theme-switcher";
 import { usePathname } from "next/navigation";
 
 export default function Nav({
@@ -80,9 +80,9 @@ export default function Nav({
             />
           </>
         </SignedIn>
-        <NavbarItem>
+        {/* <NavbarItem>
           <ThemeSwitcher />
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
       <NavbarMenu>
         {links.map((item, index) => (
@@ -128,9 +128,9 @@ export default function Nav({
             />
           </>
         </SignedIn>
-        <NavbarMenuItem>
+        {/* <NavbarMenuItem>
           <ThemeSwitcher />
-        </NavbarMenuItem>
+        </NavbarMenuItem> */}
       </NavbarMenu>
     </Navbar>
   );

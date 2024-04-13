@@ -56,7 +56,7 @@ const ResourcesPage: React.FC = async () => {
       <div className="mx-auto mt-8 text-center">
         <SectionTitle>External Posts</SectionTitle>
         <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
-          The latest posts from our contributors
+          The latest posts from our community
         </p>
       </div>
       <SnapCardContainer>
