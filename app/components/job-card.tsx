@@ -11,6 +11,7 @@ import React from "react";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";
 import Image from "next/image";
+import { format } from "date-fns";
 
 const JobCard = ({ job }: { job: Type.Job }) => {
   return (
@@ -52,6 +53,14 @@ const JobCard = ({ job }: { job: Type.Job }) => {
                   )}
                 </React.Fragment>
               ))}
+              {job.metadata.posted && (
+                <>
+                  <span className="text-sm">•</span>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    {format(new Date(job.metadata.posted), "do MMMM yyyy")}
+                  </p>
+                </>
+              )}
             </div>
           </div>
           <div className="hidden items-center gap-4 md:flex">

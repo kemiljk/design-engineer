@@ -87,6 +87,7 @@ export type Job = {
     industry: Industry[];
     description: string;
     url: string;
+    posted: string;
   };
 };
 
