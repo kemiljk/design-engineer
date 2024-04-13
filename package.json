@@ -17,7 +17,7 @@
     "@liveblocks/react": "latest",
     "@liveblocks/react-comments": "latest",
     "@nextui-org/react": "^2.2.10",
-    "@ai": "latest",
+    "ai": "latest",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.0.0",
