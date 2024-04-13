@@ -1,11 +1,11 @@
 "use client";
 
 import SectionTitle from "@/app/components/section-title";
-import { Button, Input, Textarea } from "@nextui-org/react";
-import { useCompletion, useChat } from "ai/react";
+import { Button, Textarea } from "@nextui-org/react";
+import { useCompletion } from "ai/react";
 import Markdown from "react-markdown";
 import { Chip } from "@nextui-org/react";
-import { CopyIcon, RefreshCcw } from "lucide-react";
+import { CopyIcon } from "lucide-react";
 
 const jobTitles = [
   "Design Engineer",
