@@ -63,7 +63,7 @@ export const WaitlistForm = ({ width }: { width: string }) => {
         onSubmit={submit}
       >
         <Input
-          size="md"
+          size="lg"
           type="email"
           variant="bordered"
           radius="lg"
