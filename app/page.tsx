@@ -93,7 +93,7 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
             <h3 className="flex justify-start text-center text-2xl font-medium text-zinc-700 dark:text-zinc-200">
-              Some articles from Design Engineers
+              Some content about Design Engineering
             </h3>
             <Button
               as={Link}
