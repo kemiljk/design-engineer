@@ -72,7 +72,7 @@ export function ContentCard({
           {(post.metadata.image || thumbnailUrl) && (
             <Image
               alt="Article image"
-              className="aspect-content border-y border-neutral-50 object-cover dark:border-neutral-800"
+              className="aspect-video border-y border-neutral-50 object-cover dark:border-neutral-800"
               height={100}
               width={500}
               src={
