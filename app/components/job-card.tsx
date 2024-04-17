@@ -42,7 +42,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
                 {job.metadata.company.title}
               </h2>
             </div>
-            <div className="flex w-max items-center gap-2 font-medium tracking-normal">
+            <div className="flex flex-wrap w-max items-center gap-2 font-medium tracking-normal">
               {job.metadata.location.map((location, index) => (
                 <React.Fragment key={location.id}>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
