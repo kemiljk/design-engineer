@@ -22,7 +22,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
       <CardHeader className="flex w-full items-center gap-4 text-black dark:text-white">
         {job.metadata.company.metadata?.logo && (
           <Image
-            className="h-11 w-11 rounded-full border border-zinc-100 object-cover dark:border-zinc-700"
+            className="h-11 w-11 rounded-md border border-zinc-100 object-cover p-1 dark:border-zinc-700"
             src={job.metadata.company.metadata?.logo.imgix_url ?? ""}
             width={120}
             height={120}
@@ -42,7 +42,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
                 {job.metadata.company.title}
               </h2>
             </div>
-            <div className="flex flex-wrap w-max items-center gap-2 font-medium tracking-normal">
+            <div className="flex w-max flex-wrap items-center gap-2 font-medium tracking-normal">
               {job.metadata.location.map((location, index) => (
                 <React.Fragment key={location.id}>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
