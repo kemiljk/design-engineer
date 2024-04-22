@@ -131,6 +131,7 @@ export type Story = {
   slug: string;
   metadata: {
     is_available: boolean;
+    is_pending: boolean;
     snippet: string;
     video_url?: string;
     categories: Category[];

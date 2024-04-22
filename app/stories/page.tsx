@@ -10,7 +10,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { WaitlistForm } from "../components/waitlist-form";
 
 const StoriesPage: React.FC = async () => {
-  // const stories = await getStories();
+  const stories = await getStories();
 
   return (
     <section>
@@ -25,25 +25,9 @@ const StoriesPage: React.FC = async () => {
         </div>
       </div>
       <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
-        <Card className="max-w-3xl -rotate-2" shadow="sm">
-          <CardHeader>
-            <h2 className="text-xl font-semibold">Coming soon...</h2>
-          </CardHeader>
-          <CardBody className="mr-auto flex flex-col items-start gap-4 text-zinc-600 dark:text-zinc-300">
-            <p>
-              We&apos;ve got some great people lined up from some of the
-              world&apos;s best companies. Stay tuned for when we&apos;re ready
-              to start revealing them to you.
-            </p>
-            <p>
-              Join our waitlist to be the first to know when they&apos;re ready.
-            </p>
-            <WaitlistForm width="full" />
-          </CardBody>
-        </Card>
-        {/* {stories.map((story: Type.Story) => {
+        {stories.map((story: Type.Story) => {
           const rotationClass = Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
-          return (
+          return stories.some((s) => s.metadata.is_pending) ? (
             <StoryCard
               key={story.id}
               story={story}
@@ -52,8 +36,26 @@ const StoriesPage: React.FC = async () => {
                 "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
               )}
             />
+          ) : (
+            <Card className="max-w-3xl -rotate-2" shadow="sm">
+              <CardHeader>
+                <h2 className="text-xl font-semibold">Coming soon...</h2>
+              </CardHeader>
+              <CardBody className="mr-auto flex flex-col items-start gap-4 text-zinc-600 dark:text-zinc-300">
+                <p>
+                  We&apos;ve got some great people lined up from some of the
+                  world&apos;s best companies. Stay tuned for when we&apos;re
+                  ready to start revealing them to you.
+                </p>
+                <p>
+                  Join our waitlist to be the first to know when they&apos;re
+                  ready.
+                </p>
+                <WaitlistForm width="full" />
+              </CardBody>
+            </Card>
           );
-        })} */}
+        })}
       </div>
       <ConsoleFun />
     </section>
