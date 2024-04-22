@@ -19,13 +19,11 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
     },
   );
 
-  // Calculate the total word count of all Q&A blocks
   const totalWords = story.metadata.qna.metadata.qna.reduce((count, qna) => {
     const words = qna.content.split(" ").length;
     return count + words;
   }, 0);
 
-  // Estimate the reading time based on an average reading speed of 200 words per minute
   const readingTime = Math.ceil(totalWords / 200);
 
   return (
@@ -67,7 +65,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         </p>
         {story.metadata.video_url && (
           <video
-            className="w-full rounded-xl border-8 border-foreground-100"
+            className="w-full rounded-xl border-8 border-foreground-100 ring-1 ring-foreground-200"
             controls
           >
             <source src={story.metadata.video_url} type="video/mp4" />
@@ -78,7 +76,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
             {story.metadata.summary}
           </Markdown>
         </article>
-        <div className="mt-6 flex w-full items-center gap-2 text-foreground">
+        <div className="mt-6 flex w-full items-center gap-2 text-foreground-500">
           <InfoIcon className="h-6 w-6 text-primary-500 dark:text-primary-400" />
           <p>This transcript has been partially edited for brevity.</p>
         </div>

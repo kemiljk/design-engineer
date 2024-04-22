@@ -2,11 +2,12 @@ import type { Viewport } from "next";
 import { Lora, JetBrains_Mono, Manrope } from "next/font/google";
 import PlausibleProvider from "next-plausible";
 import { ClerkProvider } from "@clerk/nextjs";
-import { getConfig } from "@/lib/cosmic";
+import { getBanner, getConfig } from "@/lib/cosmic";
 import "./globals.css";
 import MainNav from "./components/main-nav";
 import Presence from "./components/presence";
 import { Providers } from "./providers";
+import Banner from "./components/banner";
 
 const serif = Lora({
   subsets: ["latin"],
@@ -79,11 +80,13 @@ export async function generateMetadata() {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const banner = await getBanner();
+
   return (
     <html lang="en">
       <ClerkProvider>
@@ -92,6 +95,14 @@ export default function RootLayout({
         >
           <PlausibleProvider domain="designengineer.xyz">
             <Providers>
+              {banner.metadata.is_active && (
+                <Banner
+                  link={banner.metadata.link}
+                  button_label={banner.metadata.button_label}
+                  message={banner.metadata.message}
+                  modified_at={banner.modified_at}
+                />
+              )}
               <MainNav />
               <Presence>{children}</Presence>
             </Providers>
