@@ -28,7 +28,7 @@ const PostsPage = async ({
   return (
     <section>
       <div className="mx-auto mt-4 flex w-full max-w-5xl justify-end md:mt-20">
-        <div className="flex w-full gap-2">
+        <div className="flex flex-col md:flex-row w-full gap-2">
           <Search initialSearchTerm={searchTerm} page="posts" />
           <SubmitArticle />
         </div>
