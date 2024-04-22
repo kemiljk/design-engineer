@@ -1,13 +1,14 @@
 import React from "react";
-import { getConfig, getStory } from "@/lib/cosmic";
+import { getStory } from "@/lib/cosmic";
 import { Avatar, Link } from "@nextui-org/react";
 import { StoryTitle } from "@/app/components/story-title";
-import { QnABlock } from "@/app/components/qna-block";
+import { QnABlock } from "@/app/stories/[slug]/qna-block";
 import CopyButton from "@/app/components/copy-button";
+import Markdown from "react-markdown";
+import { InfoIcon } from "lucide-react";
 
 const StoryPage = async ({ params }: { params: { slug: string } }) => {
   const story = await getStory(params.slug);
-  const { metadata } = await getConfig();
 
   const date = new Date(story.metadata.published_date).toLocaleDateString(
     "en-gb",
@@ -28,7 +29,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         <StoryTitle story={story} />
         <div className="flex items-center justify-center gap-4">
           <Avatar
-            className="h-10 w-10 border border-zinc-100 dark:border-zinc-800"
+            className="h-10 w-10 border border-zinc-100 bg-white dark:border-zinc-800"
             src={
               story.metadata.design_engineer.metadata.company.metadata.logo
                 .imgix_url
@@ -55,8 +56,25 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         <p className="text-center font-mono text-zinc-500 dark:text-zinc-400">
           {date}
         </p>
-        {story.metadata.qna.metadata.qna.map(({ qna, index }: any) => (
-          <QnABlock story={story} metadata={metadata} qna={qna} key={index} />
+        {story.metadata.video_url && (
+          <video
+            className="w-full rounded-xl border-8 border-foreground-100"
+            controls
+          >
+            <source src={story.metadata.video_url} type="video/mp4" />
+          </video>
+        )}
+        <article className="w-full rounded-2xl bg-primary-50 p-4">
+          <Markdown className="prose font-sans text-sm text-primary-700 dark:prose-invert">
+            {story.metadata.summary}
+          </Markdown>
+        </article>
+        <div className="mt-6 flex w-full items-center gap-2 text-foreground">
+          <InfoIcon className="h-6 w-6 text-primary-500 dark:text-primary-400" />
+          <p>This transcript has been partially edited for brevity.</p>
+        </div>
+        {story.metadata.qna.metadata.qna.map((qna) => (
+          <QnABlock key={story.metadata.qna.id} qna={qna} />
         ))}
         <CopyButton />
       </div>

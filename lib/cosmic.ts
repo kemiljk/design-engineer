@@ -167,7 +167,7 @@ export const getStory = cache(async (slug: string): Promise<Type.Story> => {
       type: "stories",
     })
     .props("id,slug,title,metadata")
-    .depth(2);
+    .depth(3);
 
   return story;
 });

@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 export default function CopyButton() {
   const timerRef = React.useRef(0);
   const pathname = usePathname();
-  const path = `${window.location.origin}${pathname}`;
+  const path = `${typeof window !== "undefined" ? window.location.origin : ""}${pathname}`;
 
   React.useEffect(() => {
     const timer = timerRef.current;

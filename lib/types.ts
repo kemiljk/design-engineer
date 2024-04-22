@@ -132,12 +132,15 @@ export type Story = {
   metadata: {
     is_available: boolean;
     snippet: string;
+    video_url?: string;
     categories: Category[];
+    summary: string;
     qna: {
+      id: string;
       metadata: {
         qna: {
-          question: string;
-          answer: string;
+          person: Person;
+          content: string;
         }[];
       };
     };
@@ -158,6 +161,15 @@ export type Story = {
     published_date: string;
   };
 };
+
+interface Person {
+  title: string;
+  metadata: {
+    image: {
+      imgix_url: string;
+    };
+  };
+}
 
 interface Category {
   title: string;

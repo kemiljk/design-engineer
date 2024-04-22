@@ -2,6 +2,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import * as Type from "@/lib/types";
+import { useMediaQuery } from "usehooks-ts";
 
 function throttle<F extends (...args: any[]) => void>(
   func: F,
@@ -27,13 +28,10 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
     }
   };
 
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    ) || window.innerWidth < 768;
+  const isMobile = useMediaQuery("(max-width: 640px)");
 
   useLayoutEffect(() => {
-    const debouncedHandleScroll = throttle(checkStickiness, 10); // Adjust debounce time as needed
+    const debouncedHandleScroll = throttle(checkStickiness, 10);
     window.addEventListener("scroll", debouncedHandleScroll);
     return () => {
       window.removeEventListener("scroll", debouncedHandleScroll);
