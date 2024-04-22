@@ -92,7 +92,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
             </p>
           ))}
         </div>
-        <Markdown className="line-clamp-3 h-max w-full mt-2 lg:mt-0 text-sm">
+        <Markdown className="mt-4 line-clamp-3 h-max w-full text-sm lg:mt-0">
           {job.metadata.description}
         </Markdown>
       </CardBody>
