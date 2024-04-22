@@ -17,7 +17,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
   return (
     <Card
       key={job.id}
-      className="mx-auto flex w-full flex-col items-start justify-center gap-4 p-4"
+      className="mx-auto flex w-full flex-col items-start justify-center p-2"
     >
       <CardHeader className="flex w-full items-center gap-4 text-black dark:text-white">
         {job.metadata.company.metadata?.logo && (
@@ -79,7 +79,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
         </div>
       </CardHeader>
       <CardBody className="text-gray-800 dark:text-gray-200">
-        <div className="mb-4 flex items-center gap-4 md:hidden">
+        <div className="flex items-center md:hidden">
           {job.metadata.industry.map((industry) => (
             <p
               key={industry.id}
