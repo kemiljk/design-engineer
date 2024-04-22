@@ -32,7 +32,7 @@ const Jobs = async ({
     <section>
       <div className="mt-4 flex w-full max-w-3xl justify-end md:mt-20">
         <div className="flex w-full gap-2">
-          <Search initialSearchTerm={searchTerm} />
+          <Search initialSearchTerm={searchTerm} page="jobs" />
           <SubmitJob
             industries={ind
               .sort((a, b) => a.title.localeCompare(b.title))

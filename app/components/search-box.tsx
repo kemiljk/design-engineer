@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation";
 
 interface SearchProps {
   initialSearchTerm: string;
+  page: string;
 }
 
-function Search({ initialSearchTerm }: SearchProps) {
+function Search({ initialSearchTerm, page }: SearchProps) {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const router = useRouter();
 
@@ -24,7 +25,7 @@ function Search({ initialSearchTerm }: SearchProps) {
   return (
     <Input
       type="text"
-      placeholder="Search jobs..."
+      placeholder={`Search ${page}...`}
       value={searchTerm}
       onChange={handleSearch}
     />
