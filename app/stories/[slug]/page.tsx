@@ -19,6 +19,15 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
     },
   );
 
+  // Calculate the total word count of all Q&A blocks
+  const totalWords = story.metadata.qna.metadata.qna.reduce((count, qna) => {
+    const words = qna.content.split(" ").length;
+    return count + words;
+  }, 0);
+
+  // Estimate the reading time based on an average reading speed of 200 words per minute
+  const readingTime = Math.ceil(totalWords / 200);
+
   return (
     <article className="mx-auto w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
       <div className="flex flex-col items-center gap-2 md:gap-4">
@@ -54,7 +63,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
           </Link>
         </div>
         <p className="text-center font-mono text-zinc-500 dark:text-zinc-400">
-          {date}
+          {date} · {readingTime} minute read
         </p>
         {story.metadata.video_url && (
           <video
