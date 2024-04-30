@@ -5,7 +5,8 @@ import { Button, Textarea } from "@nextui-org/react";
 import { useCompletion } from "ai/react";
 import Markdown from "react-markdown";
 import { Chip } from "@nextui-org/react";
-import { CopyIcon } from "lucide-react";
+import { CopyIcon, Loader2Icon } from "lucide-react";
+import { useRef, useEffect } from "react";
 
 const jobTitles = [
   "Design Engineer",
@@ -16,13 +17,41 @@ const jobTitles = [
 ];
 
 function SpecBuilderFunction() {
-  const { completion, input, setInput, handleInputChange, handleSubmit } =
-    useCompletion();
+  const {
+    completion,
+    input,
+    setInput,
+    stop,
+    isLoading,
+    handleInputChange,
+    handleSubmit,
+  } = useCompletion();
+
+  const completionRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (completionRef.current) {
+      completionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [completion]);
+
+  const saveFormData = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const promptObject = { type: "spec-builder-prompts", title: input };
+
+    await fetch("/api/insert-prompt", {
+      method: "POST",
+      body: JSON.stringify({ prompt: promptObject }),
+    });
+  };
 
   return (
     <div className="mx-auto max-w-3xl p-4">
       <form
         onSubmit={handleSubmit}
+        onSubmitCapture={saveFormData}
         className="mx-auto flex flex-col justify-center space-y-4"
       >
         <div className="flex flex-wrap space-x-2">
@@ -45,27 +74,49 @@ function SpecBuilderFunction() {
           value={input}
           onChange={handleInputChange}
         />
-        <Button type="submit" color="primary" className="mx-auto w-max">
-          Generate Job Spec
-        </Button>
+        <div className="mx-auto flex items-center gap-x-2">
+          <Button
+            type="submit"
+            color="primary"
+            disabled={isLoading}
+            className="mx-auto w-max disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
+            startContent={
+              isLoading ? (
+                <Loader2Icon
+                  size={16}
+                  className={isLoading ? "animate-spin" : ""}
+                />
+              ) : null
+            }
+          >
+            {isLoading ? "Generating..." : "Generate Job Spec"}
+          </Button>
+          <Button
+            color="default"
+            disabled={!isLoading}
+            className="mx-auto w-max disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
+            onClick={stop}
+          >
+            Stop
+          </Button>
+        </div>
       </form>
       {completion && (
-        <div className="mt-12 max-w-3xl rounded-md">
-          <div className="flex w-full justify-between">
+        <div ref={completionRef} className="relative mt-12 max-w-3xl">
+          <div className="sticky right-0 top-16 flex w-full justify-between bg-background px-4 py-2">
             <SectionTitle>Generated Job Spec</SectionTitle>
-            <div className="flex gap-2">
-              <Button
-                isIconOnly
-                size="sm"
-                variant="ghost"
-                startContent={<CopyIcon size={16} />}
-                onClick={() => {
-                  navigator.clipboard.writeText(completion);
-                }}
-              />
-            </div>
+            <Button
+              isIconOnly
+              size="sm"
+              variant="ghost"
+              startContent={<CopyIcon size={16} />}
+              className="sticky right-0 top-40"
+              onClick={() => {
+                navigator.clipboard.writeText(completion);
+              }}
+            />
           </div>
-          <Markdown className="prose mt-4 space-x-4 text-black dark:prose-invert dark:text-white">
+          <Markdown className="prose mt-4 space-x-4 px-4 text-foreground dark:prose-invert ">
             {completion}
           </Markdown>
         </div>

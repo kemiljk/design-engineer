@@ -88,7 +88,7 @@ const ResourcesPage: React.FC = async () => {
                     />
                   )}
                   <div className="p-4">
-                    <h3 className="line-clamp-2 text-xl font-medium text-black dark:text-white">
+                    <h3 className="line-clamp-2 text-xl font-medium text-foreground ">
                       {post.title}
                     </h3>
                     <p className="mb-4 mt-2 line-clamp-3 w-full text-zinc-500 dark:text-zinc-400">

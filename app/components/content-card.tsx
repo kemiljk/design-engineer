@@ -4,6 +4,7 @@ import * as Type from "@/lib/types";
 import { getThumbnail } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import Markdown from "react-markdown";
 
 export function ContentCard({
   post,
@@ -31,7 +32,7 @@ export function ContentCard({
           : `/posts/${post.slug}`
       }
       className={className}
-      target="_blank"
+      target={post.metadata.is_external_link ? "_blank" : "_self"}
     >
       <Card
         key={post.id}
@@ -90,9 +91,9 @@ export function ContentCard({
           )}
           <h2 className="px-4 text-lg font-bold leading-tight">{post.title}</h2>
           <CardFooter className="w-full text-sm text-gray-600 dark:text-gray-400">
-            <p className="line-clamp-3">
-              {post.metadata.content.slice(0, 200)}...
-            </p>
+            <Markdown className="line-clamp-3">
+              {post.metadata.content.slice(0, 200) + "..."}
+            </Markdown>
           </CardFooter>
         </CardBody>
       </Card>

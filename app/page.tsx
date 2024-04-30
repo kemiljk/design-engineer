@@ -37,7 +37,7 @@ export default async function Home() {
                   color="success"
                   classNames={{
                     base: "bg-gradient-to-br from-indigo-100 to-green-100 dark:from-indigo-700 dark:to-green-700 border border-green-400 dark:border-white/50",
-                    content: "text-green-700 dark:text-white",
+                    content: "text-green-700 ",
                   }}
                 >
                   {home.metadata.pill}

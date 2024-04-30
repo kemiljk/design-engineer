@@ -19,7 +19,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
       key={job.id}
       className="mx-auto flex w-full flex-col items-start justify-center p-2"
     >
-      <CardHeader className="flex w-full items-center gap-4 text-black dark:text-white">
+      <CardHeader className="flex w-full items-center gap-4 text-foreground ">
         {job.metadata.company.metadata?.logo && (
           <Image
             className="h-11 w-11 rounded-md border border-zinc-100 object-cover p-1 dark:border-zinc-700"
@@ -32,13 +32,13 @@ const JobCard = ({ job }: { job: Type.Job }) => {
         <div className="flex w-full justify-between">
           <div className="flex flex-col">
             <div className="flex flex-wrap items-center gap-x-1 md:gap-x-2">
-              <h1 className="text-start text-base leading-snug text-black dark:text-white md:text-lg">
+              <h1 className="text-start text-base leading-snug text-foreground  md:text-lg">
                 {job.title}
               </h1>
               <span className="text-base text-gray-700 dark:text-gray-300">
                 @
               </span>
-              <h2 className="text-base leading-snug text-black dark:text-white md:text-lg">
+              <h2 className="text-base leading-snug text-foreground  md:text-lg">
                 {job.metadata.company.title}
               </h2>
             </div>
@@ -70,7 +70,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
                 style={{
                   backgroundColor: `${industry.metadata.colour}55`,
                 }}
-                className="rounded-full px-2 py-1 text-center text-xs text-black dark:text-white"
+                className="rounded-full px-2 py-1 text-center text-xs text-foreground "
               >
                 {industry.title}
               </p>
@@ -86,7 +86,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
               style={{
                 backgroundColor: `${industry.metadata.colour}55`,
               }}
-              className="rounded-full px-2 py-1 text-center text-xs text-black dark:text-white"
+              className="rounded-full px-2 py-1 text-center text-xs text-foreground "
             >
               {industry.title}
             </p>

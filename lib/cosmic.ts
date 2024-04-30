@@ -65,6 +65,23 @@ export const getPosts = cache(async (): Promise<Type.Post[]> => {
   return posts;
 });
 
+// Blog post
+export const getPost = cache(
+  async ({ params }: { params: { slug: string } }): Promise<Type.Post> => {
+    const post = await Promise.resolve(
+      cosmic.objects
+        .findOne({
+          type: "content-posts",
+          slug: params.slug,
+        })
+        .props("id,slug,title,metadata,created_at,modified_at")
+        .depth(2),
+    );
+
+    return post.object;
+  },
+);
+
 // Stats page
 export const getStats = async (): Promise<Type.Stats> => {
   const stats = await Promise.resolve(

@@ -78,7 +78,7 @@ export const WaitlistForm = ({ width }: { width: string }) => {
               "dark:bg-black/10",
               "backdrop-blur-xl",
               "backdrop-saturate-200",
-              "text-black/90 dark:text-white/90",
+              "text-foreground/90 /90",
               "placeholder:text-default-700/50 dark:placeholder:text-white/60",
               "border-blue-500/20 dark:border-blue-300/50",
             ],

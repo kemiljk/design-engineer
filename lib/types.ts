@@ -20,6 +20,8 @@ export type Post = {
   id: string;
   title: string;
   slug: string;
+  created_at: string;
+  modified_at: string;
   metadata: {
     image: {
       imgix_url: string;
