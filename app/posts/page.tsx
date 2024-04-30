@@ -21,7 +21,7 @@ const PostsPage = async ({
     [
       post.title,
       post.metadata.author.title,
-      post.metadata.categories.map((cat) => cat.title),
+      ...post.metadata.categories.map((cat) => cat.title),
       post.metadata.content,
     ].some((value) =>
       value.toString().toLowerCase().includes(searchTerm.toLowerCase()),
