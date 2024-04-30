@@ -12,9 +12,12 @@ const PostsPage = async ({
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
   const searchTerm = (searchParams.search as string) || "";
-  const posts = await getPosts();
+  const fetchPosts = await getPosts();
+  const posts = fetchPosts.filter(
+    (post) => post.metadata.is_external_link === false,
+  );
 
-  const filteredPosts = posts.filter((post) =>
+  const filteredPosts = posts.filter((post: Type.Post) =>
     [
       post.title,
       post.metadata.author.title,
@@ -28,7 +31,7 @@ const PostsPage = async ({
   return (
     <section>
       <div className="mx-auto mt-4 flex w-full max-w-5xl justify-end md:mt-20">
-        <div className="flex flex-col md:flex-row w-full gap-2">
+        <div className="flex w-full flex-col gap-2 md:flex-row">
           <Search initialSearchTerm={searchTerm} page="posts" />
           <SubmitArticle />
         </div>

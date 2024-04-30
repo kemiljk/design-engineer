@@ -12,7 +12,10 @@ import { getThumbnail } from "@/lib/utils";
 
 const ResourcesPage: React.FC = async () => {
   const resource = await getResources();
-  const posts = await getPosts();
+  const fetchPosts = await getPosts();
+  const posts = fetchPosts.filter(
+    (post: Type.Post) => post.metadata.is_external_link === true,
+  );
 
   return (
     <div className="mx-auto mb-16 flex h-full w-full max-w-5xl flex-col items-center px-4 md:px-0">
