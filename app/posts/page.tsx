@@ -34,13 +34,13 @@ const PostsPage = async ({
 
   return (
     <section>
-      <div className="mx-auto mt-4 flex w-full max-w-5xl justify-end md:mt-20">
+      <div className="mx-auto mt-4 flex w-full max-w-3xl justify-end md:mt-20">
         <div className="flex w-full flex-col gap-2 md:flex-row">
           <Search initialSearchTerm={searchTerm} page="posts" />
           <SubmitArticle />
         </div>
       </div>
-      <div className="mt-12 grid w-full max-w-5xl grid-cols-1 justify-evenly  gap-8 md:grid-cols-2">
+      <div className="mt-12 grid w-full max-w-3xl grid-cols-1 justify-evenly  gap-8 md:grid-cols-2">
         {filteredPosts.map((post: Type.Post) => {
           return <ContentCard key={post.id} post={post} />;
         })}

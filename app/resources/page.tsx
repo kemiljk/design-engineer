@@ -18,7 +18,7 @@ const ResourcesPage: React.FC = async () => {
   );
 
   return (
-    <div className="mx-auto mb-16 flex h-full w-full max-w-5xl flex-col items-center px-4 md:px-0">
+    <div className="mx-auto mb-16 flex h-full w-full max-w-3xl flex-col items-center px-4 md:px-0">
       <SectionTitle>Resources</SectionTitle>
       <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
         A collection of resources for Design Engineers

@@ -20,7 +20,7 @@ export default async function Stats() {
   });
   return (
     <main>
-      <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
+      <div className="mx-auto w-full py-4 md:p-16 lg:max-w-3xl lg:p-24">
         <div className="flex flex-col items-center gap-10">
           <div className="flex w-full flex-col items-center md:mt-0">
             <SectionTitle>The latest stats</SectionTitle>

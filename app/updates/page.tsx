@@ -32,7 +32,7 @@ const Updates = async () => {
 
   return (
     <section>
-      <article className="mx-auto mt-8 flex w-full max-w-5xl flex-col gap-20 text-foreground md:flex-row">
+      <article className="mx-auto mt-8 flex w-full max-w-3xl flex-col gap-20 text-foreground md:flex-row">
         {emails.map((email, index) => (
           <div key={index}>
             <div className="text-sm text-zinc-700 dark:text-zinc-300 md:border-r md:border-zinc-200 md:pr-4 md:dark:border-zinc-700">
@@ -40,18 +40,18 @@ const Updates = async () => {
                 {new Date(email?.data?.created_at).toLocaleString() ?? ""}
               </Chip>
             </div>
-            <div className="prose dark:prose-invert prose-zinc">
+            <div className="prose prose-zinc dark:prose-invert">
               {/* Remove specified colors and fix broken link */}
               {email?.data?.html && (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: email.data.html.replace(
-                      /style="color:#?([0-9a-fA-F]+);?"/g,
-                      ''
-                    ).replace(
-                      /<a href="\[(.*?)\]\((.*?)\)" style="color:#067df7;text-decoration:none" target="_blank"><img src="(.*?)" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" \/><\/a>/g,
-                      '<a href="$2"><img src="$3" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" /></a>'
-                    ).replace(/\bvide\b/g, 'via'),
+                    __html: email.data.html
+                      .replace(/style="color:#?([0-9a-fA-F]+);?"/g, "")
+                      .replace(
+                        /<a href="\[(.*?)\]\((.*?)\)" style="color:#067df7;text-decoration:none" target="_blank"><img src="(.*?)" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" \/><\/a>/g,
+                        '<a href="$2"><img src="$3" style="display:block;outline:none;border:none;text-decoration:none;border-radius:8px" width="100%" /></a>',
+                      )
+                      .replace(/\bvide\b/g, "via"),
                   }}
                 />
               )}
