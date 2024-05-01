@@ -1,10 +1,15 @@
+import { ScrollShadow } from "@nextui-org/scroll-shadow";
 import React from "react";
 
 const SnapCardContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex h-fit w-full snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden">
+    <ScrollShadow
+      hideScrollBar
+      orientation="horizontal"
+      className="flex h-fit w-full snap-x snap-mandatory gap-4"
+    >
       {children}
-    </div>
+    </ScrollShadow>
   );
 };
 
