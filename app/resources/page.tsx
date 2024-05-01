@@ -29,8 +29,10 @@ const ResourcesPage: React.FC = async () => {
             <SnapCard key={item.slug}>
               <div className="mx-auto flex h-full w-full flex-col items-stretch p-4">
                 <div className="flex-1">
-                  <SectionTitle>{item.title}</SectionTitle>
-                  <p className="mb-4 mt-2 w-full text-zinc-500 dark:text-zinc-400">
+                  <h2 className="text-2xl font-bold leading-tight text-foreground">
+                    {item.title}
+                  </h2>
+                  <p className="mb-4 mt-4 w-full leading-relaxed text-zinc-500 dark:text-zinc-400">
                     {item.metadata.description}
                   </p>
                 </div>
