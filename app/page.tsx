@@ -36,8 +36,8 @@ export default async function Home() {
                   variant="bordered"
                   color="success"
                   classNames={{
-                    base: "bg-gradient-to-br from-indigo-100 to-green-100 dark:from-indigo-700 dark:to-green-700 border border-green-400 dark:border-white/50",
-                    content: "text-green-700 ",
+                    base: "bg-gradient-to-br from-primary-100 to-success-100 border border-success-400",
+                    content: "text-success-700",
                   }}
                 >
                   {home.metadata.pill}
@@ -116,7 +116,7 @@ export default async function Home() {
                   post={post}
                   className={cn(
                     rotationClass,
-                    "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
+                    "max-w-xs transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
                   )}
                 />
               );
