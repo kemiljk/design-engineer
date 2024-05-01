@@ -1,8 +1,7 @@
 import React from "react";
 import * as Type from "@/lib/types";
-import { getPosts } from "@/lib/cosmic";
+import { getFirstPartyPosts } from "@/lib/cosmic";
 import { ContentCard } from "../components/content-card";
-import { cn } from "@/lib/utils";
 import SubmitArticle from "../components/submit-article";
 import Search from "../components/search-box";
 
@@ -12,10 +11,15 @@ const PostsPage = async ({
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
   const searchTerm = (searchParams.search as string) || "";
-  const fetchPosts = await getPosts();
-  const posts = fetchPosts.filter(
-    (post) => post.metadata.is_external_link === false,
-  );
+  const fetchPosts = await getFirstPartyPosts();
+  const posts = fetchPosts
+    .filter((post) => post.metadata.is_external_link === false)
+    .sort((a, b) => {
+      return (
+        new Date(b.metadata.published_date).getTime() -
+        new Date(a.metadata.published_date).getTime()
+      );
+    });
 
   const filteredPosts = posts.filter((post: Type.Post) =>
     [
@@ -36,19 +40,9 @@ const PostsPage = async ({
           <SubmitArticle />
         </div>
       </div>
-      <div className="mt-12 flex w-full max-w-5xl flex-wrap  justify-evenly gap-8">
+      <div className="mt-12 grid w-full max-w-5xl grid-cols-1 justify-evenly  gap-8 md:grid-cols-2">
         {filteredPosts.map((post: Type.Post) => {
-          const rotationClass = Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
-          return (
-            <ContentCard
-              key={post.id}
-              post={post}
-              className={cn(
-                rotationClass,
-                "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
-              )}
-            />
-          );
+          return <ContentCard key={post.id} post={post} />;
         })}
       </div>
     </section>
