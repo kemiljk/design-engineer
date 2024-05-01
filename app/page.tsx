@@ -95,16 +95,26 @@ export default async function Home() {
             <h3 className="flex justify-start text-center text-2xl font-medium text-zinc-700 dark:text-zinc-200">
               Some content about Design Engineering
             </h3>
-            <Button
-              as={Link}
-              href="/posts"
-              endContent={<ArrowRight className="h-4 w-4" />}
-              color="default"
-              variant="flat"
-              className="w-full gap-2 md:w-max"
-            >
-              See all articles
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button
+                as={Link}
+                href="/resources"
+                endContent={<ArrowRight className="h-4 w-4" />}
+                variant="light"
+                className="w-full gap-2 md:w-max"
+              >
+                See all resources
+              </Button>
+              <Button
+                as={Link}
+                href="/posts"
+                endContent={<ArrowRight className="h-4 w-4" />}
+                variant="flat"
+                className="w-full gap-2 md:w-max"
+              >
+                See all articles
+              </Button>
+            </div>
           </div>
           <div className="mt-4 flex w-full flex-wrap justify-evenly gap-8">
             {posts.slice(0, 4).map((post: Type.Post) => {
