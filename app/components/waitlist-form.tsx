@@ -65,22 +65,21 @@ export const WaitlistForm = ({ width }: { width: string }) => {
         <Input
           size="lg"
           type="email"
-          variant="bordered"
+          variant="flat"
           radius="lg"
           isRequired
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full md:w-80"
+          className="w-full focus:bg-background/40 md:w-80"
           classNames={{
             inputWrapper: [
-              "bg-white/30",
-              "dark:bg-black/10",
+              "bg-background/30",
               "backdrop-blur-xl",
               "backdrop-saturate-200",
-              "text-foreground/90 /90",
+              "text-foreground-900",
               "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              "border-blue-500/20 dark:border-blue-300/50",
+              "border border-primary-200",
             ],
           }}
         />
