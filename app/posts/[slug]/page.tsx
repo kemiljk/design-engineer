@@ -99,7 +99,7 @@ export default async function Post({
             <div className="mb-8 flex w-full items-center justify-between">
               <Button
                 as={Link}
-                variant="ghost"
+                variant="light"
                 href="/posts"
                 startContent={
                   <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
