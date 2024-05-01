@@ -3,9 +3,13 @@
 import { RoomProvider } from "../../liveblocks.config";
 import PresenceProvider from "./presence-provider";
 
-export default function Presence({ children }: { children: React.ReactNode }) {
-  const roomId = "live-cursors";
-
+export default function Presence({
+  children,
+  roomId,
+}: {
+  children: React.ReactNode;
+  roomId: string;
+}) {
   return (
     <RoomProvider
       id={roomId}

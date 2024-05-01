@@ -5,7 +5,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { getBanner, getConfig } from "@/lib/cosmic";
 import "./globals.css";
 import MainNav from "./components/main-nav";
-import Presence from "./components/presence";
 import { Providers } from "./providers";
 import Banner from "./components/banner";
 
@@ -104,7 +103,7 @@ export default async function RootLayout({
                 />
               )}
               <MainNav />
-              <Presence>{children}</Presence>
+              {children}
             </Providers>
           </PlausibleProvider>
         </body>
