@@ -1,6 +1,7 @@
 import React from "react";
 import { getStory } from "@/lib/cosmic";
-import { Avatar, Link } from "@nextui-org/react";
+import { Avatar } from "@nextui-org/avatar";
+import { Link } from "@nextui-org/link";
 import { StoryTitle } from "@/app/components/story-title";
 import { QnABlock } from "@/app/stories/[slug]/qna-block";
 import CopyButton from "@/app/components/copy-button";
@@ -27,7 +28,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
   const readingTime = Math.ceil(totalWords / 200);
 
   return (
-    <article className="mx-auto w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
+    <article className="mx-auto h-full w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
       <div className="flex flex-col items-center gap-2 md:gap-4">
         <Avatar
           className="h-40 w-40"

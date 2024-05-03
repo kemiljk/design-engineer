@@ -1,10 +1,11 @@
 "use client";
 
 import SectionTitle from "@/app/components/section-title";
-import { Button, Textarea } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Textarea } from "@nextui-org/input";
+import { Chip } from "@nextui-org/chip";
 import { useCompletion } from "ai/react";
 import Markdown from "react-markdown";
-import { Chip } from "@nextui-org/react";
 import { CopyIcon, Loader2Icon } from "lucide-react";
 import { useRef, useEffect } from "react";
 

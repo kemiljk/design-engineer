@@ -1,7 +1,7 @@
 import React from "react";
 import { Resend } from "resend";
 import { cosmic } from "@/lib/cosmic";
-import { Chip } from "@nextui-org/react";
+import { Chip } from "@nextui-org/chip";
 
 interface EmailProps {
   title: string;

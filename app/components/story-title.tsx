@@ -38,18 +38,29 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
   }, []);
 
   return (
-    <div key={story.id} className="sticky top-2 z-[9999999] h-full" ref={ref}>
-      <motion.h1
-        className={`flex flex-col items-start text-5xl tracking-tight text-foreground`}
+    <div
+      key={story.id}
+      className="sticky top-12 z-[9999999999] w-fit"
+      ref={ref}
+    >
+      <motion.div
+        className={`inline-block ${isSticky && "rounded-3xl bg-background/50 px-6 py-4 shadow-2xl backdrop-blur-md"}`}
         animate={{
           scale: isSticky ? 0.5 : 1,
-          fontWeight: isSticky ? 600 : 800,
-          x: isSticky && !isMobile ? -230 : 0,
+          width: "fit-content",
+          x: isSticky && !isMobile ? 230 : 0,
         }}
-        transition={{ duration: 0.2 }}
       >
-        {story.title}
-      </motion.h1>
+        <motion.h1
+          className={`inline-block text-5xl tracking-tight text-foreground`}
+          animate={{
+            fontWeight: isSticky ? 600 : 800,
+          }}
+          transition={{ duration: 0.2 }}
+        >
+          {story.title}
+        </motion.h1>
+      </motion.div>
     </div>
   );
 };

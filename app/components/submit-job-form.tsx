@@ -1,8 +1,7 @@
 import React from "react";
-import { Button } from "@nextui-org/react";
-import { Input } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/react";
-import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Input, Textarea } from "@nextui-org/input";
+import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { cosmic } from "@/lib/cosmic";
 
 export default function SubmitJobForm({

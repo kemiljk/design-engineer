@@ -1,7 +1,6 @@
 import React from "react";
-import { Button } from "@nextui-org/react";
-import { Input } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Input, Textarea } from "@nextui-org/input";
 
 export default function SubmitForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);

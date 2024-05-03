@@ -2,6 +2,7 @@
 
 import { RoomProvider } from "../../liveblocks.config";
 import PresenceProvider from "./presence-provider";
+import { ClientSideSuspense } from "@liveblocks/react";
 
 export default function Presence({
   children,
@@ -17,7 +18,9 @@ export default function Presence({
         cursor: null,
       }}
     >
-      <PresenceProvider>{children}</PresenceProvider>
+      <ClientSideSuspense fallback={"Loading..."}>
+        {() => <PresenceProvider>{children}</PresenceProvider>}
+      </ClientSideSuspense>
     </RoomProvider>
   );
 }

@@ -7,10 +7,10 @@ import {
   NavbarMenuToggle,
   NavbarContent,
   NavbarItem,
-  Link,
   NavbarMenuItem,
   NavbarMenu,
-} from "@nextui-org/react";
+} from "@nextui-org/navbar";
+import { Link } from "@nextui-org/link";
 import { Logo } from "./logo";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
@@ -37,7 +37,10 @@ export default function Nav({
         />
       </NavbarContent>
 
-      <NavbarContent className="hidden gap-4 sm:flex" justify="center">
+      <NavbarContent
+        className="z-[9999999999] hidden gap-4 sm:flex"
+        justify="center"
+      >
         {links.map((item, index) => (
           <NavbarItem
             key={`${item}-${index}`}

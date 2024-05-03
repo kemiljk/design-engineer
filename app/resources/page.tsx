@@ -1,7 +1,7 @@
 import React from "react";
 import * as Icons from "lucide-react";
 import SectionTitle from "../components/section-title";
-import { Button } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { getPosts, getResources } from "@/lib/cosmic";
 import SnapCard from "../components/snap-card";

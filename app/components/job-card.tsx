@@ -1,13 +1,8 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Button,
-  Link,
-} from "@nextui-org/react";
-import { ArrowUpRight } from "lucide-react";
 import React from "react";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
+import { ArrowUpRight } from "lucide-react";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";
 import Image from "next/image";

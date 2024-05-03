@@ -1,8 +1,8 @@
-import { Avatar } from "@nextui-org/react";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
+import { Avatar } from "@nextui-org/avatar";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import * as Type from "@/lib/types";
 import { getThumbnail } from "@/lib/utils";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
@@ -75,15 +75,10 @@ export function ContentCard({
               className="aspect-video border-y border-neutral-50 object-cover dark:border-neutral-800"
               height={100}
               width={500}
+              radius="none"
               src={
                 post.metadata.image
                   ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
-                  : thumbnailUrl
-              }
-              placeholder="blur"
-              blurDataURL={
-                post.metadata.image
-                  ? `${post.metadata.image.imgix_url}?w=20&auto=format,compression`
                   : thumbnailUrl
               }
             />

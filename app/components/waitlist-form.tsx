@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Input } from "@nextui-org/input";
 import { Toaster, toast } from "sonner";
 
 export const WaitlistForm = ({ width }: { width: string }) => {

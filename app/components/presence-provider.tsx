@@ -1,3 +1,5 @@
+"use client";
+
 import { useOthers, useMyPresence } from "@/liveblocks.config";
 import Cursor from "../components/cursor";
 
@@ -54,8 +56,6 @@ function PresenceProvider({ children }: { children: React.ReactNode }) {
           return (
             <Cursor
               key={`cursor-${connectionId}`}
-              // connectionId is an integer that is incremented at every new connections
-              // Assigning a color with a modulo makes sure that a specific user has the same colors on every clients
               color={COLORS[connectionId % COLORS.length]}
               x={presence.cursor.x}
               y={presence.cursor.y}

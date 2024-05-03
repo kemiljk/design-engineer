@@ -5,9 +5,9 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@nextui-org/modal";
+import { Button } from "@nextui-org/button";
 import SubmitForm from "./submit-form";
 
 export default function SubmitArticle() {

@@ -5,9 +5,9 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@nextui-org/modal";
+import { Button } from "@nextui-org/button";
 import SubmitJobForm from "./submit-job-form";
 
 export default function SubmitJob({

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import ConsoleFun from "../components/consol-fun";
 import { StoryCard } from "../components/story-card";
 import SectionTitle from "../components/section-title";
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { WaitlistForm } from "../components/waitlist-form";
 
 const StoriesPage: React.FC = async () => {
