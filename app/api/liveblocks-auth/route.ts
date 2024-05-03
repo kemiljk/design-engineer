@@ -17,13 +17,14 @@ export async function POST() {
 
   // Get the current user's unique id from your database
   const user = await currentUser();
-
+  
   // Create a session for the current user (access token auth)
-  const session = liveblocks.prepareSession(user?.id || "", {
+  const session = liveblocks.prepareSession(user ? user?.id : "anonymous", {
     userInfo: {
-      name: user?.firstName || "Anonymous",
+      name: user ? user?.firstName : "Anonymous",
     },
   });
+}
 
   // Use a naming pattern to allow access to rooms with a wildcard
   session.allow(`*`, session.FULL_ACCESS);
