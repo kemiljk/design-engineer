@@ -40,7 +40,7 @@ export const BlurShape = () => {
   };
 
   return (
-    <div className="relative grid h-[300px] w-[300px] place-items-center opacity-20 blur-xl md:h-[500px] md:w-[500px] lg:h-[750px] lg:w-[750px] lg:blur-3xl">
+    <div className="relative grid h-[300px] w-[300px] scale-150 place-items-center opacity-20 blur-xl md:h-[500px] md:w-[500px] lg:h-[750px] lg:w-[750px] lg:blur-3xl">
       <div className="relative h-full w-full">
         <motion.div
           {...animation1}

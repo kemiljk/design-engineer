@@ -18,7 +18,7 @@ export default function Presence({
         cursor: null,
       }}
     >
-      <ClientSideSuspense fallback={"Loading..."}>
+      <ClientSideSuspense fallback={<></>}>
         {() => <PresenceProvider>{children}</PresenceProvider>}
       </ClientSideSuspense>
     </RoomProvider>
