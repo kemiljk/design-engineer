@@ -24,14 +24,6 @@ export function Toolbar({
     "initial",
   );
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const [initialMouseCoords, setInitialMouseCoords] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
-  const [finalMouseCoords, setFinalMouseCoords] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
 
   const reset = useCallback(() => {
     setState("initial");
