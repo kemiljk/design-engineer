@@ -8,6 +8,7 @@ import avatarStyles from "./CommentsCanvas.module.css";
 import { Button } from "@nextui-org/button";
 import { EyeIcon, EyeOffIcon, MessageCirclePlusIcon } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
+import { getRandomGradient } from "@/lib/utils";
 
 export function Toolbar({
   areThreadsVisible,
@@ -44,6 +45,8 @@ export function Toolbar({
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [state, reset]);
+
+  const gradientStyle = getRandomGradient();
 
   return (
     <div>
@@ -114,11 +117,8 @@ export function Toolbar({
             className={styles.composerWrapper}
             style={{ transform: `translate(${coords.x}px, ${coords.y}px)` }}
           >
-            <div
-              className={`${avatarStyles.avatar} bg-primary`}
-              style={{ cursor: "default" }}
-            >
-              {creator ? (
+            <div className={`${avatarStyles.avatar}`} style={gradientStyle}>
+              {creator && creator.user?.imageUrl ? (
                 <img
                   src={creator.user?.imageUrl}
                   alt={creator.user?.firstName ?? ""}

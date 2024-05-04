@@ -22,12 +22,12 @@ import {
 } from "@dnd-kit/core";
 import styles from "./CommentsCanvas.module.css";
 import { Toolbar } from "./toolbar";
+import { getRandomGradient } from "@/lib/utils";
 
 export function CommentsCanvas({ children }: { children: React.ReactNode }) {
   const { threads } = useThreads();
   const maxZIndex = useMaxZIndex();
   const [areThreadsVisible, setAreThreadsVisible] = useState(true);
-
   const editThreadMetadata = useEditThreadMetadata();
 
   // Allow click event on avatar if thread moved less than 3px
@@ -88,6 +88,7 @@ function DraggableThread({ thread }: { thread: ThreadData<ThreadMetadata> }) {
     return Number(new Date()) - Number(new Date(thread.createdAt)) <= 100;
   }, [thread]);
   const [open, setOpen] = useState(startOpen);
+  const gradientStyle = getRandomGradient();
 
   // Enable drag
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
@@ -111,10 +112,11 @@ function DraggableThread({ thread }: { thread: ThreadData<ThreadMetadata> }) {
     >
       <div {...listeners} {...attributes}>
         <div
-          className={`${styles.avatar} bg-primary`}
+          className={`${styles.avatar}`}
+          style={gradientStyle}
           onClick={() => setOpen(!open)}
         >
-          {creator ? (
+          {creator && creator.avatar ? (
             <img
               src={creator.avatar}
               alt={creator.name}

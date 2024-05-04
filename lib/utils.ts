@@ -20,3 +20,23 @@ export function getThumbnail(youtubeUrl: string) {
 
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
+
+// Define an array of colors for the gradient
+const colors = [
+  "#10b981",
+  "#3b82f6",
+  "#14b8a6",
+  "#84cc16",
+  "#0ea5e9",
+  "#06b6d4",
+];
+
+// Function to generate a random gradient
+export const getRandomGradient = () => {
+  const color1 = colors[Math.floor(Math.random() * colors.length)];
+  const color2 = colors[Math.floor(Math.random() * colors.length)];
+  return {
+    backgroundImage: `linear-gradient(to bottom right, ${color1}, ${color2})`,
+    cursor: "default",
+  };
+};
