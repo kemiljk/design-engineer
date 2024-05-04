@@ -15,6 +15,7 @@ const jobTitles = [
   "Design Technologist",
   "UI Engineer",
   "UX Engineer",
+  "Product Engineer",
 ];
 
 function SpecBuilderFunction() {
@@ -55,7 +56,7 @@ function SpecBuilderFunction() {
         onSubmitCapture={saveFormData}
         className="mx-auto flex flex-col justify-center space-y-4"
       >
-        <div className="flex flex-wrap space-x-2">
+        <div className="flex flex-wrap gap-2">
           {jobTitles.map((title) => (
             <Chip
               key={title}
@@ -105,7 +106,7 @@ function SpecBuilderFunction() {
       </form>
       {completion && (
         <div ref={completionRef} className="relative mt-12 max-w-3xl">
-          <div className="sticky right-0 top-16 flex w-full justify-between bg-background px-4 py-2">
+          <div className="sticky right-0 top-16 flex w-full justify-between bg-foreground-50/50 px-4 py-2 backdrop-blur-md">
             <SectionTitle>Generated Job Spec</SectionTitle>
             <Button
               isIconOnly
