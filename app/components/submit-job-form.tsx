@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@nextui-org/button";
+import { StyledButton as Button } from "@/app/components/styled-button";
 import { Input, Textarea } from "@nextui-org/input";
 import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { cosmic } from "@/lib/cosmic";
@@ -230,6 +230,7 @@ export default function SubmitJobForm({
             />
             <Button
               color="primary"
+              variant="stylised"
               type="submit"
               name="Submit message"
               aria-label="Submit message"

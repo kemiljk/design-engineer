@@ -7,7 +7,7 @@ import {
   ModalBody,
   useDisclosure,
 } from "@nextui-org/modal";
-import { Button } from "@nextui-org/button";
+import { StyledButton as Button } from "@/app/components/styled-button";
 import SubmitJobForm from "./submit-job-form";
 
 export default function SubmitJob({
@@ -23,7 +23,7 @@ export default function SubmitJob({
     <>
       <Button
         color="primary"
-        variant="solid"
+        variant="stylised"
         className="w-full md:w-max"
         name="Work with Me Button"
         onPress={onOpen}

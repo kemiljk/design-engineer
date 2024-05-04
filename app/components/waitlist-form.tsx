@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Button } from "@nextui-org/button";
+// import { Button } from "@nextui-org/button";
+import { StyledButton as Button } from "./styled-button";
 import { Input } from "@nextui-org/input";
 import { Toaster, toast } from "sonner";
 
@@ -90,7 +91,7 @@ export const WaitlistForm = ({ width }: { width: string }) => {
           type="submit"
           size="lg"
           color="primary"
-          variant="solid"
+          variant="stylised"
           isDisabled={submitting}
           isLoading={submitting}
           className="w-full md:w-max"

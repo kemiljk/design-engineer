@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@nextui-org/button";
+import { StyledButton as Button } from "@/app/components/styled-button";
 import { Input, Textarea } from "@nextui-org/input";
 
 export default function SubmitForm() {
@@ -110,6 +110,7 @@ export default function SubmitForm() {
             />
             <Button
               color="primary"
+              variant="stylised"
               type="submit"
               name="Submit message"
               className="mx-auto disabled:opacity-50 md:w-max"

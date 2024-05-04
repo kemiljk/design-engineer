@@ -1,7 +1,7 @@
 "use client";
 
 import SectionTitle from "@/app/components/section-title";
-import { Button } from "@nextui-org/button";
+import { StyledButton as Button } from "@/app/components/styled-button";
 import { Textarea } from "@nextui-org/input";
 import { Chip } from "@nextui-org/chip";
 import { useCompletion } from "ai/react";
@@ -79,6 +79,7 @@ function SpecBuilderFunction() {
           <Button
             type="submit"
             color="primary"
+            variant="stylised"
             disabled={isLoading}
             className="mx-auto w-max disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
             startContent={
