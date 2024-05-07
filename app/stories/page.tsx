@@ -39,7 +39,9 @@ const StoriesPage: React.FC = async () => {
           ) : (
             <Card className="max-w-3xl -rotate-2" shadow="sm">
               <CardHeader>
-                <h2 className="text-xl font-semibold">Coming soon...</h2>
+                <h2 className="font-display text-xl font-semibold">
+                  Coming soon...
+                </h2>
               </CardHeader>
               <CardBody className="mr-auto flex flex-col items-start gap-4 text-zinc-600 dark:text-zinc-300">
                 <p>

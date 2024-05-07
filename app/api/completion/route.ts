@@ -5,7 +5,7 @@ export const runtime = "edge";
 
 // Create Anthropic API client
 const anthropic = new Anthropic({
-  apiKey: process.env.CLAUDE_API_KEY || "",
+  apiKey: process.env.ANTHROPIC_API_KEY as string,
 });
 
 export const dynamic = "force-dynamic";

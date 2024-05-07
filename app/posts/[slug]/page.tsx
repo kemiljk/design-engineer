@@ -123,7 +123,7 @@ export default async function Post({
                   ))}
                 </div>
               )}
-              <h1 className="text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
+              <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
                 {post.title}
               </h1>
               <div className="mb-8 mt-4 flex w-full flex-col items-center justify-between gap-x-1 md:flex-row">

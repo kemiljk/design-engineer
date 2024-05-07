@@ -1,8 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import { Input, Textarea } from "@nextui-org/input";
+import { Input } from "@nextui-org/input";
 import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { cosmic } from "@/lib/cosmic";
+import { useUser } from "@clerk/nextjs";
+import { Divider } from "@nextui-org/react";
+import SpecBuilderFunction from "../jobs/spec-builder/spec-builder";
 
 export default function SubmitJobForm({
   industries,
@@ -19,12 +24,24 @@ export default function SubmitJobForm({
   const [title, setTitle] = React.useState("");
   const [company, setCompany] = React.useState("");
   const [url, setURL] = React.useState("");
+  const [contactEmail, setContactEmail] = React.useState("");
   const [summary, setSummary] = React.useState("");
   const [location, setLocation] = React.useState("");
   const [industry, setIndustry] = React.useState("");
+  const [locationTitle, setLocationTitle] = React.useState("");
+  const [industryTitle, setIndustryTitle] = React.useState("");
 
   const handleFocus = () => setFormFocus(true);
   const handleBlur = () => setFormFocus(false);
+
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      setName(user?.fullName || "");
+      setEmail(user?.primaryEmailAddress?.emailAddress || "");
+    }
+  }, [user]);
 
   const locationTitleToId = locations.reduce((acc, location) => {
     acc[location.title] = location.id;
@@ -89,6 +106,7 @@ export default function SubmitJobForm({
           location: location,
           description: summary,
           url: `https://${url}`,
+          contact_email: contactEmail,
         },
       };
       await fetch("/api/job-submission", {
@@ -116,10 +134,11 @@ export default function SubmitJobForm({
         setEmail("");
         setTitle("");
         setCompany("");
+        setSummary("");
         setLocation("");
         setIndustry("");
         setURL("");
-        setSummary("");
+        setContactEmail("");
       }, 2000);
     } catch (error) {
       console.log(error);
@@ -129,120 +148,140 @@ export default function SubmitJobForm({
   };
 
   return (
-    <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
-      <div className="mb-3 flex flex-col gap-3">
-        {isSubmitted ? (
-          <div>Submitted!</div>
-        ) : (
-          <>
-            <Input
-              size="md"
-              autoFocus
-              type="name"
-              label="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              isRequired
-            />
-            <Input
-              size="md"
-              type="email"
-              label="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              isRequired
-            />
-            <hr />
-            <p className="text-sm font-bold text-gray-700 dark:text-gray-300">
-              Job Details
-            </p>
-            <div className="flex w-full flex-col items-center gap-4 md:flex-row">
+    <>
+      <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
+        <div className="relative mb-3 flex flex-col gap-4">
+          {isSubmitted ? (
+            <div>Submitted!</div>
+          ) : (
+            <>
+              <div className="sticky top-20 z-50 flex w-full justify-end">
+                <Button
+                  color="primary"
+                  variant="stylised"
+                  type="submit"
+                  name="Submit message"
+                  aria-label="Submit message"
+                  className="disabled:opacity-50 md:w-max"
+                  isDisabled={isSubmitting}
+                  isLoading={isSubmitting}
+                >
+                  {isSubmitted
+                    ? "Sent!"
+                    : isSubmitting
+                      ? "Sending"
+                      : "Submit job"}
+                </Button>
+              </div>
+              <div className="flex w-full flex-col items-start gap-4">
+                <Input
+                  size="md"
+                  autoFocus
+                  type="name"
+                  label="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  isRequired
+                />
+                <Input
+                  size="md"
+                  type="email"
+                  label="Your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  isRequired
+                />
+              </div>
+              <Divider className="my-4" />
+              <p className="font-display text-lg font-bold text-gray-700 dark:text-gray-300">
+                Job Details
+              </p>
+              <div className="flex w-full flex-col items-start gap-4 md:flex-row">
+                <Input
+                  size="md"
+                  type="text"
+                  label="Job role"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  isRequired
+                />
+                <Input
+                  size="md"
+                  type="text"
+                  label="Company"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  isRequired
+                />
+              </div>
+              <div className="flex w-full flex-col items-start gap-4 md:flex-row">
+                <Autocomplete
+                  size="md"
+                  label="Location (main)"
+                  value={location}
+                  className="w-full"
+                  isRequired
+                  defaultItems={locations}
+                  onInputChange={(e) => {
+                    setLocation(locationTitleToId[e]);
+                    setLocationTitle(e);
+                  }}
+                >
+                  {(location) => (
+                    <AutocompleteItem key={location.id} value={location.id}>
+                      {location.title}
+                    </AutocompleteItem>
+                  )}
+                </Autocomplete>
+                <Autocomplete
+                  size="md"
+                  label="Industry"
+                  className="w-full"
+                  isRequired
+                  value={industry}
+                  defaultItems={industries}
+                  onInputChange={(e) => {
+                    setIndustry(industryTitleToId[e]);
+                    setIndustryTitle(e);
+                  }}
+                >
+                  {(industry) => (
+                    <AutocompleteItem key={industry.id} value={industry.id}>
+                      {industry.title}
+                    </AutocompleteItem>
+                  )}
+                </Autocomplete>
+              </div>
               <Input
                 size="md"
-                type="text"
-                label="Job role"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                type="url"
+                label="URL"
+                value={url}
+                onChange={(e) => setURL(e.target.value)}
                 isRequired
               />
               <Input
                 size="md"
-                type="text"
-                label="Company"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                isRequired
+                type="email"
+                label="Contact email"
+                value={contactEmail}
+                onChange={(e) => setContactEmail(e.target.value)}
               />
-            </div>
-            <div className="flex w-full flex-col items-center gap-4 md:flex-row">
-              <Autocomplete
-                size="md"
-                label="Location (main)"
-                value={location}
-                className="w-full"
-                isRequired
-                defaultItems={locations}
-                onInputChange={(e) => setLocation(locationTitleToId[e])}
-              >
-                {(location) => (
-                  <AutocompleteItem key={location.id} value={location.id}>
-                    {location.title}
-                  </AutocompleteItem>
-                )}
-              </Autocomplete>
-              <Autocomplete
-                size="md"
-                label="Industry"
-                className="w-full"
-                isRequired
-                value={industry}
-                defaultItems={industries}
-                onInputChange={(e) => setIndustry(industryTitleToId[e])}
-              >
-                {(industry) => (
-                  <AutocompleteItem key={industry.id} value={industry.id}>
-                    {industry.title}
-                  </AutocompleteItem>
-                )}
-              </Autocomplete>
-            </div>
-            <Input
-              size="md"
-              type="url"
-              label="Job posting URL"
-              value={url}
-              onChange={(e) => setURL(e.target.value)}
-              isRequired
-              startContent={
-                <div className="pointer-events-none flex items-center">
-                  <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                    https://
-                  </span>
-                </div>
-              }
-            />
-            <Textarea
-              label="Job description summary"
-              aria-label="Your summary"
-              value={summary}
-              onChange={(e) => setSummary(e.target.value)}
-              isRequired
-            />
-            <Button
-              color="primary"
-              variant="stylised"
-              type="submit"
-              name="Submit message"
-              aria-label="Submit message"
-              className="mx-auto disabled:opacity-50 md:w-max"
-              isDisabled={isSubmitting}
-              isLoading={isSubmitting}
-            >
-              {isSubmitted ? "Sent!" : isSubmitting ? "Sending" : "Submit job"}
-            </Button>
-          </>
-        )}
+            </>
+          )}
+        </div>
+      </form>
+      <div>
+        <SpecBuilderFunction
+          jobRole={title}
+          company={company}
+          location={locationTitle}
+          industry={industryTitle}
+          url={url}
+          contactEmail={contactEmail}
+          onInputChanged={setSummary}
+        />
       </div>
-    </form>
+    </>
   );
 }

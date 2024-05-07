@@ -1,5 +1,10 @@
 import type { Viewport } from "next";
-import { Lora, JetBrains_Mono, Manrope } from "next/font/google";
+import {
+  Lora,
+  JetBrains_Mono,
+  Instrument_Sans,
+  Bricolage_Grotesque,
+} from "next/font/google";
 import PlausibleProvider from "next-plausible";
 import { ClerkProvider } from "@clerk/nextjs";
 import { getBanner, getConfig } from "@/lib/cosmic";
@@ -13,10 +18,17 @@ const serif = Lora({
   style: "italic",
   variable: "--font-serif",
 });
+
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const sans = Manrope({
+
+const sans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
 });
 
 export const viewport: Viewport = {
@@ -90,7 +102,7 @@ export default async function RootLayout({
     <html lang="en">
       <ClerkProvider>
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable}  relative h-full min-h-screen w-full overflow-x-hidden bg-foreground-50 font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
+          className={`${serif.variable} ${mono.variable} ${sans.variable} ${display.variable}  relative h-full min-h-screen w-full overflow-x-hidden bg-foreground-50 font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
           <PlausibleProvider domain="designengineer.xyz">
             <Providers>
