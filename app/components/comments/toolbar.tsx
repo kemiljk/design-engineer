@@ -49,103 +49,101 @@ export function Toolbar({
   const gradientStyle = getRandomGradient();
 
   return (
-    <div>
-      {/* Allows you to place composers */}
-      <div className="fixed bottom-6 right-6 flex items-center gap-2">
-        <Button
-          onClick={() => setAreThreadsVisible(!areThreadsVisible)}
-          isIconOnly
-          variant="shadow"
-          startContent={
-            areThreadsVisible ? (
-              <EyeOffIcon className="size-6" />
-            ) : (
-              <EyeIcon className="size-6" />
-            )
-          }
-        />
-        <Button
-          isIconOnly
-          color="primary"
-          variant="shadow"
-          onClick={() => setState("placing")}
-          style={{ cursor: state === "placing" ? "none" : undefined }}
-          startContent={
-            <MessageCirclePlusIcon className="size-6 text-background" />
-          }
-        />
-      </div>
+    creator.isSignedIn && (
+      <div>
+        <div className="fixed bottom-6 right-6 flex items-center gap-2">
+          <Button
+            onClick={() => setAreThreadsVisible(!areThreadsVisible)}
+            isIconOnly
+            variant="shadow"
+            startContent={
+              areThreadsVisible ? (
+                <EyeOffIcon className="size-6" />
+              ) : (
+                <EyeIcon className="size-6" />
+              )
+            }
+          />
+          <Button
+            isIconOnly
+            color="primary"
+            variant="shadow"
+            onClick={() => setState("placing")}
+            style={{ cursor: state === "placing" ? "none" : undefined }}
+            startContent={
+              <MessageCirclePlusIcon className="size-6 text-background" />
+            }
+          />
+        </div>
 
-      {/* Overlay that lets you click and cancel placing */}
-      <div
-        className={styles.cancelPlacing}
-        onClick={reset}
-        onContextMenu={(e) => {
-          e.preventDefault();
-          reset();
-        }}
-        data-enabled={state !== "initial" ? true : undefined}
-      />
-
-      {/* The visible cursor when you're placing */}
-      {state === "placing" ? (
         <div
-          className={styles.newThreadClick}
-          onClick={(e) => {
-            // On click, get coords and place down composer
-            const avatarOffset = 42;
-
-            const x = e.pageX + avatarOffset;
-            const y = e.pageY;
-
-            setCoords({ x, y });
-            setState("placed");
-          }}
+          className={styles.cancelPlacing}
+          onClick={reset}
           onContextMenu={(e) => {
             e.preventDefault();
             reset();
           }}
-        >
-          <NewThreadCursor />
-        </div>
-      ) : null}
+          data-enabled={state !== "initial" ? true : undefined}
+        />
 
-      {/* When cursor placed, show a composer on the canvas */}
-      {state === "placed" ? (
-        <>
+        {state === "placing" ? (
           <div
-            className={styles.composerWrapper}
-            style={{ transform: `translate(${coords.x}px, ${coords.y}px)` }}
+            className={styles.newThreadClick}
+            onClick={(e) => {
+              // On click, get coords and place down composer
+              const avatarOffset = 42;
+
+              const x = e.pageX + avatarOffset;
+              const y = e.pageY;
+
+              setCoords({ x, y });
+              setState("placed");
+            }}
+            onContextMenu={(e) => {
+              e.preventDefault();
+              reset();
+            }}
           >
-            <div className={`${avatarStyles.avatar}`} style={gradientStyle}>
-              {creator && creator.user?.imageUrl ? (
-                <img
-                  src={creator.user?.imageUrl}
-                  alt={creator.user?.firstName ?? ""}
-                  width="28px"
-                  height="28px"
-                  draggable={false}
-                />
-              ) : (
-                <div />
-              )}
-            </div>
-            <Composer
-              className="composer"
-              onComposerSubmit={({ body }, e) => {
-                e.preventDefault();
-                setState("initial");
-                // Create a new thread with the current coords as metadata
-                createThread({
-                  body,
-                  metadata: { x: coords.x, y: coords.y },
-                } as any);
-              }}
-            />
+            <NewThreadCursor />
           </div>
-        </>
-      ) : null}
-    </div>
+        ) : null}
+
+        {state === "placed" ? (
+          <>
+            <div
+              className={styles.composerWrapper}
+              style={{ transform: `translate(${coords.x}px, ${coords.y}px)` }}
+            >
+              <div className={`${avatarStyles.avatar}`} style={gradientStyle}>
+                {creator && creator.user?.imageUrl ? (
+                  <img
+                    src={creator.user?.imageUrl}
+                    alt={creator.user?.firstName ?? ""}
+                    width="28px"
+                    height="28px"
+                    draggable={false}
+                  />
+                ) : (
+                  <div />
+                )}
+              </div>
+              <Composer
+                className="composer"
+                onComposerSubmit={({ body }, e) => {
+                  e.preventDefault();
+                  setState("initial");
+                  // Create a new thread with the current coords as metadata
+                  createThread({
+                    body,
+                    metadata: { x: coords.x, y: coords.y },
+                  } as any);
+                }}
+              />
+            </div>
+          </>
+        ) : null}
+      </div>
+    )
   );
 }
 

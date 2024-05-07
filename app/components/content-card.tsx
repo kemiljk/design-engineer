@@ -54,7 +54,7 @@ export function ContentCard({
               name={initials}
             />
           )}
-          <div className="flex flex-col text-start text-base font-semibold">
+          <div className="font-display flex flex-col text-start text-base font-semibold">
             {post.metadata.author.title}
             <p className="text-xs text-zinc-500 dark:text-zinc-400">
               {new Date(post.metadata.published_date).toLocaleDateString(
@@ -83,7 +83,9 @@ export function ContentCard({
               }
             />
           )}
-          <h2 className="px-4 text-lg font-bold leading-tight">{post.title}</h2>
+          <h2 className="font-display px-4 text-lg font-bold leading-tight">
+            {post.title}
+          </h2>
           <CardFooter className="w-full text-sm text-gray-600 dark:text-gray-400">
             <Markdown className="line-clamp-3">
               {post.metadata.content.slice(0, 200) + "..."}

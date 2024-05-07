@@ -189,6 +189,28 @@ export const getLocations = async (): Promise<Type.Location[]> => {
   return locations.objects;
 };
 
+export const getPrompts = async (): Promise<Type.Prompt[]> => {
+  const prompts = await Promise.resolve(
+    await cosmic.objects
+      .find({ type: "spec-builder-prompts" })
+      .props("id,title")
+      .depth(1),
+  );
+
+  return prompts.objects;
+};
+
+export const getSpecs = async (): Promise<Type.Spec[]> => {
+  const specs = await Promise.resolve(
+    await cosmic.objects
+      .find({ type: "spec-builder-completions" })
+      .props("id,title,metadata,creation_date")
+      .depth(1),
+  );
+
+  return specs.objects;
+};
+
 // Stories page
 export const getStories = cache(async (): Promise<Type.Story[]> => {
   const { objects: story } = await cosmic.objects

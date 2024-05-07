@@ -59,6 +59,21 @@ export type Stat = {
   created_at: string;
 };
 
+export type Prompt = {
+  id: string;
+  title: string;
+};
+
+export type Spec = {
+  id: string;
+  title: string;
+  metadata: {
+    completion: string;
+    prompt: Prompt;
+  };
+  creation_date: string;
+};
+
 export type About = {
   title: string;
   metadata: {
