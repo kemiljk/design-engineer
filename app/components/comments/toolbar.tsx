@@ -9,6 +9,7 @@ import { Button } from "@nextui-org/button";
 import { EyeIcon, EyeOffIcon, MessageCirclePlusIcon } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { getRandomGradient } from "@/lib/utils";
+import { Image } from "@nextui-org/react";
 
 export function Toolbar({
   areThreadsVisible,
@@ -116,7 +117,7 @@ export function Toolbar({
             >
               <div className={`${avatarStyles.avatar}`} style={gradientStyle}>
                 {creator && creator.user?.imageUrl ? (
-                  <img
+                  <Image
                     src={creator.user?.imageUrl}
                     alt={creator.user?.firstName ?? ""}
                     width="28px"

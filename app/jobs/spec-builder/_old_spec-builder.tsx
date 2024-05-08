@@ -61,11 +61,11 @@ function SpecBuilderFunction({
         " for more information. " +
         url,
     );
-  }, [jobRole, company, location, industry, url, contactEmail]);
+  }, [jobRole, company, location, industry, url, contactEmail, setInput]);
 
   useEffect(() => {
     setInput(completion);
-  }, [completion]);
+  }, [completion, setInput]);
 
   const saveFormData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -109,8 +109,8 @@ function SpecBuilderFunction({
             </span>
             <span className="text-sm text-success-700">
               This job spec was generated automatically from a pre-existing
-              matching prompt. If you'd like to customise this, please add some
-              additional details in the text input.
+              matching prompt. If you&apos;d like to customise this, please add
+              some additional details in the text input.
             </span>
           </div>
         )}
