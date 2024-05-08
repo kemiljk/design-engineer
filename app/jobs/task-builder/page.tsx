@@ -47,7 +47,7 @@ function TaskBuilder() {
       <span className="font-medium text-foreground-500">
         Generate a task for a Design Engineer role at your company.
       </span>
-      <div className="fixed bottom-0 z-20 flex w-full max-w-3xl gap-4 border-t border-foreground-100 bg-foreground-50 px-4 py-4 *:sticky">
+      <div className="fixed bottom-0 z-20 flex w-full max-w-3xl gap-4 border-t border-foreground-100 bg-background px-4 py-4 *:sticky">
         <Input
           type="text"
           value={input}

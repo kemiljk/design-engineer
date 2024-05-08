@@ -102,7 +102,7 @@ export default async function RootLayout({
     <html lang="en">
       <ClerkProvider>
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable} ${display.variable}  relative h-full min-h-screen w-full overflow-x-hidden bg-foreground-50 font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
+          className={`${serif.variable} ${mono.variable} ${sans.variable} ${display.variable}  relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
           <PlausibleProvider domain="designengineer.xyz">
             <Providers>
