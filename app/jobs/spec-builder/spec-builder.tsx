@@ -45,7 +45,7 @@ function SpecBuilderFunction({
 
   useEffect(() => {
     onInputChanged(input);
-  }, [input]);
+  }, [input, onInputChanged]);
 
   useEffect(() => {
     setInput(
@@ -138,8 +138,8 @@ function SpecBuilderFunction({
               </span>
               <span className="text-sm text-success-700">
                 This job spec was generated automatically from a pre-existing
-                matching prompt. If you'd like to customise this, please add
-                some additional details in the text input.
+                matching prompt. If you&apos;d like to customise this, please
+                add some additional details in the text input.
               </span>
             </div>
             <div className="flex items-start justify-between gap-4">

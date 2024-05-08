@@ -23,6 +23,7 @@ import {
 import styles from "./CommentsCanvas.module.css";
 import { Toolbar } from "./toolbar";
 import { getRandomGradient } from "@/lib/utils";
+import { Image } from "@nextui-org/react";
 
 export function CommentsCanvas({ children }: { children: React.ReactNode }) {
   const { threads } = useThreads();
@@ -45,24 +46,27 @@ export function CommentsCanvas({ children }: { children: React.ReactNode }) {
   );
 
   // On drag end, update thread metadata with new coords
-  const handleDragEnd = useCallback(({ active, delta }: DragEndEvent) => {
-    const thread = (
-      active.data as DataRef<{ thread: ThreadData<ThreadMetadata> }>
-    ).current?.thread;
+  const handleDragEnd = useCallback(
+    ({ active, delta }: DragEndEvent) => {
+      const thread = (
+        active.data as DataRef<{ thread: ThreadData<ThreadMetadata> }>
+      ).current?.thread;
 
-    if (!thread) {
-      return;
-    }
+      if (!thread) {
+        return;
+      }
 
-    editThreadMetadata({
-      threadId: thread.id,
-      metadata: {
-        x: thread.metadata.x + delta.x,
-        y: thread.metadata.y + delta.y,
-        zIndex: maxZIndex + 1,
-      },
-    } as { threadId: string; metadata: { x: number; y: number } });
-  }, []);
+      editThreadMetadata({
+        threadId: thread.id,
+        metadata: {
+          x: thread.metadata.x + delta.x,
+          y: thread.metadata.y + delta.y,
+          zIndex: maxZIndex + 1,
+        },
+      } as { threadId: string; metadata: { x: number; y: number } });
+    },
+    [editThreadMetadata, maxZIndex],
+  );
 
   return (
     <>
@@ -117,7 +121,7 @@ function DraggableThread({ thread }: { thread: ThreadData<ThreadMetadata> }) {
           onClick={() => setOpen(!open)}
         >
           {creator && creator.avatar ? (
-            <img
+            <Image
               src={creator.avatar}
               alt={creator.name}
               width="28px"
