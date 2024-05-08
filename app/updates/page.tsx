@@ -32,7 +32,7 @@ const Updates = async () => {
 
   return (
     <section>
-      <article className="mx-auto mt-8 flex w-full max-w-3xl flex-col gap-20 text-foreground md:flex-row">
+      <article className="mx-auto mt-8 flex w-full max-w-3xl flex-col gap-20 text-foreground">
         {emails.map((email, index) => (
           <div key={index}>
             <div className="text-sm text-zinc-700 dark:text-zinc-300 md:border-r md:border-zinc-200 md:pr-4 md:dark:border-zinc-700">

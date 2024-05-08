@@ -42,13 +42,13 @@ const MainNav: React.FC = async () => {
 
   const protectedLinks = [
     {
-      index: 0,
-      title: "Stats",
-      href: "/stats",
+      // index: 0,
+      // title: "Stats",
+      // href: "/stats",
     },
   ];
 
-  return <Nav links={links} protectedLinks={protectedLinks} />;
+  return <Nav links={links} />;
 };
 
 export default MainNav;

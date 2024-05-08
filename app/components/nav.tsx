@@ -20,7 +20,7 @@ export default function Nav({
   protectedLinks,
 }: {
   links: { index: number; title: string; href: string }[];
-  protectedLinks: { index: number; title: string; href: string }[];
+  protectedLinks?: { index: number; title: string; href: string }[];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -56,20 +56,21 @@ export default function Nav({
         ))}
         <SignedIn>
           <>
-            {protectedLinks.map((item, index) => (
-              <NavbarItem
-                key={`${item}-${index}`}
-                isActive={pathname === item.href ? true : false}
-              >
-                <Link
-                  isBlock
-                  color={pathname === item.href ? "primary" : "foreground"}
-                  href={item.href}
+            {protectedLinks &&
+              protectedLinks.map((item, index) => (
+                <NavbarItem
+                  key={`${item}-${index}`}
+                  isActive={pathname === item.href ? true : false}
                 >
-                  {item.title}
-                </Link>
-              </NavbarItem>
-            ))}
+                  <Link
+                    isBlock
+                    color={pathname === item.href ? "primary" : "foreground"}
+                    href={item.href}
+                  >
+                    {item.title}
+                  </Link>
+                </NavbarItem>
+              ))}
             <UserButton
               appearance={{
                 elements: {
@@ -101,20 +102,21 @@ export default function Nav({
         ))}
         <SignedIn>
           <>
-            {protectedLinks.map((item, index) => (
-              <NavbarMenuItem
-                key={`${item}-${index}`}
-                isActive={pathname === item.href ? true : false}
-              >
-                <Link
-                  isBlock
-                  color={pathname === item.href ? "primary" : "foreground"}
-                  href={item.href}
+            {protectedLinks &&
+              protectedLinks.map((item, index) => (
+                <NavbarMenuItem
+                  key={`${item}-${index}`}
+                  isActive={pathname === item.href ? true : false}
                 >
-                  {item.title}
-                </Link>
-              </NavbarMenuItem>
-            ))}
+                  <Link
+                    isBlock
+                    color={pathname === item.href ? "primary" : "foreground"}
+                    href={item.href}
+                  >
+                    {item.title}
+                  </Link>
+                </NavbarMenuItem>
+              ))}
             <UserButton
               appearance={{
                 elements: {
