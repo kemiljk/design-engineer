@@ -32,11 +32,12 @@ const Jobs = async ({
       <div className="mt-4 flex w-full max-w-3xl justify-end md:mt-20">
         <div className="flex w-full flex-col gap-2 md:flex-row">
           <Search initialSearchTerm={searchTerm} page="jobs" />
-          <div className="flex w-1/3 gap-x-2">
+          <div className="flex gap-x-2 md:w-1/3">
             <Button
               as={Link}
               href="/jobs/task-builder"
               variant="flat"
+              className="w-full gap-2 md:w-max"
               startContent={<CheckCheckIcon className="shrink-0" size={16} />}
             >
               Task Builder
