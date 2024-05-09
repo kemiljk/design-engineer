@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import * as Type from "@/lib/types";
 import { getThumbnail } from "@/lib/utils";
 import { Image } from "@nextui-org/image";
-import Link from "next/link";
+import { Link } from "@nextui-org/link";
 import Markdown from "react-markdown";
 
 export function ContentCard({
@@ -54,7 +54,7 @@ export function ContentCard({
               name={initials}
             />
           )}
-          <div className="font-display flex flex-col text-start text-base font-semibold">
+          <div className="flex flex-col text-start font-display text-base font-semibold">
             {post.metadata.author.title}
             <p className="text-xs text-zinc-500 dark:text-zinc-400">
               {new Date(post.metadata.published_date).toLocaleDateString(
@@ -83,12 +83,14 @@ export function ContentCard({
               }
             />
           )}
-          <h2 className="font-display px-4 text-lg font-bold leading-tight">
+          <h2 className="px-4 font-display text-lg font-bold leading-tight">
             {post.title}
           </h2>
           <CardFooter className="w-full text-sm text-gray-600 dark:text-gray-400">
-            <Markdown className="line-clamp-3">
-              {post.metadata.content.slice(0, 200) + "..."}
+            <Markdown className="line-clamp-3 w-full truncate text-wrap">
+              {post.metadata.snippet
+                ? post.metadata.snippet
+                : post.metadata.content.slice(0, 200)}
             </Markdown>
           </CardFooter>
         </CardBody>

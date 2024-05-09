@@ -10,6 +10,7 @@ import { Link } from "@nextui-org/link";
 import { Image } from "@nextui-org/image";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
+import CommentsPresence from "@/app/components/comments/comments-presence";
 
 export const revalidate = 1;
 
@@ -92,69 +93,74 @@ export default async function Post({
   });
 
   return (
-    <div>
-      <div className="mx-auto max-w-prose">
-        {post && (
-          <>
-            <div className="mb-8 flex w-full items-center justify-between">
-              <Button
-                as={Link}
-                variant="light"
-                href="/posts"
-                startContent={
-                  <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
-                }
-              >
-                Go back
-              </Button>
-            </div>
-            <article>
-              {post.metadata.categories !== undefined && (
-                <div className="mb-4 flex items-center gap-x-2">
-                  {post.metadata.categories.map((category: any) => (
-                    <Chip
-                      key={category}
-                      variant="bordered"
-                      color="primary"
-                      radius="full"
-                    >
-                      {category.title}
-                    </Chip>
-                  ))}
-                </div>
-              )}
-              <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
-                {post.title}
-              </h1>
-              <div className="mb-8 mt-4 flex w-full flex-col items-center justify-between gap-x-1 md:flex-row">
-                <span className="pr-4 text-sm text-foreground-500">
-                  First published: {postPublished}
-                </span>
+    <CommentsPresence roomId={params.slug}>
+      <div>
+        <div className="mx-auto max-w-prose">
+          {post && (
+            <>
+              <div className="mb-8 flex w-full items-center justify-between">
+                <Button
+                  as={Link}
+                  variant="light"
+                  href="/posts"
+                  startContent={
+                    <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
+                  }
+                >
+                  Go back
+                </Button>
               </div>
-              <Markdown className="prose prose-zinc dark:prose-invert">
-                {post.metadata.content}
-              </Markdown>
-              <span className="pb-16 pt-8 text-sm text-foreground-500 lg:pt-8">
-                Last updated: {postModified} ({relativeDate})
-              </span>
-            </article>
-          </>
-        )}
-        <div className="flex w-full items-center justify-center space-x-2 pb-4 pt-8">
-          <CopyButton />
+              <article>
+                {post.metadata.categories !== undefined && (
+                  <div className="mb-4 flex items-center gap-x-2">
+                    {post.metadata.categories.map((category: any) => (
+                      <Chip
+                        key={category}
+                        variant="bordered"
+                        color="primary"
+                        radius="full"
+                      >
+                        {category.title}
+                      </Chip>
+                    ))}
+                  </div>
+                )}
+                <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
+                  {post.title}
+                </h1>
+                <div className="mb-8 mt-4 flex w-full flex-col items-center justify-between gap-x-1 md:flex-row">
+                  <span className="pr-4 text-sm text-foreground-500">
+                    First published: {postPublished}
+                  </span>
+                </div>
+                <Markdown className="prose prose-zinc dark:prose-invert">
+                  {post.metadata.content}
+                </Markdown>
+                <span className="pb-16 pt-8 text-sm text-foreground-500 lg:pt-8">
+                  Last updated: {postModified} ({relativeDate})
+                </span>
+              </article>
+            </>
+          )}
+          <div className="flex w-full items-center justify-center space-x-2 pb-4 pt-8">
+            <CopyButton />
+          </div>
+          <Divider className="my-4" />
+          <h3 className="pb-2">More to explore</h3>
+          <ul
+            role="list"
+            className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2"
+          >
+            {allPosts !== undefined &&
+              allPosts
+                .filter((nextPost: { id: string }) => nextPost?.id !== post?.id)
+                .slice(0, 4)
+                .map((nextPost: any) => (
+                  <ContentCard key={nextPost.id} post={nextPost} />
+                ))}
+          </ul>
         </div>
-        <Divider className="my-4" />
-        <h3 className="pb-2">More to explore</h3>
-        <ul role="list" className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {allPosts !== undefined &&
-            allPosts
-              .filter((nextPost: { id: string }) => nextPost?.id !== post?.id)
-              .slice(0, 4)
-              .map((nextPost: any) => (
-                <ContentCard key={nextPost.id} post={nextPost} />
-              ))}
-        </ul>
       </div>
-    </div>
+    </CommentsPresence>
   );
 }

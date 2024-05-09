@@ -7,6 +7,7 @@ import { StyledButton as Button } from "@/app/components/styled-button";
 import { CheckCheckIcon, HandshakeIcon } from "lucide-react";
 import { Link } from "@nextui-org/link";
 import { SignedIn } from "@clerk/nextjs";
+import SectionTitle from "../components/section-title";
 
 const Jobs = async ({
   searchParams,
@@ -30,11 +31,12 @@ const Jobs = async ({
 
   return (
     <section>
-      <div className="mt-4 flex w-full max-w-3xl justify-end md:mt-20">
+      <SectionTitle>Hiring</SectionTitle>
+      <div className="mt-4 flex w-full max-w-3xl justify-end">
         <div className="flex w-full flex-col gap-2 md:flex-row">
           <Search initialSearchTerm={searchTerm} page="jobs" />
           <SignedIn>
-            <div className="sm:1/2 flex gap-x-2 lg:w-1/3">
+            <div className="flex gap-x-2 md:w-3/4 lg:w-2/3">
               <Button
                 as={Link}
                 href="/jobs/task-builder"
@@ -42,7 +44,7 @@ const Jobs = async ({
                 className="w-full gap-2 md:w-max"
                 startContent={<CheckCheckIcon className="shrink-0" size={16} />}
               >
-                Task Builder
+                Create Take-Home Task
               </Button>
               <Button
                 as={Link}
@@ -52,7 +54,7 @@ const Jobs = async ({
                 className="w-full gap-2 md:w-max"
                 startContent={<HandshakeIcon className="shrink-0" size={16} />}
               >
-                Submit a Job
+                Generate Job Posting
               </Button>
             </div>
           </SignedIn>

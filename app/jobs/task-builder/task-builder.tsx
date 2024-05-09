@@ -4,10 +4,16 @@ import React, { useState, useEffect, useRef } from "react";
 import Markdown from "react-markdown";
 import SectionTitle from "@/app/components/section-title";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import { CopyIcon, FlameIcon, SendIcon, SparklesIcon } from "lucide-react";
+import {
+  ArrowLeftIcon,
+  CopyIcon,
+  FlameIcon,
+  SendIcon,
+  SparklesIcon,
+} from "lucide-react";
 import { Message, continueConversation } from "./actions";
 import { readStreamableValue } from "ai/rsc";
-import { Divider, Input } from "@nextui-org/react";
+import { Divider, Input, Link } from "@nextui-org/react";
 import { useMediaQuery } from "usehooks-ts";
 import { TaskBuilderSuggestion } from "@/lib/types";
 
@@ -50,6 +56,15 @@ function TaskBuilder({
 
   return (
     <div className="flex w-full max-w-3xl flex-col gap-4 pb-24">
+      <Button
+        as={Link}
+        href="/jobs"
+        variant="light"
+        className="w-max"
+        startContent={<ArrowLeftIcon className="shrink-0" size={16} />}
+      >
+        Back to Jobs
+      </Button>
       <SectionTitle>Task Builder</SectionTitle>
       <div className="flex w-full items-baseline justify-between">
         <span className="font-medium text-foreground-500">
