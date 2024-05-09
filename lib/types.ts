@@ -28,6 +28,7 @@ export type Post = {
     };
     video_url: string;
     content: string;
+    snippet: string;
     is_external_link: boolean;
     url: string;
     categories: Category[];
