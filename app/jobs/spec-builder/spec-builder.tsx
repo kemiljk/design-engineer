@@ -7,6 +7,7 @@ import { CopyIcon, RefreshCcwDotIcon, SparklesIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { checkSpecs } from "./check-specs";
 import MDEditor from "@uiw/react-md-editor";
+import Markdown from "react-markdown";
 
 function SpecBuilderFunction({
   jobRole,
@@ -15,6 +16,7 @@ function SpecBuilderFunction({
   industry,
   url,
   contactEmail,
+  extraDetails,
   onInputChanged,
 }: {
   jobRole: string;
@@ -23,6 +25,7 @@ function SpecBuilderFunction({
   industry: string;
   url: string;
   contactEmail: string;
+  extraDetails: string;
   onInputChanged: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const [conversation, setConversation] = useState<Message[]>([]);
@@ -60,13 +63,14 @@ function SpecBuilderFunction({
         "Contact " +
         contactEmail +
         " for more information. " +
-        url,
+        url +
+        extraDetails,
     );
-  }, [jobRole, company, location, industry, url, contactEmail]);
+  }, [jobRole, company, location, industry, url, contactEmail, extraDetails]);
 
   useEffect(() => {
     setInput(conversation.map((message) => message.content).join("\n"));
-  }, [conversation]);
+  }, [conversation, setInput]);
 
   const saveFormData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -142,18 +146,10 @@ function SpecBuilderFunction({
                 add some additional details in the text input.
               </span>
             </div>
-            <div className="flex items-start justify-between gap-4">
-              <MDEditor
-                className="w-full !rounded-xl"
-                value={input}
-                autoFocus={false}
-                // @ts-ignore
-                onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  setInput(event?.target?.value);
-                }}
-                preview="edit"
-                hideToolbar={true}
-              />
+            <div className="mt-4 flex items-start justify-between gap-4">
+              <Markdown className="prose w-full dark:prose-invert">
+                {input}
+              </Markdown>
               <Button
                 isIconOnly
                 size="sm"
@@ -175,21 +171,11 @@ function SpecBuilderFunction({
                   <div
                     ref={completionRef}
                     key={index}
-                    className="flex items-start justify-between gap-4"
+                    className="mt-4 flex items-start justify-between gap-4"
                   >
-                    <MDEditor
-                      className="w-full !rounded-xl"
-                      value={input}
-                      autoFocus={false}
-                      // @ts-ignore
-                      onChange={(
-                        event: React.ChangeEvent<HTMLTextAreaElement>,
-                      ) => {
-                        setInput(event?.target?.value);
-                      }}
-                      preview="edit"
-                      hideToolbar={true}
-                    />
+                    <Markdown className="prose w-full dark:prose-invert">
+                      {message.content}
+                    </Markdown>
                     <Button
                       isIconOnly
                       size="sm"

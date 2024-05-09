@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import { Input } from "@nextui-org/input";
+import { Input, Textarea } from "@nextui-org/input";
 import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
 import { cosmic } from "@/lib/cosmic";
 import { useUser } from "@clerk/nextjs";
@@ -30,6 +30,7 @@ export default function SubmitJobForm({
   const [industry, setIndustry] = React.useState("");
   const [locationTitle, setLocationTitle] = React.useState("");
   const [industryTitle, setIndustryTitle] = React.useState("");
+  const [extraDetails, setExtraDetails] = React.useState("");
 
   const handleFocus = () => setFormFocus(true);
   const handleBlur = () => setFormFocus(false);
@@ -139,6 +140,7 @@ export default function SubmitJobForm({
         setIndustry("");
         setURL("");
         setContactEmail("");
+        setExtraDetails("");
       }, 2000);
     } catch (error) {
       console.log(error);
@@ -267,6 +269,13 @@ export default function SubmitJobForm({
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
               />
+              <Textarea
+                size="md"
+                type="text"
+                label="Extra details"
+                value={extraDetails}
+                onChange={(e) => setExtraDetails(e.target.value)}
+              />
             </>
           )}
         </div>
@@ -279,6 +288,7 @@ export default function SubmitJobForm({
           industry={industryTitle}
           url={url}
           contactEmail={contactEmail}
+          extraDetails={extraDetails}
           onInputChanged={setSummary}
         />
       </div>
