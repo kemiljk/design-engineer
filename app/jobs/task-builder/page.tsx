@@ -4,7 +4,13 @@ import React, { useState, useEffect, useRef } from "react";
 import Markdown from "react-markdown";
 import SectionTitle from "@/app/components/section-title";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import { CopyIcon, EraserIcon, SendIcon, SparklesIcon } from "lucide-react";
+import {
+  CopyIcon,
+  EraserIcon,
+  FlameIcon,
+  SendIcon,
+  SparklesIcon,
+} from "lucide-react";
 import { Message, continueConversation } from "./actions";
 import { readStreamableValue } from "ai/rsc";
 import { Card, CardBody, Divider, Input } from "@nextui-org/react";
@@ -65,17 +71,6 @@ function TaskBuilder() {
         <span className="font-medium text-foreground-500">
           Generate a task for a Design Engineer role at your company.
         </span>
-        <Button
-          variant="flat"
-          className="w-max"
-          onPress={() => {
-            setConversation([]);
-            setInput("");
-          }}
-          startContent={<EraserIcon size={16} />}
-        >
-          Clear chat
-        </Button>
       </div>
       <div ref={completionRef} className="relative mt-12 max-w-3xl">
         {conversation.length ? (
@@ -88,6 +83,7 @@ function TaskBuilder() {
                       {message.content}
                     </Markdown>
                     <Button
+                      title="Copy to clipboard"
                       isIconOnly
                       size="sm"
                       variant="ghost"
@@ -135,6 +131,19 @@ function TaskBuilder() {
         )}
       </div>
       <div className="fixed bottom-0 left-0 right-0 z-20 flex w-full max-w-3xl gap-4 border-t border-foreground-100 bg-background px-4 py-4 *:sticky lg:left-auto lg:right-auto">
+        {conversation.length > 0 && (
+          <Button
+            title="Clear conversation"
+            color="danger"
+            isIconOnly
+            variant="flat"
+            onPress={() => {
+              setConversation([]);
+              setInput("");
+            }}
+            startContent={<FlameIcon size={16} />}
+          />
+        )}
         <Input
           type="text"
           value={input}
