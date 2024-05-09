@@ -74,6 +74,11 @@ export type Spec = {
   creation_date: string;
 };
 
+export type TaskBuilderSuggestion = {
+  id: string;
+  title: string;
+};
+
 export type About = {
   title: string;
   metadata: {
