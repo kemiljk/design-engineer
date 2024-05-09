@@ -6,8 +6,9 @@ import { readStreamableValue } from "ai/rsc";
 import { CopyIcon, RefreshCcwDotIcon, SparklesIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { checkSpecs } from "./check-specs";
-import MDEditor from "@uiw/react-md-editor";
 import Markdown from "react-markdown";
+import { nanoid } from "ai";
+import { getPrompts } from "@/lib/cosmic";
 
 function SpecBuilderFunction({
   jobRole,
@@ -64,13 +65,31 @@ function SpecBuilderFunction({
         contactEmail +
         " for more information. " +
         url +
+        ". " +
         extraDetails,
     );
   }, [jobRole, company, location, industry, url, contactEmail, extraDetails]);
 
-  useEffect(() => {
-    setInput(conversation.map((message) => message.content).join("\n"));
-  }, [conversation, setInput]);
+  const saveCompletion = async (title: string, completion: string) => {
+    const linkedPrompts = await getPrompts();
+    const linkedPrompt = linkedPrompts.find((prompt) => prompt.title === title);
+    const completionObject = {
+      type: "spec-builder-completions",
+      title: title,
+      metadata: {
+        prompt: linkedPrompt?.id,
+        completion: completion,
+      },
+    };
+
+    await fetch(`/api/insert-completion`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ completion: completionObject }),
+    });
+  };
 
   const saveFormData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -100,6 +119,8 @@ function SpecBuilderFunction({
 
     let textContent = "";
 
+    setThinking(false);
+
     for await (const delta of readStreamableValue(newMessage)) {
       textContent = `${textContent}${delta}`;
 
@@ -109,7 +130,15 @@ function SpecBuilderFunction({
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // Prevent the form from being submitted immediately
-    const checkString = jobRole + " at " + company + " in " + location;
+    const checkString =
+      jobRole +
+      " at " +
+      company +
+      " in " +
+      location +
+      " in the " +
+      industry +
+      " industry";
     const matchingCompletion = await checkSpecs({ checkString });
 
     if (matchingCompletion) {
@@ -119,6 +148,19 @@ function SpecBuilderFunction({
       sendMessage();
       // If the prompt is unique, save it to the database
       saveFormData(e as React.FormEvent<HTMLFormElement>);
+      setTimeout(() => {
+        saveCompletion(
+          jobRole +
+            " at " +
+            company +
+            " in " +
+            location +
+            " in the " +
+            industry +
+            " industry",
+          conversation.map((message) => message.content).join("\n"),
+        );
+      }, 3000);
     }
   };
 

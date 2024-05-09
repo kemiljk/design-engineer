@@ -3,38 +3,11 @@
 import { streamText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
 import { createStreamableValue } from "ai/rsc";
-import { getPrompts } from "@/lib/cosmic";
 
 export interface Message {
   role: "user" | "assistant";
   content: string;
 }
-
-const saveCompletion = async (title: string, completion: string) => {
-  const baseURL =
-    process.env.NODE_ENV === "production"
-      ? process.env.PRODUCTION_BASE_URL
-      : process.env.DEVELOPMENT_BASE_URL;
-
-  const linkedPrompts = await getPrompts();
-  const linkedPrompt = linkedPrompts.find((prompt) => prompt.title === title);
-  const completionObject = {
-    type: "spec-builder-completions",
-    title: title,
-    metadata: {
-      prompt: linkedPrompt?.id,
-      completion: completion,
-    },
-  };
-
-  await fetch(`${baseURL}/api/insert-completion`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ completion: completionObject }),
-  });
-};
 
 export async function continueConversation(history: Message[]) {
   "use server";
@@ -54,9 +27,6 @@ export async function continueConversation(history: Message[]) {
     }
 
     stream.done();
-    const firstFullStopIndex = history[0].content.indexOf(".");
-    const trimmedCompletion = history[0].content.slice(0, firstFullStopIndex);
-    saveCompletion(trimmedCompletion, history[0].content);
   })();
 
   return {
