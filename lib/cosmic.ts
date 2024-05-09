@@ -211,6 +211,20 @@ export const getSpecs = async (): Promise<Type.Spec[]> => {
   return specs.objects;
 };
 
+export const getTaskBuilderSuggestions = async (): Promise<
+  Type.TaskBuilderSuggestion[]
+> => {
+  const suggestions = await Promise.resolve(
+    await cosmic.objects
+      .find({ type: "taskbuildersuggestions" })
+      .props("id,title")
+      .depth(1)
+      .sort("random"),
+  );
+
+  return suggestions.objects;
+};
+
 // Stories page
 export const getStories = cache(async (): Promise<Type.Story[]> => {
   const { objects: story } = await cosmic.objects
