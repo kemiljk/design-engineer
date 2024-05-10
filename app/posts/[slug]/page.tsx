@@ -1,13 +1,11 @@
 import { ArrowLeftIcon } from "lucide-react";
-import Markdown from "react-markdown";
+import Markdown from "@/app/components/Markdown";
 import CopyButton from "@/app/components/copy-button";
 import { format, formatDistance, parseISO } from "date-fns";
 import { Divider } from "@nextui-org/divider";
 import { Chip } from "@nextui-org/chip";
 import { Button } from "@nextui-org/button";
-import { Card, CardHeader } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
-import { Image } from "@nextui-org/image";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
 import CommentsPresence from "@/app/components/comments/comments-presence";
@@ -133,10 +131,11 @@ export default async function Post({
                     First published: {postPublished}
                   </span>
                 </div>
-                <Markdown className="prose prose-zinc dark:prose-invert">
-                  {post.metadata.content}
-                </Markdown>
-                <span className="pb-16 pt-8 text-sm text-foreground-500 lg:pt-8">
+                <Markdown
+                  className="prose prose-zinc pb-4 dark:prose-invert"
+                  content={post.metadata.content}
+                />
+                <span className="pb-16 pt-8 text-sm text-foreground-500">
                   Last updated: {postModified} ({relativeDate})
                 </span>
               </article>
