@@ -56,6 +56,7 @@ export function Toolbar({
           <Button
             onClick={() => setAreThreadsVisible(!areThreadsVisible)}
             isIconOnly
+            title="Toggle visibility"
             variant="shadow"
             startContent={
               areThreadsVisible ? (
@@ -67,6 +68,7 @@ export function Toolbar({
           />
           <Button
             isIconOnly
+            title="Start a new Conversation"
             color="primary"
             variant="shadow"
             onClick={() => setState("placing")}
