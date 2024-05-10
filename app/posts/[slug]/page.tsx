@@ -112,12 +112,7 @@ export default async function Post({
                 {post.metadata.categories !== undefined && (
                   <div className="mb-4 flex items-center gap-x-2">
                     {post.metadata.categories.map((category: any) => (
-                      <Chip
-                        key={category}
-                        variant="bordered"
-                        color="primary"
-                        radius="full"
-                      >
+                      <Chip key={category} variant="bordered" radius="full">
                         {category.title}
                       </Chip>
                     ))}
