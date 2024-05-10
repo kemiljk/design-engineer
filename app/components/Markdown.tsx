@@ -59,7 +59,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
       components={components}
       {...props}
       className={cn(
-        "prose prose-zinc text-pretty dark:prose-invert prose-h2:tracking-tight prose-li:list-disc prose-img:rounded-lg",
+        "prose prose-zinc text-pretty dark:prose-invert prose-h1:font-display prose-h2:font-display prose-h2:tracking-tight prose-h3:font-display prose-li:list-disc prose-img:rounded-lg",
         props.className ? props.className : null,
       )}
       remarkPlugins={[remarkGfm]}
