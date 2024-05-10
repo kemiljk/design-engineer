@@ -72,7 +72,7 @@ export const getFirstPartyPosts = cache(async (): Promise<Type.Post[]> => {
       type: "content-posts",
     })
     .props("id,slug,title,metadata")
-    .status("any")
+    // .status("any")
     .depth(1);
 
   return posts;
@@ -88,7 +88,7 @@ export const getPost = cache(
           slug: params.slug,
         })
         .props("id,slug,title,metadata,created_at,modified_at")
-        .status("any")
+        // .status("any")
         .depth(2),
     );
 
