@@ -166,6 +166,15 @@ export default function SubmitJobForm({
                   aria-label="Submit message"
                   className="disabled:opacity-50 md:w-max"
                   isDisabled={isSubmitting}
+                  disabled={
+                    name === "" ||
+                    email === "" ||
+                    title === "" ||
+                    company === "" ||
+                    location === "" ||
+                    industry === "" ||
+                    url === ""
+                  }
                   isLoading={isSubmitting}
                 >
                   {isSubmitted

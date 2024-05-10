@@ -241,8 +241,9 @@ function SpecBuilderFunction({
           ) : (
             <>
               <p className="text-sm text-foreground-500">
-                Start by entering some basic task requirements and click
-                Generate.
+                Start by entering some basic job requirements and click
+                Generate. This step is optional if you've already got a link to
+                a pre-written job spec in the URL section.
               </p>
             </>
           )}
@@ -259,7 +260,7 @@ function SpecBuilderFunction({
             className="mx-auto w-max bg-gradient-to-br from-secondary-400 to-primary-400 text-background disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
             startContent={<SparklesIcon size={16} />}
           >
-            Generate
+            Generate job spec
           </Button>
           <Button
             type="button"
