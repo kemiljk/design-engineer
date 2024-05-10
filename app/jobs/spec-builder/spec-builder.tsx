@@ -242,8 +242,8 @@ function SpecBuilderFunction({
             <>
               <p className="text-sm text-foreground-500">
                 Start by entering some basic job requirements and click
-                Generate. This step is optional if you've already got a link to
-                a pre-written job spec in the URL section.
+                Generate. This step is optional if you&apos;ve already got a
+                link to a pre-written job spec in the URL section.
               </p>
             </>
           )}
