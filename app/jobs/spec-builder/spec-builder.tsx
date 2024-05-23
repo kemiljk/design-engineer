@@ -8,7 +8,6 @@ import { useState, useRef, useEffect } from "react";
 import { checkSpecs } from "./check-specs";
 import Markdown from "react-markdown";
 import { getPrompts } from "@/lib/cosmic";
-import { useUser } from "@clerk/nextjs";
 
 function SpecBuilderFunction({
   jobRole,
