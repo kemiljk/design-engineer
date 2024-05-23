@@ -1,5 +1,5 @@
 import PageTitle from "./components/page-title";
-import { WaitlistForm } from "./components/waitlist-form";
+// import { WaitlistForm } from "./components/waitlist-form";
 import { BlurShape } from "./components/blur-shape";
 import { getHome, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
@@ -7,6 +7,7 @@ import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
 import SectionTitle from "./components/section-title";
 import { Button } from "@nextui-org/button";
+import { StyledButton } from "../app/components/styled-button";
 import { Link } from "@nextui-org/link";
 import { Chip } from "@nextui-org/chip";
 import { ArrowRight } from "lucide-react";
@@ -15,6 +16,7 @@ import SubmitJob from "./components/submit-job";
 import { getIndustries, getJobs, getLocations } from "@/lib/cosmic";
 import JobCard from "./components/job-card";
 import Presence from "./components/presence";
+import { SignedOut } from "@clerk/nextjs";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +53,17 @@ export default async function Home() {
                 <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
                   {home.metadata.description}
                 </p>
-                <WaitlistForm width="full" />
+                <SignedOut>
+                  <StyledButton
+                    as={Link}
+                    color="primary"
+                    variant="stylised"
+                    href="/sign-up"
+                  >
+                    Sign up
+                  </StyledButton>
+                </SignedOut>
+                {/* <WaitlistForm width="full" /> */}
               </div>
             </div>
           </div>

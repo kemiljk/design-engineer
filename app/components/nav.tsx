@@ -12,8 +12,9 @@ import {
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import { Logo } from "./logo";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
+import { StyledButton as Button } from "./styled-button";
 
 export default function Nav({
   links,
@@ -54,6 +55,11 @@ export default function Nav({
             </Link>
           </NavbarItem>
         ))}
+        <SignedOut>
+          <Button as={Link} color="primary" variant="stylised" href="/sign-in">
+            Sign in
+          </Button>
+        </SignedOut>
         <SignedIn>
           <>
             {protectedLinks &&
@@ -100,6 +106,11 @@ export default function Nav({
             </Link>
           </NavbarMenuItem>
         ))}
+        <SignedOut>
+          <Button as={Link} color="primary" variant="stylised" href="/sign-in">
+            Sign in
+          </Button>
+        </SignedOut>
         <SignedIn>
           <>
             {protectedLinks &&
