@@ -68,9 +68,11 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-8">
-            <div className="mt-8 flex w-full flex-col items-center md:mt-0">
-              <SectionTitle>While you wait</SectionTitle>
-            </div>
+            <SignedOut>
+              <div className="mt-8 flex w-full flex-col items-center md:mt-0">
+                <SectionTitle>While you wait</SectionTitle>
+              </div>
+            </SignedOut>
             <div className="flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
               <h3 className="flex justify-start text-center text-2xl font-medium text-zinc-700 dark:text-zinc-200">
                 The latest jobs for Design Engineers
