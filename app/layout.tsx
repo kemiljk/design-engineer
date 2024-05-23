@@ -12,6 +12,8 @@ import "./globals.css";
 import MainNav from "./components/main-nav";
 import { Providers } from "./providers";
 import Banner from "./components/banner";
+import { currentUser } from "@clerk/nextjs";
+import { Resend } from "resend";
 
 const serif = Lora({
   subsets: ["latin"],
@@ -97,6 +99,25 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const banner = await getBanner();
+  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+  let emails: string[] = [];
+
+  resend.contacts
+    .list({
+      audienceId: process.env.NEXT_PUBLIC_RESEND_AUDIENCE_ID as string,
+    })
+    .then((audience) => {
+      const data = audience.data?.data || [];
+      emails = data.map((contact: any) => contact.email);
+    });
+
+  const user = await currentUser();
+  if (user && !emails.includes(user.emailAddresses[0].emailAddress as string)) {
+    resend.contacts.create({
+      audienceId: process.env.NEXT_PUBLIC_RESEND_AUDIENCE_ID as string,
+      email: user.emailAddresses[0].emailAddress as string,
+    });
+  }
 
   return (
     <html lang="en">

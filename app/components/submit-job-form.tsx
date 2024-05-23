@@ -266,7 +266,7 @@ export default function SubmitJobForm({
               <Input
                 size="md"
                 type="url"
-                label="URL"
+                label="External Job Posting URL"
                 value={url}
                 onChange={(e) => setURL(e.target.value)}
                 isRequired
