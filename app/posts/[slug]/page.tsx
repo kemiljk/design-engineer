@@ -9,6 +9,7 @@ import { Link } from "@nextui-org/link";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
 import CommentsPresence from "@/app/components/comments/comments-presence";
+import { Avatar } from "@nextui-org/react";
 
 export const revalidate = 1;
 
@@ -121,10 +122,22 @@ export default async function Post({
                 <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
                   {post.title}
                 </h1>
-                <div className="mb-8 mt-4 flex w-full flex-col items-center justify-between gap-x-1 md:flex-row">
-                  <span className="pr-4 text-sm text-foreground-500">
+                <div className="mb-8 mt-4 flex w-full flex-col items-center justify-start gap-x-2 md:flex-row">
+                  <span className="text-sm text-foreground-700">
                     First published: {postPublished}
                   </span>
+                  <span className="text-sm text-foreground-500">by</span>
+                  <div className="flex items-center gap-x-2">
+                    <Avatar
+                      size="sm"
+                      src={post.metadata.author.metadata.image.imgix_url || ""}
+                      alt={post.metadata.author.title}
+                      fallback={post.metadata.author.title}
+                    />
+                    <span className="text-sm text-foreground-700">
+                      {post.metadata.author.title}
+                    </span>
+                  </div>
                 </div>
                 <Markdown
                   className="prose prose-zinc pb-4 dark:prose-invert"
