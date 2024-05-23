@@ -7,8 +7,8 @@ import { CopyIcon, RefreshCcwDotIcon, SparklesIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { checkSpecs } from "./check-specs";
 import Markdown from "react-markdown";
-import { nanoid } from "ai";
 import { getPrompts } from "@/lib/cosmic";
+import { useUser } from "@clerk/nextjs";
 
 function SpecBuilderFunction({
   jobRole,
@@ -32,10 +32,20 @@ function SpecBuilderFunction({
   const [conversation, setConversation] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const [thinking, setThinking] = useState<boolean>(false);
-
+  const [isConversationFinished, setIsConversationFinished] = useState(false);
   const [preGeneratedAlert, setPreGeneratedAlert] = useState<boolean | null>(
     false,
   );
+  const [generateCount, setGenerateCount] = useState(() => {
+    const savedCount = localStorage.getItem("generateCount");
+    return savedCount ? Number(savedCount) : 0;
+  });
+
+  const incrementGenerateCount = () => {
+    const newCount = generateCount + 1;
+    setGenerateCount(newCount);
+    localStorage.setItem("generateCount", String(newCount));
+  };
 
   const completionRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -126,6 +136,8 @@ function SpecBuilderFunction({
 
       setConversation([{ role: "assistant", content: textContent }]);
     }
+
+    setIsConversationFinished(true);
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -148,19 +160,6 @@ function SpecBuilderFunction({
       sendMessage();
       // If the prompt is unique, save it to the database
       saveFormData(e as React.FormEvent<HTMLFormElement>);
-      setTimeout(() => {
-        saveCompletion(
-          jobRole +
-            " at " +
-            company +
-            " in " +
-            location +
-            " in the " +
-            industry +
-            " industry",
-          conversation.map((message) => message.content).join("\n"),
-        );
-      }, 3000);
     }
   };
 
@@ -169,6 +168,24 @@ function SpecBuilderFunction({
     setPreGeneratedAlert(false);
     setInput("");
   };
+
+  useEffect(() => {
+    if (isConversationFinished) {
+      saveCompletion(
+        jobRole +
+          " at " +
+          company +
+          " in " +
+          location +
+          " in the " +
+          industry +
+          " industry",
+        conversation.map((message) => message.content).join("\n"),
+      );
+    }
+  }, [isConversationFinished]);
+
+  const isGenerateDisabled = generateCount >= 5;
 
   return (
     <div className="mx-auto w-full">
@@ -256,7 +273,9 @@ function SpecBuilderFunction({
             onClick={() => {
               setPreGeneratedAlert(false);
               setThinking(true);
+              incrementGenerateCount();
             }}
+            isDisabled={isGenerateDisabled}
             className="mx-auto w-max bg-gradient-to-br from-secondary-400 to-primary-400 text-background disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
             startContent={<SparklesIcon size={16} />}
           >
