@@ -121,7 +121,7 @@ export default async function Post({
                 <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
                   {post.title}
                 </h1>
-                <div className="mb-8 mt-4 flex w-full flex-col items-center justify-start gap-x-2 md:flex-row">
+                <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-2">
                   <span className="text-sm text-foreground-700">
                     First published: {postPublished}
                   </span>
