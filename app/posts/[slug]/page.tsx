@@ -13,65 +13,64 @@ import { Avatar } from "@nextui-org/react";
 
 export const revalidate = 1;
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string };
-// }) {
-//   const post = await getPost({ params });
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPost({ params });
 
-//   const metaTitle = `Karl Koch | ${post?.title}`;
-//   const postTitle = post?.title.replaceAll(" ", "%20");
-//   const metaImage = `https://kejk.tech/og?title=${postTitle}`;
-//   const metaDescription = `${post?.metadata.snippet}`;
-//   const metaUrl = `https://kejk.tech/${post?.slug}`;
+  const metaTitle = `d×e | ${post?.title}`;
+  const metaImage = `${post?.metadata.image.imgix_url}`;
+  const metaDescription = `${post?.metadata.snippet}`;
+  const metaUrl = `https://designengineer.xyz/posts/${post?.slug}`;
 
-//   return {
-//     metadataBase: new URL(`https://kejk.tech/thoughts/${post.slug}`),
-//     alternates: {
-//       canonical: `/thoughts/${post.slug}`,
-//     },
-//     title: metaTitle,
-//     description: metaDescription,
-//     openGraph: {
-//       title: metaTitle,
-//       description: metaDescription,
-//       url: metaUrl,
-//       type: "website",
-//       siteName: "KEJK",
-//       images: [
-//         {
-//           url: metaImage,
-//           width: 1200,
-//           height: 630,
-//           alt: metaTitle,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: metaTitle,
-//       description: metaDescription,
-//       siteId: "24575075",
-//       creator: "@_kejk",
-//       creatorId: "24575075",
-//       images: [metaImage],
-//     },
-//     robots: {
-//       index: true,
-//       follow: true,
-//       nocache: true,
-//       googleBot: {
-//         index: true,
-//         follow: false,
-//         noimageindex: true,
-//         "max-video-preview": -1,
-//         "max-image-preview": "large",
-//         "max-snippet": -1,
-//       },
-//     },
-//   };
-// }
+  return {
+    metadataBase: new URL(`${metaUrl}`),
+    alternates: {
+      canonical: `/posts/${post.slug}`,
+    },
+    title: metaTitle,
+    description: metaDescription,
+    openGraph: {
+      title: metaTitle,
+      description: metaDescription,
+      url: metaUrl,
+      type: "website",
+      siteName: "d×e",
+      images: [
+        {
+          url: metaImage,
+          width: 1200,
+          height: 630,
+          alt: metaTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metaTitle,
+      description: metaDescription,
+      siteId: "1721269273446731776",
+      creator: "@dxe_xyz",
+      creatorId: "1721269273446731776",
+      images: [metaImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        noimageindex: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
 
 export default async function Post({
   params,
