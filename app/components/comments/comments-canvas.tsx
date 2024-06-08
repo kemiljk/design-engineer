@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { Thread } from "@liveblocks/react-comments";
 import { useMaxZIndex } from "@/lib/useMaxZIndex";
 import { ThreadData } from "@liveblocks/core";
@@ -68,8 +68,10 @@ export function CommentsCanvas({ children }: { children: React.ReactNode }) {
     [editThreadMetadata, maxZIndex],
   );
 
+  const articleRef = useRef<HTMLDivElement>(null);
+
   return (
-    <>
+    <div ref={articleRef}>
       <DndContext onDragEnd={handleDragEnd} sensors={sensors}>
         {areThreadsVisible &&
           threads.map((thread) => (
@@ -80,8 +82,9 @@ export function CommentsCanvas({ children }: { children: React.ReactNode }) {
       <Toolbar
         areThreadsVisible={areThreadsVisible}
         setAreThreadsVisible={setAreThreadsVisible}
+        articleRef={articleRef}
       />
-    </>
+    </div>
   );
 }
 

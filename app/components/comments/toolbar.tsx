@@ -14,9 +14,11 @@ import { Image } from "@nextui-org/react";
 export function Toolbar({
   areThreadsVisible,
   setAreThreadsVisible,
+  articleRef,
 }: {
   areThreadsVisible: boolean;
   setAreThreadsVisible: (visible: boolean) => void;
+  articleRef: React.RefObject<HTMLDivElement>;
 }) {
   // Get create thread function and the current user
   const createThread = useCreateThread();
@@ -98,6 +100,8 @@ export function Toolbar({
 
               const x = e.pageX + avatarOffset;
               const y = e.pageY;
+
+              console.log(x, y);
 
               setCoords({ x, y });
               setState("placed");

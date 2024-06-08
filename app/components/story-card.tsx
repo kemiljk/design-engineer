@@ -51,7 +51,10 @@ export function StoryCard({
           )}
           <div className="pt-4 text-center">
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              {story.metadata.is_available ? date : `Coming on ${date}`}
+              {story.metadata.is_available
+                ? date
+                : // `Coming on ${date}`
+                  `Coming soon`}
             </p>
           </div>
         </CardHeader>
