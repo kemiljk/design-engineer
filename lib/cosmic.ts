@@ -38,6 +38,19 @@ export const getHome = cache(async (): Promise<Type.Home> => {
   return home.object;
 });
 
+export const getSponsors = async (): Promise<Type.Sponsor[]> => {
+  const sponsors = await Promise.resolve(
+    cosmic.objects
+      .find({
+        type: "sponsors",
+      })
+      .props("id,title,metadata")
+      .depth(1),
+  );
+
+  return sponsors.objects;
+};
+
 export const getBanner = async () => {
   const banner = await Promise.resolve(
     cosmic.objects

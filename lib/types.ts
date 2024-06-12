@@ -1,10 +1,3 @@
-export type Home = {
-  metadata: {
-    description: string;
-    pill: string;
-  };
-};
-
 export type Config = {
   metadata: {
     site_name: string;
@@ -13,6 +6,24 @@ export type Config = {
       imgix_url: string;
     };
     site_url: string;
+  };
+};
+
+export type Home = {
+  metadata: {
+    description: string;
+    pill: string;
+  };
+};
+
+export type Sponsor = {
+  id: string;
+  title: string;
+  metadata: {
+    logo: {
+      imgix_url: string;
+    };
+    url: string;
   };
 };
 

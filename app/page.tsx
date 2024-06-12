@@ -1,7 +1,13 @@
 import PageTitle from "./components/page-title";
-// import { WaitlistForm } from "./components/waitlist-form";
 import { BlurShape } from "./components/blur-shape";
-import { getHome, getPosts } from "@/lib/cosmic";
+import {
+  getHome,
+  getSponsors,
+  getPosts,
+  getIndustries,
+  getJobs,
+  getLocations,
+} from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
@@ -13,7 +19,6 @@ import { Chip } from "@nextui-org/chip";
 import { ArrowRight } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
 import SubmitJob from "./components/submit-job";
-import { getIndustries, getJobs, getLocations } from "@/lib/cosmic";
 import JobCard from "./components/job-card";
 import Presence from "./components/presence";
 import { SignedOut } from "@clerk/nextjs";
@@ -22,6 +27,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const home = await getHome();
+  const sponsors = await getSponsors();
   const posts = await getPosts();
   const jobs = await getJobs();
   const ind: Type.Industry[] = await getIndustries();
@@ -67,7 +73,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex max-w-5xl flex-col gap-8">
             <SignedOut>
               <div className="mt-8 flex w-full flex-col items-center md:mt-0">
                 <SectionTitle>While you wait</SectionTitle>
@@ -134,8 +140,8 @@ export default async function Home() {
                 </Button>
               </div>
             </div>
-            <div className="mt-4 flex w-full flex-wrap justify-evenly gap-8">
-              {posts.slice(0, 4).map((post: Type.Post) => {
+            <div className="mt-4 grid w-full grid-cols-1 justify-evenly gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {posts.slice(0, 3).map((post: Type.Post) => {
                 const rotationClass =
                   Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
                 return (
@@ -152,6 +158,22 @@ export default async function Home() {
             </div>
             <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
               <SubmitArticle />
+            </div>
+            <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 md:mt-12">
+              <p className="text-foreground">Proudly supported by</p>
+              {sponsors.map((sponsor) => (
+                <div className="flex items-center gap-2">
+                  <img
+                    key={sponsor.id}
+                    src={sponsor.metadata.logo.imgix_url}
+                    alt={sponsor.title}
+                    className="h-12"
+                  />
+                  <span className="font-medium text-foreground">
+                    {sponsor.title}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
