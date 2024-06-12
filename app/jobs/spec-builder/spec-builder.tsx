@@ -182,7 +182,14 @@ function SpecBuilderFunction({
         conversation.map((message) => message.content).join("\n"),
       );
     }
-  }, [isConversationFinished]);
+  }, [
+    isConversationFinished,
+    conversation,
+    jobRole,
+    company,
+    location,
+    industry,
+  ]);
 
   const isGenerateDisabled = generateCount >= 5;
 

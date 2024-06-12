@@ -22,6 +22,7 @@ import SubmitJob from "./components/submit-job";
 import JobCard from "./components/job-card";
 import Presence from "./components/presence";
 import { SignedOut } from "@clerk/nextjs";
+import { Image } from "@nextui-org/react";
 
 export const dynamic = "force-dynamic";
 
@@ -162,9 +163,8 @@ export default async function Home() {
             <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 md:mt-12">
               <p className="text-foreground">Proudly supported by</p>
               {sponsors.map((sponsor) => (
-                <div className="flex items-center gap-2">
-                  <img
-                    key={sponsor.id}
+                <div key={sponsor.id} className="flex items-center gap-2">
+                  <Image
                     src={sponsor.metadata.logo.imgix_url}
                     alt={sponsor.title}
                     className="h-12"
