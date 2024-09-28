@@ -10,7 +10,7 @@ function Comments() {
 
   return (
     <main className="overflow-hidden rounded-2xl">
-      {threads.map((thread) => (
+      {threads.map((thread: any) => (
         <Thread
           key={thread.id}
           thread={thread}
