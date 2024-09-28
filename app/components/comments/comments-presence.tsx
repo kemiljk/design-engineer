@@ -17,6 +17,11 @@ export default function CommentsPresence({
       initialPresence={{
         cursor: null,
       }}
+      initialStorage={{
+        x: 0,
+        y: 0,
+        zIndex: 0,
+      }}
     >
       <ClientSideSuspense fallback={<></>}>
         {() => <CommentsCanvas>{children}</CommentsCanvas>}
