@@ -89,7 +89,7 @@ export function CommentsCanvas({ children }: { children: React.ReactNode }) {
 }
 
 // A draggable thread
-function DraggableThread({ thread }: { thread: ThreadData<ThreadMetadata> }) {
+function DraggableThread({ thread }: { thread: any }) {
   // Open threads that have just been created
   const startOpen = useMemo(() => {
     return Number(new Date()) - Number(new Date(thread.createdAt)) <= 100;
