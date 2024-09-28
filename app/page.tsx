@@ -124,6 +124,16 @@ export default async function Home() {
                     title: location.title,
                   }))}
               />
+              <Button
+                as={Link}
+                href="https://designengineer.io"
+                target="_blank"
+                endContent={<ArrowRight className="h-4 w-4" />}
+                variant="flat"
+                className="w-full gap-2 md:w-max"
+              >
+                More on designengineer.io
+              </Button>
             </div>
             <div className="mt-8 flex w-full flex-col items-center gap-4 lg:flex-row lg:justify-between">
               <h3 className="flex justify-start text-center text-2xl font-medium text-zinc-700 dark:text-zinc-200">
