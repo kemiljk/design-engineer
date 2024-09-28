@@ -36,7 +36,7 @@ export function ContentCard({
     >
       <Card
         key={post.id}
-        className="mx-auto w-full overflow-hidden border border-foreground-100 shadow transition duration-250 ease-soft-spring hover:shadow-lg hover:transition"
+        className="mx-auto h-full w-full overflow-hidden border border-foreground-100 shadow transition duration-250 ease-soft-spring hover:shadow-lg hover:transition"
         isPressable
       >
         <CardHeader className="flex items-start justify-center gap-4 pt-6 text-center">

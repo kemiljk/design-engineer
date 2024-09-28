@@ -7,6 +7,7 @@ import {
   getIndustries,
   getJobs,
   getLocations,
+  getFirstPartyPosts,
 } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ContentCard } from "@/app/components/content-card";
@@ -24,15 +25,23 @@ import Presence from "./components/presence";
 import { SignedOut } from "@clerk/nextjs";
 import { Image } from "@nextui-org/react";
 
-export const dynamic = "force-dynamic";
-
 export default async function Home() {
   const home = await getHome();
   const sponsors = await getSponsors();
   const posts = await getPosts();
+  const firstPartyPosts = await getFirstPartyPosts();
   const jobs = await getJobs();
   const ind: Type.Industry[] = await getIndustries();
   const loc: Type.Location[] = await getLocations();
+
+  // Combine posts and firstPartyPosts
+  const combinedPosts = [...posts, ...firstPartyPosts];
+
+  // Shuffle the combined array
+  const shuffledPosts = combinedPosts.sort(() => 0.5 - Math.random());
+
+  // Slice the first 3 elements from the shuffled array
+  const selectedPosts = shuffledPosts.slice(0, 3);
 
   return (
     <Presence roomId="live-cursors">
@@ -141,8 +150,8 @@ export default async function Home() {
                 </Button>
               </div>
             </div>
-            <div className="mt-4 grid w-full grid-cols-1 justify-evenly gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {posts.slice(0, 3).map((post: Type.Post) => {
+            <div className="mt-4 grid h-auto w-full grid-cols-1 justify-evenly gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {selectedPosts.map((post: Type.Post) => {
                 const rotationClass =
                   Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
                 return (
