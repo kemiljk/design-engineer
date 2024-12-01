@@ -154,7 +154,7 @@ function TaskBuilder({
           variant="stylised"
           onPress={sendMessage}
           onClick={() => setInput("")}
-          className="mx-auto w-max bg-gradient-to-br from-secondary-400 to-primary-400 text-background disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
+          className="mx-auto w-max bg-gradient-to-br from-secondary-400 to-primary-400 text-white disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
           startContent={
             isMobile ? (
               <SendIcon className="shrink-0" size={16} />
