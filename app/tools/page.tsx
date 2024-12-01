@@ -20,7 +20,8 @@ const Tools = async () => {
         <div className="flex flex-col gap-4">
           <p className="text-foreground-500">
             Unlock the full potential of our tools by signing up. As a member,
-            you'll be able to generate customised tasks tailored to your needs.
+            you&apos;ll be able to generate customised tasks tailored to your
+            needs.
           </p>
           <Card className="flex max-w-xl justify-center">
             <CardBody>
