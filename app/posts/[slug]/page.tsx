@@ -12,11 +12,9 @@ import { Avatar } from "@nextui-org/avatar";
 
 export const revalidate = 1;
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ slug: string }>;
-  }
-) {
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}) {
   const params = await props.params;
   const post = await getPost({ params });
 
@@ -72,11 +70,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function Post(
-  props: {
-    params: Promise<{ slug: string; id: string }>;
-  }
-) {
+export default async function Post(props: {
+  params: Promise<{ slug: string; id: string }>;
+}) {
   const params = await props.params;
   const post = await getPost({ params });
   const allPosts = await getPosts();
