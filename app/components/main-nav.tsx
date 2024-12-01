@@ -25,12 +25,17 @@ const MainNav: React.FC = async () => {
     },
     {
       index: 4,
+      title: "Tools",
+      href: "/tools",
+    },
+    {
+      index: 5,
       title: "Hiring",
       href: "https://designengineer.io",
       target: "_blank",
     },
     {
-      index: 5,
+      index: 6,
       title: "Resources",
       href: "/resources",
     },

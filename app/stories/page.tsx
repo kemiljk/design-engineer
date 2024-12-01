@@ -26,34 +26,17 @@ const StoriesPage: React.FC = async () => {
       <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
         {stories.map((story: Type.Story) => {
           const rotationClass = Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
-          return stories.some((s) => s.metadata.is_pending) ? (
-            <StoryCard
-              key={story.id}
-              story={story}
-              className={cn(
-                rotationClass,
-                "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
-              )}
-            />
-          ) : (
-            <Card className="max-w-3xl -rotate-2" shadow="sm">
-              <CardHeader>
-                <h2 className="font-display text-xl font-semibold">
-                  Coming soon...
-                </h2>
-              </CardHeader>
-              <CardBody className="mr-auto flex flex-col items-start gap-4 text-zinc-600 dark:text-zinc-300">
-                <p>
-                  We&apos;ve got some great people lined up from some of the
-                  world&apos;s best companies. Stay tuned for when we&apos;re
-                  ready to start revealing them to you.
-                </p>
-                <p>
-                  Join our waitlist to be the first to know when they&apos;re
-                  ready.
-                </p>
-              </CardBody>
-            </Card>
+          return (
+            stories.some((s) => s.metadata.is_pending) && (
+              <StoryCard
+                key={story.id}
+                story={story}
+                className={cn(
+                  rotationClass,
+                  "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
+                )}
+              />
+            )
           );
         })}
       </div>
