@@ -52,7 +52,6 @@ const StoriesPage: React.FC = async () => {
                   Join our waitlist to be the first to know when they&apos;re
                   ready.
                 </p>
-                <WaitlistForm width="full" />
               </CardBody>
             </Card>
           );
