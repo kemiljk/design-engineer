@@ -5,11 +5,12 @@ import { ContentCard } from "../components/content-card";
 import SubmitArticle from "../components/submit-article";
 import Search from "../components/search-box";
 
-const PostsPage = async ({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) => {
+const PostsPage = async (
+  props: {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  }
+) => {
+  const searchParams = await props.searchParams;
   const searchTerm = (searchParams.search as string) || "";
   const fetchPosts = await getFirstPartyPosts();
   const posts = fetchPosts

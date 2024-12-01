@@ -8,7 +8,8 @@ import CopyButton from "@/app/components/copy-button";
 import Markdown from "react-markdown";
 import { InfoIcon } from "lucide-react";
 
-const StoryPage = async ({ params }: { params: { slug: string } }) => {
+const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const story = await getStory(params.slug);
 
   const date = new Date(story.metadata.published_date).toLocaleDateString(
@@ -28,7 +29,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
   const readingTime = Math.ceil(totalWords / 200);
 
   return (
-    <article className="mx-auto h-full w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
+    (<article className="mx-auto h-full w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
       <div className="flex flex-col items-center gap-2 md:gap-4">
         <Avatar
           className="h-40 w-40"
@@ -131,7 +132,7 @@ const StoryPage = async ({ params }: { params: { slug: string } }) => {
         ))}
         <CopyButton />
       </div>
-    </article>
+    </article>)
   );
 };
 
