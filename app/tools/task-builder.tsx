@@ -4,16 +4,10 @@ import React, { useState, useEffect, useRef } from "react";
 import Markdown from "react-markdown";
 import SectionTitle from "@/app/components/section-title";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import {
-  ArrowLeftIcon,
-  CopyIcon,
-  FlameIcon,
-  SendIcon,
-  SparklesIcon,
-} from "lucide-react";
+import { CopyIcon, FlameIcon, SendIcon, SparklesIcon } from "lucide-react";
 import { Message, continueConversation } from "./actions";
 import { readStreamableValue } from "ai/rsc";
-import { Divider, Input, Link } from "@nextui-org/react";
+import { Divider, Textarea } from "@nextui-org/react";
 import { useMediaQuery } from "usehooks-ts";
 import { TaskBuilderSuggestion } from "@/lib/types";
 
@@ -92,10 +86,7 @@ function TaskBuilder({
           <div className="m-auto flex h-full w-full flex-col items-center justify-center gap-4 md:min-h-[50dvh]">
             <div className="flex h-full w-full flex-col">
               <div className="flex h-full w-full flex-col gap-y-2">
-                <SparklesIcon
-                  className="mx-auto animate-pulse text-secondary-200"
-                  size={104}
-                />
+                <SparklesIcon className="mx-auto size-12 animate-pulse text-secondary-200 md:size-24" />
                 <span className="mx-auto max-w-xs text-center text-foreground-500">
                   Start by entering some basic task requirements and click
                   Generate.
@@ -105,7 +96,7 @@ function TaskBuilder({
                 {suggestions.slice(0, 4).map((suggestion, index) => (
                   <button
                     key={index}
-                    className="w-full cursor-pointer select-none rounded-lg px-4 py-2 text-start text-sm ring-1 ring-foreground-200 hover:ring-2 hover:ring-primary-400"
+                    className="w-full cursor-pointer select-none rounded-lg bg-background px-4 py-2 text-start text-sm ring-1 ring-foreground-200 hover:ring-2 hover:ring-primary-400"
                     onClick={() => {
                       setInput(suggestion.title);
                     }}
@@ -120,7 +111,7 @@ function TaskBuilder({
           </div>
         )}
       </div>
-      <div className="fixed bottom-0 left-0 right-0 z-20 flex w-full max-w-3xl gap-4 border-t border-foreground-100 bg-background px-4 py-4 *:sticky lg:left-auto lg:right-auto">
+      <div className="fixed bottom-0 left-0 right-0 z-20 flex w-full max-w-3xl items-end gap-4 border-t border-foreground-100 bg-background px-4 py-4 *:sticky lg:left-auto lg:right-auto">
         {conversation.length > 0 && (
           <Button
             title="Clear conversation"
@@ -134,11 +125,11 @@ function TaskBuilder({
             startContent={<FlameIcon size={16} />}
           />
         )}
-        <Input
+        <Textarea
           type="text"
           value={input}
-          placeholder="Provide some basic task requirements..."
-          isClearable
+          minRows={1}
+          placeholder="Provide some basic requirements..."
           onClear={() => setInput("")}
           onChange={(event) => {
             setInput(event.target.value);

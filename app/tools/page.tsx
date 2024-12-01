@@ -17,7 +17,7 @@ const Tools = async () => {
         <TaskBuilder suggestions={suggestions} />
       </SignedIn>
       <SignedOut>
-        <div className="flex flex-col gap-4">
+        <div className="flex w-full flex-col items-center gap-4">
           <p className="text-foreground-500">
             Unlock the full potential of our tools by signing up. As a member,
             you&apos;ll be able to generate customised tasks tailored to your
