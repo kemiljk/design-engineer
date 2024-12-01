@@ -8,8 +8,7 @@ import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
-import CommentsPresence from "@/app/components/comments/comments-presence";
-import { Avatar } from "@nextui-org/react";
+import { Avatar } from "@nextui-org/avatar";
 
 export const revalidate = 1;
 
@@ -91,82 +90,77 @@ export default async function Post({
   });
 
   return (
-    <CommentsPresence roomId={params.slug}>
-      <div>
-        <div className="mx-auto max-w-prose">
-          {post && (
-            <>
-              <div className="mb-8 flex w-full items-center justify-between">
-                <Button
-                  as={Link}
-                  variant="light"
-                  href="/posts"
-                  startContent={
-                    <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
-                  }
-                >
-                  Go back
-                </Button>
-              </div>
-              <article>
-                {post.metadata.categories !== undefined && (
-                  <div className="mb-4 flex items-center gap-x-2">
-                    {post.metadata.categories.map((category: any) => (
-                      <Chip key={category} variant="bordered" radius="full">
-                        {category.title}
-                      </Chip>
-                    ))}
-                  </div>
-                )}
-                <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
-                  {post.title}
-                </h1>
-                <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-2">
-                  <span className="text-sm text-foreground-700">
-                    First published: {postPublished}
-                  </span>
-                  <span className="text-sm text-foreground-500">by</span>
-                  <div className="flex items-center gap-x-2">
-                    <Avatar
-                      size="sm"
-                      src={post.metadata.author.metadata.image.imgix_url || ""}
-                      alt={post.metadata.author.title}
-                      fallback={post.metadata.author.title}
-                    />
-                    <span className="text-sm text-foreground-700">
-                      {post.metadata.author.title}
-                    </span>
-                  </div>
+    <div>
+      <div className="mx-auto max-w-prose">
+        {post && (
+          <>
+            <div className="mb-8 flex w-full items-center justify-between">
+              <Button
+                as={Link}
+                variant="light"
+                href="/posts"
+                startContent={
+                  <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
+                }
+              >
+                Go back
+              </Button>
+            </div>
+            <article>
+              {post.metadata.categories !== undefined && (
+                <div className="mb-4 flex items-center gap-x-2">
+                  {post.metadata.categories.map((category: any) => (
+                    <Chip key={category} variant="bordered" radius="full">
+                      {category.title}
+                    </Chip>
+                  ))}
                 </div>
-                <Markdown
-                  className="prose prose-zinc pb-4 dark:prose-invert"
-                  content={post.metadata.content}
-                />
-                <span className="pb-16 pt-8 text-sm text-foreground-500">
-                  Last updated: {postModified} ({relativeDate})
+              )}
+              <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
+                {post.title}
+              </h1>
+              <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-2">
+                <span className="text-sm text-foreground-700">
+                  First published: {postPublished}
                 </span>
-              </article>
-            </>
-          )}
-          <div className="flex w-full items-center justify-center space-x-2 pb-4 pt-8">
-            <CopyButton />
-          </div>
-          <Divider className="my-4" />
-          <h3 className="pb-2">More to explore</h3>
-          <ul
-            role="list"
-            className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2"
-          >
-            {allPosts !== undefined &&
-              allPosts
-                .filter((nextPost: { id: string }) => nextPost?.id !== post?.id)
-                .slice(0, 4)
-                .map((nextPost: any) => (
-                  <ContentCard key={nextPost.id} post={nextPost} />
-                ))}
-          </ul>
+                <span className="text-sm text-foreground-500">by</span>
+                <div className="flex items-center gap-x-2">
+                  <Avatar
+                    size="sm"
+                    src={post.metadata.author.metadata.image.imgix_url || ""}
+                    alt={post.metadata.author.title}
+                    fallback={post.metadata.author.title}
+                  />
+                  <span className="text-sm text-foreground-700">
+                    {post.metadata.author.title}
+                  </span>
+                </div>
+              </div>
+              <Markdown
+                className="prose prose-zinc pb-4 dark:prose-invert"
+                content={post.metadata.content}
+              />
+              <span className="pb-16 pt-8 text-sm text-foreground-500">
+                Last updated: {postModified} ({relativeDate})
+              </span>
+            </article>
+          </>
+        )}
+        <div className="flex w-full items-center justify-center space-x-2 pb-4 pt-8">
+          <CopyButton />
         </div>
+        <Divider className="my-4" />
+        <h3 className="pb-2">More to explore</h3>
+        <ul role="list" className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {allPosts !== undefined &&
+            allPosts
+              .filter((nextPost: { id: string }) => nextPost?.id !== post?.id)
+              .slice(0, 4)
+              .map((nextPost: any) => (
+                <ContentCard key={nextPost.id} post={nextPost} />
+              ))}
+        </ul>
       </div>
-    </CommentsPresence>
+    </div>
   );
 }

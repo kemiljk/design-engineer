@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar } from "@nextui-org/avatar";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import * as Type from "@/lib/types";
@@ -36,7 +38,7 @@ export function ContentCard({
     >
       <Card
         key={post.id}
-        className="mx-auto h-full w-full overflow-hidden border border-foreground-100 shadow transition duration-250 ease-soft-spring hover:shadow-lg hover:transition"
+        className="mx-auto h-full w-full overflow-hidden border border-foreground-50 transition duration-250 ease-soft-spring hover:shadow-lg hover:transition-colors"
         isPressable
       >
         <CardHeader className="flex items-start justify-center gap-4 pt-6 text-center">
@@ -73,7 +75,7 @@ export function ContentCard({
             <Image
               alt="Article image"
               className="aspect-video border-y border-neutral-50 object-cover dark:border-neutral-800"
-              height={100}
+              height={200}
               width={500}
               radius="none"
               src={

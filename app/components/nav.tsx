@@ -18,10 +18,13 @@ import { StyledButton as Button } from "./styled-button";
 
 export default function Nav({
   links,
-  protectedLinks,
 }: {
-  links: { index: number; title: string; href: string }[];
-  protectedLinks?: { index: number; title: string; href: string }[];
+  links: {
+    index: number;
+    title: string;
+    href: string;
+    target?: string;
+  }[];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -50,6 +53,7 @@ export default function Nav({
             <Link
               color={pathname === item.href ? "primary" : "foreground"}
               href={item.href}
+              target={item.target}
             >
               {item.title}
             </Link>
@@ -61,33 +65,16 @@ export default function Nav({
           </Button>
         </SignedOut>
         <SignedIn>
-          <>
-            {protectedLinks &&
-              protectedLinks.map((item, index) => (
-                <NavbarItem
-                  key={`${item}-${index}`}
-                  isActive={pathname === item.href ? true : false}
-                >
-                  <Link
-                    isBlock
-                    color={pathname === item.href ? "primary" : "foreground"}
-                    href={item.href}
-                  >
-                    {item.title}
-                  </Link>
-                </NavbarItem>
-              ))}
-            <UserButton
-              appearance={{
-                elements: {
-                  userButtonAvatarBox: "hover:cursor-default hover:opacity-80",
-                  userButtonPopoverActionButton:
-                    "hover:cursor-default hover:opacity-80",
-                },
-              }}
-              afterSignOutUrl="/"
-            />
-          </>
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: "hover:cursor-default hover:opacity-80",
+                userButtonPopoverActionButton:
+                  "hover:cursor-default hover:opacity-80",
+              },
+            }}
+            afterSignOutUrl="/"
+          />
         </SignedIn>
       </NavbarContent>
       <NavbarMenu>
@@ -112,33 +99,16 @@ export default function Nav({
           </Button>
         </SignedOut>
         <SignedIn>
-          <>
-            {protectedLinks &&
-              protectedLinks.map((item, index) => (
-                <NavbarMenuItem
-                  key={`${item}-${index}`}
-                  isActive={pathname === item.href ? true : false}
-                >
-                  <Link
-                    isBlock
-                    color={pathname === item.href ? "primary" : "foreground"}
-                    href={item.href}
-                  >
-                    {item.title}
-                  </Link>
-                </NavbarMenuItem>
-              ))}
-            <UserButton
-              appearance={{
-                elements: {
-                  userButtonAvatarBox: "hover:cursor-default hover:opacity-80",
-                  userButtonPopoverActionButton:
-                    "hover:cursor-default hover:opacity-80",
-                },
-              }}
-              afterSignOutUrl="/"
-            />
-          </>
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: "hover:cursor-default hover:opacity-80",
+                userButtonPopoverActionButton:
+                  "hover:cursor-default hover:opacity-80",
+              },
+            }}
+            afterSignOutUrl="/"
+          />
         </SignedIn>
       </NavbarMenu>
     </Navbar>

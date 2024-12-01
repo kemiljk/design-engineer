@@ -26,25 +26,13 @@ const MainNav: React.FC = async () => {
     {
       index: 4,
       title: "Hiring",
-      href: "/jobs",
+      href: "https://designengineer.io",
+      target: "_blank",
     },
     {
       index: 5,
       title: "Resources",
       href: "/resources",
-    },
-    {
-      index: 6,
-      title: "Updates",
-      href: "/updates",
-    },
-  ];
-
-  const protectedLinks = [
-    {
-      // index: 0,
-      // title: "Stats",
-      // href: "/stats",
     },
   ];
 
