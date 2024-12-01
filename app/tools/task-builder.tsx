@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { Message, continueConversation } from "./actions";
 import { readStreamableValue } from "ai/rsc";
-import { Card, Divider, Input, Link } from "@nextui-org/react";
+import { Divider, Input, Link } from "@nextui-org/react";
 import { useMediaQuery } from "usehooks-ts";
 import { TaskBuilderSuggestion } from "@/lib/types";
 
@@ -25,8 +25,8 @@ function TaskBuilder({
   const [conversation, setConversation] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const completionRef = useRef<HTMLDivElement | null>(null);
 
+  const completionRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (completionRef.current) {
       completionRef.current.scrollIntoView({
@@ -89,11 +89,11 @@ function TaskBuilder({
               ),
           )
         ) : (
-          <div className="relative m-auto flex h-full w-full flex-col items-center justify-center gap-4 md:min-h-[100dvh]">
+          <div className="m-auto flex h-full w-full flex-col items-center justify-center gap-4 md:min-h-[50dvh]">
             <div className="flex h-full w-full flex-col">
               <div className="flex h-full w-full flex-col gap-y-2">
                 <SparklesIcon
-                  className="mx-auto animate-pulse text-secondary-300"
+                  className="mx-auto animate-pulse text-secondary-200"
                   size={104}
                 />
                 <span className="mx-auto max-w-xs text-center text-foreground-500">
@@ -101,7 +101,7 @@ function TaskBuilder({
                   Generate.
                 </span>
               </div>
-              <div className="fixed bottom-0 mb-20 grid w-full max-w-3xl grid-cols-1 gap-2 px-4 md:grid-cols-2 lg:left-auto lg:right-auto">
+              <div className="fixed bottom-20 left-0 right-0 grid w-full max-w-3xl grid-cols-1 gap-2 px-4 md:grid-cols-2 lg:left-auto lg:right-auto">
                 {suggestions.slice(0, 4).map((suggestion, index) => (
                   <button
                     key={index}
@@ -110,9 +110,9 @@ function TaskBuilder({
                       setInput(suggestion.title);
                     }}
                   >
-                    <p className="flex w-full flex-col items-start gap-4 text-foreground-500 hover:text-primary-400">
+                    <div className="flex w-full flex-col items-start gap-4 text-foreground-500">
                       {suggestion.title}
-                    </p>
+                    </div>
                   </button>
                 ))}
               </div>
@@ -120,7 +120,7 @@ function TaskBuilder({
           </div>
         )}
       </div>
-      <div className="fixed bottom-0 z-20 flex w-full max-w-3xl gap-4 border-t border-foreground-100 bg-background px-4 py-4 *:sticky lg:left-auto lg:right-auto">
+      <div className="fixed bottom-0 left-0 right-0 z-20 flex w-full max-w-3xl gap-4 border-t border-foreground-100 bg-background px-4 py-4 *:sticky lg:left-auto lg:right-auto">
         {conversation.length > 0 && (
           <Button
             title="Clear conversation"
@@ -151,8 +151,7 @@ function TaskBuilder({
           }}
         />
         <Button
-          variant="solid"
-          color="primary"
+          variant="stylised"
           onPress={sendMessage}
           onClick={() => setInput("")}
           className="mx-auto w-max bg-gradient-to-br from-secondary-400 to-primary-400 text-background disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:opacity-50"
