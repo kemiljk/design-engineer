@@ -109,7 +109,7 @@ export default async function Home() {
               </Button>
             </div>
           </div>
-          <div className="mt-4 grid h-auto w-full grid-cols-1 justify-evenly gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 mx-auto grid h-auto w-full grid-cols-1 justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
             {selectedPosts.map((post: Type.Post) => {
               return (
                 <ContentCard
