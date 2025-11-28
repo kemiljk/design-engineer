@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       subject: "Thanks for submitting a job",
       react: JobSubmissionTemplate({
         email: res.email,
-      }) as React.ReactElement,
+      }) as React.ReactElement<any>,
     });
 
     return NextResponse.json(data);

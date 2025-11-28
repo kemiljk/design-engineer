@@ -1,22 +1,15 @@
 import React from "react";
 import Nav from "./nav";
+import { getPosts } from "@/lib/cosmic";
 
 const MainNav: React.FC = async () => {
+  const posts = await getPosts();
+
   const links = [
     {
       index: 0,
       title: "Home",
       href: "/",
-    },
-    {
-      index: 1,
-      title: "About",
-      href: "/about",
-    },
-    {
-      index: 2,
-      title: "Stories",
-      href: "/stories",
     },
     {
       index: 3,
@@ -39,9 +32,19 @@ const MainNav: React.FC = async () => {
       title: "Resources",
       href: "/resources",
     },
+    {
+      index: 1,
+      title: "About",
+      href: "/about",
+    },
   ];
 
-  return <Nav links={links} />;
+  const simplifiedPosts = posts.slice(0, 10).map((post) => ({
+    title: post.title,
+    slug: post.slug,
+  }));
+
+  return <Nav links={links} posts={simplifiedPosts} />;
 };
 
 export default MainNav;

@@ -1,12 +1,10 @@
+import { Suspense } from "react";
 import PageTitle from "./components/page-title";
 import { BlurShape } from "./components/blur-shape";
 import {
   getHome,
   getSponsors,
   getPosts,
-  getIndustries,
-  getJobs,
-  getLocations,
   getFirstPartyPosts,
 } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
@@ -22,62 +20,167 @@ import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import { Image } from "@nextui-org/image";
 
-export default async function Home() {
+function shuffleWithSeed<T>(array: T[], seed: number): T[] {
+  const shuffled = [...array];
+  let currentIndex = shuffled.length;
+
+  const seededRandom = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+
+  while (currentIndex > 0) {
+    const randomIndex = Math.floor(seededRandom() * currentIndex);
+    currentIndex--;
+    [shuffled[currentIndex], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[currentIndex],
+    ];
+  }
+
+  return shuffled;
+}
+
+async function HeroSection() {
   const home = await getHome();
-  const sponsors = await getSponsors();
-  const posts = await getPosts();
-  const firstPartyPosts = await getFirstPartyPosts();
-  const jobs = await getJobs();
-  const ind: Type.Industry[] = await getIndustries();
-  const loc: Type.Location[] = await getLocations();
 
-  // Combine posts and firstPartyPosts
+  return (
+    <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
+      <div className="grid h-full w-full place-items-center">
+        <div className="relative flex flex-col items-center gap-10">
+          <div className="flex justify-center">
+            <Chip
+              variant="bordered"
+              color="success"
+              classNames={{
+                base: "bg-gradient-to-br from-primary-100 to-success-100 border border-success-400",
+                content: "text-success-700",
+              }}
+            >
+              {home.metadata.pill}
+            </Chip>
+          </div>
+          <PageTitle />
+          <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
+            {home.metadata.description}
+          </p>
+          <SignedOut>
+            <StyledButton
+              as={Link}
+              color="primary"
+              variant="stylised"
+              href="/sign-up"
+            >
+              Sign up
+            </StyledButton>
+          </SignedOut>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroSkeleton() {
+  return (
+    <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
+      <div className="grid h-full w-full place-items-center">
+        <div className="relative flex flex-col items-center gap-10">
+          <div className="h-6 w-32 animate-pulse rounded-full bg-gray-200 dark:bg-gray-800" />
+          <PageTitle />
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-2">
+            <div className="h-8 w-full animate-pulse rounded bg-gray-200 dark:bg-gray-800" />
+            <div className="h-8 w-3/4 animate-pulse rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+async function PostsSection() {
+  const [posts, firstPartyPosts] = await Promise.all([
+    getPosts(),
+    getFirstPartyPosts(),
+  ]);
+
   const combinedPosts = [...posts, ...firstPartyPosts];
-
-  // Shuffle the combined array
-  const shuffledPosts = combinedPosts.sort(() => 0.5 - Math.random());
-
-  // Slice the first 3 elements from the shuffled array
+  const today = new Date();
+  const seed =
+    today.getFullYear() * 10000 +
+    (today.getMonth() + 1) * 100 +
+    today.getDate();
+  const shuffledPosts = shuffleWithSeed(combinedPosts, seed);
   const selectedPosts = shuffledPosts.slice(0, 3);
 
+  return (
+    <div className="mx-auto mt-4 grid h-auto w-full grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {selectedPosts.map((post: Type.Post) => (
+        <ContentCard
+          key={post.id}
+          post={post}
+          className={cn(
+            "max-w-xs transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
+          )}
+        />
+      ))}
+    </div>
+  );
+}
+
+function PostsSkeleton() {
+  return (
+    <div className="mx-auto mt-4 grid h-auto w-full grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {[1, 2, 3].map((i) => (
+        <div
+          key={i}
+          className="h-64 w-full max-w-xs animate-pulse rounded-xl bg-gray-200 dark:bg-gray-800"
+        />
+      ))}
+    </div>
+  );
+}
+
+async function SponsorsSection() {
+  const sponsors = await getSponsors();
+
+  return (
+    <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 md:mt-12">
+      <p className="text-foreground">Proudly supported by</p>
+      {sponsors.map((sponsor) => (
+        <div key={sponsor.id} className="flex items-center gap-2">
+          <Image
+            src={sponsor.metadata.logo.imgix_url}
+            alt={sponsor.title}
+            className="h-12"
+          />
+          <span className="font-medium text-foreground">{sponsor.title}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function SponsorsSkeleton() {
+  return (
+    <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 md:mt-12">
+      <div className="h-5 w-40 animate-pulse rounded bg-gray-200 dark:bg-gray-800" />
+      <div className="h-12 w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-800" />
+    </div>
+  );
+}
+
+export default function Home() {
   return (
     <main>
       <div className="relative mb-20 flex h-full min-h-screen flex-col items-center justify-between overflow-hidden p-4 md:px-16 lg:px-24">
         <div className="absolute inset-0 grid place-content-center">
           <BlurShape />
         </div>
-        <div className="mx-auto w-full py-4 md:p-16 lg:max-w-5xl lg:p-24">
-          <div className="grid h-full w-full place-items-center">
-            <div className="relative flex flex-col items-center gap-10">
-              <div className="flex justify-center">
-                <Chip
-                  variant="bordered"
-                  color="success"
-                  classNames={{
-                    base: "bg-gradient-to-br from-primary-100 to-success-100 border border-success-400",
-                    content: "text-success-700",
-                  }}
-                >
-                  {home.metadata.pill}
-                </Chip>
-              </div>
-              <PageTitle />
-              <p className="mx-auto w-full text-center font-sans text-lg leading-snug tracking-tight text-gray-600 dark:text-gray-400 md:text-2xl lg:max-w-3xl lg:text-3xl">
-                {home.metadata.description}
-              </p>
-              <SignedOut>
-                <StyledButton
-                  as={Link}
-                  color="primary"
-                  variant="stylised"
-                  href="/sign-up"
-                >
-                  Sign up
-                </StyledButton>
-              </SignedOut>
-            </div>
-          </div>
-        </div>
+
+        <Suspense fallback={<HeroSkeleton />}>
+          <HeroSection />
+        </Suspense>
+
         <div className="flex max-w-5xl flex-col gap-8">
           <SignedOut>
             <div className="mt-8 flex w-full flex-col items-center md:mt-0">
@@ -109,37 +212,18 @@ export default async function Home() {
               </Button>
             </div>
           </div>
-          <div className="mt-4 mx-auto grid h-auto w-full grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {selectedPosts.map((post: Type.Post) => {
-              return (
-                <ContentCard
-                  key={post.id}
-                  post={post}
-                  className={cn(
-                    "max-w-xs transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
-                  )}
-                />
-              );
-            })}
-          </div>
+
+          <Suspense fallback={<PostsSkeleton />}>
+            <PostsSection />
+          </Suspense>
+
           <div className="mt-8 flex w-full items-center justify-center gap-4 md:mt-12">
             <SubmitArticle />
           </div>
-          <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 md:mt-12">
-            <p className="text-foreground">Proudly supported by</p>
-            {sponsors.map((sponsor) => (
-              <div key={sponsor.id} className="flex items-center gap-2">
-                <Image
-                  src={sponsor.metadata.logo.imgix_url}
-                  alt={sponsor.title}
-                  className="h-12"
-                />
-                <span className="font-medium text-foreground">
-                  {sponsor.title}
-                </span>
-              </div>
-            ))}
-          </div>
+
+          <Suspense fallback={<SponsorsSkeleton />}>
+            <SponsorsSection />
+          </Suspense>
         </div>
       </div>
     </main>

@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import ConsoleFun from "../components/consol-fun";
 import { StoryCard } from "../components/story-card";
 import SectionTitle from "../components/section-title";
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
 
 const StoriesPage: React.FC = async () => {
   const stories = await getStories();
@@ -24,10 +23,11 @@ const StoriesPage: React.FC = async () => {
         </div>
       </div>
       <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
-        {stories.map((story: Type.Story) => {
-          const rotationClass = Math.random() < 0.5 ? `-rotate-3` : `rotate-2`;
-          return (
-            stories.some((s) => s.metadata.is_pending) && (
+        {stories
+          .filter((story) => !story.metadata.is_pending)
+          .map((story: Type.Story, index) => {
+            const rotationClass = index % 2 === 0 ? `-rotate-3` : `rotate-2`;
+            return (
               <StoryCard
                 key={story.id}
                 story={story}
@@ -36,9 +36,8 @@ const StoriesPage: React.FC = async () => {
                   "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
                 )}
               />
-            )
-          );
-        })}
+            );
+          })}
       </div>
       <ConsoleFun />
     </section>

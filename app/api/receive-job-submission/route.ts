@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
         email: res.email,
         title: res.title,
         company: res.company,
-      }) as React.ReactElement,
+      }) as React.ReactElement<any>,
     });
 
     return NextResponse.json(data);

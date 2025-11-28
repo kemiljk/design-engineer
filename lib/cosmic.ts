@@ -1,6 +1,7 @@
 import { createBucketClient } from "@cosmicjs/sdk";
 import * as Type from "./types";
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 
 export const cosmic = createBucketClient({
   bucketSlug: process.env.NEXT_PUBLIC_BUCKET_SLUG as string,
@@ -8,272 +9,380 @@ export const cosmic = createBucketClient({
   writeKey: process.env.NEXT_PUBLIC_BUCKET_WRITE_KEY as string,
 });
 
-// Site config
-export const getConfig = cache(async (): Promise<Type.Config> => {
-  const config = await Promise.resolve(
-    cosmic.objects
-      .findOne({
-        type: "config",
-        slug: "config",
-      })
-      .props("slug,title,metadata")
-      .depth(1),
-  );
+// Site config - cached for 1 hour
+export const getConfig = cache(
+  unstable_cache(
+    async (): Promise<Type.Config> => {
+      const config = await cosmic.objects
+        .findOne({
+          type: "config",
+          slug: "config",
+        })
+        .props("slug,title,metadata")
+        .depth(1);
 
-  return config.object;
-});
+      return config.object;
+    },
+    ["config"],
+    { revalidate: 3600 }
+  )
+);
 
-// Home page
-export const getHome = cache(async (): Promise<Type.Home> => {
-  const home = await Promise.resolve(
-    cosmic.objects
-      .findOne({
-        type: "home",
-        slug: "home",
-      })
-      .props("title,metadata")
-      .depth(1),
-  );
+// Home page - cached for 5 minutes
+export const getHome = cache(
+  unstable_cache(
+    async (): Promise<Type.Home> => {
+      const home = await cosmic.objects
+        .findOne({
+          type: "home",
+          slug: "home",
+        })
+        .props("title,metadata")
+        .depth(1);
 
-  return home.object;
-});
+      return home.object;
+    },
+    ["home"],
+    { revalidate: 300 }
+  )
+);
 
-export const getSponsors = async (): Promise<Type.Sponsor[]> => {
-  const sponsors = await Promise.resolve(
-    cosmic.objects
-      .find({
-        type: "sponsors",
-      })
-      .props("id,title,metadata")
-      .depth(1),
-  );
+// Sponsors - cached for 1 hour
+export const getSponsors = cache(
+  unstable_cache(
+    async (): Promise<Type.Sponsor[]> => {
+      const sponsors = await cosmic.objects
+        .find({
+          type: "sponsors",
+        })
+        .props("id,title,metadata")
+        .depth(1);
 
-  return sponsors.objects;
-};
+      return sponsors.objects;
+    },
+    ["sponsors"],
+    { revalidate: 3600 }
+  )
+);
 
-export const getBanner = async () => {
-  const banner = await Promise.resolve(
-    cosmic.objects
-      .findOne({
-        type: "banner",
-        slug: "stories-announcement",
-      })
-      .props("slug,title,metadata,modified_at")
-      .depth(1),
-  );
+// Banner - cached for 5 minutes
+export const getBanner = cache(
+  unstable_cache(
+    async () => {
+      const banner = await cosmic.objects
+        .findOne({
+          type: "banner",
+          slug: "stories-announcement",
+        })
+        .props("slug,title,metadata,modified_at")
+        .depth(1);
 
-  return banner.object;
-};
+      return banner.object;
+    },
+    ["banner"],
+    { revalidate: 300 }
+  )
+);
 
-// Blog post
-export const getPosts = cache(async (): Promise<Type.Post[]> => {
-  const { objects: posts } = await cosmic.objects
-    .find({
-      type: "content-posts",
-    })
-    .props("id,slug,title,metadata")
-    .depth(1)
-    .sort("random");
+// Blog posts - cached for 5 minutes
+export const getPosts = cache(
+  unstable_cache(
+    async (): Promise<Type.Post[]> => {
+      const { objects: posts } = await cosmic.objects
+        .find({
+          type: "content-posts",
+        })
+        .props("id,slug,title,metadata")
+        .depth(1);
 
-  return posts;
-});
+      return posts;
+    },
+    ["posts"],
+    { revalidate: 300 }
+  )
+);
 
-// Blog post
-export const getFirstPartyPosts = cache(async (): Promise<Type.Post[]> => {
-  const { objects: posts } = await cosmic.objects
-    .find({
-      type: "content-posts",
-    })
-    .props("id,slug,title,metadata")
-    // .status("any")
-    .depth(1);
+// First party posts - cached for 5 minutes
+export const getFirstPartyPosts = cache(
+  unstable_cache(
+    async (): Promise<Type.Post[]> => {
+      const { objects: posts } = await cosmic.objects
+        .find({
+          type: "content-posts",
+        })
+        .props("id,slug,title,metadata")
+        .depth(1);
 
-  return posts;
-});
+      return posts;
+    },
+    ["first-party-posts"],
+    { revalidate: 300 }
+  )
+);
 
-// Blog post
+// Single post - cached for 5 minutes
 export const getPost = cache(
   async ({ params }: { params: { slug: string } }): Promise<Type.Post> => {
-    const post = await Promise.resolve(
-      cosmic.objects
-        .findOne({
-          type: "content-posts",
-          slug: params.slug,
-        })
-        .props("id,slug,title,metadata,created_at,modified_at")
-        // .status("any")
-        .depth(2),
-    );
+    return unstable_cache(
+      async () => {
+        const post = await cosmic.objects
+          .findOne({
+            type: "content-posts",
+            slug: params.slug,
+          })
+          .props("id,slug,title,metadata,created_at,modified_at")
+          .depth(2);
 
-    return post.object;
-  },
+        return post.object;
+      },
+      [`post-${params.slug}`],
+      { revalidate: 300 }
+    )();
+  }
 );
 
 // Stats page
-export const getStats = async (): Promise<Type.Stats> => {
-  const stats = await Promise.resolve(
-    await cosmic.objects.find({ type: "waitlists" }).props("title").depth(1),
-  );
+export const getStats = cache(
+  unstable_cache(
+    async (): Promise<Type.Stats> => {
+      const stats = await cosmic.objects
+        .find({ type: "waitlists" })
+        .props("title")
+        .depth(1);
 
-  return stats;
-};
+      return stats;
+    },
+    ["stats"],
+    { revalidate: 60 }
+  )
+);
 
-export const getStat = async (): Promise<Type.Stat[]> => {
-  const stat = await Promise.resolve(
-    await cosmic.objects
-      .find({
-        type: "waitlists",
-      })
-      .props("title,created_at")
-      .depth(1),
-  );
+export const getStat = cache(
+  unstable_cache(
+    async (): Promise<Type.Stat[]> => {
+      const stat = await cosmic.objects
+        .find({
+          type: "waitlists",
+        })
+        .props("title,created_at")
+        .depth(1);
 
-  return stat.objects;
-};
+      return stat.objects;
+    },
+    ["stat"],
+    { revalidate: 60 }
+  )
+);
 
-export const getAbout = async (): Promise<Type.About> => {
-  const about = await Promise.resolve(
-    await cosmic.objects
-      .findOne({
-        type: "about",
-        slug: "about-dxe",
-      })
-      .props("title,metadata")
-      .depth(1),
-  );
+// About page - cached for 1 hour
+export const getAbout = cache(
+  unstable_cache(
+    async (): Promise<Type.About> => {
+      const about = await cosmic.objects
+        .findOne({
+          type: "about",
+          slug: "about-dxe",
+        })
+        .props("title,metadata")
+        .depth(1);
 
-  return about.object;
-};
+      return about.object;
+    },
+    ["about"],
+    { revalidate: 3600 }
+  )
+);
 
-export const getPrivacy = async (): Promise<Type.Privacy> => {
-  const privacy = await Promise.resolve(
-    await cosmic.objects
-      .findOne({
-        type: "privacy-policy",
-        slug: "privacy-policy",
-      })
-      .props("title,metadata")
-      .depth(1),
-  );
+// Privacy - cached for 1 day
+export const getPrivacy = cache(
+  unstable_cache(
+    async (): Promise<Type.Privacy> => {
+      const privacy = await cosmic.objects
+        .findOne({
+          type: "privacy-policy",
+          slug: "privacy-policy",
+        })
+        .props("title,metadata")
+        .depth(1);
 
-  return privacy.object;
-};
+      return privacy.object;
+    },
+    ["privacy"],
+    { revalidate: 86400 }
+  )
+);
 
-export const getTerms = async (): Promise<Type.Terms> => {
-  const terms = await Promise.resolve(
-    await cosmic.objects
-      .findOne({
-        type: "terms-and-conditions",
-        slug: "terms-of-service",
-      })
-      .props("title,metadata")
-      .depth(1),
-  );
+// Terms - cached for 1 day
+export const getTerms = cache(
+  unstable_cache(
+    async (): Promise<Type.Terms> => {
+      const terms = await cosmic.objects
+        .findOne({
+          type: "terms-and-conditions",
+          slug: "terms-of-service",
+        })
+        .props("title,metadata")
+        .depth(1);
 
-  return terms.object;
-};
+      return terms.object;
+    },
+    ["terms"],
+    { revalidate: 86400 }
+  )
+);
 
-export const getJobs = async (): Promise<Type.Job[]> => {
-  const jobs = await Promise.resolve(
-    await cosmic.objects
-      .find({
-        type: "jobs",
-      })
-      .props("id,title,metadata")
-      .depth(1),
-  );
+// Jobs - cached for 5 minutes
+export const getJobs = cache(
+  unstable_cache(
+    async (): Promise<Type.Job[]> => {
+      const jobs = await cosmic.objects
+        .find({
+          type: "jobs",
+        })
+        .props("id,title,metadata")
+        .depth(1);
 
-  return jobs.objects;
-};
+      return jobs.objects;
+    },
+    ["jobs"],
+    { revalidate: 300 }
+  )
+);
 
-export const getIndustries = async (): Promise<Type.Industry[]> => {
-  const industries = await cosmic.objects
-    .find({ type: "industries" })
-    .props("id,slug,title,metadata")
-    .depth(1);
+// Industries - cached for 1 hour
+export const getIndustries = cache(
+  unstable_cache(
+    async (): Promise<Type.Industry[]> => {
+      const industries = await cosmic.objects
+        .find({ type: "industries" })
+        .props("id,slug,title,metadata")
+        .depth(1);
 
-  return industries.objects;
-};
+      return industries.objects;
+    },
+    ["industries"],
+    { revalidate: 3600 }
+  )
+);
 
-export const getLocations = async (): Promise<Type.Location[]> => {
-  const locations = await cosmic.objects
-    .find({ type: "locations" })
-    .props("id,slug,title,metadata")
-    .depth(1);
+// Locations - cached for 1 hour
+export const getLocations = cache(
+  unstable_cache(
+    async (): Promise<Type.Location[]> => {
+      const locations = await cosmic.objects
+        .find({ type: "locations" })
+        .props("id,slug,title,metadata")
+        .depth(1);
 
-  return locations.objects;
-};
+      return locations.objects;
+    },
+    ["locations"],
+    { revalidate: 3600 }
+  )
+);
 
-export const getPrompts = async (): Promise<Type.Prompt[]> => {
-  const prompts = await Promise.resolve(
-    await cosmic.objects
-      .find({ type: "spec-builder-prompts" })
-      .props("id,title")
-      .depth(1),
-  );
+// Prompts - cached for 5 minutes
+export const getPrompts = cache(
+  unstable_cache(
+    async (): Promise<Type.Prompt[]> => {
+      const prompts = await cosmic.objects
+        .find({ type: "spec-builder-prompts" })
+        .props("id,title")
+        .depth(1);
 
-  return prompts.objects;
-};
+      return prompts.objects;
+    },
+    ["prompts"],
+    { revalidate: 300 }
+  )
+);
 
-export const getSpecs = async (): Promise<Type.Spec[]> => {
-  const specs = await Promise.resolve(
-    await cosmic.objects
-      .find({ type: "spec-builder-completions" })
-      .props("id,title,metadata,creation_date")
-      .depth(1),
-  );
+// Specs - cached for 5 minutes
+export const getSpecs = cache(
+  unstable_cache(
+    async (): Promise<Type.Spec[]> => {
+      const specs = await cosmic.objects
+        .find({ type: "spec-builder-completions" })
+        .props("id,title,metadata,creation_date")
+        .depth(1);
 
-  return specs.objects;
-};
+      return specs.objects;
+    },
+    ["specs"],
+    { revalidate: 300 }
+  )
+);
 
-export const getTaskBuilderSuggestions = async (): Promise<
-  Type.TaskBuilderSuggestion[]
-> => {
-  const suggestions = await Promise.resolve(
-    await cosmic.objects
-      .find({ type: "taskbuildersuggestions" })
-      .props("id,title")
-      .depth(1)
-      .sort("random"),
-  );
+// Task builder suggestions - cached for 5 minutes
+export const getTaskBuilderSuggestions = cache(
+  unstable_cache(
+    async (): Promise<Type.TaskBuilderSuggestion[]> => {
+      const suggestions = await cosmic.objects
+        .find({ type: "taskbuildersuggestions" })
+        .props("id,title")
+        .depth(1);
 
-  return suggestions.objects;
-};
+      return suggestions.objects;
+    },
+    ["task-builder-suggestions"],
+    { revalidate: 300 }
+  )
+);
 
-// Stories page
-export const getStories = cache(async (): Promise<Type.Story[]> => {
-  const { objects: story } = await cosmic.objects
-    .find({
-      type: "stories",
-    })
-    .props("id,slug,title,metadata")
-    .depth(1)
-    .sort("order");
+// Stories - cached for 5 minutes
+export const getStories = cache(
+  unstable_cache(
+    async (): Promise<Type.Story[]> => {
+      const { objects: story } = await cosmic.objects
+        .find({
+          type: "stories",
+        })
+        .props("id,slug,title,metadata")
+        .depth(1)
+        .sort("order");
 
-  return story;
-});
+      return story;
+    },
+    ["stories"],
+    { revalidate: 300 }
+  )
+);
 
-// Story post
-export const getStory = cache(async (slug: string): Promise<Type.Story> => {
-  const { object: story } = await cosmic.objects
-    .findOne({
-      slug,
-      type: "stories",
-    })
-    .props("id,slug,title,metadata")
-    .depth(3);
+// Single story - cached for 5 minutes
+export const getStory = cache(
+  async (slug: string): Promise<Type.Story> => {
+    return unstable_cache(
+      async () => {
+        const { object: story } = await cosmic.objects
+          .findOne({
+            slug,
+            type: "stories",
+          })
+          .props("id,slug,title,metadata")
+          .depth(3);
 
-  return story;
-});
+        return story;
+      },
+      [`story-${slug}`],
+      { revalidate: 300 }
+    )();
+  }
+);
 
-// Resources page
-export const getResources = cache(async (): Promise<Type.Resource[]> => {
-  const { objects: resources } = await cosmic.objects
-    .find({
-      type: "resources",
-    })
-    .props("slug,title,metadata")
-    .depth(2);
+// Resources - cached for 1 hour
+export const getResources = cache(
+  unstable_cache(
+    async (): Promise<Type.Resource[]> => {
+      const { objects: resources } = await cosmic.objects
+        .find({
+          type: "resources",
+        })
+        .props("slug,title,metadata")
+        .depth(2);
 
-  return resources;
-});
+      return resources;
+    },
+    ["resources"],
+    { revalidate: 3600 }
+  )
+);

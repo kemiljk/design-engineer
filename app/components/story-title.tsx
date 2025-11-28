@@ -1,6 +1,6 @@
 "use client";
 import React, { useLayoutEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import * as Type from "@/lib/types";
 import { useMediaQuery } from "usehooks-ts";
 

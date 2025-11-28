@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       react: EmailSubmissionReceivedTemplate({
         email: res.email,
         url: res.url,
-      }) as React.ReactElement,
+      }) as React.ReactElement<any>,
       text: "You got a new article submission!",
     });
 

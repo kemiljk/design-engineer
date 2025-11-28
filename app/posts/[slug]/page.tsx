@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, Clock } from "lucide-react";
 import Markdown from "@/app/components/Markdown";
 import CopyButton from "@/app/components/copy-button";
 import { format, formatDistance, parseISO } from "date-fns";
@@ -9,6 +9,7 @@ import { Link } from "@nextui-org/link";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
 import { Avatar } from "@nextui-org/avatar";
+import { getReadingTime } from "@/lib/utils";
 
 export const revalidate = 1;
 
@@ -87,6 +88,8 @@ export default async function Post(props: {
     addSuffix: true,
   });
 
+  const readingTime = getReadingTime(post.metadata.content);
+
   return (
     <div>
       <div className="mx-auto max-w-prose">
@@ -117,11 +120,7 @@ export default async function Post(props: {
               <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
                 {post.title}
               </h1>
-              <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-2">
-                <span className="text-sm text-foreground-700">
-                  First published: {postPublished}
-                </span>
-                <span className="text-sm text-foreground-500">by</span>
+              <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-4">
                 <div className="flex items-center gap-x-2">
                   <Avatar
                     size="sm"
@@ -133,6 +132,15 @@ export default async function Post(props: {
                     {post.metadata.author.title}
                   </span>
                 </div>
+                <span className="text-sm text-foreground-500">•</span>
+                <span className="text-sm text-foreground-500">
+                  {postPublished}
+                </span>
+                <span className="text-sm text-foreground-500">•</span>
+                <span className="flex items-center gap-1 text-sm text-foreground-500">
+                  <Clock className="h-3.5 w-3.5" />
+                  {readingTime} min read
+                </span>
               </div>
               <Markdown
                 className="prose prose-zinc pb-4 dark:prose-invert"

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export const BlurShape = () => {
   const animation1 = {
@@ -10,7 +10,7 @@ export const BlurShape = () => {
     },
     transition: {
       duration: 10,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
       repeat: Infinity,
     },
   };
@@ -22,7 +22,7 @@ export const BlurShape = () => {
     },
     transition: {
       duration: 11,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
       repeat: Infinity,
     },
   };
@@ -34,7 +34,7 @@ export const BlurShape = () => {
     },
     transition: {
       duration: 12,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
       repeat: Infinity,
     },
   };
