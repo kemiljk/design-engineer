@@ -7,7 +7,7 @@ import { StyledButton as Button } from "@/app/components/styled-button";
 import { CopyIcon, FlameIcon, SendIcon, SparklesIcon } from "lucide-react";
 import { Message, continueConversation } from "./actions";
 import { readStreamableValue } from "ai/rsc";
-import { Divider, Textarea } from "@nextui-org/react";
+import { Divider, Textarea } from "@heroui/react";
 import { useMediaQuery } from "usehooks-ts";
 import { TaskBuilderSuggestion } from "@/lib/types";
 

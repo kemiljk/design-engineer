@@ -1,18 +1,16 @@
 import React from "react";
 import * as Type from "@/lib/types";
-import { getFirstPartyPosts } from "@/lib/cosmic";
+import { getPosts } from "@/lib/cosmic";
 import { ContentCard } from "../components/content-card";
 import SubmitArticle from "../components/submit-article";
 import Search from "../components/search-box";
 
-const PostsPage = async (
-  props: {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-  }
-) => {
+const PostsPage = async (props: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) => {
   const searchParams = await props.searchParams;
   const searchTerm = (searchParams.search as string) || "";
-  const fetchPosts = await getFirstPartyPosts();
+  const fetchPosts = await getPosts();
   const posts = fetchPosts
     .filter((post) => post.metadata.is_external_link === false)
     .sort((a, b) => {
@@ -22,16 +20,18 @@ const PostsPage = async (
       );
     });
 
-  const filteredPosts = posts.filter((post: Type.Post) =>
-    [
+  const filteredPosts = posts.filter((post: Type.Post) => {
+    const searchableValues = [
       post.title,
-      post.metadata.author.title,
-      ...post.metadata.categories.map((cat) => cat.title),
+      post.metadata.author?.title,
+      ...(post.metadata.categories?.map((cat) => cat.title) || []),
       post.metadata.content,
-    ].some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase()),
-    ),
-  );
+    ].filter(Boolean);
+    
+    return searchableValues.some((value) =>
+      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
 
   return (
     <section>

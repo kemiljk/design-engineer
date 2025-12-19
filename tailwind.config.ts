@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { nextui } from "@nextui-org/react";
+import { heroui } from "@heroui/react";
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 const disabledCss = {
@@ -17,7 +17,7 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -37,6 +37,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), nextui()],
+  plugins: [require("@tailwindcss/typography"), heroui()],
 };
 export default config;

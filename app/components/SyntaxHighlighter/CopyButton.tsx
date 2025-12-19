@@ -1,6 +1,6 @@
 import { CopyIcon, CopyCheckIcon } from "lucide-react";
 import { useRef, useState } from "react";
-import { Button } from "@nextui-org/react";
+import { Button } from "@heroui/react";
 import { toast } from "sonner";
 
 const CopyButton = (props: any) => {

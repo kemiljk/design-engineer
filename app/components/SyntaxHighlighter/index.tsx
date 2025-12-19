@@ -1,17 +1,17 @@
 "use client";
 
+import { useMemo } from "react";
 import cx from "classnames";
 import Prism from "prismjs";
-import "prismjs/components/prism-jsx"; // Required
-import "prismjs/components/prism-typescript"; // Required
-import "prismjs/components/prism-tsx"; // Required
-import "prismjs/components/prism-json"; // Required
-import "prismjs/components/prism-cshtml"; // Required
-import "prismjs/components/prism-regex"; // Required
-import { useEffect } from "react";
+import "prismjs/components/prism-jsx";
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-tsx";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-cshtml";
+import "prismjs/components/prism-regex";
 import CopyButton from "./CopyButton";
 
-type SyntaxHighlighter = {
+type SyntaxHighlighterProps = {
   code: string;
   language?: string;
   showCopyButton?: boolean;
@@ -21,24 +21,27 @@ type SyntaxHighlighter = {
   textClassName?: string;
 };
 
-const SyntaxHighlighter = (props: SyntaxHighlighter) => {
-  const {
-    code,
-    language = "plain-text",
-    showCopyButton,
-    overrideCopyPosition,
-    className,
-  } = props;
-
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [code]);
+const SyntaxHighlighter = ({
+  code,
+  language = "plain",
+  showCopyButton,
+  overrideCopyPosition,
+  className,
+}: SyntaxHighlighterProps) => {
+  const highlighted = useMemo(() => {
+    const grammar = Prism.languages[language] || Prism.languages.plain || {};
+    try {
+      return Prism.highlight(code, grammar, language);
+    } catch {
+      return code;
+    }
+  }, [code, language]);
 
   return (
     <div
       className={cx(
-        `relative flex overflow-hidden text-foreground [&>pre]:bg-zinc-50 [&>pre]:dark:!bg-zinc-800`,
-        className,
+        "relative flex overflow-hidden text-foreground [&>pre]:bg-zinc-50 [&>pre]:dark:!bg-zinc-800",
+        className
       )}
     >
       <pre
@@ -52,12 +55,9 @@ const SyntaxHighlighter = (props: SyntaxHighlighter) => {
       >
         <code
           className={cx(`language-${language}`)}
-          style={{
-            display: "inline-block",
-          }}
-        >
-          {code}
-        </code>
+          style={{ display: "inline-block" }}
+          dangerouslySetInnerHTML={{ __html: highlighted }}
+        />
         <div className="flex space-x-2">
           {showCopyButton && (
             <CopyButton

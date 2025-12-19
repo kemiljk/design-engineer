@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 import { ArrowUpRight } from "lucide-react";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";

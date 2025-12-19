@@ -1,4 +1,4 @@
-import { ScrollShadow } from "@nextui-org/scroll-shadow";
+import { ScrollShadow } from "@heroui/scroll-shadow";
 import React from "react";
 
 const SnapCardContainer = ({ children }: { children: React.ReactNode }) => {

@@ -1,11 +1,11 @@
 import React from "react";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import TaskBuilder from "./task-builder";
 import { getTaskBuilderSuggestions } from "@/lib/cosmic";
-import { Image } from "@nextui-org/image";
-import { Card, CardBody } from "@nextui-org/card";
+import Image from "next/image";
+import { Card, CardBody } from "@heroui/card";
 
 const Tools = async () => {
   const suggestions = await getTaskBuilderSuggestions();
@@ -28,6 +28,10 @@ const Tools = async () => {
               <Image
                 src="https://imgix.cosmicjs.com/ad7648b0-b005-11ef-8a63-eb57d6c77a36-CleanShot-2024-12-01-at-16-56-34.gif"
                 alt="Task Builder"
+                width={600}
+                height={400}
+                className="w-full"
+                unoptimized
               />
             </CardBody>
           </Card>

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledButton as Button } from "@/app/components/styled-button";
-import { Input, Textarea } from "@nextui-org/input";
+import { Input, Textarea } from "@heroui/input";
 
 export default function SubmitForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);

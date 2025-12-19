@@ -1,7 +1,14 @@
 import React from "react";
-import { getStory } from "@/lib/cosmic";
-import { Avatar } from "@nextui-org/avatar";
-import { Link } from "@nextui-org/link";
+import { getStories, getStory } from "@/lib/cosmic";
+import { Avatar } from "@heroui/avatar";
+import { Link } from "@heroui/link";
+
+export async function generateStaticParams() {
+  const stories = await getStories();
+  return stories
+    .filter((s) => s.metadata.is_available)
+    .map((story) => ({ slug: story.slug }));
+}
 import { StoryTitle } from "@/app/components/story-title";
 import { QnABlock } from "@/app/stories/[slug]/qna-block";
 import CopyButton from "@/app/components/copy-button";

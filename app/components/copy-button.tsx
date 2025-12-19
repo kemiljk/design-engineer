@@ -3,7 +3,7 @@
 import React from "react";
 import { Toaster, toast } from "sonner";
 import { LinkIcon } from "lucide-react";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import { usePathname } from "next/navigation";
 
 export default function CopyButton() {

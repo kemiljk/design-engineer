@@ -1,45 +1,20 @@
 import { Suspense } from "react";
 import PageTitle from "./components/page-title";
 import { BlurShape } from "./components/blur-shape";
-import {
-  getHome,
-  getSponsors,
-  getPosts,
-  getFirstPartyPosts,
-} from "@/lib/cosmic";
+import { getHome, getSponsors, getPosts } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
 import SectionTitle from "./components/section-title";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import { StyledButton } from "../app/components/styled-button";
-import { Link } from "@nextui-org/link";
-import { Chip } from "@nextui-org/chip";
+import { Link } from "@heroui/link";
+import { Chip } from "@heroui/chip";
 import { ArrowRight } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
-import { Image } from "@nextui-org/image";
+import Image from "next/image";
 
-function shuffleWithSeed<T>(array: T[], seed: number): T[] {
-  const shuffled = [...array];
-  let currentIndex = shuffled.length;
-
-  const seededRandom = () => {
-    seed = (seed * 9301 + 49297) % 233280;
-    return seed / 233280;
-  };
-
-  while (currentIndex > 0) {
-    const randomIndex = Math.floor(seededRandom() * currentIndex);
-    currentIndex--;
-    [shuffled[currentIndex], shuffled[randomIndex]] = [
-      shuffled[randomIndex],
-      shuffled[currentIndex],
-    ];
-  }
-
-  return shuffled;
-}
 
 async function HeroSection() {
   const home = await getHome();
@@ -98,19 +73,8 @@ function HeroSkeleton() {
 }
 
 async function PostsSection() {
-  const [posts, firstPartyPosts] = await Promise.all([
-    getPosts(),
-    getFirstPartyPosts(),
-  ]);
-
-  const combinedPosts = [...posts, ...firstPartyPosts];
-  const today = new Date();
-  const seed =
-    today.getFullYear() * 10000 +
-    (today.getMonth() + 1) * 100 +
-    today.getDate();
-  const shuffledPosts = shuffleWithSeed(combinedPosts, seed);
-  const selectedPosts = shuffledPosts.slice(0, 3);
+  const posts = await getPosts();
+  const selectedPosts = posts.slice(0, 3);
 
   return (
     <div className="mx-auto mt-4 grid h-auto w-full grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -149,9 +113,11 @@ async function SponsorsSection() {
       {sponsors.map((sponsor) => (
         <div key={sponsor.id} className="flex items-center gap-2">
           <Image
-            src={sponsor.metadata.logo.imgix_url}
+            src={`${sponsor.metadata.logo.imgix_url}?w=200&auto=format`}
             alt={sponsor.title}
-            className="h-12"
+            width={200}
+            height={48}
+            className="h-12 w-auto"
           />
           <span className="font-medium text-foreground">{sponsor.title}</span>
         </div>

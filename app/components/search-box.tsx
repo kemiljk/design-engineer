@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Input } from "@nextui-org/input";
+import { useState, useEffect, useTransition } from "react";
+import { Input } from "@heroui/input";
 import { useRouter } from "next/navigation";
 
 interface SearchProps {
@@ -11,23 +11,31 @@ interface SearchProps {
 
 function Search({ initialSearchTerm, page }: SearchProps) {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const search = e.target.value;
-    setSearchTerm(search);
-    const newSearchParams = new URLSearchParams(window.location.search);
-    newSearchParams.set("search", search);
-    const newUrl = `${window.location.pathname}?${newSearchParams.toString()}`;
-    router.push(newUrl);
-  };
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (searchTerm !== initialSearchTerm) {
+        startTransition(() => {
+          const params = new URLSearchParams();
+          if (searchTerm) params.set("search", searchTerm);
+          const query = params.toString();
+          router.push(query ? `/${page}?${query}` : `/${page}`);
+        });
+      }
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, page, router, initialSearchTerm]);
 
   return (
     <Input
       type="text"
       placeholder={`Search ${page}...`}
       value={searchTerm}
-      onChange={handleSearch}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className={isPending ? "opacity-70 transition-opacity" : "transition-opacity"}
     />
   );
 }

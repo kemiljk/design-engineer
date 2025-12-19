@@ -6,7 +6,7 @@ import {
   ModalHeader,
   ModalBody,
   useDisclosure,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 import { StyledButton as Button } from "@/app/components/styled-button";
 import SubmitForm from "./submit-form";
 

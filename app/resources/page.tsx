@@ -1,7 +1,6 @@
 import React from "react";
-import * as Icons from "lucide-react";
 import SectionTitle from "../components/section-title";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import Link from "next/link";
 import { getPosts, getResources } from "@/lib/cosmic";
 import SnapCard from "../components/snap-card";
@@ -9,12 +8,16 @@ import SnapCardContainer from "../components/snap-card-container";
 import * as Type from "@/lib/types";
 import Image from "next/image";
 import { getThumbnail } from "@/lib/utils";
+import { ResourceIcon } from "../components/resource-icon";
 
 const ResourcesPage: React.FC = async () => {
-  const resource = await getResources();
-  const fetchPosts = await getPosts();
+  const [resources, fetchPosts] = await Promise.all([
+    getResources(),
+    getPosts(),
+  ]);
+
   const posts = fetchPosts.filter(
-    (post: Type.Post) => post.metadata.is_external_link === true,
+    (post: Type.Post) => post.metadata.is_external_link === true
   );
 
   return (
@@ -24,12 +27,12 @@ const ResourcesPage: React.FC = async () => {
         A collection of resources for Design Engineers
       </p>
       <SnapCardContainer>
-        {resource.map((item: Type.Resource) => {
+        {resources.map((item: Type.Resource) => {
           return (
             <SnapCard key={item.slug}>
               <div className="mx-auto flex h-full w-full flex-col items-stretch p-4">
                 <div className="flex-1">
-                  <h2 className="font-display text-2xl  font-bold leading-tight text-foreground">
+                  <h2 className="font-display text-2xl font-bold leading-tight text-foreground">
                     {item.title}
                   </h2>
                   <p className="mb-4 mt-4 w-full leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -38,15 +41,13 @@ const ResourcesPage: React.FC = async () => {
                 </div>
                 <div className="flex w-full flex-col gap-4">
                   {item.metadata.links.map((link: any) => {
-                    const IconName = link.icon_name.key;
-                    const Icon: any = Icons[IconName as keyof typeof Icons];
-                    if (!Icon) {
-                      return null;
-                    }
                     return (
                       <Link href={link.url} className="w-full" key={link.url}>
                         <Button className="w-full gap-2">
-                          <Icon className="h-4" />
+                          <ResourceIcon
+                            name={link.icon_name.key}
+                            className="h-4"
+                          />
                           {link.text}
                         </Button>
                       </Link>
@@ -84,16 +85,10 @@ const ResourcesPage: React.FC = async () => {
                           ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
                           : thumbnailUrl
                       }
-                      placeholder="blur"
-                      blurDataURL={
-                        post.metadata.image
-                          ? `${post.metadata.image.imgix_url}?w=20&auto=format,compression`
-                          : thumbnailUrl
-                      }
                     />
                   )}
                   <div className="p-4">
-                    <h3 className="line-clamp-2 text-xl font-medium text-foreground ">
+                    <h3 className="line-clamp-2 text-xl font-medium text-foreground">
                       {post.title}
                     </h3>
                     <p className="mb-4 mt-2 line-clamp-3 w-full text-zinc-500 dark:text-zinc-400">

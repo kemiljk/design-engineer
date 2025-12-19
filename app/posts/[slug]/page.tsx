@@ -1,31 +1,39 @@
 import { ArrowLeftIcon, Clock } from "lucide-react";
 import Markdown from "@/app/components/Markdown";
 import CopyButton from "@/app/components/copy-button";
-import { format, formatDistance, parseISO } from "date-fns";
-import { Divider } from "@nextui-org/divider";
-import { Chip } from "@nextui-org/chip";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
+import { RelativeDate } from "@/app/components/relative-date";
+import { format, parseISO } from "date-fns";
+import { Divider } from "@heroui/divider";
+import { Chip } from "@heroui/chip";
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
-import { Avatar } from "@nextui-org/avatar";
+import { Avatar } from "@heroui/avatar";
 import { getReadingTime } from "@/lib/utils";
 
-export const revalidate = 1;
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.slice(0, 50).map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
 }) {
   const params = await props.params;
-  const post = await getPost({ params });
+  const post = await getPost(params.slug);
 
-  const metaTitle = `d×e | ${post?.title}`;
-  const metaImage = `${post?.metadata.image.imgix_url}`;
-  const metaDescription = `${post?.metadata.snippet}`;
-  const metaUrl = `https://designengineer.xyz/posts/${post?.slug}`;
+  if (!post) {
+    return { title: "Post Not Found" };
+  }
+
+  const metaTitle = `d×e | ${post.title}`;
+  const metaImage = post.metadata?.image?.imgix_url || "";
+  const metaDescription = post.metadata?.snippet || "";
+  const metaUrl = `https://designengineer.xyz/posts/${post.slug}`;
 
   return {
-    metadataBase: new URL(`${metaUrl}`),
+    metadataBase: new URL("https://designengineer.xyz"),
     alternates: {
       canonical: `/posts/${post.slug}`,
     },
@@ -37,14 +45,16 @@ export async function generateMetadata(props: {
       url: metaUrl,
       type: "website",
       siteName: "d×e",
-      images: [
-        {
-          url: metaImage,
-          width: 1200,
-          height: 630,
-          alt: metaTitle,
-        },
-      ],
+      ...(metaImage && {
+        images: [
+          {
+            url: metaImage,
+            width: 1200,
+            height: 630,
+            alt: metaTitle,
+          },
+        ],
+      }),
     },
     twitter: {
       card: "summary_large_image",
@@ -53,7 +63,7 @@ export async function generateMetadata(props: {
       siteId: "1721269273446731776",
       creator: "@dxe_xyz",
       creatorId: "1721269273446731776",
-      images: [metaImage],
+      ...(metaImage && { images: [metaImage] }),
     },
     robots: {
       index: true,
@@ -72,11 +82,14 @@ export async function generateMetadata(props: {
 }
 
 export default async function Post(props: {
-  params: Promise<{ slug: string; id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
   const params = await props.params;
-  const post = await getPost({ params });
-  const allPosts = await getPosts();
+
+  const [post, allPosts] = await Promise.all([
+    getPost(params.slug),
+    getPosts(),
+  ]);
 
   const parseModifiedDate = parseISO(post.modified_at);
   const postModified = format(parseModifiedDate, "dd MMM yyyy");
@@ -84,11 +97,8 @@ export default async function Post(props: {
   const parsePublishedDate = parseISO(post.created_at);
   const postPublished = format(parsePublishedDate, "dd MMM yyyy");
 
-  const relativeDate = formatDistance(new Date(post.modified_at), new Date(), {
-    addSuffix: true,
-  });
 
-  const readingTime = getReadingTime(post.metadata.content);
+  const readingTime = getReadingTime(post.metadata?.content || "");
 
   return (
     <div>
@@ -108,10 +118,10 @@ export default async function Post(props: {
               </Button>
             </div>
             <article>
-              {post.metadata.categories !== undefined && (
+              {post.metadata.categories && post.metadata.categories.length > 0 && (
                 <div className="mb-4 flex items-center gap-x-2">
                   {post.metadata.categories.map((category: any) => (
-                    <Chip key={category} variant="bordered" radius="full">
+                    <Chip key={category.id || category.title} variant="bordered" radius="full">
                       {category.title}
                     </Chip>
                   ))}
@@ -124,7 +134,7 @@ export default async function Post(props: {
                 <div className="flex items-center gap-x-2">
                   <Avatar
                     size="sm"
-                    src={post.metadata.author.metadata.image.imgix_url || ""}
+                    src={post.metadata.author.metadata?.image?.imgix_url || ""}
                     alt={post.metadata.author.title}
                     fallback={post.metadata.author.title}
                   />
@@ -147,7 +157,7 @@ export default async function Post(props: {
                 content={post.metadata.content}
               />
               <span className="pb-16 pt-8 text-sm text-foreground-500">
-                Last updated: {postModified} ({relativeDate})
+                Last updated: {postModified} (<RelativeDate date={post.modified_at} />)
               </span>
             </article>
           </>

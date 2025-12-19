@@ -2,10 +2,9 @@ import { getStat, getStats } from "@/lib/cosmic";
 import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
-import { Chip } from "@nextui-org/chip";
+import { Chip } from "@heroui/chip";
 import { CalendarCheck, Clipboard } from "lucide-react";
 
-export const dynamic = "force-dynamic";
 
 export default async function Stats() {
   const stats = await getStats();

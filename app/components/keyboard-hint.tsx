@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { Command } from "lucide-react";
 
 export function KeyboardHint() {
+  const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const hasSeenHint = localStorage.getItem("keyboard-hint-seen");
     if (hasSeenHint) return;
 
@@ -27,7 +29,7 @@ export function KeyboardHint() {
     localStorage.setItem("keyboard-hint-seen", "true");
   };
 
-  if (!show) return null;
+  if (!mounted || !show) return null;
 
   return (
     <div

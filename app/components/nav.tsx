@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import {
   Navbar,
   NavbarBrand,
@@ -9,13 +10,22 @@ import {
   NavbarItem,
   NavbarMenuItem,
   NavbarMenu,
-} from "@nextui-org/navbar";
+} from "@heroui/navbar";
 import { Logo } from "./logo";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { StyledButton as Button } from "./styled-button";
-import { CommandPalette } from "./command-palette";
 import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
+import { Link } from "@heroui/link";
+
+const CommandPalette = dynamic(
+  () => import("./command-palette").then((m) => m.CommandPalette),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="hidden h-9 w-28 animate-pulse items-center gap-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 md:flex" />
+    ),
+  }
+);
 
 export default function Nav({
   links,

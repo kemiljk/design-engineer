@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import * as Type from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";

@@ -2,6 +2,19 @@
 const nextConfig = {
   experimental: {
     viewTransition: true,
+    optimizePackageImports: [
+      "@heroui/react",
+      "@heroui/button",
+      "@heroui/card",
+      "@heroui/chip",
+      "@heroui/avatar",
+      "@heroui/link",
+      "@heroui/input",
+      "@heroui/modal",
+      "@heroui/navbar",
+      "lucide-react",
+      "date-fns",
+    ],
   },
   images: {
     remotePatterns: [
@@ -14,6 +27,7 @@ const nextConfig = {
         hostname: "img.youtube.com",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
 };
 

@@ -1,13 +1,11 @@
-"use client";
-
-import { Avatar } from "@nextui-org/avatar";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Avatar } from "@heroui/avatar";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import * as Type from "@/lib/types";
 import { getThumbnail, getReadingTime } from "@/lib/utils";
-import { Image } from "@nextui-org/image";
+import Image from "next/image";
+import Link from "next/link";
 import Markdown from "react-markdown";
 import { Clock } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 export function ContentCard({
   post,
@@ -16,7 +14,6 @@ export function ContentCard({
   post: Type.Post;
   className?: string;
 }) {
-  const router = useRouter();
   const nameParts = post.metadata.author.title.split(" ");
   const initials =
     nameParts[0][0] + (nameParts.length > 1 ? nameParts[1][0] : "");
@@ -34,46 +31,28 @@ export function ContentCard({
     ? post.metadata.url
     : `/posts/${post.slug}`;
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (post.metadata.is_external_link) {
-      window.open(href, "_blank", "noopener,noreferrer");
-    } else {
-      router.push(href);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleClick(e as unknown as React.MouseEvent);
-    }
-  };
+  const isExternal = post.metadata.is_external_link;
 
   return (
-    <div
-      className={`mx-auto h-full w-full ${className}`}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      role="link"
-      tabIndex={0}
-      aria-label={`Read article: ${post.title}`}
+    <Link
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className={`mx-auto block h-full w-full ${className}`}
+      prefetch={!isExternal}
     >
-      <Card
-        key={post.id}
-        className="h-full w-full overflow-hidden border border-foreground-50 transition duration-250 ease-soft-spring hover:shadow-lg hover:transition-colors"
-      >
+      <Card className="h-full w-full overflow-hidden border border-foreground-50 transition duration-250 ease-soft-spring hover:shadow-lg hover:transition-colors">
         <CardHeader className="flex items-start justify-center gap-4 pt-6 text-center">
-          {post.metadata.author.metadata.image ? (
+          {image ? (
             <Avatar
-              alt="Author's avatar"
+              alt={`${post.metadata.author.title}'s avatar`}
               className="h-10 w-10 rounded-full object-cover"
-              src={`${image}?w=400&auto=format,compression`}
+              src={`${image}?w=80&auto=format,compression`}
               name={initials}
             />
           ) : (
             <Avatar
-              alt="Author's avatar"
+              alt={`${post.metadata.author.title}'s avatar`}
               className="h-10 w-10 rounded-full object-cover"
               name={initials}
             />
@@ -102,11 +81,11 @@ export function ContentCard({
         <CardBody className="flex flex-col gap-4 px-0 pb-4">
           {(post.metadata.image || thumbnailUrl) && (
             <Image
-              alt="Article image"
-              className="aspect-video border-y border-neutral-50 object-cover dark:border-neutral-800"
-              height={200}
+              alt={post.title}
+              className="aspect-video w-full border-y border-neutral-50 object-cover dark:border-neutral-800"
               width={500}
-              radius="none"
+              height={280}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
               src={
                 post.metadata.image
                   ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
@@ -121,8 +100,8 @@ export function ContentCard({
             <Markdown
               className="line-clamp-3 w-full truncate text-wrap"
               components={{
-                a: ({ node, ...props }) => (
-                  <span className="text-inherit">{props.children}</span>
+                a: ({ children }) => (
+                  <span className="text-inherit">{children}</span>
                 ),
               }}
             >
@@ -133,6 +112,6 @@ export function ContentCard({
           </CardFooter>
         </CardBody>
       </Card>
-    </div>
+    </Link>
   );
 }
