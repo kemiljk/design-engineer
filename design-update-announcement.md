@@ -6,7 +6,7 @@
 
 Hi there,
 
-You might have noticed something different at designengineer.xyz today.
+You might have noticed something different at d×e today.
 
 We didn't just tweak the colors or move some buttons around. We rebuilt the entire platform from the ground up—stripping away everything that didn't serve the craft.
 
