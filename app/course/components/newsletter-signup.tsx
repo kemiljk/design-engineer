@@ -47,7 +47,7 @@ export function NewsletterSignup() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md">
-      <div className="flex items-stretch gap-3">
+      <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row">
         <input
           type="email"
           value={email}
@@ -60,7 +60,7 @@ export function NewsletterSignup() {
           type="submit"
           variant="stylised"
           isDisabled={status === "loading"}
-          className="h-11 shrink-0"
+          className="h-11 w-full shrink-0 sm:w-auto"
         >
           {status === "loading" ? (
             <Loader2 className="h-4 w-4 animate-spin" />

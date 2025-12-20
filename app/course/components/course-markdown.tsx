@@ -385,7 +385,7 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
                 <ReactMarkdown
                   components={components}
                   className={cn(
-                    "prose prose-neutral text-pretty dark:prose-invert prose-h1:font-sans prose-h2:mt-10 prose-h2:font-sans prose-h2:tracking-tight prose-h3:mt-8 prose-h3:font-sans prose-li:list-disc prose-img:rounded-none"
+                    "prose prose-neutral text-pretty dark:prose-invert prose-h1:font-serif prose-h2:mt-10 prose-h2:font-serif prose-h2:tracking-tight prose-h3:mt-8 prose-h3:font-serif prose-li:list-disc prose-img:rounded-none"
                   )}
                   remarkPlugins={[remarkGfm]}
                 >
