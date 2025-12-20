@@ -25,7 +25,7 @@ export function StoryCard({
     <Link href={url} className={className} rel="noopener noreferrer">
       <Card
         key="1"
-        className="group mx-auto w-80 overflow-hidden rounded-3xl transition-all duration-500 ease-out hover:shadow-xl dark:border-zinc-700"
+        className="group mx-auto w-80 overflow-hidden rounded-none transition-all duration-500 ease-out hover:shadow-xl dark:border-neutral-700"
       >
         <CardHeader
           className={`flex flex-col items-center justify-center p-0 text-center ${
@@ -50,7 +50,7 @@ export function StoryCard({
             />
           )}
           <div className="pt-4 text-center">
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
               {story.metadata.is_available
                 ? date
                 : // `Coming on ${date}`
@@ -63,19 +63,19 @@ export function StoryCard({
             {story.metadata.is_available ? (
               <>
                 <h2>{story.title}</h2>
-                <p className="line-clamp-3 w-full pt-3 text-sm text-gray-600 dark:text-gray-400">
+                <p className="line-clamp-3 w-full pt-3 text-sm text-neutral-600 dark:text-neutral-400">
                   {story.metadata.snippet.slice(0, 200)}...
                 </p>
               </>
             ) : (
               <>
                 <h2
-                  className={`h-10 w-[${placeholderTitleWidth}ch] rounded-lg bg-zinc-300 dark:bg-zinc-700`}
+                  className={`h-10 w-[${placeholderTitleWidth}ch] rounded-none bg-neutral-300 dark:bg-neutral-700`}
                 ></h2>
                 <div className="flex flex-col gap-2 pt-3 opacity-10 dark:opacity-75">
-                  <div className="h-2 w-full rounded-full bg-gray-600 dark:text-gray-400" />
-                  <div className="h-2 w-full rounded-full bg-gray-600 dark:text-gray-400" />
-                  <div className="h-2 w-1/2 rounded-full bg-gray-600 dark:text-gray-400" />
+                  <div className="h-2 w-full rounded-none bg-neutral-600 dark:text-neutral-400" />
+                  <div className="h-2 w-full rounded-none bg-neutral-600 dark:text-neutral-400" />
+                  <div className="h-2 w-1/2 rounded-none bg-neutral-600 dark:text-neutral-400" />
                 </div>
               </>
             )}

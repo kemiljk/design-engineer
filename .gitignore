@@ -2,3 +2,11 @@ node_modules
 .vercel
 .env*.local
 .next
+
+# Playwright
+e2e/.auth/
+playwright-report/
+test-results/
+
+# Test mode override file
+.test-access-override

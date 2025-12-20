@@ -28,7 +28,6 @@ export async function generateMetadata(props: {
   }
 
   const metaTitle = `d×e | ${post.title}`;
-  const metaImage = post.metadata?.image?.imgix_url || "";
   const metaDescription = post.metadata?.snippet || "";
   const metaUrl = `https://designengineer.xyz/posts/${post.slug}`;
 
@@ -45,16 +44,6 @@ export async function generateMetadata(props: {
       url: metaUrl,
       type: "website",
       siteName: "d×e",
-      ...(metaImage && {
-        images: [
-          {
-            url: metaImage,
-            width: 1200,
-            height: 630,
-            alt: metaTitle,
-          },
-        ],
-      }),
     },
     twitter: {
       card: "summary_large_image",
@@ -63,7 +52,6 @@ export async function generateMetadata(props: {
       siteId: "1721269273446731776",
       creator: "@dxe_xyz",
       creatorId: "1721269273446731776",
-      ...(metaImage && { images: [metaImage] }),
     },
     robots: {
       index: true,
@@ -127,7 +115,7 @@ export default async function Post(props: {
                   ))}
                 </div>
               )}
-              <h1 className="font-display text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
+              <h1 className="text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
                 {post.title}
               </h1>
               <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-4">

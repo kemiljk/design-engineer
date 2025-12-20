@@ -5,42 +5,39 @@ import { cn } from "@/lib/utils";
 
 import ConsoleFun from "../components/consol-fun";
 import { StoryCard } from "../components/story-card";
-import SectionTitle from "../components/section-title";
+import { PageHeader } from "../components/page-header";
 
 const StoriesPage: React.FC = async () => {
   const stories = await getStories();
 
   return (
-    <section>
-      <div className="mx-auto w-full p-4 md:px-16 lg:px-24">
-        <div className="flex flex-col items-center gap-10">
-          <div className="flex w-full flex-col items-center md:mt-0">
-            <SectionTitle>Stories</SectionTitle>
-            <p className="text-center text-zinc-500 dark:text-zinc-400">
-              A series of interviews with top Design Engineers
-            </p>
-          </div>
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <PageHeader
+        title="Stories"
+        description="Conversations with leading Design Engineers about their craft, career, and creative process."
+      />
+
+      <div className="container mx-auto px-4 py-12">
+        <div className="flex flex-wrap justify-center gap-8">
+          {stories
+            .filter((story) => !story.metadata.is_pending)
+            .map((story: Type.Story, index) => {
+              const rotationClass = index % 2 === 0 ? `-rotate-3` : `rotate-2`;
+              return (
+                <StoryCard
+                  key={story.id}
+                  story={story}
+                  className={cn(
+                    rotationClass,
+                    "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
+                  )}
+                />
+              );
+            })}
         </div>
       </div>
-      <div className="mt-12 flex w-full flex-wrap justify-evenly gap-8">
-        {stories
-          .filter((story) => !story.metadata.is_pending)
-          .map((story: Type.Story, index) => {
-            const rotationClass = index % 2 === 0 ? `-rotate-3` : `rotate-2`;
-            return (
-              <StoryCard
-                key={story.id}
-                story={story}
-                className={cn(
-                  rotationClass,
-                  "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-default",
-                )}
-              />
-            );
-          })}
-      </div>
       <ConsoleFun />
-    </section>
+    </main>
   );
 };
 

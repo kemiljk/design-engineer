@@ -42,7 +42,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
       ) : (
         <code
           className={cn(
-            "w-max rounded border border-foreground-100 bg-foreground-50 p-1 font-mono text-sm font-normal text-inherit",
+            "w-max rounded-none border border-foreground-100 bg-foreground-50 p-1 font-mono text-sm font-normal text-inherit",
             className,
           )}
           {...props}
@@ -59,7 +59,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
       components={components}
       {...props}
       className={cn(
-        "prose prose-zinc text-pretty dark:prose-invert prose-h1:font-display prose-h2:font-display prose-h2:tracking-tight prose-h3:font-display prose-li:list-disc prose-img:rounded-lg",
+        "prose prose-neutral text-pretty dark:prose-invert prose-h1:font-sans prose-h2:font-sans prose-h2:tracking-tight prose-h3:font-sans prose-li:list-disc prose-img:rounded-none",
         props.className ? props.className : null,
       )}
       remarkPlugins={[remarkGfm]}

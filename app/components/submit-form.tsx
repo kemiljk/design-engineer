@@ -57,56 +57,78 @@ export default function SubmitForm() {
     }
   };
 
+  const inputClassNames = {
+    inputWrapper: "border-neutral-200 dark:border-neutral-800 data-[hover=true]:border-neutral-400 dark:data-[hover=true]:border-neutral-600 group-data-[focus=true]:border-swiss-red dark:group-data-[focus=true]:border-swiss-red bg-transparent rounded-none",
+    input: "text-foreground placeholder:text-neutral-400",
+  };
+
   return (
     <form onSubmit={sendEmail} onFocus={handleFocus} onBlur={handleBlur}>
       <div className="mb-3 flex flex-col gap-3 overflow-visible">
         {isSubmitted ? (
-          <div>Submitted!</div>
+          <div className="flex h-40 w-full items-center justify-center border border-neutral-200 bg-neutral-50 text-lg font-medium text-swiss-red dark:border-neutral-800 dark:bg-neutral-900">
+            Submitted successfully!
+          </div>
         ) : (
           <>
             <Input
               size="md"
               autoFocus
+              variant="bordered"
+              radius="none"
               label="Your name"
               type="name"
               name="from_name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              classNames={inputClassNames}
             />
             <Input
               size="md"
+              variant="bordered"
+              radius="none"
               type="email"
               label="Your email"
               name="reply_to"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              classNames={inputClassNames}
             />
             <Input
               size="md"
+              variant="bordered"
+              radius="none"
               type="text"
               label="Article title"
               name="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
+              classNames={inputClassNames}
             />
             <Input
               size="md"
+              variant="bordered"
+              radius="none"
               type="text"
               label="Article URL"
               name="url"
               value={url}
               onChange={(e) => setURL(e.target.value)}
               required
+              classNames={inputClassNames}
             />
             <Textarea
               label="Article summary"
+              variant="bordered"
+              radius="none"
               name="message"
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
               required
+              classNames={inputClassNames}
             />
             <Button
               color="primary"

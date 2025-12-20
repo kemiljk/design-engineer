@@ -30,15 +30,18 @@ export default function SubmitArticle() {
         onOpenChange={onOpenChange}
         scrollBehavior="inside"
         size="xl"
+        radius="none"
+        classNames={{
+          base: "rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black",
+          closeButton: "hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-none",
+        }}
       >
         <ModalContent>
-          <ModalHeader className={`text-xl font-medium text-foreground `}>
+          <ModalHeader className="text-xl font-bold uppercase tracking-tight text-foreground">
             Submit an Article
           </ModalHeader>
           <ModalBody>
-            <p
-              className={`mb-4 text-sm leading-normal text-gray-500 dark:text-gray-300`}
-            >
+            <p className="mb-4 text-sm leading-normal text-neutral-600 dark:text-neutral-400">
               Submit your article for inclusion on our site.
             </p>
             <SubmitForm />

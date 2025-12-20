@@ -1,14 +1,11 @@
 import React from "react";
-import SectionTitle from "../components/section-title";
-import { Button } from "@heroui/button";
+import { StyledButton } from "../components/styled-button";
 import Link from "next/link";
 import { getPosts, getResources } from "@/lib/cosmic";
-import SnapCard from "../components/snap-card";
-import SnapCardContainer from "../components/snap-card-container";
 import * as Type from "@/lib/types";
-import Image from "next/image";
-import { getThumbnail } from "@/lib/utils";
 import { ResourceIcon } from "../components/resource-icon";
+import { PageHeader } from "../components/page-header";
+import { ExternalLink } from "lucide-react";
 
 const ResourcesPage: React.FC = async () => {
   const [resources, fetchPosts] = await Promise.all([
@@ -21,87 +18,74 @@ const ResourcesPage: React.FC = async () => {
   );
 
   return (
-    <div className="mx-auto mb-16 mt-8 flex h-full w-full max-w-7xl flex-col items-center px-4 md:px-0">
-      <SectionTitle>Resources</SectionTitle>
-      <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
-        A collection of resources for Design Engineers
-      </p>
-      <SnapCardContainer>
-        {resources.map((item: Type.Resource) => {
-          return (
-            <SnapCard key={item.slug}>
-              <div className="mx-auto flex h-full w-full flex-col items-stretch p-4">
-                <div className="flex-1">
-                  <h2 className="font-display text-2xl font-bold leading-tight text-foreground">
-                    {item.title}
-                  </h2>
-                  <p className="mb-4 mt-4 w-full leading-relaxed text-zinc-500 dark:text-zinc-400">
-                    {item.metadata.description}
-                  </p>
-                </div>
-                <div className="flex w-full flex-col gap-4">
-                  {item.metadata.links.map((link: any) => {
-                    return (
-                      <Link href={link.url} className="w-full" key={link.url}>
-                        <Button className="w-full gap-2">
-                          <ResourceIcon
-                            name={link.icon_name.key}
-                            className="h-4"
-                          />
-                          {link.text}
-                        </Button>
-                      </Link>
-                    );
-                  })}
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <PageHeader
+        title="Resources"
+        description="A curated collection of tools, guides, and references for Design Engineers."
+      />
+
+      <div className="container mx-auto px-4 py-12">
+        <div className="mx-auto max-w-5xl">
+          {/* Resources Grid */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {resources.map((item: Type.Resource) => (
+              <div
+                key={item.slug}
+                className="flex flex-col border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+              >
+                <h2 className="mb-2 text-xl font-bold">{item.title}</h2>
+                <p className="mb-6 flex-1 text-sm text-neutral-600 dark:text-neutral-400">
+                  {item.metadata.description}
+                </p>
+                <div className="flex flex-col gap-2">
+                  {item.metadata.links.map((link: { icon_name: { key: string }; url: string; text: string }) => (
+                    <Link href={link.url} key={link.url} target="_blank">
+                      <StyledButton className="w-full justify-start gap-2" variant="flat">
+                        <ResourceIcon name={link.icon_name.key} className="h-4 w-4" />
+                        {link.text}
+                      </StyledButton>
+                    </Link>
+                  ))}
                 </div>
               </div>
-            </SnapCard>
-          );
-        })}
-      </SnapCardContainer>
-      <div className="mx-auto mt-8 text-center">
-        <SectionTitle>External Posts</SectionTitle>
-        <p className="mb-4 text-center text-zinc-500 dark:text-zinc-400">
-          The latest posts from our community
-        </p>
-      </div>
-      <SnapCardContainer>
-        {posts.map((post: Type.Post) => {
-          const url = post.metadata.video_url || "";
-          const thumbnailUrl = getThumbnail(url);
+            ))}
+          </div>
 
-          return (
-            <Link href={post.metadata.url} target="_blank" key={post.slug}>
-              <SnapCard>
-                <div className="mx-auto -mt-1 flex h-full w-full flex-col items-start">
-                  {(post.metadata.image || thumbnailUrl) && (
-                    <Image
-                      alt="Article image"
-                      className="aspect-video border-y border-neutral-50 object-cover dark:border-neutral-800"
-                      height={100}
-                      width={500}
-                      src={
-                        post.metadata.image
-                          ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
-                          : thumbnailUrl
-                      }
-                    />
-                  )}
-                  <div className="p-4">
-                    <h3 className="line-clamp-2 text-xl font-medium text-foreground">
-                      {post.title}
-                    </h3>
-                    <p className="mb-4 mt-2 line-clamp-3 w-full text-zinc-500 dark:text-zinc-400">
-                      {post.metadata.content}
-                    </p>
-                  </div>
-                </div>
-              </SnapCard>
-            </Link>
-          );
-        })}
-      </SnapCardContainer>
-    </div>
+          {/* External Posts */}
+          {posts.length > 0 && (
+            <>
+              <div className="mb-8 mt-16 border-b border-neutral-200 pb-4 dark:border-neutral-800">
+                <h2 className="text-2xl font-bold">Community Posts</h2>
+                <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                  The latest articles from across the web
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                {posts.map((post: Type.Post) => (
+                  <Link
+                    href={post.metadata.url}
+                    target="_blank"
+                    key={post.slug}
+                    className="group flex items-start gap-4 border border-neutral-200 bg-white p-4 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red"
+                  >
+                    <div className="flex-1">
+                      <h3 className="font-bold group-hover:text-swiss-red">
+                        {post.title}
+                      </h3>
+                      <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
+                        {post.metadata.snippet || post.metadata.content?.slice(0, 150)}
+                      </p>
+                    </div>
+                    <ExternalLink className="h-4 w-4 shrink-0 text-neutral-400 group-hover:text-swiss-red" />
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </main>
   );
 };
 

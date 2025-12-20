@@ -1,11 +1,10 @@
-import { Avatar } from "@heroui/avatar";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+"use client";
+
 import * as Type from "@/lib/types";
-import { getThumbnail, getReadingTime } from "@/lib/utils";
-import Image from "next/image";
+import { getReadingTime } from "@/lib/utils";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { Clock } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export function ContentCard({
   post,
@@ -14,17 +13,7 @@ export function ContentCard({
   post: Type.Post;
   className?: string;
 }) {
-  const nameParts = post.metadata.author.title.split(" ");
-  const initials =
-    nameParts[0][0] + (nameParts.length > 1 ? nameParts[1][0] : "");
-
-  const url = post.metadata.video_url || "";
-  const thumbnailUrl = getThumbnail(url);
-
-  const image =
-    post.metadata.author.metadata.image &&
-    post.metadata.author.metadata.image.imgix_url;
-
+  const { resolvedTheme } = useTheme();
   const readingTime = getReadingTime(post.metadata.content || "");
 
   const href = post.metadata.is_external_link
@@ -33,33 +22,29 @@ export function ContentCard({
 
   const isExternal = post.metadata.is_external_link;
 
+  const ogImageUrl = `/api/og?title=${encodeURIComponent(post.title)}&type=article&theme=${resolvedTheme || "light"}`;
+
   return (
     <Link
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className={`mx-auto block h-full w-full ${className}`}
+      className={`group block h-full w-full ${className}`}
       prefetch={!isExternal}
     >
-      <Card className="h-full w-full overflow-hidden border border-foreground-50 transition duration-250 ease-soft-spring hover:shadow-lg hover:transition-colors">
-        <CardHeader className="flex items-start justify-center gap-4 pt-6 text-center">
-          {image ? (
-            <Avatar
-              alt={`${post.metadata.author.title}'s avatar`}
-              className="h-10 w-10 rounded-full object-cover"
-              src={`${image}?w=80&auto=format,compression`}
-              name={initials}
-            />
-          ) : (
-            <Avatar
-              alt={`${post.metadata.author.title}'s avatar`}
-              className="h-10 w-10 rounded-full object-cover"
-              name={initials}
-            />
-          )}
-          <div className="flex flex-col text-start font-display text-base font-semibold">
-            {post.metadata.author.title}
-            <p className="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400">
+      <div className="flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
+        <div className="relative aspect-video w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt={post.title}
+            className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+            src={ogImageUrl}
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col justify-between p-6">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
               <span>
                 {new Date(post.metadata.published_date).toLocaleDateString(
                   "en-gb",
@@ -67,51 +52,34 @@ export function ContentCard({
                     year: "numeric",
                     month: "short",
                     day: "numeric",
-                  },
+                  }
                 )}
               </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {readingTime} min
-              </span>
-            </p>
+              <span>/</span>
+              <span>{readingTime} min read</span>
+            </div>
+
+            <h2 className="font-sans text-xl font-bold leading-tight tracking-tight text-foreground transition-colors group-hover:text-swiss-red">
+              {post.title}
+            </h2>
+
+            <div className="prose prose-sm line-clamp-3 w-full text-neutral-600 dark:text-neutral-300 dark:prose-invert">
+              <Markdown
+                components={{
+                  a: ({ children }) => (
+                    <span className="text-inherit">{children}</span>
+                  ),
+                  p: ({ children }) => <p className="mb-0">{children}</p>,
+                }}
+              >
+                {post.metadata.snippet
+                  ? post.metadata.snippet
+                  : post.metadata.content.slice(0, 200)}
+              </Markdown>
+            </div>
           </div>
-        </CardHeader>
-        <CardBody className="flex flex-col gap-4 px-0 pb-4">
-          {(post.metadata.image || thumbnailUrl) && (
-            <Image
-              alt={post.title}
-              className="aspect-video w-full border-y border-neutral-50 object-cover dark:border-neutral-800"
-              width={500}
-              height={280}
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
-              src={
-                post.metadata.image
-                  ? `${post.metadata.image.imgix_url}?w=800&auto=format,compression`
-                  : thumbnailUrl
-              }
-            />
-          )}
-          <h2 className="px-4 font-display text-lg font-bold leading-tight">
-            {post.title}
-          </h2>
-          <CardFooter className="w-full text-sm text-gray-600 dark:text-gray-400">
-            <Markdown
-              className="line-clamp-3 w-full truncate text-wrap"
-              components={{
-                a: ({ children }) => (
-                  <span className="text-inherit">{children}</span>
-                ),
-              }}
-            >
-              {post.metadata.snippet
-                ? post.metadata.snippet
-                : post.metadata.content.slice(0, 200)}
-            </Markdown>
-          </CardFooter>
-        </CardBody>
-      </Card>
+        </div>
+      </div>
     </Link>
   );
 }

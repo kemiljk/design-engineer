@@ -44,7 +44,7 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
       ref={ref}
     >
       <motion.div
-        className={`inline-block ${isSticky && "rounded-3xl bg-background/50 px-6 py-4 shadow-2xl backdrop-blur-md"}`}
+        className={`inline-block ${isSticky && "rounded-none bg-background/50 px-6 py-4 shadow-2xl backdrop-blur-md"}`}
         animate={{
           scale: isSticky ? 0.5 : 1,
           width: "fit-content",

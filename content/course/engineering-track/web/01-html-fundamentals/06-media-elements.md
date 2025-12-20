@@ -1,0 +1,405 @@
+# Media Elements
+
+> **Quick Summary:** Images, video, and audio enrich web content—knowing how to embed them properly ensures performance, accessibility, and quality.
+
+## What You'll Learn
+
+- The img element and responsive images
+- Video and audio elements
+- Accessibility for media
+- Performance considerations
+
+## Images
+
+The `<img>` element embeds images:
+
+```html
+<img src="photo.jpg" alt="A sunset over mountains">
+```
+
+### Required Attributes
+
+**src:** The image URL
+**alt:** Alternative text (required for accessibility)
+
+### Alt Text
+
+Alt text describes images for users who can't see them:
+
+**Informative images:**
+```html
+<img src="chart.png" alt="Bar chart showing sales increased 50% in Q4">
+```
+
+**Decorative images (no alt needed):**
+```html
+<img src="decorative-border.png" alt="">
+```
+
+Empty `alt=""` tells screen readers to skip the image.
+
+**Complex images:**
+```html
+<img src="diagram.png" alt="System architecture diagram" aria-describedby="diagram-desc">
+<div id="diagram-desc">
+  Detailed description of the diagram...
+</div>
+```
+
+### Image Sizing
+
+**Fixed dimensions:**
+```html
+<img src="photo.jpg" alt="..." width="800" height="600">
+```
+
+Including `width` and `height` prevents layout shift while loading.
+
+**CSS sizing:**
+```css
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+This makes images responsive—they won't exceed container width.
+
+### Responsive Images
+
+Different images for different screen sizes:
+
+**srcset (different resolutions):**
+```html
+<img 
+  src="photo.jpg" 
+  srcset="photo-400.jpg 400w,
+          photo-800.jpg 800w,
+          photo-1200.jpg 1200w"
+  sizes="(max-width: 600px) 400px,
+         (max-width: 1000px) 800px,
+         1200px"
+  alt="A beautiful landscape">
+```
+
+- `srcset` lists available images with their widths
+- `sizes` tells the browser which size to choose based on viewport
+
+**picture (different images/formats):**
+```html
+<picture>
+  <source srcset="photo.avif" type="image/avif">
+  <source srcset="photo.webp" type="image/webp">
+  <img src="photo.jpg" alt="A beautiful landscape">
+</picture>
+```
+
+Browser uses first supported format; `<img>` is the fallback.
+
+**Art direction (different crops):**
+```html
+<picture>
+  <source media="(max-width: 600px)" srcset="photo-portrait.jpg">
+  <source media="(min-width: 601px)" srcset="photo-landscape.jpg">
+  <img src="photo-landscape.jpg" alt="A beautiful landscape">
+</picture>
+```
+
+### Lazy Loading
+
+Defer loading images until needed:
+
+```html
+<img src="photo.jpg" alt="..." loading="lazy">
+```
+
+Use for images below the fold. Don't use for above-fold images (hero images).
+
+### Image Formats
+
+| Format | Best For | Notes |
+|--------|----------|-------|
+| JPEG | Photos | Good compression, no transparency |
+| PNG | Graphics, transparency | Larger files, lossless |
+| WebP | Both | Better compression, good support |
+| AVIF | Both | Best compression, growing support |
+| SVG | Icons, logos | Vector, infinitely scalable |
+| GIF | Simple animations | Limited colors, avoid for photos |
+
+## SVG Images
+
+SVG (Scalable Vector Graphics) are perfect for icons and logos:
+
+**As img:**
+```html
+<img src="logo.svg" alt="Company logo">
+```
+
+**Inline (allows CSS styling):**
+```html
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+</svg>
+```
+
+Inline SVG can be styled with CSS and animated.
+
+## Figure and Figcaption
+
+For images with captions:
+
+```html
+<figure>
+  <img src="chart.png" alt="Sales chart">
+  <figcaption>Figure 1: Q4 2024 sales data</figcaption>
+</figure>
+```
+
+`<figure>` semantically groups the image and caption.
+
+## Video
+
+The `<video>` element embeds video:
+
+```html
+<video src="video.mp4" controls>
+  Your browser doesn't support video.
+</video>
+```
+
+### Video Attributes
+
+```html
+<video 
+  src="video.mp4"
+  controls
+  width="640"
+  height="360"
+  poster="thumbnail.jpg"
+  preload="metadata"
+>
+  Your browser doesn't support video.
+</video>
+```
+
+- `controls` — Show playback controls
+- `poster` — Image shown before play
+- `preload` — `none`, `metadata`, or `auto`
+- `autoplay` — Start automatically (use carefully)
+- `muted` — Start muted (required for autoplay in most browsers)
+- `loop` — Loop playback
+- `playsinline` — Prevent fullscreen on mobile
+
+### Multiple Sources
+
+```html
+<video controls width="640" height="360">
+  <source src="video.webm" type="video/webm">
+  <source src="video.mp4" type="video/mp4">
+  Your browser doesn't support video.
+</video>
+```
+
+Browser uses first supported format.
+
+### Video Accessibility
+
+**Captions:**
+```html
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+  <track 
+    kind="captions" 
+    src="captions.vtt" 
+    srclang="en" 
+    label="English captions"
+    default>
+</video>
+```
+
+**Captions file (WebVTT format):**
+```
+WEBVTT
+
+00:00:01.000 --> 00:00:04.000
+Welcome to our tutorial.
+
+00:00:04.500 --> 00:00:07.000
+Today we'll learn about HTML.
+```
+
+Always provide captions for accessibility.
+
+## Audio
+
+The `<audio>` element embeds audio:
+
+```html
+<audio src="podcast.mp3" controls>
+  Your browser doesn't support audio.
+</audio>
+```
+
+### Audio with Multiple Sources
+
+```html
+<audio controls>
+  <source src="audio.ogg" type="audio/ogg">
+  <source src="audio.mp3" type="audio/mpeg">
+  Your browser doesn't support audio.
+</audio>
+```
+
+### Audio Attributes
+
+Same as video: `controls`, `autoplay`, `muted`, `loop`, `preload`.
+
+### Audio Accessibility
+
+Provide transcripts for podcasts and audio content—audio tracks don't work with `<audio>`.
+
+## Embedding External Media
+
+### iframes
+
+For embedding external content (YouTube, maps, etc.):
+
+```html
+<iframe 
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  width="560"
+  height="315"
+  title="Video title"
+  allowfullscreen
+></iframe>
+```
+
+**Always include `title`** for accessibility.
+
+**Security considerations:**
+```html
+<iframe 
+  src="https://example.com"
+  sandbox="allow-scripts allow-same-origin"
+  loading="lazy"
+></iframe>
+```
+
+`sandbox` restricts iframe capabilities.
+
+## Performance Considerations
+
+### Image Optimization
+
+1. **Choose the right format:** WebP/AVIF for photos, SVG for icons
+2. **Size appropriately:** Don't serve 4000px images for 400px containers
+3. **Compress:** Use tools like ImageOptim, Squoosh
+4. **Lazy load:** Below-fold images
+5. **Responsive images:** Serve appropriate sizes
+
+### Video Optimization
+
+1. **Compress:** Reduce file size without visible quality loss
+2. **Don't autoplay:** Let users choose to play
+3. **Provide poster:** Show preview image
+4. **Consider streaming:** Use services for long videos
+
+## Accessibility Summary
+
+| Element | Accessibility Requirement |
+|---------|--------------------------|
+| `<img>` | Alt text (or empty `alt=""` for decorative) |
+| `<video>` | Captions track |
+| `<audio>` | Transcript (linked separately) |
+| `<iframe>` | Title attribute |
+| `<svg>` inline | `aria-hidden="true"` if decorative, proper labeling if informative |
+
+## Try It Yourself
+
+### Exercise 1: Responsive Image Gallery
+
+Create an image gallery with:
+- 4-6 images
+- Responsive images using `srcset`
+- WebP with JPEG fallback using `<picture>`
+- Lazy loading for all images
+- Proper alt text
+
+### Exercise 2: Video Player
+
+Add a video with:
+- Multiple format sources
+- Poster image
+- Captions track (create a simple VTT file)
+- Accessible controls
+
+### Exercise 3: Performance Audit
+
+Take a page with images and:
+- Check image sizes vs. display sizes
+- Identify optimization opportunities
+- Implement lazy loading where appropriate
+- Test with throttled network in dev tools
+
+## Test Your Understanding
+
+<!-- exercise: multiple-choice
+{
+  "id": "html-images-quiz",
+  "type": "multiple-choice",
+  "title": "Image Best Practices",
+  "description": "Test your understanding of image accessibility and performance.",
+  "difficulty": "medium",
+  "question": "When should you use an empty alt attribute (alt=\"\") on an image?",
+  "options": [
+    {
+      "id": "a",
+      "text": "Never—all images must have descriptive alt text",
+      "isCorrect": false,
+      "explanation": "Empty alt is actually correct for purely decorative images that add no information."
+    },
+    {
+      "id": "b",
+      "text": "When the image is purely decorative and adds no information",
+      "isCorrect": true,
+      "explanation": "Correct! Empty alt (alt=\"\") tells screen readers to skip the image entirely, avoiding unnecessary announcements for decorative visuals."
+    },
+    {
+      "id": "c",
+      "text": "When you don't know what to write for alt text",
+      "isCorrect": false,
+      "explanation": "If an image conveys information, you should provide that information in alt text. Only decorative images should have empty alt."
+    },
+    {
+      "id": "d",
+      "text": "When the image has a caption below it",
+      "isCorrect": false,
+      "explanation": "Captions and alt text serve different purposes—alt text is for when the image can't be seen."
+    }
+  ]
+}
+-->
+
+## Key Takeaways
+
+- Always include `alt` text for images (empty for decorative)
+- Use responsive images (`srcset`, `sizes`, `<picture>`) for performance
+- Choose the right format: WebP/AVIF for photos, SVG for icons
+- Include `width` and `height` to prevent layout shift
+- Use `loading="lazy"` for below-fold images
+- Video and audio need `controls` attribute for accessibility
+- Provide captions for video, transcripts for audio
+- iframes need `title` attribute for accessibility
+
+## Next Steps
+
+Congratulations! You've completed the HTML Fundamentals module.
+
+You now understand:
+- HTML document structure
+- Semantic elements
+- Text and links
+- Forms and inputs
+- Media elements
+
+Continue to [CSS Mastery: How CSS Works](../02-css-mastery/01-how-css-works.md) →

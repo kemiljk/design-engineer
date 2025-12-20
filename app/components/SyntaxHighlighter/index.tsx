@@ -9,6 +9,7 @@ import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-json";
 import "prismjs/components/prism-cshtml";
 import "prismjs/components/prism-regex";
+import { ScrollShadow } from "@heroui/scroll-shadow";
 import CopyButton from "./CopyButton";
 
 type SyntaxHighlighterProps = {
@@ -40,34 +41,37 @@ const SyntaxHighlighter = ({
   return (
     <div
       className={cx(
-        "relative flex overflow-hidden text-foreground [&>pre]:bg-zinc-50 [&>pre]:dark:!bg-zinc-800",
+        "relative rounded-none text-foreground",
         className
       )}
     >
-      <pre
-        style={{
-          borderRadius: "12px",
-          width: "100%",
-          margin: 0,
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <code
-          className={cx(`language-${language}`)}
-          style={{ display: "inline-block" }}
-          dangerouslySetInnerHTML={{ __html: highlighted }}
-        />
-        <div className="flex space-x-2">
-          {showCopyButton && (
-            <CopyButton
-              text={code}
-              className="right-2"
-              overridePosition={overrideCopyPosition}
+      <ScrollShadow orientation="horizontal" className="bg-zinc-100 dark:bg-zinc-800/80">
+        <div>
+          <pre
+            style={{
+              borderRadius: "0",
+              margin: 0,
+              padding: "16px",
+              minHeight: "56px",
+            }}
+          >
+            <code
+              className={cx(`language-${language}`)}
+              style={{ display: "inline-block", paddingRight: "64px" }}
+              dangerouslySetInnerHTML={{ __html: highlighted }}
             />
-          )}
+          </pre>
         </div>
-      </pre>
+      </ScrollShadow>
+      {showCopyButton && (
+        <div className="absolute right-2 top-2">
+          <CopyButton
+            text={code}
+            className="right-0"
+            overridePosition={overrideCopyPosition}
+          />
+        </div>
+      )}
     </div>
   );
 };

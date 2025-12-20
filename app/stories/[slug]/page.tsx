@@ -45,13 +45,13 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
         <StoryTitle story={story} />
         <div className="flex items-center justify-center gap-4">
           <Avatar
-            className="h-10 w-10 border border-zinc-100 bg-white dark:border-zinc-800"
+            className="h-10 w-10 border border-neutral-100 bg-white dark:border-neutral-800"
             src={
               story.metadata.design_engineer.metadata.company.metadata.logo
                 .imgix_url
             }
           />
-          <p className="font-medium text-zinc-800 dark:text-zinc-200">
+          <p className="font-medium text-neutral-800 dark:text-neutral-200">
             {story.metadata.design_engineer.metadata.role}
           </p>
         </div>
@@ -114,19 +114,19 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
             {story.metadata.design_engineer.metadata.website}
           </Link>
         </div>
-        <p className="text-center font-mono text-zinc-500 dark:text-zinc-400">
+        <p className="text-center font-mono text-neutral-500 dark:text-neutral-400">
           {date} · {readingTime} minute read
         </p>
         {story.metadata.video_url && (
           <video
-            className="w-full rounded-xl border-8 border-foreground-100 ring-1 ring-foreground-200"
+            className="w-full rounded-none border-8 border-foreground-100 ring-1 ring-foreground-200"
             controls
           >
             <source src={story.metadata.video_url} type="video/mp4" />
           </video>
         )}
-        <article className="w-full rounded-2xl bg-primary-50 p-4">
-          <Markdown className="prose font-sans text-sm text-primary-700 dark:prose-invert">
+        <article className="w-full rounded-none bg-neutral-50 p-4">
+          <Markdown className="prose font-sans text-sm text-neutral-700 dark:prose-invert">
             {story.metadata.summary}
           </Markdown>
         </article>

@@ -4,7 +4,6 @@ export async function generateMetadata() {
   const config = await getConfig();
   const metaTitle = config.metadata.site_name;
   const metaDescription = config.metadata.site_description;
-  const metaImage = config.metadata.meta_image.imgix_url;
   const metaUrl = config.metadata.site_url;
 
   return {
@@ -20,14 +19,6 @@ export async function generateMetadata() {
       url: metaUrl,
       type: "website",
       siteName: `d×e`,
-      images: [
-        {
-          url: metaImage,
-          width: 1200,
-          height: 630,
-          alt: metaTitle,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -36,7 +27,6 @@ export async function generateMetadata() {
       siteId: "1721269273446731776",
       creator: "@dxe_xyz",
       creatorId: "1721269273446731776",
-      images: [metaImage],
     },
     robots: {
       index: true,

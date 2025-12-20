@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+  background-color: #ff4400; /* swiss-red */
+  color: white;
+}
+
 :root {
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -23,10 +28,37 @@
   --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
   --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
   --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+  /* Illustration colors */
+  --illustration-primary: #ff4400;
+  --illustration-dark: #171717;
+  --illustration-muted: #636363; /* 5.7:1 contrast on #fafafa - WCAG AA compliant */
+  --illustration-light: #d4d4d4; /* Decorative only - not for text */
+  --illustration-bg: #fafafa;
+}
+
+.dark {
+  --illustration-dark: #fafafa;
+  --illustration-muted: #a8a8a8; /* 7.3:1 contrast on #171717 - WCAG AA compliant */
+  --illustration-light: #404040; /* Decorative only - not for text */
+  --illustration-bg: #171717;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.font-serif {
+  @apply tracking-normal;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
 }
 
 code[class*="language-"],
@@ -67,49 +99,49 @@ pre[class*="language-"] {
   @apply text-foreground-400;
 }
 .token.punctuation {
-  @apply text-blue-600 dark:text-blue-400;
+  @apply text-zinc-600 dark:text-zinc-400;
 }
 .token.attr-name,
 .token.deleted,
 .token.namespace {
-  @apply text-red-700 dark:text-red-400;
+  @apply text-red-600 dark:text-red-400;
 }
 .token.tag {
-  @apply text-lime-600 dark:text-lime-400;
+  @apply text-zinc-600 dark:text-zinc-400;
 }
 .token.function-name {
-  @apply text-sky-600 dark:text-sky-400;
+  @apply text-zinc-600 dark:text-zinc-400;
 }
 .token.boolean,
 .token.function,
 .token.number {
-  @apply text-orange-600 dark:text-orange-400;
+  @apply text-zinc-800 dark:text-zinc-200;
 }
 .token.class-name,
 .token.constant,
 .token.property,
 .token.symbol,
 .token.parameter {
-  @apply text-yellow-600 dark:text-yellow-400;
+  @apply text-zinc-800 dark:text-zinc-200;
 }
 .token.atrule,
 .token.builtin,
 .token.important,
 .token.keyword,
 .token.selector {
-  @apply text-purple-600 dark:text-purple-400;
+  @apply font-bold text-zinc-500 dark:text-zinc-500;
 }
 .token.attr-value,
 .token.char,
 .token.regex,
 .token.string,
 .token.variable {
-  @apply text-foreground-600;
+  @apply text-zinc-600 dark:text-zinc-400;
 }
 .token.entity,
 .token.operator,
 .token.url {
-  @apply text-cyan-600 dark:text-cyan-400;
+  @apply text-zinc-600 dark:text-zinc-400;
 }
 .token.bold,
 .token.important {
@@ -122,5 +154,5 @@ pre[class*="language-"] {
   @apply cursor-help;
 }
 .token.inserted {
-  @apply text-green-600 dark:text-green-400;
+  @apply text-zinc-600 dark:text-zinc-400;
 }

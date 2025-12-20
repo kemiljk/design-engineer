@@ -1,0 +1,392 @@
+# Functions
+
+> **Quick Summary:** Functions are reusable blocks of code. They're fundamental to organizing and structuring JavaScript programs.
+
+## What You'll Learn
+
+- Function declarations and expressions
+- Arrow functions
+- Parameters and return values
+- Scope and closures
+
+## Why Functions?
+
+Functions let you:
+- Write code once, use it many times
+- Break complex problems into smaller pieces
+- Create clear, readable programs
+- Abstract away implementation details
+
+## Function Declarations
+
+The traditional way:
+
+```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+greet('World');  // "Hello, World!"
+```
+
+### Components
+
+- `function` keyword
+- Name (`greet`)
+- Parameters (`name`)
+- Body (code inside `{}`)
+- Return statement (optional)
+
+## Function Expressions
+
+Assign a function to a variable:
+
+```javascript
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+
+greet('World');  // "Hello, World!"
+```
+
+## Arrow Functions
+
+Modern, concise syntax:
+
+```javascript
+const greet = (name) => {
+  return `Hello, ${name}!`;
+};
+
+// Shorter: implicit return for single expressions
+const greet = (name) => `Hello, ${name}!`;
+
+// Single parameter: parentheses optional
+const greet = name => `Hello, ${name}!`;
+
+// No parameters: need empty parentheses
+const sayHi = () => 'Hi!';
+```
+
+Arrow functions are preferred in modern JavaScript, especially for callbacks.
+
+## Parameters
+
+### Default Parameters
+
+```javascript
+function greet(name = 'World') {
+  return `Hello, ${name}!`;
+}
+
+greet();        // "Hello, World!"
+greet('Alice'); // "Hello, Alice!"
+```
+
+### Rest Parameters
+
+Collect remaining arguments:
+
+```javascript
+function sum(...numbers) {
+  return numbers.reduce((total, n) => total + n, 0);
+}
+
+sum(1, 2, 3);     // 6
+sum(1, 2, 3, 4);  // 10
+```
+
+### Destructuring Parameters
+
+```javascript
+function createUser({ name, age, email }) {
+  return { name, age, email, id: Date.now() };
+}
+
+createUser({ name: 'Alice', age: 30, email: 'alice@example.com' });
+```
+
+## Return Values
+
+Functions can return any value:
+
+```javascript
+// Return a value
+function add(a, b) {
+  return a + b;
+}
+
+// Return an object
+function createPoint(x, y) {
+  return { x, y };
+}
+
+// Return early
+function divide(a, b) {
+  if (b === 0) return null;  // Early return
+  return a / b;
+}
+
+// No return (returns undefined)
+function logMessage(msg) {
+  console.log(msg);
+}
+```
+
+## Scope
+
+Variables have different visibility depending on where they're declared.
+
+### Block Scope
+
+`const` and `let` are block-scoped:
+
+```javascript
+function example() {
+  if (true) {
+    const x = 10;
+    let y = 20;
+    // x and y exist here
+  }
+  // x and y don't exist here
+}
+```
+
+### Function Scope
+
+Variables inside a function aren't accessible outside:
+
+```javascript
+function outer() {
+  const secret = 'hidden';
+  // secret exists here
+}
+
+// secret doesn't exist here
+```
+
+### Lexical Scope
+
+Inner functions can access outer function variables:
+
+```javascript
+function outer() {
+  const name = 'Alice';
+  
+  function inner() {
+    console.log(name);  // Can access 'name'
+  }
+  
+  inner();
+}
+```
+
+## Closures
+
+A closure is a function that "remembers" its lexical scope:
+
+```javascript
+function createCounter() {
+  let count = 0;
+  
+  return function() {
+    count++;
+    return count;
+  };
+}
+
+const counter = createCounter();
+counter();  // 1
+counter();  // 2
+counter();  // 3
+```
+
+The inner function "closes over" the `count` variable.
+
+### Practical Closure Example
+
+```javascript
+function createLogger(prefix) {
+  return function(message) {
+    console.log(`[${prefix}] ${message}`);
+  };
+}
+
+const infoLog = createLogger('INFO');
+const errorLog = createLogger('ERROR');
+
+infoLog('User logged in');   // [INFO] User logged in
+errorLog('Connection lost'); // [ERROR] Connection lost
+```
+
+## Higher-Order Functions
+
+Functions that take or return functions:
+
+### Functions as Arguments
+
+```javascript
+function doTwice(fn) {
+  fn();
+  fn();
+}
+
+doTwice(() => console.log('Hello'));
+// Hello
+// Hello
+```
+
+### Array Methods
+
+Many array methods take functions:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+// map: transform each element
+numbers.map(n => n * 2);  // [2, 4, 6, 8, 10]
+
+// filter: keep matching elements
+numbers.filter(n => n > 2);  // [3, 4, 5]
+
+// find: get first match
+numbers.find(n => n > 2);  // 3
+
+// reduce: accumulate to single value
+numbers.reduce((sum, n) => sum + n, 0);  // 15
+
+// forEach: iterate without return
+numbers.forEach(n => console.log(n));
+
+// some: true if any match
+numbers.some(n => n > 4);  // true
+
+// every: true if all match
+numbers.every(n => n > 0);  // true
+```
+
+## Callback Functions
+
+Functions passed to other functions:
+
+```javascript
+function fetchData(callback) {
+  // Simulate async operation
+  setTimeout(() => {
+    const data = { name: 'Alice' };
+    callback(data);
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log(data.name);  // "Alice" (after 1 second)
+});
+```
+
+## Immediately Invoked Function Expressions (IIFE)
+
+Functions that run immediately:
+
+```javascript
+(function() {
+  const private = 'hidden';
+  console.log('Running immediately');
+})();
+
+// Arrow function version
+(() => {
+  console.log('Also runs immediately');
+})();
+```
+
+## Try It Yourself
+
+### Exercise 1: Calculator Functions
+
+Create functions for:
+- `add(a, b)`
+- `subtract(a, b)`
+- `multiply(a, b)`
+- `divide(a, b)` (handle division by zero)
+
+### Exercise 2: Array Processing
+
+Given an array of user objects:
+```javascript
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Carol', age: 20 }
+];
+```
+
+Use array methods to:
+1. Get array of names
+2. Filter users over 22
+3. Find total age
+4. Find youngest user
+
+### Exercise 3: Closure Practice
+
+Create a `createMultiplier(factor)` function that returns a function that multiplies its argument by `factor`.
+
+```javascript
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+double(5);  // 10
+triple(5);  // 15
+```
+
+## Test Your Understanding
+
+<!-- exercise: multiple-choice
+{
+  "id": "js-functions-quiz",
+  "type": "multiple-choice",
+  "title": "Functions in JavaScript",
+  "description": "Test your understanding of arrow functions.",
+  "difficulty": "medium",
+  "question": "When should you use a traditional function instead of an arrow function?",
+  "options": [
+    {
+      "id": "a",
+      "text": "Arrow functions are always preferred in modern JavaScript",
+      "isCorrect": false,
+      "explanation": "There are cases where traditional functions are necessary."
+    },
+    {
+      "id": "b",
+      "text": "When you need the function's own 'this' context (like object methods)",
+      "isCorrect": true,
+      "explanation": "Correct! Arrow functions don't have their own 'this'—they inherit from the enclosing scope. For object methods that need 'this' to refer to the object, use traditional functions."
+    },
+    {
+      "id": "c",
+      "text": "When the function needs to return a value",
+      "isCorrect": false,
+      "explanation": "Arrow functions can return values just fine."
+    },
+    {
+      "id": "d",
+      "text": "When you have more than one parameter",
+      "isCorrect": false,
+      "explanation": "Arrow functions handle any number of parameters."
+    }
+  ]
+}
+-->
+
+## Key Takeaways
+
+- Functions are declared with `function` keyword or arrow syntax
+- Arrow functions are concise and preferred for callbacks
+- Parameters can have defaults, use rest syntax, or destructure
+- Scope determines variable visibility
+- Closures remember their lexical scope
+- Higher-order functions take or return functions
+- Array methods (map, filter, reduce) use callback functions
+
+## Next Steps
+
+Continue to [Control Flow](./04-control-flow.md) →

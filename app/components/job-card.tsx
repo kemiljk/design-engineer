@@ -14,10 +14,10 @@ const JobCard = ({ job }: { job: Type.Job }) => {
       key={job.id}
       className="mx-auto flex w-full flex-col items-start justify-center p-2"
     >
-      <CardHeader className="flex w-full items-center gap-4 text-foreground ">
+      <CardHeader className="flex w-full items-center gap-4 text-foreground">
         {job.metadata.company.metadata?.logo && (
           <Image
-            className="h-11 w-11 rounded-md border border-zinc-100 object-cover p-1 dark:border-zinc-700"
+            className="h-11 w-11 rounded-none border border-neutral-100 object-cover p-1 dark:border-neutral-700"
             src={job.metadata.company.metadata?.logo.imgix_url ?? ""}
             width={120}
             height={120}
@@ -27,20 +27,20 @@ const JobCard = ({ job }: { job: Type.Job }) => {
         <div className="flex w-full justify-between">
           <div className="flex flex-col">
             <div className="flex flex-wrap items-center gap-x-1 md:gap-x-2">
-              <h1 className="text-start text-base leading-snug text-foreground  md:text-lg">
+              <h1 className="text-start text-base leading-snug text-foreground md:text-lg">
                 {job.title}
               </h1>
-              <span className="text-base text-gray-700 dark:text-gray-300">
+              <span className="text-base text-neutral-700 dark:text-neutral-300">
                 @
               </span>
-              <h2 className="text-base leading-snug text-foreground  md:text-lg">
+              <h2 className="text-base leading-snug text-foreground md:text-lg">
                 {job.metadata.company.title}
               </h2>
             </div>
             <div className="flex w-full flex-wrap items-center gap-2 font-medium">
               {job.metadata.location.map((location, index) => (
                 <React.Fragment key={location.id}>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300">
                     {location.title}
                   </p>
                   {index < job.metadata.location.length - 1 && (
@@ -51,7 +51,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
               {job.metadata.posted && (
                 <>
                   <span className="text-sm">•</span>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300">
                     {format(new Date(job.metadata.posted), "do MMMM yyyy")}
                   </p>
                 </>
@@ -65,7 +65,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
                 style={{
                   backgroundColor: `${industry.metadata.colour}55`,
                 }}
-                className="rounded-full px-2 py-1 text-center text-xs text-foreground "
+                className="rounded-none px-2 py-1 text-center text-xs text-foreground"
               >
                 {industry.title}
               </p>
@@ -73,7 +73,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
           </div>
         </div>
       </CardHeader>
-      <CardBody className="text-gray-800 dark:text-gray-200">
+      <CardBody className="text-neutral-800 dark:text-neutral-200">
         <div className="flex items-center md:hidden">
           {job.metadata.industry.map((industry) => (
             <p
@@ -81,7 +81,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
               style={{
                 backgroundColor: `${industry.metadata.colour}55`,
               }}
-              className="rounded-full px-2 py-1 text-center text-xs text-foreground "
+              className="rounded-full px-2 py-1 text-center text-xs text-foreground"
             >
               {industry.title}
             </p>

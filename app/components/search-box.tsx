@@ -32,10 +32,16 @@ function Search({ initialSearchTerm, page }: SearchProps) {
   return (
     <Input
       type="text"
+      radius="none"
+      variant="bordered"
       placeholder={`Search ${page}...`}
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      className={isPending ? "opacity-70 transition-opacity" : "transition-opacity"}
+      classNames={{
+        base: isPending ? "opacity-70 transition-opacity" : "transition-opacity",
+        inputWrapper: "border-zinc-200 dark:border-zinc-800 data-[hover=true]:border-zinc-400 dark:data-[hover=true]:border-zinc-600 group-data-[focus=true]:border-swiss-red dark:group-data-[focus=true]:border-swiss-red bg-transparent",
+        input: "text-foreground placeholder:text-zinc-400",
+      }}
     />
   );
 }

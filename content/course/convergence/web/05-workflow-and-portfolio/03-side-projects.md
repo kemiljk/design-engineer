@@ -1,0 +1,149 @@
+# Side Projects
+
+> **Quick Summary:** Side projects are where Design Engineers level up fastest. No constraints, no stakeholders, just learning by building.
+
+## What You'll Learn
+
+- Why side projects accelerate growth
+- Choosing the right projects
+- Scoping for completion
+- Turning projects into portfolio pieces
+
+## Why Side Projects Matter
+
+At work, you're constrained by:
+- Existing tech stack
+- Team conventions
+- Business priorities
+- Timelines
+
+Side projects let you:
+- Explore new technologies
+- Take creative risks
+- Build what interests you
+- Learn from failure safely
+
+## Choosing Projects
+
+### Follow Curiosity
+What do you want to learn?
+- New animation techniques → Build something motion-heavy
+- Backend skills → Build a full-stack app
+- Mobile → Build a React Native app
+
+### Solve Your Problems
+Personal tools are highly motivating:
+- Task manager that works how you think
+- Design tool for a specific workflow
+- Utility that saves you time
+
+### Remake What You Love
+Take something you admire and rebuild it:
+- Recreate an interaction you love
+- Build a feature from your favorite app
+- Improve on something that frustrated you
+
+## Scoping for Completion
+
+The graveyard of side projects is full of overscoped ideas.
+
+### Start Tiny
+- Not a full app → one feature
+- Not a design system → one component
+- Not a platform → one page
+
+### Define "Done"
+Before starting, write down:
+- What does finished look like?
+- What's explicitly out of scope?
+- When will I stop?
+
+### Ship Early
+Put it online, even if imperfect:
+- Vercel/Netlify for instant deploys
+- Share the link
+- Move on to the next thing
+
+## Learning in Public
+
+### Benefits of Sharing
+- Accountability to finish
+- Feedback from others
+- Portfolio building
+- Network expansion
+
+### Where to Share
+- Twitter/X for quick updates
+- Blog posts for deep dives
+- GitHub for source code
+- CodePen for experiments
+
+### What to Share
+- Work in progress
+- Lessons learned
+- Failures and pivots
+- Behind-the-scenes process
+
+## Try It Yourself
+
+### Exercise 1: Project Ideation
+
+List 10 side project ideas. For each:
+- What would you learn?
+- How long would it take?
+- What does "done" look like?
+
+### Exercise 2: Minimum Viable Project
+
+Take your most exciting idea. Scope it down to something you could finish this weekend.
+
+## Test Your Understanding
+
+<!-- exercise: multiple-choice
+{
+  "id": "side-projects-quiz",
+  "type": "multiple-choice",
+  "title": "Side Projects",
+  "description": "Test your understanding of effective side projects.",
+  "difficulty": "easy",
+  "question": "Why are side projects valuable for Design Engineers?",
+  "options": [
+    {
+      "id": "a",
+      "text": "They might become profitable businesses",
+      "isCorrect": false,
+      "explanation": "While possible, profit isn't the main value of side projects."
+    },
+    {
+      "id": "b",
+      "text": "They let you practice skills, experiment freely, and build portfolio pieces",
+      "isCorrect": true,
+      "explanation": "Correct! Side projects offer freedom to try new technologies, make design decisions you can't make at work, and create evidence of your abilities."
+    },
+    {
+      "id": "c",
+      "text": "They're required to get hired as a DE",
+      "isCorrect": false,
+      "explanation": "Work experience counts too—but side projects help, especially early in your career."
+    },
+    {
+      "id": "d",
+      "text": "They should always be completed to full production quality",
+      "isCorrect": false,
+      "explanation": "Finished is better than perfect. Small, complete projects are more valuable than large, abandoned ones."
+    }
+  ]
+}
+-->
+
+## Key Takeaways
+
+- Side projects accelerate learning without work constraints
+- Follow curiosity and solve personal problems
+- Scope ruthlessly—completion beats ambition
+- Ship early and share publicly
+- Every project teaches something
+
+## Next Steps
+
+Continue to [Building Your Portfolio](./04-building-your-portfolio.md) →

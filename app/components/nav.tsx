@@ -16,16 +16,22 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { StyledButton as Button } from "./styled-button";
 import NextLink from "next/link";
 import { Link } from "@heroui/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const CommandPalette = dynamic(
   () => import("./command-palette").then((m) => m.CommandPalette),
   {
     ssr: false,
     loading: () => (
-      <div className="hidden h-9 w-28 animate-pulse items-center gap-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 md:flex" />
+      <div className="hidden h-9 w-28 animate-pulse items-center gap-2 bg-zinc-100 dark:bg-zinc-800 md:flex" />
     ),
-  }
+  },
 );
+
+function isExternalLink(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
 
 export default function Nav({
   links,
@@ -40,13 +46,29 @@ export default function Nav({
   posts?: { title: string; slug: string }[];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      maxWidth="full"
+      classNames={{
+        base: "border-b border-foreground/10 bg-background/80 backdrop-blur-md",
+        wrapper: "px-4 md:px-8",
+        item: "data-[active=true]:text-swiss-red",
+        menu: "bg-white dark:bg-black",
+        menuItem: "data-[active=true]:text-swiss-red",
+      }}
+    >
       <NavbarContent>
         <NavbarBrand>
-          <NextLink href="/" prefetch={true}>
-            <Logo className="size-8" />
+          <NextLink href="/" prefetch={true} className="text-foreground">
+            <Logo className="size-8 text-foreground" />
           </NextLink>
         </NavbarBrand>
         <NavbarMenuToggle
@@ -55,39 +77,50 @@ export default function Nav({
         />
       </NavbarContent>
 
-      <NavbarContent
-        className="z-[9999999999] hidden gap-4 sm:flex"
-        justify="center"
-      >
+      <NavbarContent className="hidden gap-8 sm:flex" justify="center">
         {links.map((item, index) =>
-          item.target ? (
+          isExternalLink(item.href) ? (
             <NavbarItem key={`${item.title}-${index}`}>
               <Link
                 as="a"
                 href={item.href}
-                target={item.target}
-                className="text-sm text-foreground transition-colors hover:text-foreground-600"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium uppercase tracking-widest text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
               >
                 {item.title}
               </Link>
             </NavbarItem>
           ) : (
-            <NavbarItem key={`${item.title}-${index}`}>
+            <NavbarItem key={`${item.title}-${index}`} isActive={isActive(item.href)}>
               <NextLink
                 href={item.href}
                 prefetch={true}
-                className="text-sm text-foreground transition-colors hover:text-foreground-600"
+                className={cn(
+                  "text-sm font-medium uppercase tracking-widest transition-colors hover:text-black dark:hover:text-white",
+                  isActive(item.href)
+                    ? "text-swiss-red"
+                    : "text-neutral-500 dark:text-neutral-400"
+                )}
               >
                 {item.title}
               </NextLink>
             </NavbarItem>
-          )
+          ),
         )}
+      </NavbarContent>
 
+      <NavbarContent justify="end" className="gap-4">
         <CommandPalette posts={posts} />
 
         <SignedOut>
-          <Button as={Link} color="primary" variant="stylised" href="/sign-in">
+          <Button
+            as={Link}
+            color="primary"
+            variant="stylised"
+            href="/sign-in"
+            className="h-9 px-4 text-xs font-medium uppercase tracking-wide"
+          >
             Sign in
           </Button>
         </SignedOut>
@@ -95,7 +128,8 @@ export default function Nav({
           <UserButton
             appearance={{
               elements: {
-                userButtonAvatarBox: "hover:cursor-default hover:opacity-80",
+                userButtonAvatarBox:
+                  "hover:cursor-default hover:opacity-80 rounded-none",
                 userButtonPopoverActionButton:
                   "hover:cursor-default hover:opacity-80",
               },
@@ -104,48 +138,51 @@ export default function Nav({
           />
         </SignedIn>
       </NavbarContent>
-      <NavbarMenu>
+
+      <NavbarMenu className="pt-8">
         {links.map((item, index) =>
-          item.target ? (
+          isExternalLink(item.href) ? (
             <NavbarMenuItem key={`menu-${item.title}-${index}`}>
               <Link
                 as="a"
                 href={item.href}
-                target={item.target}
-                className="w-full text-lg text-foreground transition-colors hover:text-foreground-600"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-2xl font-medium uppercase tracking-tight text-foreground hover:text-black dark:hover:text-white"
               >
                 {item.title}
               </Link>
             </NavbarMenuItem>
           ) : (
-            <NavbarMenuItem key={`menu-${item.title}-${index}`}>
+            <NavbarMenuItem key={`menu-${item.title}-${index}`} isActive={isActive(item.href)}>
               <NextLink
                 href={item.href}
                 prefetch={true}
-                className="w-full text-lg text-foreground transition-colors hover:text-foreground-600"
+                className={cn(
+                  "w-full text-2xl font-medium uppercase tracking-tight hover:text-black dark:hover:text-white",
+                  isActive(item.href)
+                    ? "text-swiss-red"
+                    : "text-foreground"
+                )}
               >
                 {item.title}
               </NextLink>
             </NavbarMenuItem>
-          )
+          ),
         )}
-        <SignedOut>
-          <Button as={Link} color="primary" variant="stylised" href="/sign-in">
-            Sign in
-          </Button>
-        </SignedOut>
-        <SignedIn>
-          <UserButton
-            appearance={{
-              elements: {
-                userButtonAvatarBox: "hover:cursor-default hover:opacity-80",
-                userButtonPopoverActionButton:
-                  "hover:cursor-default hover:opacity-80",
-              },
-            }}
-            afterSignOutUrl="/"
-          />
-        </SignedIn>
+        <div className="mt-8">
+          <SignedOut>
+            <Button
+              as={Link}
+              color="primary"
+              variant="stylised"
+              href="/sign-in"
+              className="w-full justify-center"
+            >
+              Sign in
+            </Button>
+          </SignedOut>
+        </div>
       </NavbarMenu>
     </Navbar>
   );

@@ -1,17 +1,38 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher([
+const isPublicRoute = createRouteMatcher([
+  "/",
+  "/posts(.*)",
+  "/stories(.*)",
+  "/resources(.*)",
+  "/about(.*)",
+  "/tools(.*)",
   "/stats(.*)",
-  "/jobs/task-builder(.*)",
-  "/jobs/submit-job(.*)",
+  "/privacy-policy(.*)",
+  "/terms-of-service(.*)",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
+  "/api/subscribe(.*)",
+  "/api/article-submission(.*)",
+  "/api/job-submission(.*)",
+  "/api/webhooks/lemonsqueezy(.*)",
+  "/api/course/test-access(.*)", // E2E test access control
+  "/api/og(.*)", // OG image generation
+  "/icon", // Favicon
+  "/apple-icon", // Apple Touch Icon
+  "/course",
+  "/course/(.*)",
 ]);
 
-export const proxy = clerkMiddleware(async (auth, req) => {
-  if (isProtectedRoute(req)) {
+export const proxy = clerkMiddleware(async (auth, request) => {
+  if (!isPublicRoute(request)) {
     await auth.protect();
   }
 });
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/(api|trpc)(.*)",
+  ],
 };

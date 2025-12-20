@@ -1,11 +1,6 @@
 import type { Viewport } from "next";
 import { Suspense } from "react";
-import {
-  Lora,
-  JetBrains_Mono,
-  Instrument_Sans,
-  Bricolage_Grotesque,
-} from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono, Host_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
@@ -15,9 +10,10 @@ import { BannerWrapper } from "./components/banner-wrapper";
 import { EmailSubscriber } from "./components/email-subscriber";
 import { KeyboardHint } from "./components/keyboard-hint";
 
-const serif = Lora({
+const serif = Instrument_Serif({
   subsets: ["latin"],
-  style: "italic",
+  weight: "400",
+  style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
 });
@@ -28,15 +24,9 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-const sans = Instrument_Sans({
+const sans = Host_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -63,9 +53,16 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <ClerkProvider>
+      <ClerkProvider
+        signInFallbackRedirectUrl={
+          process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL
+        }
+        signUpFallbackRedirectUrl={
+          process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL
+        }
+      >
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable} ${display.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
+          className={`${serif.variable} ${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
           <Providers>
             <Suspense fallback={null}>
