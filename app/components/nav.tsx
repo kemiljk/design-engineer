@@ -55,6 +55,7 @@ export default function Nav({
 
   return (
     <Navbar
+      isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       classNames={{
@@ -148,6 +149,7 @@ export default function Nav({
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
                 className="w-full text-2xl font-medium uppercase tracking-tight text-foreground hover:text-black dark:hover:text-white"
               >
                 {item.title}
@@ -158,6 +160,7 @@ export default function Nav({
               <NextLink
                 href={item.href}
                 prefetch={true}
+                onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   "w-full text-2xl font-medium uppercase tracking-tight hover:text-black dark:hover:text-white",
                   isActive(item.href)
@@ -177,6 +180,7 @@ export default function Nav({
               color="primary"
               variant="stylised"
               href="/sign-in"
+              onClick={() => setIsMenuOpen(false)}
               className="w-full justify-center"
             >
               Sign in
