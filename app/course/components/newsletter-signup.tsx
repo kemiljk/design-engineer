@@ -54,7 +54,7 @@ export function NewsletterSignup() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
-          className="h-11 flex-1 border border-neutral-200 bg-white px-4 text-sm placeholder:text-neutral-400 focus:border-swiss-red focus:outline-none dark:border-neutral-700 dark:bg-neutral-800"
+          className="h-11 min-h-11 flex-1 border border-neutral-200 bg-white px-4 text-sm placeholder:text-neutral-400 focus:border-swiss-red focus:outline-none dark:border-neutral-700 dark:bg-neutral-800"
         />
         <StyledButton
           type="submit"
