@@ -154,7 +154,7 @@ export default function FAQPage() {
         </Link>
 
         <div className="mb-12">
-          <h1 className="mb-4 font-serif text-4xl font-bold">
+          <h1 className="mb-4 text-4xl font-bold">
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400">

@@ -11,7 +11,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
     <div className="border-b border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-black md:py-24">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
             {title}
           </h1>
           {description && (

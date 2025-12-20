@@ -1,7 +1,7 @@
 "use client";
 
 const COLORS = {
-  primary: "var(--swiss-red, #ff0000)",
+  primary: "var(--illustration-primary, #ff4400)",
   fg: "var(--color-fg, #000000)",
   muted: "var(--color-muted, #a8a8a8)",
   light: "var(--color-light, #d4d4d4)",

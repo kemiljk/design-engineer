@@ -4,7 +4,7 @@ export default function PageTitle() {
   return (
     <h1 className="flex flex-col items-center justify-center gap-2 text-foreground md:flex-row md:gap-4">
       <div className="relative border-2 border-foreground p-2 md:border-4 md:p-4">
-        <span className="font-serif text-4xl font-bold italic tracking-tight md:text-5xl lg:text-7xl">
+        <span className="text-4xl font-bold italic tracking-tight md:text-5xl lg:text-7xl">
           design
         </span>
         <MousePointer />

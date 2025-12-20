@@ -59,7 +59,7 @@ export function ContentCard({
               <span>{readingTime} min read</span>
             </div>
 
-            <h2 className="font-sans text-xl font-bold leading-tight tracking-tight text-foreground transition-colors group-hover:text-swiss-red">
+            <h2 className="text-xl font-bold leading-tight tracking-tight text-foreground transition-colors group-hover:text-swiss-red">
               {post.title}
             </h2>
 

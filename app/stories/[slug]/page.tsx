@@ -126,7 +126,7 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
           </video>
         )}
         <article className="w-full rounded-none bg-neutral-50 p-4">
-          <Markdown className="prose font-sans text-sm text-neutral-700 dark:prose-invert">
+          <Markdown className="prose text-sm text-neutral-700 dark:prose-invert">
             {story.metadata.summary}
           </Markdown>
         </article>

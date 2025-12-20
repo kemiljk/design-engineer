@@ -41,7 +41,7 @@ export default async function CertificatesPage() {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
             <Award className="h-8 w-8 text-swiss-red" />
-            <h1 className="font-serif text-3xl font-bold">Your Certificates</h1>
+            <h1 className="text-3xl font-bold">Your Certificates</h1>
           </div>
           <p className="text-neutral-600 dark:text-neutral-400">
             Complete all three tracks (Design, Engineering, Convergence) for a platform 
