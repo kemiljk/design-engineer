@@ -55,6 +55,6 @@ Precision. Purpose. Craft.
 More details coming soon. For now, we just wanted you to see it.
 
 —  
-The Design Engineer Team
+The d×e Team
 
 P.S. — If you spot anything that's not sharp enough, not clear enough, or not honest enough, let us know. We're holding ourselves to the same standard we're teaching.
