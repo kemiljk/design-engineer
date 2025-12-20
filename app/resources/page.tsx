@@ -38,10 +38,10 @@ const ResourcesPage: React.FC = async () => {
                   {item.metadata.description}
                 </p>
                 <div className="flex flex-col gap-2">
-                  {item.metadata.links.map((link: { icon_name: { key: string }; url: string; text: string }) => (
+                  {item.metadata.links.map((link) => (
                     <Link href={link.url} key={link.url} target="_blank">
                       <StyledButton className="w-full justify-start gap-2" variant="flat">
-                        <ResourceIcon name={link.icon_name.key} className="h-4 w-4" />
+                        <ResourceIcon name={link.icon_name} className="h-4 w-4" />
                         {link.text}
                       </StyledButton>
                     </Link>
