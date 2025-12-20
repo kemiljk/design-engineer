@@ -6,8 +6,12 @@ import {
   issueCertificate 
 } from "@/lib/certificate";
 import type { CertificatePlatform } from "@/lib/types";
+import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET(request: NextRequest) {
+  const unavailableResponse = await requireCourseAvailable();
+  if (unavailableResponse) return unavailableResponse;
+
   const { userId } = await auth();
   
   if (!userId) {
@@ -45,6 +49,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const unavailableResponse = await requireCourseAvailable();
+  if (unavailableResponse) return unavailableResponse;
+
   const { userId } = await auth();
   const user = await currentUser();
   

@@ -1,8 +1,12 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { getUserEnrollment, canAccessLesson } from "@/lib/course";
+import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET() {
+  const unavailableResponse = await requireCourseAvailable();
+  if (unavailableResponse) return unavailableResponse;
+
   const { userId } = await auth();
 
   if (!userId) {
@@ -18,6 +22,9 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  const unavailableResponse = await requireCourseAvailable();
+  if (unavailableResponse) return unavailableResponse;
+
   const { userId } = await auth();
 
   if (!userId) {

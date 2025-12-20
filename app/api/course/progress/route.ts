@@ -1,9 +1,13 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { getUserProgress, updateProgress, getProgressStats, getUserEnrollment } from "@/lib/course";
+import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET() {
   try {
+    const unavailableResponse = await requireCourseAvailable();
+    if (unavailableResponse) return unavailableResponse;
+
     const { userId } = await auth();
 
     if (!userId) {
@@ -30,6 +34,9 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const unavailableResponse = await requireCourseAvailable();
+    if (unavailableResponse) return unavailableResponse;
+
     const { userId } = await auth();
 
     if (!userId) {

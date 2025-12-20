@@ -2,8 +2,12 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { createCheckout, PRODUCT_CONFIG } from "@/lib/lemonsqueezy";
 import type { ProductKey } from "@/lib/types";
+import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function POST(request: NextRequest) {
+  const unavailableResponse = await requireCourseAvailable();
+  if (unavailableResponse) return unavailableResponse;
+
   const { userId } = await auth();
   const user = await currentUser();
 

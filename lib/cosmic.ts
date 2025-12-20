@@ -286,3 +286,26 @@ export const getRecentPostSlugs = unstable_cache(
   ["recent-post-slugs"],
   { revalidate: 300, tags: ["posts"] }
 );
+
+export const getCourseAvailability = unstable_cache(
+  async (): Promise<{ is_available: boolean }> => {
+    try {
+      const { object } = await cosmic.objects
+        .findOne({ type: "course-availability", slug: "availability" })
+        .props("metadata")
+        .depth(1);
+
+      const isAvailable = object?.metadata?.is_available === true;
+      console.log("[Course Availability]", { isAvailable, raw: object?.metadata?.is_available });
+      
+      return {
+        is_available: isAvailable,
+      };
+    } catch (error) {
+      console.error("[Course Availability] Error fetching:", error);
+      return { is_available: false };
+    }
+  },
+  ["course-availability"],
+  { revalidate: 60, tags: ["course-availability"] }
+);
