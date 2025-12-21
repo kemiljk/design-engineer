@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import NextLink from "next/link";
 import { ArrowRight, X } from "lucide-react";
 import Markdown from "react-markdown";
+import { useBanner } from "./banner-context";
 
 export default function Banner({
   link,
@@ -18,6 +19,7 @@ export default function Banner({
 }) {
   const [mounted, setMounted] = useState(false);
   const [bannerHidden, setBannerHidden] = useState(true);
+  const { setBannerVisible } = useBanner();
 
   useEffect(() => {
     setMounted(true);
@@ -26,6 +28,12 @@ export default function Banner({
     const shouldHide = hiddenInStorage && modifiedAtInStorage === modified_at;
     setBannerHidden(shouldHide);
   }, [modified_at]);
+
+  useEffect(() => {
+    const isVisible = mounted && !bannerHidden;
+    setBannerVisible(isVisible);
+    return () => setBannerVisible(false);
+  }, [mounted, bannerHidden, setBannerVisible]);
 
   const handleDismiss = () => {
     setBannerHidden(true);

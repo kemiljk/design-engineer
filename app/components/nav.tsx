@@ -18,6 +18,7 @@ import NextLink from "next/link";
 import { Link } from "@heroui/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useBanner } from "./banner-context";
 
 const CommandPalette = dynamic(
   () => import("./command-palette").then((m) => m.CommandPalette),
@@ -47,6 +48,7 @@ export default function Nav({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { isBannerVisible } = useBanner();
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -59,7 +61,10 @@ export default function Nav({
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       classNames={{
-        base: "border-b border-foreground/10 bg-background/80 backdrop-blur-md",
+        base: cn(
+          "border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200",
+          isBannerVisible ? "top-[45px]" : "top-0"
+        ),
         wrapper: "px-4 md:px-8",
         item: "data-[active=true]:text-swiss-red",
         menu: "bg-white dark:bg-black",
