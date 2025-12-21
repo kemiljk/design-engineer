@@ -7,13 +7,12 @@ import {
   Copy,
   Check,
   Trash2,
-  Send,
   Sparkles,
   MessageSquare,
+  ArrowUp,
 } from "lucide-react";
 import { Message, continueConversation } from "./actions";
 import { readStreamableValue } from "ai/rsc";
-import { useMediaQuery } from "usehooks-ts";
 import { TaskBuilderSuggestion } from "@/lib/types";
 
 function TaskBuilder({
@@ -25,7 +24,7 @@ function TaskBuilder({
   const [input, setInput] = useState<string>("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
-  const isMobile = useMediaQuery("(max-width: 640px)");
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const completionRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -36,6 +35,18 @@ function TaskBuilder({
       });
     }
   }, [conversation]);
+
+  const adjustTextareaHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.min(textarea.scrollHeight, 200)}px`;
+    }
+  };
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [input]);
 
   const sendMessage = async () => {
     if (!input.trim() || isGenerating) return;
@@ -184,8 +195,9 @@ function TaskBuilder({
 
       {/* Input Area */}
       <div className="sticky bottom-0 mt-8 border-t border-neutral-200 bg-neutral-50 px-4 py-4 dark:border-neutral-800 dark:bg-neutral-950 sm:px-0">
-        <div className="flex items-stretch gap-3">
+        <div className="relative flex w-full items-end rounded-xl border border-neutral-200 bg-white p-2 shadow-sm focus-within:border-swiss-red focus-within:ring-1 focus-within:ring-swiss-red dark:border-neutral-800 dark:bg-neutral-900">
           <textarea
+            ref={textareaRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
@@ -197,7 +209,7 @@ function TaskBuilder({
             }}
             placeholder="e.g., Design Engineer at a fintech startup focusing on mobile apps..."
             rows={1}
-            className="h-12 flex-1 resize-none border border-neutral-200 bg-white px-4 py-3 text-sm placeholder:text-neutral-400 focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-900"
+            className="max-h-[200px] min-h-[44px] w-full resize-none bg-transparent px-3 py-2 pr-12 text-sm placeholder:text-neutral-400 focus:outline-none"
           />
           <Button
             variant="stylised"
@@ -206,17 +218,10 @@ function TaskBuilder({
               setInput("");
             }}
             isDisabled={!input.trim() || isGenerating}
-            startContent={
-              isMobile ? (
-                <Send className="h-4 w-4" />
-              ) : (
-                <Sparkles className="h-4 w-4" />
-              )
-            }
-            isIconOnly={isMobile}
-            className="h-12 shrink-0"
+            isIconOnly
+            className="absolute bottom-2 right-2 h-8 w-8 min-w-0 rounded-lg p-0"
           >
-            {!isMobile && "Generate"}
+            <ArrowUp className="h-4 w-4" />
           </Button>
         </div>
       </div>
