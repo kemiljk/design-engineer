@@ -16,7 +16,8 @@
     "test:e2e:auth": "playwright test --project=setup --headed",
     "test:e2e:purchase": "HEADED=true playwright test --headed --grep 'Full Purchase'",
     "setup:student-discounts": "tsx scripts/setup-student-discounts.ts",
-    "generate:og-images": "tsx scripts/generate-og-images.ts"
+    "generate:og-images": "tsx scripts/generate-og-images.ts",
+    "assign:og-images": "tsx scripts/assign-og-images.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.2.12",
