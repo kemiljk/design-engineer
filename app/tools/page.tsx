@@ -7,7 +7,9 @@ import {
   Eye, 
   Type, 
   ArrowRight,
-  Lock
+  Lock,
+  Spline,
+  Ratio
 } from "lucide-react";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 
@@ -22,7 +24,6 @@ const TOOLS = [
     description: "Generate customised design engineering tasks and practice scenarios with AI.",
     href: "/tools/task-builder",
     icon: Sparkles,
-    color: "bg-swiss-red",
     isGated: true,
   },
   {
@@ -30,7 +31,6 @@ const TOOLS = [
     description: "Visualise and generate spring animations for Framer Motion, CSS, and SwiftUI.",
     href: "/tools/spring-physics",
     icon: Activity,
-    color: "bg-blue-600",
     isGated: false,
   },
   {
@@ -38,7 +38,6 @@ const TOOLS = [
     description: "AI-powered analysis of your components for accessibility and contrast issues.",
     href: "/tools/accessibility-auditor",
     icon: Eye,
-    color: "bg-emerald-600",
     isGated: true,
   },
   {
@@ -46,9 +45,22 @@ const TOOLS = [
     description: "Generate harmonious typography and spacing scales for your design system.",
     href: "/tools/token-calculator",
     icon: Type,
-    color: "bg-purple-600",
     isGated: false,
   },
+  {
+    title: "Easing Generator",
+    description: "Create custom cubic-bezier curves for smooth CSS and Framer Motion transitions.",
+    href: "/tools/easing-generator",
+    icon: Spline,
+    isGated: false,
+  },
+  {
+    title: "Aspect Ratio",
+    description: "Calculate dimensions and generate aspect-ratio CSS for responsive media.",
+    href: "/tools/aspect-ratio",
+    icon: Ratio,
+    isGated: false,
+  }
 ];
 
 export default function ToolsPage() {
@@ -68,7 +80,7 @@ export default function ToolsPage() {
               className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
             >
               <div>
-                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg ${tool.color} text-white shadow-sm`}>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm">
                   <tool.icon className="h-6 w-6" />
                 </div>
                 
@@ -85,7 +97,7 @@ export default function ToolsPage() {
                 <span className="text-sm font-medium text-neutral-900 group-hover:underline dark:text-white">
                   Open Tool
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   {tool.isGated && (
                     <SignedOut>
                       <Lock className="h-4 w-4 text-neutral-400" />
