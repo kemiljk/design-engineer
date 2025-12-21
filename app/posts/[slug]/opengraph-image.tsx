@@ -11,6 +11,22 @@ export const contentType = "image/png";
 
 export default async function Image({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
+  
+  // If post has a pre-generated OG image in Cosmic, redirect to it
+  if (post?.metadata?.image?.imgix_url) {
+    const imageUrl = `${post.metadata.image.imgix_url}?w=1200&h=630&fit=crop&auto=format`;
+    const imageResponse = await fetch(imageUrl);
+    const imageBuffer = await imageResponse.arrayBuffer();
+    
+    return new Response(imageBuffer, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
+    });
+  }
+
+  // Fallback: Generate image on the fly
   const title = post?.title || "Post";
   const description = post?.metadata?.snippet || "";
 

@@ -15,7 +15,8 @@
     "test:e2e:report": "playwright show-report",
     "test:e2e:auth": "playwright test --project=setup --headed",
     "test:e2e:purchase": "HEADED=true playwright test --headed --grep 'Full Purchase'",
-    "setup:student-discounts": "tsx scripts/setup-student-discounts.ts"
+    "setup:student-discounts": "tsx scripts/setup-student-discounts.ts",
+    "generate:og-images": "tsx scripts/generate-og-images.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.2.12",
@@ -65,6 +66,8 @@
     "postcss": "^8.5.6",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "satori": "^0.18.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
