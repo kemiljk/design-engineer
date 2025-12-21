@@ -147,7 +147,13 @@ export default function Nav({
         </SignedIn>
       </NavbarContent>
 
-      <NavbarMenu className="pt-8">
+      <NavbarMenu
+        className="pt-8"
+        style={isBannerVisible ? {
+          top: `calc(var(--navbar-height) + ${bannerHeight}px)`,
+          maxHeight: `calc(100dvh - var(--navbar-height) - ${bannerHeight}px)`,
+        } : undefined}
+      >
         {links.map((item, index) =>
           isExternalLink(item.href) ? (
             <NavbarMenuItem key={`menu-${item.title}-${index}`}>
