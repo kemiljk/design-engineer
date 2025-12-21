@@ -1,23 +1,44 @@
-import { cosmic } from "../lib/cosmic";
+/**
+ * Setup script for student discounts object type
+ *
+ * This script creates the student-discounts object type in Cosmic.
+ *
+ * Run with: npx tsx scripts/setup-student-discounts.ts
+ */
+
+import { config } from "dotenv";
+config({ path: ".env.local" });
+import { createBucketClient } from "@cosmicjs/sdk";
+
+const cosmic = createBucketClient({
+  bucketSlug: process.env.NEXT_PUBLIC_BUCKET_SLUG!,
+  readKey: process.env.NEXT_PUBLIC_BUCKET_READ_KEY!,
+  writeKey: process.env.NEXT_PUBLIC_BUCKET_WRITE_KEY!,
+});
 
 async function setupStudentDiscountsType() {
-  console.log("Setting up student-discounts object type in Cosmic...\n");
+  console.log("🎓 Setting up student-discounts object type in Cosmic...\n");
+
+  // Check required env vars
+  if (!process.env.NEXT_PUBLIC_BUCKET_SLUG) {
+    throw new Error("NEXT_PUBLIC_BUCKET_SLUG is not set");
+  }
+  if (!process.env.NEXT_PUBLIC_BUCKET_WRITE_KEY) {
+    throw new Error("NEXT_PUBLIC_BUCKET_WRITE_KEY is not set");
+  }
 
   try {
-    // Check if the object type already exists
+    // Check if the object type already exists by trying to find objects of that type
     try {
-      const existingTypes = await cosmic.objectTypes.find();
-      const exists = existingTypes.object_types?.some(
-        (type: { slug: string }) => type.slug === "student-discounts"
-      );
-
-      if (exists) {
-        console.log("✓ student-discounts object type already exists");
-        console.log("  Skipping creation...\n");
-        return;
+      await cosmic.objects.find({ type: "student-discounts" }).limit(1);
+      console.log("✓ student-discounts object type already exists");
+      console.log("  Skipping creation...\n");
+      return;
+    } catch (error: any) {
+      // 404 means the type doesn't exist, which is what we want
+      if (error.status !== 404) {
+        throw error;
       }
-    } catch (error) {
-      // Continue to create if check fails
     }
 
     // Create the object type
@@ -32,45 +53,29 @@ async function setupStudentDiscountsType() {
           key: "email",
           type: "text",
           required: true,
-          value: "",
         },
         {
           title: "Discount Code",
           key: "discount_code",
           type: "text",
           required: true,
-          value: "",
         },
         {
           title: "Requested At",
           key: "requested_at",
           type: "text",
           required: true,
-          value: "",
         },
         {
           title: "Status",
           key: "status",
           type: "select-dropdown",
           required: true,
-          value: "sent",
           options: [
-            {
-              key: "sent",
-              value: "Sent",
-            },
-            {
-              key: "pending",
-              value: "Pending",
-            },
-            {
-              key: "failed",
-              value: "Failed",
-            },
-            {
-              key: "used",
-              value: "Used",
-            },
+            { key: "sent", value: "Sent" },
+            { key: "pending", value: "Pending" },
+            { key: "failed", value: "Failed" },
+            { key: "used", value: "Used" },
           ],
         },
       ],
@@ -91,23 +96,31 @@ async function setupStudentDiscountsType() {
     console.log("  - pending: Processing");
     console.log("  - failed: Failed to send");
     console.log("  - used: Code has been redeemed");
-    console.log("\n✓ Setup complete! The student discount system is ready to use.\n");
+    console.log(
+      "\n✓ Setup complete! The student discount system is ready to use.\n",
+    );
 
     return result;
-  } catch (error) {
+  } catch (error: any) {
     console.error("\n✗ Error creating object type:");
-    
-    if (error && typeof error === "object" && "message" in error) {
+
+    if (error?.message) {
       console.error("  Message:", error.message);
     }
-    
+    if (error?.status) {
+      console.error("  Status:", error.status);
+    }
+
     console.error("\nPlease check:");
-    console.error("  1. COSMIC_WRITE_KEY environment variable is set");
+    console.error(
+      "  1. NEXT_PUBLIC_BUCKET_WRITE_KEY environment variable is set",
+    );
     console.error("  2. Write key has proper permissions");
-    console.error("  3. Bucket slug is correct in .env");
-    console.error("\nYou can also create this manually in the Cosmic dashboard.");
-    console.error("See COSMIC_STUDENT_DISCOUNTS_SCHEMA.md for instructions.\n");
-    
+    console.error("  3. NEXT_PUBLIC_BUCKET_SLUG is correct in .env");
+    console.error(
+      "\nYou can also create this manually in the Cosmic dashboard.\n",
+    );
+
     throw error;
   }
 }
