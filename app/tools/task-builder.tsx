@@ -200,13 +200,6 @@ function TaskBuilder({
             ref={textareaRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
-                setInput("");
-              }
-            }}
             placeholder="e.g., Design Engineer at a fintech startup focusing on mobile apps..."
             rows={1}
             className="max-h-[200px] min-h-[44px] w-full resize-none bg-transparent px-3 py-2 pr-12 text-sm placeholder:text-neutral-400 focus:outline-none"
@@ -219,7 +212,7 @@ function TaskBuilder({
             }}
             isDisabled={!input.trim() || isGenerating}
             isIconOnly
-            className="absolute bottom-2 right-2 h-8 w-8 min-w-0 rounded-lg p-0"
+            className="absolute bottom-2 right-2 h-8 w-8 min-w-0 p-0"
           >
             <ArrowUp className="h-4 w-4" />
           </Button>
