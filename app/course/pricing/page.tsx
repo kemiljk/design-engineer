@@ -3,6 +3,7 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { ArrowLeft, Check, Sparkles } from "lucide-react";
 import { PricingCard, PlatformTierCard } from "./pricing-card";
+import { StudentDiscountForm } from "./student-discount-form";
 import { getUserEnrollment } from "@/lib/course";
 import { getProductsWithPrices } from "@/lib/lemonsqueezy";
 import type { ProductWithPrice } from "@/lib/types";
@@ -156,29 +157,9 @@ export default async function PricingPage() {
           </div>
         )}
 
-        {/* Student Discount */}
-        <div className="mb-8 rounded-none border-2 border-blue-200 bg-blue-50 p-8 text-center dark:border-blue-800 dark:bg-blue-950/30">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center bg-blue-600 text-white">
-            <span className="text-2xl">🎓</span>
-          </div>
-          <h2 className="mb-2 text-xl font-bold">Student Discount Available</h2>
-          <p className="mx-auto mb-4 max-w-xl text-neutral-600 dark:text-neutral-400">
-            Currently enrolled in university or college? Get 30% off any course purchase.
-          </p>
-          <p className="mx-auto mb-6 max-w-xl text-sm text-neutral-600 dark:text-neutral-400">
-            Email us at{" "}
-            <a 
-              href="mailto:hello@designengineer.xyz?subject=Student%20Discount%20Request" 
-              className="font-medium text-blue-600 hover:underline dark:text-blue-400"
-            >
-              hello@designengineer.xyz
-            </a>
-            {" "}from your student email address (.edu or .ac.uk) with the subject "Student Discount Request" 
-            and we&apos;ll send you a discount code within 24 hours.
-          </p>
-          <div className="text-xs text-neutral-500">
-            Valid student email verification required. One code per student.
-          </div>
+        {/* Student Discount Form */}
+        <div className="mb-8">
+          <StudentDiscountForm />
         </div>
 
         {/* Guarantee */}

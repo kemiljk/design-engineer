@@ -59,7 +59,7 @@ const faqs = [
       },
       {
         q: "Do you offer student discounts?",
-        a: "Yes! Students currently enrolled in university or college receive 30% off any course purchase. To get your student discount code, email us at hello@designengineer.xyz from your student email address (.edu or .ac.uk) with the subject 'Student Discount Request'. We'll verify your student status and send you a discount code within 24 hours. This makes the complete Convergence All-Access course significantly more affordable for students.",
+        a: "Yes! Students currently enrolled in university or college receive 30% off any course purchase. Simply visit our pricing page and use the student discount form - enter your student email address (.edu, .ac.uk, etc.), and you'll receive a unique discount code instantly via email. The code is single-use and non-transferable. This makes the complete Convergence All-Access course significantly more affordable for students. If your student email isn't recognized, contact us at hello@designengineer.xyz.",
       },
       {
         q: "Do you offer team or enterprise pricing?",
