@@ -63,7 +63,7 @@ export default function Nav({
       classNames={{
         base: cn(
           "border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200",
-          isBannerVisible ? "top-[45px]" : "top-0"
+          isBannerVisible ? "top-[52px]" : "top-0"
         ),
         wrapper: "px-4 md:px-8",
         item: "data-[active=true]:text-swiss-red",
