@@ -122,7 +122,7 @@ export function StudentDiscountForm() {
                   Check your inbox (and spam folder). Your unique discount code will be waiting for you!
                 </p>
               )}
-              {status === "error" && message.includes("not being recognized") && (
+              {status === "error" && message.includes("not being recognised") && (
                 <p className="mt-2 text-xs opacity-90">
                   Contact us at{" "}
                   <a
@@ -141,7 +141,7 @@ export function StudentDiscountForm() {
           <p className="mb-2 font-medium text-neutral-900 dark:text-white">How it works:</p>
           <ol className="ml-4 list-decimal space-y-1 text-neutral-600 dark:text-neutral-400">
             <li>Enter your student email address above</li>
-            <li>We&apos;ll verify it&apos;s from a recognized educational institution</li>
+            <li>We&apos;ll verify it&apos;s from a recognised educational institution</li>
             <li>Receive your unique 30% discount code instantly via email</li>
             <li>Apply the code at checkout (one-time use, non-transferable)</li>
           </ol>

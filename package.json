@@ -14,7 +14,8 @@
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:report": "playwright show-report",
     "test:e2e:auth": "playwright test --project=setup --headed",
-    "test:e2e:purchase": "HEADED=true playwright test --headed --grep 'Full Purchase'"
+    "test:e2e:purchase": "HEADED=true playwright test --headed --grep 'Full Purchase'",
+    "setup:student-discounts": "tsx scripts/setup-student-discounts.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.2.12",

@@ -59,11 +59,11 @@ const faqs = [
       },
       {
         q: "Do you offer student discounts?",
-        a: "Yes! Students currently enrolled in university or college receive 30% off any course purchase. Simply visit our pricing page and use the student discount form - enter your student email address (.edu, .ac.uk, etc.), and you'll receive a unique discount code instantly via email. The code is single-use and non-transferable. This makes the complete Convergence All-Access course significantly more affordable for students. If your student email isn't recognized, contact us at hello@designengineer.xyz.",
+        a: "Yes! Students currently enrolled in university or college receive 30% off any course purchase. Simply visit our pricing page and use the student discount form - enter your student email address (.edu, .ac.uk, etc.), and you'll receive a unique discount code instantly via email. The code is single-use and non-transferable. This makes the complete Convergence All-Access course significantly more affordable for students. If your student email isn't recognised, contact us at hello@designengineer.xyz.",
       },
       {
         q: "Do you offer team or enterprise pricing?",
-        a: "Yes, we offer discounted rates for teams of 5 or more. Contact us at hello@designengineer.xyz for team pricing and to discuss your organization's needs.",
+        a: "Yes, we offer discounted rates for teams of 5 or more. Contact us at hello@designengineer.xyz for team pricing and to discuss your organisation's needs.",
       },
     ],
   },
@@ -72,7 +72,7 @@ const faqs = [
     questions: [
       {
         q: "What platforms/technologies does the course cover?",
-        a: "The course covers three platforms: Web (HTML, CSS, JavaScript, React), iOS (Swift, SwiftUI), and Android (Kotlin, Jetpack Compose). Each platform has its own Design Track, Engineering Track, and Convergence modules so you can specialize in your preferred platform.",
+        a: "The course covers three platforms: Web (HTML, CSS, JavaScript, React), iOS (Swift, SwiftUI), and Android (Kotlin, Jetpack Compose). Each platform has its own Design Track, Engineering Track, and Convergence modules so you can specialise in your preferred platform.",
       },
       {
         q: "Is the content kept up to date?",

@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error:
-            "Please use a valid student email address (e.g., .edu, .ac.uk). If you have a student email but it's not being recognized, please email us directly.",
+            "Please use a valid student email address (e.g., .edu, .ac.uk). If you have a student email but it's not being recognised, please email us directly.",
         },
         { status: 400 }
       );
