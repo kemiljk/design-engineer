@@ -95,16 +95,16 @@ export default async function CoursePage() {
     },
     {
       id: "convergence",
-      title: "Convergence",
+      title: "Convergence: All-Access",
       description:
-        "Where design meets code. Motion, prototyping, accessibility, and the complete Design Engineer workflow.",
+        "EVERYTHING INCLUDED: All Design + Engineering tracks across all platforms, PLUS exclusive advanced content on motion, prototyping, accessibility, and workflow.",
       icon: Zap,
       color: "bg-neutral-500",
       stats: {
-        lessons: course.tracks.convergence.totalLessons,
+        lessons: course.totalLessons,
         freeLessons: 0,
-        duration: getEstimatedDuration(course.tracks.convergence.totalLessons),
-        level: "Advanced",
+        duration: getEstimatedDuration(course.totalLessons),
+        level: "Complete Course",
       },
     },
   ];
@@ -280,11 +280,17 @@ export default async function CoursePage() {
                 Start Free
               </div>
               <h2 className="mb-4 text-2xl font-bold">Try Before You Buy</h2>
-              <p className="mb-8 text-neutral-600 dark:text-neutral-400">
+              <p className="mb-4 text-neutral-600 dark:text-neutral-400">
                 {introCompleted
                   ? "The first module of each track is completely free. Start learning—no credit card required."
                   : "The Introduction and first module of each track are completely free. Understand what Design Engineering is and start learning—no credit card required."}
               </p>
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-700 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-400">
+                🎓 Students get 30% off -{" "}
+                <Link href="/course/pricing" className="font-medium underline hover:no-underline">
+                  learn more
+                </Link>
+              </div>
               <div className="flex flex-wrap justify-center gap-4">
                 {!introCompleted && (
                   <Link

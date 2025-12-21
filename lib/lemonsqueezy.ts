@@ -1,5 +1,6 @@
 import "server-only";
 import crypto from "crypto";
+import { nanoid } from "nanoid";
 import type { ProductKey, ProductWithPrice } from "./types";
 
 const LEMONSQUEEZY_API_KEY = process.env.LEMONSQUEEZY_API_KEY;
@@ -90,18 +91,18 @@ export const PRODUCT_CONFIG = {
     ],
   },
   full: {
-    name: "Full Course Access",
+    name: "Convergence: All-Access Pass",
     variantId: process.env.LEMON_PRODUCT_FULL,
-    description: "Everything you need to become a Design Engineer",
+    description: "Complete access to everything - all tracks, all platforms, all content",
     features: [
-      "All 156 lessons across all tracks",
-      "Web, iOS, and Android platforms",
-      "Design + Engineering + Convergence",
-      "Motion & animation deep-dives",
-      "Accessibility & performance",
-      "All interactive exercises",
-      "Future updates included",
-      "Lifetime access",
+      "✨ ALL 156 LESSONS - EVERYTHING INCLUDED",
+      "All Design Track lessons (Web, iOS, Android)",
+      "All Engineering Track lessons (Web, iOS, Android)",
+      "Exclusive Convergence Track (motion, prototyping, workflow)",
+      "All 3 platforms: Web, iOS & Android",
+      "All interactive exercises & assessments",
+      "Future course updates included forever",
+      "Lifetime access - learn at your own pace",
       "Priority support",
     ],
     popular: true,
@@ -307,4 +308,58 @@ export async function getProductWithPrice(productKey: ProductKey): Promise<Produ
     formattedPrice: priceData?.formattedPrice ?? "N/A",
     popular: "popular" in config ? config.popular : false,
   };
+}
+
+interface CreateDiscountResponse {
+  data: {
+    id: string;
+    type: string;
+    attributes: {
+      code: string;
+      amount: number;
+      amount_type: string;
+    };
+  };
+}
+
+export async function createStudentDiscount(studentEmail: string): Promise<string | null> {
+  if (!LEMONSQUEEZY_API_KEY || !LEMONSQUEEZY_STORE_ID) {
+    console.error("Missing LemonSqueezy credentials");
+    return null;
+  }
+
+  try {
+    const uniqueCode = `STUDENT-${nanoid(10).toUpperCase()}`;
+    
+    const response = await lemonFetch<CreateDiscountResponse>("/discounts", {
+      method: "POST",
+      body: JSON.stringify({
+        data: {
+          type: "discounts",
+          attributes: {
+            name: `Student Discount - ${studentEmail}`,
+            code: uniqueCode,
+            amount: 30,
+            amount_type: "percent",
+            is_limited_redemptions: true,
+            max_redemptions: 1,
+            starts_at: new Date().toISOString(),
+          },
+          relationships: {
+            store: {
+              data: {
+                type: "stores",
+                id: LEMONSQUEEZY_STORE_ID,
+              },
+            },
+          },
+        },
+      }),
+    });
+
+    return response.data.attributes.code;
+  } catch (error) {
+    console.error("Error creating student discount:", error);
+    return null;
+  }
 }

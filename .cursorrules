@@ -1,0 +1,206 @@
+# Design Engineer Course - Cursor Rules
+
+## British English for All Prose
+
+**IMPORTANT: All user-facing copy, marketing materials, and course content MUST use British English spelling and grammar.**
+
+### When to Use British English
+- ✅ All user-facing text, headings, and descriptions
+- ✅ Marketing copy on landing pages
+- ✅ Course lesson content and explanations
+- ✅ Email templates and notifications
+- ✅ FAQ, help text, and documentation
+- ✅ Button labels and UI microcopy
+- ✅ Error messages and success messages
+- ✅ Blog posts and articles
+- ✅ README files and comments
+
+### When to Use American English
+- ✅ Code keywords and syntax (e.g., `color` in CSS, `center` in HTML/CSS)
+- ✅ Programming language conventions
+- ✅ Framework and library names
+- ✅ File paths and technical identifiers
+- ✅ Code comments explaining technical implementation
+- ✅ Variable names and function names
+
+### Common British English Spellings
+
+**General:**
+- customise (not customize)
+- organisation (not organization)
+- realise (not realize)
+- recognise (not recognize)
+- analyse (not analyze)
+- optimise (not optimize)
+- specialise (not specialize)
+- categorise (not categorize)
+
+**-our endings:**
+- colour (not color) - EXCEPT in CSS properties
+- behaviour (not behavior)
+- favour (not favor)
+- favourite (not favorite)
+- honour (not honor)
+- neighbour (not neighbor)
+
+**-re endings:**
+- centre (not center) - EXCEPT in CSS properties
+- theatre (not theater)
+- metre (not meter)
+- litre (not liter)
+
+**-ce vs -se:**
+- defence (not defense)
+- offence (not offense)
+- licence (noun, not license)
+- practise (verb, not practice)
+
+**Other:**
+- programme (not program) - for events/courses, BUT "computer program" is acceptable
+- grey (not gray)
+- aeroplane (not airplane)
+- travelled (not traveled)
+- modelling (not modeling)
+- cancelled (not canceled)
+- focussed (not focused) - though both accepted
+- whilst (not while) - though both accepted
+
+### Examples
+
+#### Good (British English)
+```tsx
+<h1>Customise Your Learning Experience</h1>
+<p>Whilst learning to code, you'll realise that design and engineering are deeply connected.</p>
+<Button>Optimise Your Workflow</Button>
+```
+
+#### Bad (Mixed)
+```tsx
+<h1>Customize Your Learning Experience</h1>
+<p>While learning to code, you'll realize that design and engineering are deeply connected.</p>
+<Button>Optimize Your Workflow</Button>
+```
+
+#### Code is Still American
+```css
+/* Correct - CSS uses American English */
+.button {
+  color: red;
+  text-align: center;
+  background-color: gray;
+}
+```
+
+```tsx
+// Correct - Code uses American English
+const backgroundColor = "gray";
+function centerElement() {
+  // British English in comments explaining to users
+  // This function centres the element on the page
+  element.style.textAlign = "center"; // American in code
+}
+```
+
+### Grammar Differences
+
+**Collective nouns:**
+- British: "The team are working" (plural)
+- American: "The team is working" (singular)
+- **Use British style**
+
+**Quotation marks:**
+- British: Single quotes for speech, punctuation outside: 'Hello', he said.
+- American: Double quotes, punctuation inside: "Hello," he said.
+- **Use British style for prose**
+
+**Date format:**
+- British: 21 December 2025
+- American: December 21, 2025
+- **Use British style**
+
+**Prepositions:**
+- British: "at the weekend"
+- American: "on the weekend"
+- **Use British style**
+
+### Currency
+- Use £ (GBP) as primary currency
+- Format: £199 (no space)
+- Spelled out: 199 pounds
+
+### Exceptions
+
+Some Americanisms are acceptable when they're industry standard:
+- "Sign up" / "Sign in" (not "Register" / "Log in") - widely understood
+- "Email" (not "e-mail") - standard modern usage
+- "Website" (not "web site") - standard modern usage
+- Technical jargon that's standardised with American spelling
+
+### Automated Checking
+
+When in doubt, prefer British spelling. Consider these resources:
+- Oxford English Dictionary for British spellings
+- Collins Dictionary
+- Cambridge Dictionary
+
+### AI Instructions
+
+When generating or editing content:
+1. Always default to British English for user-facing text
+2. Keep code-related technical terms in American English
+3. Double-check common American/British spelling differences
+4. Maintain consistency across the entire codebase
+5. When converting existing content, search for common American spellings systematically
+
+---
+
+## Code Style Preferences
+
+Follow the existing code style preferences from the user's rules, with emphasis on:
+
+### Type Safety First
+- Prioritize type safety in all generated code
+- For TypeScript projects, strictly enforce strong typing
+
+### Concise and Readable Code
+- Produce clean, well-formatted code
+- Minimize unnecessary verbosity
+- Aim for self-documenting code
+
+### Context-Awareness
+- Analyze existing project structure
+- Ensure consistency with existing patterns
+- Adhere to best practices
+
+### Avoid Unnecessary Comments
+- Do not include comments unless essential for explaining complex logic
+- Explain reasoning and design choices in the response text, not as comments within generated code
+
+---
+
+## Design Engineer Course Specific Rules
+
+### Content Structure
+- Course lessons should be clear, practical, and actionable
+- Use British English for all explanations
+- Code examples use American English (CSS properties, HTML attributes, etc.)
+- Interactive exercises should have clear British English instructions
+
+### Tone
+- Professional but approachable
+- Encouraging and supportive
+- Precise and technical when needed
+- British English throughout
+
+### Terminology
+- "Design Engineer" (capitalised when referring to the role/course)
+- "d×e" for brand shorthand
+- "Convergence" for the all-access course
+- Platform names: Web, iOS, Android (capitalised)
+- Track names: Design Track, Engineering Track, Convergence Track
+
+### Consistency
+- Always use British English spellings in user-facing content
+- Maintain consistent terminology across all pages
+- Keep code examples separate from prose
+- Use clear visual separation between British prose and American code

@@ -66,7 +66,7 @@ export default function PrivacyPage() {
               <li>Track your course progress and save your notes</li>
               <li>Send you updates, newsletters, and promotional materials (with your consent)</li>
               <li>Respond to your comments, questions, and support requests</li>
-              <li>Monitor and analyze usage patterns to improve the Service</li>
+              <li>Monitor and analyse usage patterns to improve the Service</li>
               <li>Detect, prevent, and address technical issues or fraud</li>
             </ul>
 
@@ -97,7 +97,7 @@ export default function PrivacyPage() {
 
             <h2>5. Data Security</h2>
             <p>
-              We implement appropriate technical and organizational measures to protect 
+              We implement appropriate technical and organisational measures to protect 
               your personal information, including:
             </p>
             <ul>

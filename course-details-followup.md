@@ -8,7 +8,7 @@ Hi again,
 
 Last week we showed you the new d×e platform. Today, let's talk about what you'll actually learn.
 
-The Design Engineer Course isn't a collection of tutorials. It's a complete curriculum—structured like a university program, but built for practitioners who need to ship.
+The Design Engineer Course isn't a collection of tutorials. It's a complete curriculum—structured like a university programme, but built for practitioners who need to ship.
 
 ## How It's Structured
 
@@ -16,17 +16,17 @@ The course has three tracks that build on each other:
 
 ### Track 1: Design
 
-This isn't "10 Figma Tips" or "Color Theory Basics." It's a complete foundation in visual design thinking.
+This isn't "10 Figma Tips" or "Colour Theory Basics." It's a complete foundation in visual design thinking.
 
 **What you'll learn:**
-- Visual design fundamentals—hierarchy, spacing, typography, color systems
+- Visual design fundamentals—hierarchy, spacing, typography, colour systems
 - Platform-specific design patterns (iOS HIG, Material Design, web conventions)
 - Design systems—from design tokens to component documentation
 - How to think in systems, not just screens
 - How to communicate design decisions to engineers
 
 **Who it's for:**
-- Engineers who want to stop guessing at spacing and color
+- Engineers who want to stop guessing at spacing and colour
 - Designers who want to understand the principles behind their intuition
 - Anyone building products who needs to make confident design decisions
 
@@ -57,11 +57,19 @@ Learn to build for Web, iOS, or Android. Pick one platform or learn all three—
 **What ties them together:**
 Understanding how design decisions translate to code. How to evaluate technical feasibility. How to make implementation choices that serve the design.
 
-### Track 3: Convergence
+### Convergence: All-Access Pass
 
+**Here's the key:** Convergence isn't just Track 3—it's the *complete course*. When you purchase Convergence, you get:
+
+✅ **All Design Track content** (Web, iOS, Android)  
+✅ **All Engineering Track content** (Web, iOS, Android)  
+✅ **All Convergence advanced modules** (motion, prototyping, accessibility, workflow)  
+✅ **156 total lessons** across everything  
+✅ **Best value** — save significantly vs. buying tracks individually
+
+**The Advanced Convergence Modules:**
 This is where design engineers separate from designers who can code or engineers who dabble in design.
 
-**What you'll master:**
 - Motion design—principles, timing, micro-interactions
 - Prototyping—from concept to interactive prototype to production
 - Accessibility—building inclusive experiences that work for everyone
@@ -69,7 +77,7 @@ This is where design engineers separate from designers who can code or engineers
 - The complete DE workflow—bridging design and engineering in practice
 - Portfolio building—showcasing your hybrid skillset
 
-Convergence teaches you to work at the intersection. Not translating between disciplines, but thinking fluidly across both.
+Convergence teaches you to work at the intersection. Not translating between disciplines, but thinking fluidly across both. And you get access to everything.
 
 ## How You'll Learn
 
@@ -91,6 +99,16 @@ By the end of the course, you'll have:
 
 These aren't throwaway exercises. They're portfolio pieces.
 
+## Pricing That Makes Sense
+
+You can purchase individual tracks (Design Web, Engineering iOS, etc.) or get everything with Convergence All-Access.
+
+**Most students choose Convergence** because:
+- You save significantly versus buying tracks separately
+- You get the complete learning path (foundation → advanced)
+- You can explore all platforms (Web, iOS, Android) without limits
+- You get exclusive advanced content only available in Convergence
+
 ## Start Free
 
 You don't need to take our word for it. The entire Introduction module and the first section of each track are completely free.
@@ -107,7 +125,7 @@ This course welcomes two types of people:
 
 **Designers learning to build** — You have the eye but rely on engineers to implement your ideas. You want to prototype in code, understand technical constraints, and ship side projects independently.
 
-**Engineers developing design taste** — You can build anything but it looks... functional. You want to develop visual judgment, understand design principles, and create polished work without designer oversight.
+**Engineers developing design taste** — You can build anything but it looks... functional. You want to develop visual judgement, understand design principles, and create polished work without designer oversight.
 
 If you're somewhere in between, even better.
 

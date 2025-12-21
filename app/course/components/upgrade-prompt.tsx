@@ -176,9 +176,9 @@ export function UpgradePrompt({
               </span>
             </div>
             <div>
-              <div className="font-semibold">Full Course Access</div>
+              <div className="font-semibold">Convergence: All-Access Pass</div>
               <div className="text-sm text-neutral-500">
-                All tracks, all platforms, convergence included
+                EVERYTHING - All Design + Engineering + Convergence tracks, all platforms
               </div>
             </div>
             <div className="text-right">

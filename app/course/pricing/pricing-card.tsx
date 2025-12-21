@@ -57,7 +57,7 @@ export function PricingCard({ product, currentAccess, userId }: PricingCardProps
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <span className="inline-flex items-center gap-1 bg-swiss-red px-3 py-1 text-xs font-medium text-white">
             <Star className="h-3 w-3 fill-current" />
-            Most Popular
+            Best Value - Save Big!
           </span>
         </div>
       )}
@@ -67,6 +67,11 @@ export function PricingCard({ product, currentAccess, userId }: PricingCardProps
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {product.description}
         </p>
+        {product.key === "full" && (
+          <div className="mt-3 rounded-none border border-green-600 bg-green-50 px-3 py-2 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
+            🎉 Complete course access - Design + Engineering + Convergence across all platforms!
+          </div>
+        )}
       </div>
 
       <div className="mb-6">
