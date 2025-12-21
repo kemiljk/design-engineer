@@ -76,10 +76,12 @@ Before choosing a path, honestly assess your current skills. Rate each skill fro
 Your **engineering score is higher** than your design score, or:
 
 - You can build things but they don't look great
-- You've never formally learned design principles
+- You've tried Vibe Coding (prompting AI) but the results feel hollow
+- You want real skills—not just generated outputs
 - You struggle to make aesthetic decisions confidently
-- You want to work more independently without waiting for designers
 - You want to understand *why* designers make certain requests
+
+**Go beyond Vibe Coding.** AI can generate designs, but it can't teach you taste. This track gives you fundamentals that compound—skills that make you better, not just faster.
 
 The Design Track covers:
 - Visual design fundamentals
@@ -97,6 +99,8 @@ Your **design score is higher** than your engineering score, or:
 - You want to ship side projects yourself
 - You're tired of designs getting "lost in translation"
 - You want to understand implementation constraints
+
+**Ship beautiful, thoroughly considered UIs.** Not just functional code—polished interfaces that users love. Learn to implement with the same care you design with.
 
 The Engineering Track covers:
 - HTML, CSS, and JavaScript fundamentals (for Web)
@@ -185,15 +189,15 @@ You don't have to complete both tracks before starting Convergence—but you sho
 
 Based on common scenarios:
 
-### "I'm a designer who wants to code"
+### "I'm a designer who wants to go beyond Vibe Coding"
 
-1. Start with **Engineering Track (Web)**
+1. Start with **Engineering Track (Web)**—learn to build properly, not just prompt
 2. Move to **Convergence** when comfortable
 3. Optional: Add iOS or Android later
 
-### "I'm an engineer who wants better design skills"
+### "I'm an engineer who wants to ship beautiful UIs"
 
-1. Start with **Design Track (Web)**
+1. Start with **Design Track (Web)**—develop real design taste
 2. Move to **Convergence** when comfortable
 3. Apply learnings to your existing platform expertise
 
@@ -247,7 +251,7 @@ Your choices aren't permanent. You can switch tracks or platforms if you realize
       "id": "b",
       "text": "Design Track to develop their visual design skills",
       "isCorrect": true,
-      "explanation": "Correct! The Design Track helps engineers develop taste, understand design principles, and create polished work without needing a designer's review."
+      "explanation": "Correct! The Design Track helps engineers go beyond functional code to ship beautiful, thoroughly considered UIs. You'll develop real taste and create polished work without needing a designer's review."
     },
     {
       "id": "c",
@@ -268,7 +272,8 @@ Your choices aren't permanent. You can switch tracks or platforms if you realize
 ## Key Takeaways
 
 - Assess your skills honestly before choosing a path
-- Choose the track that strengthens your weaker area
+- Designers: go beyond Vibe Coding—develop skills AI can't replicate
+- Engineers: ship beautiful, thoroughly considered UIs—not just functional code
 - Start with one platform and master it before adding others
 - The Convergence track ties everything together
 - Your path isn't permanent—you can adjust as you learn

@@ -14,9 +14,9 @@ The Design Engineer Course isn't a collection of tutorials. It's a complete curr
 
 The course has three tracks that build on each other:
 
-### Track 1: Design
+### Track 1: Design — Go Beyond Vibe Coding
 
-This isn't "10 Figma Tips" or "Colour Theory Basics." It's a complete foundation in visual design thinking.
+This isn't "10 Figma Tips" or "Colour Theory Basics." It's a complete foundation in visual design thinking—the fundamentals that AI can't teach you.
 
 **What you'll learn:**
 - Visual design fundamentals—hierarchy, spacing, typography, colour systems
@@ -27,14 +27,14 @@ This isn't "10 Figma Tips" or "Colour Theory Basics." It's a complete foundation
 
 **Who it's for:**
 - Engineers who want to stop guessing at spacing and colour
-- Designers who want to understand the principles behind their intuition
-- Anyone building products who needs to make confident design decisions
+- Designers tired of Vibe Coding—prompting AI and hoping for the best
+- Anyone who wants real skills, not just generated outputs
 
-The Design Track teaches you to see like a designer—to understand *why* something works, not just that it does.
+The Design Track teaches you to see like a designer—to understand *why* something works, not just that it does. In the age of AI-generated everything, these fundamentals are what separate professionals from prompt-and-pray practitioners.
 
-### Track 2: Engineering
+### Track 2: Engineering — Ship Beautiful, Considered UIs
 
-Learn to build for Web, iOS, or Android. Pick one platform or learn all three—the principles translate.
+Learn to build for Web, iOS, or Android. But more than that—learn to build *beautifully*. Pick one platform or learn all three—the principles translate.
 
 **Web Track:**
 - HTML fundamentals and semantic structure
@@ -55,7 +55,7 @@ Learn to build for Web, iOS, or Android. Pick one platform or learn all three—
 - Building production Android apps
 
 **What ties them together:**
-Understanding how design decisions translate to code. How to evaluate technical feasibility. How to make implementation choices that serve the design.
+Shipping UIs that are beautiful and thoroughly considered—not just functional. Understanding how design decisions translate to code. Making implementation choices that honour the design. Building interfaces users actually love using.
 
 ### Convergence: All-Access Pass
 
@@ -123,9 +123,9 @@ No credit card. No trial period that converts to paid. Just free.
 
 This course welcomes two types of people:
 
-**Designers learning to build** — You have the eye but rely on engineers to implement your ideas. You want to prototype in code, understand technical constraints, and ship side projects independently.
+**Designers going beyond Vibe Coding** — You're tired of prompting AI and hoping it generates something usable. You want real skills—the ability to understand implementation, prototype in code, and ship work that stands up to professional scrutiny. Vibe Coding might get you started, but it won't get you hired or respected.
 
-**Engineers developing design taste** — You can build anything but it looks... functional. You want to develop visual judgement, understand design principles, and create polished work without designer oversight.
+**Engineers shipping beautiful, considered UIs** — You can build anything but it looks... functional. You want to develop visual judgement, understand design principles, and create polished interfaces that users genuinely love—not just code that works.
 
 If you're somewhere in between, even better.
 

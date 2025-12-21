@@ -13,13 +13,13 @@ description: Complete course access - all Design, Engineering, and Convergence c
 - ✅ **156 total lessons** across all tracks and platforms
 - ✅ **Lifetime access** with all future updates
 
-This is where it all comes together. Convergence includes the advanced topics that bring design and engineering together, plus complete access to the foundational tracks.
+This is where it all comes together. For designers ready to go beyond Vibe Coding and engineers ready to ship beautiful, thoroughly considered UIs—Convergence gives you everything you need.
 
 ## What's Included in Convergence
 
 ### Complete Foundation Access
-- **All Design Track Content** — Visual design, typography, color, layout, design systems
-- **All Engineering Track Content** — HTML, CSS, JavaScript, Swift, Kotlin, component architecture
+- **All Design Track Content** — Go beyond Vibe Coding with visual design fundamentals, typography, color, layout, and design systems. Develop taste that AI can't replicate.
+- **All Engineering Track Content** — Ship polished interfaces with HTML, CSS, JavaScript, Swift, Kotlin, and component architecture. Build UIs users actually love.
 
 ### Advanced Convergence Topics
 - **Motion Design** — Animation principles, micro-interactions, and page transitions

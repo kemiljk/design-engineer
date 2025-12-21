@@ -161,14 +161,14 @@ async function CourseSection() {
       icon: Layout,
       title: "Design Track",
       description:
-        "Master visual design, typography, color theory, and design systems",
+        "Go beyond Vibe Coding—develop real design taste that AI can't replicate",
       color: "bg-swiss-red",
     },
     {
       icon: Code2,
       title: "Engineering Track",
       description:
-        "Learn HTML, CSS, JavaScript, and modern component architecture",
+        "Ship beautiful, thoroughly considered UIs that users love",
       color: "bg-neutral-900 dark:bg-neutral-100",
       iconColor: "text-white dark:text-neutral-900",
     },
@@ -194,8 +194,8 @@ async function CourseSection() {
             </h2>
           </div>
           <p className="max-w-md text-neutral-600 dark:text-neutral-400">
-            A comprehensive curriculum for designers learning to code and
-            engineers developing design skills.
+            For designers going beyond Vibe Coding, and engineers shipping
+            beautiful, thoroughly considered interfaces.
           </p>
         </div>
 
