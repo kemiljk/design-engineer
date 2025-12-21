@@ -8,7 +8,7 @@ import SectionTitle from "./components/section-title";
 import { StyledButton } from "../app/components/styled-button";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
-import { ArrowRight, BookOpen, Code2, Layout, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Code2, Layout, Sparkles, Activity, Spline, Type as TypeIcon, Wrench } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
@@ -197,6 +197,74 @@ function FAQSection() {
   );
 }
 
+const featuredTools = [
+  {
+    icon: Activity,
+    title: "Spring Physics",
+    description: "Visualise spring animations",
+    href: "/tools/spring-physics",
+  },
+  {
+    icon: Spline,
+    title: "Easing Generator",
+    description: "Custom cubic-bezier curves",
+    href: "/tools/easing-generator",
+  },
+  {
+    icon: TypeIcon,
+    title: "Token Calculator",
+    description: "Typography & spacing scales",
+    href: "/tools/token-calculator",
+  },
+];
+
+function ToolsSection() {
+  return (
+    <div className="w-full border-b border-neutral-200 py-12 dark:border-neutral-800 md:py-16">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
+              <Wrench className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold">Free Tools</h2>
+              <p className="text-sm text-neutral-500">
+                Utilities to streamline your workflow
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
+            {featuredTools.map((tool) => (
+              <NextLink
+                key={tool.title}
+                href={tool.href}
+                className="group flex items-center gap-3 border border-neutral-200 bg-white px-4 py-3 transition-all hover:border-neutral-300 hover:shadow-sm dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
+              >
+                <tool.icon className="h-4 w-4 text-neutral-400 transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300" />
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium">{tool.title}</span>
+                  <span className="hidden text-xs text-neutral-500 sm:block">
+                    {tool.description}
+                  </span>
+                </div>
+              </NextLink>
+            ))}
+            <NextLink
+              href="/tools"
+              className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-900 dark:hover:text-white"
+            >
+              View all
+              <ArrowRight className="h-3 w-3" />
+            </NextLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 async function CourseSection() {
   const { is_available: isCourseAvailable } = await getCourseAvailability();
   
@@ -325,6 +393,8 @@ export default function Home() {
       <Suspense fallback={<CourseSectionSkeleton />}>
         <CourseSection />
       </Suspense>
+
+      <ToolsSection />
 
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
         <div className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 dark:border-neutral-800 md:flex-row md:items-end">
