@@ -58,6 +58,10 @@ const faqs = [
         a: "Absolutely! If you purchase a single track and later want to upgrade to Convergence All-Access (complete course access), you can upgrade and only pay the difference. Contact us at hello@designengineer.xyz and we'll provide an upgrade link. We highly recommend starting with Convergence All-Access as it provides the best value and complete learning experience.",
       },
       {
+        q: "Do you offer student discounts?",
+        a: "Yes! Students currently enrolled in university or college receive 30% off any course purchase. To get your student discount code, email us at hello@designengineer.xyz from your student email address (.edu or .ac.uk) with the subject 'Student Discount Request'. We'll verify your student status and send you a discount code within 24 hours. This makes the complete Convergence All-Access course significantly more affordable for students.",
+      },
+      {
         q: "Do you offer team or enterprise pricing?",
         a: "Yes, we offer discounted rates for teams of 5 or more. Contact us at hello@designengineer.xyz for team pricing and to discuss your organization's needs.",
       },
