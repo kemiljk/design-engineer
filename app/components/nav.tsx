@@ -48,7 +48,7 @@ export default function Nav({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { isBannerVisible } = useBanner();
+  const { isBannerVisible, bannerHeight } = useBanner();
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -60,10 +60,12 @@ export default function Nav({
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
+      style={{
+        top: isBannerVisible ? `${bannerHeight}px` : 0,
+      }}
       classNames={{
         base: cn(
-          "border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200",
-          isBannerVisible ? "top-[52px]" : "top-0"
+          "border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200"
         ),
         wrapper: "px-4 md:px-8",
         item: "data-[active=true]:text-swiss-red",
