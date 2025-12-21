@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import PageTitle from "./components/page-title";
-import { getHome, getSponsors, getPosts } from "@/lib/cosmic";
+import { getHome, getSponsors, getPosts, getCourseAvailability } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ContentCard } from "@/app/components/content-card";
 import cn from "classnames";
@@ -153,7 +153,9 @@ function SponsorsSkeleton() {
   );
 }
 
-function CourseSection() {
+async function CourseSection() {
+  const { is_available: isCourseAvailable } = await getCourseAvailability();
+  
   const tracks = [
     {
       icon: Layout,
@@ -238,10 +240,31 @@ function CourseSection() {
               href="/course"
               className="bg-swiss-red flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
             >
-              Start Learning
+              {isCourseAvailable ? "Start Learning" : "Learn More"}
               <ArrowRight className="h-4 w-4" />
             </NextLink>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CourseSectionSkeleton() {
+  return (
+    <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="h-24 w-64 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
+          <div className="h-16 w-96 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
+        </div>
+        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="h-48 w-full animate-pulse bg-neutral-100 dark:bg-neutral-800"
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -255,7 +278,9 @@ export default function Home() {
         <HeroSection />
       </Suspense>
 
-      <CourseSection />
+      <Suspense fallback={<CourseSectionSkeleton />}>
+        <CourseSection />
+      </Suspense>
 
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
         <div className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 dark:border-neutral-800 md:flex-row md:items-end">
