@@ -44,6 +44,7 @@ const Tools = async () => {
     "Build your portfolio with guided projects",
     "Train your team with custom challenges",
     "Explore new frameworks and techniques",
+    "Hiring managers creating bespoke job posts",
   ];
 
   return (
