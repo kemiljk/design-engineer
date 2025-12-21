@@ -79,10 +79,6 @@ export default function Nav({
             <Logo className="size-8 text-foreground" />
           </NextLink>
         </NavbarBrand>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
       </NavbarContent>
 
       <NavbarContent className="hidden gap-8 sm:flex" justify="center">
@@ -145,10 +141,14 @@ export default function Nav({
             afterSignOutUrl="/"
           />
         </SignedIn>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
       </NavbarContent>
 
       <NavbarMenu
-        className="pt-8"
+        className="gap-6 px-6 pt-8"
         style={isBannerVisible ? {
           top: `calc(var(--navbar-height) + ${bannerHeight}px)`,
           maxHeight: `calc(100dvh - var(--navbar-height) - ${bannerHeight}px)`,
