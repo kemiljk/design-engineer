@@ -40,6 +40,14 @@ import { EventBubbling } from "./concepts/event-bubbling";
 import { FormValidationStates } from "./concepts/form-validation-states";
 import { NavigationPatterns } from "./concepts/navigation-patterns";
 import { DarkModeMapping } from "./concepts/dark-mode-mapping";
+import { IosAccessibilityFocus } from "./concepts/ios-accessibility-focus";
+import { AndroidAccessibilityFocus } from "./concepts/android-accessibility-focus";
+import { IosSpringAnimation } from "./concepts/ios-spring-animation";
+import { MaterialMotionSystem } from "./concepts/material-motion-system";
+import { AppleDeviceFamily } from "./concepts/apple-device-family";
+import { AndroidDeviceFamily } from "./concepts/android-device-family";
+import { MaterialDynamicColor } from "./concepts/material-dynamic-color";
+import { DesignHandoffFlow } from "./concepts/design-handoff-flow";
 import { DesignTrackHero } from "./heroes/design-track-hero";
 import { EngineeringTrackHero } from "./heroes/engineering-track-hero";
 import { ConvergenceTrackHero } from "./heroes/convergence-track-hero";
@@ -87,6 +95,14 @@ export const ILLUSTRATION_MAP: Record<string, React.ComponentType> = {
   "form-validation-states": FormValidationStates,
   "navigation-patterns": NavigationPatterns,
   "dark-mode-mapping": DarkModeMapping,
+  "ios-accessibility-focus": IosAccessibilityFocus,
+  "android-accessibility-focus": AndroidAccessibilityFocus,
+  "ios-spring-animation": IosSpringAnimation,
+  "material-motion-system": MaterialMotionSystem,
+  "apple-device-family": AppleDeviceFamily,
+  "android-device-family": AndroidDeviceFamily,
+  "material-dynamic-color": MaterialDynamicColor,
+  "design-handoff-flow": DesignHandoffFlow,
   "design-track-hero": DesignTrackHero,
   "engineering-track-hero": EngineeringTrackHero,
   "convergence-track-hero": ConvergenceTrackHero,

@@ -49,12 +49,18 @@ export const getSponsors = unstable_cache(
 
 export const getBanner = unstable_cache(
   async () => {
-    const banner = await cosmic.objects
-      .findOne({ type: "banner", slug: "stories-announcement" })
-      .props("slug,title,metadata,modified_at")
-      .depth(1);
+    try {
+      const { objects } = await cosmic.objects
+        .find({ type: "banner" })
+        .props("slug,title,metadata,modified_at")
+        .depth(1)
+        .limit(1);
 
-    return banner.object;
+      return objects?.[0] ?? null;
+    } catch (error) {
+      console.error("Error fetching banner:", error);
+      return null;
+    }
   },
   ["banner"],
   { revalidate: 300, tags: ["banner"] }

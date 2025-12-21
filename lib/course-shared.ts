@@ -22,22 +22,24 @@ export const COURSE_STRUCTURE = {
     },
     ios: {
       title: "Design (iOS)",
-      lessons: 12,
+      lessons: 17,
       freeLessons: 1,
       modules: [
         { id: "01-hig-fundamentals", title: "HIG Fundamentals", lessons: 4 },
         { id: "02-ios-design-patterns", title: "iOS Design Patterns", lessons: 4 },
         { id: "03-designing-for-ios", title: "Designing for iOS", lessons: 4 },
+        { id: "04-advanced-design", title: "Advanced Design", lessons: 5 },
       ],
     },
     android: {
       title: "Design (Android)",
-      lessons: 12,
+      lessons: 17,
       freeLessons: 1,
       modules: [
         { id: "01-material-design", title: "Material Design", lessons: 4 },
         { id: "02-android-design-patterns", title: "Android Design Patterns", lessons: 4 },
         { id: "03-designing-for-android", title: "Designing for Android", lessons: 4 },
+        { id: "04-advanced-design", title: "Advanced Design", lessons: 5 },
       ],
     },
   },

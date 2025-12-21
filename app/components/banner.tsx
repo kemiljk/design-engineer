@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
-import { ArrowRightIcon, XIcon } from "lucide-react";
+import NextLink from "next/link";
+import { ArrowRight, X } from "lucide-react";
 import Markdown from "react-markdown";
 
 export default function Banner({
@@ -37,43 +36,29 @@ export default function Banner({
   if (!mounted || bannerHidden) return null;
 
   return (
-    <div className="sticky z-[999999] flex w-full items-center gap-x-3 border-b-1 border-divider bg-gradient-to-r from-default-100 via-primary-100 to-success-100 px-6 py-2 sm:px-3.5 sm:before:flex-1">
-      <Link className="text-small text-primary-800" href={link}>
-        <Markdown>{message}</Markdown>
-      </Link>
-      <Button
-        as={Link}
-        className="group relative h-9 overflow-hidden bg-transparent text-small font-normal text-primary-800"
-        color="default"
-        endContent={
-          <ArrowRightIcon
-            className="flex-none outline-none transition-transform group-data-[hover=true]:translate-x-0.5 [&>path]:stroke-[2]"
-            width={16}
-          />
-        }
-        href={link}
-        style={{
-          border: "solid 2px transparent",
-          backgroundImage: `linear-gradient(hsl(var(--heroui-primary-50)), hsl(var(--heroui-success-50))), linear-gradient(to right, #A3E635, #22D3EE)`,
-          backgroundOrigin: "border-box",
-          backgroundClip: "padding-box, border-box",
-        }}
-        variant="bordered"
-      >
-        {button_label}
-      </Button>
-      <div className="flex flex-1 justify-end">
-        <Button
-          isIconOnly
-          aria-label="Close Banner"
-          className="-m-1 text-primary-800"
-          size="sm"
-          variant="light"
-          onPress={handleDismiss}
+    <div className="sticky top-0 z-[999999] flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 dark:border-neutral-200 dark:bg-white md:px-8">
+      <div className="flex flex-1 items-center justify-center gap-4">
+        <NextLink
+          href={link}
+          className="text-sm text-neutral-400 transition-colors hover:text-white dark:text-neutral-600 dark:hover:text-black [&_strong]:font-bold [&_strong]:text-white dark:[&_strong]:text-black"
         >
-          <XIcon aria-hidden="true" className="text-default-500" width={20} />
-        </Button>
+          <Markdown>{message}</Markdown>
+        </NextLink>
+        <NextLink
+          href={link}
+          className="group flex items-center gap-2 bg-swiss-red px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white"
+        >
+          {button_label}
+          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+        </NextLink>
       </div>
+      <button
+        onClick={handleDismiss}
+        aria-label="Close Banner"
+        className="flex h-8 w-8 items-center justify-center text-neutral-500 transition-colors hover:text-white dark:hover:text-black"
+      >
+        <X className="h-4 w-4" />
+      </button>
     </div>
   );
 }

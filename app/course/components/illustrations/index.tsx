@@ -40,6 +40,14 @@ export { EventBubbling } from "./concepts/event-bubbling";
 export { FormValidationStates } from "./concepts/form-validation-states";
 export { NavigationPatterns } from "./concepts/navigation-patterns";
 export { DarkModeMapping } from "./concepts/dark-mode-mapping";
+export { IosAccessibilityFocus } from "./concepts/ios-accessibility-focus";
+export { AndroidAccessibilityFocus } from "./concepts/android-accessibility-focus";
+export { IosSpringAnimation } from "./concepts/ios-spring-animation";
+export { MaterialMotionSystem } from "./concepts/material-motion-system";
+export { AppleDeviceFamily } from "./concepts/apple-device-family";
+export { AndroidDeviceFamily } from "./concepts/android-device-family";
+export { MaterialDynamicColor } from "./concepts/material-dynamic-color";
+export { DesignHandoffFlow } from "./concepts/design-handoff-flow";
 
 export { DesignTrackHero } from "./heroes/design-track-hero";
 export { EngineeringTrackHero } from "./heroes/engineering-track-hero";
