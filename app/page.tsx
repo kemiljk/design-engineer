@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import PageTitle from "./components/page-title";
 import { getHome, getSponsors, getPosts, getCourseAvailability } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
-import { ContentCard } from "@/app/components/content-card";
+import { RandomisedPosts } from "@/app/components/randomised-posts";
 import cn from "classnames";
 import SectionTitle from "./components/section-title";
 import { StyledButton } from "../app/components/styled-button";
@@ -83,21 +83,8 @@ function HeroSkeleton() {
 
 async function PostsSection() {
   const posts = await getPosts();
-  const selectedPosts = posts.slice(0, 3);
 
-  return (
-    <div className="mx-auto grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {selectedPosts.map((post: Type.Post) => (
-        <ContentCard
-          key={post.id}
-          post={post}
-          className={cn(
-            "transition-all duration-500 ease-in-out hover:rotate-0 hover:cursor-pointer",
-          )}
-        />
-      ))}
-    </div>
-  );
+  return <RandomisedPosts posts={posts} count={3} />;
 }
 
 function PostsSkeleton() {
