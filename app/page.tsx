@@ -13,6 +13,7 @@ import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import { HeroIllustration } from "./components/hero-illustration";
+import { FAQAccordion } from "./course/faq/faq-accordion";
 
 async function HeroSection() {
   const home = await getHome();
@@ -148,6 +149,62 @@ function SponsorsSkeleton() {
       <div className="flex flex-col items-center justify-center gap-8">
         <div className="h-4 w-32 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
         <div className="h-10 w-64 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
+      </div>
+    </div>
+  );
+}
+
+const homepageFaqs = [
+  {
+    q: "What is Design Engineering?",
+    a: "Design Engineering sits at the intersection of design and front-end development. Design Engineers can take a concept from idea to shipped product—they understand visual design principles, can prototype interactions, and write production-ready code. This course teaches you both disciplines so you can bridge the gap between design and engineering teams.",
+  },
+  {
+    q: "Who is this course for?",
+    a: "This course is designed for two types of learners: (1) Designers who want to go beyond Vibe Coding—instead of prompting AI and hoping for the best, you'll develop real skills to understand implementation, own the build process, and create work that stands up to scrutiny. (2) Engineers who want to ship beautiful, thoroughly considered UIs—not just functional code, but polished interfaces that users love, with the design taste to make confident visual decisions.",
+  },
+  {
+    q: "Do I need any prior experience?",
+    a: "No prior experience is required for the beginner tracks. The Design Track assumes no coding knowledge, and the Engineering Track starts from the fundamentals. However, you should be comfortable using a computer and have a genuine interest in building digital products.",
+  },
+  {
+    q: "What platforms does the course cover?",
+    a: "The course covers three platforms: Web (HTML, CSS, JavaScript), iOS (Swift, SwiftUI), and Android (Kotlin, Jetpack Compose). Each platform has its own Design Track, Engineering Track, and Convergence modules so you can specialise in your preferred platform.",
+  },
+  {
+    q: "Is there a free trial?",
+    a: "Yes! The introduction module and the first lesson of each track are completely free—no credit card required. This lets you experience the course quality and teaching style before purchasing.",
+  },
+  {
+    q: "Do you offer refunds?",
+    a: "Yes, we offer a 14-day money-back guarantee. If you're not satisfied with the course for any reason, contact us within 14 days of purchase for a full refund—no questions asked.",
+  },
+];
+
+function FAQSection() {
+  return (
+    <div className="w-full border-t border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-24">
+      <div className="mx-auto max-w-3xl px-4 md:px-8">
+        <div className="mb-8 text-center">
+          <p className="text-swiss-red mb-2 font-mono text-xs uppercase tracking-widest">
+            Questions?
+          </p>
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <FAQAccordion questions={homepageFaqs} />
+        <div className="mt-8 text-center">
+          <p className="text-sm text-neutral-500">
+            Have more questions?{" "}
+            <a
+              href="mailto:hello@designengineer.xyz"
+              className="text-swiss-red hover:underline"
+            >
+              Get in touch
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -311,6 +368,8 @@ export default function Home() {
           <SponsorsSection />
         </Suspense>
       </div>
+
+      <FAQSection />
     </main>
   );
 }
