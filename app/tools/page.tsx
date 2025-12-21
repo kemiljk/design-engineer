@@ -1,210 +1,115 @@
 import React from "react";
-import { StyledButton as Button } from "@/app/components/styled-button";
+import { PageHeader } from "@/app/components/page-header";
 import { Link } from "@heroui/link";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
-import TaskBuilder from "./task-builder";
-import { getTaskBuilderSuggestions } from "@/lib/cosmic";
-import { PageHeader } from "../components/page-header";
-import {
-  Sparkles,
-  Target,
-  Layers,
-  Zap,
+import { 
+  Sparkles, 
+  Activity, 
+  Eye, 
+  Type, 
   ArrowRight,
-  CheckCircle2,
+  Lock,
+  Spline,
+  Ratio
 } from "lucide-react";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
-const Tools = async () => {
-  const suggestions = await getTaskBuilderSuggestions();
+export const metadata = {
+  title: "Tools | Design Engineer",
+  description: "A collection of tools to help you design and build better products.",
+};
 
-  const features = [
-    {
-      icon: Target,
-      title: "Tailored Challenges",
-      description:
-        "Tasks generated based on your specific requirements, skill level, and areas of focus.",
-    },
-    {
-      icon: Layers,
-      title: "Real-World Scenarios",
-      description:
-        "Practice with tasks that mirror actual design engineering challenges at top companies.",
-    },
-    {
-      icon: Zap,
-      title: "Instant Generation",
-      description:
-        "Get detailed task briefs in seconds, complete with requirements and evaluation criteria.",
-    },
-  ];
+const TOOLS = [
+  {
+    title: "Task Builder",
+    description: "Generate customised design engineering tasks and practice scenarios with AI.",
+    href: "/tools/task-builder",
+    icon: Sparkles,
+    isGated: true,
+  },
+  {
+    title: "Spring Physics",
+    description: "Visualise and generate spring animations for Framer Motion, CSS, and SwiftUI.",
+    href: "/tools/spring-physics",
+    icon: Activity,
+    isGated: false,
+  },
+  {
+    title: "Accessibility Auditor",
+    description: "AI-powered analysis of your components for accessibility and contrast issues.",
+    href: "/tools/accessibility-auditor",
+    icon: Eye,
+    isGated: true,
+  },
+  {
+    title: "Token Calculator",
+    description: "Generate harmonious typography and spacing scales for your design system.",
+    href: "/tools/token-calculator",
+    icon: Type,
+    isGated: false,
+  },
+  {
+    title: "Easing Generator",
+    description: "Create custom cubic-bezier curves for smooth CSS and Framer Motion transitions.",
+    href: "/tools/easing-generator",
+    icon: Spline,
+    isGated: false,
+  },
+  {
+    title: "Aspect Ratio",
+    description: "Calculate dimensions and generate aspect-ratio CSS for responsive media.",
+    href: "/tools/aspect-ratio",
+    icon: Ratio,
+    isGated: false,
+  }
+];
 
-  const useCases = [
-    "Prepare for design engineering interviews",
-    "Practice implementing complex UI patterns",
-    "Build your portfolio with guided projects",
-    "Train your team with custom challenges",
-    "Explore new frameworks and techniques",
-    "Hiring managers creating bespoke job posts",
-  ];
-
+export default function ToolsPage() {
   return (
     <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Tools"
-        description="AI-powered tools to help you practice and improve your design engineering skills."
+        description="Utilities and generators to supercharge your design engineering workflow."
       />
 
       <div className="container mx-auto px-4 py-12">
-        <SignedIn>
-          <div className="mx-auto max-w-3xl">
-            <TaskBuilder suggestions={suggestions} />
-          </div>
-        </SignedIn>
-
-        <SignedOut>
-          {/* Hero Tool Card */}
-          <div className="mx-auto max-w-4xl">
-            <div className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-              {/* Tool Header */}
-              <div className="border-b border-neutral-200 p-8 dark:border-neutral-800">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-gradient-to-br from-swiss-red to-red-600">
-                    <Sparkles className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold">Task Builder</h2>
-                    <p className="mt-1 text-neutral-600 dark:text-neutral-400">
-                      Generate customised design engineering tasks on demand
-                    </p>
-                  </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {TOOLS.map((tool) => (
+            <Link
+              key={tool.title}
+              href={tool.href}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
+            >
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm">
+                  <tool.icon className="h-6 w-6" />
                 </div>
+                
+                <h3 className="mb-2 text-xl font-bold text-neutral-900 dark:text-white">
+                  {tool.title}
+                </h3>
+                
+                <p className="mb-6 text-sm text-neutral-600 dark:text-neutral-400">
+                  {tool.description}
+                </p>
               </div>
 
-              {/* Features Grid */}
-              <div className="grid gap-px bg-neutral-200 dark:bg-neutral-800 md:grid-cols-3">
-                {features.map((feature) => (
-                  <div
-                    key={feature.title}
-                    className="bg-white p-6 dark:bg-neutral-900"
-                  >
-                    <feature.icon className="mb-3 h-5 w-5 text-swiss-red" />
-                    <h3 className="mb-1 font-bold">{feature.title}</h3>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Use Cases */}
-              <div className="border-t border-neutral-200 p-8 dark:border-neutral-800">
-                <h3 className="mb-4 font-bold">Perfect for:</h3>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {useCases.map((useCase) => (
-                    <div key={useCase} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-swiss-red" />
-                      <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                        {useCase}
-                      </span>
-                    </div>
-                  ))}
+              <div className="flex items-center justify-between border-t border-neutral-100 pt-4 dark:border-neutral-800">
+                <span className="text-sm font-medium text-neutral-900 group-hover:underline dark:text-white">
+                  Open Tool
+                </span>
+                <div className="flex items-center gap-3">
+                  {tool.isGated && (
+                    <SignedOut>
+                      <Lock className="h-4 w-4 text-neutral-400" />
+                    </SignedOut>
+                  )}
+                  <ArrowRight className="h-4 w-4 text-neutral-400 transition-transform group-hover:translate-x-1 dark:text-neutral-500" />
                 </div>
               </div>
-
-              {/* CTA */}
-              <div className="border-t border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-950">
-                <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-                  <div>
-                    <p className="font-bold">Ready to start practicing?</p>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                      Create a free account to access the Task Builder.
-                    </p>
-                  </div>
-                  <Button
-                    as={Link}
-                    href="/sign-up"
-                    variant="stylised"
-                    className="shrink-0 gap-2"
-                  >
-                    Get Started Free
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Example Output Preview */}
-            <div className="mt-8">
-              <p className="mb-4 text-center text-sm text-neutral-500">
-                Example generated task
-              </p>
-              <div className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-                <div className="flex items-center gap-2 border-b border-neutral-200 px-6 py-3 dark:border-neutral-800">
-                  <div className="h-2 w-2 rounded-full bg-swiss-red" />
-                  <span className="text-xs font-medium uppercase tracking-wider text-neutral-500">
-                    Generated Task
-                  </span>
-                </div>
-                <div className="p-6">
-                  <p className="mb-4 text-neutral-600 dark:text-neutral-400">
-                    Here is a take-home task for a Design Engineer with
-                    experience in healthtech startups:
-                  </p>
-                  <h4 className="mb-4 text-2xl font-bold">
-                    Design and Prototype a Patient Onboarding Experience
-                  </h4>
-                  <p className="mb-6 text-neutral-600 dark:text-neutral-400">
-                    As a Design Engineer at our healthtech startup, we&apos;d
-                    like you to design and prototype an onboarding experience
-                    for new patients. The goal is to create a seamless and
-                    intuitive flow that helps patients get set up with our
-                    platform and start using our services.
-                  </p>
-                  <h5 className="mb-3 font-bold">Requirements:</h5>
-                  <ol className="mb-6 list-inside list-decimal space-y-3 text-neutral-600 dark:text-neutral-400">
-                    <li>
-                      Research and understand the key pain points and needs of
-                      patients during the onboarding process. Conduct user
-                      interviews, analyze existing onboarding flows, and
-                      identify opportunities for improvement.
-                    </li>
-                    <li>
-                      Design the end-to-end onboarding experience, including
-                      screens for account creation, profile setup, connecting
-                      health data sources, and completing initial assessments.
-                      Focus on creating a delightful and efficient user
-                      experience.
-                    </li>
-                    <li>
-                      Prototype the onboarding flow using Figma or a similar
-                      design tool. Ensure the prototype is interactive and
-                      demonstrates the key user interactions.
-                    </li>
-                    <li>
-                      Implement a functional prototype of the onboarding flow
-                      using React and React Native. The prototype should be
-                      deployable and showcase the core user interactions.
-                    </li>
-                    <li>
-                      Document your design process, key decisions, and the
-                      rationale behind your design choices. Explain how the
-                      prototype addresses the identified user needs and pain
-                      points.
-                    </li>
-                  </ol>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Please submit your work within the next 7 days. We look
-                    forward to seeing your creativity and problem-solving skills
-                    in action!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SignedOut>
+            </Link>
+          ))}
+        </div>
       </div>
     </main>
   );
-};
-
-export default Tools;
+}

@@ -3,7 +3,7 @@
 This document tracks proposed tool ideas for the Design Engineer course platform.
 
 ## 1. Spring Physics Playground
-**Status:** Proposed
+**Status:** Implemented
 **Goal:** Help design engineers bridge the gap between "feel" and "code" for animations.
 
 ### Description
@@ -27,7 +27,7 @@ Directly supports lessons on:
 ---
 
 ## 2. Accessibility & Contrast Auditor (AI-Powered)
-**Status:** Proposed
+**Status:** Implemented
 **Goal:** Provide instant feedback on component accessibility and semantic structure.
 
 ### Description
@@ -51,7 +51,7 @@ Supports lessons on:
 ---
 
 ## 3. Design Token Calculator
-**Status:** Proposed
+**Status:** Implemented
 **Goal:** Streamline the creation of consistent, scalable design systems.
 
 ### Description
@@ -72,3 +72,32 @@ Supports lessons on:
 - `spacing-scale`
 - `type-scale`
 - `token-hierarchy`
+
+---
+
+## 4. Easing Curve Generator
+**Status:** Implemented
+**Goal:** Visualize and create custom cubic-bezier curves.
+
+### Description
+A tool to manipulate control points for cubic-bezier functions and visualize the resulting animation curve.
+
+### Key Features
+- **Visual Graph:** Drag handles to adjust the curve.
+- **Presets:** Common easings like ease-in, ease-out, etc.
+- **Preview:** Moving ball to demonstrate the timing function.
+- **Export:** Copy `cubic-bezier(...)` CSS/Framer string.
+
+---
+
+## 5. Aspect Ratio Calculator
+**Status:** Implemented
+**Goal:** Simplify calculations for responsive media containers.
+
+### Description
+A calculator to find missing dimensions or generate aspect-ratio CSS.
+
+### Key Features
+- **Dimension Calc:** Input width/height to get ratio, or width+ratio to get height.
+- **Visualizer:** A box that resizes to show the aspect ratio.
+- **Presets:** 16:9, 4:3, 1:1, etc.

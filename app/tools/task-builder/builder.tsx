@@ -11,7 +11,7 @@ import {
   MessageSquare,
   ArrowUp,
 } from "lucide-react";
-import { Message, continueConversation } from "./actions";
+import { Message, continueConversation } from "../actions";
 import { readStreamableValue } from "ai/rsc";
 import { TaskBuilderSuggestion } from "@/lib/types";
 
