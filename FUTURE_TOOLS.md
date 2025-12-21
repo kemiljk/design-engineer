@@ -3,7 +3,7 @@
 This document tracks proposed tool ideas for the Design Engineer course platform.
 
 ## 1. Spring Physics Playground
-**Status:** Proposed
+**Status:** Implemented
 **Goal:** Help design engineers bridge the gap between "feel" and "code" for animations.
 
 ### Description
@@ -27,7 +27,7 @@ Directly supports lessons on:
 ---
 
 ## 2. Accessibility & Contrast Auditor (AI-Powered)
-**Status:** Proposed
+**Status:** Implemented
 **Goal:** Provide instant feedback on component accessibility and semantic structure.
 
 ### Description
@@ -51,7 +51,7 @@ Supports lessons on:
 ---
 
 ## 3. Design Token Calculator
-**Status:** Proposed
+**Status:** Implemented
 **Goal:** Streamline the creation of consistent, scalable design systems.
 
 ### Description
