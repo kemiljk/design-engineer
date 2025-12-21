@@ -70,15 +70,13 @@ function slugFromOriginalName(originalName: string): string {
 
 async function updatePostWithImage(
   postId: string,
-  mediaId: string,
   mediaName: string
 ): Promise<void> {
-  // thumbnail expects the 'name' field of media, not the URL
-  // metadata.image expects the media ID
+  // Both thumbnail and metadata.image expect the 'name' field of media
   await cosmic.objects.updateOne(postId, {
     thumbnail: mediaName,
     metadata: {
-      image: mediaId,
+      image: mediaName,
     },
   });
 }
@@ -127,9 +125,8 @@ async function main() {
 
     try {
       console.log(`🔗 Assigning image to "${post.title}"...`);
-      await updatePostWithImage(post.id, media.id, media.name);
-      console.log(`   ✅ thumbnail: ${media.name}`);
-      console.log(`   ✅ image: ${media.id}`);
+      await updatePostWithImage(post.id, media.name);
+      console.log(`   ✅ thumbnail & image: ${media.name}`);
       updated++;
     } catch (error) {
       console.error(`❌ Error updating "${post.title}":`, error);
