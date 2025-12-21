@@ -95,16 +95,16 @@ export default async function CoursePage() {
     },
     {
       id: "convergence",
-      title: "Convergence",
+      title: "Convergence: All-Access",
       description:
-        "Where design meets code. Motion, prototyping, accessibility, and the complete Design Engineer workflow.",
+        "EVERYTHING INCLUDED: All Design + Engineering tracks across all platforms, PLUS exclusive advanced content on motion, prototyping, accessibility, and workflow.",
       icon: Zap,
       color: "bg-neutral-500",
       stats: {
-        lessons: course.tracks.convergence.totalLessons,
+        lessons: course.totalLessons,
         freeLessons: 0,
-        duration: getEstimatedDuration(course.tracks.convergence.totalLessons),
-        level: "Advanced",
+        duration: getEstimatedDuration(course.totalLessons),
+        level: "Complete Course",
       },
     },
   ];

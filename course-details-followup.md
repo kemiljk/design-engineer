@@ -57,11 +57,19 @@ Learn to build for Web, iOS, or Android. Pick one platform or learn all three—
 **What ties them together:**
 Understanding how design decisions translate to code. How to evaluate technical feasibility. How to make implementation choices that serve the design.
 
-### Track 3: Convergence
+### Convergence: All-Access Pass
 
+**Here's the key:** Convergence isn't just Track 3—it's the *complete course*. When you purchase Convergence, you get:
+
+✅ **All Design Track content** (Web, iOS, Android)  
+✅ **All Engineering Track content** (Web, iOS, Android)  
+✅ **All Convergence advanced modules** (motion, prototyping, accessibility, workflow)  
+✅ **156 total lessons** across everything  
+✅ **Best value** — save significantly vs. buying tracks individually
+
+**The Advanced Convergence Modules:**
 This is where design engineers separate from designers who can code or engineers who dabble in design.
 
-**What you'll master:**
 - Motion design—principles, timing, micro-interactions
 - Prototyping—from concept to interactive prototype to production
 - Accessibility—building inclusive experiences that work for everyone
@@ -69,7 +77,7 @@ This is where design engineers separate from designers who can code or engineers
 - The complete DE workflow—bridging design and engineering in practice
 - Portfolio building—showcasing your hybrid skillset
 
-Convergence teaches you to work at the intersection. Not translating between disciplines, but thinking fluidly across both.
+Convergence teaches you to work at the intersection. Not translating between disciplines, but thinking fluidly across both. And you get access to everything.
 
 ## How You'll Learn
 
@@ -90,6 +98,16 @@ By the end of the course, you'll have:
 - A portfolio that proves you can work across the entire product development lifecycle
 
 These aren't throwaway exercises. They're portfolio pieces.
+
+## Pricing That Makes Sense
+
+You can purchase individual tracks (Design Web, Engineering iOS, etc.) or get everything with Convergence All-Access.
+
+**Most students choose Convergence** because:
+- You save significantly vs. buying tracks separately
+- You get the complete learning path (foundation → advanced)
+- You can explore all platforms (Web, iOS, Android) without limits
+- You get exclusive advanced content only available in Convergence
 
 ## Start Free
 

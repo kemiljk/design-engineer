@@ -174,9 +174,9 @@ async function CourseSection() {
     },
     {
       icon: Sparkles,
-      title: "Convergence",
+      title: "Convergence: All-Access",
       description:
-        "Motion design, prototyping, accessibility, and portfolio building",
+        "Complete course access - all tracks, all platforms, plus advanced topics like motion, prototyping, and workflow",
       color: "bg-neutral-500",
     },
   ];

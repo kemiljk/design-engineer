@@ -30,7 +30,7 @@ const faqs = [
       },
       {
         q: "Do I need any prior experience?",
-        a: "No prior experience is required for the beginner tracks. The Design Track assumes no coding knowledge, and the Engineering Track starts from the fundamentals. However, you should be comfortable using a computer and have a genuine interest in building digital products. The Convergence track is more advanced and assumes completion of at least one Design and one Engineering track.",
+        a: "No prior experience is required for the beginner tracks. The Design Track assumes no coding knowledge, and the Engineering Track starts from the fundamentals. However, you should be comfortable using a computer and have a genuine interest in building digital products. Note: Convergence All-Access gives you the complete course including foundational and advanced content - you can progress through it at your own pace. The advanced Convergence modules work best after completing Design and Engineering fundamentals.",
       },
     ],
   },
@@ -39,7 +39,7 @@ const faqs = [
     questions: [
       {
         q: "How much does the course cost?",
-        a: "We offer flexible pricing: individual platform tracks (e.g., Design for Web, Engineering for iOS) are available separately, or you can get full access to all tracks and platforms at a discounted rate. Check our pricing page for current rates. All purchases include lifetime access.",
+        a: "We offer flexible pricing: individual platform tracks (e.g., Design for Web, Engineering for iOS) are available separately, or you can purchase Convergence All-Access for complete access to EVERYTHING at a significant discount. Convergence includes all 156 lessons across all Design tracks, Engineering tracks, and Convergence content for Web, iOS, and Android. Check our pricing page to see the savings. All purchases include lifetime access.",
       },
       {
         q: "Is there a free trial?",
@@ -55,7 +55,7 @@ const faqs = [
       },
       {
         q: "Can I upgrade my access later?",
-        a: "Absolutely! If you purchase a single track and later want full access, you can upgrade and only pay the difference. Contact us and we'll provide an upgrade link.",
+        a: "Absolutely! If you purchase a single track and later want to upgrade to Convergence All-Access (complete course access), you can upgrade and only pay the difference. Contact us at hello@designengineer.xyz and we'll provide an upgrade link. We highly recommend starting with Convergence All-Access as it provides the best value and complete learning experience.",
       },
       {
         q: "Do you offer team or enterprise pricing?",
@@ -84,7 +84,7 @@ const faqs = [
       },
       {
         q: "What's the difference between the tracks?",
-        a: "The Design Track teaches visual design principles, design tools, design systems, and UX fundamentals—no coding required. The Engineering Track teaches programming from scratch, focusing on building user interfaces. The Convergence Track (advanced) brings both together, covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow.",
+        a: "The Design Track teaches visual design principles, design tools, design systems, and UX fundamentals—no coding required. The Engineering Track teaches programming from scratch, focusing on building user interfaces. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
       },
     ],
   },
