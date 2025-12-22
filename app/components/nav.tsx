@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "./logo";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MoreHorizontal } from "lucide-react";
 
 const CommandPalette = dynamic(
   () => import("./command-palette").then((m) => m.CommandPalette),
@@ -38,6 +38,9 @@ export default function Nav({
   posts?: { title: string; slug: string }[];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOverflowOpen, setIsOverflowOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(links.length);
+  const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { isBannerVisible, bannerHeight } = useBanner();
 
@@ -45,6 +48,35 @@ export default function Nav({
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
+
+  useEffect(() => {
+    const calculateVisibleItems = () => {
+      if (!navRef.current) return;
+      
+      const navWidth = navRef.current.offsetWidth;
+      const itemWidth = 120; // Approximate width per nav item
+      const overflowButtonWidth = 60; // Width for ... button
+      const buffer = 100; // Extra buffer for safety
+      
+      const availableWidth = navWidth - buffer;
+      const maxItems = Math.floor((availableWidth - overflowButtonWidth) / itemWidth);
+      
+      // Always show at least 3 items, and if we can show all, don't add overflow
+      const itemsToShow = Math.max(3, Math.min(maxItems, links.length));
+      
+      // Only show overflow if we actually need to hide items
+      setVisibleCount(itemsToShow >= links.length ? links.length : itemsToShow);
+    };
+
+    calculateVisibleItems();
+    window.addEventListener('resize', calculateVisibleItems);
+    
+    return () => window.removeEventListener('resize', calculateVisibleItems);
+  }, [links.length]);
+
+  const visibleLinks = links.slice(0, visibleCount);
+  const overflowLinks = links.slice(visibleCount);
+  const hasOverflow = overflowLinks.length > 0;
 
   return (
     <header
@@ -64,8 +96,8 @@ export default function Nav({
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 sm:flex">
-          {links.map((item, index) =>
+        <div ref={navRef} className="hidden items-center gap-8 sm:flex">
+          {visibleLinks.map((item, index) =>
             isExternalLink(item.href) ? (
               <a
                 key={`${item.title}-${index}`}
@@ -91,6 +123,64 @@ export default function Nav({
                 {item.title}
               </NextLink>
             )
+          )}
+          
+          {/* Overflow Menu */}
+          {hasOverflow && (
+            <div className="relative">
+              <button
+                onClick={() => setIsOverflowOpen(!isOverflowOpen)}
+                className={cn(
+                  "flex items-center gap-1 text-sm font-medium uppercase tracking-widest transition-colors hover:text-black dark:hover:text-white",
+                  isOverflowOpen
+                    ? "text-swiss-red"
+                    : "text-neutral-500 dark:text-neutral-400"
+                )}
+                aria-label="More navigation items"
+              >
+                <MoreHorizontal className="h-4 w-4" />
+              </button>
+              
+              {isOverflowOpen && (
+                <>
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setIsOverflowOpen(false)}
+                  />
+                  <div className="absolute right-0 top-full z-50 mt-2 w-48 border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black">
+                    {overflowLinks.map((item, index) =>
+                      isExternalLink(item.href) ? (
+                        <a
+                          key={`overflow-${item.title}-${index}`}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsOverflowOpen(false)}
+                          className="block px-4 py-3 text-sm font-medium uppercase tracking-wide text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white"
+                        >
+                          {item.title}
+                        </a>
+                      ) : (
+                        <NextLink
+                          key={`overflow-${item.title}-${index}`}
+                          href={item.href}
+                          prefetch={true}
+                          onClick={() => setIsOverflowOpen(false)}
+                          className={cn(
+                            "block px-4 py-3 text-sm font-medium uppercase tracking-wide transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
+                            isActive(item.href)
+                              ? "text-swiss-red"
+                              : "text-neutral-700 dark:text-neutral-300"
+                          )}
+                        >
+                          {item.title}
+                        </NextLink>
+                      )
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
           )}
         </div>
 
