@@ -64,12 +64,20 @@ export default function RootLayout({
         <body
           className={`${serif.variable} ${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
+          <a
+            href="#content"
+            className="focus-ring sr-only fixed top-4 left-4 z-[100000] bg-background px-3 py-2 text-sm font-medium text-foreground focus:not-sr-only"
+          >
+            Skip to content
+          </a>
           <Providers>
             <Suspense fallback={null}>
               <BannerWrapper />
             </Suspense>
             <MainNav />
-            {children}
+            <div id="content" tabIndex={-1} className="outline-none">
+              {children}
+            </div>
           </Providers>
           <EmailSubscriber />
           <KeyboardHint />

@@ -125,13 +125,18 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 
     if (href) {
       const isExternal = href.startsWith("http");
+      const anchorProps = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
+      const safeRel =
+        anchorProps.rel ?? (anchorProps.target === "_blank" ? "noopener noreferrer" : undefined);
+
       if (isExternal) {
         return (
           <a
             ref={ref as React.Ref<HTMLAnchorElement>}
             href={href}
             className={cn(buttonVariants({ variant, size }), className)}
-            {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+            {...anchorProps}
+            rel={safeRel}
           >
             {content}
           </a>
@@ -142,7 +147,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
           ref={ref as React.Ref<HTMLAnchorElement>}
           href={href}
           className={cn(buttonVariants({ variant, size }), className)}
-          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          {...anchorProps}
+          rel={safeRel}
         >
           {content}
         </Link>
