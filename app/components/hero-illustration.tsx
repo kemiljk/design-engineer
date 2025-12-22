@@ -111,7 +111,6 @@ export function HeroIllustration() {
             y="180"
             width="80"
             height="24"
-            rx="4"
             fill={COLORS.primary}
           />
           <text
@@ -195,7 +194,6 @@ export function HeroIllustration() {
             y="92"
             width="48"
             height="6"
-            rx="1"
             fill={COLORS.primary}
             opacity="0.7"
           />
@@ -204,7 +202,6 @@ export function HeroIllustration() {
             y="106"
             width="72"
             height="6"
-            rx="1"
             fill="currentColor"
             opacity="0.4"
           />
@@ -213,7 +210,6 @@ export function HeroIllustration() {
             y="120"
             width="56"
             height="6"
-            rx="1"
             fill="currentColor"
             opacity="0.4"
           />
@@ -222,7 +218,6 @@ export function HeroIllustration() {
             y="134"
             width="64"
             height="6"
-            rx="1"
             fill={COLORS.muted}
             opacity="0.3"
           />
@@ -231,7 +226,6 @@ export function HeroIllustration() {
             y="148"
             width="40"
             height="6"
-            rx="1"
             fill={COLORS.primary}
             opacity="0.7"
           />
@@ -240,7 +234,6 @@ export function HeroIllustration() {
             y="162"
             width="80"
             height="6"
-            rx="1"
             fill="currentColor"
             opacity="0.4"
           />
@@ -249,7 +242,6 @@ export function HeroIllustration() {
             y="176"
             width="48"
             height="6"
-            rx="1"
             fill="currentColor"
             opacity="0.4"
           />
@@ -258,7 +250,6 @@ export function HeroIllustration() {
             y="190"
             width="32"
             height="6"
-            rx="1"
             fill={COLORS.primary}
             opacity="0.7"
           />

@@ -69,7 +69,7 @@ export default async function CoursePage() {
       id: "design-track",
       title: "Design Track",
       description:
-        "Master visual design, typography, layout, and platform-specific design patterns for Web, iOS, and Android.",
+        "Go beyond Vibe Coding. Learn the visual design fundamentals that AI can't teach—develop real taste, understand why designs work, and build skills that last.",
       icon: Layout,
       color: "bg-swiss-red",
       stats: {
@@ -83,7 +83,7 @@ export default async function CoursePage() {
       id: "engineering-track",
       title: "Engineering Track",
       description:
-        "Learn HTML, CSS, JavaScript for Web, Swift & SwiftUI for iOS, and Kotlin & Compose for Android.",
+        "Ship beautiful, thoroughly considered UIs. Learn to build interfaces that users love—not just functional code, but polished, professional experiences.",
       icon: Code2,
       color: "bg-neutral-900 dark:bg-neutral-100",
       stats: {

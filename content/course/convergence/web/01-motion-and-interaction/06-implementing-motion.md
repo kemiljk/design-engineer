@@ -94,7 +94,7 @@ animation.onfinish = () => {
 
 ## Animation Libraries
 
-### Motion (Framer Motion)
+### Motion
 
 ```tsx
 import { motion } from 'motion/react';
@@ -227,7 +227,7 @@ Build a grid of items that:
       "id": "b",
       "text": "CSS for simple state changes (hover, toggle); JS for complex sequences, physics, and gesture-driven animations",
       "isCorrect": true,
-      "explanation": "Correct! CSS handles simple transitions well. Libraries like Framer Motion excel at orchestration, spring physics, exit animations, and gesture-based interactions."
+      "explanation": "Correct! CSS handles simple transitions well. Libraries like Motion excel at orchestration, spring physics, exit animations, and gesture-based interactions."
     },
     {
       "id": "c",
@@ -251,7 +251,7 @@ Build a grid of items that:
 - Use keyframes for complex, self-contained animations
 - Use libraries for interactive, physics-based, or complex sequenced motion
 - Web Animations API bridges CSS and JavaScript
-- Motion (Framer Motion) is excellent for React projects
+- Motion is excellent for React projects
 
 ## Congratulations!
 

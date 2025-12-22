@@ -9,6 +9,34 @@ import {
 } from "lucide-react";
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
+import { FAQAccordion } from "../faq/faq-accordion";
+
+const faqs = [
+  {
+    q: "What is Design Engineering?",
+    a: "Design Engineering sits at the intersection of design and front-end development. Design Engineers can take a concept from idea to shipped product—they understand visual design principles, can prototype interactions, and write production-ready code. This course teaches you both disciplines so you can bridge the gap between design and engineering teams.",
+  },
+  {
+    q: "Who is this course for?",
+    a: "This course is designed for two types of learners: (1) Designers who want to go beyond Vibe Coding—instead of prompting AI and hoping for the best, you'll develop real skills to understand implementation, own the build process, and create work that stands up to scrutiny. (2) Engineers who want to ship beautiful, thoroughly considered UIs—not just functional code, but polished interfaces that users love, with the design taste to make confident visual decisions.",
+  },
+  {
+    q: "Do I need any prior experience?",
+    a: "No prior experience is required for the beginner tracks. The Design Track assumes no coding knowledge, and the Engineering Track starts from the fundamentals. However, you should be comfortable using a computer and have a genuine interest in building digital products.",
+  },
+  {
+    q: "What platforms does the course cover?",
+    a: "The course covers three platforms: Web (HTML, CSS, JavaScript), iOS (Swift, SwiftUI), and Android (Kotlin, Jetpack Compose). Each platform has its own Design Track, Engineering Track, and Convergence modules so you can specialise in your preferred platform.",
+  },
+  {
+    q: "Is there a free trial?",
+    a: "Yes! The introduction module and the first lesson of each track are completely free—no credit card required. This lets you experience the course quality and teaching style before purchasing.",
+  },
+  {
+    q: "Do you offer refunds?",
+    a: "Yes, we offer a 14-day money-back guarantee. If you're not satisfied with the course for any reason, contact us within 14 days of purchase for a full refund—no questions asked.",
+  },
+];
 
 export function ComingSoon() {
   const tracks = [
@@ -16,14 +44,14 @@ export function ComingSoon() {
       icon: Layout,
       title: "Design Track",
       description:
-        "Master visual design, typography, layout, and platform-specific design patterns.",
+        "Go beyond Vibe Coding—develop real design taste that AI can't replicate.",
       color: "bg-swiss-red",
     },
     {
       icon: Code2,
       title: "Engineering Track",
       description:
-        "Learn HTML, CSS, JavaScript, Swift, SwiftUI, Kotlin, and Compose.",
+        "Ship beautiful, thoroughly considered UIs that users love.",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
@@ -114,7 +142,7 @@ export function ComingSoon() {
           </div>
 
           {/* Newsletter Signup */}
-          <div className="border border-swiss-red bg-white p-8 dark:bg-neutral-900">
+          <div className="mb-16 border border-swiss-red bg-white p-8 dark:bg-neutral-900">
             <div className="flex flex-col items-center text-center">
               <div className="mb-4 flex h-12 w-12 items-center justify-center bg-swiss-red">
                 <Bell className="h-6 w-6 text-white" />
@@ -125,6 +153,23 @@ export function ComingSoon() {
                 get exclusive access and launch pricing.
               </p>
               <NewsletterSignup />
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
+            <h2 className="mb-6 text-xl font-bold">Frequently Asked Questions</h2>
+            <FAQAccordion questions={faqs} />
+            <div className="mt-6 text-center">
+              <p className="text-sm text-neutral-500">
+                Have more questions?{" "}
+                <a
+                  href="mailto:hello@designengineer.xyz"
+                  className="text-swiss-red hover:underline"
+                >
+                  Get in touch
+                </a>
+              </p>
             </div>
           </div>
         </div>

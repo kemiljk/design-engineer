@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import NextLink from "next/link";
 import { ArrowRight, X } from "lucide-react";
 import Markdown from "react-markdown";
+import { useBanner } from "./banner-context";
 
 export default function Banner({
   link,
@@ -18,6 +19,14 @@ export default function Banner({
 }) {
   const [mounted, setMounted] = useState(false);
   const [bannerHidden, setBannerHidden] = useState(true);
+  const { setBannerVisible, setBannerHeight } = useBanner();
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  const updateBannerHeight = useCallback(() => {
+    if (bannerRef.current) {
+      setBannerHeight(bannerRef.current.offsetHeight);
+    }
+  }, [setBannerHeight]);
 
   useEffect(() => {
     setMounted(true);
@@ -26,6 +35,31 @@ export default function Banner({
     const shouldHide = hiddenInStorage && modifiedAtInStorage === modified_at;
     setBannerHidden(shouldHide);
   }, [modified_at]);
+
+  useEffect(() => {
+    const isVisible = mounted && !bannerHidden;
+    setBannerVisible(isVisible);
+    return () => {
+      setBannerVisible(false);
+      setBannerHeight(0);
+    };
+  }, [mounted, bannerHidden, setBannerVisible, setBannerHeight]);
+
+  useEffect(() => {
+    if (!bannerRef.current || bannerHidden) return;
+
+    updateBannerHeight();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateBannerHeight();
+    });
+
+    resizeObserver.observe(bannerRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [bannerHidden, updateBannerHeight]);
 
   const handleDismiss = () => {
     setBannerHidden(true);
@@ -36,7 +70,10 @@ export default function Banner({
   if (!mounted || bannerHidden) return null;
 
   return (
-    <div className="sticky top-0 z-[999999] flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 dark:border-neutral-200 dark:bg-white md:px-8">
+    <div
+      ref={bannerRef}
+      className="sticky top-0 z-[999999] flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 dark:border-neutral-200 dark:bg-white md:px-8"
+    >
       <div className="flex flex-1 items-center justify-center gap-4">
         <NextLink
           href={link}

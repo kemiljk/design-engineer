@@ -18,7 +18,7 @@ const faqs = [
       },
       {
         q: "Who is this course for?",
-        a: "This course is designed for three types of learners: (1) Designers who want to learn to code and understand how their designs get built, (2) Developers who want to improve their design skills and build more polished interfaces, and (3) Anyone looking to become a full-stack product builder who can own the entire UI/UX process.",
+        a: "This course is designed for two types of learners: (1) Designers who want to go beyond Vibe Coding—instead of prompting AI and hoping for the best, you'll develop real skills to understand implementation, own the build process, and create work that stands up to scrutiny. (2) Engineers who want to ship beautiful, thoroughly considered UIs—not just functional code, but polished interfaces that users love, with the design taste to make confident visual decisions.",
       },
       {
         q: "What will I be able to do after completing the course?",
@@ -88,7 +88,7 @@ const faqs = [
       },
       {
         q: "What's the difference between the tracks?",
-        a: "The Design Track teaches visual design principles, design tools, design systems, and UX fundamentals—no coding required. The Engineering Track teaches programming from scratch, focusing on building user interfaces. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
+        a: "The Design Track helps you go beyond Vibe Coding—you'll learn visual design principles, design tools, design systems, and UX fundamentals that AI simply can't teach. Develop real taste and understand why designs work. The Engineering Track teaches you to ship beautiful, thoroughly considered UIs—programming from scratch with a focus on polish and craft, not just functionality. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
       },
     ],
   },

@@ -4,7 +4,6 @@ import * as Type from "@/lib/types";
 import { getReadingTime } from "@/lib/utils";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { useTheme } from "next-themes";
 
 export function ContentCard({
   post,
@@ -13,7 +12,6 @@ export function ContentCard({
   post: Type.Post;
   className?: string;
 }) {
-  const { resolvedTheme } = useTheme();
   const readingTime = getReadingTime(post.metadata.content || "");
 
   const href = post.metadata.is_external_link
@@ -22,7 +20,9 @@ export function ContentCard({
 
   const isExternal = post.metadata.is_external_link;
 
-  const ogImageUrl = `/api/og?title=${encodeURIComponent(post.title)}&type=article&theme=${resolvedTheme || "light"}`;
+  const imageUrl = post.metadata.image?.imgix_url
+    ? `${post.metadata.image.imgix_url}?w=800&h=450&fit=crop&auto=format`
+    : `/api/og?title=${encodeURIComponent(post.title)}&type=article`;
 
   return (
     <Link
@@ -38,7 +38,7 @@ export function ContentCard({
           <img
             alt={post.title}
             className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-            src={ogImageUrl}
+            src={imageUrl}
           />
         </div>
 

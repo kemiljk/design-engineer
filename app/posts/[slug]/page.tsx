@@ -30,6 +30,7 @@ export async function generateMetadata(props: {
   const metaTitle = `d×e | ${post.title}`;
   const metaDescription = post.metadata?.snippet || "";
   const metaUrl = `https://designengineer.xyz/posts/${post.slug}`;
+  const ogImage = post.metadata?.image?.imgix_url;
 
   return {
     metadataBase: new URL("https://designengineer.xyz"),
@@ -44,6 +45,16 @@ export async function generateMetadata(props: {
       url: metaUrl,
       type: "website",
       siteName: "d×e",
+      ...(ogImage && {
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 630,
+            alt: post.title,
+          },
+        ],
+      }),
     },
     twitter: {
       card: "summary_large_image",
@@ -52,6 +63,9 @@ export async function generateMetadata(props: {
       siteId: "1721269273446731776",
       creator: "@dxe_xyz",
       creatorId: "1721269273446731776",
+      ...(ogImage && {
+        images: [ogImage],
+      }),
     },
     robots: {
       index: true,

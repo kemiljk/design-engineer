@@ -18,6 +18,7 @@ import NextLink from "next/link";
 import { Link } from "@heroui/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useBanner } from "./banner-context";
 
 const CommandPalette = dynamic(
   () => import("./command-palette").then((m) => m.CommandPalette),
@@ -47,6 +48,7 @@ export default function Nav({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { isBannerVisible, bannerHeight } = useBanner();
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -58,8 +60,13 @@ export default function Nav({
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
+      style={{
+        top: isBannerVisible ? `${bannerHeight}px` : 0,
+      }}
       classNames={{
-        base: "border-b border-foreground/10 bg-background/80 backdrop-blur-md",
+        base: cn(
+          "border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200"
+        ),
         wrapper: "px-4 md:px-8",
         item: "data-[active=true]:text-swiss-red",
         menu: "bg-white dark:bg-black",
@@ -72,10 +79,6 @@ export default function Nav({
             <Logo className="size-8 text-foreground" />
           </NextLink>
         </NavbarBrand>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
       </NavbarContent>
 
       <NavbarContent className="hidden gap-8 sm:flex" justify="center">
@@ -138,9 +141,19 @@ export default function Nav({
             afterSignOutUrl="/"
           />
         </SignedIn>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
       </NavbarContent>
 
-      <NavbarMenu className="pt-8">
+      <NavbarMenu
+        className="gap-6 px-6 pt-8"
+        style={isBannerVisible ? {
+          top: `calc(var(--navbar-height) + ${bannerHeight}px)`,
+          maxHeight: `calc(100dvh - var(--navbar-height) - ${bannerHeight}px)`,
+        } : undefined}
+      >
         {links.map((item, index) =>
           isExternalLink(item.href) ? (
             <NavbarMenuItem key={`menu-${item.title}-${index}`}>
