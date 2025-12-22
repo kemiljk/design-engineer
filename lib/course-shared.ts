@@ -10,9 +10,10 @@ export const COURSE_STRUCTURE = {
   design: {
     web: {
       title: "Design (Web)",
-      lessons: 25,
+      lessons: 29, // 4 new + 25 existing
       freeLessons: 1, // Only first lesson free
       modules: [
+        { id: "00-environment-setup", title: "Environment Setup", lessons: 4 },
         { id: "01-foundations", title: "Foundations of Visual Design", lessons: 4 },
         { id: "02-visual-design", title: "Visual Design Deep Dive", lessons: 5 },
         { id: "03-design-tools", title: "Design Tools Mastery", lessons: 5 },
@@ -23,9 +24,10 @@ export const COURSE_STRUCTURE = {
     },
     ios: {
       title: "Design (iOS)",
-      lessons: 18,
+      lessons: 21, // 3 new + 18 existing
       freeLessons: 1,
       modules: [
+        { id: "00-environment-setup", title: "Environment Setup", lessons: 3 },
         { id: "01-hig-fundamentals", title: "HIG Fundamentals", lessons: 4 },
         { id: "02-ios-design-patterns", title: "iOS Design Patterns", lessons: 4 },
         { id: "03-designing-for-ios", title: "Designing for iOS", lessons: 4 },
@@ -35,9 +37,10 @@ export const COURSE_STRUCTURE = {
     },
     android: {
       title: "Design (Android)",
-      lessons: 18,
+      lessons: 21, // 3 new + 18 existing
       freeLessons: 1,
       modules: [
+        { id: "00-environment-setup", title: "Environment Setup", lessons: 3 },
         { id: "01-material-design", title: "Material Design", lessons: 4 },
         { id: "02-android-design-patterns", title: "Android Design Patterns", lessons: 4 },
         { id: "03-designing-for-android", title: "Designing for Android", lessons: 4 },
