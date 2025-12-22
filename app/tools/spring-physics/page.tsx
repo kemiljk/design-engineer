@@ -4,7 +4,7 @@ import SpringPhysicsPlayground from "./playground";
 
 export const metadata = {
   title: "Spring Physics Playground | Design Engineer",
-  description: "Visualize and generate spring physics for Framer Motion, CSS, and SwiftUI.",
+  description: "Visualize and generate spring physics for Motion, CSS, and SwiftUI.",
 };
 
 export default function SpringPhysicsPage() {

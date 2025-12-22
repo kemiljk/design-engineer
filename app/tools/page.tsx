@@ -46,14 +46,14 @@ const TOOL_SECTIONS: ToolSection[] = [
     tools: [
       {
         title: "Spring Physics",
-        description: "Visualise and generate spring animations for Framer Motion, CSS, SwiftUI, and Android.",
+        description: "Visualise and generate spring animations for Motion, CSS, SwiftUI, and Android.",
         href: "/tools/spring-physics",
         icon: Activity,
         isGated: false,
       },
       {
         title: "Easing Generator",
-        description: "Create custom cubic-bezier curves for smooth CSS and Framer Motion transitions.",
+        description: "Create custom cubic-bezier curves for smooth CSS and Motion transitions.",
         href: "/tools/easing-generator",
         icon: Spline,
         isGated: false,

@@ -201,7 +201,7 @@ const featuredTools = [
   {
     icon: Activity,
     title: "Spring Physics",
-    description: "Visualise and export spring animations for Framer Motion, CSS, SwiftUI & Android",
+    description: "Visualise and export spring animations for Motion, CSS, SwiftUI & Android",
     href: "/tools/spring-physics",
     category: "Animation",
   },
