@@ -154,9 +154,11 @@ export function HeroIllustration() {
 
         {/* Bridge/intersection - center */}
         <g>
+        {/* Bridge/intersection - center */}
+        <g>
           {/* Animated connection lines - draw on load and repeat */}
           <motion.path
-            d="M 160 140 C 200 140, 200 140, 240 100"
+            d="M 160 120 C 200 120, 200 120, 240 100"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
@@ -165,7 +167,7 @@ export function HeroIllustration() {
             transition={{ duration: 4, times: [0, 0.3, 0.9, 1], repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
           />
           <motion.path
-            d="M 160 160 C 200 160, 200 160, 240 160"
+            d="M 160 140 C 200 140, 200 140, 240 140"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -174,7 +176,7 @@ export function HeroIllustration() {
             transition={{ duration: 4, times: [0, 0.3, 0.9, 1], repeat: Infinity, ease: "easeInOut", repeatDelay: 1, delay: 0.2 }}
           />
           <motion.path
-            d="M 160 180 C 200 180, 200 180, 240 220"
+            d="M 160 160 C 200 160, 200 160, 240 180"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
@@ -183,10 +185,11 @@ export function HeroIllustration() {
             transition={{ duration: 4, times: [0, 0.3, 0.9, 1], repeat: Infinity, ease: "easeInOut", repeatDelay: 1, delay: 0.4 }}
           />
 
-          {/* Center intersection point */}
+
+          {/* Center intersection point - vertically centered at y=140 */}
           <circle
             cx="200"
-            cy="160"
+            cy="140"
             r="24"
             fill="none"
             stroke={COLORS.primary}
@@ -196,7 +199,7 @@ export function HeroIllustration() {
           {/* Center pulses - replacing rotating dots with ripples */}
           <motion.circle
             cx="200"
-            cy="160"
+            cy="140"
             r="24"
             fill="none"
             stroke={COLORS.primary}
@@ -207,7 +210,7 @@ export function HeroIllustration() {
           />
           <motion.circle
             cx="200"
-            cy="160"
+            cy="140"
             r="24"
             fill="none"
             stroke={COLORS.primary}
@@ -220,7 +223,7 @@ export function HeroIllustration() {
           {/* Center dot - strong pulse */}
           <motion.circle
             cx="200"
-            cy="160"
+            cy="140"
             r="8"
             fill={COLORS.primary}
             animate={prefersReducedMotion ? {} : { scale: [1, 1.2, 1] }}
