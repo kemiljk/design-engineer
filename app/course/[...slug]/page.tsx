@@ -14,6 +14,7 @@ import {
   isLessonCompleted,
   getEffectiveTestAccessLevel,
 } from "@/lib/course";
+import { hasPreviewAccess } from "@/lib/preview-access";
 import { formatTitle } from "@/lib/format";
 import { UpgradePrompt } from "../components/upgrade-prompt";
 import { FloatingNotesPanel } from "../components/floating-notes-panel";
@@ -123,10 +124,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const testMode = process.env.NEXT_PUBLIC_COURSE_TEST_MODE === "true";
   const testAccessLevel = testMode ? await getEffectiveTestAccessLevel() : null;
 
+  // Check for preview access (secret token for friends/reviewers)
+  const previewAccess = await hasPreviewAccess();
+
   let hasAccess = isFree;
   let enrollment = null;
 
-  if (testMode && testAccessLevel && testAccessLevel !== "free") {
+  if (previewAccess) {
+    // Preview token grants full access
+    hasAccess = true;
+  } else if (testMode && testAccessLevel && testAccessLevel !== "free") {
     // Test mode override - grant access based on test access level
     hasAccess = canAccessLesson(testAccessLevel as Parameters<typeof canAccessLesson>[0], lessonPath);
   } else if (userId) {

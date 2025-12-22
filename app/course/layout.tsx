@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TestModePanel } from "./components/test-mode-panel";
+import { PreviewModeBanner } from "./components/preview-mode-banner";
 import { getCourseAvailability } from "@/lib/cosmic";
 import { ComingSoon } from "./components/coming-soon";
 
@@ -26,6 +27,7 @@ export default async function CourseLayout({
     <>
       {children}
       {isTestMode && <TestModePanel />}
+      <PreviewModeBanner />
     </>
   );
 }
