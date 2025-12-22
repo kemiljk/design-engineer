@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect } from "react";
 
 const ConsoleFun = () => {
@@ -8,7 +9,7 @@ const ConsoleFun = () => {
       "font-size: 2rem; font-weight: bold; color: #3b82f6",
     );
     console.log(
-      "%cThought we’d find you here, you cheeky sod, you’ll just have to wait!",
+      "%cThought we'd find you here, you cheeky sod, you'll just have to wait!",
       "font-size: 1.5rem; font-weight: medium; color: #3b82f6",
     );
   }, []);
@@ -17,3 +18,4 @@ const ConsoleFun = () => {
 };
 
 export default ConsoleFun;
+

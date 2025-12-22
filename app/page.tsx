@@ -3,10 +3,9 @@ import PageTitle from "./components/page-title";
 import { getHome, getSponsors, getPosts, getCourseAvailability } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { RandomisedPosts } from "@/app/components/randomised-posts";
-import cn from "classnames";
+import { cn } from "@/lib/utils";
 import SectionTitle from "./components/section-title";
-import { StyledButton } from "../app/components/styled-button";
-import { Link } from "@heroui/link";
+import { Button } from "@/app/components/ui";
 import NextLink from "next/link";
 import { ArrowRight, BookOpen, Code2, Layout, Sparkles, Activity, Spline, Type as TypeIcon, Wrench, Blend, Layers, Palette, Pointer } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
@@ -37,25 +36,21 @@ async function HeroSection() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
               <SignedOut>
-                <StyledButton
-                  as={Link}
-                  color="primary"
-                  variant="stylised"
+                <Button
                   href="/sign-up"
                   className="h-12 px-8 text-base font-bold uppercase tracking-wider"
                 >
                   Sign up
-                </StyledButton>
+                </Button>
               </SignedOut>
-              <StyledButton
-                as={Link}
+              <Button
                 href="/course"
                 variant="outline"
                 endContent={<ArrowRight className="h-4 w-4" />}
                 className="h-12 px-8 text-base font-medium uppercase tracking-wider"
               >
                 Explore the course
-              </StyledButton>
+              </Button>
             </div>
           </div>
         </div>
@@ -477,15 +472,14 @@ export default function Home() {
           <SectionTitle>Latest Insights</SectionTitle>
 
           <div className="flex items-center gap-4">
-            <StyledButton
-              as={Link}
+            <Button
               href="/posts"
               endContent={<ArrowRight className="h-4 w-4" />}
-              variant="light"
+              variant="ghost"
               className="hover:text-swiss-red dark:hover:text-swiss-red px-0 text-sm font-bold uppercase tracking-wider text-neutral-600 hover:bg-transparent dark:text-neutral-400"
             >
               All articles
-            </StyledButton>
+            </Button>
           </div>
         </div>
 

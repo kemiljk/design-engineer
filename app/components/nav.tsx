@@ -2,23 +2,14 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarMenuToggle,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuItem,
-  NavbarMenu,
-} from "@heroui/navbar";
-import { Logo } from "./logo";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { StyledButton as Button } from "./styled-button";
 import NextLink from "next/link";
-import { Link } from "@heroui/link";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Button } from "@/app/components/ui";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
+import { Logo } from "./logo";
+import { Menu, X } from "lucide-react";
 
 const CommandPalette = dynamic(
   () => import("./command-palette").then((m) => m.CommandPalette),
@@ -27,7 +18,7 @@ const CommandPalette = dynamic(
     loading: () => (
       <div className="hidden h-9 w-28 animate-pulse items-center gap-2 bg-zinc-100 dark:bg-zinc-800 md:flex" />
     ),
-  },
+  }
 );
 
 function isExternalLink(href: string): boolean {
@@ -56,48 +47,38 @@ export default function Nav({
   };
 
   return (
-    <Navbar
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
-      maxWidth="full"
+    <header
+      className={cn(
+        "fixed inset-x-0 z-40 border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200"
+      )}
       style={{
         top: isBannerVisible ? `${bannerHeight}px` : 0,
       }}
-      classNames={{
-        base: cn(
-          "border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-[top] duration-200"
-        ),
-        wrapper: "px-4 md:px-8",
-        item: "data-[active=true]:text-swiss-red",
-        menu: "bg-white dark:bg-black",
-        menuItem: "data-[active=true]:text-swiss-red",
-      }}
     >
-      <NavbarContent>
-        <NavbarBrand>
+      <nav className="flex h-16 items-center justify-between px-4 md:px-8">
+        {/* Logo */}
+        <div className="flex items-center">
           <NextLink href="/" prefetch={true} className="text-foreground">
             <Logo className="size-8 text-foreground" />
           </NextLink>
-        </NavbarBrand>
-      </NavbarContent>
+        </div>
 
-      <NavbarContent className="hidden gap-8 sm:flex" justify="center">
-        {links.map((item, index) =>
-          isExternalLink(item.href) ? (
-            <NavbarItem key={`${item.title}-${index}`}>
-              <Link
-                as="a"
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 sm:flex">
+          {links.map((item, index) =>
+            isExternalLink(item.href) ? (
+              <a
+                key={`${item.title}-${index}`}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium uppercase tracking-widest text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
               >
                 {item.title}
-              </Link>
-            </NavbarItem>
-          ) : (
-            <NavbarItem key={`${item.title}-${index}`} isActive={isActive(item.href)}>
+              </a>
+            ) : (
               <NextLink
+                key={`${item.title}-${index}`}
                 href={item.href}
                 prefetch={true}
                 className={cn(
@@ -109,56 +90,67 @@ export default function Nav({
               >
                 {item.title}
               </NextLink>
-            </NavbarItem>
-          ),
-        )}
-      </NavbarContent>
+            )
+          )}
+        </div>
 
-      <NavbarContent justify="end" className="gap-4">
-        <CommandPalette posts={posts} />
+        {/* Right Side */}
+        <div className="flex items-center gap-4">
+          <CommandPalette posts={posts} />
 
-        <SignedOut>
-          <Button
-            as={Link}
-            color="primary"
-            variant="stylised"
-            href="/sign-in"
-            className="h-9 px-4 text-xs font-medium uppercase tracking-wide"
+          <SignedOut>
+            <Button
+              href="/sign-in"
+              className="h-9 px-4 text-xs font-medium uppercase tracking-wide"
+            >
+              Sign in
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox:
+                    "hover:cursor-default hover:opacity-80 rounded-none",
+                  userButtonPopoverActionButton:
+                    "hover:cursor-default hover:opacity-80",
+                },
+              }}
+              afterSignOutUrl="/"
+            />
+          </SignedIn>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="p-2 sm:hidden"
           >
-            Sign in
-          </Button>
-        </SignedOut>
-        <SignedIn>
-          <UserButton
-            appearance={{
-              elements: {
-                userButtonAvatarBox:
-                  "hover:cursor-default hover:opacity-80 rounded-none",
-                userButtonPopoverActionButton:
-                  "hover:cursor-default hover:opacity-80",
-              },
-            }}
-            afterSignOutUrl="/"
-          />
-        </SignedIn>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-      </NavbarContent>
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+      </nav>
 
-      <NavbarMenu
-        className="gap-6 px-6 pt-8"
-        style={isBannerVisible ? {
-          top: `calc(var(--navbar-height) + ${bannerHeight}px)`,
-          maxHeight: `calc(100dvh - var(--navbar-height) - ${bannerHeight}px)`,
-        } : undefined}
-      >
-        {links.map((item, index) =>
-          isExternalLink(item.href) ? (
-            <NavbarMenuItem key={`menu-${item.title}-${index}`}>
-              <Link
-                as="a"
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div
+          className="flex flex-col gap-6 bg-white px-6 pb-8 pt-4 dark:bg-black sm:hidden"
+          style={
+            isBannerVisible
+              ? {
+                  maxHeight: `calc(100dvh - 64px - ${bannerHeight}px)`,
+                }
+              : { maxHeight: "calc(100dvh - 64px)" }
+          }
+        >
+          {links.map((item, index) =>
+            isExternalLink(item.href) ? (
+              <a
+                key={`menu-${item.title}-${index}`}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -166,32 +158,25 @@ export default function Nav({
                 className="w-full text-2xl font-medium uppercase tracking-tight text-foreground hover:text-black dark:hover:text-white"
               >
                 {item.title}
-              </Link>
-            </NavbarMenuItem>
-          ) : (
-            <NavbarMenuItem key={`menu-${item.title}-${index}`} isActive={isActive(item.href)}>
+              </a>
+            ) : (
               <NextLink
+                key={`menu-${item.title}-${index}`}
                 href={item.href}
                 prefetch={true}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   "w-full text-2xl font-medium uppercase tracking-tight hover:text-black dark:hover:text-white",
-                  isActive(item.href)
-                    ? "text-swiss-red"
-                    : "text-foreground"
+                  isActive(item.href) ? "text-swiss-red" : "text-foreground"
                 )}
               >
                 {item.title}
               </NextLink>
-            </NavbarMenuItem>
-          ),
-        )}
-        <div className="mt-8">
+            )
+          )}
+          <div className="mt-4">
           <SignedOut>
             <Button
-              as={Link}
-              color="primary"
-              variant="stylised"
               href="/sign-in"
               onClick={() => setIsMenuOpen(false)}
               className="w-full justify-center"
@@ -199,8 +184,9 @@ export default function Nav({
               Sign in
             </Button>
           </SignedOut>
+          </div>
         </div>
-      </NavbarMenu>
-    </Navbar>
+      )}
+    </header>
   );
 }

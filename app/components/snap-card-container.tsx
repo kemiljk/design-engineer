@@ -1,15 +1,15 @@
-import { ScrollShadow } from "@heroui/scroll-shadow";
+import { ScrollContainer } from "@/app/components/ui";
 import React from "react";
 
 const SnapCardContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ScrollShadow
+    <ScrollContainer
       hideScrollBar
       orientation="horizontal"
       className="flex h-fit w-full snap-x snap-mandatory gap-4"
     >
       {children}
-    </ScrollShadow>
+    </ScrollContainer>
   );
 };
 

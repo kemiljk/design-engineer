@@ -1,39 +1,40 @@
-import { CopyIcon, CopyCheckIcon } from "lucide-react";
+"use client";
+
 import { useRef, useState } from "react";
-import { Button } from "@heroui/react";
+import { Button } from "@/app/components/ui";
 import { toast } from "sonner";
+import { Copy, Check } from "lucide-react";
 
-const CopyButton = (props: any) => {
-  const { text } = props;
-  const [copied, setCopied] = useState(false);
+const CopyButton = ({
+  text,
+  className,
+  overridePosition,
+}: {
+  text: string;
+  className?: string;
+  overridePosition?: boolean;
+}) => {
   const timerRef = useRef(0);
-
-  const onClick = async () => {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    toast.success("Copied to clipboard!");
-    window.clearTimeout(timerRef.current);
-    timerRef.current = window.setTimeout(() => {
-      setCopied(false);
-    }, 1000);
-  };
+  const [copied, setCopied] = useState(false);
 
   return (
     <Button
-      variant="bordered"
-      type="button"
+      variant="ghost"
       size="sm"
-      color={copied ? "success" : "default"}
-      className="absolute right-2 top-2 z-[1] text-xs text-foreground-500 backdrop-blur-md"
-      name="Copy to clipboard"
-      aria-label="Copy to clipboard"
-      onClick={onClick}
-      isIconOnly
+      className={className}
+      aria-label="Copy code to clipboard"
+      onClick={() => {
+        window.clearTimeout(timerRef.current);
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        toast.success("Code copied to clipboard");
+        timerRef.current = window.setTimeout(() => setCopied(false), 2000);
+      }}
       startContent={
         copied ? (
-          <CopyCheckIcon className="size-3" />
+          <Check className="size-4 text-green-500" />
         ) : (
-          <CopyIcon className="size-3" />
+          <Copy className="size-4" />
         )
       }
     />

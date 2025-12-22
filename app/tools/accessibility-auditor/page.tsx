@@ -2,9 +2,8 @@ import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import AccessibilityAuditor from "./auditor";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { Link } from "@heroui/link";
 import { ArrowRight, Lock } from "lucide-react";
-import { StyledButton as Button } from "@/app/components/styled-button";
+import { Button } from "@/app/components/ui";
 
 export const metadata = {
   title: "Accessibility Auditor | Design Engineer",
@@ -33,10 +32,10 @@ export default function AccessibilityAuditorPage() {
               The Accessibility Auditor uses AI to analyze your code. Please sign in or create an account to use this tool.
             </p>
             <div className="flex gap-4">
-              <Button as={Link} href="/sign-in" variant="secondary">
+              <Button href="/sign-in" variant="outline">
                 Sign In
               </Button>
-              <Button as={Link} href="/sign-up" variant="stylised" className="gap-2">
+              <Button href="/sign-up" className="gap-2">
                 Create Account
                 <ArrowRight className="h-4 w-4" />
               </Button>

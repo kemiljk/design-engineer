@@ -3,7 +3,7 @@
 import React from "react";
 import { Toaster, toast } from "sonner";
 import { LinkIcon } from "lucide-react";
-import { Button } from "@heroui/button";
+import { Button } from "@/app/components/ui";
 import { usePathname } from "next/navigation";
 
 export default function CopyButton() {
@@ -22,7 +22,7 @@ export default function CopyButton() {
     <div>
       <Toaster richColors />
       <Button
-        name="Copy link to clipboard"
+        variant="outline"
         aria-label="Copy link to clipboard"
         onClick={() => {
           window.clearTimeout(timerRef.current);

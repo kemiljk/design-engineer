@@ -1,7 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
+import { Card, CardHeader, CardBody, CardFooter, Button } from "@/app/components/ui";
 import { ArrowUpRight } from "lucide-react";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";
@@ -93,11 +91,10 @@ const JobCard = ({ job }: { job: Type.Job }) => {
       </CardBody>
       <CardFooter>
         <Button
-          as={Link}
           href={job.metadata.url}
           target="_blank"
+          variant="outline"
           endContent={<ArrowUpRight className="size-4 text-current" />}
-          variant="bordered"
         >
           View Job
         </Button>

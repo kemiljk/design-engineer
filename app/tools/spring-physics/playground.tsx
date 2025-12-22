@@ -286,7 +286,7 @@ animateFloatAsState(
                     stiffness: config.stiffness,
                     damping: config.damping,
                   }}
-                  className="absolute top-1/2 left-1/2 -mt-4 -ml-4 h-8 w-8 rounded-full bg-blue-600 shadow-md"
+                  className="absolute top-1/2 left-1/2 -mt-4 -ml-4 h-8 w-8 rounded-full bg-swiss-red shadow-md"
                 />
              </div>
           </div>

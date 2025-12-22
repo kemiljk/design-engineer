@@ -1,10 +1,7 @@
 @import "tailwindcss";
 
-/* Import HeroUI theme from node_modules */
-@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
-
-/* Load legacy config for HeroUI plugin and typography */
-@config "../tailwind.config.ts";
+/* Tailwind v4 CSS-first configuration */
+@plugin "@tailwindcss/typography";
 
 /* Custom theme extensions */
 @theme {
@@ -12,14 +9,19 @@
   --color-swiss-red: #ff4400;
   --color-primary: #ff4400;
   --color-primary-foreground: #ffffff;
+  --color-foreground: #171717;
+  --color-background: #ffffff;
 
   /* Font families */
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo,
-    Consolas, "Liberation Mono", monospace;
+  --font-sans:
+    var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif:
+    var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-mono:
+    var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
 
   /* Border radius - all set to 0 for design system */
   --radius-sm: 0;
@@ -29,11 +31,21 @@
   --radius-xl: 0;
   --radius-2xl: 0;
   --radius-3xl: 0;
-  --radius-full: 0;
+  --radius-full: 9999px;
+
+  /* Animation keyframes */
+  --animate-in: enter 0.2s ease-out;
+  --animate-out: exit 0.2s ease-in;
+}
+
+/* Custom typography overrides */
+@theme {
+  --typography-code-before: "";
+  --typography-code-after: "";
 }
 
 ::selection {
-  background-color: #ff4400; /* swiss-red */
+  background-color: #ff4400;
   color: white;
 }
 
@@ -62,15 +74,17 @@
   /* Illustration colors */
   --illustration-primary: #ff4400;
   --illustration-dark: #171717;
-  --illustration-muted: #636363; /* 5.7:1 contrast on #fafafa - WCAG AA compliant */
-  --illustration-light: #d4d4d4; /* Decorative only - not for text */
+  --illustration-muted: #636363;
+  --illustration-light: #d4d4d4;
   --illustration-bg: #fafafa;
 }
 
 .dark {
+  --color-foreground: #fafafa;
+  --color-background: #000000;
   --illustration-dark: #fafafa;
-  --illustration-muted: #a8a8a8; /* 7.3:1 contrast on #171717 - WCAG AA compliant */
-  --illustration-light: #404040; /* Decorative only - not for text */
+  --illustration-muted: #a8a8a8;
+  --illustration-light: #404040;
   --illustration-bg: #171717;
 }
 
@@ -91,6 +105,83 @@
   }
 }
 
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Range input (slider) styling - swiss-red accent */
+input[type="range"] {
+  accent-color: #ff4400;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #ff4400;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #ff4400;
+  cursor: pointer;
+  border-radius: 0;
+  border: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px rgba(255, 68, 0, 0.2);
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 2px rgba(255, 68, 0, 0.2);
+}
+
+/* Checkbox styling - swiss-red accent */
+input[type="checkbox"] {
+  accent-color: #ff4400;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #ff4400;
+  border-color: #ff4400;
+}
+
+/* Animation keyframes */
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Prism.js syntax highlighting */
 code[class*="language-"],
 pre[class*="language-"] {
   background: 0 0;
@@ -109,44 +200,53 @@ pre[class*="language-"] {
   -ms-hyphens: none;
   hyphens: none;
 }
+
 pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
   @apply text-foreground;
 }
+
 :not(pre) > code[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
   @apply text-foreground;
 }
+
 .token.block-comment,
 .token.cdata,
 .token.comment,
 .token.doctype,
 .token.prolog {
-  @apply text-foreground-400;
+  @apply text-zinc-400;
 }
+
 .token.punctuation {
   @apply text-zinc-600 dark:text-zinc-400;
 }
+
 .token.attr-name,
 .token.deleted,
 .token.namespace {
   @apply text-red-600 dark:text-red-400;
 }
+
 .token.tag {
   @apply text-zinc-600 dark:text-zinc-400;
 }
+
 .token.function-name {
   @apply text-zinc-600 dark:text-zinc-400;
 }
+
 .token.boolean,
 .token.function,
 .token.number {
   @apply text-zinc-800 dark:text-zinc-200;
 }
+
 .token.class-name,
 .token.constant,
 .token.property,
@@ -154,6 +254,7 @@ pre[class*="language-"] {
 .token.parameter {
   @apply text-zinc-800 dark:text-zinc-200;
 }
+
 .token.atrule,
 .token.builtin,
 .token.important,
@@ -161,6 +262,7 @@ pre[class*="language-"] {
 .token.selector {
   @apply font-bold text-zinc-500 dark:text-zinc-500;
 }
+
 .token.attr-value,
 .token.char,
 .token.regex,
@@ -168,21 +270,26 @@ pre[class*="language-"] {
 .token.variable {
   @apply text-zinc-600 dark:text-zinc-400;
 }
+
 .token.entity,
 .token.operator,
 .token.url {
   @apply text-zinc-600 dark:text-zinc-400;
 }
+
 .token.bold,
 .token.important {
   @apply font-bold;
 }
+
 .token.italic {
   font-style: italic;
 }
+
 .token.entity {
   @apply cursor-help;
 }
+
 .token.inserted {
   @apply text-zinc-600 dark:text-zinc-400;
 }

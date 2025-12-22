@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Avatar } from "@heroui/avatar";
+import { Avatar } from "@/app/components/ui";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";
 
@@ -27,7 +27,6 @@ export const QnABlock = ({
           style={{ top: questionHeight + 72 }}
           src={qna.person.metadata?.image.imgix_url}
           alt={qna.person.title}
-          title={qna.person.title}
         />
         <Markdown
           key={qna.content}

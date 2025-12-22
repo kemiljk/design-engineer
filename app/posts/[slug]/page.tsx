@@ -3,13 +3,9 @@ import Markdown from "@/app/components/Markdown";
 import CopyButton from "@/app/components/copy-button";
 import { RelativeDate } from "@/app/components/relative-date";
 import { format, parseISO } from "date-fns";
-import { Divider } from "@heroui/divider";
-import { Chip } from "@heroui/chip";
-import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
+import { Button, Chip, Avatar, Divider } from "@/app/components/ui";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
-import { Avatar } from "@heroui/avatar";
 import { getReadingTime } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -109,9 +105,8 @@ export default async function Post(props: {
           <>
             <div className="mb-8 flex w-full items-center justify-between">
               <Button
-                as={Link}
-                variant="light"
                 href="/posts"
+                variant="ghost"
                 startContent={
                   <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
                 }
@@ -123,7 +118,7 @@ export default async function Post(props: {
               {post.metadata.categories && post.metadata.categories.length > 0 && (
                 <div className="mb-4 flex items-center gap-x-2">
                   {post.metadata.categories.map((category: any) => (
-                    <Chip key={category.id || category.title} variant="bordered" radius="full">
+                    <Chip key={category.id || category.title} variant="outline" radius="full">
                       {category.title}
                     </Chip>
                   ))}
@@ -140,16 +135,16 @@ export default async function Post(props: {
                     alt={post.metadata.author.title}
                     fallback={post.metadata.author.title}
                   />
-                  <span className="text-sm text-foreground-700">
+                  <span className="text-sm text-neutral-700 dark:text-neutral-300">
                     {post.metadata.author.title}
                   </span>
                 </div>
-                <span className="text-sm text-foreground-500">•</span>
-                <span className="text-sm text-foreground-500">
+                <span className="text-sm text-neutral-500">•</span>
+                <span className="text-sm text-neutral-500">
                   {postPublished}
                 </span>
-                <span className="text-sm text-foreground-500">•</span>
-                <span className="flex items-center gap-1 text-sm text-foreground-500">
+                <span className="text-sm text-neutral-500">•</span>
+                <span className="flex items-center gap-1 text-sm text-neutral-500">
                   <Clock className="h-3.5 w-3.5" />
                   {readingTime} min read
                 </span>
@@ -158,7 +153,7 @@ export default async function Post(props: {
                 className="prose prose-zinc pb-4 dark:prose-invert"
                 content={post.metadata.content}
               />
-              <span className="pb-16 pt-8 text-sm text-foreground-500">
+              <span className="pb-16 pt-8 text-sm text-neutral-500">
                 Last updated: {postModified} (<RelativeDate date={post.modified_at} />)
               </span>
             </article>

@@ -1,6 +1,6 @@
 import React from "react";
+import Link from "next/link";
 import { PageHeader } from "@/app/components/page-header";
-import { Link } from "@heroui/link";
 import { 
   Sparkles, 
   Activity, 
@@ -16,6 +16,7 @@ import {
   Blend,
   Pointer,
   AppWindow,
+  Square,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -90,6 +91,13 @@ const TOOL_SECTIONS: ToolSection[] = [
         description: "Calculate dimensions and generate aspect-ratio code for CSS, Tailwind, SwiftUI, and Android.",
         href: "/tools/aspect-ratio",
         icon: Ratio,
+        isGated: false,
+      },
+      {
+        title: "Border Comparison",
+        description: "Compare grey borders vs semi-transparent borders on colourful backgrounds.",
+        href: "/tools/border-comparison",
+        icon: Square,
         isGated: false,
       },
     ],

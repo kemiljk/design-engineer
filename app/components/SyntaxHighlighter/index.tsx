@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import cx from "classnames";
+import { cn } from "@/lib/utils";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-typescript";
@@ -9,7 +9,7 @@ import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-json";
 import "prismjs/components/prism-cshtml";
 import "prismjs/components/prism-regex";
-import { ScrollShadow } from "@heroui/scroll-shadow";
+import { ScrollContainer } from "@/app/components/ui";
 import CopyButton from "./CopyButton";
 
 type SyntaxHighlighterProps = {
@@ -40,12 +40,12 @@ const SyntaxHighlighter = ({
 
   return (
     <div
-      className={cx(
+      className={cn(
         "relative rounded-none text-foreground",
         className
       )}
     >
-      <ScrollShadow orientation="horizontal" className="bg-zinc-100 dark:bg-zinc-800/80">
+      <ScrollContainer orientation="horizontal" className="bg-zinc-100 dark:bg-zinc-800/80">
         <div>
           <pre
             style={{
@@ -56,13 +56,13 @@ const SyntaxHighlighter = ({
             }}
           >
             <code
-              className={cx(`language-${language}`)}
+              className={cn(`language-${language}`)}
               style={{ display: "inline-block", paddingRight: "64px" }}
               dangerouslySetInnerHTML={{ __html: highlighted }}
             />
           </pre>
         </div>
-      </ScrollShadow>
+      </ScrollContainer>
       {showCopyButton && (
         <div className="absolute right-2 top-2">
           <CopyButton

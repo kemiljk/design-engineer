@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Markdown from "react-markdown";
-import { StyledButton as Button } from "@/app/components/styled-button";
+import { Button } from "@/app/components/ui";
 import {
   Copy,
   Check,
@@ -100,7 +100,7 @@ function TaskBuilder({
           <Button
             variant="ghost"
             size="sm"
-            onPress={clearConversation}
+            onClick={clearConversation}
             startContent={<Trash2 className="h-4 w-4" />}
             className="text-neutral-500 hover:text-red-500"
           >
@@ -139,9 +139,8 @@ function TaskBuilder({
                       <Button
                         variant="ghost"
                         size="sm"
-                        isIconOnly
-                        onPress={() => copyToClipboard(message.content, index)}
-                        className="h-8 w-8"
+                        onClick={() => copyToClipboard(message.content, index)}
+                        className="h-8 w-8 p-0"
                       >
                         {copied === index ? (
                           <Check className="h-4 w-4 text-green-500" />
@@ -205,13 +204,11 @@ function TaskBuilder({
             className="max-h-[200px] min-h-[44px] w-full resize-none bg-transparent px-3 py-2 pr-12 text-sm placeholder:text-neutral-400 focus:outline-none"
           />
           <Button
-            variant="stylised"
-            onPress={() => {
+            onClick={() => {
               sendMessage();
               setInput("");
             }}
             isDisabled={!input.trim() || isGenerating}
-            isIconOnly
             className="absolute bottom-2 right-2 h-8 w-8 min-w-0 p-0"
           >
             <ArrowUp className="h-4 w-4" />

@@ -6,8 +6,8 @@ import {
   ModalHeader,
   ModalBody,
   useDisclosure,
-} from "@heroui/modal";
-import { StyledButton as Button } from "@/app/components/styled-button";
+  Button,
+} from "@/app/components/ui";
 import SubmitForm from "./submit-form";
 
 export default function SubmitArticle() {
@@ -16,26 +16,12 @@ export default function SubmitArticle() {
   return (
     <>
       <Button
-        color="primary"
-        variant="stylised"
         className="w-full md:w-max"
-        name="Work with Me Button"
-        onPress={onOpen}
+        onClick={onOpen}
       >
         Submit an Article
       </Button>
-      <Modal
-        backdrop="blur"
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        scrollBehavior="inside"
-        size="xl"
-        radius="none"
-        classNames={{
-          base: "rounded-none border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black",
-          closeButton: "hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-none",
-        }}
-      >
+      <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange} size="xl">
         <ModalContent>
           <ModalHeader className="text-xl font-bold uppercase tracking-tight text-foreground">
             Submit an Article

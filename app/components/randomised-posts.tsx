@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import * as Type from "@/lib/types";
 import { ContentCard } from "./content-card";
-import cn from "classnames";
+import { cn } from "@/lib/utils";
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];

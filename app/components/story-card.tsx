@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from "@heroui/card";
+import { Card, CardBody, CardHeader } from "@/app/components/ui";
 import * as Type from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export function StoryCard({
       year: "numeric",
       month: "short",
       day: "numeric",
-    },
+    }
   );
   const url = story.metadata.is_available ? `/stories/${story.slug}` : ``;
 
@@ -25,7 +25,7 @@ export function StoryCard({
     <Link href={url} className={className} rel="noopener noreferrer">
       <Card
         key="1"
-        className="group mx-auto w-80 overflow-hidden rounded-none transition-all duration-500 ease-out hover:shadow-xl dark:border-neutral-700"
+        className="group mx-auto w-80 overflow-hidden transition-all duration-500 ease-out hover:shadow-xl dark:border-neutral-700"
       >
         <CardHeader
           className={`flex flex-col items-center justify-center p-0 text-center ${

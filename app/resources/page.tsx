@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledButton } from "../components/styled-button";
+import { Button } from "@/app/components/ui";
 import Link from "next/link";
 import { getPosts, getResources } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
@@ -40,10 +40,10 @@ const ResourcesPage: React.FC = async () => {
                 <div className="flex flex-col gap-2">
                   {item.metadata.links.map((link) => (
                     <Link href={link.url} key={link.url} target="_blank">
-                      <StyledButton className="w-full justify-start gap-2" variant="flat">
+                      <Button className="w-full justify-start gap-2" variant="secondary">
                         <ResourceIcon name={link.icon_name} className="h-4 w-4" />
                         {link.text}
-                      </StyledButton>
+                      </Button>
                     </Link>
                   ))}
                 </div>

@@ -256,7 +256,7 @@ export function TestModePanel() {
                 <button
                   onClick={setupObjectType}
                   disabled={setupStatus === "loading"}
-                  className="w-full flex items-center justify-center gap-2 rounded border border-blue-300 bg-blue-100 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-200 disabled:opacity-50 dark:border-blue-600 dark:bg-blue-900/30 dark:text-blue-300"
+                  className="w-full flex items-center justify-center gap-2 border border-swiss-red/30 bg-swiss-red/10 px-3 py-2 text-sm font-medium text-swiss-red hover:bg-swiss-red/20 disabled:opacity-50 dark:border-swiss-red/40 dark:bg-swiss-red/20 dark:text-swiss-red"
                 >
                   {setupStatus === "loading" ? "Setting up..." : "Setup Object Type in Cosmic"}
                 </button>

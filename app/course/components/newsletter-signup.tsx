@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { StyledButton } from "@/app/components/styled-button";
+import { Button } from "@/app/components/ui";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 export function NewsletterSignup() {
@@ -56,9 +56,8 @@ export function NewsletterSignup() {
           required
           className="min-h-11 h-11 flex-1 border border-neutral-200 bg-white px-4 text-sm placeholder:text-neutral-400 focus:border-swiss-red focus:outline-none dark:border-neutral-700 dark:bg-neutral-800"
         />
-        <StyledButton
+        <Button
           type="submit"
-          variant="stylised"
           isDisabled={status === "loading"}
           className="h-11 w-full shrink-0 sm:w-auto"
         >
@@ -70,7 +69,7 @@ export function NewsletterSignup() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}
-        </StyledButton>
+        </Button>
       </div>
       {status === "error" && (
         <p className="mt-2 text-sm text-red-500">{errorMessage}</p>

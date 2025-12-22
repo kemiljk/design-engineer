@@ -46,10 +46,10 @@ export function StudentDiscountForm() {
   };
 
   return (
-    <div className="rounded-none border-2 border-blue-200 bg-blue-50 p-8 dark:border-blue-800 dark:bg-blue-950/30">
+    <div className="rounded-none border-2 border-swiss-red/20 bg-swiss-red/5 p-8 dark:border-swiss-red/30 dark:bg-swiss-red/10">
       <div className="mx-auto max-w-xl">
         <div className="mb-4 flex items-center justify-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-swiss-red text-white">
             <GraduationCap className="h-6 w-6" />
           </div>
         </div>
@@ -71,7 +71,7 @@ export function StudentDiscountForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@university.edu"
               disabled={status === "loading" || status === "success"}
-              className="w-full rounded-none border border-neutral-300 bg-white px-4 py-3 text-neutral-900 placeholder-neutral-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400"
+              className="w-full rounded-none border border-neutral-300 bg-white px-4 py-3 text-neutral-900 placeholder-neutral-500 focus:border-swiss-red focus:outline-none focus:ring-2 focus:ring-swiss-red/20 disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400"
             />
             <p className="mt-2 text-xs text-neutral-500">
               Must be a valid student email (.edu, .ac.uk, etc.)
@@ -81,7 +81,7 @@ export function StudentDiscountForm() {
           <button
             type="submit"
             disabled={status === "loading" || status === "success"}
-            className="flex w-full items-center justify-center gap-2 bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-blue-600 dark:hover:bg-blue-700"
+            className="flex w-full items-center justify-center gap-2 bg-swiss-red px-6 py-3 font-medium text-white transition-colors hover:bg-neutral-900 disabled:cursor-not-allowed disabled:opacity-50 dark:hover:bg-white dark:hover:text-black"
           >
             {status === "loading" ? (
               <>
@@ -137,7 +137,7 @@ export function StudentDiscountForm() {
           </div>
         )}
 
-        <div className="mt-6 rounded-none border border-blue-200 bg-white p-4 text-sm dark:border-blue-800 dark:bg-blue-950/20">
+        <div className="mt-6 rounded-none border border-neutral-200 bg-white p-4 text-sm dark:border-neutral-800 dark:bg-neutral-900">
           <p className="mb-2 font-medium text-neutral-900 dark:text-white">How it works:</p>
           <ol className="ml-4 list-decimal space-y-1 text-neutral-600 dark:text-neutral-400">
             <li>Enter your student email address above</li>

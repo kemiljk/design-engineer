@@ -3,7 +3,7 @@ import { getStories } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-import ConsoleFun from "../components/consol-fun";
+import ConsoleFun from "../components/console-fun";
 import { StoryCard } from "../components/story-card";
 import { PageHeader } from "../components/page-header";
 

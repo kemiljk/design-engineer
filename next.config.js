@@ -2,15 +2,6 @@
 const nextConfig = {
   experimental: {
     optimizePackageImports: [
-      "@heroui/react",
-      "@heroui/button",
-      "@heroui/card",
-      "@heroui/chip",
-      "@heroui/avatar",
-      "@heroui/link",
-      "@heroui/input",
-      "@heroui/modal",
-      "@heroui/navbar",
       "lucide-react",
       "date-fns",
     ],

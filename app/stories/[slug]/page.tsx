@@ -1,7 +1,7 @@
 import React from "react";
+import Link from "next/link";
 import { getStories, getStory } from "@/lib/cosmic";
-import { Avatar } from "@heroui/avatar";
-import { Link } from "@heroui/link";
+import { Avatar } from "@/app/components/ui";
 
 export async function generateStaticParams() {
   const stories = await getStories();
@@ -58,7 +58,7 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
         <div className="flex items-center justify-center gap-4">
           {story.metadata.design_engineer.metadata.twitter && (
             <Link
-              className="flex items-center gap-x-1 text-primary decoration-2 underline-offset-4 hover:underline"
+              className="flex items-center gap-x-1 text-swiss-red decoration-2 underline-offset-4 hover:underline"
               href={`${story.metadata.design_engineer.metadata.twitter}`}
             >
               <svg
@@ -68,9 +68,9 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="size-4 shrink-0 text-foreground"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -85,7 +85,7 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
             </Link>
           )}
           <Link
-            className="flex items-center gap-x-1 text-primary decoration-2 underline-offset-4 hover:underline"
+            className="flex items-center gap-x-1 text-swiss-red decoration-2 underline-offset-4 hover:underline"
             href={story.metadata.design_engineer.metadata.website}
           >
             <svg
@@ -95,9 +95,9 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="size-4 shrink-0 text-foreground"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -119,19 +119,19 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
         </p>
         {story.metadata.video_url && (
           <video
-            className="w-full rounded-none border-8 border-foreground-100 ring-1 ring-foreground-200"
+            className="w-full rounded-none border-8 border-neutral-100 ring-1 ring-neutral-200 dark:border-neutral-800 dark:ring-neutral-700"
             controls
           >
             <source src={story.metadata.video_url} type="video/mp4" />
           </video>
         )}
-        <article className="w-full rounded-none bg-neutral-50 p-4">
-          <Markdown className="prose text-sm text-neutral-700 dark:prose-invert">
+        <article className="w-full rounded-none bg-neutral-50 p-4 dark:bg-neutral-900">
+          <Markdown className="prose text-sm text-neutral-700 dark:prose-invert dark:text-neutral-300">
             {story.metadata.summary}
           </Markdown>
         </article>
-        <div className="mt-6 flex w-full items-center gap-2 text-foreground-500">
-          <InfoIcon className="h-6 w-6 text-primary-500 dark:text-primary-400" />
+        <div className="mt-6 flex w-full items-center gap-2 text-neutral-500">
+          <InfoIcon className="h-6 w-6 text-swiss-red" />
           <p>This transcript has been partially edited for brevity.</p>
         </div>
         {story.metadata.qna.metadata.qna.map((qna) => (

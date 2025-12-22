@@ -2,7 +2,7 @@ import { getStat, getStats } from "@/lib/cosmic";
 import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
-import { Chip } from "@heroui/chip";
+import { Chip } from "@/app/components/ui";
 import { CalendarCheck, Clipboard } from "lucide-react";
 
 
@@ -29,7 +29,7 @@ export default async function Stats() {
           </div>
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
             <Chip
-              variant="flat"
+              variant="secondary"
               size="lg"
               color="success"
               startContent={<Clipboard className="size-4" />}
@@ -38,7 +38,7 @@ export default async function Stats() {
               {stats.total} total waitlisted
             </Chip>
             <Chip
-              variant="flat"
+              variant="secondary"
               size="lg"
               color="success"
               startContent={<CalendarCheck className="size-4" />}

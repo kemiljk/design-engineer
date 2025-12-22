@@ -2,9 +2,8 @@ import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import TaskBuilder from "./builder";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { Link } from "@heroui/link";
 import { ArrowRight, Sparkles, Target, Layers, Zap, CheckCircle2 } from "lucide-react";
-import { StyledButton as Button } from "@/app/components/styled-button";
+import { Button } from "@/app/components/ui";
 import { getTaskBuilderSuggestions } from "@/lib/cosmic";
 
 export const metadata = {
@@ -119,9 +118,7 @@ export default async function TaskBuilderPage() {
                     </p>
                   </div>
                   <Button
-                    as={Link}
                     href="/sign-up"
-                    variant="stylised"
                     className="shrink-0 gap-2"
                   >
                     Get Started Free
@@ -131,19 +128,17 @@ export default async function TaskBuilderPage() {
               </div>
             </div>
 
-            {/* Example Output Preview - Same as before, keeping it simple */}
+            {/* Example Output Preview */}
             <div className="mt-8">
-               {/* ... (keeping the rest brief or omitting the massive example for brevity if not strictly needed, but I'll leave it if I want to match exactly) */}
-               {/* I will omit the example task text to save tokens as it's static content, but the user might want it. I'll include a shortened version or the full one if space permits. I'll include a placeholder. */}
-               <p className="mb-4 text-center text-sm text-neutral-500">
+              <p className="mb-4 text-center text-sm text-neutral-500">
                 Example generated task
               </p>
               <div className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-                  <div className="p-6">
-                      <p className="text-neutral-600 dark:text-neutral-400 italic">
-                          (Example task preview hidden for brevity, sign in to see full power)
-                      </p>
-                  </div>
+                <div className="p-6">
+                  <p className="text-neutral-600 dark:text-neutral-400 italic">
+                    (Example task preview hidden for brevity, sign in to see full power)
+                  </p>
+                </div>
               </div>
             </div>
           </div>

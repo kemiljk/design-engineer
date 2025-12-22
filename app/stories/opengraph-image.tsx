@@ -1,14 +1,16 @@
 import { generateOGImage } from "@/lib/og-image";
 
 export const runtime = "edge";
-export const alt = "Design Engineer - Bridge the gap between design and engineering";
+export const alt = "Design Engineer Stories";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
   return generateOGImage({
-    title: "Design Engineer",
+    title: "Design Engineer Stories",
     description:
-      "Bridge the gap between design and engineering. Master the skills to build world-class digital products.",
+      "Conversations with design engineers about their work, process, and career journeys.",
+    badge: "Stories",
+    badgeColor: "primary",
   });
 }

@@ -10,3 +10,6 @@ test-results/
 
 # Test mode override file
 .test-access-override
+
+# Generated audit files
+audit-results.json

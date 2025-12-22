@@ -285,7 +285,7 @@ export default async function CoursePage() {
                   ? "The first module of each track is completely free. Start learning—no credit card required."
                   : "The Introduction and first module of each track are completely free. Understand what Design Engineering is and start learning—no credit card required."}
               </p>
-              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-700 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-400">
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-swiss-red/20 bg-swiss-red/5 px-4 py-2 text-sm text-swiss-red dark:border-swiss-red/30 dark:bg-swiss-red/10">
                 🎓 Students get 30% off -{" "}
                 <Link href="/course/pricing" className="font-medium underline hover:no-underline">
                   learn more
