@@ -20,6 +20,10 @@ const isPublicRoute = createRouteMatcher([
   "/api/og(.*)", // OG image generation
   "/icon", // Favicon
   "/apple-icon", // Apple Touch Icon
+  "/opengraph-image", // Root OG image
+  "/(.*)/opengraph-image", // Nested OG images
+  "/twitter-image", // Root Twitter image
+  "/(.*)/twitter-image", // Nested Twitter images
   "/course",
   "/course/(.*)",
 ]);
