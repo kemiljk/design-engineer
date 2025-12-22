@@ -1,6 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Import HeroUI theme from node_modules */
+@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+/* Load legacy config for HeroUI plugin and typography */
+@config "../tailwind.config.ts";
+
+/* Custom theme extensions */
+@theme {
+  /* Colors */
+  --color-swiss-red: #ff4400;
+  --color-primary: #ff4400;
+  --color-primary-foreground: #ffffff;
+
+  /* Font families */
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+
+  /* Border radius - all set to 0 for design system */
+  --radius-sm: 0;
+  --radius: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-full: 0;
+}
 
 ::selection {
   background-color: #ff4400; /* swiss-red */

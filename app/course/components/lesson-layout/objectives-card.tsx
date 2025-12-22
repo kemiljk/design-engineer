@@ -13,7 +13,7 @@ export function ObjectivesCard({ objectives }: ObjectivesCardProps) {
       <ul className="space-y-3">
         {objectives.map((objective, index) => (
           <li key={index} className="flex items-start gap-3">
-            <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center border-2 border-neutral-300 dark:border-neutral-600">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border-2 border-neutral-300 dark:border-neutral-600">
               <span className="h-2 w-2 bg-swiss-red" />
             </span>
             <span className="text-sm text-neutral-700 dark:text-neutral-300 [&_strong]:font-semibold [&_strong]:text-neutral-900 dark:[&_strong]:text-neutral-100">
