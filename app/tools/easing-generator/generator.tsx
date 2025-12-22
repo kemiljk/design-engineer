@@ -87,7 +87,7 @@ export default function EasingGenerator() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
           <div className="flex flex-wrap gap-2">
@@ -109,20 +109,20 @@ export default function EasingGenerator() {
 
         <div className="space-y-4">
           <h2 className="text-lg font-bold">Value</h2>
-          <div className="flex items-center justify-between rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950">
-            <code className="font-mono text-sm text-neutral-600 dark:text-neutral-400">
+          <div className="flex items-center justify-between gap-2 rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:p-4">
+            <code className="min-w-0 break-all font-mono text-xs text-neutral-600 dark:text-neutral-400 sm:text-sm">
               {bezierString}
             </code>
             <button
               onClick={copyToClipboard}
-              className="ml-4 text-neutral-400 hover:text-swiss-red"
+              className="shrink-0 text-neutral-400 hover:text-swiss-red"
             >
               {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
             </button>
           </div>
         </div>
         
-        <div className="rounded-lg bg-neutral-50 p-6 dark:bg-neutral-950">
+        <div className="rounded-lg bg-neutral-50 p-4 dark:bg-neutral-950 sm:p-6">
            <h3 className="mb-4 font-bold text-sm uppercase text-neutral-500">Preview</h3>
            <div className="relative h-8 w-full rounded-full bg-neutral-200 dark:bg-neutral-800">
               <motion.div
@@ -142,12 +142,11 @@ export default function EasingGenerator() {
       </div>
 
       {/* Graph Visualizer */}
-      <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
         <svg
           ref={svgRef}
-          width={size}
-          height={size}
-          className="touch-none select-none overflow-visible"
+          viewBox={`0 0 ${size} ${size}`}
+          className="aspect-square w-full max-w-[300px] touch-none select-none overflow-visible"
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}

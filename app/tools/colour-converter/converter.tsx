@@ -72,7 +72,7 @@ export default function ColourConverter() {
     <div className="grid gap-8 lg:grid-cols-12">
       {/* Preview & Input */}
       <div className="lg:col-span-4 space-y-6">
-        <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Colour</h2>
           
           {/* Colour Preview */}
@@ -111,7 +111,7 @@ export default function ColourConverter() {
         </div>
 
         {/* Colour Info */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Values</h2>
           
           <div className="space-y-3 text-sm">
@@ -147,7 +147,7 @@ export default function ColourConverter() {
 
       {/* Output Formats */}
       <div className="lg:col-span-8">
-        <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Export Formats</h2>
           
           <div className="grid gap-4 sm:grid-cols-2">
@@ -176,7 +176,7 @@ export default function ColourConverter() {
                     )}
                   </button>
                 </div>
-                <pre className="overflow-x-auto font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                <pre className="overflow-x-auto whitespace-pre-wrap break-all font-mono text-[10px] text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
                   {value}
                 </pre>
               </div>
@@ -185,7 +185,7 @@ export default function ColourConverter() {
         </div>
 
         {/* Colour Variations */}
-        <div className="mt-6 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="mt-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Variations</h2>
           
           <div className="space-y-4">

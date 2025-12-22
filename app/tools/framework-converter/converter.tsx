@@ -168,7 +168,7 @@ export default function FrameworkConverter() {
       )}
 
       {/* Supported Patterns */}
-      <div className="rounded-lg border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h3 className="mb-4 font-bold">Supported Conversions</h3>
         <div className="grid gap-4 text-sm sm:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-2">

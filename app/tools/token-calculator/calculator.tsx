@@ -279,7 +279,7 @@ ${spacingVars}
           <div className="space-y-8">
             {typeScale.slice().reverse().map((t) => (
               <div key={t.step} className="flex flex-col gap-2 border-b border-neutral-100 pb-8 last:border-0 last:pb-0 dark:border-neutral-800 sm:flex-row sm:items-baseline sm:gap-8">
-                <div className="w-32 shrink-0">
+                <div className="shrink-0 sm:w-32">
                   <div className="text-sm font-medium text-neutral-500">text-{getSemanticLabel(t.step)}</div>
                   <div className="font-mono text-xs text-neutral-400">{t.px}px / {t.rem}rem</div>
                 </div>
@@ -295,9 +295,9 @@ ${spacingVars}
         </div>
 
         {/* Spacing Visualiser */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Spacing Scale</h2>
-          <div className="flex flex-wrap gap-4 items-end">
+          <div className="flex flex-wrap gap-2 items-end sm:gap-4">
             {spacingScale.slice(0, 10).map((s) => (
               <div key={s.step} className="group relative flex flex-col items-center gap-2">
                 <div 

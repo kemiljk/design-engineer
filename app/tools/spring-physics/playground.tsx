@@ -131,7 +131,7 @@ animateFloatAsState(
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls Section */}
-      <div className="space-y-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
           <div className="flex flex-wrap gap-2">

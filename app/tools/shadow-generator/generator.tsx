@@ -164,7 +164,7 @@ elevation: ${Math.round(config.blur / 2)},
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         {/* Presets */}
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>

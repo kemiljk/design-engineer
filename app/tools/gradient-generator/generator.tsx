@@ -319,8 +319,8 @@ Brush.radialGradient(
 
           <div className="space-y-2">
             {sortedStops.map((stop) => (
-              <div key={stop.id} className="flex items-center gap-2">
-                <GripVertical className="h-4 w-4 text-neutral-300" />
+              <div key={stop.id} className="flex flex-wrap items-center gap-2">
+                <GripVertical className="hidden h-4 w-4 text-neutral-300 sm:block" />
                 <input
                   type="color"
                   value={stop.color}
@@ -331,21 +331,23 @@ Brush.radialGradient(
                   type="text"
                   value={stop.color}
                   onChange={(e) => updateStop(stop.id, "color", e.target.value)}
-                  className="w-20 rounded-none border border-neutral-200 bg-neutral-50 px-2 py-1 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                  className="w-20 min-w-0 flex-1 rounded-none border border-neutral-200 bg-neutral-50 px-2 py-1 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800 sm:flex-none"
                 />
-                <input
-                  type="number"
-                  min="0"
-                  max="100"
-                  value={stop.position}
-                  onChange={(e) => updateStop(stop.id, "position", Number(e.target.value))}
-                  className="w-16 rounded-none border border-neutral-200 bg-neutral-50 px-2 py-1 text-center font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
-                />
-                <span className="text-xs text-neutral-400">%</span>
+                <div className="flex items-center gap-1">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={stop.position}
+                    onChange={(e) => updateStop(stop.id, "position", Number(e.target.value))}
+                    className="w-14 rounded-none border border-neutral-200 bg-neutral-50 px-2 py-1 text-center font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                  />
+                  <span className="text-xs text-neutral-400">%</span>
+                </div>
                 <button
                   onClick={() => removeStop(stop.id)}
                   disabled={stops.length <= 2}
-                  className="p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30"
+                  className="ml-auto p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30 sm:ml-0"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
