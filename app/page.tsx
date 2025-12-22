@@ -401,7 +401,7 @@ async function CourseSection() {
       icon: Sparkles,
       title: "Convergence: All-Access",
       description:
-        "Complete course access - all tracks, all platforms, plus advanced topics like motion, prototyping, and workflow",
+        "Complete access - all tracks, all platforms, plus advanced topics like motion, prototyping, and workflow",
       color: "bg-neutral-500",
     },
   ];
@@ -539,7 +539,10 @@ export default function Home() {
           <PostsSection />
         </Suspense>
 
-        <AnimatedSection as="div" className="mt-24 flex w-full items-center justify-center">
+        <AnimatedSection
+          as="div"
+          className="mt-24 flex w-full items-center justify-center"
+        >
           <SubmitArticle />
         </AnimatedSection>
 
