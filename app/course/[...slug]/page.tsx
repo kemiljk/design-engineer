@@ -247,70 +247,76 @@ export default async function LessonPage({ params }: LessonPageProps) {
               </div>
             )}
             
-            <div className="flex items-center justify-between gap-4">
-              {prev ? (
-                <Link
-                  href={`/course/${prev.path}`}
-                  className="group flex-1 max-w-[45%] rounded-none bg-neutral-100 p-4 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-                >
-                  <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
-                    <ArrowLeft className="h-3 w-3" />
-                    <span>Previous</span>
-                  </div>
-                  <p className="text-sm font-medium truncate">
-                    {formatTitle(prev.title)}
-                  </p>
-                </Link>
-              ) : (
-                <div className="flex-1 max-w-[45%]" />
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              {userId && (
+                <div className="w-full md:w-auto md:order-2">
+                  <MarkCompleteButton lessonPath={lessonPath} initialCompleted={lessonCompleted} />
+                </div>
               )}
-
-              {userId && <MarkCompleteButton lessonPath={lessonPath} initialCompleted={lessonCompleted} />}
-
-              {next ? (
-                next.isNewModule ? (
+              
+              <div className="flex items-center justify-between gap-4 md:contents">
+                {prev ? (
                   <Link
-                    href={`/course/${next.path}`}
-                    className="group flex-1 max-w-[45%] rounded-none border-2 border-swiss-red bg-swiss-red/5 p-4 transition-all hover:bg-swiss-red hover:text-white"
+                    href={`/course/${prev.path}`}
+                    className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-1 rounded-none bg-neutral-100 p-4 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
                   >
-                    <div className="flex items-center justify-end gap-2 text-xs text-swiss-red group-hover:text-white mb-1">
-                      <span>Next Module: {formatModuleName(next.module)}</span>
-                      <ArrowRight className="h-3 w-3" />
+                    <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
+                      <ArrowLeft className="h-3 w-3" />
+                      <span>Previous</span>
                     </div>
-                    <p className="text-sm font-medium text-right truncate">
-                      {formatTitle(next.title)}
+                    <p className="text-sm font-medium truncate">
+                      {formatTitle(prev.title)}
                     </p>
                   </Link>
                 ) : (
+                  <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-1" />
+                )}
+
+                {next ? (
+                  next.isNewModule ? (
+                    <Link
+                      href={`/course/${next.path}`}
+                      className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red/5 p-4 transition-all hover:bg-swiss-red hover:text-white"
+                    >
+                      <div className="flex items-center justify-end gap-2 text-xs text-swiss-red group-hover:text-white mb-1">
+                        <span>Next Module: {formatModuleName(next.module)}</span>
+                        <ArrowRight className="h-3 w-3" />
+                      </div>
+                      <p className="text-sm font-medium text-right truncate">
+                        {formatTitle(next.title)}
+                      </p>
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`/course/${next.path}`}
+                      className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                    >
+                      <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
+                        <span>Next</span>
+                        <ArrowRight className="h-3 w-3" />
+                      </div>
+                      <p className="text-sm font-medium text-right truncate">
+                        {formatTitle(next.title)}
+                      </p>
+                    </Link>
+                  )
+                ) : lessonPath.startsWith("00-introduction") ? (
                   <Link
-                    href={`/course/${next.path}`}
-                    className="group flex-1 max-w-[45%] rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                    href="/course"
+                    className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
                   >
                     <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
-                      <span>Next</span>
+                      <span>You&apos;re ready!</span>
                       <ArrowRight className="h-3 w-3" />
                     </div>
-                    <p className="text-sm font-medium text-right truncate">
-                      {formatTitle(next.title)}
+                    <p className="text-sm font-medium text-right">
+                      Choose Your Track
                     </p>
                   </Link>
-                )
-              ) : lessonPath.startsWith("00-introduction") ? (
-                <Link
-                  href="/course"
-                  className="group flex-1 max-w-[45%] rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
-                >
-                  <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
-                    <span>You&apos;re ready!</span>
-                    <ArrowRight className="h-3 w-3" />
-                  </div>
-                  <p className="text-sm font-medium text-right">
-                    Choose Your Track
-                  </p>
-                </Link>
-              ) : (
-                <div className="flex-1 max-w-[45%]" />
-              )}
+                ) : (
+                  <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-3" />
+                )}
+              </div>
             </div>
           </div>
         </article>
