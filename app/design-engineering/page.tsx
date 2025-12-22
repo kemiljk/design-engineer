@@ -1,16 +1,17 @@
 import React from "react";
+import { Metadata } from "next";
 import { PageHeader } from "../components/page-header";
 import { ArrowRight, Code2, Layout, Sparkles, Users, Target, Zap, CheckCircle2 } from "lucide-react";
 import NextLink from "next/link";
 import { Button } from "@/app/components/ui";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Design Engineering | Design Engineer",
   description:
     "Design Engineering sits at the intersection of design and development. Learn what Design Engineers do, why they matter to modern tech companies, and how they differ from vibe coders.",
 };
 
-const DesignEngineeringPage: React.FC = () => {
+export default function DesignEngineeringPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-black">
       <PageHeader
@@ -654,6 +655,4 @@ const DesignEngineeringPage: React.FC = () => {
       </div>
     </main>
   );
-};
-
-export default DesignEngineeringPage;
+}
