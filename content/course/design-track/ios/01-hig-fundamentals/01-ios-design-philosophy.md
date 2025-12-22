@@ -57,10 +57,10 @@ System colors that adapt:
 
 ### Icons
 SF Symbols system:
-- 4000+ consistent icons
-- Multiple weights
+- 6,000+ consistent icons (SF Symbols 6)
+- Multiple weights and rendering modes
 - Automatic alignment with text
-- Accessible and customizable
+- Accessible and customisable
 
 ## Platform Conventions
 
