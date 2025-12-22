@@ -113,11 +113,31 @@ export function HeroIllustration() {
 
           {/* Component box */}
           <motion.g
-            animate={{ scale: [1, 0.95, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            animate={prefersReducedMotion ? {} : { scale: [1, 0.96, 0.96, 1, 1] }}
+            transition={{
+              duration: 4,
+              times: [0, 0.1, 0.35, 0.45, 1],
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
             style={{ originX: "100px", originY: "192px" }}
           >
-            <rect x="60" y="180" width="80" height="24" fill={COLORS.primary} />
+            <motion.rect
+              x="60"
+              y="180"
+              width="80"
+              height="24"
+              fill={COLORS.primary}
+              animate={prefersReducedMotion ? {} : { filter: ["brightness(1)", "brightness(0.9)", "brightness(0.9)", "brightness(1)", "brightness(1)"] }}
+              transition={{
+                duration: 4,
+                times: [0, 0.1, 0.35, 0.45, 1],
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2
+              }}
+            />
             <text
               x="100"
               y="196"
