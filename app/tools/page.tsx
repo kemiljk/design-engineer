@@ -204,11 +204,11 @@ export default function ToolsPage() {
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-neutral-100 pt-4 dark:border-neutral-800">
+                    <div className="flex items-center justify-between gap-4 border-t border-neutral-100 pt-4 dark:border-neutral-800">
                       <span className="text-sm font-medium text-neutral-900 group-hover:underline dark:text-white">
                         Open Tool
                       </span>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2">
                         {tool.isGated && (
                           <SignedOut>
                             <Lock className="h-4 w-4 text-neutral-400" />
