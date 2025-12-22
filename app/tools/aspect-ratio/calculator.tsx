@@ -1,7 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { ArrowRight, Copy, Check } from "lucide-react";
+import React, { useState } from "react";
+import { clsx } from "clsx";
+import { CodeBlock } from "../components";
+
+type Platform = "css" | "tailwind" | "swift" | "android";
 
 type AspectRatio = {
   w: number;
@@ -18,27 +21,22 @@ const PRESETS: AspectRatio[] = [
   { w: 3, h: 2, label: "3:2 (Photo)" },
 ];
 
+const PLATFORM_OPTIONS: { value: Platform; label: string }[] = [
+  { value: "css", label: "CSS" },
+  { value: "tailwind", label: "Tailwind" },
+  { value: "swift", label: "SwiftUI" },
+  { value: "android", label: "Android" },
+];
+
 export default function AspectRatioCalculator() {
   const [width, setWidth] = useState<number>(1920);
   const [height, setHeight] = useState<number>(1080);
   const [ratioW, setRatioW] = useState<number>(16);
   const [ratioH, setRatioH] = useState<number>(9);
-  
-  // To avoid circular dependency loops when typing, we track what was last edited
-  // 'dim' = dimensions changed, 'ratio' = ratio changed
-  const [mode, setMode] = useState<"dim" | "ratio">("dim");
-
-  const handleDimensionChange = (w: number, h: number) => {
-    setWidth(w);
-    setHeight(h);
-    // Try to simplify ratio? Naive approach:
-    // Actually, usually users want to lock ratio and find missing dim
-    // But let's keep it simple: if you change dims, we just display the decimal ratio
-  };
+  const [platform, setPlatform] = useState<Platform>("css");
 
   const calculateMissing = (target: "w" | "h", value: number) => {
     if (target === "w") {
-      // New Width provided, calc height based on current ratio
       setWidth(value);
       setHeight(Math.round(value * (ratioH / ratioW)));
     } else {
@@ -50,8 +48,118 @@ export default function AspectRatioCalculator() {
   const applyPreset = (preset: AspectRatio) => {
     setRatioW(preset.w);
     setRatioH(preset.h);
-    // Recalculate height based on current width and new ratio
     setHeight(Math.round(width * (preset.h / preset.w)));
+  };
+
+  // Generate code for each platform
+  const generateCSS = () => {
+    return `.container {
+  aspect-ratio: ${ratioW} / ${ratioH};
+  width: 100%;
+  /* Or fixed dimensions */
+  /* width: ${width}px; */
+  /* height: ${height}px; */
+}
+
+/* Fallback for older browsers */
+.container-fallback {
+  position: relative;
+  width: 100%;
+  padding-bottom: ${((ratioH / ratioW) * 100).toFixed(2)}%;
+}
+
+.container-fallback > * {
+  position: absolute;
+  inset: 0;
+}`;
+  };
+
+  const generateTailwind = () => {
+    return `/* Tailwind v4 @theme */
+@theme {
+  --aspect-ratio-custom: ${ratioW} / ${ratioH};
+}
+
+/* Usage */
+<div class="aspect-custom">...</div>
+
+/* Or arbitrary value */
+<div class="aspect-[${ratioW}/${ratioH}]">...</div>
+
+/* Common ratios built-in */
+<div class="aspect-video">...</div>  /* 16/9 */
+<div class="aspect-square">...</div> /* 1/1 */`;
+  };
+
+  const generateSwiftUI = () => {
+    const ratio = ratioW / ratioH;
+    return `// SwiftUI AspectRatio
+Image("photo")
+    .resizable()
+    .aspectRatio(${ratio.toFixed(4)}, contentMode: .fit)
+
+// Or with frame
+Image("photo")
+    .resizable()
+    .aspectRatio(contentMode: .fill)
+    .frame(width: ${width}, height: ${height})
+    .clipped()
+
+// Custom aspect ratio container
+struct AspectRatioContainer<Content: View>: View {
+    let ratio: CGFloat = ${ratio.toFixed(4)}
+    let content: Content
+    
+    var body: some View {
+        GeometryReader { geometry in
+            content
+                .frame(
+                    width: geometry.size.width,
+                    height: geometry.size.width / ratio
+                )
+        }
+    }
+}`;
+  };
+
+  const generateAndroid = () => {
+    return `<!-- XML Layout with ConstraintLayout -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="${ratioW}:${ratioH}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+/* Jetpack Compose */
+Image(
+    painter = painterResource(id = R.drawable.photo),
+    contentDescription = null,
+    modifier = Modifier
+        .fillMaxWidth()
+        .aspectRatio(${(ratioW / ratioH).toFixed(4)}f),
+    contentScale = ContentScale.Crop
+)`;
+  };
+
+  const getCode = () => {
+    switch (platform) {
+      case "css":
+        return generateCSS();
+      case "tailwind":
+        return generateTailwind();
+      case "swift":
+        return generateSwiftUI();
+      case "android":
+        return generateAndroid();
+    }
   };
 
   return (
@@ -65,11 +173,12 @@ export default function AspectRatioCalculator() {
               <button
                 key={preset.label}
                 onClick={() => applyPreset(preset)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={clsx(
+                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                   ratioW === preset.w && ratioH === preset.h
                     ? "bg-swiss-red text-white"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-                }`}
+                )}
               >
                 {preset.label}
               </button>
@@ -132,15 +241,34 @@ export default function AspectRatioCalculator() {
               />
             </div>
           </div>
-          
-           <div className="rounded-lg border border-neutral-200 p-4 text-center dark:border-neutral-800">
-             <span className="text-sm text-neutral-500">Result CSS</span>
-             <code className="mt-2 block font-mono font-bold">aspect-ratio: {ratioW} / {ratioH};</code>
-           </div>
+        </div>
+
+        {/* Code Output */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold">Code</h2>
+            <div className="flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
+              {PLATFORM_OPTIONS.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setPlatform(option.value)}
+                  className={clsx(
+                    "rounded-md px-2 py-1 text-[10px] font-medium transition-colors",
+                    platform === option.value
+                      ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
+                      : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
+                  )}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <CodeBlock label={PLATFORM_OPTIONS.find((p) => p.value === platform)?.label || ""} code={getCode()} />
         </div>
       </div>
 
-      {/* Visualizer */}
+      {/* Visualiser */}
       <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-800 dark:bg-neutral-900">
          <div 
             className="flex items-center justify-center bg-swiss-red text-white shadow-lg transition-all duration-300"
@@ -153,7 +281,7 @@ export default function AspectRatioCalculator() {
             }}
          >
             <div className="text-center">
-                <div className="text-2xl font-bold">{width} x {height}</div>
+                <div className="text-2xl font-bold">{width} × {height}</div>
                 <div className="text-sm opacity-80">{ratioW}:{ratioH}</div>
             </div>
          </div>

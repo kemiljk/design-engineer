@@ -1,0 +1,22 @@
+import React from "react";
+import { PageHeader } from "@/app/components/page-header";
+import FrameworkConverter from "./converter";
+
+export const metadata = {
+  title: "Framework Converter | Design Engineer",
+  description: "Convert component code between React, Vue, Svelte, Astro, and Solid.",
+};
+
+export default function FrameworkConverterPage() {
+  return (
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <PageHeader
+        title="Framework Converter"
+        description="Convert component syntax between popular JavaScript frameworks. Handles common patterns like state, events, and templating."
+      />
+      <div className="container mx-auto px-4 py-12">
+        <FrameworkConverter />
+      </div>
+    </main>
+  );
+}

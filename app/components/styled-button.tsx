@@ -18,7 +18,5 @@ export const StyledButton = extendVariants(Button, {
       primary: "bg-swiss-red text-white",
     },
   },
-  defaultVariants: {
-    radius: "none",
-  },
+  // Radius is controlled by Tailwind config (all set to 0)
 });

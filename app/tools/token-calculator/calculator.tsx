@@ -2,12 +2,15 @@
 
 import React, { useState } from "react";
 import { Settings2 } from "lucide-react";
-import { CssFormatToggle, CssFormat, CodeBlock } from "../components";
+import { clsx } from "clsx";
+import { CodeBlock } from "../components";
 
 type ScaleRatio = {
   name: string;
   value: number;
 };
+
+type OutputFormat = "tailwind-v4" | "tailwind-v3" | "css" | "scss";
 
 const RATIOS: ScaleRatio[] = [
   { name: "Minor Second", value: 1.067 },
@@ -20,11 +23,18 @@ const RATIOS: ScaleRatio[] = [
   { name: "Golden Ratio", value: 1.618 },
 ];
 
+const FORMAT_OPTIONS: { value: OutputFormat; label: string }[] = [
+  { value: "tailwind-v4", label: "Tailwind v4" },
+  { value: "tailwind-v3", label: "Tailwind v3" },
+  { value: "css", label: "CSS" },
+  { value: "scss", label: "SCSS" },
+];
+
 export default function TokenCalculator() {
   const [baseSize, setBaseSize] = useState(16);
   const [scaleRatio, setScaleRatio] = useState(1.25);
   const [spacingBase, setSpacingBase] = useState(4);
-  const [cssFormat, setCssFormat] = useState<CssFormat>("tailwind");
+  const [outputFormat, setOutputFormat] = useState<OutputFormat>("tailwind-v4");
 
   // Generate Type Scale
   const typeSteps = [-2, -1, 0, 1, 2, 3, 4, 5, 6];
@@ -39,16 +49,16 @@ export default function TokenCalculator() {
   });
   
   const getSemanticLabel = (step: number) => {
-    if (step === 0) return "text-base";
-    if (step === 1) return "text-lg";
-    if (step === 2) return "text-xl";
-    if (step === 3) return "text-2xl";
-    if (step === 4) return "text-3xl";
-    if (step === 5) return "text-4xl";
-    if (step === 6) return "text-5xl";
-    if (step === -1) return "text-sm";
-    if (step === -2) return "text-xs";
-    return `text-${step}`;
+    if (step === 0) return "base";
+    if (step === 1) return "lg";
+    if (step === 2) return "xl";
+    if (step === 3) return "2xl";
+    if (step === 4) return "3xl";
+    if (step === 5) return "4xl";
+    if (step === 6) return "5xl";
+    if (step === -1) return "sm";
+    if (step === -2) return "xs";
+    return `${step}`;
   };
 
   // Generate Spacing Scale
@@ -64,10 +74,34 @@ export default function TokenCalculator() {
     };
   });
 
-  // Export Generators
-  const generateTailwindConfig = () => {
+  // Tailwind v4 - CSS-first configuration using @theme
+  const generateTailwindV4 = () => {
+    const typeVars = typeScale.map(
+      (t) => `  --text-${getSemanticLabel(t.step)}: ${t.rem}rem; /* ${t.px}px */`
+    ).join("\n");
+
+    const spacingVars = spacingScale.map(
+      (s) => `  --spacing-${s.step.toString().replace(".", "_")}: ${s.rem}rem; /* ${s.px}px */`
+    ).join("\n");
+
+    return `@import "tailwindcss";
+
+@theme {
+  /* Typography Scale */
+${typeVars}
+
+  /* Spacing Scale */
+${spacingVars}
+}
+
+/* Usage: text-lg, text-xl, text-2xl, etc. */
+/* Usage: p-4, m-8, gap-2, etc. */`;
+  };
+
+  // Tailwind v3 - JavaScript config
+  const generateTailwindV3 = () => {
     const fontSize = typeScale.reduce((acc, curr) => {
-      const key = getSemanticLabel(curr.step).replace("text-", "");
+      const key = getSemanticLabel(curr.step);
       return { ...acc, [key]: [`${curr.rem}rem`, { lineHeight: "1.5" }] };
     }, {});
 
@@ -86,13 +120,14 @@ module.exports = {
 }`;
   };
 
+  // Plain CSS Variables
   const generateCSSVariables = () => {
     const typeVars = typeScale.map(
-      (t) => `  --text-${getSemanticLabel(t.step).replace("text-", "")}: ${t.rem}rem; /* ${t.px}px */`
+      (t) => `  --text-${getSemanticLabel(t.step)}: ${t.rem}rem; /* ${t.px}px */`
     ).join("\n");
 
     const spacingVars = spacingScale.map(
-      (s) => `  --space-${s.step}: ${s.rem}rem; /* ${s.px}px */`
+      (s) => `  --space-${s.step.toString().replace(".", "_")}: ${s.rem}rem; /* ${s.px}px */`
     ).join("\n");
 
     return `:root {
@@ -101,12 +136,16 @@ ${typeVars}
 
   /* Spacing */
 ${spacingVars}
-}`;
+}
+
+/* Usage: font-size: var(--text-lg); */
+/* Usage: padding: var(--space-4); */`;
   };
 
+  // SCSS Maps
   const generateSCSS = () => {
     const typeVars = typeScale.map(
-      (t) => `  "${getSemanticLabel(t.step).replace("text-", "")}": ${t.rem}rem`
+      (t) => `  "${getSemanticLabel(t.step)}": ${t.rem}rem`
     ).join(",\n");
 
     const spacingVars = spacingScale.map(
@@ -123,14 +162,16 @@ $spacing: (
 ${spacingVars}
 );
 
-// Usage: map-get($font-sizes, "base")
-// Usage: map-get($spacing, "4")`;
+// Usage: font-size: map-get($font-sizes, "lg");
+// Usage: padding: map-get($spacing, "4");`;
   };
 
   const getExportCode = () => {
-    switch (cssFormat) {
-      case "tailwind":
-        return generateTailwindConfig();
+    switch (outputFormat) {
+      case "tailwind-v4":
+        return generateTailwindV4();
+      case "tailwind-v3":
+        return generateTailwindV3();
       case "css":
         return generateCSSVariables();
       case "scss":
@@ -139,9 +180,11 @@ ${spacingVars}
   };
 
   const getExportLabel = () => {
-    switch (cssFormat) {
-      case "tailwind":
-        return "Tailwind Config";
+    switch (outputFormat) {
+      case "tailwind-v4":
+        return "Tailwind v4 (@theme)";
+      case "tailwind-v3":
+        return "Tailwind v3 Config";
       case "css":
         return "CSS Variables";
       case "scss":
@@ -205,13 +248,24 @@ ${spacingVars}
 
         {/* Exports */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3">
             <h3 className="font-bold text-neutral-900 dark:text-neutral-100">Export</h3>
-            <CssFormatToggle
-              value={cssFormat}
-              onChange={setCssFormat}
-              formats={["tailwind", "css", "scss"]}
-            />
+            <div className="flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
+              {FORMAT_OPTIONS.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setOutputFormat(option.value)}
+                  className={clsx(
+                    "flex-1 rounded-md px-2 py-1.5 text-[10px] font-medium transition-colors",
+                    outputFormat === option.value
+                      ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
+                      : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
+                  )}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
           <CodeBlock label={getExportLabel()} code={getExportCode()} />
         </div>
@@ -226,7 +280,7 @@ ${spacingVars}
             {typeScale.slice().reverse().map((t) => (
               <div key={t.step} className="flex flex-col gap-2 border-b border-neutral-100 pb-8 last:border-0 last:pb-0 dark:border-neutral-800 sm:flex-row sm:items-baseline sm:gap-8">
                 <div className="w-32 shrink-0">
-                  <div className="text-sm font-medium text-neutral-500">{getSemanticLabel(t.step)}</div>
+                  <div className="text-sm font-medium text-neutral-500">text-{getSemanticLabel(t.step)}</div>
                   <div className="font-mono text-xs text-neutral-400">{t.px}px / {t.rem}rem</div>
                 </div>
                 <div 
