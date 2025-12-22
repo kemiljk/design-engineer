@@ -13,9 +13,20 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const { token } = body;
 
+  const envToken = process.env.COURSE_PREVIEW_TOKEN;
+  
+  // Debug info for troubleshooting
+  const debugInfo = {
+    tokenProvided: !!token,
+    tokenLength: token?.length ?? 0,
+    envTokenSet: !!envToken,
+    envTokenLength: envToken?.length ?? 0,
+    tokensMatch: token === envToken,
+  };
+
   if (!isValidPreviewToken(token)) {
     return NextResponse.json(
-      { error: "Invalid preview token" },
+      { error: "Invalid preview token", debug: debugInfo },
       { status: 401 }
     );
   }
@@ -24,6 +35,7 @@ export async function POST(request: NextRequest) {
   const response = NextResponse.json({
     message: "Preview access granted",
     expiresIn: "30 days",
+    debug: debugInfo,
   });
 
   // Set cookie using response headers for better reliability

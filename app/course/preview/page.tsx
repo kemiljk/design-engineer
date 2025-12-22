@@ -30,6 +30,9 @@ export default function PreviewPage() {
           body: JSON.stringify({ token }),
         });
 
+        const data = await response.json();
+        console.log("Preview API response:", data);
+
         if (response.ok) {
           setStatus("success");
           setMessage("Preview access activated! You now have full access to all course content.");
@@ -39,13 +42,13 @@ export default function PreviewPage() {
             router.push("/course");
           }, 2000);
         } else {
-          const data = await response.json();
           setStatus("error");
-          setMessage(data.error || "Failed to activate preview access");
+          const debugStr = data.debug ? ` (tokens match: ${data.debug.tokensMatch})` : "";
+          setMessage((data.error || "Failed to activate preview access") + debugStr);
         }
-      } catch {
+      } catch (err) {
         setStatus("error");
-        setMessage("Something went wrong. Please try again.");
+        setMessage(`Something went wrong: ${err instanceof Error ? err.message : "Unknown error"}`);
       }
     }
 
