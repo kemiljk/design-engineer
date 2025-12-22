@@ -247,18 +247,18 @@ export default async function LessonPage({ params }: LessonPageProps) {
               </div>
             )}
             
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               {userId && (
-                <div className="w-full">
+                <div className="w-full md:w-auto md:order-2">
                   <MarkCompleteButton lessonPath={lessonPath} initialCompleted={lessonCompleted} />
                 </div>
               )}
               
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center justify-between gap-4 md:contents">
                 {prev ? (
                   <Link
                     href={`/course/${prev.path}`}
-                    className="group flex-1 max-w-[50%] rounded-none bg-neutral-100 p-4 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+                    className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-1 rounded-none bg-neutral-100 p-4 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
                   >
                     <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
                       <ArrowLeft className="h-3 w-3" />
@@ -269,14 +269,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="flex-1 max-w-[50%]" />
+                  <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-1" />
                 )}
 
                 {next ? (
                   next.isNewModule ? (
                     <Link
                       href={`/course/${next.path}`}
-                      className="group flex-1 max-w-[50%] rounded-none border-2 border-swiss-red bg-swiss-red/5 p-4 transition-all hover:bg-swiss-red hover:text-white"
+                      className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red/5 p-4 transition-all hover:bg-swiss-red hover:text-white"
                     >
                       <div className="flex items-center justify-end gap-2 text-xs text-swiss-red group-hover:text-white mb-1">
                         <span>Next Module: {formatModuleName(next.module)}</span>
@@ -289,7 +289,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                   ) : (
                     <Link
                       href={`/course/${next.path}`}
-                      className="group flex-1 max-w-[50%] rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                      className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
                     >
                       <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
                         <span>Next</span>
@@ -303,7 +303,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 ) : lessonPath.startsWith("00-introduction") ? (
                   <Link
                     href="/course"
-                    className="group flex-1 max-w-[50%] rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                    className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
                   >
                     <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
                       <span>You&apos;re ready!</span>
@@ -314,7 +314,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="flex-1 max-w-[50%]" />
+                  <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-3" />
                 )}
               </div>
             </div>
