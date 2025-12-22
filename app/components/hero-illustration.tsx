@@ -154,8 +154,6 @@ export function HeroIllustration() {
 
         {/* Bridge/intersection - center */}
         <g>
-        {/* Bridge/intersection - center */}
-        <g>
           {/* Animated connection lines - draw on load and repeat */}
           <motion.path
             d="M 160 120 C 200 120, 200 120, 240 100"
