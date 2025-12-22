@@ -609,7 +609,7 @@ export default function DesignEngineeringPage() {
               <h3 className="mb-2 text-2xl font-bold">
                 Ready to Learn Design Engineering?
               </h3>
-              <p className="mb-6 text-neutral-600 dark:text-neutral-400">
+              <p className="mb-6 text-neutral-600 dark:text-neutral-400 px-4">
                 Our course teaches both the design and engineering skills you
                 need, from fundamentals to advanced topics.
               </p>
