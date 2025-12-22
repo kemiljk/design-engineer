@@ -18,6 +18,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhooks/lemonsqueezy(.*)",
   "/api/course/test-access(.*)", // E2E test access control
   "/api/course/preview(.*)", // Preview access for reviewers
+  "/course/preview(.*)", // Preview activation page
   "/api/og(.*)", // OG image generation
   "/icon", // Favicon
   "/apple-icon", // Apple Touch Icon
