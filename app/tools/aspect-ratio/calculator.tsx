@@ -245,15 +245,15 @@ Image(
 
         {/* Code Output */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-lg font-bold">Code</h2>
-            <div className="flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
+            <div className="flex flex-wrap rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
               {PLATFORM_OPTIONS.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => setPlatform(option.value)}
                   className={clsx(
-                    "rounded-md px-2 py-1 text-[10px] font-medium transition-colors",
+                    "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
                     platform === option.value
                       ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
                       : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"

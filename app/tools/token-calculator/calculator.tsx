@@ -250,13 +250,13 @@ ${spacingVars}
         <div className="space-y-4">
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-neutral-900 dark:text-neutral-100">Export</h3>
-            <div className="flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
+            <div className="grid grid-cols-2 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
               {FORMAT_OPTIONS.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => setOutputFormat(option.value)}
                   className={clsx(
-                    "flex-1 rounded-md px-2 py-1.5 text-[10px] font-medium transition-colors",
+                    "rounded-md px-2 py-2 text-xs font-medium transition-colors",
                     outputFormat === option.value
                       ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
                       : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"

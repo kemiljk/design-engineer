@@ -217,15 +217,15 @@ animateFloatAsState(
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-lg font-bold">Code</h2>
-            <div className="flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
+            <div className="flex flex-wrap rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
               {FORMAT_OPTIONS.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => setOutputFormat(option.value)}
                   className={clsx(
-                    "rounded-md px-2 py-1 text-[10px] font-medium transition-colors",
+                    "rounded-md px-2 py-1.5 text-xs font-medium transition-colors sm:px-3",
                     outputFormat === option.value
                       ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
                       : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
@@ -245,7 +245,7 @@ animateFloatAsState(
       </div>
 
       {/* Preview Section */}
-      <div className="relative flex min-h-[400px] flex-col items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-950">
+      <div className="relative flex min-h-[300px] flex-col items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 sm:min-h-[400px] sm:p-8">
         <button
           onClick={() => setKey((prev) => prev + 1)}
           className="absolute right-4 top-4 rounded-none bg-white p-2 text-neutral-600 shadow-sm hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white"

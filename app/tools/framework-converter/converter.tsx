@@ -112,7 +112,7 @@ export default function FrameworkConverter() {
           <textarea
             value={inputCode}
             onChange={(e) => setInputCode(e.target.value)}
-            className="h-96 w-full resize-none rounded-lg border border-neutral-200 bg-neutral-50 p-4 font-mono text-xs leading-relaxed focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
+            className="h-64 w-full resize-none rounded-lg border border-neutral-200 bg-neutral-50 p-3 font-mono text-[10px] leading-relaxed focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950 sm:h-96 sm:p-4 sm:text-xs"
             placeholder="Paste your component code here..."
             spellCheck={false}
           />
@@ -140,8 +140,8 @@ export default function FrameworkConverter() {
               </button>
             </div>
           </div>
-          <div className="relative h-96 overflow-auto rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950">
-            <pre className="font-mono text-xs leading-relaxed text-neutral-600 dark:text-neutral-400">
+          <div className="relative h-64 overflow-auto rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:h-96 sm:p-4">
+            <pre className="whitespace-pre-wrap break-all font-mono text-[10px] leading-relaxed text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
               {convertedCode.code}
             </pre>
           </div>

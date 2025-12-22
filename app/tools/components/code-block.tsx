@@ -34,8 +34,8 @@ export function CodeBlock({ label, code, language }: CodeBlockProps) {
           )}
         </button>
       </div>
-      <div className="overflow-x-auto p-4">
-        <pre className="font-mono text-xs text-neutral-600 dark:text-neutral-400">
+      <div className="overflow-x-auto p-3 sm:p-4">
+        <pre className="whitespace-pre-wrap break-all font-mono text-[10px] text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
           {code}
         </pre>
       </div>

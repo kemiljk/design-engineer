@@ -13,6 +13,9 @@ import {
   Layers,
   Palette,
   Code2,
+  Blend,
+  Pointer,
+  AppWindow,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -59,8 +62,15 @@ const TOOL_SECTIONS: ToolSection[] = [
   },
   {
     title: "Visual Design",
-    description: "Tools for colours, shadows, and visual properties.",
+    description: "Tools for colours, shadows, gradients, and visual properties.",
     tools: [
+      {
+        title: "Gradient Generator",
+        description: "Create linear, radial, and conic gradients with export for CSS, Tailwind, SwiftUI, and Android.",
+        href: "/tools/gradient-generator",
+        icon: Blend,
+        isGated: false,
+      },
       {
         title: "Shadow Generator",
         description: "Design shadows and export for CSS, Tailwind, SwiftUI, Android, and React Native.",
@@ -77,7 +87,7 @@ const TOOL_SECTIONS: ToolSection[] = [
       },
       {
         title: "Aspect Ratio",
-        description: "Calculate dimensions and generate aspect-ratio CSS for responsive media.",
+        description: "Calculate dimensions and generate aspect-ratio code for CSS, Tailwind, SwiftUI, and Android.",
         href: "/tools/aspect-ratio",
         icon: Ratio,
         isGated: false,
@@ -93,6 +103,26 @@ const TOOL_SECTIONS: ToolSection[] = [
         description: "Generate harmonious typography and spacing scales for Tailwind v4, CSS, or SCSS.",
         href: "/tools/token-calculator",
         icon: Type,
+        isGated: false,
+      },
+    ],
+  },
+  {
+    title: "Mobile & Accessibility",
+    description: "Tools for building accessible, platform-native experiences.",
+    tools: [
+      {
+        title: "Touch Target Calculator",
+        description: "Validate touch target sizes against iOS, Android, and WCAG accessibility guidelines.",
+        href: "/tools/touch-target",
+        icon: Pointer,
+        isGated: false,
+      },
+      {
+        title: "App Icon Sizes",
+        description: "Reference guide for all required app icon dimensions across iOS, Android, macOS, and web.",
+        href: "/tools/icon-generator",
+        icon: AppWindow,
         isGated: false,
       },
     ],
@@ -153,23 +183,23 @@ export default function ToolsPage() {
                 </p>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {section.tools.map((tool) => (
                   <Link
                     key={tool.title}
                     href={tool.href}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-4 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700 sm:p-6"
                   >
                     <div>
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm">
-                        <tool.icon className="h-6 w-6" />
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm sm:h-12 sm:w-12">
+                        <tool.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                       </div>
                       
-                      <h3 className="mb-2 text-xl font-bold text-neutral-900 dark:text-white">
+                      <h3 className="mb-2 text-lg font-bold text-neutral-900 dark:text-white sm:text-xl">
                         {tool.title}
                       </h3>
                       
-                      <p className="mb-6 text-sm text-neutral-600 dark:text-neutral-400">
+                      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400 sm:mb-6">
                         {tool.description}
                       </p>
                     </div>
