@@ -140,7 +140,7 @@ export function SideNav({ sections }: SideNavProps) {
               aria-current={isActive ? "true" : undefined}
             >
               <span
-                className={`h-[11px] w-[11px] flex-shrink-0 rounded-full border-2 transition-all duration-150 ${
+                className={`h-[11px] w-[11px] shrink-0 rounded-full border-2 transition-all duration-150 ${
                   isActive
                     ? "border-swiss-red bg-swiss-red"
                     : "border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-900"

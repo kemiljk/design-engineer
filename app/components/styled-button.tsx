@@ -17,5 +17,8 @@ export const StyledButton = extendVariants(Button, {
     color: {
       primary: "rounded-none bg-swiss-red text-white",
     },
+    radius: {
+      none: "rounded-none",
+    },
   },
 });

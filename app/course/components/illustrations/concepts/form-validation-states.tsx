@@ -186,7 +186,7 @@ export function FormValidationStates() {
           fill={ILLUSTRATION_COLORS.muted}
           fontFamily="system-ui"
         >
-          • Don't rely on color alone—use icons + text
+          • Don&apos;t rely on colour alone—use icons + text
         </text>
       </g>
     </Illustration>
