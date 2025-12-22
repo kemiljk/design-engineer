@@ -6,19 +6,16 @@ export const StyledButton = extendVariants(Button, {
   variants: {
     variant: {
       stylised:
-        "bg-swiss-red text-white border border-transparent hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-200 ease-in-out font-medium px-6",
+        "rounded-none bg-swiss-red text-white border border-transparent hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-200 ease-in-out font-medium px-6",
       light:
-        "bg-transparent text-foreground hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200 font-medium",
+        "rounded-none bg-transparent text-foreground hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200 font-medium",
       flat:
-        "bg-neutral-100 dark:bg-neutral-800 text-foreground hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors duration-200 font-medium",
+        "rounded-none bg-neutral-100 dark:bg-neutral-800 text-foreground hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors duration-200 font-medium",
       outline:
-        "bg-transparent border border-neutral-300 dark:border-neutral-700 text-foreground hover:border-swiss-red hover:text-swiss-red transition-colors duration-200 font-medium",
+        "rounded-none bg-transparent border border-neutral-300 dark:border-neutral-700 text-foreground hover:border-swiss-red hover:text-swiss-red transition-colors duration-200 font-medium",
     },
     color: {
-      primary: "bg-swiss-red text-white",
+      primary: "rounded-none bg-swiss-red text-white",
     },
-  },
-  defaultVariants: {
-    radius: "none",
   },
 });

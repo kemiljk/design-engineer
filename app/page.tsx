@@ -8,7 +8,7 @@ import SectionTitle from "./components/section-title";
 import { StyledButton } from "../app/components/styled-button";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
-import { ArrowRight, BookOpen, Code2, Layout, Sparkles, Activity, Spline, Type as TypeIcon, Wrench } from "lucide-react";
+import { ArrowRight, BookOpen, Code2, Layout, Sparkles, Activity, Spline, Type as TypeIcon, Wrench, Blend, Layers, Palette, Pointer } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
@@ -201,63 +201,139 @@ const featuredTools = [
   {
     icon: Activity,
     title: "Spring Physics",
-    description: "Visualise spring animations",
+    description: "Visualise and export spring animations for Framer Motion, CSS, SwiftUI & Android",
     href: "/tools/spring-physics",
+    category: "Animation",
   },
   {
     icon: Spline,
     title: "Easing Generator",
-    description: "Custom cubic-bezier curves",
+    description: "Design custom cubic-bezier curves with interactive controls",
     href: "/tools/easing-generator",
+    category: "Animation",
+  },
+  {
+    icon: Blend,
+    title: "Gradient Generator",
+    description: "Create linear, radial & conic gradients for web and mobile",
+    href: "/tools/gradient-generator",
+    category: "Visual",
+  },
+  {
+    icon: Layers,
+    title: "Shadow Generator",
+    description: "Design shadows with export for CSS, Tailwind, SwiftUI & React Native",
+    href: "/tools/shadow-generator",
+    category: "Visual",
+  },
+  {
+    icon: Palette,
+    title: "Colour Converter",
+    description: "Convert between HEX, RGB, HSL, OKLCH and native mobile formats",
+    href: "/tools/colour-converter",
+    category: "Visual",
   },
   {
     icon: TypeIcon,
     title: "Token Calculator",
-    description: "Typography & spacing scales",
+    description: "Generate typography and spacing scales for Tailwind v4, CSS or SCSS",
     href: "/tools/token-calculator",
+    category: "Systems",
+  },
+  {
+    icon: Pointer,
+    title: "Touch Targets",
+    description: "Validate accessibility against iOS, Android & WCAG guidelines",
+    href: "/tools/touch-target",
+    category: "Mobile",
+  },
+  {
+    icon: Code2,
+    title: "Framework Converter",
+    description: "Convert components between React, Vue, Svelte, Astro & Solid",
+    href: "/tools/framework-converter",
+    category: "Code",
   },
 ];
 
 function ToolsSection() {
   return (
-    <div className="w-full border-b border-neutral-200 py-12 dark:border-neutral-800 md:py-16">
+    <div className="w-full border-y border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-              <Wrench className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+        {/* Header */}
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="mb-2 flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center bg-swiss-red">
+                <Wrench className="h-4 w-4 text-white" />
+              </div>
+              <span className="font-mono text-xs uppercase tracking-widest text-swiss-red">
+                Free Tools
+              </span>
             </div>
-            <div>
-              <h2 className="text-lg font-bold">Free Tools</h2>
-              <p className="text-sm text-neutral-500">
-                Utilities to streamline your workflow
-              </p>
-            </div>
+            <h2 className="text-2xl font-bold md:text-3xl">
+              Design Engineering Toolkit
+            </h2>
+            <p className="mt-2 max-w-xl text-neutral-600 dark:text-neutral-400">
+              Professional utilities for animation, colour, typography, and cross-platform development. No sign-up required.
+            </p>
           </div>
+          <NextLink
+            href="/tools"
+            className="group flex items-center gap-2 bg-neutral-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
+          >
+            View all 12 tools
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </NextLink>
+        </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            {featuredTools.map((tool) => (
-              <NextLink
-                key={tool.title}
-                href={tool.href}
-                className="group flex items-center gap-3 border border-neutral-200 bg-white px-4 py-3 transition-all hover:border-neutral-300 hover:shadow-sm dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
-              >
-                <tool.icon className="h-4 w-4 text-neutral-400 transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300" />
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium">{tool.title}</span>
-                  <span className="hidden text-xs text-neutral-500 sm:block">
-                    {tool.description}
-                  </span>
-                </div>
-              </NextLink>
-            ))}
+        {/* Tools Grid */}
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredTools.map((tool) => (
             <NextLink
-              href="/tools"
-              className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-900 dark:hover:text-white"
+              key={tool.title}
+              href={tool.href}
+              className="group relative flex flex-col border border-neutral-200 bg-white p-4 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
             >
-              View all
-              <ArrowRight className="h-3 w-3" />
+              <div className="mb-3 flex items-center justify-between">
+                <div className="flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors group-hover:bg-swiss-red dark:bg-neutral-800">
+                  <tool.icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400" />
+                </div>
+                <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+                  {tool.category}
+                </span>
+              </div>
+              <h3 className="mb-1 font-bold text-neutral-900 dark:text-white">
+                {tool.title}
+              </h3>
+              <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                {tool.description}
+              </p>
+              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-swiss-red opacity-0 transition-opacity group-hover:opacity-100">
+                Open tool
+                <ArrowRight className="h-3 w-3" />
+              </div>
             </NextLink>
+          ))}
+        </div>
+
+        {/* Bottom Stats */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 border-t border-neutral-200 pt-8 text-sm text-neutral-500 dark:border-neutral-800 md:gap-10">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-neutral-900 dark:text-white">100%</span>
+            <span>Free to use</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-neutral-900 dark:text-white">Web + Mobile</span>
+            <span>Platform support</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-neutral-900 dark:text-white">Tailwind v4</span>
+            <span>Ready exports</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-neutral-900 dark:text-white">No login</span>
+            <span>Required</span>
           </div>
         </div>
       </div>
