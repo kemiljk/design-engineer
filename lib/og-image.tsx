@@ -8,16 +8,15 @@ type OGImageProps = {
 };
 
 async function loadFonts() {
+  // Fetch TTF fonts - next/og requires TTF or OTF format (not WOFF/WOFF2)
   const [instrumentSerifData, hostGroteskData] = await Promise.all([
+    // Instrument Serif Regular TTF from fontsource CDN
     fetch(
-      new URL(
-        "https://fonts.gstatic.com/s/instrumentserif/v4/jizBRFtNs2ka5fXjeivQ4LroWlx-2zIZj1bIkNo.woff"
-      )
+      "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@latest/latin-400-normal.ttf"
     ).then((res) => res.arrayBuffer()),
+    // Host Grotesk Medium TTF from fontsource CDN
     fetch(
-      new URL(
-        "https://fonts.gstatic.com/s/hostgrotesk/v3/Ug8IH5l7TP2eBFt-YolX7PgKuDqpZK7-uh8zpVmVrBQ.woff"
-      )
+      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-500-normal.ttf"
     ).then((res) => res.arrayBuffer()),
   ]);
 
