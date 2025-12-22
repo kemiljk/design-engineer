@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copy, Check, Settings2 } from "lucide-react";
-import { clsx } from "clsx";
+import { Settings2 } from "lucide-react";
+import { CssFormatToggle, CssFormat, CodeBlock } from "../components";
 
 type ScaleRatio = {
   name: string;
@@ -24,27 +24,20 @@ export default function TokenCalculator() {
   const [baseSize, setBaseSize] = useState(16);
   const [scaleRatio, setScaleRatio] = useState(1.25);
   const [spacingBase, setSpacingBase] = useState(4);
-  const [copiedSection, setCopiedSection] = useState<string | null>(null);
-
-  const handleCopy = (text: string, section: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedSection(section);
-    setTimeout(() => setCopiedSection(null), 2000);
-  };
+  const [cssFormat, setCssFormat] = useState<CssFormat>("tailwind");
 
   // Generate Type Scale
-  const typeSteps = [-2, -1, 0, 1, 2, 3, 4, 5, 6]; // xs to 6xl approx
+  const typeSteps = [-2, -1, 0, 1, 2, 3, 4, 5, 6];
   const typeScale = typeSteps.map((step) => {
     const value = baseSize * Math.pow(scaleRatio, step);
     return {
       step,
       px: value.toFixed(2),
       rem: (value / baseSize).toFixed(3),
-      label: step === 0 ? "base" : step > 0 ? `xl-${step}` : `xs-${Math.abs(step)}` // Simplified labeling
+      label: step === 0 ? "base" : step > 0 ? `xl-${step}` : `xs-${Math.abs(step)}`
     };
   });
   
-  // Mapping steps to semantic names for display
   const getSemanticLabel = (step: number) => {
     if (step === 0) return "text-base";
     if (step === 1) return "text-lg";
@@ -58,7 +51,7 @@ export default function TokenCalculator() {
     return `text-${step}`;
   };
 
-  // Generate Spacing Scale (multiples)
+  // Generate Spacing Scale
   const spacingSteps = [0.5, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
   const spacingScale = spacingSteps.map((step) => {
     const px = spacingBase * step;
@@ -67,7 +60,7 @@ export default function TokenCalculator() {
       step,
       px: px,
       rem: rem.toFixed(3),
-      label: step.toString().replace(".", "_"), // e.g. 1.5 -> 1_5
+      label: step.toString().replace(".", "_"),
     };
   });
 
@@ -109,6 +102,51 @@ ${typeVars}
   /* Spacing */
 ${spacingVars}
 }`;
+  };
+
+  const generateSCSS = () => {
+    const typeVars = typeScale.map(
+      (t) => `  "${getSemanticLabel(t.step).replace("text-", "")}": ${t.rem}rem`
+    ).join(",\n");
+
+    const spacingVars = spacingScale.map(
+      (s) => `  "${s.step}": ${s.rem}rem`
+    ).join(",\n");
+
+    return `// Typography Scale
+$font-sizes: (
+${typeVars}
+);
+
+// Spacing Scale
+$spacing: (
+${spacingVars}
+);
+
+// Usage: map-get($font-sizes, "base")
+// Usage: map-get($spacing, "4")`;
+  };
+
+  const getExportCode = () => {
+    switch (cssFormat) {
+      case "tailwind":
+        return generateTailwindConfig();
+      case "css":
+        return generateCSSVariables();
+      case "scss":
+        return generateSCSS();
+    }
+  };
+
+  const getExportLabel = () => {
+    switch (cssFormat) {
+      case "tailwind":
+        return "Tailwind Config";
+      case "css":
+        return "CSS Variables";
+      case "scss":
+        return "SCSS Map";
+    }
   };
 
   return (
@@ -167,27 +205,21 @@ ${spacingVars}
 
         {/* Exports */}
         <div className="space-y-4">
+          <div className="flex items-center justify-between">
             <h3 className="font-bold text-neutral-900 dark:text-neutral-100">Export</h3>
-            <div className="space-y-4">
-                <ExportBlock 
-                    label="Tailwind Config"
-                    code={generateTailwindConfig()}
-                    onCopy={() => handleCopy(generateTailwindConfig(), "tailwind")}
-                    copied={copiedSection === "tailwind"}
-                />
-                <ExportBlock 
-                    label="CSS Variables"
-                    code={generateCSSVariables()}
-                    onCopy={() => handleCopy(generateCSSVariables(), "css")}
-                    copied={copiedSection === "css"}
-                />
-            </div>
+            <CssFormatToggle
+              value={cssFormat}
+              onChange={setCssFormat}
+              formats={["tailwind", "css", "scss"]}
+            />
+          </div>
+          <CodeBlock label={getExportLabel()} code={getExportCode()} />
         </div>
       </div>
 
-      {/* Visualizer */}
+      {/* Visualiser */}
       <div className="lg:col-span-8 space-y-8">
-        {/* Typography Visualizer */}
+        {/* Typography Visualiser */}
         <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h2 className="mb-6 text-lg font-bold">Typography Scale</h2>
           <div className="space-y-8">
@@ -208,7 +240,7 @@ ${spacingVars}
           </div>
         </div>
 
-        {/* Spacing Visualizer */}
+        {/* Spacing Visualiser */}
         <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h2 className="mb-6 text-lg font-bold">Spacing Scale</h2>
           <div className="flex flex-wrap gap-4 items-end">
@@ -226,41 +258,6 @@ ${spacingVars}
             ))}
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function ExportBlock({
-  label,
-  code,
-  onCopy,
-  copied,
-}: {
-  label: string;
-  code: string;
-  onCopy: () => void;
-  copied: boolean;
-}) {
-  return (
-    <div className="group relative rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
-      <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-2 dark:border-neutral-800">
-        <span className="text-xs font-medium text-neutral-500">{label}</span>
-        <button
-          onClick={onCopy}
-          className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
-        >
-          {copied ? (
-            <Check className="h-3.5 w-3.5 text-green-500" />
-          ) : (
-            <Copy className="h-3.5 w-3.5" />
-          )}
-        </button>
-      </div>
-      <div className="overflow-x-auto p-4">
-        <pre className="font-mono text-[10px] text-neutral-600 dark:text-neutral-400">
-          {code}
-        </pre>
       </div>
     </div>
   );

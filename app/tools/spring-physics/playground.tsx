@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, useSpring, useMotionValue, useTransform } from "motion/react";
-import { Copy, RefreshCw, Check } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import { motion } from "motion/react";
+import { RefreshCw } from "lucide-react";
 import { clsx } from "clsx";
+import { CodeBlock } from "../components";
 
 type SpringConfig = {
   mass: number;
   stiffness: number;
   damping: number;
 };
+
+type OutputFormat = "framer" | "swift" | "css" | "android";
 
 const PRESETS: Record<string, SpringConfig> = {
   Bouncy: { mass: 1, stiffness: 300, damping: 10 },
@@ -19,12 +22,17 @@ const PRESETS: Record<string, SpringConfig> = {
   Stiff: { mass: 1, stiffness: 200, damping: 50 },
 };
 
+const FORMAT_OPTIONS: { value: OutputFormat; label: string }[] = [
+  { value: "framer", label: "Framer Motion" },
+  { value: "swift", label: "SwiftUI" },
+  { value: "css", label: "CSS" },
+  { value: "android", label: "Android" },
+];
+
 export default function SpringPhysicsPlayground() {
   const [config, setConfig] = useState<SpringConfig>(PRESETS.Bouncy);
   const [activePreset, setActivePreset] = useState<string>("Bouncy");
-  const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
-  
-  // Animation trigger state
+  const [outputFormat, setOutputFormat] = useState<OutputFormat>("framer");
   const [key, setKey] = useState(0);
 
   const handlePresetClick = (name: string) => {
@@ -34,40 +42,91 @@ export default function SpringPhysicsPlayground() {
   };
 
   const handleSliderChange = (
-    key: keyof SpringConfig,
+    configKey: keyof SpringConfig,
     value: number
   ) => {
-    setConfig((prev) => ({ ...prev, [key]: value }));
+    setConfig((prev) => ({ ...prev, [configKey]: value }));
     setActivePreset("Custom");
     setKey((prev) => prev + 1);
   };
 
-  const copyToClipboard = (text: string, format: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedFormat(format);
-    setTimeout(() => setCopiedFormat(null), 2000);
-  };
+  // Generate CSS spring keyframes using physics simulation
+  const generateCssSpring = useMemo(() => {
+    const { mass, stiffness, damping } = config;
+    const steps = 60;
+    const duration = 1;
+    const keyframes: number[] = [];
+    
+    // Physics simulation
+    let position = 0;
+    let velocity = 1;
+    const dt = duration / steps;
+    
+    for (let i = 0; i <= steps; i++) {
+      const springForce = -stiffness * (position - 1);
+      const dampingForce = -damping * velocity;
+      const acceleration = (springForce + dampingForce) / mass;
+      
+      velocity += acceleration * dt;
+      position += velocity * dt;
+      keyframes.push(position);
+    }
+    
+    // Generate linear() function values
+    const linearValues = keyframes.map((v, i) => {
+      const progress = (i / steps) * 100;
+      return `${v.toFixed(3)}`;
+    }).join(", ");
+    
+    // Calculate estimated duration based on settling time
+    const settlingTime = Math.min(2, Math.max(0.3, 4 * mass / damping));
+    
+    return {
+      linearValues,
+      duration: settlingTime.toFixed(2)
+    };
+  }, [config]);
 
-  // Generate code snippets
-  const framerCode = `transition={{
+  // Code snippets for each format
+  const codeSnippets: Record<OutputFormat, string> = {
+    framer: `transition={{
   type: "spring",
   mass: ${config.mass},
   stiffness: ${config.stiffness},
   damping: ${config.damping}
-}}`;
-
-  const swiftCode = `.animation(.spring(
+}}`,
+    swift: `.animation(.spring(
   response: ${calculateResponse(config.stiffness, config.mass).toFixed(2)},
   dampingFraction: ${calculateDampingRatio(config.stiffness, config.damping, config.mass).toFixed(2)}
-))`;
+))`,
+    css: `/* CSS Spring Animation */
+.element {
+  transition: transform ${generateCssSpring.duration}s linear(${generateCssSpring.linearValues});
+}
 
-  const cssCode = `/* CSS Linear Approximation */
-transition: all 0.5s linear(
-  /* Complex calculation required for accurate CSS spring approximation */
-  /* This is a placeholder as direct mapping is non-trivial without a generator library */
-  0, 0.009, 0.035, 0.076, 0.133, 0.203, 0.284, 0.373, 0.468, 0.566,
-  0.664, 0.759, 0.85, 0.933, 1
-);`;
+/* Or use keyframes for more control */
+@keyframes spring-in {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.element {
+  animation: spring-in ${generateCssSpring.duration}s linear(${generateCssSpring.linearValues});
+}`,
+    android: `// Jetpack Compose
+import androidx.compose.animation.core.*
+
+val springSpec = spring<Float>(
+    dampingRatio = ${calculateDampingRatio(config.stiffness, config.damping, config.mass).toFixed(2)}f,
+    stiffness = ${config.stiffness}f
+)
+
+// Usage
+animateFloatAsState(
+    targetValue = 1f,
+    animationSpec = springSpec
+)`,
+  };
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
@@ -158,22 +217,30 @@ transition: all 0.5s linear(
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-lg font-bold">Code</h2>
-          
-          <div className="space-y-3">
-            <CodeBlock
-              label="Framer Motion / React"
-              code={framerCode}
-              onCopy={() => copyToClipboard(framerCode, "framer")}
-              copied={copiedFormat === "framer"}
-            />
-            <CodeBlock
-              label="SwiftUI"
-              code={swiftCode}
-              onCopy={() => copyToClipboard(swiftCode, "swift")}
-              copied={copiedFormat === "swift"}
-            />
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-bold">Code</h2>
+            <div className="flex rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
+              {FORMAT_OPTIONS.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => setOutputFormat(option.value)}
+                  className={clsx(
+                    "rounded-md px-2 py-1 text-[10px] font-medium transition-colors",
+                    outputFormat === option.value
+                      ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
+                      : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
+                  )}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
+          
+          <CodeBlock
+            label={FORMAT_OPTIONS.find(f => f.value === outputFormat)?.label || ""}
+            code={codeSnippets[outputFormat]}
+          />
         </div>
       </div>
 
@@ -229,50 +296,11 @@ transition: all 0.5s linear(
   );
 }
 
-function CodeBlock({
-  label,
-  code,
-  onCopy,
-  copied,
-}: {
-  label: string;
-  code: string;
-  onCopy: () => void;
-  copied: boolean;
-}) {
-  return (
-    <div className="group relative rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
-      <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-2 dark:border-neutral-800">
-        <span className="text-xs font-medium text-neutral-500">{label}</span>
-        <button
-          onClick={onCopy}
-          className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
-        >
-          {copied ? (
-            <Check className="h-3.5 w-3.5 text-green-500" />
-          ) : (
-            <Copy className="h-3.5 w-3.5" />
-          )}
-        </button>
-      </div>
-      <div className="overflow-x-auto p-4">
-        <pre className="font-mono text-xs text-neutral-600 dark:text-neutral-400">
-          {code}
-        </pre>
-      </div>
-    </div>
-  );
-}
-
-// Helpers for SwiftUI conversion
-// Approximate formulas for converting stiffness/mass/damping to response/dampingFraction
+// Helpers for SwiftUI/Android conversion
 function calculateResponse(stiffness: number, mass: number): number {
-  // T = 2 * pi * sqrt(mass / stiffness)
-  // response is roughly the period T
   return 2 * Math.PI * Math.sqrt(mass / stiffness);
 }
 
 function calculateDampingRatio(stiffness: number, damping: number, mass: number): number {
-  // dampingRatio = damping / (2 * sqrt(mass * stiffness))
   return damping / (2 * Math.sqrt(mass * stiffness));
 }
