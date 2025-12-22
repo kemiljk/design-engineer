@@ -1,12 +1,21 @@
+import "server-only";
 import { cookies } from "next/headers";
 
-const PREVIEW_TOKEN = process.env.COURSE_PREVIEW_TOKEN;
 const PREVIEW_COOKIE_NAME = "dxe_preview";
+
+/**
+ * Get the preview token from environment
+ * Read at runtime to ensure it's available in serverless functions
+ */
+function getPreviewToken(): string | undefined {
+  return process.env.COURSE_PREVIEW_TOKEN;
+}
 
 /**
  * Check if a preview token is valid
  */
 export function isValidPreviewToken(token: string | null): boolean {
+  const PREVIEW_TOKEN = getPreviewToken();
   if (!PREVIEW_TOKEN || !token) return false;
   return token === PREVIEW_TOKEN;
 }

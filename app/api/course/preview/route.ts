@@ -20,8 +20,14 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const cookieStore = await cookies();
-  cookieStore.set(PREVIEW_COOKIE_NAME, token, {
+  // Create response with cookie set via headers
+  const response = NextResponse.json({
+    message: "Preview access granted",
+    expiresIn: "30 days",
+  });
+
+  // Set cookie using response headers for better reliability
+  response.cookies.set(PREVIEW_COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
@@ -29,10 +35,7 @@ export async function POST(request: NextRequest) {
     path: "/",
   });
 
-  return NextResponse.json({
-    message: "Preview access granted",
-    expiresIn: "30 days",
-  });
+  return response;
 }
 
 /**
@@ -40,23 +43,40 @@ export async function POST(request: NextRequest) {
  * Remove preview cookie
  */
 export async function DELETE() {
-  const cookieStore = await cookies();
-  cookieStore.delete(PREVIEW_COOKIE_NAME);
-
-  return NextResponse.json({
+  const response = NextResponse.json({
     message: "Preview access removed",
   });
+
+  response.cookies.delete(PREVIEW_COOKIE_NAME);
+
+  return response;
 }
 
 /**
  * GET /api/course/preview
  * Check current preview status
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
   const cookieStore = await cookies();
   const previewCookie = cookieStore.get(PREVIEW_COOKIE_NAME);
+  const hasAccess = isValidPreviewToken(previewCookie?.value ?? null);
+  
+  // Include debug info if requested (useful for troubleshooting)
+  const debug = request.nextUrl.searchParams.get("debug") === "true";
+  
+  if (debug) {
+    return NextResponse.json({
+      hasPreviewAccess: hasAccess,
+      debug: {
+        hasCookie: !!previewCookie,
+        cookieValueLength: previewCookie?.value?.length ?? 0,
+        envVarSet: !!process.env.COURSE_PREVIEW_TOKEN,
+        envVarLength: process.env.COURSE_PREVIEW_TOKEN?.length ?? 0,
+      },
+    });
+  }
 
   return NextResponse.json({
-    hasPreviewAccess: isValidPreviewToken(previewCookie?.value ?? null),
+    hasPreviewAccess: hasAccess,
   });
 }
