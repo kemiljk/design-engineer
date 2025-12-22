@@ -1,7 +1,15 @@
-import React from "react";
 import { Metadata } from "next";
 import { PageHeader } from "../components/page-header";
-import { ArrowRight, Code2, Layout, Sparkles, Target, Zap, CheckCircle2 } from "lucide-react";
+import { Callout } from "@/app/components/ui";
+import {
+  ArrowRight,
+  Code2,
+  Layout,
+  Sparkles,
+  Target,
+  Zap,
+  CheckCircle2,
+} from "lucide-react";
 import NextLink from "next/link";
 
 export const metadata: Metadata = {
@@ -15,17 +23,17 @@ export default function DesignEngineeringPage() {
     <main className="min-h-screen bg-white dark:bg-black">
       <PageHeader
         title="Design Engineering"
-        description="The discipline that bridges design and development—and why it matters."
+        description="The discipline that bridges design and development, and why it matters."
       />
 
       <div className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
         {/* Introduction */}
         <div className="mb-16">
-          <p className="text-xl leading-relaxed text-neutral-700 dark:text-neutral-300 md:text-2xl">
-            Design Engineering is a discipline that exists at the convergence
-            of design and front-end development. It's not simply being "good
-            at both"—it's a distinct skillset focused on the space where
-            design decisions meet technical implementation.
+          <p className="text-xl leading-relaxed text-neutral-700 md:text-2xl dark:text-neutral-300">
+            Design Engineering is a discipline that exists at the convergence of
+            design and front-end development. It&apos;s not simply being
+            &quot;good at both&quot;, it&apos;s a distinct skillset focused on
+            the space where design decisions meet technical implementation.
           </p>
         </div>
 
@@ -34,7 +42,7 @@ export default function DesignEngineeringPage() {
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">
             What is a Design Engineer?
           </h2>
-          
+
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             A Design Engineer can take a concept from initial idea through to
             shipped product. They understand visual design principles deeply
@@ -44,15 +52,15 @@ export default function DesignEngineeringPage() {
           </p>
 
           <p className="mb-8 text-neutral-700 dark:text-neutral-300">
-            This isn't about being a designer who can code a bit, or an
-            engineer who knows some Figma shortcuts. Design Engineers operate
-            in the overlap—they're fluent in both languages and can translate
+            This isn&apos;t about being a designer who can code a bit, or an
+            engineer who knows some Figma shortcuts. Design Engineers operate in
+            the overlap. They&apos;re fluent in both languages and can translate
             between them without losing fidelity.
           </p>
 
           <div className="my-8 grid gap-6 md:grid-cols-3">
             <div className="border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
-              <Layout className="mb-3 h-8 w-8 text-swiss-red" />
+              <Layout className="text-swiss-red mb-3 h-8 w-8" />
               <h3 className="mb-2 font-bold">Design Fluency</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 Deep understanding of typography, colour, spacing, layout, and
@@ -60,15 +68,15 @@ export default function DesignEngineeringPage() {
               </p>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
-              <Code2 className="mb-3 h-8 w-8 text-swiss-red" />
+              <Code2 className="text-swiss-red mb-3 h-8 w-8" />
               <h3 className="mb-2 font-bold">Technical Proficiency</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Production-quality code. Understands performance,
-                accessibility, and cross-platform constraints.
+                Production-quality code. Understands performance, accessibility,
+                and cross-platform constraints.
               </p>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
-              <Sparkles className="mb-3 h-8 w-8 text-swiss-red" />
+              <Sparkles className="text-swiss-red mb-3 h-8 w-8" />
               <h3 className="mb-2 font-bold">The Bridge</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 Translates between design and engineering teams without losing
@@ -77,24 +85,22 @@ export default function DesignEngineeringPage() {
             </div>
           </div>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">
-            A Note on Titles
-          </h3>
-          
+          <h3 className="mt-8 mb-4 text-2xl font-bold">A Note on Titles</h3>
+
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            The title varies by company. You'll see Design Engineer, UI
+            The title varies by company. You&apos;ll see Design Engineer, UI
             Engineer, Frontend Designer, Design Technologist, Creative
-            Developer, Product Designer (Engineer), and others—all describing
-            similar work. The common thread is the convergence of design
-            thinking and engineering execution.
+            Developer, Product Designer (Engineer), and others. They&apos;re all
+            describing similar work. The common thread is the convergence of
+            design thinking and engineering execution.
           </p>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            Some companies use these titles interchangeably. Others draw
-            subtle distinctions based on where someone sits on the
-            design-to-engineering spectrum. What matters more than the title
-            is the capability: can you ship beautiful, polished interfaces
-            that work?
+            Some companies use these titles interchangeably. Others draw subtle
+            distinctions based on where someone sits on the
+            design-to-engineering spectrum. What matters more than the title is
+            the capability: can you ship beautiful, polished interfaces that
+            work?
           </p>
         </div>
 
@@ -111,13 +117,13 @@ export default function DesignEngineeringPage() {
             feedback loop between design and implementation.
           </p>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">
+          <h3 className="mt-8 mb-4 text-2xl font-bold">
             Typical Responsibilities
           </h3>
 
           <div className="my-6 space-y-4">
             <div className="flex gap-4">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Design System Development</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -128,7 +134,18 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
+              <div>
+                <h4 className="mb-1 font-bold">End-to-end Project Delivery</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Taking a project from idea to launch. Leading on design and
+                  implementation, shaping the scope, and coordinating decisions
+                  across product, design, and engineering.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Prototyping</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -139,18 +156,18 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Implementation</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Building production UIs with pixel-perfect attention to
-                  detail. Not just "close enough"—exactly as designed, with
-                  smooth animations and proper polish.
+                  detail. Not just &quot;close enough&quot;. Exactly as
+                  designed, with smooth animations and proper polish.
                 </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">
                   Design-Engineering Translation
@@ -163,19 +180,19 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Tooling and Infrastructure</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Building internal tools that help designers and engineers work
-                  better together—design system documentation, Figma plugins,
-                  component playgrounds.
+                  better together, like design system documentation, Figma
+                  plugins, component playgrounds.
                 </p>
               </div>
             </div>
           </div>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">Team Structure</h3>
+          <h3 className="mt-8 mb-4 text-2xl font-bold">Team Structure</h3>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             Design Engineers might be embedded in product teams, sit within a
@@ -201,27 +218,28 @@ export default function DesignEngineeringPage() {
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             Product development has historically suffered from a translation
-            problem. Designers create in tools optimised for visual
-            exploration. Engineers implement in environments optimised for
-            logic and scale. The handoff between these worlds is where quality
-            degrades.
+            problem. Designers create in tools optimised for visual exploration.
+            Engineers implement in environments optimised for logic and scale.
+            The handoff between these worlds is where quality degrades.
           </p>
 
-          <p className="mb-8 text-neutral-700 dark:text-neutral-300">Design Engineers solve this by being native to both.</p>
+          <p className="mb-8 text-neutral-700 dark:text-neutral-300">
+            Design Engineers solve this by being native to both.
+          </p>
 
-          <div className="my-8 border-l-4 border-swiss-red bg-neutral-50 p-6 dark:bg-neutral-900">
+          <Callout className="my-8">
             <p className="text-lg font-medium">
-              "The best products don't feel designed and engineered
-              separately—they feel cohesive. Design Engineers make that
-              cohesion possible."
+              &quot;The best products don&apos;t feel designed and engineered
+              separately. They feel cohesive. Design Engineers make that
+              cohesion possible.&quot;
             </p>
-          </div>
+          </Callout>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">Business Impact</h3>
+          <h3 className="mt-8 mb-4 text-2xl font-bold">Business Impact</h3>
 
           <div className="my-6 space-y-4">
             <div className="flex gap-4">
-              <Target className="mt-1 h-6 w-6 flex-shrink-0 text-swiss-red" />
+              <Target className="text-swiss-red mt-1 h-6 w-6 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Faster Iteration</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -232,48 +250,47 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Target className="mt-1 h-6 w-6 flex-shrink-0 text-swiss-red" />
+              <Target className="text-swiss-red mt-1 h-6 w-6 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Higher Quality Output</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  When the person implementing understands design intent
-                  deeply, details don't get lost. Animations feel right. Spacing
-                  is precise. The product feels polished.
+                  When the person implementing understands design intent deeply,
+                  details don&apos;t get lost. Animations feel right. Spacing is
+                  precise. The product feels polished.
                 </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <Target className="mt-1 h-6 w-6 flex-shrink-0 text-swiss-red" />
+              <Target className="text-swiss-red mt-1 h-6 w-6 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Better Communication</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Design Engineers speak both languages, reducing
-                  miscommunication and helping teams understand each other's
-                  constraints and possibilities.
+                  miscommunication and helping teams understand each
+                  other&apos;s constraints and possibilities.
                 </p>
               </div>
             </div>
             <div className="flex gap-4">
-              <Target className="mt-1 h-6 w-6 flex-shrink-0 text-swiss-red" />
+              <Target className="text-swiss-red mt-1 h-6 w-6 flex-shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Design System Adoption</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Design systems built by people who understand both design and
-                  engineering are more likely to actually get used—they're
+                  engineering are more likely to actually get used. They&apos;re
                   designed for real implementation.
                 </p>
               </div>
             </div>
           </div>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">Product Impact</h3>
+          <h3 className="mt-8 mb-4 text-2xl font-bold">Product Impact</h3>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            Beyond velocity and process improvements, Design Engineers raise
-            the quality bar. They notice when an animation timing feels
-            slightly off. They catch spacing inconsistencies. They ensure
-            interactions are smooth, accessible, and feel native to the
-            platform.
+            Beyond velocity and process improvements, Design Engineers raise the
+            quality bar. They notice when an animation timing feels slightly
+            off. They catch spacing inconsistencies. They ensure interactions
+            are smooth, accessible, and feel native to the platform.
           </p>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
@@ -292,12 +309,21 @@ export default function DesignEngineeringPage() {
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             With AI tools making it easier to generate designs and code,
-            there's a growing category of work we call "Vibe Coding"—prompting
-            AI and hoping for good output. It's tempting, fast, and
-            increasingly accessible.
+            there&apos;s a growing category of work we call &quot;Vibe
+            Coding&quot;. It&apos;s prompting AI and hoping for good output.
+            It&apos;s tempting, fast, and increasingly accessible.
           </p>
 
-          <p className="mb-8 text-neutral-700 dark:text-neutral-300">But it's fundamentally different from Design Engineering.</p>
+          <p className="mb-6 text-neutral-700 dark:text-neutral-300">
+            The risk is shipping what you don&apos;t understand. It can be easy
+            to accidentally expose API keys in the client, mishandle personal
+            data, or skip basic security controls like authentication,
+            authorisation, and permission checks.
+          </p>
+
+          <p className="mb-8 text-neutral-700 dark:text-neutral-300">
+            But it&apos;s fundamentally different from Design Engineering.
+          </p>
 
           <div className="my-8 overflow-hidden border border-neutral-200 dark:border-neutral-800">
             <table className="w-full">
@@ -305,7 +331,9 @@ export default function DesignEngineeringPage() {
                 <tr>
                   <th className="p-4 text-left font-bold">Aspect</th>
                   <th className="p-4 text-left font-bold">Vibe Coding</th>
-                  <th className="p-4 text-left font-bold">Design Engineering</th>
+                  <th className="p-4 text-left font-bold">
+                    Design Engineering
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800">
@@ -330,7 +358,7 @@ export default function DesignEngineeringPage() {
                 <tr>
                   <td className="p-4 font-medium">Understanding</td>
                   <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Surface-level "this looks okay"
+                    Surface-level &quot;this looks okay&quot;
                   </td>
                   <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
                     Deep knowledge of why choices work
@@ -366,7 +394,7 @@ export default function DesignEngineeringPage() {
                 <tr>
                   <td className="p-4 font-medium">Edge Cases</td>
                   <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Breaks down when AI doesn't "get it"
+                    Breaks down when AI doesn&apos;t &quot;get it&quot;
                   </td>
                   <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
                     Handles complexity with understanding
@@ -378,27 +406,29 @@ export default function DesignEngineeringPage() {
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             Vibe Coding might get you 70% of the way there quickly. But that
-            last 30%—the polish, the edge cases, the subtle refinements that
-            make interfaces feel professional—requires actual understanding.
+            last 30% is the polish, the edge cases, and the subtle refinements
+            that make interfaces feel professional. That requires actual
+            understanding.
           </p>
 
           <p className="mb-8 text-neutral-700 dark:text-neutral-300">
-            Design Engineers use AI tools. But they use them as
-            accelerators, not replacements for knowledge. They can evaluate
-            AI output critically because they understand the principles. They
-            know when to accept a suggestion and when to override it.
+            Design Engineers use AI tools. But they use them as accelerators,
+            not replacements for knowledge. They can evaluate AI output
+            critically because they understand the principles. They know when to
+            accept a suggestion and when to override it.
           </p>
 
-          <div className="my-8 border-l-4 border-swiss-red bg-neutral-50 p-6 dark:bg-neutral-900">
+          <div className="border-swiss-red my-8 border-l-4 bg-neutral-50 p-6 dark:bg-neutral-900">
             <p className="mb-2 font-bold">The Real Difference:</p>
             <p className="text-neutral-700 dark:text-neutral-300">
-              Vibe Coding asks "Does this look okay?" Design Engineering asks
-              "Why does this work, and how can we make it better?"
+              Vibe Coding asks &quot;Does this look okay?&quot; Design
+              Engineering asks &quot;Why does this work, and how can we make it
+              better?&quot;
             </p>
           </div>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            AI is a powerful tool in a Design Engineer's kit. But the value
+            AI is a powerful tool in a Design Engineer&apos;s kit. But the value
             comes from knowing design principles deeply enough to guide the
             tools, not just accept their output.
           </p>
@@ -411,21 +441,21 @@ export default function DesignEngineeringPage() {
           </h2>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            Design Engineering roles exist across the tech industry—from
+            Design Engineering roles exist across the tech industry, from
             established tech giants to early-stage startups. The role is
             particularly valuable at companies that care deeply about product
             quality and design craft.
           </p>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">Notable Examples</h3>
+          <h3 className="mt-8 mb-4 text-2xl font-bold">Notable Examples</h3>
 
           <div className="my-6 grid gap-6 md:grid-cols-2">
             <div className="border border-neutral-200 p-6 dark:border-neutral-800">
               <h4 className="mb-2 font-bold">Apple</h4>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Design and engineering integration is fundamental to Apple's
-                culture. Design Engineers work across platforms, ensuring
-                consistency and polish in every interaction.
+                Design and engineering integration is fundamental to
+                Apple&apos;s culture. Design Engineers work across platforms,
+                ensuring consistency and polish in every interaction.
               </p>
             </div>
             <div className="border border-neutral-200 p-6 dark:border-neutral-800">
@@ -467,10 +497,10 @@ export default function DesignEngineeringPage() {
             </div>
           </div>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">Beyond Big Tech</h3>
+          <h3 className="mt-8 mb-4 text-2xl font-bold">Beyond Big Tech</h3>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            Design Engineering isn't just for major companies. Startups
+            Design Engineering isn&apos;t just for major companies. Startups
             increasingly value the role because it allows small teams to move
             fast without sacrificing quality. One Design Engineer can do the
             work that might otherwise require dedicated designers and frontend
@@ -478,7 +508,7 @@ export default function DesignEngineeringPage() {
           </p>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            You'll also find Design Engineers at agencies, design tool
+            You&apos;ll also find Design Engineers at agencies, design tool
             companies, developer tool companies, and anywhere that product
             quality and design craft matter. The role is particularly valuable
             when:
@@ -492,25 +522,25 @@ export default function DesignEngineeringPage() {
             <li>The product serves designers or developers</li>
           </ul>
 
-          <h3 className="mb-4 mt-8 text-2xl font-bold">Hiring Trends</h3>
+          <h3 className="mt-8 mb-4 text-2xl font-bold">Hiring Trends</h3>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            Demand for Design Engineers has grown significantly in recent
-            years. As products become more interactive and design-forward,
-            companies realise they need people who can bridge both worlds.
+            Demand for Design Engineers has grown significantly in recent years.
+            As products become more interactive and design-forward, companies
+            realise they need people who can bridge both worlds.
           </p>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            The challenge is that traditional hiring pipelines don't produce
-            many Design Engineers—design programmes don't teach production
-            code, and engineering programmes don't teach visual design. Most
-            Design Engineers are self-taught or have deliberately pursued both
-            disciplines.
+            The challenge is that traditional hiring pipelines don&apos;t
+            produce many Design Engineers. Design programmes don&apos;t teach
+            production code, and engineering programmes don&apos;t teach visual
+            design. Most Design Engineers are self-taught or have deliberately
+            pursued both disciplines.
           </p>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             This creates opportunity. Companies are actively looking for Design
-            Engineers, and the supply hasn't caught up with demand.
+            Engineers, and the supply hasn&apos;t caught up with demand.
           </p>
         </div>
 
@@ -521,57 +551,56 @@ export default function DesignEngineeringPage() {
           </h2>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            Design Engineering isn't a skill you're born with—it's a
-            discipline you learn. The path typically starts from one side
-            (design or engineering) and deliberately builds capability on the
-            other.
+            Design Engineering isn&apos;t a skill you&apos;re born with.
+            It&apos;s a discipline you learn. The path typically starts from one
+            side (design or engineering) and deliberately builds capability on
+            the other.
           </p>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            If you're a designer, that means going beyond vibe coding and AI
-            prompts to develop real technical skills. Learning to write
+            If you&apos;re a designer, that means going beyond vibe coding and
+            AI prompts to develop real technical skills. Learning to write
             production-quality code, understanding performance and
             accessibility, and being able to implement your own designs.
           </p>
 
           <p className="mb-8 text-neutral-700 dark:text-neutral-300">
-            If you're an engineer, it means developing design taste. Learning
-            visual design principles, typography, colour theory, and layout.
-            Understanding why designs work, not just how to implement them.
+            If you&apos;re an engineer, it means developing design taste.
+            Learning visual design principles, typography, colour theory, and
+            layout. Understanding why designs work, not just how to implement
+            them.
           </p>
 
           <div className="my-8 grid gap-6 md:grid-cols-2">
-            <div className="border-l-4 border-swiss-red bg-neutral-50 p-6 dark:bg-neutral-900">
+            <div className="border-swiss-red border-l-4 bg-neutral-50 p-6 dark:bg-neutral-900">
               <h3 className="mb-3 font-bold">For Designers</h3>
               <p className="mb-4 text-sm text-neutral-700 dark:text-neutral-300">
                 Go beyond Vibe Coding. Learn HTML, CSS, and JavaScript (or
-                Swift/SwiftUI, Kotlin/Compose for native platforms). Build
-                real projects. Understand how code works, not just how to
-                prompt AI.
+                Swift/SwiftUI, Kotlin/Compose for native platforms). Build real
+                projects. Understand how code works, not just how to prompt AI.
               </p>
               <p className="text-xs text-neutral-600 dark:text-neutral-400">
                 Focus on: semantic HTML, CSS layout, JavaScript fundamentals,
                 component thinking, state management, animations in code.
               </p>
             </div>
-            <div className="border-l-4 border-swiss-red bg-neutral-50 p-6 dark:bg-neutral-900">
+            <div className="border-swiss-red border-l-4 bg-neutral-50 p-6 dark:bg-neutral-900">
               <h3 className="mb-3 font-bold">For Engineers</h3>
               <p className="mb-4 text-sm text-neutral-700 dark:text-neutral-300">
                 Develop design taste. Study typography, colour, spacing, and
-                layout. Learn to see like a designer. Practice making
-                aesthetic decisions and understanding why they work.
+                layout. Learn to see like a designer. Practice making aesthetic
+                decisions and understanding why they work.
               </p>
               <p className="text-xs text-neutral-600 dark:text-neutral-400">
                 Focus on: design principles, typography fundamentals, colour
-                theory, spacing systems, visual hierarchy, design tools
-                (Figma).
+                theory, spacing systems, visual hierarchy, design tools (Figma).
               </p>
             </div>
           </div>
 
           <p className="mb-8 text-neutral-700 dark:text-neutral-300">
-            The intersection of these skills is where Design Engineering
-            lives. It's not about being world-class at both—it's about being
+            The intersection of these skills is where Design Engineering lives.
+            It&apos;s not about being world-class at both. It&apos;s about being
             capable enough in both that you can work independently and bridge
             between teams.
           </p>
@@ -583,20 +612,20 @@ export default function DesignEngineeringPage() {
               </h3>
               <p className="mb-6 text-neutral-600 dark:text-neutral-400">
                 Our course teaches both the design and engineering skills you
-                need—from fundamentals to advanced topics.
+                need, from fundamentals to advanced topics.
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
               <NextLink
                 href="/course"
-                className="bg-swiss-red flex items-center gap-2 px-8 py-4 text-base font-bold uppercase tracking-wider text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                className="bg-swiss-red flex items-center gap-2 px-8 py-4 text-base font-bold tracking-wider text-white uppercase transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
               >
                 Explore the Course
                 <ArrowRight className="h-5 w-5" />
               </NextLink>
               <NextLink
                 href="/about"
-                className="flex items-center gap-2 border border-neutral-900 bg-white px-8 py-4 text-base font-medium uppercase tracking-wider text-neutral-900 transition-colors hover:bg-neutral-50 dark:border-white dark:bg-black dark:text-white dark:hover:bg-neutral-900"
+                className="flex items-center gap-2 border border-neutral-900 bg-white px-8 py-4 text-base font-medium tracking-wider text-neutral-900 uppercase transition-colors hover:bg-neutral-50 dark:border-white dark:bg-black dark:text-white dark:hover:bg-neutral-900"
               >
                 Learn More About Us
               </NextLink>
@@ -606,20 +635,18 @@ export default function DesignEngineeringPage() {
 
         {/* Key Takeaways */}
         <div className="mb-16">
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-            Key Takeaways
-          </h2>
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">Key Takeaways</h2>
 
           <div className="space-y-4">
             <div className="flex gap-4">
-              <Zap className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <Zap className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 Design Engineers bridge design and engineering, translating
                 between both worlds without losing fidelity.
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <Zap className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 The title varies (UI Engineer, Design Technologist, Creative
                 Developer, etc.), but the capability is consistent: shipping
@@ -627,23 +654,23 @@ export default function DesignEngineeringPage() {
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <Zap className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
-                Design Engineering differs from vibe coding—it's based on deep
-                understanding of principles, not just prompting AI.
+                Design Engineering differs from vibe coding. It&apos;s based on
+                deep understanding of principles, not just prompting AI.
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <Zap className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 Companies like Apple, Stripe, Vercel, DuckDuckGo, Airbnb, and
                 Figma actively hire Design Engineers.
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="mt-1 h-5 w-5 flex-shrink-0 text-swiss-red" />
+              <Zap className="text-swiss-red mt-1 h-5 w-5 flex-shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
-                Design Engineering is a learnable discipline—it requires
+                Design Engineering is a learnable discipline. It requires
                 deliberately building skills on both sides of the divide.
               </p>
             </div>
