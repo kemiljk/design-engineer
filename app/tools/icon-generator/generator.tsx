@@ -226,9 +226,9 @@ export default function IconGenerator() {
       </div>
 
       {/* Code Snippets */}
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid min-w-0 gap-6 lg:grid-cols-2">
         {platform === "web" && (
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="min-w-0 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-bold">manifest.json</h3>
               <button
@@ -242,14 +242,14 @@ export default function IconGenerator() {
                 )}
               </button>
             </div>
-            <pre className="overflow-x-auto rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
               {generateManifest()}
             </pre>
           </div>
         )}
 
         {platform === "web" && (
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="min-w-0 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-bold">HTML Head Tags</h3>
               <button
@@ -271,7 +271,7 @@ export default function IconGenerator() {
                 )}
               </button>
             </div>
-            <pre className="overflow-x-auto rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
               {`<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -281,7 +281,7 @@ export default function IconGenerator() {
         )}
 
         {platform === "ios" && (
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6 lg:col-span-2">
+          <div className="min-w-0 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6 lg:col-span-2">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-bold">Asset Catalog (Contents.json)</h3>
               <button
@@ -295,16 +295,16 @@ export default function IconGenerator() {
                 )}
               </button>
             </div>
-            <pre className="max-h-64 overflow-auto rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
               {generateAssetCatalog()}
             </pre>
           </div>
         )}
 
         {platform === "android" && (
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6 lg:col-span-2">
+          <div className="min-w-0 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6 lg:col-span-2">
             <h3 className="mb-4 font-bold">Directory Structure</h3>
-            <pre className="overflow-x-auto rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
               {`res/
 ├── mipmap-ldpi/
 │   └── ic_launcher.png (36×36)
