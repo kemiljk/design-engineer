@@ -13,3 +13,4 @@ export { Chip, chipVariants } from "./chip";
 export { Avatar, avatarVariants } from "./avatar";
 export { Divider } from "./divider";
 export { ScrollContainer } from "./scroll-container";
+export { Callout } from "./callout";

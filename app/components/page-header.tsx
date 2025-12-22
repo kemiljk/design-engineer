@@ -15,7 +15,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             {title}
           </h1>
           {description && (
-            <p className="mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+            <p className="mx-auto max-w-2xl text-pretty text-lg text-neutral-600 dark:text-neutral-400">
               {description}
             </p>
           )}

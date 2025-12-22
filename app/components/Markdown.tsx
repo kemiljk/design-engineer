@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "./SyntaxHighlighter";
 import { cn } from "@/lib/utils";
+import { Callout } from "@/app/components/ui";
 
 interface MarkdownProps {
   content: string;
@@ -49,6 +50,15 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
         >
           {children}
         </code>
+      );
+    },
+    blockquote: (blockquote: React.HTMLAttributes<HTMLElement>) => {
+      return (
+        <Callout as="blockquote" className="not-prose my-8">
+          <div className="prose prose-neutral text-pretty dark:prose-invert">
+            {blockquote.children}
+          </div>
+        </Callout>
       );
     },
   };

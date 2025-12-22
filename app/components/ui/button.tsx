@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-50",
+  "focus-ring group inline-flex items-center justify-center gap-2 font-medium transition-[color,background-color,border-color,transform] duration-150 ease-out active:translate-y-px disabled:pointer-events-none disabled:opacity-50 motion-reduce:transform-none motion-reduce:transition-none",
   {
     variants: {
       variant: {
@@ -73,6 +73,9 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     },
     ref
   ) => {
+    const iconTransition =
+      "inline-flex transition-transform duration-150 ease-out motion-reduce:transition-none";
+
     const content = (
       <>
         {isLoading ? (
@@ -96,23 +99,44 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             />
           </svg>
-        ) : (
-          startContent
-        )}
+        ) : startContent ? (
+          <span
+            className={cn(
+              iconTransition,
+              "motion-safe:group-hover:-translate-x-0.5 motion-safe:group-active:translate-x-0",
+            )}
+          >
+            {startContent}
+          </span>
+        ) : null}
         {children}
-        {endContent}
+        {endContent ? (
+          <span
+            className={cn(
+              iconTransition,
+              "motion-safe:group-hover:translate-x-0.5 motion-safe:group-active:translate-x-0",
+            )}
+          >
+            {endContent}
+          </span>
+        ) : null}
       </>
     );
 
     if (href) {
       const isExternal = href.startsWith("http");
+      const anchorProps = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
+      const safeRel =
+        anchorProps.rel ?? (anchorProps.target === "_blank" ? "noopener noreferrer" : undefined);
+
       if (isExternal) {
         return (
           <a
             ref={ref as React.Ref<HTMLAnchorElement>}
             href={href}
             className={cn(buttonVariants({ variant, size }), className)}
-            {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+            {...anchorProps}
+            rel={safeRel}
           >
             {content}
           </a>
@@ -123,7 +147,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
           ref={ref as React.Ref<HTMLAnchorElement>}
           href={href}
           className={cn(buttonVariants({ variant, size }), className)}
-          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+          {...anchorProps}
+          rel={safeRel}
         >
           {content}
         </Link>

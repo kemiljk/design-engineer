@@ -1,13 +1,32 @@
 import { Suspense } from "react";
 import PageTitle from "./components/page-title";
-import { getHome, getSponsors, getPosts, getCourseAvailability } from "@/lib/cosmic";
+import {
+  getHome,
+  getSponsors,
+  getPosts,
+  getCourseAvailability,
+} from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { RandomisedPosts } from "@/app/components/randomised-posts";
 import { cn } from "@/lib/utils";
 import SectionTitle from "./components/section-title";
 import { Button } from "@/app/components/ui";
 import NextLink from "next/link";
-import { ArrowRight, BookOpen, Code2, Layout, Sparkles, Activity, Spline, Type as TypeIcon, Wrench, Blend, Layers, Palette, Pointer } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Code2,
+  Layout,
+  Sparkles,
+  Activity,
+  Spline,
+  Type as TypeIcon,
+  Wrench,
+  Blend,
+  Layers,
+  Palette,
+  Pointer,
+} from "lucide-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
@@ -18,7 +37,7 @@ async function HeroSection() {
   const home = await getHome();
 
   return (
-    <div className="w-full border-b border-neutral-200 py-12 dark:border-neutral-800 md:py-24 lg:py-32">
+    <div className="w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Illustration - top on mobile, right on desktop */}
@@ -31,14 +50,14 @@ async function HeroSection() {
           {/* Content */}
           <div className="flex flex-col items-center gap-8 lg:col-span-7 lg:items-start">
             <PageTitle />
-            <p className="max-w-2xl text-center text-xl leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-2xl lg:text-left">
+            <p className="max-w-2xl text-center text-xl leading-relaxed text-neutral-600 md:text-2xl lg:text-left dark:text-neutral-400">
               {home.metadata.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
               <SignedOut>
                 <Button
                   href="/sign-up"
-                  className="h-12 px-8 text-base font-bold uppercase tracking-wider"
+                  className="h-12 px-8 text-base font-bold tracking-wider uppercase"
                 >
                   Sign up
                 </Button>
@@ -47,7 +66,7 @@ async function HeroSection() {
                 href="/course"
                 variant="outline"
                 endContent={<ArrowRight className="h-4 w-4" />}
-                className="h-12 px-8 text-base font-medium uppercase tracking-wider"
+                className="h-12 px-8 text-base font-medium tracking-wider uppercase"
               >
                 Explore the course
               </Button>
@@ -61,10 +80,10 @@ async function HeroSection() {
 
 function HeroSkeleton() {
   return (
-    <div className="w-full border-b border-neutral-200 py-12 dark:border-neutral-800 md:py-24 lg:py-32">
+    <div className="w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="flex flex-col items-start gap-8">
-          <div className="h-12 w-3/4 animate-pulse bg-neutral-100 dark:bg-neutral-800 lg:w-1/2" />
+          <div className="h-12 w-3/4 animate-pulse bg-neutral-100 lg:w-1/2 dark:bg-neutral-800" />
           <div className="h-24 w-full max-w-2xl animate-pulse bg-neutral-100 dark:bg-neutral-800" />
           <div className="flex gap-4">
             <div className="h-12 w-32 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
@@ -101,7 +120,7 @@ async function SponsorsSection() {
   return (
     <div className="mt-24 w-full border-t border-neutral-200 py-12 dark:border-neutral-800">
       <div className="flex flex-col items-center justify-center gap-8">
-        <p className="font-mono text-xs uppercase tracking-widest text-neutral-500">
+        <p className="font-mono text-xs tracking-widest text-neutral-500 uppercase">
           Supported by
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
@@ -165,10 +184,10 @@ const homepageFaqs = [
 
 function FAQSection() {
   return (
-    <div className="w-full border-t border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-24">
+    <div className="w-full border-t border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <div className="mb-8 text-center">
-          <p className="text-swiss-red mb-2 font-mono text-xs uppercase tracking-widest">
+          <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
             Questions?
           </p>
           <h2 className="text-3xl font-bold md:text-4xl">
@@ -196,7 +215,8 @@ const featuredTools = [
   {
     icon: Activity,
     title: "Spring Physics",
-    description: "Visualise and export spring animations for Motion, CSS, SwiftUI & Android",
+    description:
+      "Visualise and export spring animations for Motion, CSS, SwiftUI & Android",
     href: "/tools/spring-physics",
     category: "Animation",
   },
@@ -217,28 +237,32 @@ const featuredTools = [
   {
     icon: Layers,
     title: "Shadow Generator",
-    description: "Design shadows with export for CSS, Tailwind, SwiftUI & React Native",
+    description:
+      "Design shadows with export for CSS, Tailwind, SwiftUI & React Native",
     href: "/tools/shadow-generator",
     category: "Visual",
   },
   {
     icon: Palette,
     title: "Colour Converter",
-    description: "Convert between HEX, RGB, HSL, OKLCH and native mobile formats",
+    description:
+      "Convert between HEX, RGB, HSL, OKLCH and native mobile formats",
     href: "/tools/colour-converter",
     category: "Visual",
   },
   {
     icon: TypeIcon,
     title: "Token Calculator",
-    description: "Generate typography and spacing scales for Tailwind v4, CSS or SCSS",
+    description:
+      "Generate typography and spacing scales for Tailwind v4, CSS or SCSS",
     href: "/tools/token-calculator",
     category: "Systems",
   },
   {
     icon: Pointer,
     title: "Touch Targets",
-    description: "Validate accessibility against iOS, Android & WCAG guidelines",
+    description:
+      "Validate accessibility against iOS, Android & WCAG guidelines",
     href: "/tools/touch-target",
     category: "Mobile",
   },
@@ -253,16 +277,16 @@ const featuredTools = [
 
 function ToolsSection() {
   return (
-    <div className="w-full border-y border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-20">
+    <div className="w-full border-y border-neutral-200 bg-neutral-50 py-16 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/50">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-2 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center bg-swiss-red">
+              <div className="bg-swiss-red flex h-8 w-8 items-center justify-center">
                 <Wrench className="h-4 w-4 text-white" />
               </div>
-              <span className="font-mono text-xs uppercase tracking-widest text-swiss-red">
+              <span className="text-swiss-red font-mono text-xs tracking-widest uppercase">
                 Free Tools
               </span>
             </div>
@@ -270,14 +294,15 @@ function ToolsSection() {
               Design Engineering Toolkit
             </h2>
             <p className="mt-2 max-w-xl text-neutral-600 dark:text-neutral-400">
-              Professional utilities for animation, colour, typography, and cross-platform development. No sign-up required.
+              Professional utilities for animation, colour, typography, and
+              cross-platform development. No sign-up required.
             </p>
           </div>
           <NextLink
             href="/tools"
             className="group flex items-center gap-2 bg-neutral-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
           >
-            View all 12 tools
+            View all tools
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </NextLink>
         </div>
@@ -291,10 +316,10 @@ function ToolsSection() {
               className="group relative flex flex-col border border-neutral-200 bg-white p-4 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
             >
               <div className="mb-3 flex items-center justify-between">
-                <div className="flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors group-hover:bg-swiss-red dark:bg-neutral-800">
+                <div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
                   <tool.icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400" />
                 </div>
-                <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+                <span className="text-[10px] font-medium tracking-wider text-neutral-400 uppercase">
                   {tool.category}
                 </span>
               </div>
@@ -304,7 +329,7 @@ function ToolsSection() {
               <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
                 {tool.description}
               </p>
-              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-swiss-red opacity-0 transition-opacity group-hover:opacity-100">
+              <div className="text-swiss-red mt-3 flex items-center gap-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100">
                 Open tool
                 <ArrowRight className="h-3 w-3" />
               </div>
@@ -313,21 +338,29 @@ function ToolsSection() {
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 border-t border-neutral-200 pt-8 text-sm text-neutral-500 dark:border-neutral-800 md:gap-10">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 border-t border-neutral-200 pt-8 text-sm text-neutral-500 md:gap-10 dark:border-neutral-800">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">100%</span>
+            <span className="font-bold text-neutral-900 dark:text-white">
+              100%
+            </span>
             <span>Free to use</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">Web + Mobile</span>
+            <span className="font-bold text-neutral-900 dark:text-white">
+              Web + Mobile
+            </span>
             <span>Platform support</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">Tailwind v4</span>
+            <span className="font-bold text-neutral-900 dark:text-white">
+              Tailwind v4
+            </span>
             <span>Ready exports</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">No login</span>
+            <span className="font-bold text-neutral-900 dark:text-white">
+              No login
+            </span>
             <span>Required</span>
           </div>
         </div>
@@ -338,7 +371,7 @@ function ToolsSection() {
 
 async function CourseSection() {
   const { is_available: isCourseAvailable } = await getCourseAvailability();
-  
+
   const tracks = [
     {
       icon: Layout,
@@ -350,10 +383,8 @@ async function CourseSection() {
     {
       icon: Code2,
       title: "Engineering Track",
-      description:
-        "Ship beautiful, thoroughly considered UIs that users love",
+      description: "Ship beautiful, thoroughly considered UIs that users love",
       color: "bg-neutral-900 dark:bg-neutral-100",
-      iconColor: "text-white dark:text-neutral-900",
     },
     {
       icon: Sparkles,
@@ -365,11 +396,11 @@ async function CourseSection() {
   ];
 
   return (
-    <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-24">
+    <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-swiss-red mb-2 font-mono text-xs uppercase tracking-widest">
+            <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
               Learn Design Engineering
             </p>
             <h2 className="text-3xl font-bold md:text-4xl">
@@ -395,8 +426,12 @@ async function CourseSection() {
                 )}
               />
               <div className="p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
-                  <track.icon className="h-6 w-6 text-neutral-900 dark:text-white" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 transition-colors group-hover:bg-neutral-100 dark:bg-neutral-800 dark:group-hover:bg-neutral-700">
+                  <track.icon
+                    className={cn(
+                      "h-6 w-6 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none dark:text-white",
+                    )}
+                  />
                 </div>
                 <h3 className="mb-2 text-xl font-bold">{track.title}</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -407,7 +442,7 @@ async function CourseSection() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 dark:border-neutral-800 sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 sm:flex-row sm:justify-between dark:border-neutral-800">
           <div className="flex items-center gap-6 text-sm text-neutral-500">
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
@@ -419,13 +454,13 @@ async function CourseSection() {
             </div>
           </div>
           <div className="flex gap-4">
-            <NextLink
+            <Button
               href="/course"
-              className="bg-swiss-red flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+              endContent={<ArrowRight className="h-4 w-4" />}
+              className="h-auto px-6 py-3 text-sm font-bold tracking-wider uppercase"
             >
               {isCourseAvailable ? "Start Learning" : "Learn More"}
-              <ArrowRight className="h-4 w-4" />
-            </NextLink>
+            </Button>
           </div>
         </div>
       </div>
@@ -435,7 +470,7 @@ async function CourseSection() {
 
 function CourseSectionSkeleton() {
   return (
-    <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-24">
+    <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div className="h-24 w-64 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
@@ -468,7 +503,7 @@ export default function Home() {
       <ToolsSection />
 
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
-        <div className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 dark:border-neutral-800 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 md:flex-row md:items-end dark:border-neutral-800">
           <SectionTitle>Latest Insights</SectionTitle>
 
           <div className="flex items-center gap-4">
@@ -476,7 +511,7 @@ export default function Home() {
               href="/posts"
               endContent={<ArrowRight className="h-4 w-4" />}
               variant="ghost"
-              className="hover:text-swiss-red dark:hover:text-swiss-red px-0 text-sm font-bold uppercase tracking-wider text-neutral-600 hover:bg-transparent dark:text-neutral-400"
+              className="hover:text-swiss-red dark:hover:text-swiss-red px-0 text-sm font-bold tracking-wider text-neutral-600 uppercase hover:bg-transparent dark:text-neutral-400"
             >
               All articles
             </Button>
