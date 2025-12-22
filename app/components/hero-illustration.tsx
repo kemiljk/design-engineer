@@ -112,82 +112,121 @@ export function HeroIllustration() {
           </text>
 
           {/* Component box */}
-          <rect x="60" y="180" width="80" height="24" fill={COLORS.primary} />
-          <text
-            x="100"
-            y="196"
-            fontSize="10"
-            fill="white"
-            textAnchor="middle"
-            fontFamily="system-ui"
-            fontWeight="600"
+          <motion.g
+            initial={{ x: 100, y: 192 }}
+            animate={prefersReducedMotion ? {} : { scale: [1, 0.96, 0.96, 1, 1] }}
+            transition={{
+              duration: 4,
+              times: [0, 0.1, 0.35, 0.45, 1],
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
           >
-            Button
-          </text>
+            <motion.rect
+              x="-40"
+              y="-12"
+              width="80"
+              height="24"
+              fill={COLORS.primary}
+              animate={prefersReducedMotion ? {} : { filter: ["brightness(1)", "brightness(0.9)", "brightness(0.9)", "brightness(1)", "brightness(1)"] }}
+              transition={{
+                duration: 4,
+                times: [0, 0.1, 0.35, 0.45, 1],
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2
+              }}
+            />
+            <text
+              x="0"
+              y="4"
+              fontSize="10"
+              fill="white"
+              textAnchor="middle"
+              fontFamily="system-ui"
+              fontWeight="600"
+            >
+              Button
+            </text>
+          </motion.g>
         </g>
 
         {/* Bridge/intersection - center */}
         <g>
-          {/* Animated connection lines - draw on load */}
+          {/* Animated connection lines - draw on load and repeat */}
           <motion.path
-            d="M 160 140 C 200 140, 200 140, 240 100"
+            d="M 160 120 C 200 120, 200 120, 240 100"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
             initial={prefersReducedMotion ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.6 }}
-            transition={{ duration: 1, ease: drawEase, delay: 0.3 }}
+            animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 0.6, 0.6, 0] }}
+            transition={{ duration: 4, times: [0, 0.3, 0.9, 1], repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
           />
           <motion.path
-            d="M 160 160 C 200 160, 200 160, 240 160"
+            d="M 160 140 C 200 140, 200 140, 240 140"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
             initial={prefersReducedMotion ? { pathLength: 1, opacity: 0.4 } : { pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.4 }}
-            transition={{ duration: 1, ease: drawEase, delay: 0.5 }}
+            animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 0.4, 0.4, 0] }}
+            transition={{ duration: 4, times: [0, 0.3, 0.9, 1], repeat: Infinity, ease: "easeInOut", repeatDelay: 1, delay: 0.2 }}
           />
           <motion.path
-            d="M 160 180 C 200 180, 200 180, 240 220"
+            d="M 160 160 C 200 160, 200 160, 240 180"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
             initial={prefersReducedMotion ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.6 }}
-            transition={{ duration: 1, ease: drawEase, delay: 0.7 }}
+            animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 0.6, 0.6, 0] }}
+            transition={{ duration: 4, times: [0, 0.3, 0.9, 1], repeat: Infinity, ease: "easeInOut", repeatDelay: 1, delay: 0.4 }}
           />
 
-          {/* Center intersection point */}
+
+          {/* Center intersection point - vertically centered at y=140 */}
           <circle
             cx="200"
-            cy="160"
+            cy="140"
             r="24"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
           />
 
-          {/* Center dot - subtle pulse */}
+          {/* Center pulses - replacing rotating dots with ripples */}
           <motion.circle
             cx="200"
-            cy="160"
-            r="8"
-            fill={COLORS.primary}
-            animate={prefersReducedMotion ? {} : { opacity: [1, 0.7, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            cy="140"
+            r="24"
+            fill="none"
+            stroke={COLORS.primary}
+            strokeWidth="1"
+            initial={{ scale: 1, opacity: 0.5 }}
+            animate={prefersReducedMotion ? {} : { scale: 1.4, opacity: 0 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+          />
+          <motion.circle
+            cx="200"
+            cy="140"
+            r="24"
+            fill="none"
+            stroke={COLORS.primary}
+            strokeWidth="1"
+            initial={{ scale: 1, opacity: 0.5 }}
+            animate={prefersReducedMotion ? {} : { scale: 1.4, opacity: 0 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 1 }}
           />
 
-          {/* Orbit dots - continuous slow rotation */}
-          <motion.g
-            animate={prefersReducedMotion ? {} : { rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            style={{ originX: "200px", originY: "160px" }}
-          >
-            <circle cx="200" cy="136" r="3" fill="currentColor" />
-            <circle cx="224" cy="160" r="3" fill="currentColor" />
-            <circle cx="200" cy="184" r="3" fill="currentColor" />
-            <circle cx="176" cy="160" r="3" fill="currentColor" />
-          </motion.g>
+          {/* Center dot - strong pulse */}
+          <motion.circle
+            cx="200"
+            cy="140"
+            r="8"
+            fill={COLORS.primary}
+            animate={prefersReducedMotion ? {} : { scale: [1, 1.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </g>
 
         {/* Engineering side - right */}
@@ -209,70 +248,86 @@ export function HeroIllustration() {
           <circle cx="264" cy="72" r="4" fill={COLORS.muted} opacity="0.5" />
           <circle cx="276" cy="72" r="4" fill={COLORS.muted} opacity="0.5" />
 
-          {/* Code lines - static, always visible */}
-          <rect
+          {/* Code lines - pulsing */}
+          <motion.rect
             x="252"
             y="92"
             width="48"
             height="6"
             fill={COLORS.primary}
-            opacity="0.7"
+            initial={{ opacity: 0.7 }}
+            animate={{ opacity: [0.7, 0.4, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
           />
-          <rect
+          <motion.rect
             x="260"
             y="106"
             width="72"
             height="6"
             fill="currentColor"
-            opacity="0.4"
+            initial={{ opacity: 0.4 }}
+            animate={{ opacity: [0.4, 0.2, 0.4] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           />
-          <rect
+          <motion.rect
             x="260"
             y="120"
             width="56"
             height="6"
             fill="currentColor"
-            opacity="0.4"
+            initial={{ opacity: 0.4 }}
+            animate={{ opacity: [0.4, 0.2, 0.4] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0 }}
           />
-          <rect
+          <motion.rect
             x="260"
             y="134"
             width="64"
             height="6"
             fill={COLORS.muted}
-            opacity="0.3"
+            initial={{ opacity: 0.3 }}
+            animate={{ opacity: [0.3, 0.1, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           />
-          <rect
+          <motion.rect
             x="252"
             y="148"
             width="40"
             height="6"
             fill={COLORS.primary}
-            opacity="0.7"
+            initial={{ opacity: 0.7 }}
+            animate={{ opacity: [0.7, 0.4, 0.7] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
           />
-          <rect
+          <motion.rect
             x="260"
             y="162"
             width="80"
             height="6"
             fill="currentColor"
-            opacity="0.4"
+            initial={{ opacity: 0.4 }}
+            animate={{ opacity: [0.4, 0.2, 0.4] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
           />
-          <rect
+          <motion.rect
             x="260"
             y="176"
             width="48"
             height="6"
             fill="currentColor"
-            opacity="0.4"
+            initial={{ opacity: 0.4 }}
+            animate={{ opacity: [0.4, 0.2, 0.4] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
           />
-          <rect
+          <motion.rect
             x="252"
             y="190"
             width="32"
             height="6"
             fill={COLORS.primary}
-            opacity="0.7"
+            initial={{ opacity: 0.7 }}
+            animate={{ opacity: [0.7, 0.4, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
           />
         </g>
 
