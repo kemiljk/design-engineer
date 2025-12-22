@@ -41,6 +41,7 @@ export default function Nav({
   const [isOverflowOpen, setIsOverflowOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(links.length);
   const navRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<(HTMLElement | null)[]>([]);
   const pathname = usePathname();
   const { isBannerVisible, bannerHeight } = useBanner();
 
@@ -51,27 +52,49 @@ export default function Nav({
 
   useEffect(() => {
     const calculateVisibleItems = () => {
-      if (!navRef.current) return;
+      if (!navRef.current || itemsRef.current.length === 0) return;
       
-      const navWidth = navRef.current.offsetWidth;
-      const itemWidth = 120; // Approximate width per nav item
-      const overflowButtonWidth = 60; // Width for ... button
-      const buffer = 100; // Extra buffer for safety
+      const containerWidth = navRef.current.offsetWidth;
+      const overflowButtonWidth = 60;
+      const gap = 32; // gap-8 = 32px
+      const buffer = 40;
       
-      const availableWidth = navWidth - buffer;
-      const maxItems = Math.floor((availableWidth - overflowButtonWidth) / itemWidth);
+      let totalWidth = 0;
+      let count = 0;
       
-      // Always show at least 3 items, and if we can show all, don't add overflow
-      const itemsToShow = Math.max(3, Math.min(maxItems, links.length));
+      // Measure actual widths of nav items
+      for (let i = 0; i < itemsRef.current.length; i++) {
+        const item = itemsRef.current[i];
+        if (!item) continue;
+        
+        const itemWidth = item.offsetWidth;
+        const widthWithGap = totalWidth + itemWidth + (i > 0 ? gap : 0);
+        
+        // Check if adding this item + overflow button would exceed container
+        if (widthWithGap + overflowButtonWidth + buffer > containerWidth && count > 2) {
+          break;
+        }
+        
+        totalWidth = widthWithGap;
+        count++;
+      }
       
-      // Only show overflow if we actually need to hide items
-      setVisibleCount(itemsToShow >= links.length ? links.length : itemsToShow);
+      // If we can fit all items without overflow button, show all
+      if (count >= links.length) {
+        setVisibleCount(links.length);
+      } else {
+        setVisibleCount(Math.max(2, count));
+      }
     };
 
-    calculateVisibleItems();
+    // Run calculation after mount and on resize
+    const timer = setTimeout(calculateVisibleItems, 0);
     window.addEventListener('resize', calculateVisibleItems);
     
-    return () => window.removeEventListener('resize', calculateVisibleItems);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', calculateVisibleItems);
+    };
   }, [links.length]);
 
   const visibleLinks = links.slice(0, visibleCount);
@@ -97,33 +120,43 @@ export default function Nav({
 
         {/* Desktop Navigation */}
         <div ref={navRef} className="hidden items-center gap-8 sm:flex">
-          {visibleLinks.map((item, index) =>
-            isExternalLink(item.href) ? (
-              <a
+          {links.map((item, index) => {
+            const isVisible = index < visibleCount;
+            
+            return (
+              <span
                 key={`${item.title}-${index}`}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium uppercase tracking-widest text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
+                ref={(el) => {
+                  itemsRef.current[index] = el;
+                }}
+                className={cn(!isVisible && "hidden")}
               >
-                {item.title}
-              </a>
-            ) : (
-              <NextLink
-                key={`${item.title}-${index}`}
-                href={item.href}
-                prefetch={true}
-                className={cn(
-                  "text-sm font-medium uppercase tracking-widest transition-colors hover:text-black dark:hover:text-white",
-                  isActive(item.href)
-                    ? "text-swiss-red"
-                    : "text-neutral-500 dark:text-neutral-400"
+                {isExternalLink(item.href) ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium uppercase tracking-widest text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white whitespace-nowrap"
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  <NextLink
+                    href={item.href}
+                    prefetch={true}
+                    className={cn(
+                      "text-sm font-medium uppercase tracking-widest transition-colors hover:text-black dark:hover:text-white whitespace-nowrap",
+                      isActive(item.href)
+                        ? "text-swiss-red"
+                        : "text-neutral-500 dark:text-neutral-400"
+                    )}
+                  >
+                    {item.title}
+                  </NextLink>
                 )}
-              >
-                {item.title}
-              </NextLink>
-            )
-          )}
+              </span>
+            );
+          })}
           
           {/* Overflow Menu */}
           {hasOverflow && (
@@ -147,7 +180,7 @@ export default function Nav({
                     className="fixed inset-0 z-40"
                     onClick={() => setIsOverflowOpen(false)}
                   />
-                  <div className="absolute right-0 top-full z-50 mt-2 w-48 border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black">
+                  <div className="absolute right-0 top-full z-50 mt-2 w-56 border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black">
                     {overflowLinks.map((item, index) =>
                       isExternalLink(item.href) ? (
                         <a
