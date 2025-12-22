@@ -217,7 +217,7 @@ Print numbers 1-100:
       "id": "d",
       "text": "Because Swift doesn't have a default keyword",
       "isCorrect": false,
-      "explanation": "Swift does have 'default'—but you're encouraged to handle all cases explicitly."
+      "explanation": "Swift does have 'default', but you're encouraged to handle all cases explicitly."
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Color Theory and Application
 
-> **Quick Summary:** Color isn't just aesthetic preference—it's a powerful communication tool that affects perception, accessibility, and usability.
+> **Quick Summary:** Colour isn't just aesthetic preference. It's a powerful communication tool that affects perception, accessibility, and usability.
 
 ## What You'll Learn
 
@@ -18,7 +18,7 @@ Before diving into application, let's establish the vocabulary:
 
 ### Color Properties
 
-**Hue:** The color itself—red, blue, green, etc. What most people mean when they say "color."
+**Hue:** The colour itself (red, blue, green, etc.). What most people mean when they say "colour."
 
 **Saturation:** How pure or intense the color is. High saturation = vivid; low saturation = muted/gray.
 
@@ -52,7 +52,7 @@ HSL is more useful for creating palettes because you can:
 
 ## Color Psychology
 
-Colors carry associations—some universal, some cultural. Understanding these helps you choose colors intentionally.
+Colours carry associations, some universal, some cultural. Understanding these helps you choose colours intentionally.
 
 ### Common Associations
 
@@ -345,7 +345,7 @@ Take an existing light interface and design dark mode colors:
       "id": "d",
       "text": "Users might have dark mode enabled which inverts colors",
       "isCorrect": false,
-      "explanation": "Dark mode doesn't invert colors—it uses a separate, designed palette."
+      "explanation": "Dark mode doesn't invert colours. It uses a separate, designed palette."
     }
   ]
 }
@@ -354,11 +354,11 @@ Take an existing light interface and design dark mode colors:
 ## Key Takeaways
 
 - Understand color properties: hue, saturation, lightness
-- Color psychology influences perception—choose intentionally
+- Colour psychology influences perception. Choose intentionally.
 - Build systematic palettes with primary, secondary, accent, semantic, and neutral colors
 - Follow the 60-30-10 rule for color distribution
 - Ensure accessibility: 4.5:1 contrast for text, don't rely on color alone
-- Dark mode requires adjustment, not inversion—reduce saturation, soften contrast
+- Dark mode requires adjustment, not inversion. Reduce saturation, soften contrast.
 
 ## Next Steps
 

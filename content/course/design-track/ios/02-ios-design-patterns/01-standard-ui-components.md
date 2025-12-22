@@ -122,7 +122,7 @@ Design a list view using appropriate row types, swipe actions, and section styli
       "id": "a",
       "text": "They're the only components Apple allows",
       "isCorrect": false,
-      "explanation": "Custom components are allowed—but standards have benefits."
+      "explanation": "Custom components are allowed, but standards have benefits."
     },
     {
       "id": "b",

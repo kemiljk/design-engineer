@@ -170,7 +170,7 @@ Build a photo grid where:
       "id": "b",
       "text": "Different animations for when a view appears vs. when it disappears",
       "isCorrect": true,
-      "explanation": "Correct! AnyTransition.asymmetric(insertion: .scale, removal: .opacity) lets a view scale in but fade out—or any combination you need."
+      "explanation": "Correct! AnyTransition.asymmetric(insertion: .scale, removal: .opacity) lets a view scale in but fade out, or any combination you need."
     },
     {
       "id": "c",

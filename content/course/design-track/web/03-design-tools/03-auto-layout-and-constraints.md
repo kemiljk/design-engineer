@@ -1,6 +1,6 @@
 # Auto Layout and Constraints
 
-> **Quick Summary:** Auto layout makes designs responsive and maintainable—components that resize, reflow, and adapt automatically instead of breaking when content changes.
+> **Quick Summary:** Auto layout makes designs responsive and maintainable. Components resize, reflow, and adapt automatically instead of breaking when content changes.
 
 ## What You'll Learn
 
@@ -333,7 +333,7 @@ Build a form with:
       "id": "b",
       "text": "Hug contents, so it sizes to the text inside",
       "isCorrect": false,
-      "explanation": "Hug contents would make the input very small when empty—not ideal for user input."
+      "explanation": "Hug contents would make the input very small when empty. Not ideal for user input."
     },
     {
       "id": "c",
@@ -343,7 +343,7 @@ Build a form with:
     },
     {
       "id": "d",
-      "text": "Any sizing works—it doesn't matter for inputs",
+      "text": "Any sizing works, it doesn't matter for inputs",
       "isCorrect": false,
       "explanation": "Sizing behavior significantly affects how forms respond to different screen widths."
     }

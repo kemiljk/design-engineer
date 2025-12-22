@@ -63,7 +63,7 @@ img {
 }
 ```
 
-This makes images responsive—they won't exceed container width.
+This makes images responsive. They won't exceed container width.
 
 ### Responsive Images
 

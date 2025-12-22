@@ -1,6 +1,6 @@
 # Principles of Design
 
-> **Quick Summary:** Six core principles—hierarchy, balance, contrast, repetition, alignment, and proximity—form the foundation of all effective visual design.
+> **Quick Summary:** Six core principles (hierarchy, balance, contrast, repetition, alignment, and proximity) form the foundation of all effective visual design.
 
 ## What You'll Learn
 
@@ -11,7 +11,7 @@
 
 ## The Framework
 
-Design principles aren't rules to memorize—they're tools for making decisions. When you understand these principles, you can analyze why some designs work and others don't. You can make intentional choices instead of random ones.
+Design principles aren't rules to memorise. They're tools for making decisions. When you understand these principles, you can analyse why some designs work and others don't. You can make intentional choices instead of random ones.
 
 Let's examine each principle.
 
@@ -123,7 +123,7 @@ Repetition creates consistency through recurring visual elements. It helps users
 
 Every button on a site should look like a button. Every heading at a certain level should be styled the same. Every card component should share visual treatment.
 
-This isn't boring—it's helpful. Users learn what elements do based on how they look. Repetition enables prediction.
+This isn't boring. It's helpful. Users learn what elements do based on how they look. Repetition enables prediction.
 
 ### Repetition and Design Systems
 
@@ -158,7 +158,7 @@ This creates invisible lines that guide the eye and make the form feel organized
 
 ### The Grid System
 
-Most professional designs use an underlying grid—typically 8px, 4px, or a column-based system. Elements align to this grid, creating rhythm and consistency.
+Most professional designs use an underlying grid, typically 8px, 4px, or a column-based system. Elements align to this grid, creating rhythm and consistency.
 
 We'll cover grids in depth in later lessons.
 
@@ -253,7 +253,7 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
       "id": "b",
       "text": "Hierarchy",
       "isCorrect": false,
-      "explanation": "Hierarchy establishes order of importance—what users notice first, second, etc."
+      "explanation": "Hierarchy establishes order of importance: what users notice first, second, etc."
     },
     {
       "id": "c",

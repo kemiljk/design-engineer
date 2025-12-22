@@ -158,7 +158,7 @@ Create a view and preview it:
       "id": "a",
       "text": "Create separate views for light and dark modes",
       "isCorrect": false,
-      "explanation": "You don't need separate views—the system handles adaptation."
+      "explanation": "You don't need separate views. The system handles adaptation."
     },
     {
       "id": "b",

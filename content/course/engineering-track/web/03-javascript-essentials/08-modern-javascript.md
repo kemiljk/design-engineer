@@ -434,7 +434,7 @@ Create a `TodoList` class with:
       "id": "a",
       "text": "It modifies the original array in place",
       "isCorrect": false,
-      "explanation": "Spread creates a new array—it doesn't modify the original."
+      "explanation": "Spread creates a new array. It doesn't modify the original."
     },
     {
       "id": "b",

@@ -150,7 +150,7 @@ This should be in every project's CSS reset.
 
 ## Margin Collapse
 
-Vertical margins collapse—they don't add, they overlap:
+Vertical margins collapse. They don't add, they overlap:
 
 ```css
 .paragraph {
@@ -416,7 +416,7 @@ Create scenarios demonstrating margin collapse:
       "id": "a",
       "text": "It makes pages load faster",
       "isCorrect": false,
-      "explanation": "box-sizing doesn't affect performance—it affects how sizes are calculated."
+      "explanation": "box-sizing doesn't affect performance. It affects how sizes are calculated."
     },
     {
       "id": "b",

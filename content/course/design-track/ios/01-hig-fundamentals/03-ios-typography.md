@@ -73,7 +73,7 @@ iOS users can adjust system text size. Your app should respond:
 8. Accessibility sizes (5 larger options)
 
 ### Implementation
-Use system text styles—they scale automatically:
+Use system text styles. They scale automatically:
 - In design tools: Use iOS text style names
 - In code: Use semantic styles, not fixed sizes
 

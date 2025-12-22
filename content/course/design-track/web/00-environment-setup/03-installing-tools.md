@@ -1,6 +1,6 @@
 # Installing Tools
 
-> **Quick Summary:** Learn how to install the essential tools for web development using package managers. We'll set up Homebrew (Mac) or Chocolatey (Windows), Node.js, and npm—the foundation for modern web projects.
+> **Quick Summary:** Learn how to install the essential tools for web development using package managers. We'll set up Homebrew (Mac) or Chocolatey (Windows), Node.js, and npm, which form the foundation for modern web projects.
 
 ## What You'll Learn
 
@@ -12,7 +12,7 @@
 
 ## The Package Manager Concept
 
-A package manager is like an App Store for developer tools—but accessed through the terminal.
+A package manager is like an App Store for developer tools, but accessed through the terminal.
 
 Instead of:
 1. Opening a browser
@@ -50,7 +50,7 @@ Open Terminal and paste this command:
 
 Press Enter and follow the prompts. You may need to enter your Mac password.
 
-After installation, the script will show you additional commands to run. **Follow these instructions**—they add Homebrew to your path so you can use the `brew` command.
+After installation, the script will show you additional commands to run. **Follow these instructions.** They add Homebrew to your path so you can use the `brew` command.
 
 **Verify it worked:**
 
@@ -91,7 +91,7 @@ If available, you can use this instead of Chocolatey.
 
 ## Installing Node.js
 
-Node.js is a JavaScript runtime that lets you run JavaScript outside of browsers. It's essential for modern web development—even if you're primarily using HTML, CSS, and basic JavaScript.
+Node.js is a JavaScript runtime that lets you run JavaScript outside of browsers. It's essential for modern web development, even if you're primarily using HTML, CSS, and basic JavaScript.
 
 ### Why Designers Need Node.js
 
@@ -412,9 +412,9 @@ npm info tailwindcss
 
 - Package managers (Homebrew/Chocolatey) simplify installing developer tools
 - Node.js and npm are essential for modern web development
-- Use global installs (`-g`) sparingly—local packages are preferred
+- Use global installs (`-g`) sparingly. Local packages are preferred.
 - Keep your tools updated with `brew upgrade` or `choco upgrade`
-- Most installation problems are PATH-related—restart your terminal first
+- Most installation problems are PATH-related. Restart your terminal first.
 
 ## Next Steps
 

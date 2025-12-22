@@ -194,7 +194,7 @@ Sort an array of names:
       "id": "c",
       "text": "The closure will be called on a background thread",
       "isCorrect": false,
-      "explanation": "@escaping doesn't specify threading—just that it survives the function."
+      "explanation": "@escaping doesn't specify threading, just that it survives the function."
     },
     {
       "id": "d",

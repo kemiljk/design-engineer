@@ -320,13 +320,13 @@ Create and apply:
       "id": "b",
       "text": "SVG because it's scalable, small, and styleable with CSS",
       "isCorrect": true,
-      "explanation": "Correct! SVG is the ideal format for icons—they're vector-based (infinitely scalable), lightweight, and can be styled with CSS."
+      "explanation": "Correct! SVG is the ideal format for icons. They're vector-based (infinitely scalable), lightweight, and can be styled with CSS."
     },
     {
       "id": "c",
       "text": "JPG for the smallest file size",
       "isCorrect": false,
-      "explanation": "JPG doesn't support transparency and uses lossy compression—not ideal for crisp icons."
+      "explanation": "JPG doesn't support transparency and uses lossy compression. Not ideal for crisp icons."
     },
     {
       "id": "d",

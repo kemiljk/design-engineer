@@ -1,6 +1,6 @@
 # What is HTML?
 
-> **Quick Summary:** HTML is the skeleton of every web page—the structural foundation that gives content meaning and makes the web accessible.
+> **Quick Summary:** HTML is the skeleton of every web page. It's the structural foundation that gives content meaning and makes the web accessible.
 
 ## What You'll Learn
 
@@ -26,7 +26,7 @@ Think of a document like a human body:
 
 <!-- illustration: html-css-js-layers -->
 
-- **HTML** is the skeleton—the structure that holds everything together
+- **HTML** is the skeleton: the structure that holds everything together
 - **CSS** is the appearance—skin, clothing, style
 - **JavaScript** is the behavior—movement, actions, responses
 

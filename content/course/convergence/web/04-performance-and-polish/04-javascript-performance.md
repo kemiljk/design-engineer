@@ -11,7 +11,7 @@
 
 ## The Main Thread
 
-JavaScript runs on the main thread—the same thread that:
+JavaScript runs on the main thread, the same thread that:
 - Handles user input
 - Runs animations
 - Paints the screen

@@ -188,7 +188,7 @@ Prepare a screen for development:
       "id": "d",
       "text": "Designs don't matter—Compose generates everything automatically",
       "isCorrect": false,
-      "explanation": "Compose implements designs—it doesn't generate them automatically."
+      "explanation": "Compose implements designs. It doesn't generate them automatically."
     }
   ]
 }

@@ -285,7 +285,7 @@ Create an input with:
       "id": "b",
       "text": "Being subtle, purposeful, and providing clear feedback without drawing too much attention",
       "isCorrect": true,
-      "explanation": "Correct! The best micro-interactions are almost invisible—they confirm actions and provide feedback without demanding attention."
+      "explanation": "Correct! The best micro-interactions are almost invisible. They confirm actions and provide feedback without demanding attention."
     },
     {
       "id": "c",

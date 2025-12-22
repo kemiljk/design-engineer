@@ -165,7 +165,7 @@ Build a button that:
       "id": "a",
       "text": "Use a special LoadingButton composable",
       "isCorrect": false,
-      "explanation": "There's no built-in LoadingButton—you compose it yourself."
+      "explanation": "There's no built-in LoadingButton. You compose it yourself."
     },
     {
       "id": "b",

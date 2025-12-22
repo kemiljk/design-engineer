@@ -435,7 +435,7 @@ Create a component that:
       "id": "d",
       "text": "They're faster for the browser to process",
       "isCorrect": false,
-      "explanation": "Performance difference is negligible—the advantage is runtime flexibility."
+      "explanation": "Performance difference is negligible. The advantage is runtime flexibility."
     }
   ]
 }

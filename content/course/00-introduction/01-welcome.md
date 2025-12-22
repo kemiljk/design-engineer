@@ -1,6 +1,6 @@
 # Welcome to the Design Engineer Course
 
-> **Quick Summary:** You're about to learn how to bridge the gap between design and engineering—a skill set that's increasingly valuable and deeply rewarding.
+> **Quick Summary:** You're about to learn how to bridge the gap between design and engineering. It's a skill set that's increasingly valuable and deeply rewarding.
 
 ## What You'll Learn
 
@@ -11,7 +11,7 @@
 
 ## Welcome, Future Design Engineer
 
-If you've ever felt stuck between two worlds—loving the craft of design but wanting to build, or writing code while wishing you had a better eye for aesthetics—you're in the right place.
+If you've ever felt stuck between two worlds, loving the craft of design but wanting to build, or writing code while wishing you had a better eye for aesthetics, you're in the right place.
 
 This course exists because the gap between design and engineering isn't a problem to solve. It's an opportunity to own.
 
@@ -45,11 +45,11 @@ If you're somewhere in between, even better. This course meets you where you are
 
 ## The Design Engineer Mindset
 
-Before we dive into skills, let's talk about mindset. The most effective Design Engineers share a few traits:
+Before we get into skills, let's talk about mindset. The most effective Design Engineers share a few traits:
 
 ### Curiosity Over Territory
 
-They don't think "that's not my job." When something breaks at the seam between design and engineering, they fix it—or at least understand it well enough to help.
+They don't think "that's not my job." When something breaks at the seam between design and engineering, they fix it. Or at least understand it well enough to help.
 
 ### Iteration Over Perfection
 
@@ -61,7 +61,7 @@ They understand why designers obsess over 2px of spacing and why engineers worry
 
 ### Craftsmanship
 
-They care about the details that most people won't notice—but that everyone feels. The animation that's just right. The interaction that feels natural. The edge case that's handled gracefully.
+They care about the details that most people won't notice, but that everyone feels. The animation that's just right. The interaction that feels natural. The edge case that's handled gracefully.
 
 ## What You'll Build
 
@@ -106,7 +106,7 @@ This isn't a passive course. You'll get out what you put in.
       "id": "b",
       "text": "Curiosity, iteration, empathy, and craftsmanship",
       "isCorrect": true,
-      "explanation": "Correct! These four traits—curiosity over territory, iteration over perfection, empathy in both directions, and attention to craft—define the DE mindset."
+      "explanation": "Correct! These four traits (curiosity over territory, iteration over perfection, empathy in both directions, and attention to craft) define the DE mindset."
     },
     {
       "id": "c",
@@ -126,7 +126,7 @@ This isn't a passive course. You'll get out what you put in.
 
 ## Let's Begin
 
-In the next lesson, we'll explore what Design Engineering actually is—where it came from, what it looks like in practice, and why it's becoming such an important role.
+In the next lesson, we'll explore what Design Engineering actually is: where it came from, what it looks like in practice, and why it's becoming such an important role.
 
 Your journey to becoming a Design Engineer starts now.
 
@@ -135,7 +135,7 @@ Your journey to becoming a Design Engineer starts now.
 - Design Engineering bridges the gap between design and code
 - This course welcomes both designers learning to build and engineers learning to design
 - The DE mindset values curiosity, iteration, empathy, and craftsmanship
-- Active practice is essential—build as you learn
+- Active practice is essential. Build as you learn.
 
 ## Next Steps
 

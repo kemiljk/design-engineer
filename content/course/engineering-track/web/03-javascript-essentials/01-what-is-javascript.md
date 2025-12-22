@@ -1,6 +1,6 @@
 # What is JavaScript?
 
-> **Quick Summary:** JavaScript is the programming language of the web—it adds interactivity, handles data, and brings interfaces to life.
+> **Quick Summary:** JavaScript is the programming language of the web. It adds interactivity, handles data, and brings interfaces to life.
 
 ## What You'll Learn
 

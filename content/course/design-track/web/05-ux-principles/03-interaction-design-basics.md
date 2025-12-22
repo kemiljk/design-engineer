@@ -1,6 +1,6 @@
 # Interaction Design Basics
 
-> **Quick Summary:** Interaction design is how users interact with interfaces—the actions they take, the feedback they receive, and the flows they navigate.
+> **Quick Summary:** Interaction design is how users interact with interfaces: the actions they take, the feedback they receive, and the flows they navigate.
 
 ## What You'll Learn
 
@@ -27,7 +27,7 @@ An affordance is what an object allows you to do.
 
 A physical button affords pressing. A handle affords pulling. A knob affords turning.
 
-In digital interfaces, affordances aren't physical—they're perceived through visual and behavioral cues.
+In digital interfaces, affordances aren't physical. They're perceived through visual and behavioural cues.
 
 ### Perceived Affordances
 
@@ -53,7 +53,7 @@ When something is interactive but doesn't look it:
 - Swipe gestures without visual hints
 - Hidden menus
 
-Hidden affordances require discovery—sometimes good (progressive disclosure), often problematic (buried features).
+Hidden affordances require discovery. Sometimes that's good (progressive disclosure), but it's often problematic (buried features).
 
 ## Signifiers
 

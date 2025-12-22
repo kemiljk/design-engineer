@@ -14,9 +14,9 @@
 
 Let's be honest: the terminal is one of the biggest blockers for designers trying to code.
 
-It's not surprising. As designers, we're visual people. We work with colours, typography, layouts—things we can see and manipulate directly. Then someone tells us to open a black window and type cryptic commands like `cd ~/Documents && npm install`. It feels like learning a foreign language blindfolded.
+It's not surprising. As designers, we're visual people. We work with colours, typography, layouts. Things we can see and manipulate directly. Then someone tells us to open a black window and type cryptic commands like `cd ~/Documents && npm install`. It feels like learning a foreign language blindfolded.
 
-But here's what nobody tells you: **the terminal is actually simpler than most design tools**.
+But **the terminal is actually simpler than most design tools**.
 
 Think about Figma. It has hundreds of features, keyboard shortcuts, plugins, and hidden menus. You learned it. The terminal has maybe 20 commands you'll use regularly, and most of them do exactly what their names suggest.
 
@@ -34,7 +34,7 @@ The terminal isn't doing anything magical. It's just a text-based interface for 
 
 ### Why "Terminal"?
 
-The name comes from the early days of computing when people used physical terminals—machines with keyboards and screens—to communicate with large central computers. The terminal on your Mac or PC is a software version of those old machines.
+The name comes from the early days of computing when people used physical terminals (machines with keyboards and screens) to communicate with large central computers. The terminal on your Mac or PC is a software version of those old machines.
 
 ## Clearing Up the Jargon
 
@@ -62,7 +62,7 @@ For practical purposes, these terms all refer to the same experience: typing tex
 2. Type "Terminal"
 3. Press **Enter**
 
-You'll see a window with some text and a blinking cursor. That's it—you're in.
+You'll see a window with some text and a blinking cursor. That's it. You're in.
 
 ### On Windows
 
@@ -101,7 +101,7 @@ The terminal responds:
 Hello, I'm a design engineer now
 ```
 
-Congratulations—you just ran your first command! The `echo` command simply prints whatever text you give it.
+Congratulations, you just ran your first command! The `echo` command simply prints whatever text you give it.
 
 ### See Where You Are
 
@@ -173,7 +173,7 @@ npm install figma-tokens
 
 ### 3. Version Control
 
-Git—the system that lets you save, track, and collaborate on code—is primarily used through the terminal:
+Git (the system that lets you save, track, and collaborate on code) is primarily used through the terminal:
 
 ```bash
 git commit -m "Updated the header design"
@@ -315,10 +315,10 @@ Now open Finder and navigate to your Desktop. You'll see the `design-engineer-pr
 ## Key Takeaways
 
 - The terminal is just a text-based way to control your computer
-- It's essential for web development—there's no way around it
+- It's essential for web development. There's no way around it.
 - Start with simple commands: `pwd`, `ls`, `cd`, `mkdir`
 - Customise your terminal to make it comfortable
-- You don't need to memorise everything—look things up as needed
+- You don't need to memorise everything. Look things up as needed.
 
 ## Next Steps
 

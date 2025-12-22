@@ -193,7 +193,7 @@ Based on your testing, fix:
       "id": "c",
       "text": "Screen readers automatically detect DOM changes",
       "isCorrect": false,
-      "explanation": "Screen readers don't automatically announce all DOM changes—you need to mark important updates with aria-live."
+      "explanation": "Screen readers don't automatically announce all DOM changes. You need to mark important updates with aria-live."
     },
     {
       "id": "d",

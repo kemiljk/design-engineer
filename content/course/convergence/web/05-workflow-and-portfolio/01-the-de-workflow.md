@@ -113,7 +113,7 @@ List your key collaborators. How can you provide more value to each?
       "id": "a",
       "text": "Doing the work of two people (designer + engineer)",
       "isCorrect": false,
-      "explanation": "DEs don't replace specialists—they bridge and enhance."
+      "explanation": "DEs don't replace specialists. They bridge and enhance."
     },
     {
       "id": "b",

@@ -382,7 +382,7 @@ getNestedValue(user, 'settings.theme'); // undefined
       "id": "d",
       "text": "array.map() because it transforms arrays",
       "isCorrect": false,
-      "explanation": "map() transforms each item but returns the same number of items—it doesn't remove."
+      "explanation": "map() transforms each item but returns the same number of items. It doesn't remove."
     }
   ]
 }

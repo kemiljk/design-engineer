@@ -163,7 +163,7 @@ Practice naming components. Names should be:
       "id": "c",
       "text": "You don't need CSS when using components",
       "isCorrect": false,
-      "explanation": "Components still need styling—they just encapsulate it with their logic."
+      "explanation": "Components still need styling. They just encapsulate it with their logic."
     },
     {
       "id": "d",

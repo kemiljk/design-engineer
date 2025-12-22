@@ -1,6 +1,6 @@
 # Finding DE Roles
 
-> **Quick Summary:** Design Engineer roles are growing but still relatively rare. Learn how to find them—and how to create them where they don't exist.
+> **Quick Summary:** Design Engineer roles are growing but still relatively rare. Learn how to find them, and how to create them where they don't exist.
 
 ## What You'll Learn
 

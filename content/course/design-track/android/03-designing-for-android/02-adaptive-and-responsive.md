@@ -20,7 +20,7 @@
 - Wear: Tiny, round or square
 
 ### The Challenge
-Design once, run everywhere—or design adaptations for key form factors.
+Design once, run everywhere. Or design adaptations for key form factors.
 
 ## Window Size Classes
 

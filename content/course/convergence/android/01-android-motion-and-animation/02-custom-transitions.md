@@ -172,7 +172,7 @@ Create card to detail:
       "id": "c",
       "text": "AnimatedContent is faster",
       "isCorrect": false,
-      "explanation": "Performance is similar—the distinction is about use case."
+      "explanation": "Performance is similar. The distinction is about use case."
     },
     {
       "id": "d",

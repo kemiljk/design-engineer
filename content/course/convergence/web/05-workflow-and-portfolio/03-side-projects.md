@@ -124,7 +124,7 @@ Take your most exciting idea. Scope it down to something you could finish this w
       "id": "c",
       "text": "They're required to get hired as a DE",
       "isCorrect": false,
-      "explanation": "Work experience counts too—but side projects help, especially early in your career."
+      "explanation": "Work experience counts too, but side projects help, especially early in your career."
     },
     {
       "id": "d",

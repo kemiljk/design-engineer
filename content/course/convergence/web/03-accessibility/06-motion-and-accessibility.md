@@ -213,7 +213,7 @@ Add reduced motion support to:
       "id": "c",
       "text": "Ignore it—users can disable animations in their browser",
       "isCorrect": false,
-      "explanation": "Browsers don't have a universal animation disable—this is the standard way users communicate their preference."
+      "explanation": "Browsers don't have a universal animation disable. This is the standard way users communicate their preference."
     },
     {
       "id": "d",

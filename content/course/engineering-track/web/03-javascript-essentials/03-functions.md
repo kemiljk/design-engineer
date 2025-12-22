@@ -359,7 +359,7 @@ triple(5);  // 15
       "id": "b",
       "text": "When you need the function's own 'this' context (like object methods)",
       "isCorrect": true,
-      "explanation": "Correct! Arrow functions don't have their own 'this'—they inherit from the enclosing scope. For object methods that need 'this' to refer to the object, use traditional functions."
+      "explanation": "Correct! Arrow functions don't have their own 'this'. They inherit from the enclosing scope. For object methods that need 'this' to refer to the object, use traditional functions."
     },
     {
       "id": "c",

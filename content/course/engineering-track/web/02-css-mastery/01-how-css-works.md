@@ -355,7 +355,7 @@ Test which properties inherit (color, border, margin) and which don't.
 - CSS controls appearance; HTML controls structure
 - The cascade resolves conflicts using importance, specificity, and source order
 - Specificity: IDs > Classes > Elements
-- Avoid `!important`—it indicates architecture problems
+- Avoid `!important`. It indicates architecture problems.
 - Text properties inherit; box properties don't
 - Keep specificity low for maintainable CSS
 - Use classes as your primary selector type

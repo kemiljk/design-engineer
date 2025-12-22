@@ -1,6 +1,6 @@
 # Usability Heuristics
 
-> **Quick Summary:** Usability heuristics are time-tested principles for evaluating and improving interface design—a checklist for catching common usability issues.
+> **Quick Summary:** Usability heuristics are time-tested principles for evaluating and improving interface design. Think of them as a checklist for catching common usability issues.
 
 ## What You'll Learn
 
@@ -112,7 +112,7 @@ Minimize the user's memory load by making objects, actions, and options visible.
 
 ### 7. Flexibility and Efficiency of Use
 
-Accelerators—unseen by the novice user—may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users.
+Accelerators (unseen by the novice user) may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users.
 
 **In practice:**
 - Keyboard shortcuts
@@ -187,10 +187,10 @@ Heuristic evaluation is a fast, cheap usability inspection method.
 
 4. **Rate severity:**
    - 0: Not a usability problem
-   - 1: Cosmetic only—fix if time
-   - 2: Minor—causes delay, low priority
-   - 3: Major—causes significant issues, important to fix
-   - 4: Catastrophic—blocks users, must fix
+   - 1: Cosmetic only. Fix if time.
+   - 2: Minor. Causes delay, low priority.
+   - 3: Major. Causes significant issues, important to fix.
+   - 4: Catastrophic. Blocks users, must fix.
 
 5. **Compile findings:** Group by severity or heuristic.
 
@@ -303,7 +303,7 @@ The 10 heuristics:
 
 - Heuristic evaluation is fast and cheap for finding usability issues
 - Rate severity to prioritize fixes
-- Heuristics can conflict—use judgment
+- Heuristics can conflict. Use judgement.
 - Combine with user testing for complete evaluation
 
 ## Next Steps

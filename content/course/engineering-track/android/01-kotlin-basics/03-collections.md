@@ -148,13 +148,13 @@ Create a map of products to prices:
       "id": "c",
       "text": "listOf() is for primitives, mutableListOf() is for objects",
       "isCorrect": false,
-      "explanation": "Both work with any type—the difference is mutability."
+      "explanation": "Both work with any type. The difference is mutability."
     },
     {
       "id": "d",
       "text": "mutableListOf() uses more memory",
       "isCorrect": false,
-      "explanation": "Memory difference is negligible—the distinction is about modification capability."
+      "explanation": "Memory difference is negligible. The distinction is about modification capability."
     }
   ]
 }

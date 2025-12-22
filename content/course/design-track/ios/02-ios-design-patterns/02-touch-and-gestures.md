@@ -143,7 +143,7 @@ Check your designs against the 44pt minimum. Are all targets reachable?
     },
     {
       "id": "d",
-      "text": "There's no standard—it depends on the app",
+      "text": "There's no standard, it depends on the app",
       "isCorrect": false,
       "explanation": "Apple provides specific guidance on minimum touch target sizes."
     }

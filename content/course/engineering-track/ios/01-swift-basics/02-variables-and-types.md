@@ -163,7 +163,7 @@ Write code that:
       "id": "c",
       "text": "To force-unwrap optionals safely",
       "isCorrect": false,
-      "explanation": "Guard doesn't force-unwrap—it safely unwraps with an exit path."
+      "explanation": "Guard doesn't force-unwrap. It safely unwraps with an exit path."
     },
     {
       "id": "d",

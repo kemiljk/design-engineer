@@ -40,7 +40,7 @@ Web accessibility features have similar benefits. Captions help in noisy environ
 
 ## Design Engineer Responsibility
 
-As a Design Engineer, you touch both design and code—the two areas where accessibility is determined:
+As a Design Engineer, you touch both design and code, the two areas where accessibility is determined:
 
 ### In Design
 - Color contrast
@@ -84,7 +84,7 @@ The Web Content Accessibility Guidelines (WCAG) define success criteria at three
       "id": "b",
       "text": "It improves usability for everyone, including situational disabilities like bright sunlight or broken arms",
       "isCorrect": true,
-      "explanation": "Correct! Accessibility features help users in many situations—not just permanent disabilities. Captions help in noisy environments, keyboard navigation helps with a broken mouse, etc."
+      "explanation": "Correct! Accessibility features help users in many situations, not just permanent disabilities. Captions help in noisy environments, keyboard navigation helps with a broken mouse, etc."
     },
     {
       "id": "c",
