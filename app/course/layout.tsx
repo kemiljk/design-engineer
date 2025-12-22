@@ -3,6 +3,7 @@ import { TestModePanel } from "./components/test-mode-panel";
 import { PreviewModeBanner } from "./components/preview-mode-banner";
 import { getCourseAvailability } from "@/lib/cosmic";
 import { ComingSoon } from "./components/coming-soon";
+import { hasPreviewAccess } from "@/lib/preview-access";
 
 export const metadata: Metadata = {
   title: "Design Engineer Course | Learn to Bridge Design and Development",
@@ -17,9 +18,13 @@ export default async function CourseLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { is_available } = await getCourseAvailability();
+  const [{ is_available }, previewAccess] = await Promise.all([
+    getCourseAvailability(),
+    hasPreviewAccess(),
+  ]);
 
-  if (!is_available) {
+  // Preview access bypasses the availability check
+  if (!is_available && !previewAccess) {
     return <ComingSoon />;
   }
 
