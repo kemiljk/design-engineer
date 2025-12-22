@@ -385,7 +385,6 @@ async function CourseSection() {
       title: "Engineering Track",
       description: "Ship beautiful, thoroughly considered UIs that users love",
       color: "bg-neutral-900 dark:bg-neutral-100",
-      iconColor: "text-white dark:text-neutral-900",
     },
     {
       icon: Sparkles,
@@ -427,8 +426,12 @@ async function CourseSection() {
                 )}
               />
               <div className="p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
-                  <track.icon className="h-6 w-6 text-neutral-900 dark:text-white" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 transition-colors group-hover:bg-neutral-100 dark:bg-neutral-800 dark:group-hover:bg-neutral-700">
+                  <track.icon
+                    className={cn(
+                      "h-6 w-6 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none dark:text-white",
+                    )}
+                  />
                 </div>
                 <h3 className="mb-2 text-xl font-bold">{track.title}</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">

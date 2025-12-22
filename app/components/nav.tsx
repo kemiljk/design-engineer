@@ -109,6 +109,7 @@ function DesktopOverflowMenu({
                 href={item.href}
                 prefetch={true}
                 role="menuitem"
+                aria-current={isActive(item.href) ? "page" : undefined}
                 onClick={() => setOpen(false)}
                 className={cn(
                   "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
@@ -229,6 +230,7 @@ function DesktopNavLinks({
               key={`${item.title}-${index}`}
               href={item.href}
               prefetch={true}
+              aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
                 "focus-ring relative text-sm font-medium tracking-widest whitespace-nowrap uppercase transition-[color,transform] duration-150 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-black hover:after:scale-x-100 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none motion-reduce:after:transition-none dark:hover:text-white",
                 isActive(item.href)
@@ -385,6 +387,7 @@ export default function Nav({
                 key={`menu-${item.title}-${index}`}
                 href={item.href}
                 prefetch={true}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
                   "focus-ring w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white",
