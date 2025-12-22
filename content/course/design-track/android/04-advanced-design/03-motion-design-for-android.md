@@ -39,6 +39,7 @@ Motion reflects personality:
 - Brand character
 - Emotional tone
 - Appropriate energy
+- Material 3 Expressive introduces even more playful, spring-based animations
 
 **4. Coherent**
 Motion is consistent:

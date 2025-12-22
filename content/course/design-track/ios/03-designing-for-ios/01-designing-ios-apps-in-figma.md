@@ -13,8 +13,8 @@
 
 ### Frame Sizes
 Start with common iPhone sizes:
-- iPhone 14/15: 393×852
-- iPhone 14 Pro Max: 430×932
+- iPhone 15/16: 393×852
+- iPhone 15/16 Pro Max: 430×932
 - iPhone SE: 375×667
 
 ### Page Organization
@@ -38,9 +38,9 @@ iOS uses an 8pt grid. Set up layout grids:
 
 ### Apple's Official Resources
 Apple provides official design resources:
-- Figma iOS 17 UI Kit (free from Apple)
+- Figma iOS 18 UI Kit (free from Apple)
 - Includes all standard components
-- Regularly updated
+- Regularly updated with each iOS release
 
 ### What's Included
 - Navigation bars
@@ -58,7 +58,7 @@ Apple provides official design resources:
 
 ## SF Symbols
 
-Apple's icon system with 4000+ symbols:
+Apple's icon system with 6,000+ symbols (SF Symbols 6):
 
 ### Adding to Figma
 - Download SF Symbols app (Mac)

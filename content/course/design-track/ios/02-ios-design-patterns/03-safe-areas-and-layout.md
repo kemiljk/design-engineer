@@ -37,14 +37,13 @@ Safe areas define where content should go to avoid:
 
 ### Screen Sizes
 - iPhone SE: 375×667 pt
-- iPhone 14: 390×844 pt
-- iPhone 14 Pro Max: 430×932 pt
-- iPhone 15 Pro: 393×852 pt
+- iPhone 15/16: 393×852 pt
+- iPhone 15/16 Pro Max: 430×932 pt
 
 ### Notch/Dynamic Island
 - No notch: iPhone SE
-- Notch: iPhone 12-14
-- Dynamic Island: iPhone 14 Pro+
+- Notch: iPhone 12-13
+- Dynamic Island: iPhone 14 Pro and later (including all iPhone 15/16 models)
 
 ### Home Indicator
 - Home button devices: None

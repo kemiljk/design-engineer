@@ -771,8 +771,8 @@ A polished iOS app demonstrating animation, accessibility, and attention to deta
 - 🎯 Reduced motion alternatives
 
 ## Requirements
-- iOS 17.0+
-- Xcode 15+
+- iOS 17.0+ (iOS 18.0+ recommended)
+- Xcode 15+ (Xcode 16+ recommended)
 
 ## Installation
 1. Clone the repository

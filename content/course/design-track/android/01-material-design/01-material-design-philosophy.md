@@ -8,6 +8,7 @@
 - The material metaphor
 - What makes Android feel like Android
 - Material Design 3 (Material You)
+- Material 3 Expressive (the latest evolution)
 
 ## Core Principles
 
@@ -57,8 +58,8 @@ Height above the base surface:
 The latest evolution (Material You):
 
 ### Dynamic Color
-- Colors derived from user's wallpaper
-- Personalized, cohesive palettes
+- Colours derived from user's wallpaper
+- Personalised, cohesive palettes
 - Automatically generated tones
 - Consistent across system
 
@@ -69,10 +70,33 @@ The latest evolution (Material You):
 - Enhanced accessibility
 
 ### Expressive Design
-- More customization options
+- More customisation options
 - Brand expression within system
 - Flexible foundations
 - Personal and delightful
+
+## Material 3 Expressive
+
+The newest evolution of Material Design (2024+), focusing on emotional, personality-driven design:
+
+### What's New
+- **Motion with personality:** Components now feature more playful, bouncy animations
+- **Richer visual expressions:** Enhanced use of colour, shape, and motion to convey emotion
+- **Adaptive components:** UI elements that respond more dynamically to user interactions
+- **Emphasis on delight:** Design principles that prioritise joy and engagement
+
+### Key Principles
+- **Emotional resonance:** Interfaces that connect emotionally with users
+- **Personality expression:** Components that reflect brand character through motion and form
+- **Contextual adaptation:** Elements that respond appropriately to different contexts
+- **Enhanced feedback:** More expressive responses to user interactions
+
+### Impact on Design
+Material 3 Expressive builds on M3's foundations whilst adding:
+- Spring-based animations for more natural motion
+- More expressive component states (hover, press, focus)
+- Enhanced micro-interactions throughout the system
+- Greater emphasis on motion as a design tool
 
 ## Android Identity
 
@@ -143,7 +167,8 @@ Design a card component thinking about:
 
 - Material is inspired by physical paper properties
 - Elevation creates hierarchy through shadow
-- Material 3 adds dynamic color and personalization
+- Material 3 adds dynamic colour and personalisation
+- Material 3 Expressive adds emotional, personality-driven design
 - Motion is meaningful, not decorative
 - Android apps should feel integrated with the system
 
