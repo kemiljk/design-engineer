@@ -13,7 +13,7 @@ A highly interactive visualizer where users can experiment with spring physics p
 - **Visual Controls:** Sliders for `mass`, `stiffness`, and `damping`.
 - **Real-time Preview:** A simple object (ball/box) that animates based on the settings.
 - **Code Export:** One-click copy for:
-  - Framer Motion (`type: "spring"`)
+  - Motion (`type: "spring"`)
   - CSS (Linear easing approximation if possible, or keyframes)
   - Swift/SwiftUI (`spring()`)
 - **Presets:** "Bouncy", "Snappy", "Gentle" presets to get started quickly.

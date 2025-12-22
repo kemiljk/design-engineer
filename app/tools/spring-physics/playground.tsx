@@ -23,7 +23,7 @@ const PRESETS: Record<string, SpringConfig> = {
 };
 
 const FORMAT_OPTIONS: { value: OutputFormat; label: string }[] = [
-  { value: "framer", label: "Framer Motion" },
+  { value: "framer", label: "Motion" },
   { value: "swift", label: "SwiftUI" },
   { value: "css", label: "CSS" },
   { value: "android", label: "Android" },

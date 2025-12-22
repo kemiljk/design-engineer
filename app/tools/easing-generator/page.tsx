@@ -4,7 +4,7 @@ import EasingGenerator from "./generator";
 
 export const metadata = {
   title: "Easing Curve Generator | Design Engineer",
-  description: "Visualize and generate cubic-bezier easing curves for CSS and Framer Motion.",
+  description: "Visualize and generate cubic-bezier easing curves for CSS and Motion.",
 };
 
 export default function EasingGeneratorPage() {

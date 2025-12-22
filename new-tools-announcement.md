@@ -21,7 +21,7 @@ Let's dive in.
 ### Spring Physics Playground
 Drag sliders. Watch the ball bounce. Copy the code. That's it.
 
-Whether you're targeting Framer Motion, CSS, SwiftUI, or Android, this playground lets you experiment with mass, stiffness, and damping until the animation *feels* right. See it, tweak it, ship it.
+Whether you're targeting Motion, CSS, SwiftUI, or Android, this playground lets you experiment with mass, stiffness, and damping until the animation *feels* right. See it, tweak it, ship it.
 
 → [designengineer.xyz/tools/spring-physics](https://designengineer.xyz/tools/spring-physics)
 
