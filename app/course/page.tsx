@@ -253,7 +253,7 @@ export default async function CoursePage() {
           )}
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid auto-rows-fr gap-8 md:grid-cols-3">
           {tracks.map((track) => (
             <TrackCard
               key={track.id}

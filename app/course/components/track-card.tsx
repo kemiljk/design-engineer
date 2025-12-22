@@ -79,7 +79,7 @@ export function TrackCard({
   return (
     <Link
       href={`/course/${id}`}
-      className="group relative overflow-hidden border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+      className="group relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
     >
       {/* Recommended Badge */}
       {isRecommended && (
@@ -95,16 +95,16 @@ export function TrackCard({
           color
         )}
       />
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
           {icon}
         </div>
         <h3 className="mb-2 text-xl font-bold">{title}</h3>
-        <p className="mb-6 text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="mb-6 flex-1 text-sm text-neutral-600 dark:text-neutral-400">
           {description}
         </p>
 
-        <div className="space-y-3 border-t border-neutral-100 pt-4 text-sm text-neutral-500 dark:border-neutral-800">
+        <div className="mt-auto space-y-3 border-t border-neutral-100 pt-4 text-sm text-neutral-500 dark:border-neutral-800">
           <div className="flex items-center gap-2">
             <BookOpen className="h-4 w-4" />
             <span>{stats.lessons} lessons</span>

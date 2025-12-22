@@ -32,6 +32,8 @@ import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import { HeroIllustration } from "./components/hero-illustration";
 import { FAQAccordion } from "./course/faq/faq-accordion";
+import { AnimatedSection } from "./components/animated-section";
+import { AnimatedGrid } from "./components/animated-grid";
 
 async function HeroSection() {
   const home = await getHome();
@@ -118,7 +120,10 @@ async function SponsorsSection() {
   const sponsors = await getSponsors();
 
   return (
-    <div className="mt-24 w-full border-t border-neutral-200 py-12 dark:border-neutral-800">
+    <AnimatedSection
+      as="div"
+      className="mt-24 w-full border-t border-neutral-200 py-12 dark:border-neutral-800"
+    >
       <div className="flex flex-col items-center justify-center gap-8">
         <p className="font-mono text-xs tracking-widest text-neutral-500 uppercase">
           Supported by
@@ -140,7 +145,7 @@ async function SponsorsSection() {
           ))}
         </div>
       </div>
-    </div>
+    </AnimatedSection>
   );
 }
 
@@ -184,7 +189,10 @@ const homepageFaqs = [
 
 function FAQSection() {
   return (
-    <div className="w-full border-t border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50">
+    <AnimatedSection
+      as="div"
+      className="w-full border-t border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
+    >
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <div className="mb-8 text-center">
           <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
@@ -207,7 +215,7 @@ function FAQSection() {
           </p>
         </div>
       </div>
-    </div>
+    </AnimatedSection>
   );
 }
 
@@ -277,7 +285,10 @@ const featuredTools = [
 
 function ToolsSection() {
   return (
-    <div className="w-full border-y border-neutral-200 bg-neutral-50 py-16 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/50">
+    <AnimatedSection
+      as="div"
+      className="w-full border-y border-neutral-200 bg-neutral-50 py-16 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/50"
+    >
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -308,7 +319,7 @@ function ToolsSection() {
         </div>
 
         {/* Tools Grid */}
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <AnimatedGrid className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {featuredTools.map((tool) => (
             <NextLink
               key={tool.title}
@@ -335,7 +346,7 @@ function ToolsSection() {
               </div>
             </NextLink>
           ))}
-        </div>
+        </AnimatedGrid>
 
         {/* Bottom Stats */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-6 border-t border-neutral-200 pt-8 text-sm text-neutral-500 md:gap-10 dark:border-neutral-800">
@@ -365,7 +376,7 @@ function ToolsSection() {
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedSection>
   );
 }
 
@@ -396,7 +407,10 @@ async function CourseSection() {
   ];
 
   return (
-    <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50">
+    <AnimatedSection
+      as="div"
+      className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
+    >
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -413,11 +427,11 @@ async function CourseSection() {
           </p>
         </div>
 
-        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <AnimatedGrid className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
           {tracks.map((track) => (
             <div
               key={track.title}
-              className="group relative overflow-hidden border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+              className="group relative flex flex-col overflow-hidden border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
             >
               <div
                 className={cn(
@@ -425,7 +439,7 @@ async function CourseSection() {
                   track.color,
                 )}
               />
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 transition-colors group-hover:bg-neutral-100 dark:bg-neutral-800 dark:group-hover:bg-neutral-700">
                   <track.icon
                     className={cn(
@@ -434,13 +448,13 @@ async function CourseSection() {
                   />
                 </div>
                 <h3 className="mb-2 text-xl font-bold">{track.title}</h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                <p className="flex-1 text-sm text-neutral-600 dark:text-neutral-400">
                   {track.description}
                 </p>
               </div>
             </div>
           ))}
-        </div>
+        </AnimatedGrid>
 
         <div className="flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 sm:flex-row sm:justify-between dark:border-neutral-800">
           <div className="flex items-center gap-6 text-sm text-neutral-500">
@@ -464,7 +478,7 @@ async function CourseSection() {
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedSection>
   );
 }
 
@@ -503,7 +517,10 @@ export default function Home() {
       <ToolsSection />
 
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
-        <div className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 md:flex-row md:items-end dark:border-neutral-800">
+        <AnimatedSection
+          as="div"
+          className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 md:flex-row md:items-end dark:border-neutral-800"
+        >
           <SectionTitle>Latest Insights</SectionTitle>
 
           <div className="flex items-center gap-4">
@@ -516,15 +533,15 @@ export default function Home() {
               All articles
             </Button>
           </div>
-        </div>
+        </AnimatedSection>
 
         <Suspense fallback={<PostsSkeleton />}>
           <PostsSection />
         </Suspense>
 
-        <div className="mt-24 flex w-full items-center justify-center">
+        <AnimatedSection as="div" className="mt-24 flex w-full items-center justify-center">
           <SubmitArticle />
-        </div>
+        </AnimatedSection>
 
         <Suspense fallback={<SponsorsSkeleton />}>
           <SponsorsSection />

@@ -1,16 +1,69 @@
+"use client";
+
+import { motion } from "motion/react";
 import { MousePointer } from "./mouse-pointer";
+import { ease, duration } from "@/lib/motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const designVariants = {
+  hidden: { opacity: 0, x: -16 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: duration.slow, ease: ease.outQuint },
+  },
+};
+
+const timesVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: duration.normal, ease: ease.outQuint },
+  },
+};
+
+const engineerVariants = {
+  hidden: { opacity: 0, x: 16 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: duration.slow, ease: ease.outQuint },
+  },
+};
 
 export default function PageTitle() {
   return (
-    <h1 className="flex flex-col items-center justify-center gap-2 text-foreground md:flex-row md:gap-4">
-      <div className="relative border-2 border-foreground p-2 md:border-4 md:p-4">
+    <motion.h1
+      className="flex flex-col items-center justify-center gap-2 text-foreground md:flex-row md:gap-4"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div
+        className="relative border-2 border-foreground p-2 md:border-4 md:p-4"
+        variants={designVariants}
+      >
         <span className="text-4xl font-bold italic tracking-tight md:text-5xl lg:text-7xl">
           design
         </span>
         <MousePointer />
-      </div>
-      <span className="hidden text-5xl md:block lg:text-7xl">&times;</span>
-      <div className="flex items-center">
+      </motion.div>
+      <motion.span
+        className="hidden text-5xl md:block lg:text-7xl"
+        variants={timesVariants}
+      >
+        &times;
+      </motion.span>
+      <motion.div className="flex items-center" variants={engineerVariants}>
         <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-7xl">
           {`<`}
         </span>
@@ -20,7 +73,7 @@ export default function PageTitle() {
         <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-7xl">
           {` />`}
         </span>
-      </div>
-    </h1>
+      </motion.div>
+    </motion.h1>
   );
 }

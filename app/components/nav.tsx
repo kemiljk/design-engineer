@@ -16,6 +16,8 @@ import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "./logo";
 import { Menu, MoreHorizontal, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { ease, duration } from "@/lib/motion";
 
 const CommandPalette = dynamic(
   () => import("./command-palette").then((m) => m.CommandPalette),
@@ -85,45 +87,60 @@ function DesktopOverflowMenu({
         <MoreHorizontal className="h-5 w-5" />
       </button>
 
-      {open && (
-        <div
-          role="menu"
-          className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-md border border-neutral-200 bg-white shadow-lg motion-safe:animate-[enter_0.16s_var(--ease-out-cubic)_both] motion-reduce:animate-none dark:border-neutral-800 dark:bg-black"
-        >
-          {items.map((item) =>
-            isExternalLink(item.href) ? (
-              <a
-                key={item.href}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-                onClick={() => setOpen(false)}
-                className="focus-ring block px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
-              >
-                {item.title}
-              </a>
-            ) : (
-              <NextLink
-                key={item.href}
-                href={item.href}
-                prefetch={true}
-                role="menuitem"
-                aria-current={isActive(item.href) ? "page" : undefined}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
-                  isActive(item.href)
-                    ? "text-swiss-red"
-                    : "text-neutral-700 dark:text-neutral-200",
-                )}
-              >
-                {item.title}
-              </NextLink>
-            ),
-          )}
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            role="menu"
+            initial={{ opacity: 0, y: -8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.98 }}
+            transition={{ duration: duration.fast, ease: ease.out }}
+            className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-md border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black"
+          >
+            {items.map((item, index) =>
+              isExternalLink(item.href) ? (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  role="menuitem"
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: duration.fast, delay: index * 0.03 }}
+                  className="focus-ring block px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
+                >
+                  {item.title}
+                </motion.a>
+              ) : (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: duration.fast, delay: index * 0.03 }}
+                >
+                  <NextLink
+                    href={item.href}
+                    prefetch={true}
+                    role="menuitem"
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
+                      isActive(item.href)
+                        ? "text-swiss-red"
+                        : "text-neutral-700 dark:text-neutral-200",
+                    )}
+                  >
+                    {item.title}
+                  </NextLink>
+                </motion.div>
+              ),
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -274,6 +291,12 @@ function DesktopNavLinks({
   );
 }
 
+const menuItemVariants = {
+  hidden: { opacity: 0, x: -12 },
+  visible: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -8 },
+};
+
 export default function Nav({
   links,
   posts = [],
@@ -359,58 +382,86 @@ export default function Nav({
       </nav>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div
-          className="flex flex-col gap-6 bg-white px-6 pt-4 pb-8 motion-safe:animate-[enter_0.16s_var(--ease-out-cubic)_both] motion-reduce:animate-none sm:hidden dark:bg-black"
-          style={
-            isBannerVisible
-              ? {
-                  maxHeight: `calc(100dvh - 64px - ${bannerHeight}px)`,
-                }
-              : { maxHeight: "calc(100dvh - 64px)" }
-          }
-        >
-          {links.map((item, index) =>
-            isExternalLink(item.href) ? (
-              <a
-                key={`menu-${item.title}-${index}`}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMenuOpen(false)}
-                className="focus-ring text-foreground w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: duration.normal, ease: ease.outQuint }}
+            className="overflow-hidden bg-white sm:hidden dark:bg-black"
+            style={
+              isBannerVisible
+                ? {
+                    maxHeight: `calc(100dvh - 64px - ${bannerHeight}px)`,
+                  }
+                : { maxHeight: "calc(100dvh - 64px)" }
+            }
+          >
+            <motion.div
+              className="flex flex-col gap-6 px-6 pt-4 pb-8"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={{
+                visible: { transition: { staggerChildren: 0.04 } },
+                exit: { transition: { staggerChildren: 0.02 } },
+              }}
+            >
+              {links.map((item, index) =>
+                isExternalLink(item.href) ? (
+                  <motion.a
+                    key={`menu-${item.title}-${index}`}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMenuOpen(false)}
+                    variants={menuItemVariants}
+                    transition={{ duration: duration.normal, ease: ease.outQuint }}
+                    className="focus-ring text-foreground w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
+                  >
+                    {item.title}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={`menu-${item.title}-${index}`}
+                    variants={menuItemVariants}
+                    transition={{ duration: duration.normal, ease: ease.outQuint }}
+                  >
+                    <NextLink
+                      href={item.href}
+                      prefetch={true}
+                      aria-current={isActive(item.href) ? "page" : undefined}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={cn(
+                        "focus-ring block w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white",
+                        isActive(item.href) ? "text-swiss-red" : "text-foreground",
+                      )}
+                    >
+                      {item.title}
+                    </NextLink>
+                  </motion.div>
+                ),
+              )}
+              <motion.div
+                className="mt-4"
+                variants={menuItemVariants}
+                transition={{ duration: duration.normal, ease: ease.outQuint }}
               >
-                {item.title}
-              </a>
-            ) : (
-              <NextLink
-                key={`menu-${item.title}-${index}`}
-                href={item.href}
-                prefetch={true}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                onClick={() => setIsMenuOpen(false)}
-                className={cn(
-                  "focus-ring w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white",
-                  isActive(item.href) ? "text-swiss-red" : "text-foreground",
-                )}
-              >
-                {item.title}
-              </NextLink>
-            ),
-          )}
-          <div className="mt-4">
-            <SignedOut>
-              <Button
-                href="/sign-in"
-                onClick={() => setIsMenuOpen(false)}
-                className="w-full justify-center"
-              >
-                Sign in
-              </Button>
-            </SignedOut>
-          </div>
-        </div>
-      )}
+                <SignedOut>
+                  <Button
+                    href="/sign-in"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="w-full justify-center"
+                  >
+                    Sign in
+                  </Button>
+                </SignedOut>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

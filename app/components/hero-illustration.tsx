@@ -1,5 +1,7 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
+
 const COLORS = {
   primary: "var(--illustration-primary, #ff4400)",
   fg: "var(--color-fg, #000000)",
@@ -8,7 +10,11 @@ const COLORS = {
   bg: "var(--color-bg, #ffffff)",
 };
 
+const drawEase: [number, number, number, number] = [0.65, 0, 0.35, 1];
+
 export function HeroIllustration() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <div className="relative h-full w-full">
       <svg
@@ -106,13 +112,7 @@ export function HeroIllustration() {
           </text>
 
           {/* Component box */}
-          <rect
-            x="60"
-            y="180"
-            width="80"
-            height="24"
-            fill={COLORS.primary}
-          />
+          <rect x="60" y="180" width="80" height="24" fill={COLORS.primary} />
           <text
             x="100"
             y="196"
@@ -128,27 +128,33 @@ export function HeroIllustration() {
 
         {/* Bridge/intersection - center */}
         <g>
-          {/* Flowing connection lines */}
-          <path
+          {/* Animated connection lines - draw on load */}
+          <motion.path
             d="M 160 140 C 200 140, 200 140, 240 100"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
-            opacity="0.6"
+            initial={prefersReducedMotion ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.6 }}
+            transition={{ duration: 1, ease: drawEase, delay: 0.3 }}
           />
-          <path
+          <motion.path
             d="M 160 160 C 200 160, 200 160, 240 160"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            opacity="0.4"
+            initial={prefersReducedMotion ? { pathLength: 1, opacity: 0.4 } : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.4 }}
+            transition={{ duration: 1, ease: drawEase, delay: 0.5 }}
           />
-          <path
+          <motion.path
             d="M 160 180 C 200 180, 200 180, 240 220"
             fill="none"
             stroke={COLORS.primary}
             strokeWidth="2"
-            opacity="0.6"
+            initial={prefersReducedMotion ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.6 }}
+            transition={{ duration: 1, ease: drawEase, delay: 0.7 }}
           />
 
           {/* Center intersection point */}
@@ -160,13 +166,28 @@ export function HeroIllustration() {
             stroke={COLORS.primary}
             strokeWidth="2"
           />
-          <circle cx="200" cy="160" r="8" fill={COLORS.primary} />
 
-          {/* Orbit dots */}
-          <circle cx="200" cy="136" r="3" fill="currentColor" />
-          <circle cx="224" cy="160" r="3" fill="currentColor" />
-          <circle cx="200" cy="184" r="3" fill="currentColor" />
-          <circle cx="176" cy="160" r="3" fill="currentColor" />
+          {/* Center dot - subtle pulse */}
+          <motion.circle
+            cx="200"
+            cy="160"
+            r="8"
+            fill={COLORS.primary}
+            animate={prefersReducedMotion ? {} : { opacity: [1, 0.7, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Orbit dots - continuous slow rotation */}
+          <motion.g
+            animate={prefersReducedMotion ? {} : { rotate: 360 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "200px", originY: "160px" }}
+          >
+            <circle cx="200" cy="136" r="3" fill="currentColor" />
+            <circle cx="224" cy="160" r="3" fill="currentColor" />
+            <circle cx="200" cy="184" r="3" fill="currentColor" />
+            <circle cx="176" cy="160" r="3" fill="currentColor" />
+          </motion.g>
         </g>
 
         {/* Engineering side - right */}
@@ -188,7 +209,7 @@ export function HeroIllustration() {
           <circle cx="264" cy="72" r="4" fill={COLORS.muted} opacity="0.5" />
           <circle cx="276" cy="72" r="4" fill={COLORS.muted} opacity="0.5" />
 
-          {/* Code lines */}
+          {/* Code lines - static, always visible */}
           <rect
             x="252"
             y="92"
@@ -257,39 +278,59 @@ export function HeroIllustration() {
 
         {/* Floating elements - decorative */}
         <g opacity="0.6">
-          {/* Top floating shapes */}
-          <rect
-            x="180"
-            y="30"
-            width="16"
-            height="16"
-            fill="none"
-            stroke={COLORS.primary}
-            strokeWidth="1.5"
-            transform="rotate(15, 188, 38)"
-          />
+          {/* Top floating shapes - gentle drift */}
+          <motion.g
+            animate={prefersReducedMotion ? {} : { y: [0, -3, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <rect
+              x="180"
+              y="30"
+              width="16"
+              height="16"
+              fill="none"
+              stroke={COLORS.primary}
+              strokeWidth="1.5"
+              transform="rotate(15, 188, 38)"
+            />
+          </motion.g>
 
-          <circle
-            cx="320"
-            cy="50"
-            r="8"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          />
+          <motion.g
+            animate={prefersReducedMotion ? {} : { y: [0, 3, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          >
+            <circle
+              cx="320"
+              cy="50"
+              r="8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </motion.g>
 
-          {/* Bottom floating shapes */}
-          <rect
-            x="80"
-            y="250"
-            width="12"
-            height="12"
-            fill={COLORS.primary}
-            opacity="0.5"
-            transform="rotate(-10, 86, 256)"
-          />
+          {/* Bottom floating shapes - gentle drift */}
+          <motion.g
+            animate={prefersReducedMotion ? {} : { y: [0, 2, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          >
+            <rect
+              x="80"
+              y="250"
+              width="12"
+              height="12"
+              fill={COLORS.primary}
+              opacity="0.5"
+              transform="rotate(-10, 86, 256)"
+            />
+          </motion.g>
 
-          <circle cx="300" cy="270" r="6" fill="currentColor" opacity="0.3" />
+          <motion.g
+            animate={prefersReducedMotion ? {} : { y: [0, -2, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          >
+            <circle cx="300" cy="270" r="6" fill="currentColor" opacity="0.3" />
+          </motion.g>
         </g>
 
         {/* Labels */}

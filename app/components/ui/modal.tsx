@@ -10,6 +10,8 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { ease, duration } from "@/lib/motion";
 
 interface ModalContextValue {
   isOpen: boolean;
@@ -68,8 +70,6 @@ function Modal({
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
   const backdropClasses = {
     blur: "bg-black/50 backdrop-blur-sm",
     opaque: "bg-black/50",
@@ -89,24 +89,32 @@ function Modal({
     <ModalContext.Provider
       value={{ isOpen, onOpen: () => onOpenChange(true), onClose, onOpenChange }}
     >
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div
-          className={cn("fixed inset-0", backdropClasses[backdrop])}
-          onClick={onClose}
-          aria-hidden="true"
-        />
-        <div
-          role="dialog"
-          aria-modal="true"
-          className={cn(
-            "relative z-50 w-full",
-            sizeClasses[size],
-            "animate-in fade-in-0 zoom-in-95"
-          )}
-        >
-          {children}
-        </div>
-      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: duration.fast }}
+              className={cn("fixed inset-0", backdropClasses[backdrop])}
+              onClick={onClose}
+              aria-hidden="true"
+            />
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              initial={{ opacity: 0, scale: 0.96, y: 8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98, y: 4 }}
+              transition={{ duration: duration.normal, ease: ease.outQuint }}
+              className={cn("relative z-50 w-full", sizeClasses[size])}
+            >
+              {children}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </ModalContext.Provider>
   );
 }
