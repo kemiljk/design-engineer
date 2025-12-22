@@ -36,21 +36,21 @@ A visual cubic-bezier editor with draggable control points and real-time preview
 
 ## 🎨 Visual Design
 
-### Gradient Generator ✨ NEW
+### Gradient Generator
 Create stunning linear, radial, and conic gradients with full control over colour stops, angles, and positions.
 
 Export to CSS, Tailwind, SwiftUI, or Android—all from one interface. The visual preview updates in real-time as you craft the perfect gradient.
 
 → [designengineer.xyz/tools/gradient-generator](https://designengineer.xyz/tools/gradient-generator)
 
-### Shadow Generator ✨ NEW
+### Shadow Generator
 Design layered, realistic shadows that bring depth to your interfaces.
 
 Fine-tune blur, spread, offset, and opacity across multiple shadow layers. Export to CSS, Tailwind, SwiftUI, Android, or React Native with one click.
 
 → [designengineer.xyz/tools/shadow-generator](https://designengineer.xyz/tools/shadow-generator)
 
-### Colour Converter ✨ NEW
+### Colour Converter
 Stop searching for colour conversion formulas.
 
 Paste any colour in HEX, RGB, HSL, or OKLCH and instantly get values for every format you need—including SwiftUI and Android-specific colour formats. Copy and go.
@@ -79,14 +79,14 @@ Exports to Tailwind v4, CSS variables, or SCSS maps. No more arbitrary values—
 
 ## 📱 Mobile & Accessibility
 
-### Touch Target Calculator ✨ NEW
+### Touch Target Calculator
 Are your tap targets accessible? Find out instantly.
 
 Input your element dimensions and get pass/fail validation against iOS Human Interface Guidelines, Material Design specs, and WCAG accessibility standards—all at once.
 
 → [designengineer.xyz/tools/touch-target](https://designengineer.xyz/tools/touch-target)
 
-### App Icon Sizes ✨ NEW
+### App Icon Sizes
 Never hunt for icon dimensions again.
 
 A complete reference guide for every app icon size you need—iOS, Android, macOS, and web. All the required dimensions, all in one place, always up to date.
@@ -97,7 +97,7 @@ A complete reference guide for every app icon size you need—iOS, Android, macO
 
 ## 🔧 Code & Development
 
-### Framework Converter ✨ NEW
+### Framework Converter
 Building in React but need Svelte? Working across multiple frameworks?
 
 Paste your component code and convert syntax between React, Vue, Svelte, Astro, and Solid. It's not magic—it's pattern matching that saves you hours of manual translation.
