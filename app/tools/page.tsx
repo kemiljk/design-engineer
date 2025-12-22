@@ -108,13 +108,6 @@ const TOOL_SECTIONS: ToolSection[] = [
         icon: Code2,
         isGated: false,
       },
-      {
-        title: "Accessibility Auditor",
-        description: "AI-powered analysis of your components for accessibility and contrast issues.",
-        href: "/tools/accessibility-auditor",
-        icon: Eye,
-        isGated: true,
-      },
     ],
   },
   {
@@ -126,6 +119,13 @@ const TOOL_SECTIONS: ToolSection[] = [
         description: "Generate customised design engineering tasks and practice scenarios with AI.",
         href: "/tools/task-builder",
         icon: Sparkles,
+        isGated: true,
+      },
+      {
+        title: "Accessibility Auditor",
+        description: "AI-powered analysis of your components for accessibility and contrast issues.",
+        href: "/tools/accessibility-auditor",
+        icon: Eye,
         isGated: true,
       },
     ],
