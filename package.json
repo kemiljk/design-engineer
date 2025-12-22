@@ -27,7 +27,7 @@
     "@heroui/react": "^2.8.6",
     "@react-pdf/renderer": "^4.3.1",
     "@uiw/react-md-editor": "^4.0.11",
-    "ai": "^4.3.19",
+    "ai": "^5.0.52",
     "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
