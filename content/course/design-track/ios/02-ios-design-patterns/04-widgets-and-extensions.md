@@ -140,7 +140,7 @@ Design a Lock Screen widget. How do you convey value in such limited space?
       "id": "c",
       "text": "Detailed information that replaces opening the app",
       "isCorrect": false,
-      "explanation": "Widgets have limited space—they complement the app, not replace it."
+      "explanation": "Widgets have limited space. They complement the app, not replace it."
     },
     {
       "id": "d",

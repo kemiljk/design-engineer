@@ -147,7 +147,7 @@ Design a custom card with all interactive states.
     },
     {
       "id": "c",
-      "text": "No feedback—the result is the feedback",
+      "text": "No feedback, the result is the feedback",
       "isCorrect": false,
       "explanation": "Immediate touch feedback is important for perceived responsiveness."
     },

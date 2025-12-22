@@ -154,7 +154,7 @@
       "id": "c",
       "text": "Primitives are for designers, semantics are for developers",
       "isCorrect": false,
-      "explanation": "Both audiences use both types—the distinction is about abstraction level."
+      "explanation": "Both audiences use both types. The distinction is about abstraction level."
     },
     {
       "id": "d",

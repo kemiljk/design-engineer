@@ -220,7 +220,7 @@ Create a card grid where clicking a card transitions the card image smoothly to 
       "id": "d",
       "text": "To reduce the amount of content that needs to load",
       "isCorrect": false,
-      "explanation": "Transitions don't reduce content loading—they provide visual continuity during navigation."
+      "explanation": "Transitions don't reduce content loading. They provide visual continuity during navigation."
     }
   ]
 }

@@ -1,6 +1,6 @@
 # What is Visual Design?
 
-> **Quick Summary:** Visual design is the strategic use of imagery, color, typography, and space to guide users and communicate meaning—not just decoration, but deliberate communication.
+> **Quick Summary:** Visual design is the strategic use of imagery, colour, typography, and space to guide users and communicate meaning. Not just decoration, but deliberate communication.
 
 ## What You'll Learn
 
@@ -11,9 +11,9 @@
 
 ## Beyond "Making Things Pretty"
 
-When engineers think about design, they often imagine the final polish—icons, colors, nice fonts. But visual design is much more fundamental than aesthetics.
+When engineers think about design, they often imagine the final polish: icons, colours, nice fonts. But visual design is much more fundamental than aesthetics.
 
-Visual design is a system of communication. Every visual choice you make—the size of a heading, the space between elements, the color of a button—sends a message to users. Good visual design makes products intuitive. Bad visual design makes them confusing.
+Visual design is a system of communication. Every visual choice you make (the size of a heading, the space between elements, the colour of a button) sends a message to users. Good visual design makes products intuitive. Bad visual design makes them confusing.
 
 Consider two identical interfaces with the same functionality. One guides your eye naturally, helps you find what you need, and feels effortless to use. The other feels chaotic, requires searching, and leaves you uncertain about what to do next.
 
@@ -23,7 +23,7 @@ The difference isn't magic. It's visual design.
 
 These terms are often used interchangeably, but they're not the same:
 
-**Graphic Design** focuses on creating visual content for communication—logos, posters, advertisements, book covers. It often exists in fixed formats and is viewed rather than interacted with.
+**Graphic Design** focuses on creating visual content for communication: logos, posters, advertisements, book covers. It often exists in fixed formats and is viewed rather than interacted with.
 
 **Visual Design** in the context of digital products focuses on how visual elements guide users through interactive experiences. It must account for:
 
@@ -63,7 +63,7 @@ Studies consistently show that users judge a website's credibility based on visu
 
 ### Enabling Usability
 
-The most usable interfaces are often the best designed visually. This isn't coincidence—visual design principles like hierarchy and consistency directly impact how easily users navigate and understand interfaces.
+The most usable interfaces are often the best designed visually. This isn't coincidence. Visual design principles like hierarchy and consistency directly impact how easily users navigate and understand interfaces.
 
 ## Why Engineers Should Care
 
@@ -83,7 +83,7 @@ You'll notice when something "feels off" before users do. You'll make better dec
 
 ### Career Advancement
 
-Design Engineers—people who bridge both disciplines—are increasingly in demand and command premium compensation.
+Design Engineers (people who bridge both disciplines) are increasingly in demand and command premium compensation.
 
 ### Personal Satisfaction
 
@@ -99,7 +99,7 @@ This module will cover the foundational building blocks:
 The visual weight and importance of elements. What do users see first? Second? Last? How does the arrangement guide their attention?
 
 ### Contrast
-The difference between elements—in size, color, weight, spacing. Contrast creates emphasis and separation.
+The difference between elements in size, colour, weight, spacing. Contrast creates emphasis and separation.
 
 ### Balance
 The distribution of visual weight. Balanced designs feel stable and intentional. Unbalanced designs feel chaotic or dynamic (sometimes intentionally).
@@ -111,7 +111,7 @@ Consistency in visual treatment. Repeating patterns help users learn interfaces 
 The positioning of elements relative to each other. Aligned elements feel connected and organized. Misaligned elements feel accidental.
 
 ### Proximity
-How close or far elements are from each other. Proximity signals relationships—things that are close together are perceived as related.
+How close or far elements are from each other. Proximity signals relationships. Things that are close together are perceived as related.
 
 These principles work together. A well-designed interface applies all of them, often unconsciously. In the following lessons, we'll make them conscious.
 

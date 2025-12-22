@@ -154,7 +154,7 @@ Build a new prototype with production patterns:
       "id": "a",
       "text": "When the prototype tested well with users",
       "isCorrect": false,
-      "explanation": "Successful testing is a reason TO evolve it—but watch for other factors."
+      "explanation": "Successful testing is a reason TO evolve it, but watch for other factors."
     },
     {
       "id": "b",

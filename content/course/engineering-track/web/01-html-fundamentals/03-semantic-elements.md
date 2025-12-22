@@ -1,6 +1,6 @@
 # Semantic Elements
 
-> **Quick Summary:** Semantic elements describe their content's meaning—they make HTML readable, accessible, and meaningful to browsers, screen readers, and search engines.
+> **Quick Summary:** Semantic elements describe their content's meaning. They make HTML readable, accessible, and meaningful to browsers, screen readers, and search engines.
 
 ## What You'll Learn
 
@@ -315,7 +315,7 @@ If it doesn't represent a thematic grouping, use `<div>`.
 
 ### Using article for Everything
 
-`<article>` is for self-contained, syndicatable content—not every card or component.
+`<article>` is for self-contained, syndicatable content, not every card or component.
 
 ### Skipping main
 
@@ -368,7 +368,7 @@ Pick a website and inspect its HTML. Evaluate:
 Take a page design (your own or from Dribbble):
 1. Identify the content regions
 2. Write the HTML structure using semantic elements
-3. No styling—just structure
+3. No styling, just structure
 
 ## Test Your Understanding
 
@@ -385,7 +385,7 @@ Take a page design (your own or from Dribbble):
       "id": "a",
       "text": "You can use multiple <main> elements, one for each major section",
       "isCorrect": false,
-      "explanation": "There should only be one <main> element per page—it represents the unique content."
+      "explanation": "There should only be one <main> element per page. It represents the unique content."
     },
     {
       "id": "b",

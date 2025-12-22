@@ -12,7 +12,7 @@
 
 ## What Is Android Studio?
 
-Android Studio is Google's official IDE (Integrated Development Environment) for Android development. It's built on IntelliJ IDEA—a powerful, professional code editor—and includes everything you need to build Android apps:
+Android Studio is Google's official IDE (Integrated Development Environment) for Android development. It's built on IntelliJ IDEA (a powerful, professional code editor) and includes everything you need to build Android apps:
 
 - Code editor with Kotlin/Java support
 - Visual layout editor
@@ -175,7 +175,7 @@ Click **Finish**.
 
 ### Step 4: Wait for Gradle
 
-Android Studio uses Gradle to manage builds. The first time, it downloads many dependencies—this can take several minutes.
+Android Studio uses Gradle to manage builds. The first time, it downloads many dependencies. This can take several minutes.
 
 Watch the progress bar at the bottom. When it says "Gradle sync finished," you're ready.
 
@@ -383,7 +383,7 @@ Build and run your modified app. See your changes on the virtual device.
       "id": "b",
       "text": "⌘/Ctrl + Shift + A",
       "isCorrect": true,
-      "explanation": "Correct! Find Action is the most powerful shortcut—you can search for any command or setting."
+      "explanation": "Correct! Find Action is the most powerful shortcut. You can search for any command or setting."
     },
     {
       "id": "c",

@@ -202,7 +202,7 @@ In your design tool or code:
       "id": "b",
       "text": "Animations play at half speed",
       "isCorrect": false,
-      "explanation": "Reduce Motion doesn't slow animations—it changes or removes them."
+      "explanation": "Reduce Motion doesn't slow animations. It changes or removes them."
     },
     {
       "id": "c",

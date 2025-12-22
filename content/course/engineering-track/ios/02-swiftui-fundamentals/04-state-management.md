@@ -181,7 +181,7 @@ Create:
       "id": "c",
       "text": "@Binding is for classes, @State is for structs",
       "isCorrect": false,
-      "explanation": "Both work with value types—the difference is ownership."
+      "explanation": "Both work with value types. The difference is ownership."
     },
     {
       "id": "d",

@@ -1,6 +1,6 @@
 # Text and Links
 
-> **Quick Summary:** Text elements give structure and meaning to written content—from headings that create hierarchy to links that connect the web.
+> **Quick Summary:** Text elements give structure and meaning to written content, from headings that create hierarchy to links that connect the web.
 
 ## What You'll Learn
 
@@ -246,7 +246,7 @@ Lists can contain other lists:
 
 ## Links
 
-Links are the foundation of the web—they connect pages and resources.
+Links are the foundation of the web. They connect pages and resources.
 
 ### Basic Link
 
@@ -374,7 +374,7 @@ Take a recipe and mark it up with:
       "id": "a",
       "text": "It causes CSS styling to break",
       "isCorrect": false,
-      "explanation": "CSS styling will work fine—the issue is semantic, not visual."
+      "explanation": "CSS styling will work fine. The issue is semantic, not visual."
     },
     {
       "id": "b",

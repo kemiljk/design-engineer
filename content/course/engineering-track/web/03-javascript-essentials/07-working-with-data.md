@@ -404,7 +404,7 @@ Create a todo app that:
       "id": "c",
       "text": "It converts a callback function to a promise",
       "isCorrect": false,
-      "explanation": "await works with existing promises—it doesn't create them from callbacks."
+      "explanation": "await works with existing promises. It doesn't create them from callbacks."
     },
     {
       "id": "d",

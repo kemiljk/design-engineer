@@ -1,6 +1,6 @@
 # Iconography and Imagery
 
-> **Quick Summary:** Icons and images are powerful visual tools—when used purposefully. Used carelessly, they add clutter and confusion.
+> **Quick Summary:** Icons and images are powerful visual tools when used purposefully. Used carelessly, they add clutter and confusion.
 
 ## What You'll Learn
 
@@ -45,7 +45,7 @@ Icons are simplified visual symbols representing objects, actions, or concepts.
 
 **Simplicity:** Icons should be instantly recognizable. Complex details get lost at small sizes.
 
-**Consistency:** Icons in a set should share visual language—same weight, same corner radius, same perspective.
+**Consistency:** Icons in a set should share visual language: same weight, same corner radius, same perspective.
 
 **Clarity:** A good icon has one clear meaning. If users guess wrong, the icon fails.
 
@@ -72,7 +72,7 @@ Icons should be designed for their target size:
 - **32-48px:** Prominent features, navigation
 - **64px+:** Hero icons, empty states
 
-Don't scale icons arbitrarily—they lose clarity. Use icons designed for the size you need.
+Don't scale icons arbitrarily. They lose clarity. Use icons designed for the size you need.
 
 ### Icon Libraries
 
@@ -115,7 +115,7 @@ When using libraries:
 
 ## Imagery
 
-Images—photographs, graphics, screenshots—play a different role than icons.
+Images (photographs, graphics, screenshots) play a different role than icons.
 
 ### Types of UI Imagery
 
@@ -161,7 +161,7 @@ The large images often used at the top of pages:
 - Support, don't distract from, the headline
 - Ensure text remains readable (overlay, contrast)
 - Consider how the image works at different screen sizes
-- Optimize aggressively—hero images are often large
+- Optimise aggressively. Hero images are often large.
 
 **Patterns:**
 - Full-width background with overlay
@@ -297,7 +297,7 @@ Design an empty state for "no search results":
       "id": "d",
       "text": "The × symbol is universally understood, so no additional labeling is needed",
       "isCorrect": false,
-      "explanation": "Screen readers need text labels—they can't interpret visual symbols."
+      "explanation": "Screen readers need text labels. They can't interpret visual symbols."
     }
   ]
 }
@@ -305,13 +305,13 @@ Design an empty state for "no search results":
 
 ## Key Takeaways
 
-- Icons should aid recognition, not create confusion—use established conventions
+- Icons should aid recognition, not create confusion. Use established conventions.
 - Pair icons with text labels when possible; icon-only requires universal symbols
 - Use one icon library consistently; don't mix styles
 - Images should be relevant, high-quality, consistent, and authentic
 - Illustrations add personality but need stylistic consistency
 - All visual elements need accessibility consideration (alt text, aria-labels)
-- Every visual element should earn its place—if it doesn't serve a purpose, remove it
+- Every visual element should earn its place. If it doesn't serve a purpose, remove it.
 
 ## Next Steps
 

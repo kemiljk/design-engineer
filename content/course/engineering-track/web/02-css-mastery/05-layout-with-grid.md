@@ -1,6 +1,6 @@
 # Layout with Grid
 
-> **Quick Summary:** CSS Grid is a two-dimensional layout system—it handles rows AND columns simultaneously, making complex layouts straightforward.
+> **Quick Summary:** CSS Grid is a two-dimensional layout system. It handles rows AND columns simultaneously, making complex layouts straightforward.
 
 ## What You'll Learn
 

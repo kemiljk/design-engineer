@@ -162,19 +162,19 @@ Build a form with:
       "id": "a",
       "text": "ARIA roles are deprecated and no longer supported",
       "isCorrect": false,
-      "explanation": "ARIA is actively maintained and supported—but it has specific use cases."
+      "explanation": "ARIA is actively maintained and supported, but it has specific use cases."
     },
     {
       "id": "b",
       "text": "Native elements have built-in keyboard and screen reader behavior; ARIA only adds labels, not functionality",
       "isCorrect": true,
-      "explanation": "Correct! A <button> automatically handles keyboard events, focus, and screen reader announcements. Adding role='button' to a div only announces it—you must add keyboard handling yourself."
+      "explanation": "Correct! A <button> automatically handles keyboard events, focus, and screen reader announcements. Adding role='button' to a div only announces it. You must add keyboard handling yourself."
     },
     {
       "id": "c",
       "text": "ARIA adds too much to the file size",
       "isCorrect": false,
-      "explanation": "ARIA attributes are tiny—the issue is about functionality, not file size."
+      "explanation": "ARIA attributes are tiny. The issue is about functionality, not file size."
     },
     {
       "id": "d",

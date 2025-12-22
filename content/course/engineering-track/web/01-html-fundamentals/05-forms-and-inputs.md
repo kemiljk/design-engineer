@@ -488,7 +488,7 @@ Create a test page with every input type. Test on:
 - Forms use `<form>` with `action` and `method`
 - Many input types exist—use the right one for semantic meaning and better UX
 - Always use `<label>` elements for accessibility
-- Placeholders supplement labels—they don't replace them
+- Placeholders supplement labels. They don't replace them.
 - Group related fields with `<fieldset>` and `<legend>`
 - Use appropriate input attributes: `required`, `pattern`, `autocomplete`
 - Connect error messages to inputs with `aria-describedby`

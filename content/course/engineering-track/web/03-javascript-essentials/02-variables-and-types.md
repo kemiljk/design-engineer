@@ -339,11 +339,11 @@ Create a function that takes user data and returns an HTML string for a profile 
       "id": "a",
       "text": "const is faster for the browser to process",
       "isCorrect": false,
-      "explanation": "Performance difference is negligible—this is about code quality."
+      "explanation": "Performance difference is negligible. This is about code quality."
     },
     {
       "id": "b",
-      "text": "const signals intent—this value won't be reassigned—making code easier to understand",
+      "text": "const signals intent (this value won't be reassigned), making code easier to understand",
       "isCorrect": true,
       "explanation": "Correct! Using const when you won't reassign communicates your intent, prevents accidental reassignment, and makes code more predictable."
     },

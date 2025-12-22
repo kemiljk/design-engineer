@@ -1,6 +1,6 @@
 # Responsive Design
 
-> **Quick Summary:** Responsive design ensures your interface works across all screen sizes—from phones to large monitors.
+> **Quick Summary:** Responsive design ensures your interface works across all screen sizes, from phones to large monitors.
 
 ## What You'll Learn
 

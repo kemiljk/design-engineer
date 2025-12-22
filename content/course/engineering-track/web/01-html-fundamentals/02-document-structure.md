@@ -340,7 +340,7 @@ Take an HTML file you've created and validate it:
       "id": "a",
       "text": "The page won't load at all",
       "isCorrect": false,
-      "explanation": "The page will still load—but it won't display correctly on mobile."
+      "explanation": "The page will still load, but it won't display correctly on mobile."
     },
     {
       "id": "b",

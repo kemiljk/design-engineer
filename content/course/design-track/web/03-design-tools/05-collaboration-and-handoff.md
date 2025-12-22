@@ -1,6 +1,6 @@
 # Collaboration and Handoff
 
-> **Quick Summary:** Design isn't done when the mockup is finished—it's done when it's built. Effective handoff bridges the gap between design and development.
+> **Quick Summary:** Design isn't done when the mockup is finished. It's done when it's built. Effective handoff bridges the gap between design and development.
 
 ## What You'll Learn
 
@@ -20,7 +20,7 @@ Traditional handoff is where designs go to die:
 5. Designer is frustrated; developer is frustrated
 6. Quality suffers
 
-As a Design Engineer, you're uniquely positioned to fix this—you understand both sides.
+As a Design Engineer, you're uniquely positioned to fix this. You understand both sides.
 
 ## What Developers Need
 
@@ -390,19 +390,19 @@ Create a token mapping document:
       "id": "a",
       "text": "All interactive states (hover, active, disabled, loading, error)",
       "isCorrect": false,
-      "explanation": "Developers definitely need all states designed—otherwise they'll have to improvise."
+      "explanation": "Developers definitely need all states designed. Otherwise they'll have to improvise."
     },
     {
       "id": "b",
       "text": "Edge case designs (long content, empty states)",
       "isCorrect": false,
-      "explanation": "Edge cases are essential—developers will encounter them and need guidance."
+      "explanation": "Edge cases are essential. Developers will encounter them and need guidance."
     },
     {
       "id": "c",
       "text": "The designer's exploration history and rejected alternatives",
       "isCorrect": true,
-      "explanation": "Correct! While exploration is valuable during design, handoff files should be clean and focused. Archive explorations separately—don't include 'WIP' sections."
+      "explanation": "Correct! While exploration is valuable during design, handoff files should be clean and focused. Archive explorations separately. Don't include 'WIP' sections."
     },
     {
       "id": "d",

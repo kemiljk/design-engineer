@@ -191,7 +191,7 @@ Create a settings form:
       "id": "d",
       "text": "Network submission functionality",
       "isCorrect": false,
-      "explanation": "Form is for UI—you handle data submission separately."
+      "explanation": "Form is for UI. You handle data submission separately."
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Gestalt Principles
 
-> **Quick Summary:** Gestalt principles explain how humans perceive visual information—understanding them lets you design interfaces that work with (not against) the brain.
+> **Quick Summary:** Gestalt principles explain how humans perceive visual information. Understanding them lets you design interfaces that work with the brain, not against it.
 
 ## What You'll Learn
 
@@ -13,11 +13,11 @@
 
 Gestalt is a German word meaning "form" or "shape." Gestalt psychology, developed in the early 20th century, studies how humans perceive patterns and organize visual information.
 
-The core insight: **The brain doesn't see individual elements—it sees relationships and wholes.**
+The core insight: **The brain doesn't see individual elements. It sees relationships and wholes.**
 
 When you look at a interface, you don't consciously process each pixel. Your brain automatically groups, connects, and interprets elements based on predictable patterns. Gestalt principles describe these patterns.
 
-Understanding these principles helps you design interfaces that feel natural and intuitive. Violating them creates interfaces that feel confusing—even if users can't articulate why.
+Understanding these principles helps you design interfaces that feel natural and intuitive. Violating them creates interfaces that feel confusing, even if users can't articulate why.
 
 ## The Seven Principles
 
@@ -36,7 +36,7 @@ Your brain assumes that nearby items are related. This happens automatically, wi
 - Create logical groupings without needing boxes or dividers
 
 **Example:**
-A navigation menu with items spaced evenly feels like a unified group. If one item has extra space on either side, it feels separate—intentionally or not.
+A navigation menu with items spaced evenly feels like a unified group. If one item has extra space on either side, it feels separate, intentionally or not.
 
 ### 2. Similarity
 
@@ -66,7 +66,7 @@ When elements are arranged along a line or curve, we perceive them as related an
 - Create visual flow through intentional arrangement
 
 **Example:**
-A horizontal timeline creates continuity—users naturally follow it from left to right. A progress bar draws the eye along its length.
+A horizontal timeline creates continuity. Users naturally follow it from left to right. A progress bar draws the eye along its length.
 
 ### 4. Closure
 
@@ -227,7 +227,7 @@ Take a simple interface you've designed or built. Deliberately break one Gestalt
       "id": "a",
       "text": "Proximity",
       "isCorrect": false,
-      "explanation": "Proximity groups nearby elements—it doesn't relate to foreground/background separation."
+      "explanation": "Proximity groups nearby elements. It doesn't relate to foreground/background separation."
     },
     {
       "id": "b",
@@ -258,7 +258,7 @@ Take a simple interface you've designed or built. Deliberately break one Gestalt
 - Continuity guides the eye; closure completes incomplete shapes
 - Common region creates boundaries; figure-ground creates depth
 - Common fate groups elements that move together
-- These principles can conflict—be intentional about which you prioritize
+- These principles can conflict. Be intentional about which you prioritise.
 - Designs that work with these principles feel intuitive; those that fight them feel confusing
 
 ## Next Steps

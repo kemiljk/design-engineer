@@ -1,6 +1,6 @@
 # From Design to Prototype
 
-> **Quick Summary:** Translating static designs into interactive prototypes requires making decisions the design didn't specify—this is where Design Engineers shine.
+> **Quick Summary:** Translating static designs into interactive prototypes requires making decisions the design didn't specify. This is where Design Engineers shine.
 
 ## What You'll Learn
 

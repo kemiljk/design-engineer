@@ -1,6 +1,6 @@
 # Thinking in Components
 
-> **Quick Summary:** Component thinking is the foundation of modern design and development—breaking interfaces into reusable, composable pieces.
+> **Quick Summary:** Component thinking is the foundation of modern design and development. It's about breaking interfaces into reusable, composable pieces.
 
 ## What You'll Learn
 
@@ -112,7 +112,7 @@ What changes between instances? These become component variants or props:
 
 ## Component Properties
 
-Components aren't static—they adapt through properties:
+Components aren't static. They adapt through properties:
 
 ### Variants
 
@@ -268,7 +268,7 @@ Propose clear, consistent names following a pattern.
       "id": "a",
       "text": "An atom, because it's a single functional unit",
       "isCorrect": false,
-      "explanation": "Atoms are the smallest possible units—they can't be broken down further. The search bar contains multiple elements."
+      "explanation": "Atoms are the smallest possible units. They can't be broken down further. The search bar contains multiple elements."
     },
     {
       "id": "b",
@@ -280,7 +280,7 @@ Propose clear, consistent names following a pattern.
       "id": "c",
       "text": "An organism, because it's a complex interactive component",
       "isCorrect": false,
-      "explanation": "Organisms are more complex sections made of molecules and atoms—like a full navigation header."
+      "explanation": "Organisms are more complex sections made of molecules and atoms, like a full navigation header."
     },
     {
       "id": "d",

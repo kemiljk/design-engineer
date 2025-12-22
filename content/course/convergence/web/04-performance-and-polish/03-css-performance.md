@@ -147,7 +147,7 @@ Enable "Paint flashing" in DevTools. Navigate your site and note unexpected pain
       "id": "a",
       "text": "width/height (triggers layout)",
       "isCorrect": false,
-      "explanation": "Layout changes are expensive—they affect other elements."
+      "explanation": "Layout changes are expensive. They affect other elements."
     },
     {
       "id": "b",

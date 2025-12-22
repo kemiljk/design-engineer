@@ -136,7 +136,7 @@ Enhance a form:
       "id": "a",
       "text": "Use a comment in the code",
       "isCorrect": false,
-      "explanation": "Comments aren't read by VoiceOver—you need accessibility modifiers."
+      "explanation": "Comments aren't read by VoiceOver. You need accessibility modifiers."
     },
     {
       "id": "b",

@@ -1,6 +1,6 @@
 # Understanding Kotlin Basics
 
-> **Quick Summary:** Before diving into Jetpack Compose for designing Android interfaces, you need a foundation in Kotlin—the modern language for Android development. This lesson covers the essential concepts designers need to know.
+> **Quick Summary:** Before getting into Jetpack Compose for designing Android interfaces, you need a foundation in Kotlin, the modern language for Android development. This lesson covers the essential concepts designers need to know.
 
 ## What You'll Learn
 
@@ -120,7 +120,7 @@ val eitherOne = isVisible || isLoading    // OR
 
 ## Null Safety
 
-Kotlin's null safety is one of its best features—it prevents the dreaded "null pointer exception."
+Kotlin's null safety is one of its best features. It prevents the dreaded "null pointer exception."
 
 ### Nullable vs Non-Nullable
 
@@ -580,7 +580,7 @@ fun getThemeLabel(theme: Theme): String = when (theme) {
     },
     {
       "id": "b",
-      "text": "The type is nullable—it can hold null as a value",
+      "text": "The type is nullable, meaning it can hold null as a value",
       "isCorrect": true,
       "explanation": "Correct! String? can hold a String or null, while String cannot be null."
     },

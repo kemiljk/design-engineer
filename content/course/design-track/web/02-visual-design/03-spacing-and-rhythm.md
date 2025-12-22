@@ -11,7 +11,7 @@
 
 ## The Invisible Art
 
-Spacing is design's invisible medium. You don't see spacing directly—you see its effects. Good spacing makes interfaces feel organized, calm, and professional. Bad spacing makes them feel chaotic, cramped, or disconnected.
+Spacing is design's invisible medium. You don't see spacing directly. You see its effects. Good spacing makes interfaces feel organised, calm, and professional. Bad spacing makes them feel chaotic, cramped, or disconnected.
 
 Most engineers underspacing. Designs feel crowded because elements are packed together without breathing room. When in doubt, add more space.
 
@@ -333,7 +333,7 @@ Compare how each feels. Which is most appropriate for different contexts?
 
 ## Key Takeaways
 
-- Spacing is invisible but critical—it creates rhythm and communicates relationships
+- Spacing is invisible but critical. It creates rhythm and communicates relationships.
 - Whitespace is a feature, not wasted space
 - Use an 8-point grid for consistent spacing
 - Establish vertical rhythm based on your type scale

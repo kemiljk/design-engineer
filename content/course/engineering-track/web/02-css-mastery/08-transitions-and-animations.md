@@ -65,7 +65,7 @@ Or transition all animatable properties:
 }
 ```
 
-Use `all` sparingly—it can cause unexpected animations and performance issues.
+Use `all` sparingly. It can cause unexpected animations and performance issues.
 
 ### What Can Be Transitioned?
 
@@ -360,7 +360,7 @@ Hint to browser about upcoming animations:
 }
 ```
 
-Use sparingly—it consumes resources. Remove after animation.
+Use sparingly. It consumes resources. Remove after animation.
 
 ## Accessibility
 

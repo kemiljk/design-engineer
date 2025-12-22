@@ -190,7 +190,7 @@ Create examples demonstrating:
       "id": "a",
       "text": "Structs are always faster than classes",
       "isCorrect": false,
-      "explanation": "Performance depends on usage—the main benefit is simpler reasoning."
+      "explanation": "Performance depends on usage. The main benefit is simpler reasoning."
     },
     {
       "id": "b",

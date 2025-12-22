@@ -11,7 +11,7 @@
 
 ## Perception vs. Reality
 
-Users don't measure milliseconds—they measure feelings:
+Users don't measure milliseconds. They measure feelings:
 
 - "That felt instant"
 - "That was slow"

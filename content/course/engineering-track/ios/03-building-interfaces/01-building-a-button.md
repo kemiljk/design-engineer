@@ -168,7 +168,7 @@ Build a button that:
       "id": "d",
       "text": "Use CSS classes like on web",
       "isCorrect": false,
-      "explanation": "SwiftUI doesn't use CSS—it uses native Swift protocols."
+      "explanation": "SwiftUI doesn't use CSS. It uses native Swift protocols."
     }
   ]
 }

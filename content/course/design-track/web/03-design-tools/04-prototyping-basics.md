@@ -1,6 +1,6 @@
 # Prototyping Basics
 
-> **Quick Summary:** Prototypes make designs interactive—turning static screens into clickable experiences that communicate ideas, test assumptions, and sell visions.
+> **Quick Summary:** Prototypes make designs interactive. They turn static screens into clickable experiences that communicate ideas, test assumptions, and sell visions.
 
 ## What You'll Learn
 
@@ -313,27 +313,27 @@ Use component variants and swap interactions.
   "options": [
     {
       "id": "a",
-      "text": "High fidelity—users need to see the final design to give accurate feedback",
+      "text": "High fidelity, because users need to see the final design to give accurate feedback",
       "isCorrect": false,
       "explanation": "High fidelity takes days to weeks and may cause users to focus on visual details instead of the flow."
     },
     {
       "id": "b",
-      "text": "Low or medium fidelity—focus on structure and flow, not visual polish",
+      "text": "Low or medium fidelity to focus on structure and flow, not visual polish",
       "isCorrect": true,
       "explanation": "Correct! Low/medium fidelity prototypes are quick to build (hours) and help users focus on the flow rather than visual details. They also invite more honest feedback."
     },
     {
       "id": "c",
-      "text": "No prototype—just show static mockups and explain the flow verbally",
+      "text": "No prototype, just show static mockups and explain the flow verbally",
       "isCorrect": false,
       "explanation": "Static mockups can't show how navigation flows between screens or whether the journey makes sense."
     },
     {
       "id": "d",
-      "text": "Skip prototyping—build the feature in code first, then test",
+      "text": "Skip prototyping and build the feature in code first, then test",
       "isCorrect": false,
-      "explanation": "Building in code before validating the flow is expensive—changes are much harder to make."
+      "explanation": "Building in code before validating the flow is expensive. Changes are much harder to make."
     }
   ]
 }

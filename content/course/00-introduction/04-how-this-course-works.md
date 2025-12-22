@@ -87,7 +87,7 @@ This approach ensures you build foundational knowledge before advanced topics.
 
 If you already have skills in some areas, jump to what you need:
 - Skip lessons covering concepts you know
-- Dive into specific topics that interest you
+- Jump into specific topics that interest you
 - Cross-reference between tracks when relevant
 
 Be honest with yourself. If a lesson's "What You'll Learn" section includes things you can't confidently do, work through the lesson.

@@ -212,7 +212,7 @@ Based on common scenarios:
 
 1. Start with your weaker track
 2. Complete the other track
-3. Deep dive into **Convergence (Web)**
+3. Complete **Convergence (Web)**
 
 ### "I'm starting from zero"
 

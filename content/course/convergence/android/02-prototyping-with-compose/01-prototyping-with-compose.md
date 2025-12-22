@@ -195,7 +195,7 @@ Build a draggable card prototype:
       "id": "a",
       "text": "Compose prototypes look better",
       "isCorrect": false,
-      "explanation": "Visual quality can be similar—the advantage is elsewhere."
+      "explanation": "Visual quality can be similar. The advantage is elsewhere."
     },
     {
       "id": "b",

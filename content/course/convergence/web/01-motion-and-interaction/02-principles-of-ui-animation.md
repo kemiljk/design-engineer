@@ -155,7 +155,7 @@ Create a list that animates in with staggered delays. Experiment with:
       "id": "a",
       "text": "That's what CSS defaults to",
       "isCorrect": false,
-      "explanation": "CSS doesn't have specific timing defaults—this is based on user perception."
+      "explanation": "CSS doesn't have specific timing defaults. This is based on user perception."
     },
     {
       "id": "b",

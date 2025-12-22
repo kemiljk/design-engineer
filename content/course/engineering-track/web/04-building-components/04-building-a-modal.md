@@ -246,7 +246,7 @@ Create a modal with a form:
       "id": "a",
       "text": "Preventing any keyboard interaction while the modal is open",
       "isCorrect": false,
-      "explanation": "Users should be able to use the keyboard inside the modal—just not escape to the background."
+      "explanation": "Users should be able to use the keyboard inside the modal, just not escape to the background."
     },
     {
       "id": "b",

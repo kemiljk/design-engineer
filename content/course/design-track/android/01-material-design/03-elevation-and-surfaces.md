@@ -162,7 +162,7 @@ Design a card with:
       "id": "c",
       "text": "Elevation is no longer used in Material 3",
       "isCorrect": false,
-      "explanation": "Elevation remains important—just expressed differently."
+      "explanation": "Elevation remains important, just expressed differently."
     },
     {
       "id": "d",

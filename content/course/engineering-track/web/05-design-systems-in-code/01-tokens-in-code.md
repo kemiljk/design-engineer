@@ -115,7 +115,7 @@ Layer meaning on top of primitives:
       "id": "a",
       "text": "Custom properties are faster for the browser to render",
       "isCorrect": false,
-      "explanation": "Performance difference is negligible—the benefits are about maintainability."
+      "explanation": "Performance difference is negligible. The benefits are about maintainability."
     },
     {
       "id": "b",

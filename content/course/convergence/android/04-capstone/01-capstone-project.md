@@ -532,7 +532,7 @@ Congratulations on completing the Convergence track! You now have the skills to:
 - Optimize for performance and polish
 - Document and present your work professionally
 
-Your capstone project demonstrates design engineering excellence—the ability to bridge design vision with technical implementation while ensuring accessibility for all users.
+Your capstone project demonstrates design engineering excellence: the ability to bridge design vision with technical implementation while ensuring accessibility for all users.
 
 Consider sharing your project:
 - Android Dev community forums

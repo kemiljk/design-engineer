@@ -154,7 +154,7 @@ Create previews for:
     },
     {
       "id": "b",
-      "text": "Compose is declarative—you describe UI based on state, and it automatically updates when state changes",
+      "text": "Compose is declarative. You describe UI based on state, and it automatically updates when state changes",
       "isCorrect": true,
       "explanation": "Correct! In Compose, you declare what the UI should look like for a given state. When state changes, Compose automatically recomposes (re-renders) affected UI."
     },
@@ -168,7 +168,7 @@ Create previews for:
       "id": "d",
       "text": "Compose is slower because it redraws everything",
       "isCorrect": false,
-      "explanation": "Compose is optimized—it only recomposes changed parts."
+      "explanation": "Compose is optimised. It only recomposes changed parts."
     }
   ]
 }

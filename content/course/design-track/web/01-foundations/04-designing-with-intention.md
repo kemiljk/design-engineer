@@ -13,13 +13,13 @@
 
 When engineers build interfaces without design training, they often make one of two mistakes:
 
-**Mistake 1: No design effort.** The interface is purely functional—default styles, no visual consideration. It works, but it's hard to use and feels untrustworthy.
+**Mistake 1: No design effort.** The interface is purely functional. Default styles, no visual consideration. It works, but it's hard to use and feels untrustworthy.
 
 **Mistake 2: Over-decoration.** Gradients everywhere, drop shadows on everything, animations for the sake of it. It looks like effort was made, but it's still hard to use.
 
 Both mistakes share a root cause: design decisions made without intention.
 
-Intentional design means every visual choice—color, size, spacing, font—serves a purpose. If you can't articulate why something looks a certain way, it probably shouldn't look that way.
+Intentional design means every visual choice (colour, size, spacing, font) serves a purpose. If you can't articulate why something looks a certain way, it probably shouldn't look that way.
 
 ## The "Why?" Test
 
@@ -58,7 +58,7 @@ Neither extreme is ideal:
 - Pure decoration is distracting noise
 - Pure communication is cold and confusing
 
-Good design balances both—aesthetics serve function, and function is presented beautifully.
+Good design balances both. Aesthetics serve function, and function is presented beautifully.
 
 ### Examples of Communication
 
@@ -150,7 +150,7 @@ When something doesn't serve a purpose, it hurts more than it helps. Every unnec
 - Makes the meaningful elements harder to find
 - Increases maintenance burden
 
-The best designs often feel simple—not because they started simple, but because unnecessary elements were removed.
+The best designs often feel simple, not because they started simple, but because unnecessary elements were removed.
 
 Ask: "What would break if I removed this?" If nothing breaks, consider removing it.
 
@@ -166,7 +166,7 @@ Good: "I increased the button contrast to meet accessibility standards and match
 ### Reference Principles
 
 Bad: "I just felt like this was right."
-Good: "I grouped these fields using proximity—related items are closer together, unrelated items have more space."
+Good: "I grouped these fields using proximity. Related items are closer together, unrelated items have more space."
 
 ### Tie to User Goals
 

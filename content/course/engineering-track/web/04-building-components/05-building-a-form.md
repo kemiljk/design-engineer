@@ -190,7 +190,7 @@ class FormValidator {
     },
     {
       "id": "d",
-      "text": "Never show errors—just disable the submit button",
+      "text": "Never show errors, just disable the submit button",
       "isCorrect": false,
       "explanation": "Users need to know what's wrong to fix it—disabled buttons without explanation are frustrating."
     }

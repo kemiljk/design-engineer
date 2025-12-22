@@ -209,7 +209,7 @@ rm -r unwanted-folder
 
 ### `rmdir` - Delete Empty Folders
 
-Safer than `rm -r` for removing folders—only works if the folder is empty.
+Safer than `rm -r` for removing folders. Only works if the folder is empty.
 
 ```bash
 rmdir empty-folder
@@ -484,7 +484,7 @@ Always check your location with `pwd` if you're unsure. Running commands in the 
 - Files: `mkdir`, `touch`, `cp`, `mv`, `rm` for management
 - Reading: `cat`, `less`, `head`, `tail` for viewing contents
 - Finding: `find` and `grep` for locating files and text
-- **Use Tab completion constantly**—it's your biggest time-saver
+- **Use Tab completion constantly.** It's your biggest time-saver.
 - **Check your location with `pwd`** when unsure
 
 ## Next Steps

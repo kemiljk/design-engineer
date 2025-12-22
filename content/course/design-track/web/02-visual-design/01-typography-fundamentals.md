@@ -1,6 +1,6 @@
 # Typography Fundamentals
 
-> **Quick Summary:** Typography is how text looks and feels—and it's often the difference between an interface that feels professional and one that feels amateur.
+> **Quick Summary:** Typography is how text looks and feels. It's often the difference between an interface that feels professional and one that feels amateur.
 
 ## What You'll Learn
 
@@ -11,7 +11,7 @@
 
 ## Why Typography Matters
 
-Text dominates interfaces. A typical app or website is 80% or more text. Yet typography is often an afterthought—developers reach for system fonts and default sizes without considering the impact.
+Text dominates interfaces. A typical app or website is 80% or more text. Yet typography is often an afterthought. Developers reach for system fonts and default sizes without considering the impact.
 
 Good typography:
 - Improves readability and comprehension
@@ -234,7 +234,7 @@ h1 {
 }
 ```
 
-Use unitless values for line-height—they scale properly with font size.
+Use unitless values for line-height. They scale properly with font size.
 
 ## Web Typography Considerations
 
@@ -315,25 +315,25 @@ Suggest specific improvements.
   "options": [
     {
       "id": "a",
-      "text": "100-120 characters—more content per line means less scrolling",
+      "text": "100-120 characters, since more content per line means less scrolling",
       "isCorrect": false,
       "explanation": "Lines this long make it hard to find the beginning of the next line, causing reading fatigue."
     },
     {
       "id": "b",
-      "text": "50-75 characters—balances reading rhythm with eye tracking",
+      "text": "50-75 characters, which balances reading rhythm with eye tracking",
       "isCorrect": true,
       "explanation": "Correct! This range creates comfortable reading rhythm. Too short causes tiring line breaks; too long makes finding the next line difficult."
     },
     {
       "id": "c",
-      "text": "20-30 characters—keeps readers focused on short chunks",
+      "text": "20-30 characters to keep readers focused on short chunks",
       "isCorrect": false,
       "explanation": "Lines this short cause constant eye movement and break up sentences unnaturally."
     },
     {
       "id": "d",
-      "text": "It depends on the font—there's no standard guideline",
+      "text": "It depends on the font, and there's no standard guideline",
       "isCorrect": false,
       "explanation": "While font affects readability, 50-75 characters is a well-established guideline that works across most typefaces."
     }

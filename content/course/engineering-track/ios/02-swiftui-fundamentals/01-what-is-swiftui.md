@@ -171,9 +171,9 @@ Create multiple previews:
     },
     {
       "id": "b",
-      "text": "Declarative UI—you describe what you want, and SwiftUI figures out how to render it",
+      "text": "Declarative UI where you describe what you want, and SwiftUI figures out how to render it",
       "isCorrect": true,
-      "explanation": "Correct! In SwiftUI, you declare the UI state and structure. SwiftUI handles updating the actual views when state changes—you don't manipulate views directly."
+      "explanation": "Correct! In SwiftUI, you declare the UI state and structure. SwiftUI handles updating the actual views when state changes. You don't manipulate views directly."
     },
     {
       "id": "c",

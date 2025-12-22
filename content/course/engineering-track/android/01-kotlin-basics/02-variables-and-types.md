@@ -157,7 +157,7 @@ Create a function that:
       "id": "d",
       "text": "It's a ternary operator",
       "isCorrect": false,
-      "explanation": "Kotlin doesn't have a ternary operator—it uses if expressions."
+      "explanation": "Kotlin doesn't have a ternary operator. It uses if expressions."
     }
   ]
 }

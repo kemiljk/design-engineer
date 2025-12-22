@@ -1,6 +1,6 @@
 # Your First Project
 
-> **Quick Summary:** Put everything together by creating your first web project from the terminal. We'll initialise a project, install dependencies, and run a development server—the real workflow of a design engineer.
+> **Quick Summary:** Put everything together by creating your first web project from the terminal. We'll initialise a project, install dependencies, and run a development server. This is the real workflow of a design engineer.
 
 ## What You'll Learn
 
@@ -127,7 +127,7 @@ To preview your site with live reloading, let's add a development server.
 npm install --save-dev live-server
 ```
 
-The `--save-dev` flag marks this as a development dependency—something you need while building, but not in production.
+The `--save-dev` flag marks this as a development dependency, something you need while building, but not in production.
 
 Check your `package.json`. You'll see a new section:
 
@@ -164,7 +164,7 @@ npm start
 
 Your browser will open automatically to `http://localhost:8080`. 
 
-Try editing your HTML or CSS—the browser refreshes automatically. This is the live development workflow you'll use constantly.
+Try editing your HTML or CSS. The browser refreshes automatically. This is the live development workflow you'll use constantly.
 
 Press **Ctrl + C** in the terminal to stop the server.
 
@@ -193,7 +193,7 @@ Let's break down this important file:
 
 **name & version:** Identify your project.
 
-**scripts:** Custom commands you can run with `npm run [script-name]`. The `start` script is special—you can run it with just `npm start`.
+**scripts:** Custom commands you can run with `npm run [script-name]`. The `start` script is special: you can run it with just `npm start`.
 
 **dependencies:** Packages your project needs to run (in production).
 
@@ -269,7 +269,7 @@ You might explore:
 - **prettier:** Code formatter
 - **eslint:** Code quality tool
 
-Don't install these now—we'll cover them in detail later. Just know they're available.
+Don't install these now. We'll cover them in detail later. Just know they're available.
 
 ## Project Workflow Summary
 
@@ -407,7 +407,7 @@ Follow the Vite example above. Explore the generated files:
 - Install packages with `npm install package-name`
 - Use `--save-dev` for development-only tools
 - Scripts in `package.json` define common commands
-- `node_modules` is auto-generated—don't commit it
+- `node_modules` is auto-generated. Don't commit it.
 - `npm install` recreates dependencies from `package.json`
 
 ## Environment Complete!
