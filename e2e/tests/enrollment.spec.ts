@@ -57,7 +57,7 @@ test.describe('Upgrade Gating (Free Users)', () => {
     await page.context().clearCookies();
     
     // Navigate to a free lesson (first lesson of design track)
-    await page.goto('/course/design-track/web/01-foundations/01-what-is-visual-design');
+    await page.goto('/course/design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal');
     await page.waitForLoadState('domcontentloaded');
     
     // Should show lesson content, not upgrade prompt

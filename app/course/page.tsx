@@ -302,7 +302,7 @@ export default async function CoursePage() {
                   </Link>
                 )}
                 <Link
-                  href="/course/design-track/web/01-foundations/01-what-is-visual-design"
+                  href="/course/design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal"
                   className="hover:border-swiss-red hover:text-swiss-red dark:hover:border-swiss-red flex items-center gap-2 border border-neutral-200 bg-white px-4 py-2 text-sm font-medium transition-colors dark:border-neutral-700 dark:bg-neutral-800"
                 >
                   <Layout className="h-4 w-4" />

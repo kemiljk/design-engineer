@@ -91,7 +91,7 @@ export const FREE_LESSONS = [
   '00-introduction/02-what-is-design-engineering',
   '00-introduction/03-choosing-your-path',
   '00-introduction/04-how-this-course-works',
-  'design-track/web/01-foundations/01-what-is-visual-design',
+  'design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal',
   'engineering-track/web/01-html-fundamentals/01-what-is-html',
 ];
 
@@ -118,8 +118,8 @@ export const CONVERGENCE_LESSONS = [
 ];
 
 export const WEB_DESIGN_LESSONS = [
+  'design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal',
   'design-track/web/01-foundations/01-what-is-visual-design',
-  'design-track/web/01-foundations/02-principles-of-design',
 ];
 
 export async function completeLessonViaAPI(page: Page, lessonPath: string) {
