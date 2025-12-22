@@ -28,6 +28,7 @@ export default function PreviewPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token }),
+          credentials: "include", // Required to accept Set-Cookie from response
         });
 
         const data = await response.json();
