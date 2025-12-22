@@ -113,6 +113,7 @@ export function HeroIllustration() {
 
           {/* Component box */}
           <motion.g
+            initial={{ x: 100, y: 192 }}
             animate={prefersReducedMotion ? {} : { scale: [1, 0.96, 0.96, 1, 1] }}
             transition={{
               duration: 4,
@@ -121,11 +122,10 @@ export function HeroIllustration() {
               ease: "easeInOut",
               delay: 2
             }}
-            style={{ originX: "100px", originY: "192px" }}
           >
             <motion.rect
-              x="60"
-              y="180"
+              x="-40"
+              y="-12"
               width="80"
               height="24"
               fill={COLORS.primary}
@@ -139,8 +139,8 @@ export function HeroIllustration() {
               }}
             />
             <text
-              x="100"
-              y="196"
+              x="0"
+              y="4"
               fontSize="10"
               fill="white"
               textAnchor="middle"
