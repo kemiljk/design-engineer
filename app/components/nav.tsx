@@ -76,11 +76,11 @@ function DesktopOverflowMenu({
     <div ref={containerRef} className="relative">
       <button
         type="button"
-        aria-label="More"
+        aria-label="More pages"
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-9 w-9 items-center justify-center text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
+        className="focus-ring flex h-9 w-9 items-center justify-center text-neutral-500 transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-white"
       >
         <MoreHorizontal className="h-5 w-5" />
       </button>
@@ -88,7 +88,7 @@ function DesktopOverflowMenu({
       {open && (
         <div
           role="menu"
-          className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-md border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black"
+          className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-md border border-neutral-200 bg-white shadow-lg motion-safe:animate-[enter_0.16s_var(--ease-out-cubic)_both] motion-reduce:animate-none dark:border-neutral-800 dark:bg-black"
         >
           {items.map((item) =>
             isExternalLink(item.href) ? (
@@ -99,7 +99,7 @@ function DesktopOverflowMenu({
                 rel="noopener noreferrer"
                 role="menuitem"
                 onClick={() => setOpen(false)}
-                className="block px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
+                className="focus-ring block px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
               >
                 {item.title}
               </a>
@@ -111,7 +111,7 @@ function DesktopOverflowMenu({
                 role="menuitem"
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
+                  "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
                   isActive(item.href)
                     ? "text-swiss-red"
                     : "text-neutral-700 dark:text-neutral-200",
@@ -220,7 +220,7 @@ function DesktopNavLinks({
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium tracking-widest whitespace-nowrap text-neutral-500 uppercase transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-white"
+              className="focus-ring relative text-sm font-medium tracking-widest whitespace-nowrap text-neutral-500 uppercase transition-[color,transform] duration-150 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-black hover:after:scale-x-100 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none motion-reduce:after:transition-none dark:text-neutral-400 dark:hover:text-white"
             >
               {item.title}
             </a>
@@ -230,9 +230,9 @@ function DesktopNavLinks({
               href={item.href}
               prefetch={true}
               className={cn(
-                "text-sm font-medium tracking-widest whitespace-nowrap uppercase transition-colors hover:text-black dark:hover:text-white",
+                "focus-ring relative text-sm font-medium tracking-widest whitespace-nowrap uppercase transition-[color,transform] duration-150 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-black hover:after:scale-x-100 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none motion-reduce:after:transition-none dark:hover:text-white",
                 isActive(item.href)
-                  ? "text-swiss-red"
+                  ? "text-swiss-red after:scale-x-100"
                   : "text-neutral-500 dark:text-neutral-400",
               )}
             >
@@ -300,7 +300,11 @@ export default function Nav({
       <nav className="flex h-16 items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <div className="flex shrink-0 items-center">
-          <NextLink href="/" prefetch={true} className="text-foreground">
+          <NextLink
+            href="/"
+            prefetch={true}
+            className="focus-ring text-foreground"
+          >
             <Logo className="text-foreground size-8" />
           </NextLink>
         </div>
@@ -338,9 +342,10 @@ export default function Nav({
 
           {/* Mobile Menu Toggle */}
           <button
+            type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="p-2 sm:hidden"
+            className="focus-ring p-2 transition-transform duration-150 ease-out active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none sm:hidden"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -354,7 +359,7 @@ export default function Nav({
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className="flex flex-col gap-6 bg-white px-6 pt-4 pb-8 sm:hidden dark:bg-black"
+          className="flex flex-col gap-6 bg-white px-6 pt-4 pb-8 motion-safe:animate-[enter_0.16s_var(--ease-out-cubic)_both] motion-reduce:animate-none sm:hidden dark:bg-black"
           style={
             isBannerVisible
               ? {
@@ -371,7 +376,7 @@ export default function Nav({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-foreground w-full text-2xl font-medium tracking-tight uppercase hover:text-black dark:hover:text-white"
+                className="focus-ring text-foreground w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
               >
                 {item.title}
               </a>
@@ -382,7 +387,7 @@ export default function Nav({
                 prefetch={true}
                 onClick={() => setIsMenuOpen(false)}
                 className={cn(
-                  "w-full text-2xl font-medium tracking-tight uppercase hover:text-black dark:hover:text-white",
+                  "focus-ring w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white",
                   isActive(item.href) ? "text-swiss-red" : "text-foreground",
                 )}
               >

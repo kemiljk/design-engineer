@@ -105,6 +105,12 @@
   }
 }
 
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-swiss-red/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
 /* Scrollbar hide utility */
 .scrollbar-hide {
   -ms-overflow-style: none;

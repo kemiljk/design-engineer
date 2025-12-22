@@ -419,13 +419,13 @@ async function CourseSection() {
             </div>
           </div>
           <div className="flex gap-4">
-            <NextLink
+            <Button
               href="/course"
-              className="bg-swiss-red flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+              endContent={<ArrowRight className="h-4 w-4" />}
+              className="h-auto px-6 py-3 text-sm font-bold uppercase tracking-wider"
             >
               {isCourseAvailable ? "Start Learning" : "Learn More"}
-              <ArrowRight className="h-4 w-4" />
-            </NextLink>
+            </Button>
           </div>
         </div>
       </div>

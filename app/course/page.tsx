@@ -17,6 +17,7 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
+import { Button } from "@/app/components/ui";
 import { ProgressTracker } from "./components/progress-tracker";
 import { ContinueLearning } from "./components/continue-learning";
 import { StudentCompanies } from "./components/student-companies";
@@ -242,13 +243,13 @@ export default async function CoursePage() {
           </div>
           <h2 className="text-2xl font-bold">Choose Your Track</h2>
           {!userId && (
-            <Link
+            <Button
               href="/sign-in"
-              className="bg-swiss-red ml-auto flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+              endContent={<ArrowRight className="h-4 w-4" />}
+              className="ml-auto px-4 py-2 text-sm font-medium"
             >
               Sign in to track progress
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            </Button>
           )}
         </div>
 
@@ -293,28 +294,30 @@ export default async function CoursePage() {
               </div>
               <div className="flex flex-wrap justify-center gap-4">
                 {!introCompleted && (
-                  <Link
+                  <Button
                     href="/course/00-introduction/01-welcome"
-                    className="bg-swiss-red flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                    startContent={<Sparkles className="h-4 w-4" />}
+                    className="px-4 py-2 text-sm font-medium"
                   >
-                    <Sparkles className="h-4 w-4" />
                     Start Introduction
-                  </Link>
+                  </Button>
                 )}
-                <Link
+                <Button
                   href="/course/design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal"
-                  className="hover:border-swiss-red hover:text-swiss-red dark:hover:border-swiss-red flex items-center gap-2 border border-neutral-200 bg-white px-4 py-2 text-sm font-medium transition-colors dark:border-neutral-700 dark:bg-neutral-800"
+                  variant="outline"
+                  startContent={<Layout className="h-4 w-4" />}
+                  className="px-4 py-2 text-sm font-medium"
                 >
-                  <Layout className="h-4 w-4" />
                   Start Design (Web)
-                </Link>
-                <Link
+                </Button>
+                <Button
                   href="/course/engineering-track/web/01-html-fundamentals/01-what-is-html"
-                  className="hover:border-swiss-red hover:text-swiss-red dark:hover:border-swiss-red flex items-center gap-2 border border-neutral-200 bg-white px-4 py-2 text-sm font-medium transition-colors dark:border-neutral-700 dark:bg-neutral-800"
+                  variant="outline"
+                  startContent={<Code2 className="h-4 w-4" />}
+                  className="px-4 py-2 text-sm font-medium"
                 >
-                  <Code2 className="h-4 w-4" />
                   Start Engineering (Web)
-                </Link>
+                </Button>
               </div>
             </div>
           </div>

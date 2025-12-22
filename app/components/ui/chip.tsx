@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const chipVariants = cva(
-  "inline-flex items-center gap-1.5 font-medium transition-colors",
+  "inline-flex items-center gap-1.5 font-medium transition-[color,background-color,border-color] duration-150 ease-out",
   {
     variants: {
       variant: {
@@ -90,20 +90,27 @@ const Chip = forwardRef<HTMLSpanElement, ChipProps>(
       ...props
     },
     ref
-  ) => (
-    <span
-      ref={ref}
-      className={cn(
-        chipVariants({ variant, chipColor: color, size, radius }),
-        className
-      )}
-      {...props}
-    >
-      {startContent}
-      {children}
-      {endContent}
-    </span>
-  )
+  ) => {
+    const iconTransition =
+      "inline-flex transition-transform duration-150 ease-out motion-reduce:transition-none";
+
+    return (
+      <span
+        ref={ref}
+        className={cn(
+          chipVariants({ variant, chipColor: color, size, radius }),
+          className,
+        )}
+        {...props}
+      >
+        {startContent ? (
+          <span className={iconTransition}>{startContent}</span>
+        ) : null}
+        {children}
+        {endContent ? <span className={iconTransition}>{endContent}</span> : null}
+      </span>
+    );
+  }
 );
 
 Chip.displayName = "Chip";
