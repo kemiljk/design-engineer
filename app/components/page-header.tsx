@@ -9,58 +9,44 @@ interface PageHeaderProps {
   children?: ReactNode;
 }
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.1, 0.25, 1] as const,
-    },
-  },
-};
+// Ease-out-quint: quick initial response, long gentle deceleration
+// This curve feels premium — it acknowledges user input quickly,
+// then settles gracefully into place
+const easeOutQuint: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
 export function PageHeader({ title, description, children }: PageHeaderProps) {
   return (
     <div className="border-b border-neutral-200 bg-white py-24 dark:border-neutral-800 dark:bg-black">
       <div className="container mx-auto px-4">
-        <motion.div
-          className="mx-auto max-w-4xl text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="mx-auto max-w-4xl text-center">
           <motion.h1
             className="mb-6 text-4xl font-bold tracking-tight md:text-6xl"
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: easeOutQuint }}
           >
             {title}
           </motion.h1>
           {description && (
             <motion.p
               className="mx-auto max-w-2xl text-lg text-pretty text-neutral-600 dark:text-neutral-400"
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: easeOutQuint, delay: 0.06 }}
             >
               {description}
             </motion.p>
           )}
           {children && (
-            <motion.div variants={itemVariants}>{children}</motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: easeOutQuint, delay: 0.12 }}
+            >
+              {children}
+            </motion.div>
           )}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
