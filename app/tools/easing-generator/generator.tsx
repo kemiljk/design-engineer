@@ -95,7 +95,7 @@ export default function EasingGenerator() {
               <button
                 key={name}
                 onClick={() => handlePresetChange(name, values)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-none px-4 py-2 text-sm font-medium transition-colors ${
                   activePreset === name
                     ? "bg-swiss-red text-white"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"

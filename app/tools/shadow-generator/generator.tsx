@@ -174,7 +174,7 @@ elevation: ${Math.round(config.blur / 2)},
                 key={preset}
                 onClick={() => handlePresetClick(preset)}
                 className={clsx(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  "rounded-none px-4 py-2 text-sm font-medium transition-colors",
                   activePreset === preset
                     ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"

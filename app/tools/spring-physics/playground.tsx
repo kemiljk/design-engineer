@@ -140,7 +140,7 @@ animateFloatAsState(
                 key={preset}
                 onClick={() => handlePresetClick(preset)}
                 className={clsx(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  "rounded-none px-4 py-2 text-sm font-medium transition-colors",
                   activePreset === preset
                     ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
                     : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
@@ -248,7 +248,7 @@ animateFloatAsState(
       <div className="relative flex min-h-[400px] flex-col items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-950">
         <button
           onClick={() => setKey((prev) => prev + 1)}
-          className="absolute right-4 top-4 rounded-full bg-white p-2 text-neutral-600 shadow-sm hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+          className="absolute right-4 top-4 rounded-none bg-white p-2 text-neutral-600 shadow-sm hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white"
           title="Replay Animation"
         >
           <RefreshCw className="h-4 w-4" />

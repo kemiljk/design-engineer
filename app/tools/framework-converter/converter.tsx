@@ -75,7 +75,7 @@ export default function FrameworkConverter() {
 
         <button
           onClick={handleSwap}
-          className="mt-6 rounded-full bg-neutral-100 p-2 text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
+          className="mt-6 rounded-none bg-neutral-100 p-2 text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
           title="Swap frameworks"
         >
           <ArrowRight className="h-4 w-4" />

@@ -192,7 +192,7 @@ export default function ColourConverter() {
             {/* Lightness Scale */}
             <div>
               <h3 className="mb-2 text-sm font-medium text-neutral-500">Lightness</h3>
-              <div className="flex overflow-hidden rounded-lg">
+              <div className="flex overflow-hidden rounded-none">
                 {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((l) => (
                   <button
                     key={l}
@@ -213,7 +213,7 @@ export default function ColourConverter() {
             {/* Saturation Scale */}
             <div>
               <h3 className="mb-2 text-sm font-medium text-neutral-500">Saturation</h3>
-              <div className="flex overflow-hidden rounded-lg">
+              <div className="flex overflow-hidden rounded-none">
                 {[0, 12, 25, 37, 50, 62, 75, 87, 100].map((s) => (
                   <button
                     key={s}
@@ -244,7 +244,7 @@ export default function ColourConverter() {
                         const newHex = hslToHex(h, colorValues.hsl.s, colorValues.hsl.l);
                         setInputColor(newHex);
                       }}
-                      className="h-12 flex-1 rounded-lg transition-transform hover:scale-105"
+                      className="h-12 flex-1 rounded-none transition-transform hover:scale-105"
                       style={{
                         backgroundColor: `hsl(${h}, ${colorValues.hsl.s}%, ${colorValues.hsl.l}%)`,
                       }}
