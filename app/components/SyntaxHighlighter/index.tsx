@@ -45,7 +45,7 @@ const SyntaxHighlighter = ({
         className
       )}
     >
-      <ScrollContainer orientation="horizontal" className="bg-zinc-100 dark:bg-zinc-800/80">
+      <ScrollContainer orientation="horizontal" className="bg-neutral-100 dark:bg-neutral-800">
         <div>
           <pre
             style={{

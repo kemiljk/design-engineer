@@ -63,8 +63,8 @@ const ScrollContainer = forwardRef<HTMLDivElement, ScrollContainerProps>(
             className={cn(
               "pointer-events-none absolute z-10",
               isHorizontal
-                ? "inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent dark:from-neutral-900"
-                : "inset-x-0 top-0 h-8 bg-gradient-to-b from-white to-transparent dark:from-neutral-900"
+                ? "inset-y-0 left-0 w-8 bg-gradient-to-r from-neutral-100 to-transparent dark:from-neutral-800"
+                : "inset-x-0 top-0 h-8 bg-gradient-to-b from-neutral-100 to-transparent dark:from-neutral-800"
             )}
           />
         )}
@@ -86,8 +86,8 @@ const ScrollContainer = forwardRef<HTMLDivElement, ScrollContainerProps>(
             className={cn(
               "pointer-events-none absolute z-10",
               isHorizontal
-                ? "inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent dark:from-neutral-900"
-                : "inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent dark:from-neutral-900"
+                ? "inset-y-0 right-0 w-8 bg-gradient-to-l from-neutral-100 to-transparent dark:from-neutral-800"
+                : "inset-x-0 bottom-0 h-8 bg-gradient-to-t from-neutral-100 to-transparent dark:from-neutral-800"
             )}
           />
         )}
