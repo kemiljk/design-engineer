@@ -32,7 +32,7 @@ const CopyButton = ({
       }}
       startContent={
         copied ? (
-          <Check className="size-4 text-green-500" />
+          <Check className="motion-pop size-4 text-green-500" />
         ) : (
           <Copy className="size-4" />
         )

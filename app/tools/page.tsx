@@ -180,8 +180,12 @@ export default function ToolsPage() {
 
       <div className="container mx-auto px-4 py-12">
         <div className="space-y-16">
-          {TOOL_SECTIONS.map((section) => (
-            <section key={section.title}>
+          {TOOL_SECTIONS.map((section, idx) => (
+            <section
+              key={section.title}
+              className="motion-enter"
+              style={{ animationDelay: `${idx * 60}ms` }}
+            >
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
                   {section.title}
@@ -196,11 +200,11 @@ export default function ToolsPage() {
                   <Link
                     key={tool.title}
                     href={tool.href}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-4 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700 sm:p-6"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-4 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-md hover:ring-1 hover:ring-swiss-red/10 hover:ring-inset dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700 motion-reduce:transform-none motion-reduce:transition-none sm:p-6"
                   >
                     <div>
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm sm:h-12 sm:w-12">
-                        <tool.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm transition-colors sm:h-12 sm:w-12">
+                        <tool.icon className="h-5 w-5 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none sm:h-6 sm:w-6" />
                       </div>
                       
                       <h3 className="mb-2 text-lg font-bold text-neutral-900 dark:text-white sm:text-xl">
@@ -222,7 +226,7 @@ export default function ToolsPage() {
                             <Lock className="h-4 w-4 text-neutral-400" />
                           </SignedOut>
                         )}
-                        <ArrowRight className="h-4 w-4 text-neutral-400 transition-transform group-hover:translate-x-1 dark:text-neutral-500" />
+                        <ArrowRight className="h-4 w-4 text-neutral-400 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1 motion-reduce:transition-none dark:text-neutral-500" />
                       </div>
                     </div>
                   </Link>
