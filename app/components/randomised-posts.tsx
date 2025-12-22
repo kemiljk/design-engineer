@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 import * as Type from "@/lib/types";
 import { ContentCard } from "./content-card";
 import cn from "classnames";
@@ -21,9 +21,15 @@ export function RandomisedPosts({
   posts: Type.Post[];
   count?: number;
 }) {
-  const selectedPosts = useMemo(() => {
+  // Start with the first N posts to match server render and avoid hydration mismatch
+  const [selectedPosts, setSelectedPosts] = useState(() =>
+    posts.slice(0, count),
+  );
+
+  // Randomize only after hydration on the client
+  useEffect(() => {
     const shuffled = shuffleArray(posts);
-    return shuffled.slice(0, count);
+    setSelectedPosts(shuffled.slice(0, count));
   }, [posts, count]);
 
   return (
