@@ -31,22 +31,37 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
         </a>
       );
     },
-    code: ({ inline, className, children, ...props }: any) => {
-      const match = /language-(\w+)/.exec(className || "");
-      const childRegex = String(children).replace(/\n$/, "");
-      
-      // Use SyntaxHighlighter for all fenced code blocks (with or without language)
-      if (!inline) {
+    pre: ({ children }: any) => {
+      // In react-markdown v9, fenced code blocks are wrapped in <pre><code>
+      // Extract the code element and render with SyntaxHighlighter
+      const codeElement = React.Children.toArray(children).find(
+        (child: any) =>
+          child?.type === "code" || child?.props?.node?.tagName === "code",
+      ) as
+        | React.ReactElement<{ className?: string; children?: React.ReactNode }>
+        | undefined;
+
+      if (codeElement?.props) {
+        const className = codeElement.props.className;
+        const codeChildren = codeElement.props.children;
+        const match = /language-(\w+)/.exec(className || "");
+        const code = String(codeChildren).replace(/\n$/, "");
+
         return (
           <SyntaxHighlighter
             language={match ? match[1] : "plain"}
-            code={childRegex}
+            code={code}
             showCopyButton
           />
         );
       }
-      
-      // Inline code - styled for true inline flow
+
+      // Fallback for edge cases
+      return <pre>{children}</pre>;
+    },
+    code: ({ className, children, ...props }: any) => {
+      // In react-markdown v9, this component only receives inline code
+      // (fenced code blocks are handled by the pre component above)
       return (
         <code
           className={cn(
