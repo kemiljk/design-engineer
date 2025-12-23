@@ -43,7 +43,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
       ) : (
         <code
           className={cn(
-            "w-max rounded-none border border-foreground-100 bg-foreground-50 p-1 font-mono text-sm font-normal text-inherit",
+            "w-max rounded-none border border-neutral-200 bg-neutral-100 p-1 font-mono text-sm font-normal text-inherit dark:border-neutral-700 dark:bg-neutral-800",
             className,
           )}
           {...props}

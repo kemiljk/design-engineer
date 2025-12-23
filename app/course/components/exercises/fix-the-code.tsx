@@ -73,7 +73,7 @@ export function FixTheCode({ exercise }: FixTheCodeProps) {
             onChange={(e) => setCode(e.target.value)}
             disabled={isComplete && isCorrect === true}
             className={cn(
-              "w-full bg-neutral-900 p-4 font-mono text-sm text-neutral-100",
+              "w-full bg-neutral-100 p-4 font-mono text-sm text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100",
               "min-h-[200px] resize-y focus:outline-none focus:ring-2 focus:ring-neutral-500",
               isComplete && isCorrect && "opacity-75"
             )}
@@ -136,7 +136,7 @@ export function FixTheCode({ exercise }: FixTheCodeProps) {
                   Solution
                 </span>
               </div>
-              <pre className="bg-neutral-900 p-4 font-mono text-sm text-neutral-100">
+              <pre className="bg-neutral-100 p-4 font-mono text-sm text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100">
                 {exercise.solution}
               </pre>
             </motion.div>
