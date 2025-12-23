@@ -41,13 +41,17 @@ const SyntaxHighlighter = ({
   return (
     <div
       className={cn(
-        "relative rounded-none text-foreground",
+        "relative rounded-none",
         className
       )}
     >
       <ScrollContainer orientation="horizontal" className="bg-neutral-100 dark:bg-neutral-800">
         <div>
           <pre
+            className={cn(
+              `language-${language}`,
+              "text-neutral-900 dark:text-neutral-100"
+            )}
             style={{
               borderRadius: "0",
               margin: 0,

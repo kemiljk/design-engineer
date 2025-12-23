@@ -157,7 +157,7 @@ export function TestModePanel() {
             <div className="space-y-3 text-sm">
               <div>
                 <span className="font-medium">User ID:</span>{" "}
-                <code className="rounded bg-neutral-100 px-1 text-xs dark:bg-neutral-700">
+                <code className="rounded bg-neutral-100 px-1 text-xs text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300">
                   {debugData.userId}
                 </code>
               </div>
