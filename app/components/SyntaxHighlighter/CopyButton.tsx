@@ -23,7 +23,7 @@ const CopyButton = ({
       variant="ghost"
       size="sm"
       className={cn(
-        "rounded-md bg-neutral-100 dark:bg-neutral-800",
+        "bg-neutral-100 dark:bg-neutral-800",
         className
       )}
       aria-label="Copy code to clipboard"
