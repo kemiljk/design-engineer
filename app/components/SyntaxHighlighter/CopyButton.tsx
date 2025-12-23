@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Button } from "@/app/components/ui";
 import { toast } from "sonner";
 import { Copy, Check } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const CopyButton = ({
   text,
@@ -21,7 +22,10 @@ const CopyButton = ({
     <Button
       variant="ghost"
       size="sm"
-      className={className}
+      className={cn(
+        "rounded-md bg-neutral-100 dark:bg-neutral-800",
+        className
+      )}
       aria-label="Copy code to clipboard"
       onClick={() => {
         window.clearTimeout(timerRef.current);
