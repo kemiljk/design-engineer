@@ -242,7 +242,7 @@ export default function IconGenerator() {
                 )}
               </button>
             </div>
-            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
               {generateManifest()}
             </pre>
           </div>
@@ -271,7 +271,7 @@ export default function IconGenerator() {
                 )}
               </button>
             </div>
-            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
               {`<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -295,7 +295,7 @@ export default function IconGenerator() {
                 )}
               </button>
             </div>
-            <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
               {generateAssetCatalog()}
             </pre>
           </div>
@@ -304,7 +304,7 @@ export default function IconGenerator() {
         {platform === "android" && (
           <div className="min-w-0 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6 lg:col-span-2">
             <h3 className="mb-4 font-bold">Directory Structure</h3>
-            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs dark:bg-neutral-800">
+            <pre className="overflow-x-auto whitespace-pre-wrap break-all rounded-lg bg-neutral-50 p-4 font-mono text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
               {`res/
 ├── mipmap-ldpi/
 │   └── ic_launcher.png (36×36)
