@@ -34,13 +34,20 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
     code: ({ inline, className, children, ...props }: any) => {
       const match = /language-(\w+)/.exec(className || "");
       const childRegex = String(children).replace(/\n$/, "");
-      return !inline && match ? (
-        <SyntaxHighlighter
-          language={match[1]}
-          code={childRegex}
-          showCopyButton
-        />
-      ) : (
+      
+      // Use SyntaxHighlighter for all fenced code blocks (with or without language)
+      if (!inline) {
+        return (
+          <SyntaxHighlighter
+            language={match ? match[1] : "plain"}
+            code={childRegex}
+            showCopyButton
+          />
+        );
+      }
+      
+      // Inline code
+      return (
         <code
           className={cn(
             "w-max rounded-none border border-neutral-200 bg-neutral-100 p-1 font-mono text-sm font-normal text-inherit dark:border-neutral-700 dark:bg-neutral-800",
