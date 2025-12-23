@@ -10,7 +10,7 @@ export function ExerciseCard({ children }: ExerciseCardProps) {
           Try It Yourself
         </span>
       </div>
-      <div className="exercise-content p-6 text-neutral-800 dark:text-neutral-200 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6 [&_p]:my-3 [&_strong]:font-semibold [&_ul]:my-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
+      <div className="exercise-content p-6 text-neutral-800 dark:text-neutral-200 [&_h3]:mb-3 [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:tracking-tight first:[&_h3]:mt-0 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-6 [&_p]:my-3 [&_strong]:font-semibold [&_ul]:my-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6">
         {children}
       </div>
     </div>

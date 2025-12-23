@@ -155,7 +155,7 @@ JavaScript has a vast ecosystem:
 - Next.js, Nuxt, Remix (full-stack frameworks)
 
 **Tools:**
-- npm/pnpm/yarn (package managers)
+- npm/Bun/yarn (package managers)
 - Webpack, Vite (bundlers)
 - TypeScript (typed JavaScript)
 
