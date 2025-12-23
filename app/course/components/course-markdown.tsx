@@ -311,11 +311,11 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
         );
       }
       
-      // Inline code
+      // Inline code - styled for true inline flow
       return (
         <code
           className={cn(
-            "w-max rounded-none border border-neutral-200 bg-neutral-100 p-1 font-mono text-sm font-normal text-inherit dark:border-neutral-700 dark:bg-neutral-800",
+            "rounded-none border border-neutral-200 bg-neutral-100 px-1 py-px font-mono text-[0.9em] font-normal text-inherit dark:border-neutral-700 dark:bg-neutral-800",
             className
           )}
           {...props}
