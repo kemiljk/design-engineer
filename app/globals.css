@@ -266,11 +266,21 @@ pre[class*="language-"] {
 .token.prolog {
   color: #6b7280; /* grey-500 */
 }
+.dark .token.block-comment,
+.dark .token.cdata,
+.dark .token.comment,
+.dark .token.prolog {
+  color: #9ca3af; /* grey-400 */
+}
 
 /* DOCTYPE and other declarations */
 .token.doctype,
 .token.doctype-tag {
-  color: #6b7280;
+  color: #6b7280; /* grey-500 */
+}
+.dark .token.doctype,
+.dark .token.doctype-tag {
+  color: #9ca3af; /* grey-400 */
 }
 
 /* Punctuation - subtle but visible */
