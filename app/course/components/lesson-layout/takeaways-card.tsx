@@ -14,7 +14,7 @@ export function TakeawaysCard({ takeaways }: TakeawaysCardProps) {
         {takeaways.map((takeaway, index) => (
           <li key={index} className="flex items-start gap-3">
             <span className="mt-1.5 h-2 w-2 shrink-0 bg-swiss-red" />
-            <span className="text-sm text-white [&_strong]:font-semibold [&_code]:rounded [&_code]:bg-neutral-800 [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs">
+            <span className="text-sm text-white [&_strong]:font-semibold [&_code]:rounded-none [&_code]:border [&_code]:border-neutral-700 [&_code]:bg-neutral-800 [&_code]:px-1 [&_code]:py-px [&_code]:font-mono [&_code]:text-[0.9em]">
               <ReactMarkdown
                 components={{
                   p: ({ children }) => <>{children}</>,
