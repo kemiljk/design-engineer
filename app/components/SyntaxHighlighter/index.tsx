@@ -61,14 +61,14 @@ const SyntaxHighlighter = ({
           >
             <code
               className={cn(`language-${language}`)}
-              style={{ display: "inline-block", paddingRight: "64px" }}
+              style={{ display: "inline-block", paddingRight: "40px" }}
               dangerouslySetInnerHTML={{ __html: highlighted }}
             />
           </pre>
         </div>
       </ScrollContainer>
       {showCopyButton && (
-        <div className="absolute right-2 top-2">
+        <div className="absolute right-1 top-1">
           <CopyButton
             text={code}
             className="right-0"
