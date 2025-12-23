@@ -311,13 +311,17 @@ export PATH=~/.npm-global/bin:$PATH
 
 ### Slow Installations
 
-npm can be slow. Consider using **pnpm** (faster alternative):
+npm can be slow. Consider using **Bun** (a significantly faster alternative):
 
 ```bash
-npm install -g pnpm
+# Mac
+brew install oven-sh/bun/bun
+
+# Windows
+powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
-Then use `pnpm install` instead of `npm install`.
+Then use `bun install` instead of `npm install`. Bun is not just a package manager—it's also a fast JavaScript runtime that can replace Node.js for many tasks.
 
 ## Try It Yourself
 
