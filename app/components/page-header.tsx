@@ -112,8 +112,9 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             Mobile: 4 cols (0%, 25%, 50%, 75%, 100%)
             Tablet: 6 cols (0%, 16.67%, 33.33%, 50%, 66.67%, 83.33%, 100%)
             Desktop: 12 cols (0%, 8.33%, 16.67%, ..., 100%)
+            z-0 ensures lines are behind content
           */}
-          <div className="pointer-events-none absolute inset-0 md:hidden" aria-hidden="true">
+          <div className="pointer-events-none absolute inset-0 z-0 md:hidden" aria-hidden="true">
             {[0, 1, 2, 3, 4].map((i) => (
               <motion.div
                 key={`m-${i}`}
@@ -127,7 +128,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             ))}
           </div>
 
-          <div className="pointer-events-none absolute inset-0 hidden md:block lg:hidden" aria-hidden="true">
+          <div className="pointer-events-none absolute inset-0 z-0 hidden md:block lg:hidden" aria-hidden="true">
             {[0, 1, 2, 3, 4, 5, 6].map((i) => (
               <motion.div
                 key={`t-${i}`}
@@ -141,7 +142,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             ))}
           </div>
 
-          <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
+          <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block" aria-hidden="true">
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
               <motion.div
                 key={`d-${i}`}
@@ -156,7 +157,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           </div>
 
           {/* Horizontal lines at row boundaries */}
-          <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
             {[0, 1].map((i) => (
               <motion.div
                 key={`h-${i}`}
@@ -171,7 +172,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           </div>
 
           {/* Row 1: Accent bar */}
-          <div className="col-span-full pt-8 pb-3 md:pt-10 lg:pt-12">
+          <div className="relative z-10 col-span-full pt-8 pb-3 md:pt-10 lg:pt-12">
             <motion.div
               className="h-1 w-8 origin-left bg-swiss-red md:w-10 lg:w-12"
               variants={accentVariants}
@@ -183,7 +184,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
 
           {/* Row 2: Title */}
           <motion.h1
-            className="col-span-full pb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
+            className="relative z-10 col-span-full pb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
             variants={contentVariants}
             initial="hidden"
             animate="visible"
@@ -194,7 +195,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           {/* Row 3: Description */}
           {description && (
             <motion.p
-              className="col-span-full pb-4 text-base leading-relaxed text-pretty text-neutral-600 md:col-span-5 md:text-lg lg:col-span-8 dark:text-neutral-400"
+              className="relative z-10 col-span-full pb-4 text-base leading-relaxed text-pretty text-neutral-600 md:col-span-5 md:text-lg lg:col-span-8 dark:text-neutral-400"
               variants={descriptionVariants}
               initial="hidden"
               animate="visible"
@@ -206,7 +207,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           {/* Row 4: Children */}
           {children && (
             <motion.div
-              className="col-span-full"
+              className="relative z-10 col-span-full"
               variants={childrenVariants}
               initial="hidden"
               animate="visible"
@@ -216,7 +217,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           )}
 
           {/* Bottom spacing */}
-          <div className="col-span-full pb-6 md:pb-8 lg:pb-10" />
+          <div className="relative z-10 col-span-full pb-6 md:pb-8 lg:pb-10" />
 
           {/* Corner markers */}
           <motion.div
