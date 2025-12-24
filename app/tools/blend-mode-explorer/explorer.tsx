@@ -500,21 +500,21 @@ export default function BlendModeExplorer() {
       ? customBackdrop 
       : backdrop;
 
-  // Handle image upload with resizing
+  // Handle image upload with optimization - outputs a blob URL for performance
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     const img = new Image();
-    const objectUrl = URL.createObjectURL(file);
+    const sourceUrl = URL.createObjectURL(file);
 
     img.onload = () => {
-      // Max dimensions to prevent performance issues
-      const MAX_SIZE = 1200;
+      // Max size for preview - keeps things snappy
+      const MAX_SIZE = 800;
       
       let { width, height } = img;
       
-      // Only resize if larger than max
+      // Resize if larger than max
       if (width > MAX_SIZE || height > MAX_SIZE) {
         if (width > height) {
           height = Math.round((height * MAX_SIZE) / width);
@@ -532,31 +532,46 @@ export default function BlendModeExplorer() {
       
       const ctx = canvas.getContext("2d");
       if (ctx) {
-        // Use better image smoothing
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = "high";
         ctx.drawImage(img, 0, 0, width, height);
         
-        // Convert to data URL (JPEG for photos, good balance of quality/size)
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-        setCustomImage(dataUrl);
-        setUseCustomImage(true);
-        setUseCustomBackdrop(false);
+        // Convert to blob then create object URL (much more efficient than data URL)
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              // Revoke old image URL if exists
+              if (customImage?.startsWith("blob:")) {
+                URL.revokeObjectURL(customImage);
+              }
+              
+              const blobUrl = URL.createObjectURL(blob);
+              setCustomImage(blobUrl);
+              setUseCustomImage(true);
+              setUseCustomBackdrop(false);
+            }
+          },
+          "image/jpeg",
+          0.8
+        );
       }
 
-      // Clean up object URL
-      URL.revokeObjectURL(objectUrl);
+      // Clean up source
+      URL.revokeObjectURL(sourceUrl);
     };
 
     img.onerror = () => {
-      URL.revokeObjectURL(objectUrl);
-      console.error("Failed to load image");
+      URL.revokeObjectURL(sourceUrl);
     };
 
-    img.src = objectUrl;
+    img.src = sourceUrl;
   };
 
   const clearCustomImage = () => {
+    // Revoke blob URL to free memory
+    if (customImage?.startsWith("blob:")) {
+      URL.revokeObjectURL(customImage);
+    }
     setCustomImage(null);
     setUseCustomImage(false);
   };
