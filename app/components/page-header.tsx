@@ -215,10 +215,10 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
               {title}
             </motion.h1>
 
-            {/* Row 3: Description - spans 3/4 on mobile, 5/6 on tablet, 8/12 on desktop */}
+            {/* Row 3: Description - spans most columns */}
             {description && (
               <motion.p
-                className="col-span-3 pb-6 text-base text-pretty leading-relaxed text-neutral-600 md:col-span-5 md:text-lg lg:col-span-8 dark:text-neutral-400"
+                className="col-span-full pb-4 text-base text-pretty leading-relaxed text-neutral-600 md:col-span-5 md:text-lg lg:col-span-8 dark:text-neutral-400"
                 variants={descriptionVariants}
                 initial="hidden"
                 animate="visible"
@@ -227,14 +227,10 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
               </motion.p>
             )}
 
-            {/* Children - right-aligned in remaining columns */}
+            {/* Children - always full width, stacks below description */}
             {children && (
               <motion.div
-                className={`flex items-start pb-6 ${
-                  description
-                    ? "col-span-1 justify-end md:col-span-1 lg:col-span-4"
-                    : "col-span-full"
-                }`}
+                className="col-span-full"
                 variants={childrenVariants}
                 initial="hidden"
                 animate="visible"
