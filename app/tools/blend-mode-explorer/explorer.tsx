@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
-import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, X, Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -325,6 +325,10 @@ export default function BlendModeExplorer() {
     { id: "1", color: "#ff0000", blendMode: "multiply", opacity: 50 },
   ]);
 
+  // Preset state
+  const [expandedPreset, setExpandedPreset] = useState<string | null>(null);
+  const [copiedPreset, setCopiedPreset] = useState<string | null>(null);
+
   // Output state
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("css");
 
@@ -361,6 +365,35 @@ export default function BlendModeExplorer() {
         id: String(Date.now() + i),
       }))
     );
+    setExpandedPreset(null);
+  };
+
+  const getPresetCSS = (preset: Preset) => {
+    const layerStyles = preset.layers
+      .map(
+        (l, i) =>
+          `.layer-${i + 1} {
+  background-color: ${l.color};
+  mix-blend-mode: ${l.blendMode};
+  opacity: ${l.opacity / 100};
+}`
+      )
+      .join("\n\n");
+
+    return `/* ${preset.name} - ${preset.description} */
+
+.container {
+  position: relative;
+  background: ${preset.backdrop};
+}
+
+${layerStyles}`;
+  };
+
+  const copyPresetCode = (preset: Preset) => {
+    navigator.clipboard.writeText(getPresetCSS(preset));
+    setCopiedPreset(preset.name);
+    setTimeout(() => setCopiedPreset(null), 2000);
   };
 
   // Code generation
@@ -704,40 +737,135 @@ ${layerBoxes}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-2 text-lg font-bold">Stacking Presets</h2>
         <p className="mb-4 text-sm text-neutral-500">
-          Pre-made combinations that create beautiful effects
+          Click to view code and apply to playground
         </p>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {STACKING_PRESETS.map((preset) => (
-            <button
+            <div
               key={preset.name}
-              onClick={() => applyPreset(preset)}
-              className="group relative overflow-hidden rounded-lg border border-neutral-200 p-1 text-left transition-all hover:border-swiss-red hover:shadow-md dark:border-neutral-700"
+              className={clsx(
+                "relative overflow-hidden rounded-lg border transition-all",
+                expandedPreset === preset.name
+                  ? "border-swiss-red shadow-lg lg:col-span-2 lg:row-span-2"
+                  : "border-neutral-200 hover:border-neutral-300 hover:shadow-md dark:border-neutral-700 dark:hover:border-neutral-600"
+              )}
             >
-              {/* Preview */}
-              <div
-                className="relative h-20 overflow-hidden rounded"
-                style={{ background: preset.backdrop }}
+              {/* Preview - clickable */}
+              <button
+                onClick={() => setExpandedPreset(expandedPreset === preset.name ? null : preset.name)}
+                className="w-full p-1 text-left"
               >
-                {preset.layers.map((layer, i) => (
-                  <div
-                    key={i}
-                    className="absolute inset-0"
-                    style={{
-                      backgroundColor: layer.color,
-                      mixBlendMode: layer.blendMode,
-                      opacity: layer.opacity / 100,
-                    }}
-                  />
-                ))}
-              </div>
-              <div className="p-2">
-                <h3 className="text-sm font-bold">{preset.name}</h3>
-                <p className="text-xs text-neutral-500 line-clamp-1">
-                  {preset.description}
-                </p>
-              </div>
-            </button>
+                <div
+                  className={clsx(
+                    "relative overflow-hidden rounded",
+                    expandedPreset === preset.name ? "h-32" : "h-20"
+                  )}
+                  style={{ background: preset.backdrop }}
+                >
+                  {preset.layers.map((layer, i) => (
+                    <div
+                      key={i}
+                      className="absolute inset-0"
+                      style={{
+                        backgroundColor: layer.color,
+                        mixBlendMode: layer.blendMode,
+                        opacity: layer.opacity / 100,
+                      }}
+                    />
+                  ))}
+                  {/* Demo UI element */}
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
+                    <div className="w-full max-w-[200px] rounded-lg bg-white/90 p-3 shadow-lg backdrop-blur-sm dark:bg-neutral-900/90">
+                      <div className="mb-2 flex items-center gap-2">
+                        <div className="h-8 w-8 rounded-full bg-gradient-to-br from-swiss-red to-orange-400" />
+                        <div>
+                          <div className="text-xs font-bold text-neutral-900 dark:text-white">Design Engineer</div>
+                          <div className="text-[10px] text-neutral-500">@dxe</div>
+                        </div>
+                      </div>
+                      <div className="text-[10px] leading-relaxed text-neutral-600 dark:text-neutral-400">
+                        Blend modes create depth ✨
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-2">
+                  <h3 className="text-sm font-bold">{preset.name}</h3>
+                  <p className="text-xs text-neutral-500 line-clamp-1">
+                    {preset.description}
+                  </p>
+                </div>
+              </button>
+
+              {/* Expanded view with code */}
+              <AnimatePresence>
+                {expandedPreset === preset.name && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden border-t border-neutral-200 dark:border-neutral-700"
+                  >
+                    <div className="p-3 space-y-3">
+                      {/* Layer badges */}
+                      <div>
+                        <p className="mb-2 text-xs font-medium text-neutral-500">Layers</p>
+                        <div className="flex flex-wrap gap-1">
+                          {preset.layers.map((layer, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-medium dark:bg-neutral-800"
+                            >
+                              <span
+                                className="h-2 w-2 rounded-full"
+                                style={{ backgroundColor: layer.color }}
+                              />
+                              {layer.blendMode} @ {layer.opacity}%
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Code preview */}
+                      <div>
+                        <p className="mb-2 text-xs font-medium text-neutral-500">CSS</p>
+                        <pre className="max-h-32 overflow-auto rounded bg-neutral-50 p-2 font-mono text-[10px] text-neutral-600 dark:bg-neutral-950 dark:text-neutral-400">
+                          {getPresetCSS(preset)}
+                        </pre>
+                      </div>
+
+                      {/* Actions */}
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => copyPresetCode(preset)}
+                          className="flex flex-1 items-center justify-center gap-1 rounded bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                        >
+                          {copiedPreset === preset.name ? (
+                            <>
+                              <Check className="h-3 w-3 text-green-500" />
+                              Copied
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="h-3 w-3" />
+                              Copy CSS
+                            </>
+                          )}
+                        </button>
+                        <button
+                          onClick={() => applyPreset(preset)}
+                          className="flex flex-1 items-center justify-center gap-1 rounded bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600"
+                        >
+                          Apply to Playground
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           ))}
         </div>
       </div>
@@ -931,14 +1059,71 @@ ${layerBoxes}
               />
             ))}
 
-            {/* Sample content to show blend effect */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="mb-2 text-4xl font-black text-white drop-shadow-lg sm:text-6xl">
-                  Blend
+            {/* Demo UI - Social Card */}
+            <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div className="w-full max-w-sm">
+                {/* Card */}
+                <div className="overflow-hidden rounded-2xl bg-white/95 shadow-2xl backdrop-blur-sm dark:bg-neutral-900/95">
+                  {/* Card Header */}
+                  <div className="border-b border-neutral-100 p-4 dark:border-neutral-800">
+                    <div className="flex items-center gap-3">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-swiss-red to-orange-400 p-0.5">
+                        <div className="flex h-full w-full items-center justify-center rounded-full bg-white text-sm font-bold text-swiss-red dark:bg-neutral-900">
+                          d×e
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold text-neutral-900 dark:text-white">Design Engineer</div>
+                        <div className="text-sm text-neutral-500">@designengineer</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Card Content */}
+                  <div className="p-4">
+                    <p className="mb-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                      Blend modes create stunning visual effects by controlling how layers interact. 
+                      Stack them to build unique colour treatments. ✨
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="rounded-full bg-swiss-red/10 px-2 py-0.5 text-xs font-medium text-swiss-red">
+                        #design
+                      </span>
+                      <span className="rounded-full bg-blue-500/10 px-2 py-0.5 text-xs font-medium text-blue-600">
+                        #css
+                      </span>
+                      <span className="rounded-full bg-purple-500/10 px-2 py-0.5 text-xs font-medium text-purple-600">
+                        #creative
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Card Footer */}
+                  <div className="flex items-center justify-between border-t border-neutral-100 px-4 py-3 dark:border-neutral-800">
+                    <div className="flex gap-4">
+                      <button className="flex items-center gap-1 text-neutral-500 hover:text-swiss-red">
+                        <Heart className="h-4 w-4" />
+                        <span className="text-xs">128</span>
+                      </button>
+                      <button className="flex items-center gap-1 text-neutral-500 hover:text-blue-500">
+                        <MessageCircle className="h-4 w-4" />
+                        <span className="text-xs">24</span>
+                      </button>
+                      <button className="flex items-center gap-1 text-neutral-500 hover:text-green-500">
+                        <Share2 className="h-4 w-4" />
+                      </button>
+                    </div>
+                    <button className="text-neutral-500 hover:text-amber-500">
+                      <Bookmark className="h-4 w-4" />
+                    </button>
+                  </div>
                 </div>
-                <div className="text-lg font-medium text-white/80 drop-shadow sm:text-xl">
-                  {layers.length} layer{layers.length !== 1 ? "s" : ""} active
+
+                {/* Layer indicator */}
+                <div className="mt-3 text-center">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                    {layers.length} blend layer{layers.length !== 1 ? "s" : ""} active
+                  </span>
                 </div>
               </div>
             </div>
