@@ -19,7 +19,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
+import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, Heart, MessageCircle, Share2, Bookmark, ImagePlus, X } from "lucide-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -472,6 +472,8 @@ export default function BlendModeExplorer() {
   const [backdrop, setBackdrop] = useState(BACKDROP_PRESETS[0].value);
   const [customBackdrop, setCustomBackdrop] = useState("#3B82F6");
   const [useCustomBackdrop, setUseCustomBackdrop] = useState(false);
+  const [customImage, setCustomImage] = useState<string | null>(null);
+  const [useCustomImage, setUseCustomImage] = useState(false);
   const [layers, setLayers] = useState<Layer[]>([
     { id: "1", color: "#ff0000", blendMode: "multiply", opacity: 50 },
   ]);
@@ -492,7 +494,31 @@ export default function BlendModeExplorer() {
   );
 
   // Active backdrop
-  const activeBackdrop = useCustomBackdrop ? customBackdrop : backdrop;
+  const activeBackdrop = useCustomImage && customImage 
+    ? `url(${customImage})` 
+    : useCustomBackdrop 
+      ? customBackdrop 
+      : backdrop;
+
+  // Handle image upload
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target?.result as string;
+        setCustomImage(dataUrl);
+        setUseCustomImage(true);
+        setUseCustomBackdrop(false);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const clearCustomImage = () => {
+    setCustomImage(null);
+    setUseCustomImage(false);
+  };
 
   // Layer management
   const addLayer = () => {
@@ -1045,6 +1071,7 @@ ${layerBoxes}
           <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <h2 className="mb-4 text-lg font-bold">Backdrop</h2>
 
+            {/* Gradient presets */}
             <div className="mb-4 flex flex-wrap gap-2">
               {BACKDROP_PRESETS.map((preset) => (
                 <button
@@ -1052,10 +1079,11 @@ ${layerBoxes}
                   onClick={() => {
                     setBackdrop(preset.value);
                     setUseCustomBackdrop(false);
+                    setUseCustomImage(false);
                   }}
                   className={clsx(
                     "flex items-center gap-2 rounded-none px-3 py-2 text-sm font-medium transition-colors",
-                    !useCustomBackdrop && backdrop === preset.value
+                    !useCustomBackdrop && !useCustomImage && backdrop === preset.value
                       ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
                       : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
                   )}
@@ -1069,16 +1097,20 @@ ${layerBoxes}
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
+            {/* Custom colour */}
+            <div className="mb-4 flex items-center gap-3">
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={useCustomBackdrop}
-                  onChange={(e) => setUseCustomBackdrop(e.target.checked)}
+                  onChange={(e) => {
+                    setUseCustomBackdrop(e.target.checked);
+                    if (e.target.checked) setUseCustomImage(false);
+                  }}
                   className="h-4 w-4 rounded border-neutral-300"
                 />
                 <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                  Custom
+                  Custom colour
                 </span>
               </label>
               {useCustomBackdrop && (
@@ -1088,6 +1120,66 @@ ${layerBoxes}
                   onChange={(e) => setCustomBackdrop(e.target.value)}
                   className="h-8 w-12 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
                 />
+              )}
+            </div>
+
+            {/* Custom image upload */}
+            <div className="rounded-lg border border-dashed border-neutral-300 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-200 dark:bg-neutral-800">
+                    <ImagePlus className="h-5 w-5 text-neutral-500" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                      {customImage ? "Image uploaded" : "Upload an image"}
+                    </p>
+                    <p className="text-xs text-neutral-500">
+                      {customImage ? "Stored in memory only" : "Test blend modes on your own images"}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  {customImage && (
+                    <>
+                      <div
+                        className="h-10 w-10 rounded border border-neutral-300 bg-cover bg-center dark:border-neutral-600"
+                        style={{ backgroundImage: `url(${customImage})` }}
+                      />
+                      {!useCustomImage && (
+                        <button
+                          onClick={() => setUseCustomImage(true)}
+                          className="rounded bg-neutral-200 px-2 py-1 text-xs font-medium text-neutral-700 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-300"
+                        >
+                          Use
+                        </button>
+                      )}
+                      <button
+                        onClick={clearCustomImage}
+                        className="rounded p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 dark:hover:bg-neutral-800"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </>
+                  )}
+                  <label className="cursor-pointer rounded bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">
+                    {customImage ? "Replace" : "Upload"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="sr-only"
+                    />
+                  </label>
+                </div>
+              </div>
+              {useCustomImage && customImage && (
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-swiss-red/10 px-2 py-0.5 text-xs font-medium text-swiss-red">
+                    <Check className="h-3 w-3" />
+                    Active
+                  </span>
+                </div>
               )}
             </div>
           </div>
@@ -1148,8 +1240,14 @@ ${layerBoxes}
             <div
               className="relative h-64 bg-cover bg-center sm:h-80"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea'/%3E%3Cstop offset='50%25' stop-color='%23764ba2'/%3E%3Cstop offset='100%25' stop-color='%23f093fb'/%3E%3C/linearGradient%3E%3Cpattern id='p1' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='20' cy='20' r='8' fill='rgba(255,255,255,0.1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23g1)' width='400' height='300'/%3E%3Crect fill='url(%23p1)' width='400' height='300'/%3E%3C/svg%3E")`,
-                background: activeBackdrop,
+                background: useCustomImage && customImage 
+                  ? undefined 
+                  : activeBackdrop,
+                backgroundImage: useCustomImage && customImage 
+                  ? `url(${customImage})` 
+                  : undefined,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               {/* Blend overlay layers - this is how blend modes are used in real UI */}
@@ -1221,10 +1319,16 @@ ${layerBoxes}
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex items-center gap-1">
                 <div
-                  className="h-6 w-6 rounded border border-neutral-300 dark:border-neutral-600"
-                  style={{ background: activeBackdrop }}
+                  className="h-6 w-6 rounded border border-neutral-300 bg-cover bg-center dark:border-neutral-600"
+                  style={{ 
+                    background: useCustomImage && customImage ? undefined : activeBackdrop,
+                    backgroundImage: useCustomImage && customImage ? `url(${customImage})` : undefined,
+                    backgroundSize: "cover",
+                  }}
                 />
-                <span className="text-xs text-neutral-500">Image</span>
+                <span className="text-xs text-neutral-500">
+                  {useCustomImage && customImage ? "Your image" : "Gradient"}
+                </span>
               </div>
               {layers.map((layer, i) => (
                 <React.Fragment key={layer.id}>
