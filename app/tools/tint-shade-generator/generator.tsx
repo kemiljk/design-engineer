@@ -334,10 +334,7 @@ Text(
             <button
               key={colour.step}
               onClick={() => handleCopyStep(colour.hex, colour.step)}
-              className={clsx(
-                "flex-1 transition-transform hover:scale-y-110",
-                colour.isInput && "ring-2 ring-inset ring-white/50"
-              )}
+              className="flex-1 transition-transform hover:scale-y-110"
               style={{ backgroundColor: colour.hex }}
               title={`${colour.step}: ${colour.hex}${colour.isInput ? " (Input)" : ""}`}
             />

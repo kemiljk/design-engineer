@@ -18,6 +18,7 @@ import {
   AppWindow,
   Square,
   SunMoon,
+  Combine,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -99,6 +100,13 @@ const TOOL_SECTIONS: ToolSection[] = [
         description: "Compare grey borders vs semi-transparent borders on colourful backgrounds.",
         href: "/tools/border-comparison",
         icon: Square,
+        isGated: false,
+      },
+      {
+        title: "Blend Mode Explorer",
+        description: "Learn how blend modes work and experiment with stacking them for beautiful effects.",
+        href: "/tools/blend-mode-explorer",
+        icon: Combine,
         isGated: false,
       },
     ],
