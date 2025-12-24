@@ -4,37 +4,39 @@ import React from "react";
 import { motion } from "motion/react";
 import { clsx } from "clsx";
 
-export type CssFormat = "tailwind" | "css" | "scss";
+export type SegmentedControlOption<T extends string> = {
+  value: T;
+  label: string;
+};
 
-type CssFormatToggleProps = {
-  value: CssFormat;
-  onChange: (format: CssFormat) => void;
-  formats?: CssFormat[];
+type SegmentedControlProps<T extends string> = {
+  options: SegmentedControlOption<T>[];
+  value: T;
+  onChange: (value: T) => void;
   className?: string;
   layoutId?: string;
 };
 
-const FORMAT_LABELS: Record<CssFormat, string> = {
-  tailwind: "Tailwind",
-  css: "CSS",
-  scss: "SCSS",
-};
-
-export function CssFormatToggle({
+export function SegmentedControl<T extends string>({
+  options,
   value,
   onChange,
-  formats = ["tailwind", "css"],
   className,
-  layoutId = "css-format-toggle-indicator",
-}: CssFormatToggleProps) {
+  layoutId = "segmented-control-indicator",
+}: SegmentedControlProps<T>) {
   return (
-    <div className={clsx("relative flex bg-neutral-100 p-1 dark:bg-neutral-800", className)}>
-      {formats.map((format) => {
-        const isSelected = value === format;
+    <div
+      className={clsx(
+        "relative flex bg-neutral-100 p-1 dark:bg-neutral-800",
+        className
+      )}
+    >
+      {options.map((option) => {
+        const isSelected = value === option.value;
         return (
           <button
-            key={format}
-            onClick={() => onChange(format)}
+            key={option.value}
+            onClick={() => onChange(option.value)}
             className={clsx(
               "relative z-10 flex-1 px-3 py-1.5 text-xs font-medium transition-colors",
               isSelected
@@ -53,7 +55,7 @@ export function CssFormatToggle({
                 }}
               />
             )}
-            <span className="relative z-10">{FORMAT_LABELS[format]}</span>
+            <span className="relative z-10">{option.label}</span>
           </button>
         );
       })}

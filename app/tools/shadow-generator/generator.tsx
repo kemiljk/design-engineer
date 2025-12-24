@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -317,21 +318,35 @@ elevation: ${Math.round(config.blur / 2)},
         <div className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-lg font-bold">Code</h2>
-            <div className="flex flex-wrap rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800">
-              {PLATFORM_OPTIONS.map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => setPlatform(option.value)}
-                  className={clsx(
-                    "rounded-md px-2 py-1.5 text-xs font-medium transition-colors",
-                    platform === option.value
-                      ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
-                      : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
-                  )}
-                >
-                  {option.label}
-                </button>
-              ))}
+            <div className="relative flex bg-neutral-100 p-1 dark:bg-neutral-800">
+              {PLATFORM_OPTIONS.map((option) => {
+                const isSelected = platform === option.value;
+                return (
+                  <button
+                    key={option.value}
+                    onClick={() => setPlatform(option.value)}
+                    className={clsx(
+                      "relative z-10 flex-1 px-2 py-1.5 text-xs font-medium transition-colors",
+                      isSelected
+                        ? "text-neutral-900 dark:text-white"
+                        : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    )}
+                  >
+                    {isSelected && (
+                      <motion.div
+                        layoutId="shadow-generator-platform-indicator"
+                        className="absolute inset-0 bg-white shadow-sm dark:bg-neutral-700"
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 35,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10">{option.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
           <CodeBlock label={PLATFORM_OPTIONS.find((p) => p.value === platform)?.label || ""} code={getCode()} />
