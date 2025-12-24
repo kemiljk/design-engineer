@@ -6,10 +6,11 @@ import { Copy, Check } from "lucide-react";
 type CodeBlockProps = {
   label: string;
   code: string;
+  displayCode?: string;
   language?: string;
 };
 
-export function CodeBlock({ label, code, language }: CodeBlockProps) {
+export function CodeBlock({ label, code, displayCode, language }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -36,7 +37,7 @@ export function CodeBlock({ label, code, language }: CodeBlockProps) {
       </div>
       <div className="overflow-x-auto p-3 sm:p-4">
         <pre className="whitespace-pre-wrap break-all font-mono text-[10px] text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
-          {code}
+          {displayCode ?? code}
         </pre>
       </div>
     </div>

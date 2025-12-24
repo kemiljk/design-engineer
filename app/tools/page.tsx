@@ -17,6 +17,8 @@ import {
   Pointer,
   AppWindow,
   Square,
+  SunMoon,
+  Combine,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -100,12 +102,26 @@ const TOOL_SECTIONS: ToolSection[] = [
         icon: Square,
         isGated: false,
       },
+      {
+        title: "Blend Mode Explorer",
+        description: "Learn how blend modes work and experiment with stacking them for beautiful effects.",
+        href: "/tools/blend-mode-explorer",
+        icon: Combine,
+        isGated: false,
+      },
     ],
   },
   {
     title: "Design Systems",
     description: "Build consistent, scalable design foundations.",
     tools: [
+      {
+        title: "Spectrum Generator",
+        description: "Generate harmonious colour scales from any colour using perceptually uniform OKLCH.",
+        href: "/tools/tint-shade-generator",
+        icon: SunMoon,
+        isGated: false,
+      },
       {
         title: "Token Calculator",
         description: "Generate harmonious typography and spacing scales for Tailwind v4, CSS, or SCSS.",
