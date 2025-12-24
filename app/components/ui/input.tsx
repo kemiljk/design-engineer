@@ -28,8 +28,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "peer w-full border border-neutral-200 bg-transparent px-3 pt-4 pb-1 text-foreground transition-colors",
-            "placeholder:text-transparent",
+            "peer w-full border border-neutral-200 bg-transparent px-3 py-2 text-foreground transition-colors",
+            "placeholder:text-neutral-500",
             "hover:border-neutral-400 dark:hover:border-neutral-600",
             "focus:border-swiss-red focus:outline-none dark:focus:border-swiss-red",
             "dark:border-neutral-800",
