@@ -190,8 +190,8 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             ))}
           </div>
 
-          {/* Content Grid - Responsive columns matching visual grid */}
-          <div className="relative grid grid-cols-4 gap-x-4 md:grid-cols-6 lg:grid-cols-12">
+          {/* Content Grid - No gap so columns align exactly with grid lines */}
+          <div className="relative grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12">
             {/* Row 1: Accent bar - always starts at column 1 */}
             <div className="col-span-full flex items-end pb-3 pt-8 md:pt-10 lg:pt-12">
               <motion.div
