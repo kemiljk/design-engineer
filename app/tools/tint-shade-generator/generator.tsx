@@ -26,7 +26,7 @@ type ColourScale = {
 };
 
 export default function SpectrumGenerator() {
-  const [inputColour, setInputColour] = useState("#3B82F6");
+  const [inputColour, setInputColour] = useState("#FF4400");
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("css");
   const [copiedStep, setCopiedStep] = useState<number | null>(null);
   const [colourName, setColourName] = useState("primary");
@@ -223,7 +223,7 @@ Text(
                     type="text"
                     value={inputColour}
                     onChange={(e) => setInputColour(e.target.value)}
-                    placeholder="#3B82F6"
+                    placeholder="#FF4400"
                     className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-3 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
                   />
                 </div>
