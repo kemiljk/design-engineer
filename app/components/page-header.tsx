@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { motion } from "motion/react";
 import { ease, duration } from "@/lib/motion";
+import { useBanner } from "./banner-context";
 
 interface PageHeaderProps {
   title: ReactNode;
@@ -14,6 +15,9 @@ interface PageHeaderProps {
 const MOBILE_COLS = 4;
 const TABLET_COLS = 6;
 const DESKTOP_COLS = 12;
+
+// Navigation height (h-16 = 64px)
+const NAV_HEIGHT = 64;
 
 const gridLineVariants = {
   hidden: { scaleY: 0, opacity: 0 },
@@ -93,8 +97,16 @@ const childrenVariants = {
 };
 
 export function PageHeader({ title, description, children }: PageHeaderProps) {
+  const { isBannerVisible, bannerHeight } = useBanner();
+  
+  // Calculate total offset: nav height + banner height (if visible)
+  const topOffset = NAV_HEIGHT + (isBannerVisible ? bannerHeight : 0);
+
   return (
-    <div className="relative overflow-hidden border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black">
+    <div 
+      className="relative overflow-hidden border-b border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black"
+      style={{ paddingTop: topOffset }}
+    >
       {/* Main container with padding */}
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Grid wrapper - this defines the actual grid area */}
