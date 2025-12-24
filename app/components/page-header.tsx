@@ -3,7 +3,6 @@
 import { ReactNode } from "react";
 import { motion } from "motion/react";
 import { ease, duration } from "@/lib/motion";
-import { useBanner } from "./banner-context";
 
 interface PageHeaderProps {
   title: ReactNode;
@@ -97,10 +96,9 @@ const childrenVariants = {
 };
 
 export function PageHeader({ title, description, children }: PageHeaderProps) {
-  const { isBannerVisible, bannerHeight } = useBanner();
-  
-  // Calculate total offset: nav height + banner height (if visible)
-  const topOffset = NAV_HEIGHT + (isBannerVisible ? bannerHeight : 0);
+  // The banner is sticky (in document flow), so content naturally starts after it.
+  // We only need to offset for the fixed nav height.
+  const topOffset = NAV_HEIGHT;
 
   return (
     <div 
