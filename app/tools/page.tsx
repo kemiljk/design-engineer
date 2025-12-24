@@ -17,6 +17,7 @@ import {
   Pointer,
   AppWindow,
   Square,
+  SunMoon,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -106,6 +107,13 @@ const TOOL_SECTIONS: ToolSection[] = [
     title: "Design Systems",
     description: "Build consistent, scalable design foundations.",
     tools: [
+      {
+        title: "Tint & Shade Generator",
+        description: "Generate harmonious colour scales from any colour using perceptually uniform OKLCH.",
+        href: "/tools/tint-shade-generator",
+        icon: SunMoon,
+        isGated: false,
+      },
       {
         title: "Token Calculator",
         description: "Generate harmonious typography and spacing scales for Tailwind v4, CSS, or SCSS.",

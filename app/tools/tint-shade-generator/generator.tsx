@@ -32,22 +32,48 @@ export default function TintShadeGenerator() {
 
   const baseOklch = useMemo(() => hexToOklch(inputColour), [inputColour]);
 
+  // Find the peak chroma - normalise based on where the input colour sits in lightness
+  const peakChroma = useMemo(() => {
+    if (!baseOklch) return 0.15;
+    
+    // The input colour's chroma is reduced at extreme lightness values
+    // We need to reverse this to find what the "true" peak chroma would be
+    const inputLightness = baseOklch.l;
+    const chromaReductionAtInput = getChromaMultiplier(inputLightness);
+    
+    // Estimate what the peak chroma would be at optimal lightness (~0.55-0.65)
+    const estimatedPeakChroma = chromaReductionAtInput > 0.1 
+      ? baseOklch.c / chromaReductionAtInput 
+      : baseOklch.c;
+    
+    // Clamp to reasonable bounds (OKLCH chroma rarely exceeds 0.4 for displayable colours)
+    return Math.min(0.4, Math.max(0.01, estimatedPeakChroma));
+  }, [baseOklch]);
+
   const colourScale = useMemo((): ColourScale[] => {
     if (!baseOklch) return [];
 
     return SCALE_STEPS.map((step) => {
       const targetLightness = stepToLightness(step);
+      
+      // Apply chroma curve - peaks in the middle, reduces at extremes
+      const chromaMultiplier = getChromaMultiplier(targetLightness);
+      const targetChroma = peakChroma * chromaMultiplier;
+      
       const oklch = {
         l: targetLightness,
-        c: adjustChroma(baseOklch.c, targetLightness, baseOklch.l),
+        c: targetChroma,
         h: baseOklch.h,
       };
-      const rgb = oklchToRgb(oklch);
+      
+      // Clamp to displayable gamut
+      const clampedOklch = clampToGamut(oklch);
+      const rgb = oklchToRgb(clampedOklch);
       const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
 
-      return { step, oklch, hex, rgb };
+      return { step, oklch: clampedOklch, hex, rgb };
     });
-  }, [baseOklch]);
+  }, [baseOklch, peakChroma]);
 
   const handleCopyStep = (hex: string, step: number) => {
     navigator.clipboard.writeText(hex);
@@ -220,11 +246,19 @@ Text(
               </div>
 
               {baseOklch && (
-                <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
-                  <p className="mb-1 text-xs font-medium uppercase text-neutral-500">OKLCH Values</p>
-                  <p className="font-mono text-sm text-neutral-700 dark:text-neutral-300">
-                    L: {baseOklch.l.toFixed(3)} C: {baseOklch.c.toFixed(3)} H: {baseOklch.h.toFixed(1)}°
-                  </p>
+                <div className="space-y-3">
+                  <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
+                    <p className="mb-1 text-xs font-medium uppercase text-neutral-500">Input OKLCH</p>
+                    <p className="font-mono text-sm text-neutral-700 dark:text-neutral-300">
+                      L: {baseOklch.l.toFixed(3)} C: {baseOklch.c.toFixed(3)} H: {baseOklch.h.toFixed(1)}°
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
+                    <p className="mb-1 text-xs font-medium uppercase text-neutral-500">Closest Step</p>
+                    <p className="font-mono text-sm text-neutral-700 dark:text-neutral-300">
+                      ~{findClosestStep(baseOklch.l)} (L: {baseOklch.l.toFixed(2)})
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
@@ -345,26 +379,77 @@ Text(
 // OKLCH Colour Utilities
 
 function stepToLightness(step: number): number {
+  // Perceptually uniform lightness distribution
   const lightnessMap: Record<number, number> = {
     50: 0.97,
     100: 0.93,
     200: 0.87,
     300: 0.78,
     400: 0.68,
-    500: 0.55,
-    600: 0.45,
-    700: 0.37,
-    800: 0.29,
-    900: 0.21,
-    950: 0.13,
+    500: 0.58,
+    600: 0.48,
+    700: 0.39,
+    800: 0.30,
+    900: 0.22,
+    950: 0.14,
   };
   return lightnessMap[step] ?? 0.5;
 }
 
-function adjustChroma(baseChroma: number, targetLightness: number, baseLightness: number): number {
-  const lightnessDistance = Math.abs(targetLightness - 0.5);
-  const chromaMultiplier = 1 - lightnessDistance * 0.6;
-  return Math.max(0, baseChroma * chromaMultiplier);
+function getChromaMultiplier(lightness: number): number {
+  // Chroma naturally reduces at very light and very dark values
+  // This curve peaks around 0.5-0.6 lightness
+  const optimalLightness = 0.55;
+  const distance = Math.abs(lightness - optimalLightness);
+  
+  // Use a smooth curve that reduces chroma at extremes
+  // but maintains good saturation in the mid-tones
+  if (lightness > optimalLightness) {
+    // Light end - chroma reduces more aggressively
+    const t = (lightness - optimalLightness) / (1 - optimalLightness);
+    return Math.max(0.05, 1 - Math.pow(t, 1.5) * 0.95);
+  } else {
+    // Dark end - chroma reduces but not as aggressively
+    const t = (optimalLightness - lightness) / optimalLightness;
+    return Math.max(0.15, 1 - Math.pow(t, 1.8) * 0.85);
+  }
+}
+
+function findClosestStep(lightness: number): number {
+  let closestStep = 500;
+  let closestDistance = Infinity;
+  
+  for (const step of SCALE_STEPS) {
+    const stepLightness = stepToLightness(step);
+    const distance = Math.abs(lightness - stepLightness);
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestStep = step;
+    }
+  }
+  
+  return closestStep;
+}
+
+function clampToGamut(oklch: { l: number; c: number; h: number }): { l: number; c: number; h: number } {
+  // Reduce chroma until the colour is within sRGB gamut
+  let { l, c, h } = oklch;
+  let attempts = 0;
+  const maxAttempts = 50;
+  
+  while (attempts < maxAttempts && c > 0.001) {
+    const rgb = oklchToRgb({ l, c, h });
+    const inGamut = rgb.r >= -0.5 && rgb.r <= 255.5 &&
+                    rgb.g >= -0.5 && rgb.g <= 255.5 &&
+                    rgb.b >= -0.5 && rgb.b <= 255.5;
+    
+    if (inGamut) break;
+    
+    c *= 0.95; // Reduce chroma by 5%
+    attempts++;
+  }
+  
+  return { l, c, h };
 }
 
 function hexToOklch(hex: string): { l: number; c: number; h: number } | null {
