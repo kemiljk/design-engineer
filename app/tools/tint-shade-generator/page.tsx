@@ -1,21 +1,21 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
-import TintShadeGenerator from "./generator";
+import SpectrumGenerator from "./generator";
 
 export const metadata = {
-  title: "Tint & Shade Generator | Design Engineer",
+  title: "Spectrum Generator | Design Engineer",
   description: "Generate harmonious colour scales from a single colour using OKLCH for perceptually uniform lightness.",
 };
 
-export default function TintShadeGeneratorPage() {
+export default function SpectrumGeneratorPage() {
   return (
     <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
-        title="Tint & Shade Generator"
-        description="Generate a harmonious colour scale from lightest to darkest using perceptually uniform OKLCH."
+        title="Spectrum Generator"
+        description="Generate a harmonious colour scale from any starting colour using perceptually uniform OKLCH."
       />
       <div className="container mx-auto px-4 py-12">
-        <TintShadeGenerator />
+        <SpectrumGenerator />
       </div>
     </main>
   );

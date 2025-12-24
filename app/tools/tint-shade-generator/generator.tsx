@@ -22,47 +22,53 @@ type ColourScale = {
   oklch: { l: number; c: number; h: number };
   hex: string;
   rgb: { r: number; g: number; b: number };
+  isInput?: boolean;
 };
 
-export default function TintShadeGenerator() {
+export default function SpectrumGenerator() {
   const [inputColour, setInputColour] = useState("#3B82F6");
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("css");
   const [copiedStep, setCopiedStep] = useState<number | null>(null);
   const [colourName, setColourName] = useState("primary");
 
   const baseOklch = useMemo(() => hexToOklch(inputColour), [inputColour]);
-
-  // Find the peak chroma - normalise based on where the input colour sits in lightness
-  const peakChroma = useMemo(() => {
-    if (!baseOklch) return 0.15;
-    
-    // The input colour's chroma is reduced at extreme lightness values
-    // We need to reverse this to find what the "true" peak chroma would be
-    const inputLightness = baseOklch.l;
-    const chromaReductionAtInput = getChromaMultiplier(inputLightness);
-    
-    // Estimate what the peak chroma would be at optimal lightness (~0.55-0.65)
-    const estimatedPeakChroma = chromaReductionAtInput > 0.1 
-      ? baseOklch.c / chromaReductionAtInput 
-      : baseOklch.c;
-    
-    // Clamp to reasonable bounds (OKLCH chroma rarely exceeds 0.4 for displayable colours)
-    return Math.min(0.4, Math.max(0.01, estimatedPeakChroma));
+  
+  // Find which step the input colour is closest to
+  const inputStep = useMemo(() => {
+    if (!baseOklch) return 500;
+    return findClosestStep(baseOklch.l);
   }, [baseOklch]);
 
   const colourScale = useMemo((): ColourScale[] => {
     if (!baseOklch) return [];
+    
+    const inputRgb = hexToRgb(inputColour);
 
     return SCALE_STEPS.map((step) => {
+      // Use the input colour verbatim at its closest step
+      if (step === inputStep && inputRgb) {
+        return {
+          step,
+          oklch: baseOklch,
+          hex: inputColour.toUpperCase().startsWith('#') ? inputColour.toUpperCase() : `#${inputColour.toUpperCase()}`,
+          rgb: inputRgb,
+          isInput: true,
+        };
+      }
+      
       const targetLightness = stepToLightness(step);
       
-      // Apply chroma curve - peaks in the middle, reduces at extremes
-      const chromaMultiplier = getChromaMultiplier(targetLightness);
-      const targetChroma = peakChroma * chromaMultiplier;
+      // Scale chroma proportionally based on distance from optimal lightness
+      // Use the input's chroma as reference, scaled by the lightness relationship
+      const inputChromaAtTargetLightness = calculateChromaForLightness(
+        baseOklch.c,
+        baseOklch.l,
+        targetLightness
+      );
       
       const oklch = {
         l: targetLightness,
-        c: targetChroma,
+        c: inputChromaAtTargetLightness,
         h: baseOklch.h,
       };
       
@@ -71,9 +77,9 @@ export default function TintShadeGenerator() {
       const rgb = oklchToRgb(clampedOklch);
       const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
 
-      return { step, oklch: clampedOklch, hex, rgb };
+      return { step, oklch: clampedOklch, hex, rgb, isInput: false };
     });
-  }, [baseOklch, peakChroma]);
+  }, [baseOklch, inputColour, inputStep]);
 
   const handleCopyStep = (hex: string, step: number) => {
     navigator.clipboard.writeText(hex);
@@ -274,7 +280,10 @@ Text(
               {colourScale.map((colour) => (
                 <div
                   key={colour.step}
-                  className="group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800"
+                  className={clsx(
+                    "group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800",
+                    colour.isInput && "ring-2 ring-swiss-red ring-offset-2 dark:ring-offset-neutral-900"
+                  )}
                 >
                   <button
                     onClick={() => handleCopyStep(colour.hex, colour.step)}
@@ -287,6 +296,11 @@ Text(
                       <span className="font-mono text-sm font-bold text-neutral-900 dark:text-white">
                         {colour.step}
                       </span>
+                      {colour.isInput && (
+                        <span className="rounded bg-swiss-red px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+                          Input
+                        </span>
+                      )}
                       <span className="font-mono text-xs text-neutral-500">
                         {colour.hex}
                       </span>
@@ -320,9 +334,12 @@ Text(
             <button
               key={colour.step}
               onClick={() => handleCopyStep(colour.hex, colour.step)}
-              className="flex-1 transition-transform hover:scale-y-110"
+              className={clsx(
+                "flex-1 transition-transform hover:scale-y-110",
+                colour.isInput && "ring-2 ring-inset ring-white/50"
+              )}
               style={{ backgroundColor: colour.hex }}
-              title={`${colour.step}: ${colour.hex}`}
+              title={`${colour.step}: ${colour.hex}${colour.isInput ? " (Input)" : ""}`}
             />
           ))}
         </div>
@@ -396,23 +413,34 @@ function stepToLightness(step: number): number {
   return lightnessMap[step] ?? 0.5;
 }
 
-function getChromaMultiplier(lightness: number): number {
-  // Chroma naturally reduces at very light and very dark values
-  // This curve peaks around 0.5-0.6 lightness
-  const optimalLightness = 0.55;
-  const distance = Math.abs(lightness - optimalLightness);
+function calculateChromaForLightness(
+  inputChroma: number,
+  inputLightness: number,
+  targetLightness: number
+): number {
+  // Calculate how chroma should scale based on lightness
+  // Chroma naturally decreases at the extremes (very light or very dark)
   
-  // Use a smooth curve that reduces chroma at extremes
-  // but maintains good saturation in the mid-tones
-  if (lightness > optimalLightness) {
-    // Light end - chroma reduces more aggressively
-    const t = (lightness - optimalLightness) / (1 - optimalLightness);
-    return Math.max(0.05, 1 - Math.pow(t, 1.5) * 0.95);
-  } else {
-    // Dark end - chroma reduces but not as aggressively
-    const t = (optimalLightness - lightness) / optimalLightness;
-    return Math.max(0.15, 1 - Math.pow(t, 1.8) * 0.85);
+  const getMaxChromaAtLightness = (l: number): number => {
+    // Approximate max displayable chroma at a given lightness
+    // Peaks around 0.5-0.65, reduces towards 0 and 1
+    if (l <= 0.5) {
+      return 0.4 * (l / 0.5);
+    } else {
+      return 0.4 * ((1 - l) / 0.5);
+    }
+  };
+  
+  const inputMaxChroma = getMaxChromaAtLightness(inputLightness);
+  const targetMaxChroma = getMaxChromaAtLightness(targetLightness);
+  
+  // Scale the input chroma proportionally
+  if (inputMaxChroma < 0.001) {
+    return targetMaxChroma * 0.5;
   }
+  
+  const chromaRatio = inputChroma / inputMaxChroma;
+  return Math.min(targetMaxChroma, targetMaxChroma * chromaRatio);
 }
 
 function findClosestStep(lightness: number): number {

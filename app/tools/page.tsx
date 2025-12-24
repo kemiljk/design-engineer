@@ -108,7 +108,7 @@ const TOOL_SECTIONS: ToolSection[] = [
     description: "Build consistent, scalable design foundations.",
     tools: [
       {
-        title: "Tint & Shade Generator",
+        title: "Spectrum Generator",
         description: "Generate harmonious colour scales from any colour using perceptually uniform OKLCH.",
         href: "/tools/tint-shade-generator",
         icon: SunMoon,
