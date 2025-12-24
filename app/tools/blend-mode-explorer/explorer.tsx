@@ -500,19 +500,60 @@ export default function BlendModeExplorer() {
       ? customBackdrop 
       : backdrop;
 
-  // Handle image upload
+  // Handle image upload with resizing
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const dataUrl = event.target?.result as string;
+    if (!file) return;
+
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+
+    img.onload = () => {
+      // Max dimensions to prevent performance issues
+      const MAX_SIZE = 1200;
+      
+      let { width, height } = img;
+      
+      // Only resize if larger than max
+      if (width > MAX_SIZE || height > MAX_SIZE) {
+        if (width > height) {
+          height = Math.round((height * MAX_SIZE) / width);
+          width = MAX_SIZE;
+        } else {
+          width = Math.round((width * MAX_SIZE) / height);
+          height = MAX_SIZE;
+        }
+      }
+
+      // Create canvas and resize
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        // Use better image smoothing
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        // Convert to data URL (JPEG for photos, good balance of quality/size)
+        const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
         setCustomImage(dataUrl);
         setUseCustomImage(true);
         setUseCustomBackdrop(false);
-      };
-      reader.readAsDataURL(file);
-    }
+      }
+
+      // Clean up object URL
+      URL.revokeObjectURL(objectUrl);
+    };
+
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      console.error("Failed to load image");
+    };
+
+    img.src = objectUrl;
   };
 
   const clearCustomImage = () => {
@@ -1143,8 +1184,12 @@ ${layerBoxes}
                   {customImage && (
                     <>
                       <div
-                        className="h-10 w-10 rounded border border-neutral-300 bg-cover bg-center dark:border-neutral-600"
-                        style={{ backgroundImage: `url(${customImage})` }}
+                        className="h-10 w-10 shrink-0 rounded border border-neutral-300 dark:border-neutral-600"
+                        style={{ 
+                          backgroundImage: `url(${customImage})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
                       />
                       {!useCustomImage && (
                         <button
@@ -1238,17 +1283,19 @@ ${layerBoxes}
           <div className="overflow-hidden rounded-lg shadow-lg">
             {/* Image with blend overlay */}
             <div
-              className="relative h-64 bg-cover bg-center sm:h-80"
-              style={{
-                background: useCustomImage && customImage 
-                  ? undefined 
-                  : activeBackdrop,
-                backgroundImage: useCustomImage && customImage 
-                  ? `url(${customImage})` 
-                  : undefined,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="relative h-64 sm:h-80"
+              style={
+                useCustomImage && customImage
+                  ? {
+                      backgroundImage: `url(${customImage})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }
+                  : {
+                      background: activeBackdrop,
+                    }
+              }
             >
               {/* Blend overlay layers - this is how blend modes are used in real UI */}
               {layers.map((layer) => (
@@ -1319,12 +1366,18 @@ ${layerBoxes}
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex items-center gap-1">
                 <div
-                  className="h-6 w-6 rounded border border-neutral-300 bg-cover bg-center dark:border-neutral-600"
-                  style={{ 
-                    background: useCustomImage && customImage ? undefined : activeBackdrop,
-                    backgroundImage: useCustomImage && customImage ? `url(${customImage})` : undefined,
-                    backgroundSize: "cover",
-                  }}
+                  className="h-6 w-6 rounded border border-neutral-300 dark:border-neutral-600"
+                  style={
+                    useCustomImage && customImage
+                      ? {
+                          backgroundImage: `url(${customImage})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : {
+                          background: activeBackdrop,
+                        }
+                  }
                 />
                 <span className="text-xs text-neutral-500">
                   {useCustomImage && customImage ? "Your image" : "Gradient"}
