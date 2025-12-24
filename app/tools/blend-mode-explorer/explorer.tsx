@@ -2,7 +2,24 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, X, Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -309,7 +326,141 @@ const FORMAT_OPTIONS: { value: OutputFormat; label: string }[] = [
 ];
 
 // ============================================================================
-// Component
+// Sortable Layer Component
+// ============================================================================
+
+type SortableLayerProps = {
+  layer: Layer;
+  index: number;
+  onUpdate: (id: string, updates: Partial<Layer>) => void;
+  onRemove: (id: string) => void;
+  canRemove: boolean;
+  blendModes: BlendModeInfo[];
+};
+
+function SortableLayer({
+  layer,
+  index,
+  onUpdate,
+  onRemove,
+  canRemove,
+  blendModes,
+}: SortableLayerProps) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: layer.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={clsx(
+        "rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950",
+        isDragging && "z-50 shadow-lg ring-2 ring-swiss-red"
+      )}
+    >
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <button
+            {...attributes}
+            {...listeners}
+            className="cursor-grab touch-none rounded p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 active:cursor-grabbing dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+          >
+            <GripVertical className="h-4 w-4" />
+          </button>
+          <span className="text-sm font-medium">Layer {index + 1}</span>
+          <span
+            className="h-3 w-3 rounded-full border border-neutral-300 dark:border-neutral-600"
+            style={{ backgroundColor: layer.color }}
+          />
+        </div>
+        <button
+          onClick={() => onRemove(layer.id)}
+          disabled={!canRemove}
+          className="p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        {/* Colour */}
+        <div className="space-y-1">
+          <label className="text-xs font-medium text-neutral-500">Colour</label>
+          <div className="flex gap-2">
+            <input
+              type="color"
+              value={layer.color}
+              onChange={(e) => onUpdate(layer.id, { color: e.target.value })}
+              className="h-8 w-10 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
+            />
+            <input
+              type="text"
+              value={layer.color}
+              onChange={(e) => onUpdate(layer.id, { color: e.target.value })}
+              className="w-full min-w-0 rounded-none border border-neutral-200 bg-white px-2 py-1 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-900"
+            />
+          </div>
+        </div>
+
+        {/* Blend mode */}
+        <div className="space-y-1">
+          <label className="text-xs font-medium text-neutral-500">
+            Blend Mode
+          </label>
+          <select
+            value={layer.blendMode}
+            onChange={(e) =>
+              onUpdate(layer.id, { blendMode: e.target.value as BlendMode })
+            }
+            className="w-full rounded-none border border-neutral-200 bg-white px-2 py-1.5 text-xs dark:border-neutral-700 dark:bg-neutral-900"
+          >
+            {blendModes.map((mode) => (
+              <option key={mode.name} value={mode.name}>
+                {mode.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Opacity */}
+        <div className="space-y-1">
+          <div className="flex justify-between">
+            <label className="text-xs font-medium text-neutral-500">
+              Opacity
+            </label>
+            <span className="font-mono text-xs text-neutral-400">
+              {layer.opacity}%
+            </span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={layer.opacity}
+            onChange={(e) =>
+              onUpdate(layer.id, { opacity: Number(e.target.value) })
+            }
+            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-neutral-200 dark:bg-neutral-800"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// Main Component
 // ============================================================================
 
 export default function BlendModeExplorer() {
@@ -331,6 +482,14 @@ export default function BlendModeExplorer() {
 
   // Output state
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("css");
+
+  // Drag and drop sensors
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
 
   // Active backdrop
   const activeBackdrop = useCustomBackdrop ? customBackdrop : backdrop;
@@ -354,6 +513,18 @@ export default function BlendModeExplorer() {
 
   const updateLayer = (id: string, updates: Partial<Layer>) => {
     setLayers(layers.map((l) => (l.id === id ? { ...l, ...updates } : l)));
+  };
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      setLayers((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
   };
 
   const applyPreset = (preset: Preset) => {
@@ -930,7 +1101,10 @@ ${layerBoxes}
           {/* Layer controls */}
           <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-bold">Blend Layers</h2>
+              <div>
+                <h2 className="text-lg font-bold">Blend Layers</h2>
+                <p className="text-xs text-neutral-500">Drag to reorder</p>
+              </div>
               <button
                 onClick={addLayer}
                 className="flex items-center gap-1 rounded-none bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600"
@@ -940,101 +1114,30 @@ ${layerBoxes}
               </button>
             </div>
 
-            <div className="space-y-4">
-              {layers.map((layer, index) => (
-                <div
-                  key={layer.id}
-                  className="rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950"
-                >
-                  <div className="mb-3 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <GripVertical className="h-4 w-4 text-neutral-300" />
-                      <span className="text-sm font-medium">Layer {index + 1}</span>
-                    </div>
-                    <button
-                      onClick={() => removeLayer(layer.id)}
-                      disabled={layers.length <= 1}
-                      className="p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {/* Colour */}
-                    <div className="space-y-1">
-                      <label className="text-xs font-medium text-neutral-500">
-                        Colour
-                      </label>
-                      <div className="flex gap-2">
-                        <input
-                          type="color"
-                          value={layer.color}
-                          onChange={(e) =>
-                            updateLayer(layer.id, { color: e.target.value })
-                          }
-                          className="h-8 w-10 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
-                        />
-                        <input
-                          type="text"
-                          value={layer.color}
-                          onChange={(e) =>
-                            updateLayer(layer.id, { color: e.target.value })
-                          }
-                          className="w-full min-w-0 rounded-none border border-neutral-200 bg-white px-2 py-1 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-900"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Blend mode */}
-                    <div className="space-y-1">
-                      <label className="text-xs font-medium text-neutral-500">
-                        Blend Mode
-                      </label>
-                      <select
-                        value={layer.blendMode}
-                        onChange={(e) =>
-                          updateLayer(layer.id, {
-                            blendMode: e.target.value as BlendMode,
-                          })
-                        }
-                        className="w-full rounded-none border border-neutral-200 bg-white px-2 py-1.5 text-xs dark:border-neutral-700 dark:bg-neutral-900"
-                      >
-                        {BLEND_MODES.map((mode) => (
-                          <option key={mode.name} value={mode.name}>
-                            {mode.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Opacity */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between">
-                        <label className="text-xs font-medium text-neutral-500">
-                          Opacity
-                        </label>
-                        <span className="font-mono text-xs text-neutral-400">
-                          {layer.opacity}%
-                        </span>
-                      </div>
-                      <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={layer.opacity}
-                        onChange={(e) =>
-                          updateLayer(layer.id, {
-                            opacity: Number(e.target.value),
-                          })
-                        }
-                        className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-neutral-200 dark:bg-neutral-800"
-                      />
-                    </div>
-                  </div>
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragEnd={handleDragEnd}
+            >
+              <SortableContext
+                items={layers.map((l) => l.id)}
+                strategy={verticalListSortingStrategy}
+              >
+                <div className="space-y-3">
+                  {layers.map((layer, index) => (
+                    <SortableLayer
+                      key={layer.id}
+                      layer={layer}
+                      index={index}
+                      onUpdate={updateLayer}
+                      onRemove={removeLayer}
+                      canRemove={layers.length > 1}
+                      blendModes={BLEND_MODES}
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
+              </SortableContext>
+            </DndContext>
           </div>
         </div>
 
