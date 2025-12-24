@@ -576,6 +576,14 @@ export default function BlendModeExplorer() {
     setUseCustomImage(false);
   };
 
+  // Truncate long URLs (blob/data) for display only
+  const truncateUrlForDisplay = (code: string): string => {
+    return code.replace(
+      /(url\()([^)]{50,})(\))/g,
+      '$1/* your-image.jpg */$3'
+    );
+  };
+
   // Layer management
   const addLayer = () => {
     const newLayer: Layer = {
@@ -1459,6 +1467,7 @@ ${layerBoxes}
         <CodeBlock
           label={FORMAT_OPTIONS.find((f) => f.value === outputFormat)?.label || ""}
           code={getCode()}
+          displayCode={useCustomImage && customImage ? truncateUrlForDisplay(getCode()) : undefined}
         />
       </div>
     </div>
