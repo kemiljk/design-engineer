@@ -945,20 +945,14 @@ ${layerBoxes}
                       }}
                     />
                   ))}
-                  {/* Demo UI element */}
-                  <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <div className="w-full max-w-[200px] rounded-lg bg-white/90 p-3 shadow-lg backdrop-blur-sm dark:bg-neutral-900/90">
-                      <div className="mb-2 flex items-center gap-2">
-                        <div className="h-8 w-8 rounded-full bg-gradient-to-br from-swiss-red to-orange-400" />
-                        <div>
-                          <div className="text-xs font-bold text-neutral-900 dark:text-white">Design Engineer</div>
-                          <div className="text-[10px] text-neutral-500">@dxe</div>
-                        </div>
-                      </div>
-                      <div className="text-[10px] leading-relaxed text-neutral-600 dark:text-neutral-400">
-                        Blend modes create depth ✨
-                      </div>
-                    </div>
+                  {/* Mini hero text overlay */}
+                  <div className="relative z-10 flex h-full flex-col justify-end p-2">
+                    <span className="text-[10px] font-bold text-white drop-shadow-lg">
+                      Hero Title
+                    </span>
+                    <span className="text-[8px] text-white/80 drop-shadow">
+                      With blend overlay
+                    </span>
                   </div>
                 </div>
                 <div className="p-2">
@@ -1144,119 +1138,110 @@ ${layerBoxes}
         {/* Live Preview */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Live Preview</h2>
+          <p className="mb-4 text-xs text-neutral-500">
+            Blend layers applied to the image overlay — a common real-world use case
+          </p>
 
-          <div
-            className="relative aspect-video overflow-hidden rounded-lg shadow-lg"
-            style={{ background: activeBackdrop }}
-          >
-            {/* Blend layers */}
-            {layers.map((layer) => (
-              <div
-                key={layer.id}
-                className="absolute inset-0"
-                style={{
-                  backgroundColor: layer.color,
-                  mixBlendMode: layer.blendMode,
-                  opacity: layer.opacity / 100,
-                }}
-              />
-            ))}
+          {/* Hero Section Demo */}
+          <div className="overflow-hidden rounded-lg shadow-lg">
+            {/* Image with blend overlay */}
+            <div
+              className="relative h-64 bg-cover bg-center sm:h-80"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea'/%3E%3Cstop offset='50%25' stop-color='%23764ba2'/%3E%3Cstop offset='100%25' stop-color='%23f093fb'/%3E%3C/linearGradient%3E%3Cpattern id='p1' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='20' cy='20' r='8' fill='rgba(255,255,255,0.1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23g1)' width='400' height='300'/%3E%3Crect fill='url(%23p1)' width='400' height='300'/%3E%3C/svg%3E")`,
+                background: activeBackdrop,
+              }}
+            >
+              {/* Blend overlay layers - this is how blend modes are used in real UI */}
+              {layers.map((layer) => (
+                <div
+                  key={layer.id}
+                  className="absolute inset-0"
+                  style={{
+                    backgroundColor: layer.color,
+                    mixBlendMode: layer.blendMode,
+                    opacity: layer.opacity / 100,
+                  }}
+                />
+              ))}
 
-            {/* Demo UI - Social Card */}
-            <div className="absolute inset-0 flex items-center justify-center p-4">
-              <div className="w-full max-w-sm">
-                {/* Card */}
-                <div className="overflow-hidden rounded-2xl bg-white/95 shadow-2xl backdrop-blur-sm dark:bg-neutral-900/95">
-                  {/* Card Header */}
-                  <div className="border-b border-neutral-100 p-4 dark:border-neutral-800">
-                    <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-full bg-gradient-to-br from-swiss-red to-orange-400 p-0.5">
-                        <div className="flex h-full w-full items-center justify-center rounded-full bg-white text-sm font-bold text-swiss-red dark:bg-neutral-900">
-                          d×e
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold text-neutral-900 dark:text-white">Design Engineer</div>
-                        <div className="text-sm text-neutral-500">@designengineer</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Card Content */}
-                  <div className="p-4">
-                    <p className="mb-3 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
-                      Blend modes create stunning visual effects by controlling how layers interact. 
-                      Stack them to build unique colour treatments. ✨
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="rounded-full bg-swiss-red/10 px-2 py-0.5 text-xs font-medium text-swiss-red">
-                        #design
-                      </span>
-                      <span className="rounded-full bg-blue-500/10 px-2 py-0.5 text-xs font-medium text-blue-600">
-                        #css
-                      </span>
-                      <span className="rounded-full bg-purple-500/10 px-2 py-0.5 text-xs font-medium text-purple-600">
-                        #creative
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card Footer */}
-                  <div className="flex items-center justify-between border-t border-neutral-100 px-4 py-3 dark:border-neutral-800">
-                    <div className="flex gap-4">
-                      <button className="flex items-center gap-1 text-neutral-500 hover:text-swiss-red">
-                        <Heart className="h-4 w-4" />
-                        <span className="text-xs">128</span>
-                      </button>
-                      <button className="flex items-center gap-1 text-neutral-500 hover:text-blue-500">
-                        <MessageCircle className="h-4 w-4" />
-                        <span className="text-xs">24</span>
-                      </button>
-                      <button className="flex items-center gap-1 text-neutral-500 hover:text-green-500">
-                        <Share2 className="h-4 w-4" />
-                      </button>
-                    </div>
-                    <button className="text-neutral-500 hover:text-amber-500">
-                      <Bookmark className="h-4 w-4" />
+              {/* Content on top of blended image */}
+              <div className="relative z-10 flex h-full flex-col justify-end p-6">
+                <div className="max-w-md">
+                  <span className="mb-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                    Featured
+                  </span>
+                  <h3 className="mb-2 text-2xl font-bold text-white drop-shadow-lg sm:text-3xl">
+                    Blend Modes in Action
+                  </h3>
+                  <p className="mb-4 text-sm text-white/90 drop-shadow">
+                    Colour overlays with blend modes create striking hero sections, 
+                    duotone effects, and branded imagery.
+                  </p>
+                  <div className="flex gap-3">
+                    <button className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-lg transition-transform hover:scale-105">
+                      Learn More
+                    </button>
+                    <button className="rounded-lg bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-transform hover:scale-105">
+                      View Code
                     </button>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Layer indicator */}
-                <div className="mt-3 text-center">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                    {layers.length} blend layer{layers.length !== 1 ? "s" : ""} active
-                  </span>
+            {/* Card section below - showing UI on top */}
+            <div className="border-t border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-900">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-swiss-red to-orange-400" />
+                  <div>
+                    <div className="text-sm font-bold text-neutral-900 dark:text-white">Design Engineer</div>
+                    <div className="text-xs text-neutral-500">Creating visual effects</div>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <button className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400">
+                    <Heart className="h-3 w-3" />
+                    128
+                  </button>
+                  <button className="flex items-center gap-1 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400">
+                    <Bookmark className="h-3 w-3" />
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Layer stack visualisation */}
-          <div className="mt-4">
+          <div className="mt-4 rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
             <h3 className="mb-2 text-xs font-medium uppercase text-neutral-500">
-              Layer Stack
+              How it works
             </h3>
-            <div className="flex items-center gap-1">
-              <div
-                className="h-8 w-8 rounded border border-neutral-300 dark:border-neutral-600"
-                style={{ background: activeBackdrop }}
-                title="Backdrop"
-              />
-              <span className="text-xs text-neutral-400">→</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="flex items-center gap-1">
+                <div
+                  className="h-6 w-6 rounded border border-neutral-300 dark:border-neutral-600"
+                  style={{ background: activeBackdrop }}
+                />
+                <span className="text-xs text-neutral-500">Image</span>
+              </div>
               {layers.map((layer, i) => (
                 <React.Fragment key={layer.id}>
-                  <div
-                    className="h-8 w-8 rounded border border-neutral-300 dark:border-neutral-600"
-                    style={{ backgroundColor: layer.color }}
-                    title={`${layer.blendMode} @ ${layer.opacity}%`}
-                  />
-                  {i < layers.length - 1 && (
-                    <span className="text-xs text-neutral-400">→</span>
-                  )}
+                  <span className="text-neutral-300">+</span>
+                  <div className="flex items-center gap-1">
+                    <div
+                      className="h-6 w-6 rounded border border-neutral-300 dark:border-neutral-600"
+                      style={{ backgroundColor: layer.color }}
+                    />
+                    <span className="text-xs text-neutral-500">
+                      {layer.blendMode}
+                    </span>
+                  </div>
                 </React.Fragment>
               ))}
-              <span className="ml-2 text-xs text-neutral-500">= Result</span>
+              <span className="text-neutral-300">=</span>
+              <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300">Result</span>
             </div>
           </div>
         </div>
