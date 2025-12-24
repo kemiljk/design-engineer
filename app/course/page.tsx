@@ -18,6 +18,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Button } from "@/app/components/ui";
+import { PageHeader } from "@/app/components/page-header";
 import { ProgressTracker } from "./components/progress-tracker";
 import { ContinueLearning } from "./components/continue-learning";
 import { StudentCompanies } from "./components/student-companies";
@@ -121,36 +122,30 @@ export default async function CoursePage() {
       )}
 
       {/* Hero Section */}
-      <div className="border-b border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-black md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
-              Become a <span className="text-swiss-red">Design Engineer</span>
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
-              Bridge the gap between design and engineering. Master the skills
-              to conceptualize, design, and build world-class digital products.
-            </p>
-            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-neutral-500">
-              <div className="flex items-center gap-2">
-                <BookOpen className="h-4 w-4" />
-                <span>{course.totalLessons} lessons</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                <span>{getEstimatedDuration(course.totalLessons)}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Sparkles className="text-swiss-red h-4 w-4" />
-                <span>Free intro modules</span>
-              </div>
-            </div>
-
-            {/* Student Companies */}
-            <StudentCompanies />
+      <PageHeader
+        title={
+          <>
+            Become a <span className="text-swiss-red">Design Engineer</span>
+          </>
+        }
+        description="Bridge the gap between design and engineering. Master the skills to conceptualise, design, and build world-class digital products."
+      >
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-neutral-500 md:gap-6">
+          <div className="flex items-center gap-2">
+            <BookOpen className="h-4 w-4" />
+            <span>{course.totalLessons} lessons</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4" />
+            <span>{getEstimatedDuration(course.totalLessons)}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-4 w-4 text-swiss-red" />
+            <span>Free intro modules</span>
           </div>
         </div>
-      </div>
+        <StudentCompanies />
+      </PageHeader>
 
       {/* Progress Section */}
       {userId && progress && (
