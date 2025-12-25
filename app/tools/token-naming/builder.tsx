@@ -47,7 +47,7 @@ type ModifierOption = {
 
 type NamingConvention = "explicit" | "compact" | "component-first";
 
-type OutputFormat = "css" | "camelCase" | "json" | "figma" | "dtcg" | "figma-variables";
+type OutputFormat = "css" | "camelCase" | "json" | "figma";
 
 // Configuration data
 const CATEGORIES: { id: Category; label: string; icon: React.ElementType; description: string }[] = [
@@ -176,13 +176,11 @@ const NAMING_CONVENTIONS: { id: NamingConvention; label: string; description: st
   { id: "component-first", label: "Component First", description: "Element-Property-Modifier", example: "card-bg-hover" },
 ];
 
-const OUTPUT_FORMATS: { value: OutputFormat; label: string; description?: string }[] = [
+const OUTPUT_FORMATS: { value: OutputFormat; label: string }[] = [
   { value: "css", label: "CSS" },
   { value: "camelCase", label: "JS/TS" },
   { value: "json", label: "JSON" },
   { value: "figma", label: "Figma" },
-  { value: "dtcg", label: "W3C DTCG" },
-  { value: "figma-variables", label: "Figma Variables" },
 ];
 
 // Helper functions
@@ -260,41 +258,11 @@ function formatTokenName(name: string, format: OutputFormat): string {
     case "camelCase":
       return name.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
     case "json":
-    case "dtcg":
-    case "figma-variables":
       return name.split("-").join(".");
     case "figma":
       return name.split("-").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
     default:
       return name;
-  }
-}
-
-function getTokenType(category: Category | null): string {
-  switch (category) {
-    case "color":
-      return "color";
-    case "typography":
-      return "dimension";
-    case "spacing":
-      return "dimension";
-    case "effects":
-      return "shadow";
-    default:
-      return "color";
-  }
-}
-
-function getFigmaVariableType(category: Category | null): string {
-  switch (category) {
-    case "color":
-      return "COLOR";
-    case "typography":
-    case "spacing":
-    case "effects":
-      return "FLOAT";
-    default:
-      return "COLOR";
   }
 }
 
@@ -494,9 +462,6 @@ export default function TokenNamingBuilder() {
       return "// No valid tokens generated";
     }
 
-    const tokenType = getTokenType(category);
-    const figmaType = getFigmaVariableType(category);
-
     switch (outputFormat) {
       case "css":
         return `:root {\n${validTokens.map(t => `  ${t}: /* value */;`).join("\n")}\n}`;
@@ -509,71 +474,11 @@ export default function TokenNamingBuilder() {
         return JSON.stringify(jsonObj, null, 2);
       }
       
-      case "dtcg": {
-        const dtcgObj = buildNestedObject(validTokens, (parts) => ({
-          "$type": tokenType,
-          "$value": "{/* value */}",
-          "$description": `Token for ${parts.join(" > ")}`
-        }));
-        return `// W3C Design Tokens Community Group (DTCG) Format
-// https://design-tokens.github.io/community-group/format/
-${JSON.stringify(dtcgObj, null, 2)}`;
-      }
-      
-      case "figma-variables": {
-        const variables = validTokens.map(t => {
-          const parts = t.split(".").filter(Boolean);
-          const namePath = parts.join("/");
-          return {
-            name: namePath,
-            resolvedType: figmaType,
-            description: `Token: ${t}`,
-            hiddenFromPublishing: false,
-            scopes: figmaType === "COLOR" ? ["ALL_FILLS", "STROKE_COLOR"] : ["ALL_SCOPES"],
-            codeSyntax: {
-              WEB: `--${parts.join("-")}`,
-              ANDROID: parts.map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join(""),
-              iOS: parts.map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join("")
-            },
-            valuesByMode: {
-              "Light": figmaType === "COLOR" 
-                ? { r: 0, g: 0, b: 0, a: 1 }
-                : 0,
-              "Dark": figmaType === "COLOR"
-                ? { r: 1, g: 1, b: 1, a: 1 }
-                : 0
-            }
-          };
-        });
-
-        const figmaExport = {
-          version: "1.0",
-          metadata: {
-            exportedAt: new Date().toISOString(),
-            tool: "Design Engineer Token Naming Tool"
-          },
-          collections: [
-            {
-              name: category ? category.charAt(0).toUpperCase() + category.slice(1) + " Tokens" : "Tokens",
-              modes: ["Light", "Dark"],
-              variables: variables
-            }
-          ]
-        };
-        
-        return `// Figma Variables JSON
-// Import via Figma Plugin or REST API
-${JSON.stringify(figmaExport, null, 2)}`;
-      }
-      
       case "figma":
-        return `// Figma Token Names (slash-separated)
-// Use these names when creating styles/variables in Figma
-
-${validTokens.map(t => {
+        return validTokens.map(t => {
           const parts = t.split(".").filter(Boolean);
           return parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
-        }).join("\n")}`;
+        }).join("\n");
       
       default:
         return validTokens.join("\n");
@@ -866,10 +771,13 @@ ${validTokens.map(t => {
         <div className="space-y-6 lg:col-span-7">
           {/* Output Format Selection */}
           <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
-            <div className="mb-4 flex items-center justify-between">
+            <div className="mb-4">
               <h2 className="text-lg font-bold">Output Format</h2>
+              <p className="mt-1 text-xs text-neutral-500">
+                JSON works with Style Dictionary, W3C DTCG, Figma Variables, and Tokens Studio
+              </p>
             </div>
-            <div className="relative grid grid-cols-3 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-6">
+            <div className="relative grid grid-cols-2 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
               {OUTPUT_FORMATS.map(format => {
                 const isSelected = outputFormat === format.value;
                 return (
