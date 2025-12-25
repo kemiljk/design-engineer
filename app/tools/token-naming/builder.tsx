@@ -47,7 +47,7 @@ type ModifierOption = {
 
 type NamingConvention = "explicit" | "compact" | "component-first";
 
-type OutputFormat = "css" | "camelCase" | "json" | "figma";
+type OutputFormat = "css" | "camelCase" | "json" | "figma" | "dtcg" | "figma-variables";
 
 // Configuration data
 const CATEGORIES: { id: Category; label: string; icon: React.ElementType; description: string }[] = [
@@ -176,11 +176,13 @@ const NAMING_CONVENTIONS: { id: NamingConvention; label: string; description: st
   { id: "component-first", label: "Component First", description: "Element-Property-Modifier", example: "card-bg-hover" },
 ];
 
-const OUTPUT_FORMATS: { value: OutputFormat; label: string }[] = [
+const OUTPUT_FORMATS: { value: OutputFormat; label: string; description?: string }[] = [
   { value: "css", label: "CSS" },
   { value: "camelCase", label: "JS/TS" },
   { value: "json", label: "JSON" },
   { value: "figma", label: "Figma" },
+  { value: "dtcg", label: "W3C DTCG" },
+  { value: "figma-variables", label: "Figma Variables" },
 ];
 
 // Helper functions
@@ -258,11 +260,41 @@ function formatTokenName(name: string, format: OutputFormat): string {
     case "camelCase":
       return name.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
     case "json":
+    case "dtcg":
+    case "figma-variables":
       return name.split("-").join(".");
     case "figma":
       return name.split("-").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
     default:
       return name;
+  }
+}
+
+function getTokenType(category: Category | null): string {
+  switch (category) {
+    case "color":
+      return "color";
+    case "typography":
+      return "dimension";
+    case "spacing":
+      return "dimension";
+    case "effects":
+      return "shadow";
+    default:
+      return "color";
+  }
+}
+
+function getFigmaVariableType(category: Category | null): string {
+  switch (category) {
+    case "color":
+      return "COLOR";
+    case "typography":
+    case "spacing":
+    case "effects":
+      return "FLOAT";
+    default:
+      return "COLOR";
   }
 }
 
@@ -416,13 +448,18 @@ export default function TokenNamingBuilder() {
       r.tokens.forEach(t => allTokens.push(t.formatted));
     });
 
+    const tokenType = getTokenType(category);
+    const figmaType = getFigmaVariableType(category);
+
     switch (outputFormat) {
       case "css":
         return `:root {\n${allTokens.map(t => `  ${t}: /* value */;`).join("\n")}\n}`;
+      
       case "camelCase":
         return `const tokens = {\n${allTokens.map(t => `  ${t}: '/* value */',`).join("\n")}\n};`;
-      case "json":
-        const jsonObj: Record<string, string> = {};
+      
+      case "json": {
+        const jsonObj: Record<string, unknown> = {};
         allTokens.forEach(t => {
           const parts = t.split(".");
           let current: Record<string, unknown> = jsonObj;
@@ -436,8 +473,86 @@ export default function TokenNamingBuilder() {
           });
         });
         return JSON.stringify(jsonObj, null, 2);
+      }
+      
+      case "dtcg": {
+        // W3C Design Tokens Community Group format
+        const dtcgObj: Record<string, unknown> = {};
+        allTokens.forEach(t => {
+          const parts = t.split(".");
+          let current: Record<string, unknown> = dtcgObj;
+          parts.forEach((part, i) => {
+            if (i === parts.length - 1) {
+              current[part] = {
+                "$type": tokenType,
+                "$value": "{/* value */}",
+                "$description": `Token for ${parts.join(" > ")}`
+              };
+            } else {
+              current[part] = current[part] || {};
+              current = current[part] as Record<string, unknown>;
+            }
+          });
+        });
+        return `// W3C Design Tokens Community Group (DTCG) Format
+// https://design-tokens.github.io/community-group/format/
+${JSON.stringify(dtcgObj, null, 2)}`;
+      }
+      
+      case "figma-variables": {
+        // Figma Variables JSON format for import
+        const variables = allTokens.map(t => {
+          const namePath = t.split(".").join("/");
+          return {
+            name: namePath,
+            resolvedType: figmaType,
+            description: `Token: ${t}`,
+            hiddenFromPublishing: false,
+            scopes: figmaType === "COLOR" ? ["ALL_FILLS", "STROKE_COLOR"] : ["ALL_SCOPES"],
+            codeSyntax: {
+              WEB: `--${t.split(".").join("-")}`,
+              ANDROID: t.split(".").map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join(""),
+              iOS: t.split(".").map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join("")
+            },
+            valuesByMode: {
+              "Light": figmaType === "COLOR" 
+                ? { r: 0, g: 0, b: 0, a: 1 }
+                : 0,
+              "Dark": figmaType === "COLOR"
+                ? { r: 1, g: 1, b: 1, a: 1 }
+                : 0
+            }
+          };
+        });
+
+        const figmaExport = {
+          version: "1.0",
+          metadata: {
+            exportedAt: new Date().toISOString(),
+            tool: "Design Engineer Token Naming Tool"
+          },
+          collections: [
+            {
+              name: category ? category.charAt(0).toUpperCase() + category.slice(1) + " Tokens" : "Tokens",
+              modes: ["Light", "Dark"],
+              variables: variables
+            }
+          ]
+        };
+        
+        return `// Figma Variables JSON
+// Import via Figma Plugin or REST API
+${JSON.stringify(figmaExport, null, 2)}`;
+      }
+      
       case "figma":
-        return allTokens.join("\n");
+        return `// Figma Token Names (slash-separated)
+// Use these names when creating styles/variables in Figma
+${allTokens.map(t => {
+          const figmaPath = t.split(".").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
+          return figmaPath;
+        }).join("\n")}`;
+      
       default:
         return allTokens.join("\n");
     }
@@ -732,7 +847,7 @@ export default function TokenNamingBuilder() {
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-lg font-bold">Output Format</h2>
             </div>
-            <div className="relative flex bg-neutral-100 p-1 dark:bg-neutral-800">
+            <div className="relative grid grid-cols-3 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-6">
               {OUTPUT_FORMATS.map(format => {
                 const isSelected = outputFormat === format.value;
                 return (
@@ -740,7 +855,7 @@ export default function TokenNamingBuilder() {
                     key={format.value}
                     onClick={() => setOutputFormat(format.value)}
                     className={clsx(
-                      "relative z-10 flex-1 px-3 py-1.5 text-xs font-medium transition-colors",
+                      "relative z-10 rounded-md px-2 py-2 text-xs font-medium transition-colors",
                       isSelected
                         ? "text-neutral-900 dark:text-white"
                         : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
@@ -749,7 +864,7 @@ export default function TokenNamingBuilder() {
                     {isSelected && (
                       <motion.div
                         layoutId="token-naming-format-indicator"
-                        className="absolute inset-0 bg-white shadow-sm dark:bg-neutral-700"
+                        className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-neutral-700"
                         transition={{
                           type: "spring",
                           stiffness: 500,
