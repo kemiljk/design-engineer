@@ -19,6 +19,7 @@ import {
   Square,
   SunMoon,
   Combine,
+  Tags,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -127,6 +128,13 @@ const TOOL_SECTIONS: ToolSection[] = [
         description: "Generate harmonious typography and spacing scales for Tailwind v4, CSS, or SCSS.",
         href: "/tools/token-calculator",
         icon: Type,
+        isGated: false,
+      },
+      {
+        title: "Token Naming",
+        description: "Build consistent semantic token names with auto-generated variants and states.",
+        href: "/tools/token-naming",
+        icon: Tags,
         isGated: false,
       },
     ],
