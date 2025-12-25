@@ -441,68 +441,89 @@ export default function TokenNamingBuilder() {
     setSelectedStates(["hover", "active", "focus", "disabled"]);
   };
 
+  // Helper to safely build nested object structure
+  const buildNestedObject = (
+    tokens: string[],
+    valueBuilder: (parts: string[]) => unknown
+  ): Record<string, unknown> => {
+    const result: Record<string, unknown> = {};
+    
+    tokens.forEach(t => {
+      if (!t || typeof t !== "string") return;
+      
+      const parts = t.split(".").filter(Boolean);
+      if (parts.length === 0) return;
+      
+      let current: Record<string, unknown> = result;
+      
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i];
+        const isLast = i === parts.length - 1;
+        
+        if (isLast) {
+          current[part] = valueBuilder(parts);
+        } else {
+          if (current[part] === undefined) {
+            current[part] = {};
+          } else if (typeof current[part] !== "object" || current[part] === null) {
+            current[part] = { _value: current[part] };
+          }
+          current = current[part] as Record<string, unknown>;
+        }
+      }
+    });
+    
+    return result;
+  };
+
   // Generate export code
   const generateExportCode = () => {
+    if (generatedTokens.length === 0) {
+      return "// Select options above to generate tokens";
+    }
+
     const allTokens = [...generatedTokens.map(t => t.formatted)];
     relatedTokens.forEach(r => {
       r.tokens.forEach(t => allTokens.push(t.formatted));
     });
+
+    // Filter out any empty or invalid tokens
+    const validTokens = allTokens.filter(t => t && typeof t === "string" && t.length > 0);
+    
+    if (validTokens.length === 0) {
+      return "// No valid tokens generated";
+    }
 
     const tokenType = getTokenType(category);
     const figmaType = getFigmaVariableType(category);
 
     switch (outputFormat) {
       case "css":
-        return `:root {\n${allTokens.map(t => `  ${t}: /* value */;`).join("\n")}\n}`;
+        return `:root {\n${validTokens.map(t => `  ${t}: /* value */;`).join("\n")}\n}`;
       
       case "camelCase":
-        return `const tokens = {\n${allTokens.map(t => `  ${t}: '/* value */',`).join("\n")}\n};`;
+        return `const tokens = {\n${validTokens.map(t => `  ${t}: '/* value */',`).join("\n")}\n};`;
       
       case "json": {
-        const jsonObj: Record<string, unknown> = {};
-        allTokens.forEach(t => {
-          const parts = t.split(".");
-          let current: Record<string, unknown> = jsonObj;
-          parts.forEach((part, i) => {
-            if (i === parts.length - 1) {
-              current[part] = "/* value */";
-            } else {
-              current[part] = current[part] || {};
-              current = current[part] as Record<string, unknown>;
-            }
-          });
-        });
+        const jsonObj = buildNestedObject(validTokens, () => "/* value */");
         return JSON.stringify(jsonObj, null, 2);
       }
       
       case "dtcg": {
-        // W3C Design Tokens Community Group format
-        const dtcgObj: Record<string, unknown> = {};
-        allTokens.forEach(t => {
-          const parts = t.split(".");
-          let current: Record<string, unknown> = dtcgObj;
-          parts.forEach((part, i) => {
-            if (i === parts.length - 1) {
-              current[part] = {
-                "$type": tokenType,
-                "$value": "{/* value */}",
-                "$description": `Token for ${parts.join(" > ")}`
-              };
-            } else {
-              current[part] = current[part] || {};
-              current = current[part] as Record<string, unknown>;
-            }
-          });
-        });
+        const dtcgObj = buildNestedObject(validTokens, (parts) => ({
+          "$type": tokenType,
+          "$value": "{/* value */}",
+          "$description": `Token for ${parts.join(" > ")}`
+        }));
         return `// W3C Design Tokens Community Group (DTCG) Format
 // https://design-tokens.github.io/community-group/format/
 ${JSON.stringify(dtcgObj, null, 2)}`;
       }
       
       case "figma-variables": {
-        // Figma Variables JSON format for import
-        const variables = allTokens.map(t => {
-          const namePath = t.split(".").join("/");
+        const variables = validTokens.map(t => {
+          const parts = t.split(".").filter(Boolean);
+          const namePath = parts.join("/");
           return {
             name: namePath,
             resolvedType: figmaType,
@@ -510,9 +531,9 @@ ${JSON.stringify(dtcgObj, null, 2)}`;
             hiddenFromPublishing: false,
             scopes: figmaType === "COLOR" ? ["ALL_FILLS", "STROKE_COLOR"] : ["ALL_SCOPES"],
             codeSyntax: {
-              WEB: `--${t.split(".").join("-")}`,
-              ANDROID: t.split(".").map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join(""),
-              iOS: t.split(".").map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join("")
+              WEB: `--${parts.join("-")}`,
+              ANDROID: parts.map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join(""),
+              iOS: parts.map((p, i) => i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)).join("")
             },
             valuesByMode: {
               "Light": figmaType === "COLOR" 
@@ -548,13 +569,14 @@ ${JSON.stringify(figmaExport, null, 2)}`;
       case "figma":
         return `// Figma Token Names (slash-separated)
 // Use these names when creating styles/variables in Figma
-${allTokens.map(t => {
-          const figmaPath = t.split(".").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
-          return figmaPath;
+
+${validTokens.map(t => {
+          const parts = t.split(".").filter(Boolean);
+          return parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
         }).join("\n")}`;
       
       default:
-        return allTokens.join("\n");
+        return validTokens.join("\n");
     }
   };
 
@@ -917,7 +939,7 @@ ${allTokens.map(t => {
                           State
                         </span>
                       )}
-                      <code className="font-mono text-sm">{token.formatted}</code>
+                      <code className="break-all font-mono text-sm">{token.formatted}</code>
                     </div>
                     <button
                       onClick={() => handleCopy(token.formatted)}
@@ -962,7 +984,7 @@ ${allTokens.map(t => {
                             key={token.formatted}
                             className="group flex items-center justify-between rounded-lg bg-neutral-50 p-2 dark:bg-neutral-800/50"
                           >
-                            <code className="font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                            <code className="break-all font-mono text-xs text-neutral-600 dark:text-neutral-400">
                               {token.formatted}
                             </code>
                             <button
@@ -1009,7 +1031,7 @@ ${allTokens.map(t => {
                       key={token}
                       className="group flex items-center justify-between rounded bg-neutral-50 p-2 dark:bg-neutral-800/50"
                     >
-                      <code className="truncate font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                      <code className="min-w-0 break-all font-mono text-xs text-neutral-600 dark:text-neutral-400">
                         {token}
                       </code>
                       <button
