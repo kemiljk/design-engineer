@@ -676,126 +676,120 @@ fun HarmoniousCard(
               )}
 
               {/* SVG Overlay for measurement annotations */}
-              {showBorders && (
-                <svg
-                  className="pointer-events-none absolute left-0 top-0"
-                  style={{
-                    width: previewType === "modal" ? 280 : 240,
-                    height: "100%",
-                    overflow: "visible",
-                  }}
-                >
-                  {/* 
-                    Coordinate math for corner curves:
-                    - For a corner radius r, the 45° point on the arc is at (r × 0.293, r × 0.293) from the corner
-                    - Outer corner: measured from (0, 0)
-                    - Inner corner: measured from (padding, padding)
-                  */}
-                  
-                  {/* Outer radius marker - dot on the outer corner curve */}
-                  <circle
-                    cx={outerRadius * 0.293}
-                    cy={outerRadius * 0.293}
-                    r="4"
-                    fill="#ff4400"
-                  />
-                  {/* Dotted line from outer corner to label area (going up-left) */}
-                  <line
-                    x1={outerRadius * 0.293}
-                    y1={outerRadius * 0.293}
-                    x2={-20}
-                    y2={-20}
-                    stroke="#ff4400"
-                    strokeWidth="1"
-                    strokeDasharray="3 3"
-                  />
-                  {/* Outer label */}
-                  <text
-                    x={-24}
-                    y={-20}
-                    fill="#ff4400"
-                    style={{ fontFamily: "var(--font-mono)", fontSize: "11px" }}
-                    textAnchor="end"
+              {showBorders && (() => {
+                const elementWidth = previewType === "modal" ? 280 : 240;
+                // 45° point on corner arc: r × (1 - cos(45°)) ≈ r × 0.293
+                const outerDotX = outerRadius * 0.293;
+                const outerDotY = outerRadius * 0.293;
+                // Inner element top-right corner (to avoid clustering)
+                const innerDotX = elementWidth - padding - innerRadius * 0.293;
+                const innerDotY = padding + innerRadius * 0.293;
+                // Gap dimension sits IN the gap at top edge
+                const gapY = padding / 2; // Vertically centered in the gap
+                
+                return (
+                  <svg
+                    className="pointer-events-none absolute left-0 top-0"
+                    style={{
+                      width: elementWidth,
+                      height: "100%",
+                      overflow: "visible",
+                    }}
                   >
-                    {outerRadius}px
-                  </text>
+                    {/* OUTER RADIUS - top-left corner, label goes right */}
+                    <circle cx={outerDotX} cy={outerDotY} r="4" fill="#ff4400" />
+                    <line
+                      x1={outerDotX}
+                      y1={outerDotY}
+                      x2={outerDotX + 40}
+                      y2={outerDotY - 20}
+                      stroke="#ff4400"
+                      strokeWidth="1"
+                      strokeDasharray="3 3"
+                    />
+                    <text
+                      x={outerDotX + 44}
+                      y={outerDotY - 18}
+                      fill="#ff4400"
+                      style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
+                      textAnchor="start"
+                      dominantBaseline="middle"
+                    >
+                      {outerRadius}px
+                    </text>
 
-                  {/* Inner radius marker - dot on the inner corner curve */}
-                  {innerRadius > 0 && (
-                    <>
-                      <circle
-                        cx={padding + innerRadius * 0.293}
-                        cy={padding + innerRadius * 0.293}
-                        r="3"
-                        fill="#f97316"
-                      />
-                      {/* Dotted line from inner corner to label area */}
-                      <line
-                        x1={padding + innerRadius * 0.293}
-                        y1={padding + innerRadius * 0.293}
-                        x2={padding + innerRadius * 0.293 + 30}
-                        y2={-20}
-                        stroke="#f97316"
-                        strokeWidth="1"
-                        strokeDasharray="3 3"
-                      />
-                      {/* Inner label */}
-                      <text
-                        x={padding + innerRadius * 0.293 + 34}
-                        y={-16}
-                        fill="#f97316"
-                        style={{ fontFamily: "var(--font-mono)", fontSize: "11px" }}
-                        textAnchor="start"
-                      >
-                        {innerRadius}px
-                      </text>
-                    </>
-                  )}
+                    {/* INNER RADIUS - top-right corner of inner element */}
+                    {innerRadius > 0 && (
+                      <>
+                        <circle cx={innerDotX} cy={innerDotY} r="3" fill="#f97316" />
+                        <line
+                          x1={innerDotX}
+                          y1={innerDotY}
+                          x2={elementWidth + 20}
+                          y2={innerDotY - 15}
+                          stroke="#f97316"
+                          strokeWidth="1"
+                          strokeDasharray="3 3"
+                        />
+                        <text
+                          x={elementWidth + 24}
+                          y={innerDotY - 15}
+                          fill="#f97316"
+                          style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
+                          textAnchor="start"
+                          dominantBaseline="middle"
+                        >
+                          {innerRadius}px
+                        </text>
+                      </>
+                    )}
 
-                  {/* Gap indicator - horizontal bracket showing padding distance */}
-                  {padding > 0 && (
-                    <>
-                      {/* Horizontal line showing gap at left edge */}
-                      <line
-                        x1={-8}
-                        y1={outerRadius}
-                        x2={-8}
-                        y2={outerRadius + padding}
-                        stroke="#a3a3a3"
-                        strokeWidth="1"
-                      />
-                      {/* Top tick */}
-                      <line
-                        x1={-12}
-                        y1={outerRadius}
-                        x2={-4}
-                        y2={outerRadius}
-                        stroke="#a3a3a3"
-                        strokeWidth="1"
-                      />
-                      {/* Bottom tick */}
-                      <line
-                        x1={-12}
-                        y1={outerRadius + padding}
-                        x2={-4}
-                        y2={outerRadius + padding}
-                        stroke="#a3a3a3"
-                        strokeWidth="1"
-                      />
-                      {/* Gap label - positioned to the left */}
-                      <text
-                        x={-16}
-                        y={outerRadius + padding / 2 + 4}
-                        fill="#737373"
-                        style={{ fontFamily: "var(--font-mono)", fontSize: "10px" }}
-                        textAnchor="end"
-                      >
-                        {padding}px
-                      </text>
-                    </>
-                  )}
-                </svg>
-              )}
+                    {/* GAP - horizontal dimension IN the gap at top edge */}
+                    {padding > 0 && (
+                      <>
+                        {/* Horizontal line from outer edge to inner element */}
+                        <line
+                          x1={0}
+                          y1={gapY}
+                          x2={padding}
+                          y2={gapY}
+                          stroke="#737373"
+                          strokeWidth="1"
+                        />
+                        {/* Left tick (at outer edge) */}
+                        <line
+                          x1={0}
+                          y1={gapY - 4}
+                          x2={0}
+                          y2={gapY + 4}
+                          stroke="#737373"
+                          strokeWidth="1"
+                        />
+                        {/* Right tick (at inner element edge) */}
+                        <line
+                          x1={padding}
+                          y1={gapY - 4}
+                          x2={padding}
+                          y2={gapY + 4}
+                          stroke="#737373"
+                          strokeWidth="1"
+                        />
+                        {/* Label above the gap line */}
+                        <text
+                          x={padding / 2}
+                          y={gapY - 8}
+                          fill="#737373"
+                          style={{ fontFamily: "ui-monospace, monospace", fontSize: "10px" }}
+                          textAnchor="middle"
+                          dominantBaseline="auto"
+                        >
+                          {padding}px
+                        </text>
+                      </>
+                    )}
+                  </svg>
+                );
+              })()}
             </div>
           </div>
         </div>
