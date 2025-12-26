@@ -616,7 +616,7 @@ fun HarmoniousCard(
                 
                 // L-shaped leader line offsets
                 const leaderH = 30;
-                const leaderV = 20;
+                const leaderV = 30; // 50% longer vertical segment
                 
                 return (
                   <svg
