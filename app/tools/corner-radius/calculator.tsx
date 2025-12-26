@@ -15,13 +15,18 @@ const PLATFORM_OPTIONS: { value: Platform; label: string }[] = [
   { value: "android", label: "Android" },
 ];
 
-type CalculationMode = "standard" | "proportional" | "custom";
+type CalculationMode = "standard" | "optical" | "proportional" | "custom";
 
 const CALCULATION_MODES: { value: CalculationMode; label: string; description: string }[] = [
   { 
     value: "standard", 
     label: "Standard", 
     description: "Inner = Outer − Gap (Apple's approach)" 
+  },
+  { 
+    value: "optical", 
+    label: "Optical", 
+    description: "Applies perceptual correction for visual harmony" 
   },
   { 
     value: "proportional", 
@@ -34,6 +39,57 @@ const CALCULATION_MODES: { value: CalculationMode; label: string; description: s
     description: "Add a manual adjustment for optical tuning" 
   },
 ];
+
+/**
+ * Calculate optical offset for harmonious corner radii.
+ * 
+ * The offset compensates for visual perception: larger corner radii carry more
+ * visual "weight" and can appear too prominent on nested elements. This formula
+ * accounts for:
+ * 
+ * 1. Outer radius size - larger radii need more correction
+ * 2. Gap proportion - smaller gaps relative to radius need more correction
+ * 3. Continuous corner compensation - squircles extend further than circular arcs
+ * 
+ * Formula: offset = (innerRadius × curveFactor) + continuousCornerCompensation
+ * 
+ * Where:
+ * - curveFactor = 0.08-0.12 based on the radius/gap ratio
+ * - continuousCornerCompensation = ~1-2px for squircle shapes
+ */
+function calculateOpticalOffset(
+  outerRadius: number, 
+  gap: number, 
+  useContinuousCorners: boolean
+): number {
+  const standardInner = outerRadius - gap;
+  
+  // If already at 0, no offset needed
+  if (standardInner <= 0) return 0;
+  
+  // Base curve factor - how much the inner curve "pulls" visually
+  // Higher values when the gap is small relative to the radius
+  const gapRatio = gap / outerRadius;
+  const curveFactor = 0.06 + (1 - gapRatio) * 0.06; // 0.06-0.12 range
+  
+  // Base optical correction
+  let offset = standardInner * curveFactor;
+  
+  // Continuous corners (squircles) extend slightly further than circular arcs
+  // at the same nominal radius, requiring additional compensation
+  if (useContinuousCorners) {
+    // Squircle compensation: ~1px base + scaled by radius
+    const squircleCompensation = 1 + (outerRadius / 48);
+    offset += squircleCompensation;
+  }
+  
+  // Minimum perceptible offset is ~1px
+  // Maximum offset shouldn't exceed 20% of the inner radius
+  const minOffset = standardInner > 8 ? 1 : 0;
+  const maxOffset = standardInner * 0.2;
+  
+  return Math.round(Math.max(minOffset, Math.min(offset, maxOffset)));
+}
 
 type RadiusPreset = {
   name: string;
@@ -60,6 +116,11 @@ export default function CornerRadiusCalculator() {
   const [showBorders, setShowBorders] = useState(true);
   const [useContinuousCorners, setUseContinuousCorners] = useState(true);
 
+  // Calculate the suggested optical offset
+  const suggestedOffset = useMemo(() => {
+    return calculateOpticalOffset(outerRadius, padding, useContinuousCorners);
+  }, [outerRadius, padding, useContinuousCorners]);
+
   // Calculate inner radius based on mode
   const innerRadius = useMemo(() => {
     let calculated: number;
@@ -68,6 +129,10 @@ export default function CornerRadiusCalculator() {
       case "standard":
         // Apple's approach: inner = outer - gap
         calculated = outerRadius - padding;
+        break;
+      case "optical":
+        // Apply perceptual correction
+        calculated = outerRadius - padding - suggestedOffset;
         break;
       case "proportional":
         // Proportional: maintains visual ratio
@@ -86,19 +151,24 @@ export default function CornerRadiusCalculator() {
 
     // Never return negative radius
     return Math.max(0, Math.round(calculated * 100) / 100);
-  }, [outerRadius, padding, customOffset, mode]);
+  }, [outerRadius, padding, customOffset, mode, suggestedOffset]);
 
   // Check if inner radius would be negative without clamping
   const wouldBeNegative = useMemo(() => {
     switch (mode) {
       case "standard":
         return outerRadius - padding < 0;
+      case "optical":
+        return outerRadius - padding - suggestedOffset < 0;
       case "custom":
         return outerRadius - padding - customOffset < 0;
       default:
         return false;
     }
-  }, [outerRadius, padding, customOffset, mode]);
+  }, [outerRadius, padding, customOffset, mode, suggestedOffset]);
+
+  // Calculate the standard inner radius for comparison
+  const standardInnerRadius = Math.max(0, outerRadius - padding);
 
   const handlePresetClick = (preset: RadiusPreset) => {
     setOuterRadius(preset.outerRadius);
@@ -422,9 +492,32 @@ fun HarmoniousCard(
               </div>
               <p className="mt-2 font-mono text-xs text-neutral-500">
                 {mode === "standard" && `${outerRadius} − ${padding} = ${innerRadius}`}
+                {mode === "optical" && `${outerRadius} − ${padding} − ${suggestedOffset} = ${innerRadius}`}
                 {mode === "proportional" && `${outerRadius} × ratio = ${innerRadius}`}
                 {mode === "custom" && `${outerRadius} − ${padding} − ${customOffset} = ${innerRadius}`}
               </p>
+              
+              {/* Show optical offset details when in optical mode */}
+              {mode === "optical" && suggestedOffset > 0 && (
+                <div className="mt-3 rounded-md bg-swiss-red/5 p-3 dark:bg-swiss-red/10">
+                  <p className="text-xs font-medium text-swiss-red">
+                    Optical correction: −{suggestedOffset}px
+                  </p>
+                  <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                    Standard would be {standardInnerRadius}px — reduced by {suggestedOffset}px for visual harmony
+                  </p>
+                </div>
+              )}
+              
+              {/* Show suggested offset when in custom mode */}
+              {mode === "custom" && (
+                <div className="mt-3 rounded-md bg-blue-50 p-3 dark:bg-blue-900/20">
+                  <p className="text-xs text-blue-700 dark:text-blue-300">
+                    💡 Suggested optical offset: <strong>{suggestedOffset}px</strong>
+                  </p>
+                </div>
+              )}
+              
               {wouldBeNegative && (
                 <div className="mt-2 flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400">
                   <AlertCircle className="h-3.5 w-3.5" />
@@ -432,6 +525,24 @@ fun HarmoniousCard(
                 </div>
               )}
             </div>
+            
+            {/* Optical Offset Formula Explanation */}
+            {mode === "optical" && (
+              <div className="rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
+                <p className="mb-2 text-xs font-semibold text-neutral-700 dark:text-neutral-300">
+                  Optical Offset Formula
+                </p>
+                <p className="font-mono text-[11px] text-neutral-600 dark:text-neutral-400">
+                  offset = (inner × curveFactor) + squircleCompensation
+                </p>
+                <div className="mt-2 space-y-1 text-[11px] text-neutral-500">
+                  <p>• <strong>curveFactor</strong>: {(0.06 + (1 - padding / outerRadius) * 0.06).toFixed(2)} (based on gap/radius ratio)</p>
+                  {useContinuousCorners && (
+                    <p>• <strong>squircleCompensation</strong>: {(1 + outerRadius / 48).toFixed(1)}px (for continuous corners)</p>
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* Options */}
             <div className="space-y-3">
@@ -572,19 +683,43 @@ fun HarmoniousCard(
                 creates visual tension. The inner element&apos;s corners appear too round relative to
                 the spacing, breaking the optical harmony.
               </p>
+              
+              <h3 className="text-base font-semibold">Standard Formula (Apple&apos;s Approach)</h3>
               <p>
-                <strong>Apple&apos;s approach:</strong> The inner radius should equal the outer radius
-                minus the gap (padding) between them. This formula—<code>inner = outer − gap</code>—ensures 
-                the corner curves flow naturally into each other, creating a consistent visual rhythm.
+                The baseline formula is <code>inner = outer − gap</code>. This ensures the corner 
+                curves flow naturally into each other, creating a consistent visual rhythm. Apple 
+                uses this approach throughout iOS and macOS.
               </p>
+              
+              <h3 className="text-base font-semibold">Optical Correction</h3>
               <p>
-                <strong>Continuous corners (squircle):</strong> Apple uses a superellipse shape rather
-                than circular arcs for their corners. This creates smoother, more organic curves that
-                blend better at the edges. In SwiftUI, this is the <code>.continuous</code> corner style.
+                The standard formula doesn&apos;t account for visual perception. Larger corner radii 
+                carry more visual &quot;weight&quot;—they draw the eye and can make nested elements 
+                feel unbalanced. The optical offset compensates for this:
               </p>
+              <ul>
+                <li>
+                  <strong>Curve factor (6-12%):</strong> Reduces the inner radius proportionally. 
+                  The factor increases when the gap is small relative to the radius, as the inner 
+                  curve becomes more prominent.
+                </li>
+                <li>
+                  <strong>Squircle compensation (~1-2px):</strong> Continuous corners (superellipse) 
+                  extend further than circular arcs at the same nominal radius, requiring additional 
+                  reduction.
+                </li>
+              </ul>
+              
+              <h3 className="text-base font-semibold">When to Use Each Mode</h3>
+              <ul>
+                <li><strong>Standard:</strong> Mathematical precision, platform consistency</li>
+                <li><strong>Optical:</strong> Visual perfection, especially for hero UI elements</li>
+                <li><strong>Custom:</strong> Fine-tuning for specific design contexts</li>
+              </ul>
+              
               <p>
-                When the gap exceeds the outer radius, the inner radius becomes 0—meaning sharp corners
-                are actually the correct choice for deeply nested elements with significant padding.
+                When the gap exceeds the outer radius, the inner radius becomes 0—meaning sharp 
+                corners are actually the correct choice for deeply nested elements with significant padding.
               </p>
             </div>
           </div>
@@ -635,18 +770,18 @@ fun HarmoniousCard(
       {/* Visual Comparison */}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-6 text-lg font-bold">Visual Comparison</h2>
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-3">
           {/* Wrong - Same radius */}
           <div className="space-y-3">
             <div className="text-center">
               <span className="inline-block rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700 dark:bg-red-900/30 dark:text-red-400">
-                ✗ Same radius (looks off)
+                ✗ Same radius
               </span>
             </div>
             <div
               className="mx-auto bg-neutral-100 dark:bg-neutral-800"
               style={{
-                width: 200,
+                width: 180,
                 borderRadius: outerRadius,
                 padding: padding,
               }}
@@ -654,26 +789,59 @@ fun HarmoniousCard(
               <div
                 className="aspect-video w-full bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-600 dark:to-neutral-700"
                 style={{
-                  borderRadius: outerRadius, // Same as outer - incorrect!
+                  borderRadius: outerRadius,
                 }}
               />
             </div>
             <p className="text-center font-mono text-xs text-neutral-500">
-              Both: {outerRadius}px
+              Inner: {outerRadius}px
+            </p>
+            <p className="text-center text-[11px] text-neutral-400">
+              Corners appear too round
             </p>
           </div>
 
-          {/* Correct - Calculated radius */}
+          {/* Standard - Apple's formula */}
           <div className="space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
-                ✓ Harmonious radius
+              <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                ○ Standard
               </span>
             </div>
             <div
               className="mx-auto bg-neutral-100 dark:bg-neutral-800"
               style={{
-                width: 200,
+                width: 180,
+                borderRadius: outerRadius,
+                padding: padding,
+              }}
+            >
+              <div
+                className="aspect-video w-full bg-gradient-to-br from-amber-400 to-orange-400"
+                style={{
+                  borderRadius: standardInnerRadius,
+                }}
+              />
+            </div>
+            <p className="text-center font-mono text-xs text-neutral-500">
+              Inner: {standardInnerRadius}px
+            </p>
+            <p className="text-center text-[11px] text-neutral-400">
+              outer − gap
+            </p>
+          </div>
+
+          {/* Optical - With correction */}
+          <div className="space-y-3">
+            <div className="text-center">
+              <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                ✓ Optical
+              </span>
+            </div>
+            <div
+              className="mx-auto bg-neutral-100 dark:bg-neutral-800"
+              style={{
+                width: 180,
                 borderRadius: outerRadius,
                 padding: padding,
               }}
@@ -681,13 +849,34 @@ fun HarmoniousCard(
               <div
                 className="aspect-video w-full bg-gradient-to-br from-swiss-red to-orange-400"
                 style={{
-                  borderRadius: innerRadius, // Calculated - correct!
+                  borderRadius: Math.max(0, standardInnerRadius - suggestedOffset),
                 }}
               />
             </div>
             <p className="text-center font-mono text-xs text-neutral-500">
-              Outer: {outerRadius}px / Inner: {innerRadius}px
+              Inner: {Math.max(0, standardInnerRadius - suggestedOffset)}px
             </p>
+            <p className="text-center text-[11px] text-neutral-400">
+              outer − gap − {suggestedOffset}
+            </p>
+          </div>
+        </div>
+        
+        {/* Quick comparison stats */}
+        <div className="mt-6 rounded-lg bg-neutral-50 p-4 dark:bg-neutral-800/50">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="text-neutral-500">Outer:</span>
+              <span className="font-mono font-medium">{outerRadius}px</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-neutral-500">Gap:</span>
+              <span className="font-mono font-medium">{padding}px</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-neutral-500">Optical offset:</span>
+              <span className="font-mono font-medium text-swiss-red">−{suggestedOffset}px</span>
+            </div>
           </div>
         </div>
       </div>
