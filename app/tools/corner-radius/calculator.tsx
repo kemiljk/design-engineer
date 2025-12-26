@@ -671,55 +671,161 @@ fun HarmoniousCard(
         </div>
       </div>
 
-      {/* Explanation */}
+      {/* Understanding the Problem */}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <h2 className="mb-4 text-lg font-bold">The Problem: Visual Tension in Nested Corners</h2>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
+            <p>
+              When you place a rounded element inside another rounded element, using the same 
+              corner radius for both creates <strong>visual tension</strong>. The inner corners 
+              appear disproportionately round because the eye perceives the relationship between 
+              the curves and the gap between them.
+            </p>
+            <p>
+              This is particularly noticeable in cards with images, buttons with icons, or any 
+              nested UI component. The effect worsens as the outer radius increases or the 
+              padding decreases.
+            </p>
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            <div className="text-center">
+              <div
+                className="bg-neutral-200 dark:bg-neutral-700"
+                style={{ borderRadius: 24, padding: 12, width: 100 }}
+              >
+                <div
+                  className="aspect-square w-full bg-red-400"
+                  style={{ borderRadius: 24 }}
+                />
+              </div>
+              <p className="mt-2 text-xs text-neutral-500">Same radius</p>
+              <p className="text-[10px] text-red-500">Looks wrong</p>
+            </div>
+            <div className="text-2xl text-neutral-300">→</div>
+            <div className="text-center">
+              <div
+                className="bg-neutral-200 dark:bg-neutral-700"
+                style={{ borderRadius: 24, padding: 12, width: 100 }}
+              >
+                <div
+                  className="aspect-square w-full bg-green-400"
+                  style={{ borderRadius: 10 }}
+                />
+              </div>
+              <p className="mt-2 text-xs text-neutral-500">Adjusted radius</p>
+              <p className="text-[10px] text-green-600">Harmonious</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* The Standard Formula */}
+      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <h2 className="mb-4 text-lg font-bold">The Standard Formula</h2>
+        <div className="mb-4 flex items-center justify-center rounded-lg bg-neutral-100 p-6 dark:bg-neutral-800">
+          <div className="text-center">
+            <p className="font-mono text-2xl font-bold text-neutral-900 dark:text-white">
+              inner = outer − gap
+            </p>
+            <p className="mt-2 text-sm text-neutral-500">Apple&apos;s containerRelative approach</p>
+          </div>
+        </div>
+        <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
+          <p>
+            Apple popularised this formula with their &quot;continuous corners&quot; (squircle) design 
+            language. The idea is simple: the inner radius should account for the space between 
+            the elements. If you have a 24px outer radius and 16px of padding, the inner radius 
+            should be 8px.
+          </p>
+          <p>
+            This formula works well in most cases and is mathematically precise. SwiftUI&apos;s 
+            <code>.containerRelativeFrame()</code> modifier uses this exact calculation.
+          </p>
+        </div>
+      </div>
+
+      {/* Why Optical Offset */}
+      <div className="rounded-xl border border-swiss-red/20 bg-swiss-red/5 p-4 dark:border-swiss-red/30 dark:bg-swiss-red/10 sm:p-6">
         <div className="flex items-start gap-3">
           <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-swiss-red" />
           <div>
-            <h2 className="mb-2 text-lg font-bold">Why Harmonious Radii Matter</h2>
+            <h2 className="mb-2 text-lg font-bold">Why the Optical Offset?</h2>
             <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
               <p>
-                When nesting rounded elements, using the same corner radius for both parent and child
-                creates visual tension. The inner element&apos;s corners appear too round relative to
-                the spacing, breaking the optical harmony.
+                The standard formula is mathematically correct but doesn&apos;t account for 
+                <strong> human visual perception</strong>. Our eyes don&apos;t process geometry 
+                objectively—we perceive curves, weight, and relationships differently than a 
+                computer calculates them.
               </p>
               
-              <h3 className="text-base font-semibold">Standard Formula (Apple&apos;s Approach)</h3>
-              <p>
-                The baseline formula is <code>inner = outer − gap</code>. This ensures the corner 
-                curves flow naturally into each other, creating a consistent visual rhythm. Apple 
-                uses this approach throughout iOS and macOS.
-              </p>
+              <h3 className="text-base font-semibold">Three Perceptual Factors</h3>
               
-              <h3 className="text-base font-semibold">Optical Correction</h3>
+              <div className="not-prose my-4 grid gap-4 sm:grid-cols-3">
+                <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
+                  <div className="mb-2 text-2xl">📐</div>
+                  <h4 className="font-semibold">Curve Weight</h4>
+                  <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+                    Larger radii carry more visual &quot;mass&quot;. The inner curve competes for 
+                    attention with the outer curve, creating tension.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
+                  <div className="mb-2 text-2xl">👁️</div>
+                  <h4 className="font-semibold">Gap Perception</h4>
+                  <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+                    When the gap is small relative to the radius, the inner curve appears more 
+                    prominent and needs more reduction.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
+                  <div className="mb-2 text-2xl">◯</div>
+                  <h4 className="font-semibold">Squircle Extension</h4>
+                  <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
+                    Continuous corners (superellipse) extend further into the corner than circular 
+                    arcs, requiring ~1-2px additional compensation.
+                  </p>
+                </div>
+              </div>
+
+              <h3 className="text-base font-semibold">The Optical Formula</h3>
+              <div className="not-prose my-4 rounded-lg bg-neutral-900 p-4 dark:bg-neutral-950">
+                <pre className="text-xs text-neutral-300">
+{`// Calculate optical offset
+curveFactor = 0.06 + (1 - gap/outer) × 0.06  // 6-12%
+squircleBonus = useContinuous ? 1 + outer/48 : 0
+
+offset = standardInner × curveFactor + squircleBonus
+opticalInner = outer - gap - offset`}
+                </pre>
+              </div>
+              
               <p>
-                The standard formula doesn&apos;t account for visual perception. Larger corner radii 
-                carry more visual &quot;weight&quot;—they draw the eye and can make nested elements 
-                feel unbalanced. The optical offset compensates for this:
+                The curve factor scales between 6% and 12% based on how small the gap is relative 
+                to the outer radius. Smaller gaps mean the inner curve is more visible and needs 
+                more correction. The squircle compensation adds ~1-2px for continuous corners.
               </p>
+
+              <h3 className="text-base font-semibold">When to Use It</h3>
               <ul>
                 <li>
-                  <strong>Curve factor (6-12%):</strong> Reduces the inner radius proportionally. 
-                  The factor increases when the gap is small relative to the radius, as the inner 
-                  curve becomes more prominent.
+                  <strong>Hero UI elements:</strong> Cards, modals, and featured content where 
+                  visual polish matters most
                 </li>
                 <li>
-                  <strong>Squircle compensation (~1-2px):</strong> Continuous corners (superellipse) 
-                  extend further than circular arcs at the same nominal radius, requiring additional 
-                  reduction.
+                  <strong>Large radii:</strong> The effect is most noticeable with radii &gt;16px
+                </li>
+                <li>
+                  <strong>Tight padding:</strong> When the gap is less than half the outer radius
+                </li>
+                <li>
+                  <strong>Brand-sensitive contexts:</strong> Marketing pages, app stores, portfolios
                 </li>
               </ul>
               
-              <h3 className="text-base font-semibold">When to Use Each Mode</h3>
-              <ul>
-                <li><strong>Standard:</strong> Mathematical precision, platform consistency</li>
-                <li><strong>Optical:</strong> Visual perfection, especially for hero UI elements</li>
-                <li><strong>Custom:</strong> Fine-tuning for specific design contexts</li>
-              </ul>
-              
               <p>
-                When the gap exceeds the outer radius, the inner radius becomes 0—meaning sharp 
-                corners are actually the correct choice for deeply nested elements with significant padding.
+                For systematic design systems where consistency across platforms matters more than 
+                pixel-perfect optical tuning, the standard formula is often preferred.
               </p>
             </div>
           </div>
