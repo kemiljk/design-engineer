@@ -548,7 +548,10 @@ fun HarmoniousCard(
                   style={{
                     width: 240,
                     borderRadius: outerRadius,
-                    padding: padding,
+                    paddingTop: padding,
+                    paddingLeft: padding,
+                    paddingRight: padding,
+                    paddingBottom: padding * 2,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
