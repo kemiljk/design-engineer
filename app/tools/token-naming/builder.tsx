@@ -1603,7 +1603,7 @@ function BuilderModeUI({
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="rounded-lg border border-purple-200 bg-purple-50 p-4 dark:border-purple-800 dark:bg-purple-950">
+                  <div className="rounded-lg border border-purple-200 p-4 dark:border-purple-800">
                     {/* Name input */}
                     <div className="mb-3">
                       <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
