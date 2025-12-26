@@ -677,12 +677,12 @@ fun HarmoniousCard(
                         <line x1={0} y1={-4} x2={0} y2={4} stroke="currentColor" strokeWidth="1" />
                         <line x1={padding} y1={-4} x2={padding} y2={4} stroke="currentColor" strokeWidth="1" />
                         <text
-                          x={padding / 2}
-                          y={-8}
+                          x={-4}
+                          y={0}
                           fill="currentColor"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "10px" }}
-                          textAnchor="middle"
-                          dominantBaseline="auto"
+                          textAnchor="end"
+                          dominantBaseline="middle"
                         >
                           {padding}px
                         </text>
