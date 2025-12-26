@@ -1568,7 +1568,7 @@ function BuilderModeUI({
                   className={clsx(
                     "group flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition-all hover:border-red-300 hover:bg-red-50 dark:hover:border-red-800 dark:hover:bg-red-950",
                     comp.isCustom
-                      ? "border-rose-300 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-300"
+                      ? "border-purple-300 bg-purple-50 text-purple-700 dark:border-purple-800 dark:bg-purple-950 dark:text-purple-300"
                       : "border-swiss-red/30 bg-swiss-red/5 text-swiss-red"
                   )}
                 >
@@ -1603,10 +1603,10 @@ function BuilderModeUI({
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="rounded-lg border border-rose-200 bg-rose-50 p-4 dark:border-rose-800 dark:bg-rose-950/50">
+                  <div className="rounded-lg border border-purple-200 p-4 dark:border-purple-800">
                     {/* Name input */}
                     <div className="mb-3">
-                      <label className="mb-1.5 block text-xs font-medium text-rose-700 dark:text-rose-300">
+                      <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
                         Component Name
                       </label>
                       <input
@@ -1614,13 +1614,13 @@ function BuilderModeUI({
                         value={customComponentInput}
                         onChange={(e) => setCustomComponentInput(e.target.value)}
                         placeholder="e.g., stepper, chip, carousel..."
-                        className="w-full rounded-lg border border-rose-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-rose-500 focus:outline-none focus:ring-1 focus:ring-rose-500 dark:border-rose-700 dark:bg-neutral-800"
+                        className="w-full rounded-lg border border-purple-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 dark:border-purple-700 dark:bg-neutral-800"
                       />
                     </div>
                     
                     {/* Category selection */}
                     <div className="mb-3">
-                      <label className="mb-1.5 block text-xs font-medium text-rose-700 dark:text-rose-300">
+                      <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
                         Categories
                       </label>
                       <div className="flex flex-wrap gap-1.5">
@@ -1633,8 +1633,8 @@ function BuilderModeUI({
                               className={clsx(
                                 "flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-all",
                                 isSelected
-                                  ? "border-rose-500 bg-rose-500 text-white"
-                                  : "border-rose-200 text-rose-600 hover:border-rose-300 dark:border-rose-700 dark:text-rose-400"
+                                  ? "border-purple-500 bg-purple-500 text-white"
+                                  : "border-purple-200 text-purple-600 hover:border-purple-300 dark:border-purple-700 dark:text-purple-400"
                               )}
                             >
                               <cat.icon className="h-3 w-3" />
@@ -1647,7 +1647,7 @@ function BuilderModeUI({
                     
                     {/* States toggle */}
                     <div className="mb-4">
-                      <label className="mb-1.5 block text-xs font-medium text-rose-700 dark:text-rose-300">
+                      <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
                         Interactive States
                       </label>
                       <button
@@ -1655,8 +1655,8 @@ function BuilderModeUI({
                         className={clsx(
                           "flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-all",
                           customComponentHasStates
-                            ? "border-rose-500 bg-rose-500 text-white"
-                            : "border-rose-200 text-rose-600 hover:border-rose-300 dark:border-rose-700 dark:text-rose-400"
+                            ? "border-purple-500 bg-purple-500 text-white"
+                            : "border-purple-200 text-purple-600 hover:border-purple-300 dark:border-purple-700 dark:text-purple-400"
                         )}
                       >
                         {customComponentHasStates ? <Check className="h-3 w-3" /> : null}
@@ -1669,7 +1669,7 @@ function BuilderModeUI({
                       <button
                         onClick={handleAddCustomComponent}
                         disabled={!customComponentInput.trim() || customComponentCategories.length === 0}
-                        className="flex items-center gap-1.5 rounded-lg bg-rose-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex items-center gap-1.5 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <Plus className="h-4 w-4" />
                         Add Component
@@ -1679,7 +1679,7 @@ function BuilderModeUI({
                           setShowCustomForm(false);
                           setCustomComponentInput("");
                         }}
-                        className="rounded-lg px-4 py-2 text-sm text-rose-600 transition-colors hover:bg-rose-100 dark:text-rose-400 dark:hover:bg-rose-900/50"
+                        className="rounded-lg px-4 py-2 text-sm text-purple-600 transition-colors hover:bg-purple-100 dark:text-purple-400 dark:hover:bg-purple-900/50"
                       >
                         Cancel
                       </button>
@@ -1741,7 +1741,7 @@ function BuilderModeUI({
                     <div className="flex items-center gap-2">
                       <span className={clsx(
                         "font-medium text-sm",
-                        comp.isCustom ? "text-rose-600 dark:text-rose-400" : ""
+                        comp.isCustom ? "text-purple-600 dark:text-purple-400" : ""
                       )}>
                         {comp.label}
                       </span>
@@ -2086,7 +2086,7 @@ function BuilderModeUI({
                       className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
                     >
                       <div className="flex items-center gap-2">
-                        <Layers className={clsx("h-4 w-4", comp.isCustom ? "text-rose-500" : "text-swiss-red")} />
+                        <Layers className={clsx("h-4 w-4", comp.isCustom ? "text-purple-500" : "text-swiss-red")} />
                         <span className="font-medium">{comp.label}</span>
                         <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800">
                           {componentTokens.length} tokens
