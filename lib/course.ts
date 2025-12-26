@@ -17,14 +17,14 @@ const FREE_LESSONS = new Set([
   "00-introduction/02-what-is-design-engineering",
   "00-introduction/03-choosing-your-path",
   "00-introduction/04-how-this-course-works",
-  // Design Track - first lesson only (Environment Setup)
-  "design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal",
-  "design-track/ios/00-environment-setup/01-getting-started-with-xcode",
-  "design-track/android/00-environment-setup/01-getting-started-with-android-studio",
-  // Engineering Track - first lesson only
-  "engineering-track/web/01-html-fundamentals/01-what-is-html",
-  "engineering-track/ios/01-swift-basics/01-introduction-to-swift",
-  "engineering-track/android/01-kotlin-basics/01-introduction-to-kotlin",
+  // Design Track - first lesson only (Visual Design Foundations)
+  "design-track/web/01-foundations/01-what-is-visual-design",
+  "design-track/ios/01-hig-fundamentals/01-ios-design-philosophy",
+  "design-track/android/01-material-design/01-material-design-philosophy",
+  // Engineering Track - first lesson only (Environment Setup)
+  "engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal",
+  "engineering-track/ios/00-environment-setup/01-getting-started-with-xcode",
+  "engineering-track/android/00-environment-setup/01-getting-started-with-android-studio",
 ]);
 
 const ACCESS_MAP: Record<Type.AccessLevel, string[]> = {

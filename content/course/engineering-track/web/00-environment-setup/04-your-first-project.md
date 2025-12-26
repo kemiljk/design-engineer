@@ -423,4 +423,4 @@ You're ready to start building. The terminal that once seemed intimidating is no
 
 ## Next Steps
 
-Continue to [What is Visual Design?](../01-foundations/01-what-is-visual-design.md) →
+Continue to [What is HTML?](../01-html-fundamentals/01-what-is-html.md) →

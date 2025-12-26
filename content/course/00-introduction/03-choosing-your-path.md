@@ -76,16 +76,16 @@ Before choosing a path, honestly assess your current skills. Rate each skill fro
 Your **engineering score is higher** than your design score, or:
 
 - You can build things but they don't look great
-- You've tried Vibe Coding (prompting AI) but the results feel hollow
-- You want real skills—not just generated outputs
 - You struggle to make aesthetic decisions confidently
 - You want to understand *why* designers make certain requests
+- You want to ship beautiful, polished interfaces—not just functional code
+- You want to develop real design taste, not just follow templates
 
-**Go beyond Vibe Coding.** AI can generate designs, but it can't teach you taste. This track gives you fundamentals that compound—skills that make you better, not just faster.
+**Develop design taste that AI can't replicate.** You already know how to code—now learn to make confident visual decisions. This track gives you fundamentals that compound—skills that make your work beautiful, not just functional.
 
 The Design Track covers:
 - Visual design fundamentals
-- Typography, color, and spacing
+- Typography, colour, and spacing
 - Design tools and workflows
 - Design systems
 - UX principles
@@ -95,14 +95,15 @@ The Design Track covers:
 Your **design score is higher** than your engineering score, or:
 
 - You're comfortable in design tools but can't code your ideas
-- You want to prototype in real code, not just design tools
+- You've tried Vibe Coding (prompting AI) but the results feel hollow
+- You want real engineering skills—not just generated outputs
 - You want to ship side projects yourself
 - You're tired of designs getting "lost in translation"
-- You want to understand implementation constraints
 
-**Ship beautiful, thoroughly considered UIs.** Not just functional code—polished interfaces that users love. Learn to implement with the same care you design with.
+**Go beyond Vibe Coding.** AI can generate code, but it can't teach you to build with intention. This track gives you fundamentals that compound—skills that let you own the entire build process, not just prompt and hope.
 
 The Engineering Track covers:
+- Terminal, environment setup, and tooling
 - HTML, CSS, and JavaScript fundamentals (for Web)
 - Building UI components
 - State management
@@ -195,7 +196,7 @@ Based on common scenarios:
 2. Move to **Convergence** when comfortable
 3. Optional: Add iOS or Android later
 
-### "I'm an engineer who wants to ship beautiful UIs"
+### "I'm an engineer who wants to ship beautiful, polished UIs"
 
 1. Start with **Design Track (Web)**—develop real design taste
 2. Move to **Convergence** when comfortable
@@ -272,8 +273,8 @@ Your choices aren't permanent. You can switch tracks or platforms if you realize
 ## Key Takeaways
 
 - Assess your skills honestly before choosing a path
-- Designers: go beyond Vibe Coding—develop skills AI can't replicate
-- Engineers: ship beautiful, thoroughly considered UIs—not just functional code
+- Designers: go beyond Vibe Coding—develop real engineering skills AI can't replicate
+- Engineers: develop design taste—ship beautiful, polished UIs, not just functional code
 - Start with one platform and master it before adding others
 - The Convergence track ties everything together
 - Your path isn't permanent—you can adjust as you learn

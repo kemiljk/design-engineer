@@ -10,6 +10,14 @@
 - How to open and customise your terminal
 - Your very first commands
 
+## Go Beyond Vibe Coding
+
+If you've been using AI tools to generate code—prompting and hoping for the best—you've probably hit a wall. Maybe the code works but you don't understand it. Maybe you can't fix bugs or make changes confidently. Maybe you feel like a fraud.
+
+That's Vibe Coding. And there's nothing wrong with it as a starting point. But to truly own your work—to build with intention and ship with confidence—you need to understand what's happening under the hood.
+
+**This track teaches you real engineering skills.** Not just copying and pasting, but genuinely understanding HTML, CSS, and JavaScript. The terminal is where that journey begins.
+
 ## Why Designers Avoid the Terminal
 
 Let's be honest: the terminal is one of the biggest blockers for designers trying to code.

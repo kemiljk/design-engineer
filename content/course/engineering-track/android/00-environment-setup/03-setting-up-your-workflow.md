@@ -482,4 +482,4 @@ You're ready to start designing and building Android interfaces!
 
 ## Next Steps
 
-Continue to [Material Design Philosophy](../01-material-design/01-material-design-philosophy.md) →
+Continue to [Introduction to Kotlin](../01-kotlin-basics/01-introduction-to-kotlin.md) →

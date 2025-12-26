@@ -10,6 +10,14 @@
 - Navigating the Xcode interface
 - Creating your first project
 
+## Go Beyond Vibe Coding
+
+If you've been using AI tools to generate SwiftUI code—prompting and hoping for the best—you've probably hit a wall. Maybe the code compiles but you don't understand it. Maybe you can't debug issues or customise behaviour. Maybe you feel like an imposter.
+
+That's Vibe Coding. And whilst it's a valid starting point, to truly own your work—to build iOS apps with intention and ship with confidence—you need to understand Swift and SwiftUI properly.
+
+**This track teaches you real iOS engineering skills.** Not just copying and pasting, but genuinely understanding how to build native Apple interfaces. Xcode is where that journey begins.
+
 ## What Is Xcode?
 
 Xcode is Apple's official development environment. It's where you:
