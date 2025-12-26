@@ -47,6 +47,14 @@ type ElementOption = {
   isCustom?: boolean;
 };
 
+type SelectedComponent = {
+  id: string;
+  label: string;
+  isCustom?: boolean;
+  categories: Category[];
+  hasStates: boolean;
+};
+
 type ModifierOption = {
   id: string;
   label: string;
@@ -188,53 +196,67 @@ const SCALE_MODIFIERS: ModifierOption[] = [
   { id: "900", label: "900", type: "scale" },
 ];
 
-// Default components for Builder Mode - common UI elements in design systems
-const DEFAULT_COMPONENTS: ElementOption[] = [
-  // Surfaces
-  { id: "page", label: "Page" },
-  { id: "card", label: "Card" },
-  { id: "modal", label: "Modal" },
-  { id: "dialog", label: "Dialog" },
-  { id: "popover", label: "Popover" },
-  { id: "dropdown", label: "Dropdown" },
-  { id: "tooltip", label: "Tooltip" },
-  { id: "sidebar", label: "Sidebar" },
-  { id: "panel", label: "Panel" },
-  // Interactive
-  { id: "button", label: "Button" },
-  { id: "link", label: "Link" },
-  { id: "input", label: "Input" },
-  { id: "textarea", label: "Textarea" },
-  { id: "select", label: "Select" },
-  { id: "checkbox", label: "Checkbox" },
-  { id: "radio", label: "Radio" },
-  { id: "switch", label: "Switch" },
-  { id: "slider", label: "Slider" },
-  // Navigation
-  { id: "nav", label: "Navigation" },
-  { id: "tab", label: "Tab" },
-  { id: "breadcrumb", label: "Breadcrumb" },
-  { id: "pagination", label: "Pagination" },
-  { id: "menu", label: "Menu" },
-  // Data Display
-  { id: "badge", label: "Badge" },
-  { id: "tag", label: "Tag" },
-  { id: "avatar", label: "Avatar" },
-  { id: "table", label: "Table" },
-  { id: "list", label: "List" },
-  // Feedback
-  { id: "alert", label: "Alert" },
-  { id: "toast", label: "Toast" },
-  { id: "progress", label: "Progress" },
-  { id: "skeleton", label: "Skeleton" },
-  // Brand/Semantic
-  { id: "primary", label: "Primary" },
-  { id: "secondary", label: "Secondary" },
-  { id: "accent", label: "Accent" },
-  { id: "success", label: "Success" },
-  { id: "warning", label: "Warning" },
-  { id: "error", label: "Error" },
-  { id: "info", label: "Info" },
+// Component configuration with smart category/property defaults
+type ComponentConfig = {
+  id: string;
+  label: string;
+  isCustom?: boolean;
+  categories: Category[];
+  hasStates: boolean; // Whether this component has interactive states
+};
+
+// Default components for Builder Mode with smart category mappings
+const DEFAULT_COMPONENTS: ComponentConfig[] = [
+  // Surfaces - typically have colors, effects (shadows/radius), but no interactive states
+  { id: "page", label: "Page", categories: ["color"], hasStates: false },
+  { id: "card", label: "Card", categories: ["color", "spacing", "effects"], hasStates: false },
+  { id: "modal", label: "Modal", categories: ["color", "spacing", "effects"], hasStates: false },
+  { id: "dialog", label: "Dialog", categories: ["color", "spacing", "effects"], hasStates: false },
+  { id: "popover", label: "Popover", categories: ["color", "spacing", "effects"], hasStates: false },
+  { id: "dropdown", label: "Dropdown", categories: ["color", "spacing", "effects"], hasStates: true },
+  { id: "tooltip", label: "Tooltip", categories: ["color", "spacing", "effects"], hasStates: false },
+  { id: "sidebar", label: "Sidebar", categories: ["color", "spacing"], hasStates: false },
+  { id: "panel", label: "Panel", categories: ["color", "spacing", "effects"], hasStates: false },
+  
+  // Interactive - have colors, spacing, and interactive states
+  { id: "button", label: "Button", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "link", label: "Link", categories: ["color", "typography"], hasStates: true },
+  { id: "input", label: "Input", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "textarea", label: "Textarea", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "select", label: "Select", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "checkbox", label: "Checkbox", categories: ["color", "effects"], hasStates: true },
+  { id: "radio", label: "Radio", categories: ["color", "effects"], hasStates: true },
+  { id: "switch", label: "Switch", categories: ["color", "effects"], hasStates: true },
+  { id: "slider", label: "Slider", categories: ["color", "effects"], hasStates: true },
+  
+  // Navigation - typically have colors and states
+  { id: "nav", label: "Navigation", categories: ["color", "spacing"], hasStates: true },
+  { id: "tab", label: "Tab", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "breadcrumb", label: "Breadcrumb", categories: ["color", "typography", "spacing"], hasStates: true },
+  { id: "pagination", label: "Pagination", categories: ["color", "spacing", "effects"], hasStates: true },
+  { id: "menu", label: "Menu", categories: ["color", "spacing", "effects"], hasStates: true },
+  
+  // Data Display - mostly static, some with subtle states
+  { id: "badge", label: "Badge", categories: ["color", "typography", "spacing", "effects"], hasStates: false },
+  { id: "tag", label: "Tag", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "avatar", label: "Avatar", categories: ["color", "effects"], hasStates: false },
+  { id: "table", label: "Table", categories: ["color", "typography", "spacing", "effects"], hasStates: true },
+  { id: "list", label: "List", categories: ["color", "spacing"], hasStates: true },
+  
+  // Feedback - typically just colors and maybe effects
+  { id: "alert", label: "Alert", categories: ["color", "typography", "spacing", "effects"], hasStates: false },
+  { id: "toast", label: "Toast", categories: ["color", "typography", "spacing", "effects"], hasStates: false },
+  { id: "progress", label: "Progress", categories: ["color", "effects"], hasStates: false },
+  { id: "skeleton", label: "Skeleton", categories: ["color", "effects"], hasStates: false },
+  
+  // Brand/Semantic - color tokens only (these are color scales, not components)
+  { id: "primary", label: "Primary", categories: ["color"], hasStates: false },
+  { id: "secondary", label: "Secondary", categories: ["color"], hasStates: false },
+  { id: "accent", label: "Accent", categories: ["color"], hasStates: false },
+  { id: "success", label: "Success", categories: ["color"], hasStates: false },
+  { id: "warning", label: "Warning", categories: ["color"], hasStates: false },
+  { id: "error", label: "Error", categories: ["color"], hasStates: false },
+  { id: "info", label: "Info", categories: ["color"], hasStates: false },
 ];
 
 // Default properties to include in builder mode
@@ -361,9 +383,8 @@ export default function TokenNamingBuilder() {
   const [selectedStates, setSelectedStates] = useState<string[]>([]);
 
   // Builder mode state
-  const [builderComponents, setBuilderComponents] = useState<ElementOption[]>(() => [...DEFAULT_COMPONENTS]);
+  const [builderComponents, setBuilderComponents] = useState<SelectedComponent[]>(() => [...DEFAULT_COMPONENTS]);
   const [customComponentInput, setCustomComponentInput] = useState("");
-  const [builderCategories, setBuilderCategories] = useState<Category[]>(["color", "typography", "spacing", "effects"]);
   const [builderVariants, setBuilderVariants] = useState<string[]>(["default"]);
   const [builderStates, setBuilderStates] = useState<string[]>(INTERACTIVE_STATES);
 
@@ -544,14 +565,35 @@ export default function TokenNamingBuilder() {
     }
     
     const label = customComponentInput.trim().split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-    setBuilderComponents(prev => [...prev, { id: trimmed, label, isCustom: true }]);
+    // Custom components get all categories and states by default - user can edit
+    setBuilderComponents(prev => [...prev, { 
+      id: trimmed, 
+      label, 
+      isCustom: true,
+      categories: ["color", "spacing", "effects"] as Category[],
+      hasStates: true,
+    }]);
     setCustomComponentInput("");
   }, [customComponentInput, builderComponents]);
 
-  const handleToggleBuilderCategory = useCallback((cat: Category) => {
-    setBuilderCategories(prev => 
-      prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
-    );
+  const handleToggleComponentCategory = useCallback((componentId: string, category: Category) => {
+    setBuilderComponents(prev => prev.map(comp => {
+      if (comp.id !== componentId) return comp;
+      const hasCategory = comp.categories.includes(category);
+      return {
+        ...comp,
+        categories: hasCategory 
+          ? comp.categories.filter(c => c !== category)
+          : [...comp.categories, category],
+      };
+    }));
+  }, []);
+
+  const handleToggleComponentStates = useCallback((componentId: string) => {
+    setBuilderComponents(prev => prev.map(comp => {
+      if (comp.id !== componentId) return comp;
+      return { ...comp, hasStates: !comp.hasStates };
+    }));
   }, []);
 
   const handleToggleBuilderVariant = useCallback((variantId: string) => {
@@ -576,7 +618,6 @@ export default function TokenNamingBuilder() {
 
   const handleResetBuilder = useCallback(() => {
     setBuilderComponents([...DEFAULT_COMPONENTS]);
-    setBuilderCategories(["color", "typography", "spacing", "effects"]);
     setBuilderVariants(["default"]);
     setBuilderStates(INTERACTIVE_STATES);
     setCustomComponentInput("");
@@ -588,11 +629,12 @@ export default function TokenNamingBuilder() {
 
     const tokens: BuilderToken[] = [];
 
-    builderCategories.forEach(cat => {
-      const properties = DEFAULT_PROPERTIES[cat] || [];
-      
-      properties.forEach(prop => {
-        builderComponents.forEach(comp => {
+    builderComponents.forEach(comp => {
+      // Only generate tokens for categories this component uses
+      comp.categories.forEach(cat => {
+        const properties = DEFAULT_PROPERTIES[cat] || [];
+        
+        properties.forEach(prop => {
           builderVariants.forEach(v => {
             // Base token
             const baseName = buildTokenName(cat, prop, null, comp.id, v, null, convention);
@@ -606,26 +648,28 @@ export default function TokenNamingBuilder() {
               state: null,
             });
 
-            // State tokens
-            builderStates.forEach(state => {
-              const stateName = buildTokenName(cat, prop, null, comp.id, v, state, convention);
-              tokens.push({
-                name: stateName,
-                formatted: formatTokenName(stateName, outputFormat),
-                category: cat,
-                property: prop,
-                component: comp.id,
-                variant: v,
-                state,
+            // State tokens - only if this component has interactive states
+            if (comp.hasStates) {
+              builderStates.forEach(state => {
+                const stateName = buildTokenName(cat, prop, null, comp.id, v, state, convention);
+                tokens.push({
+                  name: stateName,
+                  formatted: formatTokenName(stateName, outputFormat),
+                  category: cat,
+                  property: prop,
+                  component: comp.id,
+                  variant: v,
+                  state,
+                });
               });
-            });
+            }
           });
         });
       });
     });
 
     return tokens;
-  }, [mode, builderComponents, builderCategories, builderVariants, builderStates, convention, outputFormat]);
+  }, [mode, builderComponents, builderVariants, builderStates, convention, outputFormat]);
 
   // Group builder tokens by category and component
   const groupedBuilderTokens = useMemo(() => {
@@ -857,7 +901,6 @@ export default function TokenNamingBuilder() {
           builderComponents={builderComponents}
           customComponentInput={customComponentInput}
           setCustomComponentInput={setCustomComponentInput}
-          builderCategories={builderCategories}
           builderVariants={builderVariants}
           builderStates={builderStates}
           builderTokens={builderTokens}
@@ -870,7 +913,8 @@ export default function TokenNamingBuilder() {
           handleAddBuilderComponent={handleAddBuilderComponent}
           handleRemoveBuilderComponent={handleRemoveBuilderComponent}
           handleAddCustomComponent={handleAddCustomComponent}
-          handleToggleBuilderCategory={handleToggleBuilderCategory}
+          handleToggleComponentCategory={handleToggleComponentCategory}
+          handleToggleComponentStates={handleToggleComponentStates}
           handleToggleBuilderVariant={handleToggleBuilderVariant}
           handleToggleBuilderState={handleToggleBuilderState}
           handleSelectAllComponents={handleSelectAllComponents}
@@ -1338,10 +1382,9 @@ export default function TokenNamingBuilder() {
 
 // Builder Mode UI Component
 type BuilderModeUIProps = {
-  builderComponents: ElementOption[];
+  builderComponents: SelectedComponent[];
   customComponentInput: string;
   setCustomComponentInput: (value: string) => void;
-  builderCategories: Category[];
   builderVariants: string[];
   builderStates: string[];
   builderTokens: BuilderToken[];
@@ -1354,7 +1397,8 @@ type BuilderModeUIProps = {
   handleAddBuilderComponent: (id: string) => void;
   handleRemoveBuilderComponent: (id: string) => void;
   handleAddCustomComponent: () => void;
-  handleToggleBuilderCategory: (cat: Category) => void;
+  handleToggleComponentCategory: (componentId: string, category: Category) => void;
+  handleToggleComponentStates: (componentId: string) => void;
   handleToggleBuilderVariant: (id: string) => void;
   handleToggleBuilderState: (id: string) => void;
   handleSelectAllComponents: () => void;
@@ -1368,7 +1412,6 @@ function BuilderModeUI({
   builderComponents,
   customComponentInput,
   setCustomComponentInput,
-  builderCategories,
   builderVariants,
   builderStates,
   builderTokens,
@@ -1379,7 +1422,8 @@ function BuilderModeUI({
   handleAddBuilderComponent,
   handleRemoveBuilderComponent,
   handleAddCustomComponent,
-  handleToggleBuilderCategory,
+  handleToggleComponentCategory,
+  handleToggleComponentStates,
   handleToggleBuilderVariant,
   handleToggleBuilderState,
   handleSelectAllComponents,
@@ -1389,6 +1433,7 @@ function BuilderModeUI({
   generateBuilderExportCode,
 }: BuilderModeUIProps) {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [expandedComponent, setExpandedComponent] = useState<string | null>(null);
   
   return (
     <div className="grid gap-8 lg:grid-cols-12">
@@ -1504,44 +1549,104 @@ function BuilderModeUI({
           )}
         </div>
 
-        {/* Categories Selection */}
+        {/* Component Configuration */}
+        {builderComponents.length > 0 && (
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center gap-2">
             <Palette className="h-5 w-5 text-swiss-red" />
-            <h3 className="font-bold">Categories</h3>
+            <h3 className="font-bold">Component Configuration</h3>
+            <span className="text-xs text-neutral-500">Click to customise</span>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
-            {CATEGORIES.map(cat => {
-              const isSelected = builderCategories.includes(cat.id);
+          <div className="space-y-2 max-h-80 overflow-y-auto">
+            {builderComponents.map(comp => {
+              const isExpanded = expandedComponent === comp.id;
+              const categoryCount = comp.categories.length;
+              
               return (
-                <button
-                  key={cat.id}
-                  onClick={() => handleToggleBuilderCategory(cat.id)}
-                  className={clsx(
-                    "flex items-center gap-3 rounded-lg border p-3 text-left transition-all",
-                    isSelected
-                      ? "border-swiss-red bg-swiss-red/5"
-                      : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
-                  )}
-                >
-                  {isSelected ? (
-                    <CheckSquare className="h-4 w-4 text-swiss-red" />
-                  ) : (
-                    <Square className="h-4 w-4 text-neutral-400" />
-                  )}
-                  <div className="flex items-center gap-2">
-                    <cat.icon className={clsx(
-                      "h-4 w-4",
-                      isSelected ? "text-swiss-red" : "text-neutral-400"
+                <div key={comp.id} className="rounded-lg border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                  <button
+                    onClick={() => setExpandedComponent(isExpanded ? null : comp.id)}
+                    className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className={clsx(
+                        "font-medium text-sm",
+                        comp.isCustom ? "text-purple-600 dark:text-purple-400" : ""
+                      )}>
+                        {comp.label}
+                      </span>
+                      <span className="text-[10px] text-neutral-400">
+                        {categoryCount} {categoryCount === 1 ? "category" : "categories"}
+                        {comp.hasStates && " + states"}
+                      </span>
+                    </div>
+                    <ChevronRight className={clsx(
+                      "h-4 w-4 text-neutral-400 transition-transform",
+                      isExpanded && "rotate-90"
                     )} />
-                    <span className="text-sm font-medium">{cat.label}</span>
-                  </div>
-                </button>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="border-t border-neutral-200 dark:border-neutral-700 p-3 space-y-3">
+                          {/* Category toggles */}
+                          <div>
+                            <div className="text-[10px] font-medium uppercase text-neutral-500 mb-2">Categories</div>
+                            <div className="flex flex-wrap gap-1.5">
+                              {CATEGORIES.map(cat => {
+                                const hasCategory = comp.categories.includes(cat.id);
+                                return (
+                                  <button
+                                    key={cat.id}
+                                    onClick={() => handleToggleComponentCategory(comp.id, cat.id)}
+                                    className={clsx(
+                                      "flex items-center gap-1.5 rounded-full border px-2 py-1 text-xs transition-all",
+                                      hasCategory
+                                        ? "border-swiss-red bg-swiss-red/10 text-swiss-red"
+                                        : "border-neutral-200 text-neutral-500 hover:border-neutral-300 dark:border-neutral-600"
+                                    )}
+                                  >
+                                    <cat.icon className="h-3 w-3" />
+                                    {cat.label}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                          
+                          {/* States toggle */}
+                          <div>
+                            <div className="text-[10px] font-medium uppercase text-neutral-500 mb-2">Interactive States</div>
+                            <button
+                              onClick={() => handleToggleComponentStates(comp.id)}
+                              className={clsx(
+                                "flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-all",
+                                comp.hasStates
+                                  ? "border-swiss-red bg-swiss-red text-white"
+                                  : "border-neutral-200 text-neutral-500 hover:border-neutral-300 dark:border-neutral-600"
+                              )}
+                            >
+                              {comp.hasStates ? <Check className="h-3 w-3" /> : null}
+                              {comp.hasStates ? "Has states (hover, active, focus, disabled)" : "No interactive states"}
+                            </button>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               );
             })}
           </div>
         </div>
+        )}
 
         {/* Variants Selection */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
@@ -1655,12 +1760,12 @@ function BuilderModeUI({
             <div className="text-xs text-neutral-500">Components</div>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="text-2xl font-bold text-swiss-red">{builderCategories.length}</div>
-            <div className="text-xs text-neutral-500">Categories</div>
+            <div className="text-2xl font-bold text-swiss-red">{builderComponents.filter(c => c.hasStates).length}</div>
+            <div className="text-xs text-neutral-500">With States</div>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="text-2xl font-bold text-swiss-red">{builderStates.length + 1}</div>
-            <div className="text-xs text-neutral-500">States</div>
+            <div className="text-2xl font-bold text-swiss-red">{builderVariants.length}</div>
+            <div className="text-xs text-neutral-500">Variants</div>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{builderTokens.length}</div>
@@ -1700,23 +1805,29 @@ function BuilderModeUI({
             </div>
           ) : (
             <div className="space-y-4">
-              {/* Category Groups */}
-              {CATEGORIES.filter(cat => builderCategories.includes(cat.id)).map(cat => {
-                const categoryTokens = builderTokens.filter(t => t.category === cat.id);
-                const isExpanded = expandedCategory === cat.id;
+              {/* Component Groups */}
+              {builderComponents.map(comp => {
+                const componentTokens = builderTokens.filter(t => t.component === comp.id);
+                if (componentTokens.length === 0) return null;
+                const isExpanded = expandedCategory === comp.id;
                 
                 return (
-                  <div key={cat.id} className="rounded-lg border border-neutral-200 dark:border-neutral-700">
+                  <div key={comp.id} className="rounded-lg border border-neutral-200 dark:border-neutral-700">
                     <button
-                      onClick={() => setExpandedCategory(isExpanded ? null : cat.id)}
+                      onClick={() => setExpandedCategory(isExpanded ? null : comp.id)}
                       className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
                     >
                       <div className="flex items-center gap-2">
-                        <cat.icon className="h-4 w-4 text-swiss-red" />
-                        <span className="font-medium">{cat.label}</span>
+                        <Layers className={clsx("h-4 w-4", comp.isCustom ? "text-purple-500" : "text-swiss-red")} />
+                        <span className="font-medium">{comp.label}</span>
                         <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800">
-                          {categoryTokens.length} tokens
+                          {componentTokens.length} tokens
                         </span>
+                        {comp.hasStates && (
+                          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">
+                            +states
+                          </span>
+                        )}
                       </div>
                       <ChevronRight className={clsx(
                         "h-4 w-4 text-neutral-400 transition-transform",
@@ -1734,7 +1845,7 @@ function BuilderModeUI({
                         >
                           <div className="max-h-64 overflow-y-auto border-t border-neutral-200 p-3 dark:border-neutral-700">
                             <div className="grid gap-1">
-                              {categoryTokens.slice(0, 50).map(token => (
+                              {componentTokens.slice(0, 50).map(token => (
                                 <div
                                   key={token.formatted}
                                   className="group flex items-center justify-between rounded bg-neutral-50 p-2 dark:bg-neutral-800/50"
@@ -1754,9 +1865,9 @@ function BuilderModeUI({
                                   </button>
                                 </div>
                               ))}
-                              {categoryTokens.length > 50 && (
+                              {componentTokens.length > 50 && (
                                 <div className="py-2 text-center text-xs text-neutral-500">
-                                  +{categoryTokens.length - 50} more tokens in export
+                                  +{componentTokens.length - 50} more tokens in export
                                 </div>
                               )}
                             </div>
