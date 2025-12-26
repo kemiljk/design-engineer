@@ -273,6 +273,18 @@ const INTERACTIVE_STATES = ["hover", "active", "focus", "disabled"];
 // Default variants
 const DEFAULT_VARIANTS = ["default", "subtle", "emphasis"];
 
+// Scale tokens (global/primitive tokens not tied to components)
+const RADIUS_SCALE = [
+  { id: "none", label: "None" },
+  { id: "xs", label: "XS" },
+  { id: "sm", label: "SM" },
+  { id: "md", label: "MD" },
+  { id: "lg", label: "LG" },
+  { id: "xl", label: "XL" },
+  { id: "2xl", label: "2XL" },
+  { id: "full", label: "Full" },
+];
+
 const NAMING_CONVENTIONS: { id: NamingConvention; label: string; description: string; example: string }[] = [
   { id: "explicit", label: "Explicit", description: "Category-Property-Context-Element-Modifier", example: "color-background-surface-card-hover" },
   { id: "compact", label: "Compact", description: "Property-Context-Modifier", example: "bg-surface-hover" },
@@ -385,8 +397,12 @@ export default function TokenNamingBuilder() {
   // Builder mode state
   const [builderComponents, setBuilderComponents] = useState<SelectedComponent[]>(() => [...DEFAULT_COMPONENTS]);
   const [customComponentInput, setCustomComponentInput] = useState("");
+  const [customComponentCategories, setCustomComponentCategories] = useState<Category[]>(["color", "spacing", "effects"]);
+  const [customComponentHasStates, setCustomComponentHasStates] = useState(true);
+  const [showCustomForm, setShowCustomForm] = useState(false);
   const [builderVariants, setBuilderVariants] = useState<string[]>(["default"]);
   const [builderStates, setBuilderStates] = useState<string[]>(INTERACTIVE_STATES);
+  const [includeRadiusScale, setIncludeRadiusScale] = useState(true);
 
   // Convention & output
   const [convention, setConvention] = useState<NamingConvention>("explicit");
@@ -561,20 +577,29 @@ export default function TokenNamingBuilder() {
     const exists = builderComponents.find(c => c.id === trimmed);
     if (exists) {
       setCustomComponentInput("");
+      setShowCustomForm(false);
       return;
     }
     
     const label = customComponentInput.trim().split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-    // Custom components get all categories and states by default - user can edit
     setBuilderComponents(prev => [...prev, { 
       id: trimmed, 
       label, 
       isCustom: true,
-      categories: ["color", "spacing", "effects"] as Category[],
-      hasStates: true,
+      categories: [...customComponentCategories],
+      hasStates: customComponentHasStates,
     }]);
     setCustomComponentInput("");
-  }, [customComponentInput, builderComponents]);
+    setCustomComponentCategories(["color", "spacing", "effects"]);
+    setCustomComponentHasStates(true);
+    setShowCustomForm(false);
+  }, [customComponentInput, builderComponents, customComponentCategories, customComponentHasStates]);
+
+  const handleToggleCustomCategory = useCallback((cat: Category) => {
+    setCustomComponentCategories(prev => 
+      prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
+    );
+  }, []);
 
   const handleToggleComponentCategory = useCallback((componentId: string, category: Category) => {
     setBuilderComponents(prev => prev.map(comp => {
@@ -621,7 +646,25 @@ export default function TokenNamingBuilder() {
     setBuilderVariants(["default"]);
     setBuilderStates(INTERACTIVE_STATES);
     setCustomComponentInput("");
+    setCustomComponentCategories(["color", "spacing", "effects"]);
+    setCustomComponentHasStates(true);
+    setShowCustomForm(false);
+    setIncludeRadiusScale(true);
   }, []);
+
+  // Generate radius scale tokens
+  const radiusScaleTokens = useMemo(() => {
+    if (mode !== "builder" || !includeRadiusScale) return [];
+    
+    return RADIUS_SCALE.map(size => {
+      const name = `radius-${size.id}`;
+      return {
+        name,
+        formatted: formatTokenName(name, outputFormat),
+        label: size.label,
+      };
+    });
+  }, [mode, includeRadiusScale, outputFormat]);
 
   // Generate full design system tokens for builder mode
   const builderTokens = useMemo((): BuilderToken[] => {
@@ -690,18 +733,36 @@ export default function TokenNamingBuilder() {
 
   // Generate builder export code
   const generateBuilderExportCode = useCallback(() => {
-    if (builderTokens.length === 0) {
+    const scaleTokens = radiusScaleTokens.map(t => t.formatted);
+    const componentTokens = builderTokens.map(t => t.formatted);
+    const allTokens = [...scaleTokens, ...componentTokens];
+    
+    if (allTokens.length === 0) {
       return "// Add components to generate tokens";
     }
 
-    const allTokens = builderTokens.map(t => t.formatted);
-
     switch (outputFormat) {
-      case "css":
-        return `:root {\n${allTokens.map(t => `  ${t}: /* value */;`).join("\n")}\n}`;
+      case "css": {
+        const sections: string[] = [];
+        if (scaleTokens.length > 0) {
+          sections.push(`  /* Radius Scale */\n${scaleTokens.map(t => `  ${t}: /* value */;`).join("\n")}`);
+        }
+        if (componentTokens.length > 0) {
+          sections.push(`  /* Component Tokens */\n${componentTokens.map(t => `  ${t}: /* value */;`).join("\n")}`);
+        }
+        return `:root {\n${sections.join("\n\n")}\n}`;
+      }
       
-      case "camelCase":
-        return `const tokens = {\n${allTokens.map(t => `  ${t}: '/* value */',`).join("\n")}\n};`;
+      case "camelCase": {
+        const sections: string[] = [];
+        if (scaleTokens.length > 0) {
+          sections.push(`  // Radius Scale\n${scaleTokens.map(t => `  ${t}: '/* value */',`).join("\n")}`);
+        }
+        if (componentTokens.length > 0) {
+          sections.push(`  // Component Tokens\n${componentTokens.map(t => `  ${t}: '/* value */',`).join("\n")}`);
+        }
+        return `const tokens = {\n${sections.join("\n\n")}\n};`;
+      }
       
       case "json": {
         const jsonObj = buildNestedObject(allTokens, () => "/* value */");
@@ -717,7 +778,7 @@ export default function TokenNamingBuilder() {
       default:
         return allTokens.join("\n");
     }
-  }, [builderTokens, outputFormat]);
+  }, [builderTokens, radiusScaleTokens, outputFormat]);
 
   const handleCopyAllBuilderTokens = useCallback(() => {
     const code = generateBuilderExportCode();
@@ -901,9 +962,16 @@ export default function TokenNamingBuilder() {
           builderComponents={builderComponents}
           customComponentInput={customComponentInput}
           setCustomComponentInput={setCustomComponentInput}
+          customComponentCategories={customComponentCategories}
+          customComponentHasStates={customComponentHasStates}
+          showCustomForm={showCustomForm}
+          setShowCustomForm={setShowCustomForm}
           builderVariants={builderVariants}
           builderStates={builderStates}
           builderTokens={builderTokens}
+          radiusScaleTokens={radiusScaleTokens}
+          includeRadiusScale={includeRadiusScale}
+          setIncludeRadiusScale={setIncludeRadiusScale}
           groupedBuilderTokens={groupedBuilderTokens}
           outputFormat={outputFormat}
           setOutputFormat={setOutputFormat}
@@ -913,6 +981,8 @@ export default function TokenNamingBuilder() {
           handleAddBuilderComponent={handleAddBuilderComponent}
           handleRemoveBuilderComponent={handleRemoveBuilderComponent}
           handleAddCustomComponent={handleAddCustomComponent}
+          handleToggleCustomCategory={handleToggleCustomCategory}
+          setCustomComponentHasStates={setCustomComponentHasStates}
           handleToggleComponentCategory={handleToggleComponentCategory}
           handleToggleComponentStates={handleToggleComponentStates}
           handleToggleBuilderVariant={handleToggleBuilderVariant}
@@ -1385,9 +1455,16 @@ type BuilderModeUIProps = {
   builderComponents: SelectedComponent[];
   customComponentInput: string;
   setCustomComponentInput: (value: string) => void;
+  customComponentCategories: Category[];
+  customComponentHasStates: boolean;
+  showCustomForm: boolean;
+  setShowCustomForm: (show: boolean) => void;
   builderVariants: string[];
   builderStates: string[];
   builderTokens: BuilderToken[];
+  radiusScaleTokens: { name: string; formatted: string; label: string }[];
+  includeRadiusScale: boolean;
+  setIncludeRadiusScale: (include: boolean) => void;
   groupedBuilderTokens: Record<string, Record<string, BuilderToken[]>>;
   outputFormat: OutputFormat;
   setOutputFormat: (format: OutputFormat) => void;
@@ -1397,6 +1474,8 @@ type BuilderModeUIProps = {
   handleAddBuilderComponent: (id: string) => void;
   handleRemoveBuilderComponent: (id: string) => void;
   handleAddCustomComponent: () => void;
+  handleToggleCustomCategory: (cat: Category) => void;
+  setCustomComponentHasStates: (hasStates: boolean) => void;
   handleToggleComponentCategory: (componentId: string, category: Category) => void;
   handleToggleComponentStates: (componentId: string) => void;
   handleToggleBuilderVariant: (id: string) => void;
@@ -1412,9 +1491,16 @@ function BuilderModeUI({
   builderComponents,
   customComponentInput,
   setCustomComponentInput,
+  customComponentCategories,
+  customComponentHasStates,
+  showCustomForm,
+  setShowCustomForm,
   builderVariants,
   builderStates,
   builderTokens,
+  radiusScaleTokens,
+  includeRadiusScale,
+  setIncludeRadiusScale,
   outputFormat,
   setOutputFormat,
   copiedToken,
@@ -1422,6 +1508,8 @@ function BuilderModeUI({
   handleAddBuilderComponent,
   handleRemoveBuilderComponent,
   handleAddCustomComponent,
+  handleToggleCustomCategory,
+  setCustomComponentHasStates,
   handleToggleComponentCategory,
   handleToggleComponentStates,
   handleToggleBuilderVariant,
@@ -1493,32 +1581,113 @@ function BuilderModeUI({
 
           {/* Add Custom Component */}
           <div className="mb-4">
-            <div className="mb-2 text-xs font-medium uppercase text-neutral-500">
-              Add Custom Component
+            <div className="mb-2 flex items-center justify-between">
+              <div className="text-xs font-medium uppercase text-neutral-500">
+                Add Custom Component
+              </div>
+              {!showCustomForm && (
+                <button
+                  onClick={() => setShowCustomForm(true)}
+                  className="text-xs text-swiss-red hover:underline"
+                >
+                  + Add custom
+                </button>
+              )}
             </div>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={customComponentInput}
-                onChange={(e) => setCustomComponentInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    handleAddCustomComponent();
-                  }
-                }}
-                placeholder="e.g., stepper, chip, carousel..."
-                className="flex-1 rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-swiss-red focus:outline-none focus:ring-1 focus:ring-swiss-red dark:border-neutral-700 dark:bg-neutral-800"
-              />
-              <button
-                onClick={handleAddCustomComponent}
-                disabled={!customComponentInput.trim()}
-                className="flex items-center gap-1.5 rounded-lg bg-swiss-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <Plus className="h-4 w-4" />
-                Add
-              </button>
-            </div>
+            
+            <AnimatePresence>
+              {showCustomForm && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div className="rounded-lg border border-purple-200 bg-purple-50 p-4 dark:border-purple-800 dark:bg-purple-950/50">
+                    {/* Name input */}
+                    <div className="mb-3">
+                      <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
+                        Component Name
+                      </label>
+                      <input
+                        type="text"
+                        value={customComponentInput}
+                        onChange={(e) => setCustomComponentInput(e.target.value)}
+                        placeholder="e.g., stepper, chip, carousel..."
+                        className="w-full rounded-lg border border-purple-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 dark:border-purple-700 dark:bg-neutral-800"
+                      />
+                    </div>
+                    
+                    {/* Category selection */}
+                    <div className="mb-3">
+                      <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
+                        Categories
+                      </label>
+                      <div className="flex flex-wrap gap-1.5">
+                        {CATEGORIES.map(cat => {
+                          const isSelected = customComponentCategories.includes(cat.id);
+                          return (
+                            <button
+                              key={cat.id}
+                              onClick={() => handleToggleCustomCategory(cat.id)}
+                              className={clsx(
+                                "flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-all",
+                                isSelected
+                                  ? "border-purple-500 bg-purple-500 text-white"
+                                  : "border-purple-200 text-purple-600 hover:border-purple-300 dark:border-purple-700 dark:text-purple-400"
+                              )}
+                            >
+                              <cat.icon className="h-3 w-3" />
+                              {cat.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    
+                    {/* States toggle */}
+                    <div className="mb-4">
+                      <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
+                        Interactive States
+                      </label>
+                      <button
+                        onClick={() => setCustomComponentHasStates(!customComponentHasStates)}
+                        className={clsx(
+                          "flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-all",
+                          customComponentHasStates
+                            ? "border-purple-500 bg-purple-500 text-white"
+                            : "border-purple-200 text-purple-600 hover:border-purple-300 dark:border-purple-700 dark:text-purple-400"
+                        )}
+                      >
+                        {customComponentHasStates ? <Check className="h-3 w-3" /> : null}
+                        {customComponentHasStates ? "Has states (hover, active, focus, disabled)" : "No interactive states"}
+                      </button>
+                    </div>
+                    
+                    {/* Actions */}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleAddCustomComponent}
+                        disabled={!customComponentInput.trim() || customComponentCategories.length === 0}
+                        className="flex items-center gap-1.5 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        <Plus className="h-4 w-4" />
+                        Add Component
+                      </button>
+                      <button
+                        onClick={() => {
+                          setShowCustomForm(false);
+                          setCustomComponentInput("");
+                        }}
+                        className="rounded-lg px-4 py-2 text-sm text-purple-600 transition-colors hover:bg-purple-100 dark:text-purple-400 dark:hover:bg-purple-900/50"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Quick Add from Defaults */}
@@ -1709,6 +1878,44 @@ function BuilderModeUI({
             })}
           </div>
         </div>
+
+        {/* Scale Tokens */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Space className="h-5 w-5 text-swiss-red" />
+              <h3 className="font-bold">Scale Tokens</h3>
+            </div>
+          </div>
+
+          <p className="mb-4 text-xs text-neutral-500">
+            Global primitive tokens for consistent scales across your design system.
+          </p>
+
+          {/* Radius Scale Toggle */}
+          <div className="flex items-center justify-between rounded-lg border border-neutral-200 p-3 dark:border-neutral-700">
+            <div>
+              <div className="font-medium text-sm">Border Radius Scale</div>
+              <div className="text-xs text-neutral-500">
+                {RADIUS_SCALE.map(s => s.id).join(", ")}
+              </div>
+            </div>
+            <button
+              onClick={() => setIncludeRadiusScale(!includeRadiusScale)}
+              className={clsx(
+                "relative h-6 w-11 rounded-full transition-colors",
+                includeRadiusScale ? "bg-swiss-red" : "bg-neutral-200 dark:bg-neutral-700"
+              )}
+            >
+              <span
+                className={clsx(
+                  "absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                  includeRadiusScale ? "left-[22px]" : "left-0.5"
+                )}
+              />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Preview Panel */}
@@ -1764,11 +1971,11 @@ function BuilderModeUI({
             <div className="text-xs text-neutral-500">With States</div>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="text-2xl font-bold text-swiss-red">{builderVariants.length}</div>
-            <div className="text-xs text-neutral-500">Variants</div>
+            <div className="text-2xl font-bold text-swiss-red">{radiusScaleTokens.length}</div>
+            <div className="text-xs text-neutral-500">Scale Tokens</div>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="text-2xl font-bold text-swiss-red">{builderTokens.length}</div>
+            <div className="text-2xl font-bold text-swiss-red">{builderTokens.length + radiusScaleTokens.length}</div>
             <div className="text-xs text-neutral-500">Total Tokens</div>
           </div>
         </div>
@@ -1798,13 +2005,74 @@ function BuilderModeUI({
             </button>
           </div>
 
-          {builderTokens.length === 0 ? (
+          {builderTokens.length === 0 && radiusScaleTokens.length === 0 ? (
             <div className="py-12 text-center text-neutral-500">
               <Layers className="mx-auto mb-3 h-12 w-12 text-neutral-300 dark:text-neutral-700" />
               <p>Add components to start generating tokens</p>
             </div>
           ) : (
             <div className="space-y-4">
+              {/* Radius Scale Tokens */}
+              {radiusScaleTokens.length > 0 && (
+                <div className="rounded-lg border border-neutral-200 dark:border-neutral-700">
+                  <button
+                    onClick={() => setExpandedCategory(expandedCategory === "radius-scale" ? null : "radius-scale")}
+                    className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Space className="h-4 w-4 text-emerald-500" />
+                      <span className="font-medium">Radius Scale</span>
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">
+                        {radiusScaleTokens.length} tokens
+                      </span>
+                    </div>
+                    <ChevronRight className={clsx(
+                      "h-4 w-4 text-neutral-400 transition-transform",
+                      expandedCategory === "radius-scale" && "rotate-90"
+                    )} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {expandedCategory === "radius-scale" && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="border-t border-neutral-200 p-3 dark:border-neutral-700">
+                          <div className="grid gap-1">
+                            {radiusScaleTokens.map(token => (
+                              <div
+                                key={token.formatted}
+                                className="group flex items-center justify-between rounded bg-neutral-50 p-2 dark:bg-neutral-800/50"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <code className="min-w-0 break-all font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                                    {token.formatted}
+                                  </code>
+                                  <span className="text-[10px] text-neutral-400">({token.label})</span>
+                                </div>
+                                <button
+                                  onClick={() => handleCopy(token.formatted)}
+                                  className="shrink-0 p-1 text-neutral-400 opacity-0 transition-opacity hover:text-neutral-900 group-hover:opacity-100 dark:hover:text-white"
+                                >
+                                  {copiedToken === token.formatted ? (
+                                    <Check className="h-3 w-3 text-green-500" />
+                                  ) : (
+                                    <Copy className="h-3 w-3" />
+                                  )}
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+
               {/* Component Groups */}
               {builderComponents.map(comp => {
                 const componentTokens = builderTokens.filter(t => t.component === comp.id);
@@ -1883,9 +2151,9 @@ function BuilderModeUI({
         </div>
 
         {/* Export Code */}
-        {builderTokens.length > 0 && (
+        {(builderTokens.length > 0 || radiusScaleTokens.length > 0) && (
           <CodeBlock
-            label={`Full Export (${OUTPUT_FORMATS.find(f => f.value === outputFormat)?.label}) - ${builderTokens.length} tokens`}
+            label={`Full Export (${OUTPUT_FORMATS.find(f => f.value === outputFormat)?.label}) - ${builderTokens.length + radiusScaleTokens.length} tokens`}
             code={generateBuilderExportCode()}
           />
         )}
