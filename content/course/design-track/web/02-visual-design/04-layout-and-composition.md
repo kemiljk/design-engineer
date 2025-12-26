@@ -17,7 +17,7 @@ Layout answers fundamental questions:
 - How does the eye move through the page?
 - How does the layout adapt to different screens?
 
-Without intentional layout, content sprawls chaotically. With it, even complex pages feel organized.
+Without intentional layout, content sprawls chaotically. With it, even complex pages feel organised.
 
 ## Grid Systems
 
@@ -92,7 +92,7 @@ Content split into two areas, often with different purposes.
 
 **Considerations:**
 - Decide which column dominates
-- Consider column behavior on mobile (stack or hide?)
+- Consider column behaviour on mobile (stack or hide?)
 
 ### Multi-Column Grid
 
@@ -214,7 +214,7 @@ For less text-heavy pages, eyes follow a Z:
 
 Elements have visual "weight" based on:
 - Size (larger = heavier)
-- Color (darker or more saturated = heavier)
+- Colour (darker or more saturated = heavier)
 - Contrast (high contrast = heavier)
 - Complexity (more detail = heavier)
 
@@ -246,7 +246,7 @@ Good layouts guide the eye through content in logical order.
 
 **Size progression:** Large elements first, smaller supporting elements after.
 
-**Directional cues:** Images of people looking toward content, arrows, diagonal lines.
+**Directional cues:** Images of people looking towards content, arrows, diagonal lines.
 
 **Whitespace channels:** Empty space creates paths the eye follows.
 
@@ -287,7 +287,7 @@ Small pockets of space trapped between elements that feel awkward.
 
 Too much content competing for attention.
 
-**Fix:** Reduce, prioritize, or paginate content.
+**Fix:** Reduce, prioritise, or paginate content.
 
 ## Try It Yourself
 
@@ -331,13 +331,13 @@ Sketch each breakpoint.
   "options": [
     {
       "id": "a",
-      "text": "Center of the page for maximum visibility",
+      "text": "Centre of the page for maximum visibility",
       "isCorrect": false,
-      "explanation": "Users don't naturally start scanning at the center of a page."
+      "explanation": "Users don't naturally start scanning at the centre of a page."
     },
     {
       "id": "b",
-      "text": "Top-left area, following the F-pattern reading behavior",
+      "text": "Top-left area, following the F-pattern reading behaviour",
       "isCorrect": true,
       "explanation": "Correct! Eye-tracking shows users scan in an F-pattern: horizontal line at top, down the left side, then another horizontal scan. Important content belongs top-left."
     },

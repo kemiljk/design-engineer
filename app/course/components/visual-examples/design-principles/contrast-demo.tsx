@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup, SliderControl } from "../base/example-wrapper";
 
-type ContrastType = "size" | "weight" | "color";
+type ContrastType = "size" | "weight" | "colour";
 
 export function ContrastDemo() {
   const [contrastType, setContrastType] = useState<ContrastType>("size");
@@ -30,7 +30,7 @@ export function ContrastDemo() {
           secondary: { fontSize: "16px", fontWeight: baseWeight },
           tertiary: { fontSize: "14px", fontWeight: baseWeight },
         };
-      case "color":
+      case "colour":
         const primaryOpacity = 0.5 + (0.5 * factor);
         const secondaryOpacity = 0.3 + (0.3 * factor);
         const tertiaryOpacity = 0.2 + (0.2 * factor);
@@ -64,8 +64,8 @@ export function ContrastDemo() {
               Weight
             </ControlButton>
             <ControlButton
-              active={contrastType === "color"}
-              onClick={() => setContrastType("color")}
+            active={contrastType === "colour"}
+            onClick={() => setContrastType("colour")}
             >
               Colour
             </ControlButton>

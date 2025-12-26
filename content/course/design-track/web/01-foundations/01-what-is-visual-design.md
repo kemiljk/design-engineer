@@ -51,7 +51,7 @@ Before users read a single word, visual design has already communicated:
 
 ### Reducing Cognitive Load
 
-Good visual design reduces the mental effort required to use a product. When elements are logically organized, consistently styled, and clearly differentiated, users don't have to think about where things are or what they do.
+Good visual design reduces the mental effort required to use a product. When elements are logically organised, consistently styled, and clearly differentiated, users don't have to think about where things are or what they do.
 
 ### Guiding Attention
 
@@ -105,10 +105,10 @@ The difference between elements in size, colour, weight, spacing. Contrast creat
 The distribution of visual weight. Balanced designs feel stable and intentional. Unbalanced designs feel chaotic or dynamic (sometimes intentionally).
 
 ### Repetition
-Consistency in visual treatment. Repeating patterns help users learn interfaces and predict behavior.
+Consistency in visual treatment. Repeating patterns help users learn interfaces and predict behaviour.
 
 ### Alignment
-The positioning of elements relative to each other. Aligned elements feel connected and organized. Misaligned elements feel accidental.
+The positioning of elements relative to each other. Aligned elements feel connected and organised. Misaligned elements feel accidental.
 
 ### Proximity
 How close or far elements are from each other. Proximity signals relationships. Things that are close together are perceived as related.
@@ -125,7 +125,7 @@ You don't need to become a world-class designer. You need to develop enough visu
 - Communicate productively with designers
 - Avoid obvious mistakes
 
-That's achievable for anyone willing to practice.
+That's achievable for anyone willing to practise.
 
 ## Try It Yourself
 
@@ -158,11 +158,11 @@ Don't worry about using technical terms. Just observe and describe what you see.
       "id": "b",
       "text": "Strategic communication through visual elements",
       "isCorrect": true,
-      "explanation": "Correct! Visual design uses imagery, color, typography, and space to guide users and communicate meaning."
+      "explanation": "Correct! Visual design uses imagery, colour, typography, and space to guide users and communicate meaning."
     },
     {
       "id": "c",
-      "text": "Choosing brand colors and fonts",
+      "text": "Choosing brand colours and fonts",
       "isCorrect": false,
       "explanation": "Brand elements are part of visual design, but not its primary purpose."
     },

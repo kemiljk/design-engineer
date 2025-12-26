@@ -66,7 +66,7 @@ Don't use `<p>` for everything—use appropriate elements for different content 
 
 ### Emphasis
 
-`<em>` for stress emphasis (how you'd emphasize speaking):
+`<em>` for stress emphasis (how you'd emphasise speaking):
 
 ```html
 <p>I <em>really</em> want this to work.</p>
@@ -340,7 +340,7 @@ Write the HTML for a blog post with:
 - Main heading
 - Subheadings for sections
 - Multiple paragraphs
-- An emphasized word
+- An emphasised word
 - An important warning
 - A block quote
 

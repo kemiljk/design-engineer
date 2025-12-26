@@ -120,20 +120,20 @@ Material Design timing:
 - Use for most transitions
 - Feels natural and smooth
 
-**Emphasized:**
+**Emphasised:**
 - Dramatic deceleration
 - Use for entering elements
 - Creates anticipation
 
 **Linear:**
 - Constant speed
-- Use for color/opacity only
+- Use for colour/opacity only
 - Avoid for movement
 
 ### Material Easing Values
 ```
 Standard: cubic-bezier(0.2, 0, 0, 1)
-Emphasized: cubic-bezier(0.05, 0.7, 0.1, 1)
+Emphasised: cubic-bezier(0.05, 0.7, 0.1, 1)
 EmphasizedDecelerate: cubic-bezier(0.05, 0.7, 0.1, 1)
 EmphasizedAccelerate: cubic-bezier(0.3, 0, 0.8, 0.15)
 ```
@@ -150,7 +150,7 @@ Classic Material transition:
 
 **Specs:**
 - Duration: 300ms
-- Easing: Emphasized
+- Easing: Emphasised
 - Content fade: Start at 50% of duration
 
 ### List to Detail
@@ -164,7 +164,7 @@ Container transform pattern:
 **Key elements:**
 - Shared image scales
 - Title repositions
-- Background color carries through
+- Background colour carries through
 
 ### Bottom Sheet
 Vertical axis transition:
@@ -189,7 +189,7 @@ Include in handoff:
 
 **Type:** Container Transform
 **Duration:** 300ms
-**Easing:** Emphasized
+**Easing:** Emphasised
 
 **Sequence:**
 1. Card container expands (0-300ms)

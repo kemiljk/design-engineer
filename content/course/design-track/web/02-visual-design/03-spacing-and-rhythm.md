@@ -85,7 +85,7 @@ Now use these variables everywhere instead of arbitrary values.
 
 ## Vertical Rhythm
 
-Vertical rhythm is the consistent vertical spacing throughout a page. It creates a visual "beat" that makes content feel organized.
+Vertical rhythm is the consistent vertical spacing throughout a page. It creates a visual "beat" that makes content feel organised.
 
 ### Establishing Rhythm
 

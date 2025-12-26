@@ -71,21 +71,21 @@ Material shadows have two layers:
 
 ## Surface Tint
 
-In Material 3, elevation also applies color tint:
+In Material 3, elevation also applies colour tint:
 
 ### How It Works
 - Higher elevation = more primary tint
-- Visible on surface colors
+- Visible on surface colours
 - Works in light and dark themes
 - Subtle but meaningful
 
 ### Light Theme
 - Base surface is near-white
-- Tint adds subtle color
+- Tint adds subtle colour
 - Higher = more visible tint
 
 ### Dark Theme
-- Base surface is dark gray
+- Base surface is dark grey
 - Tint lightens the surface
 - More pronounced effect
 
@@ -154,7 +154,7 @@ Design a card with:
     },
     {
       "id": "b",
-      "text": "Through tonal color shifts—higher surfaces are lighter/darker depending on theme",
+      "text": "Through tonal colour shifts—higher surfaces are lighter/darker depending on theme",
       "isCorrect": true,
       "explanation": "Correct! Material 3 uses 'tonal elevation'—surfaces at higher elevation have slightly different tones. Shadows are still available but tonal changes are primary."
     },
@@ -184,4 +184,4 @@ Design a card with:
 
 ## Next Steps
 
-Continue to [Theming and Customization](./04-theming-and-customization.md) →
+Continue to [Theming and Customization](./04-theming-and-customisation.md) →

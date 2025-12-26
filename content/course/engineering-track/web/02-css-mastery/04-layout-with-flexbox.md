@@ -13,7 +13,7 @@
 
 Flexbox (Flexible Box Layout) arranges items in a row or column, with powerful alignment and space distribution.
 
-Before flexbox, centering was hard. With flexbox:
+Before flexbox, centring was hard. With flexbox:
 
 ```css
 .container {
@@ -362,7 +362,7 @@ By default, items stay on one line and shrink:
 
 Create a nav bar with:
 - Logo on the left
-- Links in the center
+- Links in the centre
 - Login button on the right
 
 Use flexbox with `margin-left: auto` to separate sections.
@@ -372,12 +372,12 @@ Use flexbox with `margin-left: auto` to separate sections.
 Create a row of 3 equal-width cards that:
 - Have equal widths
 - Have consistent gap
-- Center their content vertically
+- Centre their content vertically
 
 ### Exercise 3: Modal
 
 Create a full-page modal overlay with:
-- Content centered both horizontally and vertically
+- Content centred both horizontally and vertically
 - Modal box that doesn't stretch to fill
 
 ## Test Your Understanding
@@ -389,23 +389,23 @@ Create a full-page modal overlay with:
   "title": "Flexbox Layout",
   "description": "Test your understanding of flexbox properties.",
   "difficulty": "medium",
-  "question": "To center an item both horizontally and vertically in a flex container, which properties do you need?",
+  "question": "To centre an item both horizontally and vertically in a flex container, which properties do you need?",
   "options": [
     {
       "id": "a",
-      "text": "justify-content: center and flex-direction: center",
+      "text": "justify-content: centre and flex-direction: centre",
       "isCorrect": false,
-      "explanation": "flex-direction controls the main axis direction (row or column), not centering."
+      "explanation": "flex-direction controls the main axis direction (row or column), not centring."
     },
     {
       "id": "b",
-      "text": "justify-content: center and align-items: center",
+      "text": "justify-content: centre and align-items: centre",
       "isCorrect": true,
-      "explanation": "Correct! justify-content centers on the main axis and align-items centers on the cross axis. Together they center both ways."
+      "explanation": "Correct! justify-content centers on the main axis and align-items centers on the cross axis. Together they centre both ways."
     },
     {
       "id": "c",
-      "text": "align-content: center and align-items: center",
+      "text": "align-content: centre and align-items: centre",
       "isCorrect": false,
       "explanation": "align-content only works with wrapped flex lines, not single items."
     },
@@ -413,7 +413,7 @@ Create a full-page modal overlay with:
       "id": "d",
       "text": "margin: auto on the child element only",
       "isCorrect": false,
-      "explanation": "While margin: auto can center flex children, it's not the only solution and the question asks about container properties."
+      "explanation": "While margin: auto can centre flex children, it's not the only solution and the question asks about container properties."
     }
   ]
 }

@@ -25,7 +25,7 @@ Box(modifier = Modifier.size(size))
 ### Common Animations
 ```kotlin
 val color by animateColorAsState(
-    targetValue = if (selected) Color.Blue else Color.Gray
+    targetValue = if (selected) Color.Blue else Color.Grey
 )
 
 val alpha by animateFloatAsState(
@@ -104,7 +104,7 @@ val size by transition.animateDp { state ->
 }
 
 val color by transition.animateColor { state ->
-    if (state) Color.Blue else Color.Gray
+    if (state) Color.Blue else Color.Grey
 }
 
 val corners by transition.animateDp { state ->
@@ -181,7 +181,7 @@ Build a custom loading animation:
     },
     {
       "id": "c",
-      "text": "Animatable only works with colors",
+      "text": "Animatable only works with colours",
       "isCorrect": false,
       "explanation": "Animatable works with any animatable value type."
     },

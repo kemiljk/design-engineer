@@ -88,9 +88,9 @@ Map to iOS text styles:
 | Body | .body | 17pt/Regular |
 | Caption | .caption | 12pt/Regular |
 
-### Color Documentation
+### Colour Documentation
 
-Provide semantic color mapping:
+Provide semantic colour mapping:
 
 ```
 Label Primary → Color.primary
@@ -105,9 +105,9 @@ For each component, document:
 
 **Visual Properties:**
 - Corner radius
-- Border width and color
-- Shadow (color, offset, blur, spread)
-- Background color/gradient
+- Border width and colour
+- Shadow (colour, offset, blur, spread)
+- Background colour/gradient
 
 **Layout Properties:**
 - Padding (top, bottom, leading, trailing)
@@ -134,19 +134,19 @@ For each screen, include:
 
 2. **Layout Specifications**
    - Safe area handling
-   - Scroll behavior
+   - Scroll behaviour
    - Orientation support
 
 3. **Component List**
    - All components used
    - States for each
-   - Interaction behaviors
+   - Interaction behaviours
 
 4. **Edge Cases**
    - Empty states
    - Loading states
    - Error states
-   - Truncation behavior
+   - Truncation behaviour
 
 ### Example Component Spec
 
@@ -190,14 +190,14 @@ Before handoff, verify:
 Check implementation against design:
 - [ ] Spacing matches spec
 - [ ] Typography is correct
-- [ ] Colors match exactly
+- [ ] Colours match exactly
 - [ ] Animations feel right
 - [ ] Touch targets are adequate
 
 ### QA Checklist
 
 **Visual Accuracy:**
-- [ ] Colors match design (sample with color picker)
+- [ ] Colours match design (sample with colour picker)
 - [ ] Spacing is correct (measure with ruler)
 - [ ] Typography matches (size, weight, line height)
 - [ ] Icons are correct size and weight
@@ -316,7 +316,7 @@ Take an implemented screen:
       "id": "c",
       "text": "Only the pixel size of the text",
       "isCorrect": false,
-      "explanation": "Pixel size alone misses important information like weight, style, and Dynamic Type behavior."
+      "explanation": "Pixel size alone misses important information like weight, style, and Dynamic Type behaviour."
     },
     {
       "id": "d",

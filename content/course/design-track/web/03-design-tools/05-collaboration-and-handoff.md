@@ -39,12 +39,12 @@ Before handing off, consider what developers need to build accurately:
 - Font size
 - Line height
 - Letter spacing
-- Text color
+- Text colour
 
-### Colors
+### Colours
 
-- Exact color values (hex, RGB, HSL)
-- Color usage context (when to use which)
+- Exact colour values (hex, RGB, HSL)
+- Colour usage context (when to use which)
 - Transparency values
 
 ### Assets
@@ -108,7 +108,7 @@ Components should be:
 
 Use defined styles everywhere:
 
-- Color styles (no raw hex values)
+- Colour styles (no raw hex values)
 - Text styles (no manual typography)
 - Effect styles (shadows, blurs)
 
@@ -147,7 +147,7 @@ Define tokens in your tool:
 ```
 Colors:
 - primary/500: #3B82F6
-- gray/100: #F3F4F6
+- grey/100: #F3F4F6
 - error/500: #EF4444
 
 Spacing:
@@ -191,7 +191,7 @@ Modern design tools have inspect modes that let developers:
 
 - Dimensions
 - Position
-- Colors
+- Colours
 - Typography
 - Spacing
 - CSS code snippets
@@ -203,7 +203,7 @@ Inspect mode isn't perfect:
 - Generated code is often verbose
 - Missing context (why these values)
 - Doesn't show interactions
-- Can't capture responsive behavior
+- Can't capture responsive behaviour
 
 Inspect mode supplements, but doesn't replace, good documentation and communication.
 
@@ -309,7 +309,7 @@ iconPosition: 'left' | 'right' | null
 Ideally:
 
 - Design tokens exported to code
-- Single source for colors, spacing, typography
+- Single source for colours, spacing, typography
 - Updates propagate automatically
 
 Tools like Style Dictionary, Figma Tokens, or design-to-code plugins enable this.
@@ -321,7 +321,7 @@ Before marking designs as ready:
 ### Visual Design
 
 - [ ] All components use defined styles
-- [ ] Colors are from the palette
+- [ ] Colours are from the palette
 - [ ] Typography uses text styles
 - [ ] Spacing is on the grid
 
@@ -337,7 +337,7 @@ Before marking designs as ready:
 ### Documentation
 
 - [ ] Layers properly named
-- [ ] File organized
+- [ ] File organised
 - [ ] Edge cases noted
 - [ ] Complex interactions documented
 
@@ -371,7 +371,7 @@ For a complex component:
 
 Create a token mapping document:
 
-1. List your design tokens (colors, spacing, typography)
+1. List your design tokens (colours, spacing, typography)
 2. Propose corresponding CSS variable names
 3. Note any gaps or inconsistencies
 
@@ -406,7 +406,7 @@ Create a token mapping document:
     },
     {
       "id": "d",
-      "text": "Responsive behavior and breakpoints",
+      "text": "Responsive behaviour and breakpoints",
       "isCorrect": false,
       "explanation": "Developers need to know how layouts change at different screen sizes."
     }
@@ -417,7 +417,7 @@ Create a token mapping document:
 ## Key Takeaways
 
 - Handoff is where designs become (or fail to become) reality
-- Developers need: measurements, typography, colors, assets, states, responsive behavior
+- Developers need: measurements, typography, colours, assets, states, responsive behaviour
 - Prepare files: clean layers, consistent components, applied tokens
 - Design edge cases: long content, empty states, errors, loading
 - Use design tokens for shared vocabulary between design and code

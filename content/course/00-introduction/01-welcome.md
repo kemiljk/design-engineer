@@ -17,7 +17,7 @@ This course exists because the gap between design and engineering isn't a proble
 
 Design Engineers are the people who refuse to hand off their work and hope for the best. They prototype their ideas. They understand constraints. They speak both languages fluently enough to translate between teams, catch issues early, and ship work that's both beautiful and functional.
 
-That's what we're building toward.
+That's what we're building towards.
 
 ## Who This Course Is For
 
@@ -25,7 +25,7 @@ This course welcomes two types of learners:
 
 ### Designers Learning to Build
 
-You've got the eye. You understand hierarchy, spacing, color, and composition. But when it comes to implementation, you're dependent on someone else. You want to:
+You've got the eye. You understand hierarchy, spacing, colour, and composition. But when it comes to implementation, you're dependent on someone else. You want to:
 
 - Prototype your ideas in code, not just in Figma
 - Understand what's possible (and what's expensive) before you design it

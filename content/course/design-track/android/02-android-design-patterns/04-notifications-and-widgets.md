@@ -144,9 +144,9 @@ Design a widget for an app at three sizes:
     },
     {
       "id": "b",
-      "text": "Categories that let users control importance and behavior of different notification types",
+      "text": "Categories that let users control importance and behaviour of different notification types",
       "isCorrect": true,
-      "explanation": "Correct! Channels group notifications by type (messages, promotions, updates). Users can customize sound, vibration, and importance per channel, or disable specific channels entirely."
+      "explanation": "Correct! Channels group notifications by type (messages, promotions, updates). Users can customise sound, vibration, and importance per channel, or disable specific channels entirely."
     },
     {
       "id": "c",
@@ -158,7 +158,7 @@ Design a widget for an app at three sizes:
       "id": "d",
       "text": "They're only used for chat applications",
       "isCorrect": false,
-      "explanation": "All apps should use channels to categorize their notifications."
+      "explanation": "All apps should use channels to categorise their notifications."
     }
   ]
 }

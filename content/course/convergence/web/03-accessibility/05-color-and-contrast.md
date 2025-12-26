@@ -1,13 +1,13 @@
-# Color and Contrast
+# Colour and Contrast
 
-> **Quick Summary:** Color contrast affects readability for everyone and is critical for users with visual impairments. Learn the standards and how to meet them.
+> **Quick Summary:** Colour contrast affects readability for everyone and is critical for users with visual impairments. Learn the standards and how to meet them.
 
 ## What You'll Learn
 
 - WCAG contrast requirements
 - Testing contrast ratios
-- Designing for color blindness
-- Beyond color for meaning
+- Designing for colour blindness
+- Beyond colour for meaning
 
 ## WCAG Contrast Requirements
 
@@ -30,15 +30,15 @@
 
 Contrast ratio = (L1 + 0.05) / (L2 + 0.05)
 
-Where L1 is the lighter color's luminance and L2 is the darker.
+Where L1 is the lighter colour's luminance and L2 is the darker.
 
-- 1:1 = No contrast (same color)
+- 1:1 = No contrast (same colour)
 - 21:1 = Maximum contrast (black on white)
 
 ## Testing Tools
 
 ### Browser DevTools
-Chrome: Inspect element → Color picker → Shows contrast ratio
+Chrome: Inspect element → Colour picker → Shows contrast ratio
 
 ### Online Tools
 - WebAIM Contrast Checker
@@ -49,24 +49,24 @@ Chrome: Inspect element → Color picker → Shows contrast ratio
 
 ```css
 /* Check these common combinations */
---text-on-white: #374151;      /* gray-700: 10.6:1 ✓ */
---text-on-white: #6b7280;      /* gray-500: 4.6:1 ✓ */
---text-on-white: #9ca3af;      /* gray-400: 2.9:1 ✗ */
+--text-on-white: #374151;      /* grey-700: 10.6:1 ✓ */
+--text-on-white: #6b7280;      /* grey-500: 4.6:1 ✓ */
+--text-on-white: #9ca3af;      /* grey-400: 2.9:1 ✗ */
 ```
 
-## Color Blindness
+## Colour Blindness
 
-8% of men and 0.5% of women have some form of color blindness.
+8% of men and 0.5% of women have some form of colour blindness.
 
 ### Types
 - **Protanopia:** Red blindness
 - **Deuteranopia:** Green blindness
 - **Tritanopia:** Blue blindness
-- **Achromatopsia:** Complete color blindness
+- **Achromatopsia:** Complete colour blindness
 
 ### Design Implications
 
-Don't rely on color alone:
+Don't rely on colour alone:
 
 ```html
 <!-- Bad: Only color indicates error -->
@@ -82,7 +82,7 @@ Don't rely on color alone:
 
 ### Testing
 - Chrome DevTools: Rendering → Emulate vision deficiencies
-- Stark, Color Oracle, or Sim Daltonism
+- Stark, Colour Oracle, or Sim Daltonism
 
 ## Patterns and Icons
 
@@ -108,7 +108,7 @@ Use multiple visual cues:
 
 ## Dark Mode Considerations
 
-Don't just invert colors:
+Don't just invert colours:
 
 ```css
 /* Light mode */
@@ -132,25 +132,25 @@ Pure white (#fff) on pure black (#000) can be harsh—soften both.
 
 ### Exercise 1: Contrast Audit
 
-Check your project's color palette:
-- Text on background colors
+Check your project's colour palette:
+- Text on background colours
 - Button text on button backgrounds
-- Icon colors on backgrounds
+- Icon colours on backgrounds
 
-### Exercise 2: Color Blindness Test
+### Exercise 2: Colour Blindness Test
 
-View your interface with simulated color blindness:
+View your interface with simulated colour blindness:
 - Can you distinguish all elements?
-- Is meaning clear without color?
+- Is meaning clear without colour?
 
 ## Test Your Understanding
 
 <!-- exercise: multiple-choice
 {
-  "id": "color-contrast-quiz",
+  "id": "colour-contrast-quiz",
   "type": "multiple-choice",
-  "title": "Color and Contrast",
-  "description": "Test your understanding of accessible color usage.",
+  "title": "Colour and Contrast",
+  "description": "Test your understanding of accessible colour usage.",
   "difficulty": "medium",
   "question": "What is the minimum contrast ratio for normal text according to WCAG AA?",
   "options": [
@@ -187,8 +187,8 @@ View your interface with simulated color blindness:
 - Minimum 4.5:1 contrast for normal text
 - Large text and UI components need 3:1
 - Test with actual tools, not just eyeballing
-- 8% of men have color blindness
-- Never use color alone to convey meaning
+- 8% of men have colour blindness
+- Never use colour alone to convey meaning
 
 ## Next Steps
 

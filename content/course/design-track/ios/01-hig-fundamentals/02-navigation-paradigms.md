@@ -134,7 +134,7 @@ Plan the navigation for an app idea:
   "options": [
     {
       "id": "a",
-      "text": "Tab bars are deprecated in favor of navigation controllers",
+      "text": "Tab bars are deprecated in favour of navigation controllers",
       "isCorrect": false,
       "explanation": "Tab bars are still a core iOS pattern for apps with distinct sections."
     },

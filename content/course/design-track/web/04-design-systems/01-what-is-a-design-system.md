@@ -6,7 +6,7 @@
 
 - What design systems are (and aren't)
 - The components of a design system
-- Why organizations invest in design systems
+- Why organisations invest in design systems
 - When you need a design system
 
 ## Beyond Component Libraries
@@ -17,7 +17,7 @@ Many people confuse design systems with component libraries. They're related but
 
 **Design System:** A comprehensive system including:
 - Design principles and guidelines
-- Design tokens (colors, spacing, typography)
+- Design tokens (colours, spacing, typography)
 - Component library
 - Patterns and templates
 - Documentation
@@ -41,7 +41,7 @@ Principles help teams make aligned decisions even when the system doesn't provid
 ### 2. Design Tokens
 
 The primitive values that define visual style:
-- Colors (brand, semantic, neutral)
+- Colours (brand, semantic, neutral)
 - Typography (fonts, sizes, weights)
 - Spacing (margin/padding values)
 - Shadows, borders, radii
@@ -143,7 +143,7 @@ One authoritative source:
 
 **Not set-and-forget:** Systems require ongoing maintenance, evolution, and governance.
 
-**Not one-size-fits-all:** Different organizations need different systems based on size, needs, and culture.
+**Not one-size-fits-all:** Different organisations need different systems based on size, needs, and culture.
 
 **Not just for design:** Design systems serve designers AND developers. Both perspectives are essential.
 
@@ -173,7 +173,7 @@ A design system pays off when:
 - Quality improvements justify investment
 - Scale amplifies benefits
 
-For small teams or single products, a design system might be overkill. A well-organized component library might suffice.
+For small teams or single products, a design system might be overkill. A well-organised component library might suffice.
 
 ## Famous Design Systems
 
@@ -235,7 +235,7 @@ If design systems interest you, it's a natural career path for Design Engineers.
 ### Exercise 1: System Audit
 
 Pick a product you use regularly. Identify:
-1. What design tokens might they use? (colors, spacing, typography)
+1. What design tokens might they use? (colours, spacing, typography)
 2. What components do you see repeated?
 3. What patterns appear across screens?
 4. Where do you notice inconsistency?
@@ -250,7 +250,7 @@ For a hypothetical product, write 3-5 design principles:
 ### Exercise 3: System Exploration
 
 Explore a public design system (Material, Carbon, Polaris). Note:
-1. How is it organized?
+1. How is it organised?
 2. What documentation is provided?
 3. How are components presented?
 4. What can you apply to your own work?

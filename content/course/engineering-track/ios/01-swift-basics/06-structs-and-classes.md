@@ -172,8 +172,8 @@ Create a struct for a playing card:
 ### Exercise 2: Value vs Reference
 
 Create examples demonstrating:
-- Struct copy behavior
-- Class reference behavior
+- Struct copy behaviour
+- Class reference behaviour
 
 ## Test Your Understanding
 
@@ -218,7 +218,7 @@ Create examples demonstrating:
 
 - Structs are value types (copied)
 - Classes are reference types (shared)
-- Prefer structs for most data modeling
+- Prefer structs for most data modelling
 - Use `mutating` for struct methods that modify self
 - Classes support inheritance; structs don't
 

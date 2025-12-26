@@ -172,7 +172,7 @@ Build a modal with proper focus trapping:
   "title": "Keyboard Navigation",
   "description": "Test your understanding of keyboard accessibility.",
   "difficulty": "medium",
-  "question": "What should happen when a user opens a modal dialog?",
+  "question": "What should happen when a user opens a modal dialogue?",
   "options": [
     {
       "id": "a",

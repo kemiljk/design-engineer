@@ -33,7 +33,7 @@ Icons are simplified visual symbols representing objects, actions, or concepts.
 - Status indicators (success, warning, error)
 - Object types (file, folder, user, settings)
 - Navigation (arrows, expand/collapse)
-- Platform conventions (share, favorite, download)
+- Platform conventions (share, favourite, download)
 
 **Bad uses:**
 - Abstract concepts (icons for "synergy" or "innovation")
@@ -125,7 +125,7 @@ Images (photographs, graphics, screenshots) play a different role than icons.
 
 **Screenshots:** Demonstrate the product. SaaS, documentation.
 
-**Data visualization:** Graphs, charts, maps. Dashboards, analytics.
+**Data visualisation:** Graphs, charts, maps. Dashboards, analytics.
 
 **Decorative imagery:** Background patterns, abstract graphics. Branding.
 
@@ -183,9 +183,9 @@ Illustrations are custom-drawn graphics, ranging from simple icons to complex sc
 
 ### Illustration Styles
 
-**Line illustrations:** Simple, scalable, often single-color. Good for icons and simple graphics.
+**Line illustrations:** Simple, scalable, often single-colour. Good for icons and simple graphics.
 
-**Flat illustrations:** No gradients or shadows, solid colors. Clean, modern feel.
+**Flat illustrations:** No gradients or shadows, solid colours. Clean, modern feel.
 
 **3D illustrations:** Depth and dimension. Trendy but can feel heavy.
 
@@ -196,7 +196,7 @@ Illustrations are custom-drawn graphics, ranging from simple icons to complex sc
 ### Consistency in Illustrations
 
 Like icons, illustrations should share a visual language:
-- Same color palette
+- Same colour palette
 - Same level of detail
 - Same line weights
 - Same character proportions
@@ -207,7 +207,7 @@ A mismatch in illustration style is jarring. Commission or select illustrations 
 ### Illustration Resources
 
 **Libraries:**
-- unDraw (free, customizable colors)
+- unDraw (free, customizable colours)
 - Humaaans (mix-and-match people)
 - Blush (various styles)
 - DrawKit (various styles)
@@ -233,9 +233,9 @@ A mismatch in illustration style is jarring. Commission or select illustrations 
 
 **Decorative icons:** Use `aria-hidden="true"` to hide from screen readers
 
-### Color Independence
+### Colour Independence
 
-Don't rely on imagery alone to convey critical information. Icons for status should be accompanied by text. Charts should have patterns, not just colors.
+Don't rely on imagery alone to convey critical information. Icons for status should be accompanied by text. Charts should have patterns, not just colours.
 
 ## Try It Yourself
 
@@ -277,7 +277,7 @@ Design an empty state for "no search results":
   "options": [
     {
       "id": "a",
-      "text": "Use a high-contrast color so users can see it clearly",
+      "text": "Use a high-contrast colour so users can see it clearly",
       "isCorrect": false,
       "explanation": "Contrast helps visual users but doesn't help screen reader users who can't see the icon."
     },
@@ -317,7 +317,7 @@ Design an empty state for "no search results":
 
 You've completed the Visual Design Deep Dive module! You now understand:
 - Typography fundamentals and hierarchy
-- Color theory, palettes, and accessibility
+- Colour theory, palettes, and accessibility
 - Spacing systems and vertical rhythm
 - Layout grids and composition
 - Iconography and imagery best practices

@@ -1,12 +1,12 @@
 # Capstone Project: Design a Complete Android App
 
-> **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy Android app with Material 3 components, adaptive layouts, dynamic color support, and an interactive prototype.
+> **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy Android app with Material 3 components, adaptive layouts, dynamic colour support, and an interactive prototype.
 
 ## What You'll Learn
 
 - How to synthesize Android design skills into a cohesive app
 - Building a Material 3-compliant component library
-- Designing for dynamic color and theming
+- Designing for dynamic colour and theming
 - Creating adaptive layouts for phones and tablets
 - Implementing Material motion principles
 
@@ -16,7 +16,7 @@ This capstone brings together everything from the Android Design Track: Material
 
 **Why this project?** Android apps showcase unique skills:
 - Material 3 expertise (the latest design system)
-- Dynamic color understanding (Material You)
+- Dynamic colour understanding (Material You)
 - Adaptive design (phones, tablets, foldables)
 - Motion design (Material motion system)
 - Component architecture (Material components)
@@ -31,7 +31,7 @@ By the end of this capstone, you'll have:
    - 5-7 core screens for phone
    - Tablet/large screen adaptations
    - Light and dark mode
-   - Dynamic color variations
+   - Dynamic colour variations
 
 2. **Material 3 Component Library**
    - Navigation components
@@ -67,10 +67,10 @@ Design an app that helps users get things done:
 Design an app for personal improvement:
 - **Suggestions:** Fitness tracker, meditation app, recipe manager, budget tracker
 - **Key Screens:** Dashboard, activity view, detail/stats, profile, onboarding
-- **Challenge:** Use dynamic color to create emotional connection
+- **Challenge:** Use dynamic colour to create emotional connection
 
 ### Option C: Social/Discovery App
-Design an app centered on exploration:
+Design an app centred on exploration:
 - **Suggestions:** Event finder, travel planner, local recommendations
 - **Key Screens:** Feed/discovery, search, detail view, saved items, profile
 - **Challenge:** Rich content layouts with Material containment
@@ -98,11 +98,11 @@ Establish the foundation:
 - **Key jobs to be done** (3-5 tasks)
 - **Personality** (playful, professional, expressive, etc.)
 
-### Step 3: Create Material Color Scheme
+### Step 3: Create Material Colour Scheme
 
 Use Material Theme Builder or design manually:
 
-**Primary Colors:**
+**Primary Colours:**
 ```
 Primary: [Your brand color]
 On Primary: [Text/icon on primary]
@@ -126,12 +126,12 @@ Outline: [Borders and dividers]
 
 **Create for both light and dark modes.**
 
-### Step 4: Dynamic Color Preparation
+### Step 4: Dynamic Colour Preparation
 Plan for Material You:
 - Test your design with different wallpaper extractions
-- Create 2-3 dynamic color variations
+- Create 2-3 dynamic colour variations
 - Ensure design works with any extracted palette
-- Identify elements that should use dynamic vs. static colors
+- Identify elements that should use dynamic vs. static colours
 
 ### Step 5: Typography with Roboto
 Apply Material type scale:
@@ -155,9 +155,9 @@ Label Small: 11sp Medium
 
 ### Checkpoint
 ✓ App concept defined with clear purpose
-✓ Material 3 color scheme created
+✓ Material 3 colour scheme created
 ✓ Light and dark modes designed
-✓ Dynamic color variations created
+✓ Dynamic colour variations created
 ✓ Typography scale applied
 
 ## Phase 2: Phone Screen Design (2-3 hours)
@@ -212,7 +212,7 @@ Apply Material 3 components correctly:
 ## Phase 3: Adaptive Layouts (1-2 hours)
 
 ### Step 1: Breakpoint Strategy
-Plan your responsive behavior:
+Plan your responsive behaviour:
 - **Compact:** < 600dp (phones)
 - **Medium:** 600-840dp (tablets portrait, foldables)
 - **Expanded:** > 840dp (tablets landscape, desktop)
@@ -285,7 +285,7 @@ Add Material-specific details:
 ### Step 1: Adaptive Icon
 Design your app icon:
 - **Foreground:** Your icon graphic (108dp with 66dp safe zone)
-- **Background:** Color or pattern layer
+- **Background:** Colour or pattern layer
 - **Themed variant:** Monochrome version for Material You
 
 ### Step 2: Design Audit
@@ -294,8 +294,8 @@ Review everything:
 - All states complete?
 - Spacing follows 4dp grid?
 - Typography scale correct?
-- Color contrast accessible (4.5:1)?
-- Dynamic color works?
+- Colour contrast accessible (4.5:1)?
+- Dynamic colour works?
 
 ### Step 3: Case Study
 Document your process:
@@ -311,7 +311,7 @@ Structure for portfolio:
 - Material 3 design system
 - Phone screens (light)
 - Phone screens (dark)
-- Dynamic color variations
+- Dynamic colour variations
 - Tablet layouts
 - Component library
 - Prototype documentation
@@ -320,16 +320,16 @@ Structure for portfolio:
 ✓ Adaptive icon complete
 ✓ Design audit passed
 ✓ Case study written
-✓ File professionally organized
+✓ File professionally organised
 
 ## Submission Checklist
 
 Your capstone should include:
 
 - [ ] **Material 3 Design System**
-  - [ ] Color scheme (primary, secondary, tertiary)
+  - [ ] Colour scheme (primary, secondary, tertiary)
   - [ ] Light and dark modes
-  - [ ] Dynamic color variations (2-3)
+  - [ ] Dynamic colour variations (2-3)
   - [ ] Typography using Roboto
 
 - [ ] **Phone Screen Designs**
@@ -368,7 +368,7 @@ Your capstone should include:
 | Criteria | Developing | Proficient | Excellent |
 |----------|-----------|------------|-----------|
 | **Material 3 Adherence** | Some Material usage, inconsistent | Strong Material alignment | Exceptional Material fluency, thoughtful decisions |
-| **Color System** | Basic colors, limited modes | Full light/dark, good contrast | Dynamic color mastery, beautiful in any palette |
+| **Colour System** | Basic colours, limited modes | Full light/dark, good contrast | Dynamic colour mastery, beautiful in any palette |
 | **Adaptive Design** | Phone only | Phone plus basic tablet | Thoughtful adaptation, great use of space |
 | **Visual Polish** | Basic styling | Clean, consistent | Beautiful, delightful Material expression |
 | **Motion Design** | Basic transitions | Correct Material patterns | Fluid, purposeful motion throughout |
@@ -391,15 +391,15 @@ Study these Android apps for Material 3 excellence:
 - Sleep as Android — Lifestyle app
 
 **Material You Showcases:**
-- Most Google apps for dynamic color
+- Most Google apps for dynamic colour
 - Android 12+ system apps
 
 ## Tips for Success
 
-1. **Use Material Theme Builder.** Google's tool ensures correct color math.
+1. **Use Material Theme Builder.** Google's tool ensures correct colour math.
 2. **Reference M3 guidelines constantly.** Keep material.io open.
 3. **Design real content.** Realistic data makes better designs.
-4. **Test dynamic color early.** Don't assume your colors always work.
+4. **Test dynamic colour early.** Don't assume your colours always work.
 5. **Think adaptive from the start.** Don't leave tablets as an afterthought.
 6. **Follow the 4dp grid.** Material spacing should feel consistent.
 
@@ -409,13 +409,13 @@ Congratulations on completing the Android Design Track capstone!
 
 This project demonstrates:
 - Your mastery of Material 3 design system
-- Ability to design for dynamic color
+- Ability to design for dynamic colour
 - Understanding of adaptive layouts
 - Skill in Material motion design
 
 **Portfolio Tip:** This Android app design is valuable portfolio material. Consider:
 - Recording a prototype video with Material motion
-- Showcasing dynamic color variations
+- Showcasing dynamic colour variations
 - Writing about your Material 3 decisions
 - Sharing on Dribbble with Android-specific tags
 

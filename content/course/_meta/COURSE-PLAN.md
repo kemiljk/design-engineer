@@ -70,7 +70,7 @@ Where design and engineering skills merge into true Design Engineering mastery.
 | #   | Lesson                       | Status |
 | --- | ---------------------------- | ------ |
 | 01  | Typography Fundamentals      | [x]    |
-| 02  | Color Theory and Application | [x]    |
+| 02  | Colour Theory and Application | [x]    |
 | 03  | Spacing and Rhythm           | [x]    |
 | 04  | Layout and Composition       | [x]    |
 | 05  | Iconography and Imagery      | [x]    |
@@ -124,7 +124,7 @@ Where design and engineering skills merge into true Design Engineering mastery.
 | 01  | iOS Design Philosophy   | [ ]    |
 | 02  | Navigation Paradigms    | [ ]    |
 | 03  | iOS Typography          | [ ]    |
-| 04  | iOS Color and Materials | [ ]    |
+| 04  | iOS Colour and Materials | [ ]    |
 
 #### Module 2: iOS Design Patterns
 
@@ -388,7 +388,7 @@ Where design and engineering skills merge into true Design Engineering mastery.
 | 02  | Semantic HTML for A11y    | [ ]    |
 | 03  | Keyboard Navigation       | [ ]    |
 | 04  | Screen Reader Experience  | [ ]    |
-| 05  | Color and Contrast        | [ ]    |
+| 05  | Colour and Contrast        | [ ]    |
 | 06  | Motion and Accessibility  | [ ]    |
 
 #### Module 4: Performance and Polish
@@ -474,7 +474,7 @@ These concepts appear across multiple tracks and should reference each other:
 | Components    | Design Tools: Thinking in Components | Building Components (all)      | -                                 |
 | Design Tokens | Design Systems: Tokens and Variables | Design Systems in Code: Tokens | -                                 |
 | Typography    | Visual Design: Typography            | CSS: Responsive Design         | -                                 |
-| Color         | Visual Design: Color Theory          | CSS: Custom Properties         | Accessibility: Color and Contrast |
+| Colour         | Visual Design: Colour Theory          | CSS: Custom Properties         | Accessibility: Colour and Contrast |
 | Layout        | Visual Design: Layout                | CSS: Flexbox & Grid            | -                                 |
 | Motion        | iOS/Android: Animation Principles    | CSS: Transitions               | Convergence: Motion               |
 | Accessibility | UX: Edge Cases                       | HTML: Forms                    | Convergence: Accessibility        |

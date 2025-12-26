@@ -44,7 +44,7 @@ The system should speak the users' language, with words, phrases, and concepts f
 
 **Questions to ask:**
 - Would a non-technical user understand this?
-- Does the organization match user expectations?
+- Does the organisation match user expectations?
 - Are terms familiar to users (not just the team)?
 
 ### 3. User Control and Freedom
@@ -298,11 +298,11 @@ The 10 heuristics:
 6. Recognition rather than recall
 7. Flexibility and efficiency of use
 8. Aesthetic and minimalist design
-9. Help users recognize, diagnose, and recover from errors
+9. Help users recognise, diagnose, and recover from errors
 10. Help and documentation
 
 - Heuristic evaluation is fast and cheap for finding usability issues
-- Rate severity to prioritize fixes
+- Rate severity to prioritise fixes
 - Heuristics can conflict. Use judgement.
 - Combine with user testing for complete evaluation
 

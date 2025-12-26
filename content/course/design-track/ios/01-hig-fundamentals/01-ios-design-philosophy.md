@@ -48,12 +48,12 @@ San Francisco font family:
 - New York for editorial content
 - Dynamic Type for accessibility
 
-### Color
-System colors that adapt:
+### Colour
+System colours that adapt:
 - Light and dark mode support
 - Automatic accessibility adjustments
-- Vibrant colors for actions
-- Semantic colors (primary, secondary)
+- Vibrant colours for actions
+- Semantic colours (primary, secondary)
 
 ### Icons
 SF Symbols system:
@@ -107,21 +107,21 @@ Open the same app on iOS and Android. What differs? What makes each feel native?
   "options": [
     {
       "id": "a",
-      "text": "Maximum customization to let apps stand out",
+      "text": "Maximum customisation to let apps stand out",
       "isCorrect": false,
-      "explanation": "iOS emphasizes consistency and clarity over extensive customization."
+      "explanation": "iOS emphasises consistency and clarity over extensive customisation."
     },
     {
       "id": "b",
       "text": "Clarity, deference, and depth—content should be the focus",
       "isCorrect": true,
-      "explanation": "Correct! iOS design prioritizes clarity (legible, precise), deference (UI supports content, doesn't compete), and depth (visual layers and motion)."
+      "explanation": "Correct! iOS design prioritises clarity (legible, precise), deference (UI supports content, doesn't compete), and depth (visual layers and motion)."
     },
     {
       "id": "c",
-      "text": "Bold colors and always-visible navigation",
+      "text": "Bold colours and always-visible navigation",
       "isCorrect": false,
-      "explanation": "iOS often uses subtle colors and contextual navigation."
+      "explanation": "iOS often uses subtle colours and contextual navigation."
     },
     {
       "id": "d",

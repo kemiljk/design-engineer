@@ -66,9 +66,9 @@ Don't make people hunt:
 ### Show the Details
 DE-specific things to highlight:
 - Micro-interactions
-- Responsive behavior
+- Responsive behaviour
 - Accessibility considerations
-- Performance optimizations
+- Performance optimisations
 
 ### Include the Code
 Link to the source:

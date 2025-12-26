@@ -1,17 +1,17 @@
 # Building a Token System
 
-> **Quick Summary:** A complete token system covers colors, typography, spacing, and effects—providing everything needed to build consistent interfaces.
+> **Quick Summary:** A complete token system covers colours, typography, spacing, and effects—providing everything needed to build consistent interfaces.
 
 ## What You'll Learn
 
-- Creating comprehensive color scales
+- Creating comprehensive colour scales
 - Building typography systems
 - Defining spacing scales
 - Effect tokens (shadows, radius)
 
-## Color System
+## Colour System
 
-### Gray Scale
+### Grey Scale
 
 ```css
 :root {
@@ -28,7 +28,7 @@
 }
 ```
 
-### Brand Colors
+### Brand Colours
 
 ```css
 :root {
@@ -45,7 +45,7 @@
 }
 ```
 
-### Semantic Colors
+### Semantic Colours
 
 ```css
 :root {
@@ -146,9 +146,9 @@
     },
     {
       "id": "b",
-      "text": "Semantic tokens reference primitive tokens, adding meaning like 'color-primary' → 'blue-500'",
+      "text": "Semantic tokens reference primitive tokens, adding meaning like 'colour-primary' → 'blue-500'",
       "isCorrect": true,
-      "explanation": "Correct! Primitives define raw values (blue-500: #3B82F6), semantics add meaning (color-primary: var(--blue-500)). This allows theming by changing what semantic tokens reference."
+      "explanation": "Correct! Primitives define raw values (blue-500: #3B82F6), semantics add meaning (colour-primary: var(--blue-500)). This allows theming by changing what semantic tokens reference."
     },
     {
       "id": "c",
@@ -158,7 +158,7 @@
     },
     {
       "id": "d",
-      "text": "Semantic tokens are deprecated in favor of primitives",
+      "text": "Semantic tokens are deprecated in favour of primitives",
       "isCorrect": false,
       "explanation": "Both are essential parts of a well-structured token system."
     }
@@ -169,7 +169,7 @@
 ## Key Takeaways
 
 - Build comprehensive scales for each category
-- 50-900 scale works well for colors
+- 50-900 scale works well for colours
 - Spacing follows 4px/8px grid
 - Type scales use consistent ratios
 - Document when to use each token

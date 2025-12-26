@@ -11,7 +11,7 @@
 
 ## Course Organization
 
-The course is organized into three main sections, each with platform-specific content:
+The course is organised into three main sections, each with platform-specific content:
 
 ```
 ├── Introduction (you are here)
@@ -32,7 +32,7 @@ The course is organized into three main sections, each with platform-specific co
     └── Android
 ```
 
-Within each track and platform, content is organized into **modules** (major topics) and **lessons** (individual units within a topic).
+Within each track and platform, content is organised into **modules** (major topics) and **lessons** (individual units within a topic).
 
 For example, the Web Engineering Track:
 - **Module 1: HTML Fundamentals** → 6 lessons
@@ -100,7 +100,7 @@ Many concepts appear in both the Design and Engineering tracks, approached from 
 |---------|--------------|-------------------|
 | Components | Designing reusable UI elements | Building reusable UI elements |
 | Typography | Choosing and pairing fonts | Implementing type systems in code |
-| Color | Building palettes and systems | Implementing theming |
+| Colour | Building palettes and systems | Implementing theming |
 | Layout | Grid systems and composition | Flexbox, Grid, and layout code |
 | Motion | Animation principles | Animation implementation |
 
@@ -208,7 +208,7 @@ Here's a rough guide for how long each section takes:
 These estimates assume:
 - You're learning the content for the first time
 - You complete all exercises
-- You build additional projects to practice
+- You build additional projects to practise
 
 Experienced learners will move faster. Complete beginners may need more time. Both are fine.
 
@@ -242,7 +242,7 @@ Before diving into your chosen track:
       "id": "a",
       "text": "Read all lessons thoroughly before attempting exercises",
       "isCorrect": false,
-      "explanation": "Reading alone isn't learning—the course emphasizes doing over reading."
+      "explanation": "Reading alone isn't learning—the course emphasises doing over reading."
     },
     {
       "id": "b",

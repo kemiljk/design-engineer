@@ -76,13 +76,13 @@ Group related elements:
 - A row's elements are in an HStack
 - Groups have consistent internal spacing
 
-### Named Colors
-Use semantic color names:
+### Named Colours
+Use semantic colour names:
 - `primary`, `secondary`
 - `background`, `surface`
 - `accent`, `destructive`
 
-Map to asset catalog colors in Xcode.
+Map to asset catalog colours in Xcode.
 
 ### Text Styles
 Use iOS text styles:
@@ -113,7 +113,7 @@ Specify which approach you intend.
 ### Annotate Clearly
 - Spacing values
 - Font styles and weights
-- Color names/values
+- Colour names/values
 - Animation intentions
 
 ### Group Logically
@@ -122,7 +122,7 @@ Organize frames to match component structure developers will build.
 ### Document Interactions
 - All states (default, pressed, disabled)
 - Transitions between states
-- Gesture behaviors
+- Gesture behaviours
 
 ### Provide Assets
 - Export icons at correct scales
@@ -142,7 +142,7 @@ Take a design screen and write pseudo-SwiftUI:
 
 Prepare a screen for handoff:
 - Annotate all spacing
-- Document colors and typography
+- Document colours and typography
 - Note interactions and states
 
 ## Test Your Understanding

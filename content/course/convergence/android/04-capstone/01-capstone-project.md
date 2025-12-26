@@ -11,7 +11,7 @@ Build a portfolio-ready Android app or feature that demonstrates mastery of moti
 
 - **Time:** 12-16 hours
 - **Deliverables:** Polished Android feature/app with animations, accessibility, case study
-- **Skills:** Compose animation, Material motion, TalkBack, performance optimization
+- **Skills:** Compose animation, Material motion, TalkBack, performance optimisation
 
 ## What You'll Create
 
@@ -19,7 +19,7 @@ A polished Android experience that showcases:
 
 - **Fluid Animations** - Meaningful motion that enhances usability
 - **Full Accessibility** - TalkBack support and inclusive design
-- **Performance Excellence** - 60fps animations and optimized rendering
+- **Performance Excellence** - 60fps animations and optimised rendering
 - **Design-Code Convergence** - Seamless translation from design to implementation
 
 ---
@@ -39,7 +39,7 @@ A 3-5 screen onboarding flow with:
 ### Option B: Interactive Dashboard
 
 A data dashboard featuring:
-- Animated charts and data visualizations
+- Animated charts and data visualisations
 - Pull-to-refresh with custom animation
 - Staggered list animations
 - Screen reader-friendly data presentation
@@ -48,7 +48,7 @@ A data dashboard featuring:
 
 A music or podcast player with:
 - Expandable mini-player animation
-- Waveform or progress visualizations
+- Waveform or progress visualisations
 - Gesture-driven controls
 - Full media accessibility support
 
@@ -99,7 +99,7 @@ Define your accessibility approach:
 - Content descriptions for all interactive elements
 - Focus order and navigation patterns
 - Touch target sizes (minimum 48dp)
-- Color contrast and text scaling
+- Colour contrast and text scaling
 
 ---
 
@@ -436,7 +436,7 @@ Prepare your GitHub repository:
 ## Submission Checklist
 
 ### Code Quality
-- [ ] Clean, well-organized Kotlin code
+- [ ] Clean, well-organised Kotlin code
 - [ ] Proper Compose state management
 - [ ] No unnecessary recompositions
 - [ ] Consistent naming conventions
@@ -451,7 +451,7 @@ Prepare your GitHub repository:
 - [ ] Full TalkBack support
 - [ ] Logical focus order
 - [ ] Adequate touch targets (48dp minimum)
-- [ ] Color contrast meets WCAG AA
+- [ ] Colour contrast meets WCAG AA
 - [ ] Dynamic type support
 
 ### Documentation
@@ -479,7 +479,7 @@ Prepare your GitHub repository:
 ### Code Quality (25%)
 - Clean Compose patterns
 - Efficient state management
-- Performance optimization
+- Performance optimisation
 - Proper architecture
 
 ### Polish & Documentation (15%)
@@ -507,7 +507,7 @@ Prepare your GitHub repository:
 ### Media Player Animation
 - Mini to full player expansion
 - Album art with parallax depth effect
-- Waveform visualization that responds to audio
+- Waveform visualisation that responds to audio
 - Gesture-driven seek with haptic ticks
 
 ---

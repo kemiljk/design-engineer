@@ -38,7 +38,7 @@ Especially with motion-heavy content.
 
 Generally safe:
 - Opacity fades
-- Color transitions
+- Colour transitions
 - Small scale changes (5-10%)
 - Subtle position shifts
 - Short-duration animations (<300ms)

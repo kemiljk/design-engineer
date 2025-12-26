@@ -381,8 +381,8 @@ This hierarchy enables:
 
 Create a custom property system with:
 
-- Color primitives (gray scale, brand color)
-- Semantic color tokens
+- Colour primitives (grey scale, brand colour)
+- Semantic colour tokens
 - Spacing scale
 - Apply to a simple card component
 
@@ -398,7 +398,7 @@ Build a page with:
 
 Create a component that:
 
-- Has customizable properties (colors, spacing)
+- Has customizable properties (colours, spacing)
 - Can be styled differently by overriding custom properties
 - Works with different themes
 

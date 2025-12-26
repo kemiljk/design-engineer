@@ -16,7 +16,7 @@ Every website you've ever visited is built on HTML. When you load a page, your b
 HTML stands for **HyperText Markup Language**:
 - **HyperText:** Text with links to other text (the "web" in World Wide Web)
 - **Markup:** Tags that describe content
-- **Language:** A standardized way of writing these tags
+- **Language:** A standardised way of writing these tags
 
 HTML isn't a programming language—it's a markup language. It doesn't perform logic or calculations. It describes content: "this is a heading," "this is a paragraph," "this is a link."
 
@@ -28,7 +28,7 @@ Think of a document like a human body:
 
 - **HTML** is the skeleton: the structure that holds everything together
 - **CSS** is the appearance—skin, clothing, style
-- **JavaScript** is the behavior—movement, actions, responses
+- **JavaScript** is the behaviour—movement, actions, responses
 
 Without HTML, there's nothing to style or animate. It's the foundation.
 
@@ -102,7 +102,7 @@ Both might look the same with CSS, but semantic HTML:
 - Improves accessibility (screen readers understand the structure)
 - Helps search engines understand content
 - Makes code more readable
-- Provides default behaviors (forms, links)
+- Provides default behaviours (forms, links)
 
 ## Why Semantic HTML Matters for Design Engineers
 
@@ -124,7 +124,7 @@ Semantic HTML is self-documenting. `<article>` clearly means "this is an article
 
 ### Default Behaviors
 
-Semantic elements come with built-in behaviors:
+Semantic elements come with built-in behaviours:
 - `<button>` is keyboard accessible by default
 - `<a>` provides navigation
 - `<form>` handles submission
@@ -149,7 +149,7 @@ Here's a quick overview of essential elements (we'll cover each in depth):
 - `<p>` — Paragraph
 - `<span>` — Inline text container
 - `<strong>` — Important text
-- `<em>` — Emphasized text
+- `<em>` — Emphasised text
 
 ### Links and Media
 - `<a>` — Links
@@ -178,7 +178,7 @@ Design decisions often have HTML implications:
 **Design decision:** "I want a tabbed interface"
 **HTML consideration:** How are tabs announced to screen readers?
 
-**Design decision:** "I want a modal dialog"
+**Design decision:** "I want a modal dialogue"
 **HTML consideration:** Focus trap, escape key, announcement?
 
 Understanding HTML helps you design more implementable interfaces and catch issues before they reach code.

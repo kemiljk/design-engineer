@@ -125,7 +125,7 @@ These are minor version bumps.
 
 ### Modifying Existing Behavior
 
-Changes to existing behavior need care:
+Changes to existing behaviour need care:
 - Changing defaults (could break existing usage)
 - Changing appearance (could break layouts/tests)
 - Changing interaction patterns (could confuse users)
@@ -199,7 +199,7 @@ Governance is how decisions get made about the system.
 - Pros: Community investment, distributed effort
 - Cons: Quality control, alignment challenges
 
-Most organizations use a hybrid—core team owns direction, others contribute with guidance.
+Most organisations use a hybrid—core team owns direction, others contribute with guidance.
 
 ### Contribution Process
 
@@ -288,7 +288,7 @@ Review the changelog of a public design system (Material, Carbon, etc.):
 
 ### Exercise 2: Deprecation Plan
 
-You need to deprecate an old Modal component in favor of a new Dialog component. Plan:
+You need to deprecate an old Modal component in favour of a new Dialogue component. Plan:
 1. Deprecation messaging
 2. Migration documentation outline
 3. Timeline
@@ -360,4 +360,4 @@ You've completed the Design Systems module! You now understand:
 - Writing effective documentation
 - Maintenance, versioning, and governance
 
-Continue to [UX Principles: User-Centered Thinking](../05-ux-principles/01-user-centered-thinking.md) →
+Continue to [UX Principles: User-Centered Thinking](../05-ux-principles/01-user-centred-thinking.md) →

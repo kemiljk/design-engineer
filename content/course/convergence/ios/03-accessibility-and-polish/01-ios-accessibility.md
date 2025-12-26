@@ -154,7 +154,7 @@ Enhance a form:
       "id": "d",
       "text": "Accessibility is automatic in SwiftUI",
       "isCorrect": false,
-      "explanation": "SwiftUI provides foundations, but you still need to add labels and customize behavior."
+      "explanation": "SwiftUI provides foundations, but you still need to add labels and customise behaviour."
     }
   ]
 }

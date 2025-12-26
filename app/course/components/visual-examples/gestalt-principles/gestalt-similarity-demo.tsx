@@ -4,16 +4,16 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 
-type SimilarityType = "color" | "shape" | "size" | "none";
+type SimilarityType = "colour" | "shape" | "size" | "none";
 
 export function GestaltSimilarityDemo() {
-  const [similarityType, setSimilarityType] = useState<SimilarityType>("color");
+  const [similarityType, setSimilarityType] = useState<SimilarityType>("colour");
 
   const getItemStyle = (row: number, col: number) => {
     const isGroupA = col < 3;
     
     switch (similarityType) {
-      case "color":
+      case "colour":
         return {
           shape: "rounded-full",
           size: "h-8 w-8",
@@ -49,8 +49,8 @@ export function GestaltSimilarityDemo() {
       controls={
         <ControlGroup label="Similarity By">
           <ControlButton
-            active={similarityType === "color"}
-            onClick={() => setSimilarityType("color")}
+            active={similarityType === "colour"}
+            onClick={() => setSimilarityType("colour")}
           >
             Colour
           </ControlButton>
@@ -95,7 +95,7 @@ export function GestaltSimilarityDemo() {
 
         {/* Insight */}
         <div className="text-center">
-          {similarityType === "color" && (
+          {similarityType === "colour" && (
             <p className="text-sm text-neutral-600 dark:text-neutral-400">
               The grid visually splits into two groups based on <strong>colour</strong> alone
             </p>

@@ -124,7 +124,7 @@ Use for images below the fold. Don't use for above-fold images (hero images).
 | WebP | Both | Better compression, good support |
 | AVIF | Both | Best compression, growing support |
 | SVG | Icons, logos | Vector, infinitely scalable |
-| GIF | Simple animations | Limited colors, avoid for photos |
+| GIF | Simple animations | Limited colours, avoid for photos |
 
 ## SVG Images
 
@@ -337,7 +337,7 @@ Add a video with:
 
 Take a page with images and:
 - Check image sizes vs. display sizes
-- Identify optimization opportunities
+- Identify optimisation opportunities
 - Implement lazy loading where appropriate
 - Test with throttled network in dev tools
 

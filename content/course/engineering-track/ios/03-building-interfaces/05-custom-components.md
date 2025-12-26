@@ -37,7 +37,7 @@ struct RatingView: View {
         HStack(spacing: 4) {
             ForEach(1...maxRating, id: \.self) { index in
                 Image(systemName: index <= Int(rating) ? "star.fill" : "star")
-                    .foregroundStyle(index <= Int(rating) ? .yellow : .gray)
+                    .foregroundStyle(index <= Int(rating) ? .yellow : .grey)
             }
             Text(String(format: "%.1f", rating))
                 .font(.subheadline)
@@ -198,9 +198,9 @@ Create an EmptyState component:
     },
     {
       "id": "b",
-      "text": "Clear inputs (parameters), focused responsibility, and sensible defaults with customization options",
+      "text": "Clear inputs (parameters), focused responsibility, and sensible defaults with customisation options",
       "isCorrect": true,
-      "explanation": "Correct! Good components have clear APIs, do one thing well, work out of the box with defaults, and allow customization where needed."
+      "explanation": "Correct! Good components have clear APIs, do one thing well, work out of the box with defaults, and allow customisation where needed."
     },
     {
       "id": "c",

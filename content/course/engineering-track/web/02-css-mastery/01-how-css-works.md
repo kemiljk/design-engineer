@@ -282,7 +282,7 @@ Organize CSS predictably:
 
 ### Exercise 1: Specificity Practice
 
-Without running the code, predict the color:
+Without running the code, predict the colour:
 
 ```css
 p { color: black; }
@@ -309,7 +309,7 @@ Create a nested structure:
 </div>
 ```
 
-Test which properties inherit (color, border, margin) and which don't.
+Test which properties inherit (colour, border, margin) and which don't.
 
 ## Test Your Understanding
 
@@ -320,7 +320,7 @@ Test which properties inherit (color, border, margin) and which don't.
   "title": "CSS Specificity",
   "description": "Test your understanding of CSS cascade and specificity.",
   "difficulty": "medium",
-  "question": "If an element has both a class (.button) and an ID (#submit), and both have conflicting background-color rules, which wins?",
+  "question": "If an element has both a class (.button) and an ID (#submit), and both have conflicting background-colour rules, which wins?",
   "options": [
     {
       "id": "a",

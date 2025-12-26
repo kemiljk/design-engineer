@@ -21,7 +21,7 @@ Inspired by paper and ink:
 
 ### Bold, Graphic, Intentional
 - Large-scale typography
-- Deliberate color choices
+- Deliberate colour choices
 - Meaningful imagery
 - Iconography grounded in symbols
 
@@ -57,7 +57,7 @@ Height above the base surface:
 
 The latest evolution (Material You):
 
-### Dynamic Color
+### Dynamic Colour
 - Colours derived from user's wallpaper
 - Personalised, cohesive palettes
 - Automatically generated tones
@@ -115,7 +115,7 @@ Open Google apps (Gmail, Maps, Photos). Identify:
 - Surface elevation
 - Shadow usage
 - Motion patterns
-- Dynamic color application
+- Dynamic colour application
 
 ### Exercise 2: Metaphor Application
 
@@ -151,13 +151,13 @@ Design a card component thinking about:
       "id": "c",
       "text": "Flat design with no depth or shadows",
       "isCorrect": false,
-      "explanation": "Material Design emphasizes depth through elevation and shadows."
+      "explanation": "Material Design emphasises depth through elevation and shadows."
     },
     {
       "id": "d",
       "text": "Skeuomorphic textures mimicking real materials",
       "isCorrect": false,
-      "explanation": "Material is more abstract than skeuomorphism—it's about behavior, not texture."
+      "explanation": "Material is more abstract than skeuomorphism—it's about behaviour, not texture."
     }
   ]
 }

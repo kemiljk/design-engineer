@@ -128,8 +128,8 @@ IconButton(
     Icon(
         imageVector = if (isFavorite) Icons.Filled.Favorite 
                       else Icons.Outlined.FavoriteBorder,
-        contentDescription = if (isFavorite) "Remove from favorites" 
-                            else "Add to favorites"
+        contentDescription = if (isFavorite) "Remove from favourites" 
+                            else "Add to favourites"
     )
 }
 ```
@@ -192,7 +192,7 @@ Build a button that:
 ## Key Takeaways
 
 - Use appropriate button type for emphasis
-- ButtonDefaults for customizing colors
+- ButtonDefaults for customising colours
 - Handle loading and disabled states
 - Always provide content descriptions for icon buttons
 

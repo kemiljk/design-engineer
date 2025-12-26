@@ -1,6 +1,6 @@
 # Composables and Modifiers
 
-> **Quick Summary:** Modifiers decorate composables with layout, behavior, and appearance changes. They chain together and order matters.
+> **Quick Summary:** Modifiers decorate composables with layout, behaviour, and appearance changes. They chain together and order matters.
 
 ## What You'll Learn
 
@@ -52,7 +52,7 @@ Modifier
 Modifier
     .background(Color.Blue)
     .background(Color.Blue, RoundedCornerShape(8.dp))
-    .border(1.dp, Color.Gray, RoundedCornerShape(8.dp))
+    .border(1.dp, Color.Grey, RoundedCornerShape(8.dp))
 ```
 
 ### Clip
@@ -180,7 +180,7 @@ Create a `badge()` modifier that adds:
       "id": "b",
       "text": "Modifiers are applied sequentially—earlier modifiers wrap later ones, affecting layout and appearance",
       "isCorrect": true,
-      "explanation": "Correct! Modifier.padding(16.dp).background(Color.Red) pads then colors (background includes padding). Modifier.background(Color.Red).padding(16.dp) colors then pads (background doesn't extend into padding)."
+      "explanation": "Correct! Modifier.padding(16.dp).background(Colour.Red) pads then colours (background includes padding). Modifier.background(Colour.Red).padding(16.dp) colours then pads (background doesn't extend into padding)."
     },
     {
       "id": "c",

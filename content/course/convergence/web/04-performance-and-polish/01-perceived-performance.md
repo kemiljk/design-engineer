@@ -160,9 +160,9 @@ Build a like button with optimistic updates and error rollback.
   "options": [
     {
       "id": "a",
-      "text": "Making UI colors brighter to seem faster",
+      "text": "Making UI colours brighter to seem faster",
       "isCorrect": false,
-      "explanation": "Optimistic UI is about interaction behavior, not visual design."
+      "explanation": "Optimistic UI is about interaction behaviour, not visual design."
     },
     {
       "id": "b",
@@ -174,7 +174,7 @@ Build a like button with optimistic updates and error rollback.
       "id": "c",
       "text": "Caching all API responses permanently",
       "isCorrect": false,
-      "explanation": "Caching is a different optimization technique."
+      "explanation": "Caching is a different optimisation technique."
     },
     {
       "id": "d",
@@ -196,4 +196,4 @@ Build a like button with optimistic updates and error rollback.
 
 ## Next Steps
 
-Continue to [Image Optimization](./02-image-optimization.md) →
+Continue to [Image Optimization](./02-image-optimisation.md) →

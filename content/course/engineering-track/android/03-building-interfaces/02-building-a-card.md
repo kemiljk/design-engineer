@@ -181,9 +181,9 @@ Create a profile card:
     },
     {
       "id": "b",
-      "text": "Elevation (tonal or shadow), rounded corners, and proper surface colors",
+      "text": "Elevation (tonal or shadow), rounded corners, and proper surface colours",
       "isCorrect": true,
-      "explanation": "Correct! Card provides Material 3 styling including tonal elevation, corner radius, and color. Different variants (filled, outlined, elevated) are available."
+      "explanation": "Correct! Card provides Material 3 styling including tonal elevation, corner radius, and colour. Different variants (filled, outlined, elevated) are available."
     },
     {
       "id": "c",

@@ -176,7 +176,7 @@ Create a product card:
       "id": "b",
       "text": "Use .shadow() with subtle radius and low opacity for depth without harshness",
       "isCorrect": true,
-      "explanation": "Correct! .shadow(color: .black.opacity(0.1), radius: 8, y: 4) creates subtle, realistic elevation. Avoid harsh, high-opacity shadows."
+      "explanation": "Correct! .shadow(colour: .black.opacity(0.1), radius: 8, y: 4) creates subtle, realistic elevation. Avoid harsh, high-opacity shadows."
     },
     {
       "id": "c",

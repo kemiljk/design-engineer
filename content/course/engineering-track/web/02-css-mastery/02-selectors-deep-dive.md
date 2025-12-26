@@ -406,7 +406,7 @@ Single-purpose classes:
 
 ### Exercise 1: Zebra Striping
 
-Use `nth-child` to create alternating row colors in a table without adding classes to HTML.
+Use `nth-child` to create alternating row colours in a table without adding classes to HTML.
 
 ### Exercise 2: Form Validation Styling
 

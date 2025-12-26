@@ -101,7 +101,7 @@ The touch target can be larger than the visual element:
 - Invisible padding extends touch area
 - Use `android:minWidth` and `android:minHeight`
 
-## Color and Contrast
+## Colour and Contrast
 
 ### WCAG Contrast Requirements
 - **4.5:1** ratio for normal text
@@ -109,14 +109,14 @@ The touch target can be larger than the visual element:
 - **3:1** ratio for UI components
 
 ### Material Design Guidance
-- Use surface colors with appropriate text
-- Semantic colors maintain contrast
-- Test with Android's color correction
+- Use surface colours with appropriate text
+- Semantic colours maintain contrast
+- Test with Android's colour correction
 
-### Color Independence
-Never rely on color alone:
-- Add icons to colored status indicators
-- Include text with colored buttons
+### Colour Independence
+Never rely on colour alone:
+- Add icons to coloured status indicators
+- Include text with coloured buttons
 - Use patterns in charts and graphs
 
 ## Testing Accessibility
@@ -179,7 +179,7 @@ Enable TalkBack and navigate your app:
 
 ### Exercise 2: Contrast Audit
 
-Check your color contrast:
+Check your colour contrast:
 1. Test primary text on background
 2. Test secondary text
 3. Test buttons and icons
@@ -229,9 +229,9 @@ Check your color contrast:
 - Design for TalkBack with clear content descriptions
 - Maintain minimum 48×48 dp touch targets
 - Ensure 4.5:1 contrast ratio for text
-- Never rely on color alone to convey information
+- Never rely on colour alone to convey information
 - Test with Accessibility Scanner and TalkBack
 
 ## Next Steps
 
-Continue to [Dark Mode and Dynamic Color](./02-dark-mode-and-dynamic-color.md) →
+Continue to [Dark Mode and Dynamic Colour](./02-dark-mode-and-dynamic-colour.md) →

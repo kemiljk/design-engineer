@@ -216,7 +216,7 @@ Android Studio has built-in Git support:
 2. Select Git
 
 **Commit Changes:**
-- **⌘/Ctrl + K** opens commit dialog
+- **⌘/Ctrl + K** opens commit dialogue
 - Review changes, write message, commit
 
 **View History:**
@@ -453,7 +453,7 @@ fun LargeFontPreview() {
       "id": "d",
       "text": "⌘/Ctrl + K",
       "isCorrect": false,
-      "explanation": "This opens the commit dialog."
+      "explanation": "This opens the commit dialogue."
     }
   ]
 }

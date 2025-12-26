@@ -193,7 +193,7 @@ Include "Back" connections for navigation.
 Smart animate (or similar features) automatically animates between states where:
 - Elements have the same name
 - Elements exist in both frames
-- Properties change (position, size, color, opacity)
+- Properties change (position, size, colour, opacity)
 
 This creates smooth transitions without defining every animation manually.
 

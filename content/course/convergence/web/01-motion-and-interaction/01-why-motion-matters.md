@@ -16,7 +16,7 @@ Animation in interfaces isn't about making things "look cool." It serves functio
 ### Providing Feedback
 
 Users need to know their actions were received:
-- Button pressed → slight scale/color change
+- Button pressed → slight scale/colour change
 - Item deleted → smooth removal
 - Form submitted → success animation
 

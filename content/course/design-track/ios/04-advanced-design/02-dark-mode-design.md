@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- iOS semantic color system
+- iOS semantic colour system
 - Designing for both appearances
 - Handling images and illustrations
 - Common dark mode pitfalls
@@ -20,28 +20,28 @@ Since iOS 13, users can choose their preferred appearance:
 - **User preference** and comfort
 - **Required by Apple** for new apps
 
-## The Semantic Color System
+## The Semantic Colour System
 
-### System Colors
-iOS provides colors that automatically adapt:
+### System Colours
+iOS provides colours that automatically adapt:
 
-| Color | Light Mode | Dark Mode |
+| Colour | Light Mode | Dark Mode |
 |-------|------------|-----------|
 | systemBackground | White | Black |
-| secondarySystemBackground | Light gray | Dark gray |
+| secondarySystemBackground | Light grey | Dark grey |
 | label | Black | White |
-| secondaryLabel | Gray | Light gray |
+| secondaryLabel | Grey | Light grey |
 
-### Why Use Semantic Colors?
+### Why Use Semantic Colours?
 - **Automatic adaptation:** No manual switching
 - **Accessibility support:** Works with high contrast
 - **Consistency:** Matches system UI
 - **Future-proof:** Adapts to new features
 
-## Color Strategy for Dark Mode
+## Colour Strategy for Dark Mode
 
 ### Don't Just Invert
-Dark mode isn't simply inverted colors:
+Dark mode isn't simply inverted colours:
 
 **❌ Wrong approach:**
 - White → Black
@@ -53,7 +53,7 @@ Dark mode isn't simply inverted colors:
 - Reduce saturation slightly
 - Adjust for perceived brightness
 
-### Elevation Through Color
+### Elevation Through Colour
 In dark mode, elevation is shown with lighter surfaces:
 
 - **Base level:** Darkest (#000000 on OLED)
@@ -68,17 +68,17 @@ This is opposite to light mode where shadows show elevation.
 - **Light:** Pure white or off-white
 - **Dark:** True black (#000000) or elevated black (#1C1C1E)
 
-### Text Colors
+### Text Colours
 Light mode text on dark backgrounds doesn't work reversed:
 
 - **Primary text:** Full opacity in light, ~87% in dark
 - **Secondary text:** ~60% opacity in light, ~60% in dark
 - **Disabled text:** ~38% opacity in both
 
-### Accent Colors
-Your brand colors may need adjustment:
+### Accent Colours
+Your brand colours may need adjustment:
 
-- **Vibrant colors:** May appear too bright in dark mode
+- **Vibrant colours:** May appear too bright in dark mode
 - **Reduce saturation:** By 5-15% for dark mode
 - **Test legibility:** Against dark backgrounds
 
@@ -94,7 +94,7 @@ May need two versions:
 
 **Light mode version:**
 - Dark strokes on light background
-- Full color saturation
+- Full colour saturation
 
 **Dark mode version:**
 - Light strokes on dark background
@@ -114,7 +114,7 @@ SF Symbols automatically adapt. Custom icons should:
 - Pure black okay for immersive content (photos, video)
 
 ### Insufficient Contrast
-Dark gray text on dark backgrounds:
+Dark grey text on dark backgrounds:
 - Test with contrast checker
 - Maintain 4.5:1 ratio minimum
 - Consider colorblind users
@@ -134,13 +134,13 @@ The most common mistake:
 ## Design Tools Setup
 
 ### Figma
-- Use color styles that map to both modes
+- Use colour styles that map to both modes
 - Create separate frames for each appearance
 - Use variables for automatic switching
 
 ### Sketch
 - Create symbol overrides for appearance
-- Use color variables
+- Use colour variables
 - Preview in Appearance panel
 
 ## Testing Your Dark Mode Design
@@ -153,10 +153,10 @@ The most common mistake:
 
 ## Try It Yourself
 
-### Exercise 1: Color Mapping
+### Exercise 1: Colour Mapping
 
-Create a color mapping table:
-1. List your 5 main UI colors
+Create a colour mapping table:
+1. List your 5 main UI colours
 2. Define light mode values
 3. Define dark mode equivalents
 4. Check contrast ratios for both
@@ -164,7 +164,7 @@ Create a color mapping table:
 ### Exercise 2: Dark Mode Audit
 
 Take one of your existing designs:
-1. Apply iOS semantic colors
+1. Apply iOS semantic colours
 2. Adjust any illustrations
 3. Check contrast ratios
 4. Test elevation hierarchy
@@ -188,15 +188,15 @@ Take one of your existing designs:
     },
     {
       "id": "b",
-      "text": "Lighter surface colors for higher elevations",
+      "text": "Lighter surface colours for higher elevations",
       "isCorrect": true,
-      "explanation": "Correct! In dark mode, elevated surfaces use progressively lighter shades of dark gray to indicate depth, opposite to light mode's shadow approach."
+      "explanation": "Correct! In dark mode, elevated surfaces use progressively lighter shades of dark grey to indicate depth, opposite to light mode's shadow approach."
     },
     {
       "id": "c",
       "text": "Colored borders around elevated elements",
       "isCorrect": false,
-      "explanation": "While borders can help, the primary elevation indicator in iOS dark mode is surface color."
+      "explanation": "While borders can help, the primary elevation indicator in iOS dark mode is surface colour."
     },
     {
       "id": "d",
@@ -210,9 +210,9 @@ Take one of your existing designs:
 
 ## Key Takeaways
 
-- Use iOS semantic colors for automatic adaptation
+- Use iOS semantic colours for automatic adaptation
 - Elevation is shown with lighter surfaces in dark mode
-- Adjust accent color saturation for dark backgrounds
+- Adjust accent colour saturation for dark backgrounds
 - Provide light/dark versions of illustrations
 - Always design and test both appearances
 

@@ -41,7 +41,7 @@ Introduced in iOS 16:
 
 ### Characteristics
 - Much smaller than Home Screen
-- Limited color (monochrome + accent)
+- Limited colour (monochrome + accent)
 - Even more glanceable
 - Three placement areas
 
@@ -122,7 +122,7 @@ Design a Lock Screen widget. How do you convey value in such limited space?
   "title": "Widgets and Extensions",
   "description": "Test your understanding of iOS widgets.",
   "difficulty": "medium",
-  "question": "What should iOS widgets prioritize in their design?",
+  "question": "What should iOS widgets prioritise in their design?",
   "options": [
     {
       "id": "a",

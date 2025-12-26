@@ -83,7 +83,7 @@ Tell VoiceOver what type of element it is:
 Apple's Human Interface Guidelines specify:
 - **44×44 points** minimum touch target
 - Even if visual element is smaller
-- Padding counts toward touch area
+- Padding counts towards touch area
 
 ### Spacing Between Targets
 Prevent accidental taps:
@@ -91,7 +91,7 @@ Prevent accidental taps:
 - More space for critical actions
 - Consider motor impairments
 
-## Color and Contrast
+## Colour and Contrast
 
 ### Contrast Ratios
 WCAG guidelines for text:
@@ -99,11 +99,11 @@ WCAG guidelines for text:
 - **3:1** for large text (18pt+ or 14pt+ bold)
 - **3:1** for UI components
 
-### Don't Rely on Color Alone
-Always pair color with another indicator:
-- Icons alongside colored status
-- Text labels with colored buttons
-- Patterns with colored charts
+### Don't Rely on Colour Alone
+Always pair colour with another indicator:
+- Icons alongside coloured status
+- Text labels with coloured buttons
+- Patterns with coloured charts
 
 ## Designing for Dynamic Type
 
@@ -136,8 +136,8 @@ Take a screen from your current project:
 ### Exercise 2: Contrast Check
 
 Using a contrast checker tool:
-1. Test your primary text color
-2. Test your secondary text color
+1. Test your primary text colour
+2. Test your secondary text colour
 3. Test button text against button background
 4. Ensure all meet minimum ratios
 
@@ -185,7 +185,7 @@ Using a contrast checker tool:
 - Accessibility benefits everyone, not just users with disabilities
 - Design for VoiceOver with clear labels and logical focus order
 - Maintain minimum 44×44pt touch targets
-- Ensure sufficient color contrast (4.5:1 for text)
+- Ensure sufficient colour contrast (4.5:1 for text)
 - Test at all Dynamic Type sizes
 
 ## Next Steps

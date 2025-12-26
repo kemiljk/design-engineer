@@ -1,10 +1,10 @@
 # User-Centered Thinking
 
-> **Quick Summary:** User-centered design means making decisions based on real user needs—not assumptions, personal preferences, or what's easiest to build.
+> **Quick Summary:** User-centred design means making decisions based on real user needs—not assumptions, personal preferences, or what's easiest to build.
 
 ## What You'll Learn
 
-- What user-centered design means in practice
+- What user-centred design means in practice
 - How to develop empathy for users
 - Methods for understanding user needs
 - Applying user thinking to design decisions
@@ -22,7 +22,7 @@ Your users:
 - Have different technical comfort
 - Use your product differently than you imagine
 
-User-centered design is a deliberate practice of setting aside assumptions and designing for actual users.
+User-centred design is a deliberate practice of setting aside assumptions and designing for actual users.
 
 ## Why User-Centered Design?
 
@@ -44,7 +44,7 @@ This isn't ideology—it's pragmatism.
 
 ## Developing Empathy
 
-Empathy is the foundation of user-centered design. It means understanding users' situations, needs, and frustrations.
+Empathy is the foundation of user-centred design. It means understanding users' situations, needs, and frustrations.
 
 ### Talk to Users
 
@@ -64,7 +64,7 @@ Watching users interact with products (yours or competitors'):
 - What questions do they have?
 - What workarounds do they create?
 
-Observation reveals behavior that users might not report.
+Observation reveals behaviour that users might not report.
 
 ### Use the Product Yourself
 
@@ -196,7 +196,7 @@ Dismissing complaints as user error or unusual cases.
 
 ## User Research Basics
 
-You don't need a research team to practice user-centered design.
+You don't need a research team to practise user-centred design.
 
 ### Quick User Interviews
 
@@ -241,7 +241,7 @@ Apply user thinking to everyday decisions:
 - What are they trying to accomplish?
 - What will make this easy vs. hard?
 
-**When prioritizing work:**
+**When prioritising work:**
 - What causes the most user pain?
 - What would help the most users?
 - What matches user goals?
@@ -281,10 +281,10 @@ Watch someone use a website or app (not your product):
 
 <!-- exercise: multiple-choice
 {
-  "id": "user-centered-quiz",
+  "id": "user-centred-quiz",
   "type": "multiple-choice",
   "title": "User-Centered Thinking",
-  "description": "Test your understanding of user-centered design.",
+  "description": "Test your understanding of user-centred design.",
   "difficulty": "medium",
   "question": "What is the 'curse of knowledge' in design, and why is it problematic?",
   "options": [
@@ -318,11 +318,11 @@ Watch someone use a website or app (not your product):
 
 ## Key Takeaways
 
-- User-centered design means making decisions based on real user needs
+- User-centred design means making decisions based on real user needs
 - You are not your user—set aside assumptions
 - Develop empathy through conversations, observation, and research
 - Create personas and journey maps to align teams
-- Question assumptions and prioritize by user impact
+- Question assumptions and prioritise by user impact
 - Account for diverse users and contexts
 - Quick research (interviews, usability testing, feedback analysis) is valuable
 

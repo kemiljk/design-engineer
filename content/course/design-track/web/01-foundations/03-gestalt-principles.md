@@ -11,7 +11,7 @@
 
 ## The Psychology of Perception
 
-Gestalt is a German word meaning "form" or "shape." Gestalt psychology, developed in the early 20th century, studies how humans perceive patterns and organize visual information.
+Gestalt is a German word meaning "form" or "shape." Gestalt psychology, developed in the early 20th century, studies how humans perceive patterns and organise visual information.
 
 The core insight: **The brain doesn't see individual elements. It sees relationships and wholes.**
 
@@ -125,7 +125,7 @@ The brain separates what's important (figure) from what's not (ground). This cre
 - Ensure foreground elements clearly stand out from backgrounds
 
 **Example:**
-A modal dialog darkens the page behind it. The modal becomes the figure; the page becomes the ground. Focus shifts naturally.
+A modal dialogue darkens the page behind it. The modal becomes the figure; the page becomes the ground. Focus shifts naturally.
 
 ### 7. Common Fate
 
@@ -181,7 +181,7 @@ Sometimes principles conflict. When they do, some override others:
 
 **Common region often wins.** If items are in the same box, they're grouped even if they're not close together.
 
-**Similarity can override proximity.** Items of the same color might feel grouped even if physically separated.
+**Similarity can override proximity.** Items of the same colour might feel grouped even if physically separated.
 
 **Strong closure overrides many principles.** A clear boundary creates a powerful grouping.
 
@@ -216,7 +216,7 @@ Sketch a settings page with:
 - Notification preferences (email, push, SMS)
 - Privacy settings (profile visibility, data sharing)
 
-Apply Gestalt principles to make the three sections clear without using headers. How can grouping alone communicate organization?
+Apply Gestalt principles to make the three sections clear without using headers. How can grouping alone communicate organisation?
 
 ### Exercise 3: Breaking Principles
 
@@ -231,7 +231,7 @@ Take a simple interface you've designed or built. Deliberately break one Gestalt
   "title": "Gestalt Principles",
   "description": "Check your understanding of how humans perceive visual information.",
   "difficulty": "medium",
-  "question": "A modal dialog darkens the page behind it. Which Gestalt principle is this applying?",
+  "question": "A modal dialogue darkens the page behind it. Which Gestalt principle is this applying?",
   "options": [
     {
       "id": "a",

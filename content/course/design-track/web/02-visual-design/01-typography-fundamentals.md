@@ -169,9 +169,9 @@ Size alone doesn't create hierarchy. Combine with:
 - Body text in regular
 - Metadata in light or regular
 
-**Color:**
+**Colour:**
 - Primary text: Full contrast (black on white)
-- Secondary text: Reduced contrast (gray)
+- Secondary text: Reduced contrast (grey)
 - Tertiary text: Further reduced
 
 **Style:**
@@ -226,7 +226,7 @@ Line height is the vertical space between lines. It dramatically affects readabi
 
 **UI text (labels, buttons):** 1.0 to 1.3 × font size
 - Single-line text can be tighter
-- Consider vertical centering
+- Consider vertical centring
 
 ### CSS Line Height
 
@@ -297,7 +297,7 @@ For each, explain why they work together.
 Using a 16px base and 1.25 ratio, calculate a type scale with:
 - Caption, Small, Body, H4, H3, H2, H1
 
-Then apply appropriate weights and colors to create hierarchy.
+Then apply appropriate weights and colours to create hierarchy.
 
 ### Exercise 3: Optimize a Text Block
 
@@ -359,4 +359,4 @@ Suggest specific improvements.
 
 ## Next Steps
 
-Continue to [Color Theory and Application](./02-color-theory-and-application.md) →
+Continue to [Colour Theory and Application](./02-colour-theory-and-application.md) →

@@ -12,7 +12,7 @@
 ## What Is Accessibility?
 
 Web accessibility (a11y) means designing and building interfaces that work for everyone, including people with:
-- **Visual impairments:** Blindness, low vision, color blindness
+- **Visual impairments:** Blindness, low vision, colour blindness
 - **Motor impairments:** Limited fine motor control, inability to use mouse
 - **Hearing impairments:** Deafness, hard of hearing
 - **Cognitive differences:** ADHD, dyslexia, autism
@@ -43,7 +43,7 @@ Web accessibility features have similar benefits. Captions help in noisy environ
 As a Design Engineer, you touch both design and code, the two areas where accessibility is determined:
 
 ### In Design
-- Color contrast
+- Colour contrast
 - Touch target sizes
 - Visual hierarchy
 - Focus indication

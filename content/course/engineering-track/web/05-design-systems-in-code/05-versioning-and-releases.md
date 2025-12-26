@@ -16,7 +16,7 @@
 ### PATCH (2.1.3 → 2.1.4)
 
 Bug fixes, no API changes:
-- Fixed button hover color
+- Fixed button hover colour
 - Fixed modal focus trap
 - Fixed accessibility issue
 

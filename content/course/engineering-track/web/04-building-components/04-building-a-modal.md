@@ -215,7 +215,7 @@ Implement a modal with:
 - Escape key to close
 - Backdrop click to close
 
-### Exercise 2: Confirmation Dialog
+### Exercise 2: Confirmation Dialogue
 
 Build a confirmation modal:
 

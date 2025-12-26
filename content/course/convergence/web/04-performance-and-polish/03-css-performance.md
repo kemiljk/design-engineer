@@ -1,6 +1,6 @@
 # CSS Performance
 
-> **Quick Summary:** CSS can cause performance issues through layout thrashing, expensive selectors, and render-blocking behavior. Learn to write performant styles.
+> **Quick Summary:** CSS can cause performance issues through layout thrashing, expensive selectors, and render-blocking behaviour. Learn to write performant styles.
 
 ## What You'll Learn
 
@@ -18,7 +18,7 @@
 
 Changing certain properties triggers different stages:
 - Layout properties (width, height, top) → Everything reruns
-- Paint properties (color, background) → Paint + Composite
+- Paint properties (colour, background) → Paint + Composite
 - Composite properties (transform, opacity) → Only Composite
 
 ## Composite-Only Animations
@@ -151,7 +151,7 @@ Enable "Paint flashing" in DevTools. Navigate your site and note unexpected pain
     },
     {
       "id": "b",
-      "text": "background-color (triggers paint)",
+      "text": "background-colour (triggers paint)",
       "isCorrect": false,
       "explanation": "Paint is cheaper than layout but still requires redrawing."
     },

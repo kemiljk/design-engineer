@@ -151,7 +151,7 @@ Find a Dribbble shot you like. Set a 1-hour timer and build a working prototype 
 - Designs show ideal states; prototypes explore transitions
 - Make interaction decisions confidently
 - Start with structure, add polish last
-- Use tools that minimize setup time
+- Use tools that minimise setup time
 - Don't wait for perfect specs—prototype your assumptions
 
 ## Next Steps

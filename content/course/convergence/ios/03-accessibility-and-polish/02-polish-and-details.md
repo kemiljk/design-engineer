@@ -206,4 +206,4 @@ You've completed the iOS Convergence Track!
 
 → Start building your portfolio with what you've learned
 
-→ Share your work and continue practicing
+→ Share your work and continue practising

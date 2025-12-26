@@ -7,13 +7,13 @@
 - Buttons and controls
 - Lists and tables
 - Forms and input
-- When to customize vs. use standard
+- When to customise vs. use standard
 
 ## Buttons
 
 ### Button Types
 - **Filled:** High emphasis, primary actions
-- **Gray:** Medium emphasis
+- **Grey:** Medium emphasis
 - **Tinted:** Subtle emphasis
 - **Plain:** Text-only, low emphasis
 - **Bordered:** Clear boundaries
@@ -86,7 +86,7 @@
 ## When to Customize
 
 ### Use Standard When
-- Standard behavior matches your need
+- Standard behaviour matches your need
 - Users expect standard interaction
 - Accessibility is critical
 - Development time is limited
@@ -95,13 +95,13 @@
 - Standard doesn't fit your brand
 - Unique interaction is needed
 - You can maintain accessibility
-- The customization adds value
+- The customisation adds value
 
 ## Try It Yourself
 
 ### Exercise 1: Component Inventory
 
-List all components needed for an app idea. Which are standard? Which need customization?
+List all components needed for an app idea. Which are standard? Which need customisation?
 
 ### Exercise 2: List Design
 

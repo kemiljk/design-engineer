@@ -99,7 +99,7 @@ Likely to include:
 
 ### Cultural Fit
 - How do you work with designers?
-- How do you prioritize fidelity vs. speed?
+- How do you prioritise fidelity vs. speed?
 - Tell me about a conflict you resolved
 
 ## Try It Yourself
@@ -170,7 +170,7 @@ You now have a comprehensive foundation in:
 - Motion and interaction design
 - Prototyping and iteration
 - Accessibility best practices
-- Performance optimization
+- Performance optimisation
 - Professional workflow and career development
 
 **What's Next?**

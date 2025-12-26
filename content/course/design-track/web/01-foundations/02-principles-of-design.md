@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - The six fundamental design principles and why they matter
-- How to recognize each principle in existing designs
+- How to recognise each principle in existing designs
 - How to apply these principles to improve interfaces
 - The relationship between principles and usability
 
@@ -26,7 +26,7 @@ Hierarchy establishes the order of importance in a design. It answers: "What sho
 Your eyes are drawn to certain elements before others based on:
 - **Size**: Larger elements attract attention first
 - **Weight**: Bold elements stand out from regular weight
-- **Color**: Brighter or more saturated colors pop forward
+- **Colour**: Brighter or more saturated colours pop forward
 - **Position**: Top and left elements (in left-to-right languages) are scanned first
 - **Space**: Elements with more surrounding whitespace feel important
 
@@ -42,7 +42,7 @@ Without clear hierarchy, every element competes for attention and nothing wins. 
 
 ### Common Hierarchy Mistakes
 
-- **Everything is bold**: When everything is emphasized, nothing is
+- **Everything is bold**: When everything is emphasised, nothing is
 - **Too many sizes**: Creates visual chaos
 - **Competing focal points**: Multiple elements fighting for attention
 - **Flat hierarchy**: All elements feel equally important
@@ -59,7 +59,7 @@ Balance is the distribution of visual weight across a design. Balanced designs f
 
 **Symmetrical Balance**: Elements are mirrored across an axis. Feels formal, stable, traditional.
 
-**Asymmetrical Balance**: Different elements balance each other through size, color, or position. Feels dynamic, modern, interesting.
+**Asymmetrical Balance**: Different elements balance each other through size, colour, or position. Feels dynamic, modern, interesting.
 
 **Radial Balance**: Elements radiate from a central point. Less common in UI, more common in logos and graphics.
 
@@ -86,7 +86,7 @@ Contrast is the difference between elements. It creates visual interest, establi
 ### Types of Contrast
 
 - **Size contrast**: Large vs. small
-- **Color contrast**: Dark vs. light, complementary colors
+- **Colour contrast**: Dark vs. light, complementary colours
 - **Weight contrast**: Bold vs. regular, thick vs. thin
 - **Shape contrast**: Rounded vs. angular, organic vs. geometric
 - **Texture contrast**: Smooth vs. rough (less common in UI)
@@ -94,7 +94,7 @@ Contrast is the difference between elements. It creates visual interest, establi
 ### Contrast in Practice
 
 A call-to-action button uses contrast to stand out:
-- **Color**: Bright against a neutral background
+- **Colour**: Bright against a neutral background
 - **Size**: Larger than surrounding text
 - **Shape**: Rounded corners when nearby elements are angular
 
@@ -102,10 +102,10 @@ Without contrast, the button blends in and users miss it.
 
 ### The 60-30-10 Rule
 
-A helpful guideline for color contrast:
-- **60%**: Dominant color (usually background/neutral)
-- **30%**: Secondary color (supporting elements)
-- **10%**: Accent color (calls to action, key highlights)
+A helpful guideline for colour contrast:
+- **60%**: Dominant colour (usually background/neutral)
+- **30%**: Secondary colour (supporting elements)
+- **10%**: Accent colour (calls to action, key highlights)
 
 ### Common Contrast Mistakes
 
@@ -121,7 +121,7 @@ Repetition creates consistency through recurring visual elements. It helps users
 
 ### What Gets Repeated
 
-- **Colors**: Consistent palette throughout
+- **Colours**: Consistent palette throughout
 - **Typography**: Same fonts, sizes, styles for similar elements
 - **Spacing**: Consistent margins, padding, gaps
 - **Components**: Buttons, cards, icons that look the same everywhere
@@ -154,7 +154,7 @@ Alignment is the placement of elements relative to each other. It creates visual
 ### Types of Alignment
 
 - **Edge alignment**: Elements share a left, right, top, or bottom edge
-- **Center alignment**: Elements share a center axis
+- **Centre alignment**: Elements share a centre axis
 - **Grid alignment**: Elements snap to an underlying grid structure
 
 ### Alignment in Practice
@@ -164,7 +164,7 @@ In a form:
 - All inputs left-align (and align with labels)
 - The submit button aligns with inputs
 
-This creates invisible lines that guide the eye and make the form feel organized.
+This creates invisible lines that guide the eye and make the form feel organised.
 
 ### The Grid System
 
@@ -175,7 +175,7 @@ We'll cover grids in depth in later lessons.
 ### Common Alignment Mistakes
 
 - **Arbitrary positioning**: Elements placed "wherever"
-- **Mixing alignments**: Some left-aligned, some centered, without reason
+- **Mixing alignments**: Some left-aligned, some centred, without reason
 - **Near-alignment**: Almost aligned is worse than obviously different
 
 ## Proximity
@@ -211,7 +211,7 @@ This is one of the Gestalt principles (which we'll cover next lesson). The human
 These principles don't operate in isolation. Every good design uses all six:
 
 A well-designed card might:
-- Use **hierarchy** to emphasize the title over description
+- Use **hierarchy** to emphasise the title over description
 - Apply **contrast** to make the CTA button stand out
 - Maintain **alignment** so text and images form clean lines
 - Show **proximity** by grouping title and subtitle together
@@ -259,7 +259,7 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
       "id": "a",
       "text": "Contrast",
       "isCorrect": false,
-      "explanation": "Contrast creates differentiation through visual differences like size or color, not through spacing."
+      "explanation": "Contrast creates differentiation through visual differences like size or colour, not through spacing."
     },
     {
       "id": "b",
@@ -290,7 +290,7 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
 - Balance distributes visual weight
 - Contrast creates differentiation and interest
 - Repetition builds consistency and learnability
-- Alignment creates organization through positioning
+- Alignment creates organisation through positioning
 - Proximity groups related elements through spacing
 - These principles work together in every effective design
 

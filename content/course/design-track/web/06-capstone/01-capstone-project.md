@@ -12,13 +12,13 @@
 
 ## Project Overview
 
-This capstone brings together everything from the Design Track: visual design fundamentals, typography, color, spacing, design tools, systems thinking, and UX principles. You'll design a complete product landing page that demonstrates professional-level work.
+This capstone brings together everything from the Design Track: visual design fundamentals, typography, colour, spacing, design tools, systems thinking, and UX principles. You'll design a complete product landing page that demonstrates professional-level work.
 
 **Why this project?** Landing pages are essential portfolio pieces. They showcase:
-- Visual design skills (typography, color, composition)
+- Visual design skills (typography, colour, composition)
 - Systematic thinking (tokens, components)
 - Responsive design (desktop to mobile)
-- Interaction design (prototype behaviors)
+- Interaction design (prototype behaviours)
 - Communication skills (selling a product visually)
 
 **Time Estimate:** 8-12 hours
@@ -33,14 +33,14 @@ By the end of this capstone, you'll have:
    - Mobile layout (375px)
 
 2. **Mini Design System**
-   - Color tokens (primary, secondary, neutral, semantic)
+   - Colour tokens (primary, secondary, neutral, semantic)
    - Typography scale (6-8 styles)
    - Spacing scale (4-8 values)
    - Component library (buttons, cards, inputs, etc.)
 
 3. **Interactive Prototype**
    - Hero interactions
-   - Navigation behavior
+   - Navigation behaviour
    - Key user flows
    - Scroll-based transitions (optional)
 
@@ -84,7 +84,7 @@ Design a landing page for a creative agency or freelancer:
 Before designing, gather inspiration:
 - Find 5-10 landing pages in your chosen category
 - Screenshot specific elements you admire
-- Note patterns: layouts, typography choices, color usage
+- Note patterns: layouts, typography choices, colour usage
 - Create a moodboard in Figma
 
 ### Step 2: Define Your Brand
@@ -97,11 +97,11 @@ Establish the personality:
 
 ### Step 3: Create Design Tokens
 
-**Color System:**
+**Colour System:**
 ```
 Primary: [Your main brand color + 2-3 shades]
 Secondary: [Complementary accent color]
-Neutral: [Gray scale, 5-7 values]
+Neutral: [Grey scale, 5-7 values]
 Semantic: [Success, warning, error, info]
 ```
 
@@ -122,7 +122,7 @@ Small: [Captions, labels]
 ### Checkpoint
 ✓ Moodboard created with clear inspiration
 ✓ Brand identity defined
-✓ Color tokens documented in Figma
+✓ Colour tokens documented in Figma
 ✓ Typography scale established
 ✓ Spacing scale defined
 
@@ -150,7 +150,7 @@ Plan how each section adapts:
 - What content changes per viewport?
 
 ### Checkpoint
-✓ Page sections defined and prioritized
+✓ Page sections defined and prioritised
 ✓ Desktop wireframe complete
 ✓ Responsive strategy documented
 ✓ Content placeholders in place
@@ -160,7 +160,7 @@ Plan how each section adapts:
 ### Step 1: Hero Section
 The hero sets the tone:
 - Apply your typography scale
-- Integrate brand colors
+- Integrate brand colours
 - Design the primary CTA
 - Add hero imagery/illustration
 - Make it scannable in 3 seconds
@@ -201,7 +201,7 @@ Adapt for all viewports:
 Audit your work:
 - Consistent spacing throughout?
 - Typography hierarchy clear?
-- Color usage intentional?
+- Colour usage intentional?
 - Alignment precise?
 - Edge cases considered?
 
@@ -215,14 +215,14 @@ Add detail to key moments:
 ### Step 3: Prototype
 Connect the experience:
 - Link navigation elements
-- Add scroll behaviors (optional)
+- Add scroll behaviours (optional)
 - Create any modal flows
 - Test the prototype end-to-end
 
 ### Step 4: Final Polish
 The details that matter:
 - Check text alignment
-- Verify color contrast
+- Verify colour contrast
 - Ensure consistent corner radii
 - Review shadow usage
 - Pixel-perfect alignment
@@ -260,7 +260,7 @@ Make it portfolio-ready:
 - Prepare to discuss your decisions
 
 ### Checkpoint
-✓ Figma file well-organized
+✓ Figma file well-organised
 ✓ Case study written
 ✓ Presentation materials ready
 
@@ -269,7 +269,7 @@ Make it portfolio-ready:
 Your capstone should include:
 
 - [ ] **Design System**
-  - [ ] Color tokens with clear naming
+  - [ ] Colour tokens with clear naming
   - [ ] Typography scale applied consistently
   - [ ] Spacing scale documented
   - [ ] Component library with variants and states
@@ -288,14 +288,14 @@ Your capstone should include:
 - [ ] **Documentation**
   - [ ] Process documented
   - [ ] Design decisions explained
-  - [ ] File organized professionally
+  - [ ] File organised professionally
 
 ## Evaluation Criteria
 
 | Criteria | Developing | Proficient | Excellent |
 |----------|-----------|------------|-----------|
 | **Visual Design** | Basic aesthetics, inconsistent application | Solid visual hierarchy, good typography | Exceptional polish, refined details, cohesive aesthetic |
-| **Systematic Thinking** | Tokens exist but inconsistent | Well-organized system, consistently applied | Elegant system architecture, thoughtful naming, extensible |
+| **Systematic Thinking** | Tokens exist but inconsistent | Well-organised system, consistently applied | Elegant system architecture, thoughtful naming, extensible |
 | **Attention to Detail** | Some alignment issues, missing states | Clean alignment, most states covered | Pixel-perfect, all edge cases considered |
 | **Responsive Design** | Basic adaptation, some issues | Thoughtful breakpoints, good adaptation | Seamless experience across all viewports |
 | **Interaction Design** | Basic hover states | Clear interaction patterns | Delightful micro-interactions, fluid prototype |

@@ -55,8 +55,8 @@ Define space between container edges and children:
 ### Alignment
 
 Control where children sit within the container:
-- **Primary axis:** Start, center, end, space-between
-- **Cross axis:** Start, center, end, stretch
+- **Primary axis:** Start, centre, end, space-between
+- **Cross axis:** Start, centre, end, stretch
 
 This mirrors CSS Flexbox exactly.
 
@@ -166,9 +166,9 @@ Control how elements stay positioned:
 - **Left:** Maintains distance from left edge
 - **Right:** Maintains distance from right edge
 - **Left and Right:** Stretches horizontally
-- **Center:** Stays horizontally centered
+- **Centre:** Stays horizontally centred
 
-Same applies vertically (Top, Bottom, Top and Bottom, Center).
+Same applies vertically (Top, Bottom, Top and Bottom, Centre).
 
 ### Example: Sticky Header
 
@@ -319,9 +319,9 @@ Build a form with:
   "id": "auto-layout-quiz",
   "type": "multiple-choice",
   "title": "Auto Layout Sizing",
-  "description": "Test your understanding of auto layout sizing behaviors.",
+  "description": "Test your understanding of auto layout sizing behaviours.",
   "difficulty": "medium",
-  "question": "In a form row with a label, input field, and submit button, which sizing behavior should the INPUT field use?",
+  "question": "In a form row with a label, input field, and submit button, which sizing behaviour should the INPUT field use?",
   "options": [
     {
       "id": "a",
@@ -345,7 +345,7 @@ Build a form with:
       "id": "d",
       "text": "Any sizing works, it doesn't matter for inputs",
       "isCorrect": false,
-      "explanation": "Sizing behavior significantly affects how forms respond to different screen widths."
+      "explanation": "Sizing behaviour significantly affects how forms respond to different screen widths."
     }
   ]
 }

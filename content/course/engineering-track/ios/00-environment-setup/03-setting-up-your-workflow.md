@@ -398,7 +398,7 @@ struct MyView: View {
       "id": "a",
       "text": "⌘ + O",
       "isCorrect": false,
-      "explanation": "⌘ + O opens files via a file browser dialog."
+      "explanation": "⌘ + O opens files via a file browser dialogue."
     },
     {
       "id": "b",
@@ -416,7 +416,7 @@ struct MyView: View {
       "id": "d",
       "text": "⌘ + P",
       "isCorrect": false,
-      "explanation": "⌘ + P opens the print dialog."
+      "explanation": "⌘ + P opens the print dialogue."
     }
   ]
 }

@@ -79,7 +79,7 @@ fun CustomCard(
 ### Use Material Theme Slots
 Reference semantic roles:
 - Typography: headline, body, label
-- Colors: primary, surface, onSurface
+- Colours: primary, surface, onSurface
 - Shapes: small, medium, large
 
 Maps directly to MaterialTheme in Compose.
@@ -124,7 +124,7 @@ Document what changes at size classes:
 ### Annotate
 - Spacing values (in dp)
 - Typography styles (semantic names)
-- Colors (semantic names)
+- Colours (semantic names)
 - Component states
 
 ### Document Interactions
@@ -153,7 +153,7 @@ Prepare a screen for development:
 - All spacing annotated
 - States documented
 - Typography named
-- Colors referenced
+- Colours referenced
 
 ## Test Your Understanding
 
@@ -176,7 +176,7 @@ Prepare a screen for development:
       "id": "b",
       "text": "Material theme tokens, component specifications, and state designs",
       "isCorrect": true,
-      "explanation": "Correct! Using Material theme tokens (colors, typography, shapes) maps directly to Compose themes. Specifying components and all their states enables accurate implementation."
+      "explanation": "Correct! Using Material theme tokens (colours, typography, shapes) maps directly to Compose themes. Specifying components and all their states enables accurate implementation."
     },
     {
       "id": "c",

@@ -72,10 +72,10 @@ When multiple elements animate:
 
 ### Easing
 Material uses specific easing curves:
-- **Emphasized:** For larger, important movements
+- **Emphasised:** For larger, important movements
 - **Standard:** Most transitions
-- **Emphasized Decelerate:** Entering elements
-- **Emphasized Accelerate:** Exiting elements
+- **Emphasised Decelerate:** Entering elements
+- **Emphasised Accelerate:** Exiting elements
 
 ## Interactive Motion
 
@@ -106,7 +106,7 @@ When documenting motion:
 Card → Detail Transition:
 - Pattern: Container transform
 - Duration: 300ms
-- Easing: Emphasized
+- Easing: Emphasised
 - Card image becomes hero
 - Card title moves to top
 - Details fade in after transform
@@ -142,9 +142,9 @@ Design and specify a transition:
   "options": [
     {
       "id": "a",
-      "text": "Changing the color of a container",
+      "text": "Changing the colour of a container",
       "isCorrect": false,
-      "explanation": "Container transform is about spatial transformation, not color."
+      "explanation": "Container transform is about spatial transformation, not colour."
     },
     {
       "id": "b",

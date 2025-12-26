@@ -31,7 +31,7 @@ For every design decision, ask: **Why?**
 - "Why did you add that animation?"
 
 Valid answers tie back to purpose:
-- "It's blue to match our primary action color, which users have learned means 'proceed.'"
+- "It's blue to match our primary action colour, which users have learned means 'proceed.'"
 - "The shadow creates elevation, indicating this element is clickable and in the foreground."
 - "It's larger because it's the page title, establishing the content hierarchy."
 - "The animation provides feedback that the action was received and is processing."
@@ -62,14 +62,14 @@ Good design balances both. Aesthetics serve function, and function is presented 
 
 ### Examples of Communication
 
-- **Color coding:** Red for errors, green for success, yellow for warnings. The color communicates status.
+- **Colour coding:** Red for errors, green for success, yellow for warnings. The colour communicates status.
 - **Size hierarchy:** Larger elements are more important. Size communicates priority.
 - **Proximity:** Grouped elements are related. Spacing communicates relationship.
 - **Motion:** Animation draws attention to changes. Movement communicates state.
 
 ### Examples of Decoration
 
-- **Decorative gradients:** Color transitions that don't communicate anything
+- **Decorative gradients:** Colour transitions that don't communicate anything
 - **Arbitrary shadows:** Depth that doesn't indicate interactivity or layering
 - **Random animations:** Movement that doesn't provide feedback
 - **Unnecessary ornaments:** Visual flourishes that don't aid understanding
@@ -93,7 +93,7 @@ If you can't identify the problem, you might be decorating rather than designing
 
 Generate multiple solutions before committing:
 - Increase button size
-- Change button color
+- Change button colour
 - Add animation
 - Improve copy
 - Adjust positioning
@@ -104,7 +104,7 @@ Don't default to your first idea. The best solution isn't always the most obviou
 
 Every choice has consequences:
 - Larger button → Might throw off balance
-- Brighter color → Might cause accessibility issues
+- Brighter colour → Might cause accessibility issues
 - Animation → Might slow performance
 - Better position → Might require layout changes
 
@@ -115,7 +115,7 @@ Consider tradeoffs before committing.
 Check consistency:
 - Does this match other similar elements?
 - Does it fit the design system?
-- Will users recognize it?
+- Will users recognise it?
 
 Novel solutions should be rare. Consistency aids understanding.
 
@@ -176,14 +176,14 @@ Good: "Users scan forms top-to-bottom, so I placed the most important field firs
 ### Acknowledge Tradeoffs
 
 Bad: "This is the only option."
-Good: "This approach prioritizes scannability over density. If space becomes critical, we could reconsider, but current data shows users struggle to find information."
+Good: "This approach prioritises scannability over density. If space becomes critical, we could reconsider, but current data shows users struggle to find information."
 
 ## Try It Yourself
 
 ### Exercise 1: Audit Your Work
 
 Find something you've designed or built. For five visual decisions, write down:
-1. What is the decision? (Color, size, position, etc.)
+1. What is the decision? (Colour, size, position, etc.)
 2. Why did I make it?
 3. What problem does it solve?
 4. What would happen if I changed it?

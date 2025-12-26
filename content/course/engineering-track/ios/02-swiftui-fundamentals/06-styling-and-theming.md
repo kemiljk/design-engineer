@@ -4,14 +4,14 @@
 
 ## What You'll Learn
 
-- Colors and materials
+- Colours and materials
 - Custom styles
 - Environment and preferences
 - Dark mode support
 
-## Colors
+## Colours
 
-### System Colors
+### System Colours
 ```swift
 Text("Primary").foregroundColor(.primary)
 Text("Secondary").foregroundColor(.secondary)
@@ -19,7 +19,7 @@ Text("Blue").foregroundColor(.blue)
 Text("Custom").foregroundColor(Color("BrandColor"))  // Asset catalog
 ```
 
-### Color Modifiers
+### Colour Modifiers
 ```swift
 Text("Styled")
     .foregroundStyle(.blue)  // Modern approach
@@ -92,7 +92,7 @@ Button("Custom") { }
 
 ## Dark Mode
 
-SwiftUI supports dark mode automatically with semantic colors:
+SwiftUI supports dark mode automatically with semantic colours:
 ```swift
 // Adapts automatically
 Text("Adaptive")
@@ -132,7 +132,7 @@ struct ContentView: View {
 ### Exercise 1: Custom Button
 
 Create a custom button style with:
-- Brand colors
+- Brand colours
 - Press animation
 - Disabled state
 
@@ -162,21 +162,21 @@ Create a view and preview it:
     },
     {
       "id": "b",
-      "text": "Use semantic colors and system-provided materials that automatically adapt",
+      "text": "Use semantic colours and system-provided materials that automatically adapt",
       "isCorrect": true,
-      "explanation": "Correct! Use semantic colors like .primary, .secondary, Color(.systemBackground), and system materials. They automatically adjust for light/dark mode."
+      "explanation": "Correct! Use semantic colours like .primary, .secondary, Colour(.systemBackground), and system materials. They automatically adjust for light/dark mode."
     },
     {
       "id": "c",
-      "text": "Check the color scheme manually and apply different styles",
+      "text": "Check the colour scheme manually and apply different styles",
       "isCorrect": false,
-      "explanation": "While possible, using semantic colors is the recommended approach."
+      "explanation": "While possible, using semantic colours is the recommended approach."
     },
     {
       "id": "d",
       "text": "Dark mode isn't supported in SwiftUI",
       "isCorrect": false,
-      "explanation": "SwiftUI has excellent Dark Mode support through semantic colors."
+      "explanation": "SwiftUI has excellent Dark Mode support through semantic colours."
     }
   ]
 }
@@ -184,7 +184,7 @@ Create a view and preview it:
 
 ## Key Takeaways
 
-- Use semantic colors for automatic adaptation
+- Use semantic colours for automatic adaptation
 - Materials provide translucent backgrounds
 - Custom styles enable reusable styling
 - Environment values access system settings

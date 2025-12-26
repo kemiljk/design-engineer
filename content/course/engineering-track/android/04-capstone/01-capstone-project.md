@@ -48,7 +48,7 @@ By the end of this capstone, you'll have:
    - Material motion
 
 5. **GitHub Repository**
-   - Clean code organization
+   - Clean code organisation
    - Comprehensive README
    - (Optional) Play Store deployment
 
@@ -58,19 +58,19 @@ Select one of these app types, or propose your own:
 
 ### Option A: Task Manager
 A productivity app for managing tasks:
-- **Features:** Create/edit/delete tasks, mark complete, organize by category, due dates
+- **Features:** Create/edit/delete tasks, mark complete, organise by category, due dates
 - **Key Screens:** Task list, task detail/edit, category management, settings
 - **Challenge:** Task state management, filtering, sorting
 
 ### Option B: Expense Tracker
 A personal finance app:
-- **Features:** Log expenses, categorize, view summaries, budgets
+- **Features:** Log expenses, categorise, view summaries, budgets
 - **Key Screens:** Expense list, add expense, category summary, settings
-- **Challenge:** Data aggregation, charts/visualization
+- **Challenge:** Data aggregation, charts/visualisation
 
 ### Option C: Notes App
 A note-taking application:
-- **Features:** Create/edit/delete notes, organize in folders, search, markdown support
+- **Features:** Create/edit/delete notes, organise in folders, search, markdown support
 - **Key Screens:** Note list, note editor, folder management, search
 - **Challenge:** Rich text handling, search implementation
 
@@ -78,7 +78,7 @@ A note-taking application:
 An app for building habits:
 - **Features:** Define habits, track daily completion, streaks, statistics
 - **Key Screens:** Today view, habit list, habit detail/stats, add/edit habit
-- **Challenge:** Date handling, streak calculation, visualization
+- **Challenge:** Date handling, streak calculation, visualisation
 
 ## Phase 1: Project Setup & Architecture (2-3 hours)
 
@@ -202,7 +202,7 @@ app/src/main/java/com/yourpackage/
 ✓ Android Studio project created
 ✓ Dependencies configured
 ✓ Data models defined
-✓ Project structure organized
+✓ Project structure organised
 
 ## Phase 2: Core Screens (3-4 hours)
 
@@ -753,7 +753,7 @@ sealed interface UiState {
 ### Checkpoint
 ✓ Accessibility semantics added
 ✓ Dynamic text supported
-✓ TalkBack optimized
+✓ TalkBack optimised
 ✓ Material motion implemented
 ✓ Error handling in place
 
@@ -856,7 +856,7 @@ Your capstone should include:
   - [ ] Sufficient contrast
 
 - [ ] **Code Quality**
-  - [ ] Clean organization
+  - [ ] Clean organisation
   - [ ] No warnings
   - [ ] README documentation
 
@@ -880,7 +880,7 @@ Your capstone should include:
 Study these open-source Compose apps:
 
 **Task/Productivity:**
-- Google Tasks (study behavior)
+- Google Tasks (study behaviour)
 - Todoist (study interaction design)
 
 **Reference Apps:**

@@ -37,7 +37,7 @@ Design tools present an infinite canvas where you place design elements.
 
 ### Working with Frames
 
-Frames are your primary organizing structure:
+Frames are your primary organising structure:
 - One frame per screen/page design
 - Frames for components
 - Frames for sections within pages
@@ -107,7 +107,7 @@ This nesting mirrors both DOM structure and component hierarchy.
 ### Alignment
 
 Most tools have alignment options:
-- Left/Center/Right align
+- Left/Centre/Right align
 - Top/Middle/Bottom align
 - Distribute horizontally/vertically
 
@@ -134,8 +134,8 @@ Enable snapping for precision; disable for freedom.
 
 ### Shape Properties
 
-**Fill:** The inside color (solid, gradient, or image)
-**Stroke:** The outline (color, weight, style)
+**Fill:** The inside colour (solid, gradient, or image)
+**Stroke:** The outline (colour, weight, style)
 **Corner radius:** For rounded corners
 **Shadow:** Drop shadow, inner shadow
 **Blur:** Gaussian blur, background blur
@@ -164,7 +164,7 @@ Create text by clicking (point text) or dragging (area text).
 - **Line height**
 - **Letter spacing (tracking)**
 - **Paragraph spacing**
-- **Alignment** (left, center, right, justify)
+- **Alignment** (left, centre, right, justify)
 
 ### Text Styles
 
@@ -176,20 +176,20 @@ Define reusable text styles:
 
 Apply styles consistently; update the style to change all instances.
 
-## Color and Styles
+## Colour and Styles
 
-### Color Definition
+### Colour Definition
 
-Colors can be:
-- **Solid:** Single color (hex, RGB, HSL)
-- **Gradient:** Transition between colors
+Colours can be:
+- **Solid:** Single colour (hex, RGB, HSL)
+- **Gradient:** Transition between colours
 - **Image:** Fill with a picture
 
-### Color Styles
+### Colour Styles
 
-Define named colors for reuse:
+Define named colours for reuse:
 - `Primary/500`
-- `Gray/100`
+- `Grey/100`
 - `Error/500`
 
 These become your design tokens. When you change the style, all uses update.
@@ -244,7 +244,7 @@ Learning shortcuts dramatically speeds up design work:
 - `Space + drag` — Pan canvas
 - `Cmd/Ctrl + scroll` — Zoom
 
-**Learn gradually:** Pick 3-5 shortcuts to practice each week.
+**Learn gradually:** Pick 3-5 shortcuts to practise each week.
 
 ## File Organization
 
@@ -295,7 +295,7 @@ Create a simple card component:
 ### Exercise 3: Styles Practice
 
 Create and apply:
-1. Three color styles (Primary, Secondary, Background)
+1. Three colour styles (Primary, Secondary, Background)
 2. Two text styles (Heading, Body)
 3. Apply them to the card from Exercise 2
 
@@ -341,10 +341,10 @@ Create and apply:
 ## Key Takeaways
 
 - Design tools share common concepts: canvas, frames, layers, shapes, styles
-- Frames organize your work and represent screens/components
+- Frames organise your work and represent screens/components
 - Layer management (order, naming, grouping) is essential
 - Shapes have properties: fill, stroke, corner radius, shadows
-- Create reusable styles for colors, text, and effects
+- Create reusable styles for colours, text, and effects
 - Learn keyboard shortcuts incrementally
 - Organize files with clear naming and page structure
 

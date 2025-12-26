@@ -166,7 +166,7 @@ Build a form with:
     },
     {
       "id": "b",
-      "text": "Native elements have built-in keyboard and screen reader behavior; ARIA only adds labels, not functionality",
+      "text": "Native elements have built-in keyboard and screen reader behaviour; ARIA only adds labels, not functionality",
       "isCorrect": true,
       "explanation": "Correct! A <button> automatically handles keyboard events, focus, and screen reader announcements. Adding role='button' to a div only announces it. You must add keyboard handling yourself."
     },

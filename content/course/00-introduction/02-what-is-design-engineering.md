@@ -87,7 +87,7 @@ Companies value Design Engineers because they:
 
 **Ship better.** Details don't get lost in handoff. Animations get implemented. Edge cases get designed. The gap between mockup and reality shrinks.
 
-**Bridge teams.** In large organizations, design and engineering can become silos. Design Engineers create connections, reduce friction, and help teams understand each other.
+**Bridge teams.** In large organisations, design and engineering can become silos. Design Engineers create connections, reduce friction, and help teams understand each other.
 
 **Enable experimentation.** When one person can concept, prototype, and ship an idea, experimentation becomes cheap. This leads to more innovation and better products.
 
@@ -140,7 +140,7 @@ Some Design Engineers focus on marketing and brand work—building landing pages
 What does it take to do this work? The specific technologies vary by platform, but the core skills include:
 
 ### Design Skills
-- Visual design principles (hierarchy, typography, color, spacing)
+- Visual design principles (hierarchy, typography, colour, spacing)
 - Design tools proficiency (Figma, Sketch, etc.)
 - Design systems thinking
 - UX fundamentals
@@ -150,7 +150,7 @@ What does it take to do this work? The specific technologies vary by platform, b
 - Core web technologies (HTML, CSS, JavaScript) or native platforms (Swift, Kotlin)
 - Component architecture
 - State management
-- Performance optimization
+- Performance optimisation
 - Accessibility implementation
 
 ### Bridge Skills
@@ -226,7 +226,7 @@ Write down your answers. We'll use them in the next lesson to help you choose yo
       "id": "d",
       "text": "They always work faster than specialists",
       "isCorrect": false,
-      "explanation": "Speed comes from reducing friction and iteration cycles, not from individuals working faster at specialized tasks."
+      "explanation": "Speed comes from reducing friction and iteration cycles, not from individuals working faster at specialised tasks."
     }
   ]
 }

@@ -215,4 +215,4 @@ Based on your testing, fix:
 
 ## Next Steps
 
-Continue to [Color and Contrast](./05-color-and-contrast.md) →
+Continue to [Colour and Contrast](./05-colour-and-contrast.md) →

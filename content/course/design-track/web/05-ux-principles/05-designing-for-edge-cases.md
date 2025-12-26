@@ -126,7 +126,7 @@ Errors happen. Good design handles them gracefully.
 ### Error State Design
 
 Visual treatment matters:
-- Use color thoughtfully (red isn't always necessary)
+- Use colour thoughtfully (red isn't always necessary)
 - Include icons for scanability
 - Don't overuse bold/caps
 - Keep actionable when possible
@@ -184,7 +184,7 @@ Loading states appear while waiting for data or processing.
 ### Skeleton Screens
 
 Skeleton screens show content layout while data loads:
-- Gray shapes where content will appear
+- Grey shapes where content will appear
 - Maintains page structure
 - Feels faster than empty space + spinner
 - Reduces layout shift when content loads
@@ -357,7 +357,7 @@ For a feature you're working on:
     },
     {
       "id": "d",
-      "text": "A modal dialog explaining that processing is happening",
+      "text": "A modal dialogue explaining that processing is happening",
       "isCorrect": false,
       "explanation": "A modal is heavy-handed for routine operations. Progress indication is more appropriate."
     }
@@ -381,10 +381,10 @@ Congratulations! You've completed the Design Track for Web.
 
 You now understand:
 - Visual design fundamentals
-- Typography, color, spacing, and layout
+- Typography, colour, spacing, and layout
 - Design tools and workflows
 - Design systems and components
-- UX principles and user-centered thinking
+- UX principles and user-centred thinking
 
 **Where to go next:**
 

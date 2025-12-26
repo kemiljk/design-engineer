@@ -65,7 +65,7 @@ Signifiers indicate how to interact with affordances.
 ### Common Signifiers
 
 - **Cursor changes:** Pointer for clickable, text cursor for editable
-- **Visual treatment:** Underlines, colors, shadows
+- **Visual treatment:** Underlines, colours, shadows
 - **Icons:** Hamburger menu, chevrons, plus signs
 - **Labels:** "Click here," "Tap to edit"
 - **Animations:** Pulse to draw attention
@@ -73,7 +73,7 @@ Signifiers indicate how to interact with affordances.
 ### Signifier Strength
 
 Match signifier strength to importance:
-- Primary action: Strong signifiers (color, size, position)
+- Primary action: Strong signifiers (colour, size, position)
 - Secondary action: Moderate signifiers
 - Tertiary action: Subtle signifiers
 
@@ -96,7 +96,7 @@ Feedback closes the interaction loop.
 ### Types of Feedback
 
 **Visual feedback:**
-- Color changes (button pressed)
+- Colour changes (button pressed)
 - Animation (submission processing)
 - Content changes (new item appears)
 - Progress indicators (loading bar)
@@ -135,7 +135,7 @@ Error feedback should:
 The fundamental interaction:
 - Clear tap targets (44px minimum for touch)
 - Visual feedback on press
-- Consistent behavior across similar elements
+- Consistent behaviour across similar elements
 
 ### Hover (Desktop)
 
@@ -273,7 +273,7 @@ Micro-interactions are small, single-purpose interactions:
 1. **Trigger:** User action or system event
 2. **Rules:** What happens in response
 3. **Feedback:** Visual, audio, or haptic response
-4. **Loops/Modes:** Repeated or changing behavior
+4. **Loops/Modes:** Repeated or changing behaviour
 
 ### Why Micro-interactions Matter
 

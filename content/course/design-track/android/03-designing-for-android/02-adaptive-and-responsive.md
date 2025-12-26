@@ -25,7 +25,7 @@ Design once, run everywhere. Or design adaptations for key form factors.
 ## Window Size Classes
 
 ### Compact (<600dp width)
-Phone-optimized layouts:
+Phone-optimised layouts:
 - Single column
 - Bottom navigation
 - Full-width content
@@ -122,7 +122,7 @@ Document what changes between them.
 Design a list-detail pattern:
 - Separate screens for compact
 - Side-by-side for expanded
-- Transition behavior
+- Transition behaviour
 
 ## Test Your Understanding
 
@@ -133,7 +133,7 @@ Design a list-detail pattern:
   "title": "Adaptive and Responsive Design",
   "description": "Test your understanding of Android adaptive design.",
   "difficulty": "medium",
-  "question": "How does Android categorize different screen sizes for adaptive design?",
+  "question": "How does Android categorise different screen sizes for adaptive design?",
   "options": [
     {
       "id": "a",

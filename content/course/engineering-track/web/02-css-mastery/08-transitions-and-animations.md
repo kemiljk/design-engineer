@@ -24,7 +24,7 @@ Transitions animate changes between states:
 }
 ```
 
-The color change animates over 0.2 seconds instead of instantly.
+The colour change animates over 0.2 seconds instead of instantly.
 
 ### Transition Properties
 
@@ -70,7 +70,7 @@ Use `all` sparingly. It can cause unexpected animations and performance issues.
 ### What Can Be Transitioned?
 
 Most properties with numeric values:
-- Colors (`color`, `background-color`)
+- Colours (`color`, `background-color`)
 - Dimensions (`width`, `height`, `padding`, `margin`)
 - Position (`top`, `left`, with `position: relative/absolute`)
 - Transforms (`transform`)
@@ -404,7 +404,7 @@ Essential motion can be kept (perhaps reduced). Decorative motion should respect
 ### Exercise 1: Button States
 
 Create a button with transitions for:
-- Background color on hover
+- Background colour on hover
 - Shadow on hover
 - Slight scale on active (pressed)
 - Focus outline animation
@@ -456,7 +456,7 @@ Create a CSS-only loading spinner with:
     },
     {
       "id": "d",
-      "text": "background-color and border for visual effects",
+      "text": "background-colour and border for visual effects",
       "isCorrect": false,
       "explanation": "These trigger paint, which is better than layout but still not as smooth as transform/opacity."
     }

@@ -237,13 +237,13 @@ Implement a loading button that:
       "id": "a",
       "text": "Use <a> for everything since you can style it to look like a button",
       "isCorrect": false,
-      "explanation": "Styling doesn't change semantic behavior—links and buttons work differently for accessibility."
+      "explanation": "Styling doesn't change semantic behaviour—links and buttons work differently for accessibility."
     },
     {
       "id": "b",
       "text": "<button> for actions (submit, toggle), <a> for navigation to a new page/section",
       "isCorrect": true,
-      "explanation": "Correct! Buttons perform actions, links navigate. Screen readers announce them differently, and they have different keyboard behaviors (Enter vs Enter/Space)."
+      "explanation": "Correct! Buttons perform actions, links navigate. Screen readers announce them differently, and they have different keyboard behaviours (Enter vs Enter/Space)."
     },
     {
       "id": "c",

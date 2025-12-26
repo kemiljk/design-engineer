@@ -69,7 +69,7 @@ Design an app for personal improvement:
 - **Challenge:** Make data engaging and motivating
 
 ### Option C: Social/Community App
-Design an app centered on connection:
+Design an app centred on connection:
 - **Suggestions:** Event finder, group activities, local recommendations
 - **Key Screens:** Feed, discovery, detail view, profile, messaging
 - **Challenge:** Create engaging social interactions
@@ -99,7 +99,7 @@ Establish the foundation:
 
 ### Step 3: Create iOS Tokens
 
-**Color System:**
+**Colour System:**
 ```
 Primary: [Your brand color + tints/shades]
 Secondary: [Accent color if needed]
@@ -126,16 +126,16 @@ Caption: 12pt Regular
 Use iOS standard spacing: 8, 16, 20, 24, 32, 40, 64
 
 ### Step 4: Setup Light & Dark Mode
-Create color styles that adapt:
-- Background colors for both modes
-- Text colors for both modes
-- System colors (iOS semantic colors)
-- Your brand colors in both modes
+Create colour styles that adapt:
+- Background colours for both modes
+- Text colours for both modes
+- System colours (iOS semantic colours)
+- Your brand colours in both modes
 
 ### Checkpoint
 ✓ App concept defined with clear purpose
 ✓ Reference research complete
-✓ Color system with light/dark variants
+✓ Colour system with light/dark variants
 ✓ Typography scale using SF Pro
 ✓ Spacing scale defined
 
@@ -277,7 +277,7 @@ Review everything:
 - All states complete?
 - Spacing consistent?
 - Typography correct?
-- Colors accessible?
+- Colours accessible?
 
 ### Step 4: Case Study
 Document your process:
@@ -301,14 +301,14 @@ Structure for portfolio:
 ✓ App Store assets created
 ✓ Design audit passed
 ✓ Case study written
-✓ File professionally organized
+✓ File professionally organised
 
 ## Submission Checklist
 
 Your capstone should include:
 
 - [ ] **iOS Design System**
-  - [ ] Color tokens (light + dark)
+  - [ ] Colour tokens (light + dark)
   - [ ] Typography using SF Pro
   - [ ] SF Symbols integration
   - [ ] Spacing consistent with iOS
@@ -338,7 +338,7 @@ Your capstone should include:
 - [ ] **Documentation**
   - [ ] Process documented
   - [ ] Decisions explained
-  - [ ] File organized
+  - [ ] File organised
 
 ## Evaluation Criteria
 

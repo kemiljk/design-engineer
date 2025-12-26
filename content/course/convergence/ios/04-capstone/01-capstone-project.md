@@ -578,17 +578,17 @@ struct SkeletonRow: View {
     var body: some View {
         HStack(spacing: 12) {
             Circle()
-                .fill(.gray.opacity(0.3))
+                .fill(.grey.opacity(0.3))
                 .frame(width: 44, height: 44)
             
             VStack(alignment: .leading, spacing: 8) {
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(.gray.opacity(0.3))
+                    .fill(.grey.opacity(0.3))
                     .frame(height: 16)
                     .frame(maxWidth: 200)
                 
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(.gray.opacity(0.2))
+                    .fill(.grey.opacity(0.2))
                     .frame(height: 12)
                     .frame(maxWidth: 120)
             }
@@ -836,7 +836,7 @@ Your capstone should include:
 | **Animation Quality** | Basic animations | Polished, purposeful | Delightful, cohesive system |
 | **Accessibility** | Partial support | Full compliance | Exemplary implementation |
 | **Polish** | Functional states | Professional quality | Exceptional attention to detail |
-| **Code Quality** | Works | Clean, organized | Elegant, well-structured |
+| **Code Quality** | Works | Clean, organised | Elegant, well-structured |
 | **Documentation** | Basic README | Clear case study | Compelling portfolio piece |
 
 ## Tips for Success

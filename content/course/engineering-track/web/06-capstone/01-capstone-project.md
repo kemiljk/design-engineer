@@ -16,7 +16,7 @@ This capstone brings together everything from the Engineering Track: HTML fundam
 
 **Why this project?** Component libraries are exceptional portfolio pieces. They showcase:
 - Deep HTML/CSS knowledge (semantic, accessible markup)
-- JavaScript proficiency (interactive behaviors)
+- JavaScript proficiency (interactive behaviours)
 - Systems thinking (consistent APIs, tokens)
 - Documentation skills (developer experience)
 - DevOps awareness (deployment, versioning)
@@ -28,7 +28,7 @@ This capstone brings together everything from the Engineering Track: HTML fundam
 By the end of this capstone, you'll have:
 
 1. **Token System**
-   - CSS custom properties for colors, typography, spacing
+   - CSS custom properties for colours, typography, spacing
    - Light and dark theme support
    - Easily customizable by consumers
 
@@ -55,7 +55,7 @@ By the end of this capstone, you'll have:
    - README with installation instructions
 
 5. **GitHub Repository**
-   - Clean code organization
+   - Clean code organisation
    - Comprehensive README
    - MIT license (or similar)
 
@@ -77,7 +77,7 @@ Contemporary, polished business aesthetic:
 
 ### Option C: Playful/Creative
 Friendly, approachable design:
-- **Style:** Rounded corners, vibrant colors, personality
+- **Style:** Rounded corners, vibrant colours, personality
 - **Inspiration:** Discord, Notion, Framer
 - **Focus:** Delight and expressiveness
 
@@ -118,7 +118,7 @@ my-component-library/
 └── README.md
 ```
 
-### Step 2: Color Tokens
+### Step 2: Colour Tokens
 
 ```css
 /* src/tokens/colors.css */
@@ -232,7 +232,7 @@ my-component-library/
 
 ### Checkpoint
 ✓ Project structure created
-✓ Color tokens with light/dark support
+✓ Colour tokens with light/dark support
 ✓ Typography tokens defined
 ✓ Spacing and utility tokens defined
 ✓ All tokens imported in index.css
@@ -568,7 +568,7 @@ npm install your-component-library
 
 ## Customization
 
-Override CSS custom properties to customize:
+Override CSS custom properties to customise:
 
 :root {
   --color-primary-500: #your-brand-color;
@@ -614,7 +614,7 @@ Deploy docs site to GitHub Pages.
 Your capstone should include:
 
 - [ ] **Token System**
-  - [ ] Color tokens (light/dark)
+  - [ ] Colour tokens (light/dark)
   - [ ] Typography tokens
   - [ ] Spacing tokens
   - [ ] All use CSS custom properties
@@ -635,7 +635,7 @@ Your capstone should include:
   - [ ] Keyboard navigable
   - [ ] Focus visible states
   - [ ] ARIA where needed
-  - [ ] Color contrast passing
+  - [ ] Colour contrast passing
 
 - [ ] **Documentation**
   - [ ] Getting started guide
@@ -652,12 +652,12 @@ Your capstone should include:
 
 | Criteria | Developing | Proficient | Excellent |
 |----------|-----------|------------|-----------|
-| **Code Quality** | Works but inconsistent | Clean, consistent patterns | Exceptional organization, DRY, maintainable |
+| **Code Quality** | Works but inconsistent | Clean, consistent patterns | Exceptional organisation, DRY, maintainable |
 | **Accessibility** | Some consideration | WCAG AA compliant | Exemplary a11y, thorough testing |
 | **Documentation** | Basic docs exist | Clear, complete docs | Exceptional DX, live examples, thorough |
 | **API Design** | Functional but awkward | Intuitive, consistent | Elegant, flexible, well-considered |
 | **Visual Polish** | Basic styling | Clean, professional | Beautiful, cohesive, delightful |
-| **Token System** | Tokens exist | Well-organized, useful | Elegant architecture, fully themeable |
+| **Token System** | Tokens exist | Well-organised, useful | Elegant architecture, fully themeable |
 
 ## Examples for Inspiration
 

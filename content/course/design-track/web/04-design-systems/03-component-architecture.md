@@ -94,7 +94,7 @@ Use variants for semantically different configurations:
 <Button variant="danger">   // From this
 ```
 
-Use props for customization within a variant:
+Use props for customisation within a variant:
 ```
 <Button variant="primary" size="lg" disabled>
 ```
@@ -201,7 +201,7 @@ Layout components separate structure from content.
 
 ### Render Props / Slots
 
-Let consumers customize rendering:
+Let consumers customise rendering:
 
 ```
 <DataTable
@@ -223,7 +223,7 @@ The "API" is how consumers interact with your component.
 
 ### Props (Design Side: Properties)
 
-**What can be customized?**
+**What can be customised?**
 - Variants
 - Sizes
 - States
@@ -287,7 +287,7 @@ Each component needs documentation:
 
 ### Accessibility
 
-- Keyboard behavior
+- Keyboard behaviour
 - Screen reader announcements
 - Required ARIA attributes
 - Focus management
@@ -309,10 +309,10 @@ Components will change. Plan for it:
 
 ### Extensibility Points
 
-Build in points where behavior can be extended:
+Build in points where behaviour can be extended:
 - Custom styling hooks
 - Event callbacks
-- Render customization
+- Render customisation
 
 ## Try It Yourself
 
@@ -323,7 +323,7 @@ For a notification/toast component, specify:
 2. All possible states
 3. Required properties
 4. Optional properties
-5. Slots or customization points
+5. Slots or customisation points
 
 ### Exercise 2: Composition Design
 

@@ -35,7 +35,7 @@ By the end of this capstone, you'll have:
 2. **Accessibility Excellence**
    - WCAG 2.1 AA compliant
    - Full keyboard navigation
-   - Screen reader optimized
+   - Screen reader optimised
    - Reduced motion support
 
 3. **Performance Optimized**
@@ -80,7 +80,7 @@ Your own design engineering portfolio:
 ### Option D: Interactive Tool or Utility
 A useful web tool with great UX:
 - **Features:** Core functionality, delightful interactions, helpful feedback
-- **Examples:** Color palette generator, design token converter, accessibility checker
+- **Examples:** Colour palette generator, design token converter, accessibility checker
 - **Challenge:** Make utility feel crafted and enjoyable
 
 ## Phase 1: Concept & Design (3-4 hours)
@@ -707,9 +707,9 @@ animateHero().then(() => {
 ```
 
 ### Checkpoint
-✓ Images optimized
+✓ Images optimised
 ✓ CSS performance tuned
-✓ JavaScript optimized
+✓ JavaScript optimised
 ✓ Performance measured
 
 ## Phase 5: Documentation & Deployment (3-4 hours)
@@ -771,7 +771,7 @@ A [brief description] built with HTML, CSS, and vanilla JavaScript.
 - ✨ Feature 1
 - 🎯 Feature 2
 - ♿ Fully accessible
-- 🚀 Performance optimized
+- 🚀 Performance optimised
 
 ## Live Demo
 [Link to deployed site]
@@ -839,7 +839,7 @@ Run through this checklist:
 - [ ] **Accessibility**
   - [ ] Keyboard navigation complete
   - [ ] Screen reader tested
-  - [ ] Color contrast verified
+  - [ ] Colour contrast verified
   - [ ] Reduced motion works
 
 - [ ] **Performance**
@@ -871,7 +871,7 @@ Your capstone should include:
 - [ ] **Accessibility**
   - [ ] WCAG 2.1 AA compliant
   - [ ] Full keyboard navigation
-  - [ ] Screen reader optimized
+  - [ ] Screen reader optimised
   - [ ] Reduced motion support
 
 - [ ] **Performance**
@@ -896,7 +896,7 @@ Your capstone should include:
 | **Motion Design** | Basic animations | Purposeful, polished motion | Delightful, cohesive motion language |
 | **Accessibility** | Some consideration | WCAG compliant, keyboard works | Exemplary, exceeds requirements |
 | **Performance** | Page loads | Optimized, good scores | Lightning fast, all vitals green |
-| **Code Quality** | Works but messy | Clean, organized | Elegant, well-documented |
+| **Code Quality** | Works but messy | Clean, organised | Elegant, well-documented |
 | **Polish** | Functional | Professional quality | Portfolio-worthy, inspiring |
 | **Case Study** | Brief explanation | Clear documentation | Compelling narrative |
 
@@ -920,7 +920,7 @@ Study these portfolio pieces and case studies:
 2. **Motion with purpose.** Every animation should serve a goal.
 3. **Test early.** Don't leave accessibility testing for the end.
 4. **Document as you go.** Take screenshots and notes throughout.
-5. **Get feedback.** Share with peers before finalizing.
+5. **Get feedback.** Share with peers before finalising.
 6. **Own your narrative.** Your case study tells your story.
 
 ## What's Next

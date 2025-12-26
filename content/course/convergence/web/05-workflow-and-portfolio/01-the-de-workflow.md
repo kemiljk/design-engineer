@@ -1,6 +1,6 @@
 # The DE Workflow
 
-> **Quick Summary:** Design Engineers work across the entire product development cycle. Learn how to maximize your impact at each stage.
+> **Quick Summary:** Design Engineers work across the entire product development cycle. Learn how to maximise your impact at each stage.
 
 ## What You'll Learn
 
@@ -37,7 +37,7 @@ You're not just a translator—you're a participant in both worlds.
 - **Value:** Ship design as intended
 
 ### Launch & Iteration
-- **Contribution:** Performance optimization, user feedback response
+- **Contribution:** Performance optimisation, user feedback response
 - **Activities:** Monitor, iterate, polish based on real usage
 - **Value:** Continuous improvement
 

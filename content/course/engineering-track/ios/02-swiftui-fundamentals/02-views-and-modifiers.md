@@ -139,7 +139,7 @@ Some modifiers are environment modifiers, affecting descendants.
 
 Create a button with:
 - Padding
-- Background color
+- Background colour
 - Rounded corners
 - Shadow
 
@@ -147,7 +147,7 @@ Create a button with:
 
 Create a `tagStyle()` modifier that:
 - Adds horizontal padding
-- Has a colored background
+- Has a coloured background
 - Has fully rounded corners
 
 ## Test Your Understanding
@@ -171,7 +171,7 @@ Create a `tagStyle()` modifier that:
       "id": "b",
       "text": "Each modifier returns a new view wrapping the previous—order determines which applies first",
       "isCorrect": true,
-      "explanation": "Correct! .padding().background(Color.red) pads first, then adds background (including padding). .background(Color.red).padding() adds background, then pads outside it. Different results!"
+      "explanation": "Correct! .padding().background(Colour.red) pads first, then adds background (including padding). .background(Colour.red).padding() adds background, then pads outside it. Different results!"
     },
     {
       "id": "c",

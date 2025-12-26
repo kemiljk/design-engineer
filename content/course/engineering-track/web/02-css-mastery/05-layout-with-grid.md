@@ -452,7 +452,7 @@ Create a gallery with:
 - `auto-fill`/`auto-fit` create responsive grids without media queries
 - `grid-template-areas` enables named layout regions
 - Items can be placed with line numbers, spans, or area names
-- `place-items: center` is the simplest centering
+- `place-items: center` is the simplest centring
 
 ## Next Steps
 

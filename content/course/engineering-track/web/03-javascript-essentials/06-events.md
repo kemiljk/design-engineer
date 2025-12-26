@@ -376,7 +376,7 @@ Create a list where clicking a button moves an item up or down. Use event delega
       "id": "a",
       "text": "Passing event handling to a different JavaScript file",
       "isCorrect": false,
-      "explanation": "Event delegation is about DOM event handling, not file organization."
+      "explanation": "Event delegation is about DOM event handling, not file organisation."
     },
     {
       "id": "b",
@@ -404,7 +404,7 @@ Create a list where clicking a button moves an item up or down. Use event delega
 
 - `addEventListener` attaches event handlers
 - Event object contains information about the event
-- `preventDefault()` stops default browser behavior
+- `preventDefault()` stops default browser behaviour
 - Events bubble up—use `stopPropagation()` to stop
 - Event delegation listens on parents for efficiency
 - Debounce and throttle for frequently firing events

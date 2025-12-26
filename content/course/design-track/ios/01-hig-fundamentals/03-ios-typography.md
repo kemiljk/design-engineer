@@ -48,7 +48,7 @@ Apple provides semantic text styles:
 - **Title 3:** 20pt, subsection headings
 
 ### Body Styles
-- **Headline:** 17pt semibold, emphasized text
+- **Headline:** 17pt semibold, emphasised text
 - **Body:** 17pt, primary reading text
 - **Callout:** 16pt, secondary information
 - **Subheadline:** 15pt, supporting text
@@ -156,7 +156,7 @@ If you have an iOS device, change the text size setting. Open several apps and n
 
 ## Key Takeaways
 
-- San Francisco is optimized for Apple devices
+- San Francisco is optimised for Apple devices
 - Use semantic text styles, not fixed sizes
 - Dynamic Type makes apps accessible
 - Test at multiple size categories
@@ -164,4 +164,4 @@ If you have an iOS device, change the text size setting. Open several apps and n
 
 ## Next Steps
 
-Continue to [iOS Color and Materials](./04-ios-color-and-materials.md) →
+Continue to [iOS Colour and Materials](./04-ios-colour-and-materials.md) →
