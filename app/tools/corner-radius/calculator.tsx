@@ -47,17 +47,11 @@ const CALCULATION_MODES: { value: CalculationMode; label: string; description: s
  * visual "weight" and can appear too prominent on nested elements. This is a
  * subtle correction—just enough to improve visual harmony without being obvious.
  * 
- * Formula: offset = (innerRadius × curveFactor) + continuousCornerCompensation
+ * Formula: offset = innerRadius × curveFactor
  * 
- * Where:
- * - curveFactor = 0.03-0.06 based on the radius/gap ratio (subtle 3-6%)
- * - continuousCornerCompensation = ~0.5-1px for squircle shapes
+ * Where curveFactor = 0.03-0.06 based on the radius/gap ratio (subtle 3-6%)
  */
-function calculateOpticalOffset(
-  outerRadius: number, 
-  gap: number, 
-  useContinuousCorners: boolean
-): number {
+function calculateOpticalOffset(outerRadius: number, gap: number): number {
   const standardInner = outerRadius - gap;
   
   // If already at 0 or very small, no offset needed
@@ -69,14 +63,7 @@ function calculateOpticalOffset(
   const curveFactor = 0.03 + (1 - gapRatio) * 0.03; // 0.03-0.06 range (subtle)
   
   // Base optical correction
-  let offset = standardInner * curveFactor;
-  
-  // Continuous corners (squircles) extend slightly further than circular arcs
-  // Small additional compensation for squircle shapes
-  if (useContinuousCorners && outerRadius > 12) {
-    const squircleCompensation = 0.5 + (outerRadius / 96);
-    offset += squircleCompensation;
-  }
+  const offset = standardInner * curveFactor;
   
   // Maximum offset shouldn't exceed 10% of the inner radius
   const maxOffset = standardInner * 0.1;
@@ -84,19 +71,22 @@ function calculateOpticalOffset(
   return Math.round(Math.min(offset, maxOffset));
 }
 
+type PreviewType = "card" | "button" | "modal" | "input" | "badge";
+
 type RadiusPreset = {
   name: string;
   outerRadius: number;
   padding: number;
+  preview: PreviewType;
 };
 
 const PRESETS: RadiusPreset[] = [
-  { name: "Card", outerRadius: 16, padding: 12 },
-  { name: "Modal", outerRadius: 24, padding: 16 },
-  { name: "Button", outerRadius: 12, padding: 8 },
-  { name: "iOS App", outerRadius: 22, padding: 6 },
-  { name: "Android Card", outerRadius: 12, padding: 16 },
-  { name: "Large Card", outerRadius: 32, padding: 24 },
+  { name: "Card", outerRadius: 16, padding: 12, preview: "card" },
+  { name: "Modal", outerRadius: 24, padding: 16, preview: "modal" },
+  { name: "Button", outerRadius: 12, padding: 8, preview: "button" },
+  { name: "Input", outerRadius: 8, padding: 12, preview: "input" },
+  { name: "Badge", outerRadius: 20, padding: 6, preview: "badge" },
+  { name: "Large Card", outerRadius: 32, padding: 24, preview: "card" },
 ];
 
 export default function CornerRadiusCalculator() {
@@ -105,14 +95,14 @@ export default function CornerRadiusCalculator() {
   const [customOffset, setCustomOffset] = useState(0);
   const [mode, setMode] = useState<CalculationMode>("standard");
   const [platform, setPlatform] = useState<Platform>("css");
-  const [activePreset, setActivePreset] = useState<string | null>(null);
+  const [activePreset, setActivePreset] = useState<string | null>("Modal");
+  const [previewType, setPreviewType] = useState<PreviewType>("modal");
   const [showBorders, setShowBorders] = useState(true);
-  const [useContinuousCorners, setUseContinuousCorners] = useState(true);
 
   // Calculate the suggested optical offset
   const suggestedOffset = useMemo(() => {
-    return calculateOpticalOffset(outerRadius, padding, useContinuousCorners);
-  }, [outerRadius, padding, useContinuousCorners]);
+    return calculateOpticalOffset(outerRadius, padding);
+  }, [outerRadius, padding]);
 
   // Calculate inner radius based on mode
   const innerRadius = useMemo(() => {
@@ -167,6 +157,7 @@ export default function CornerRadiusCalculator() {
     setOuterRadius(preset.outerRadius);
     setPadding(preset.padding);
     setActivePreset(preset.name);
+    setPreviewType(preset.preview);
   };
 
   const handleSliderChange = () => {
@@ -248,18 +239,15 @@ export default function CornerRadiusCalculator() {
   };
 
   const generateSwiftUI = () => {
-    const continuousNote = useContinuousCorners 
-      ? `
-// Using continuous corners (Apple's default)
-// This creates smoother, more organic corners`
-      : "";
+    return `// SwiftUI handles nested radii automatically with .containerRelativeFrame
+// For manual control, use the calculated inner radius:
 
-    return `// Outer container${continuousNote}
-RoundedRectangle(cornerRadius: ${outerRadius}${useContinuousCorners ? ", style: .continuous" : ""})
+// Outer container
+RoundedRectangle(cornerRadius: ${outerRadius}, style: .continuous)
     .padding(${padding})
 
 // Inner element
-RoundedRectangle(cornerRadius: ${innerRadius}${useContinuousCorners ? ", style: .continuous" : ""})
+RoundedRectangle(cornerRadius: ${innerRadius}, style: .continuous)
 
 // As a reusable view
 struct HarmoniousCard<Content: View>: View {
@@ -278,14 +266,9 @@ struct HarmoniousCard<Content: View>: View {
         }
         .padding(padding)
         .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: outerRadius${useContinuousCorners ? ", style: .continuous" : ""}))
+        .clipShape(RoundedRectangle(cornerRadius: outerRadius, style: .continuous))
     }
-}
-
-// iOS 17+ with containerRelativeFrame
-Image("photo")
-    .containerRelativeFrame(.horizontal)
-    .clipShape(.rect(cornerRadius: ${innerRadius}${useContinuousCorners ? ", style: .continuous" : ""}))`;
+}`;
   };
 
   const generateAndroid = () => {
@@ -526,17 +509,12 @@ fun HarmoniousCard(
                   Optical Offset Formula
                 </p>
                 <p className="break-words font-mono text-[11px] text-neutral-600 dark:text-neutral-400">
-                  offset = (inner × curveFactor) + squircle
+                  offset = inner × curveFactor
                 </p>
-                <div className="mt-2 space-y-1 text-[11px] text-neutral-500">
+                <div className="mt-2 text-[11px] text-neutral-500">
                   <p className="break-words">
-                    • <strong>curveFactor</strong>: {(0.03 + (1 - padding / outerRadius) * 0.03).toFixed(2)} (3-6%)
+                    <strong>curveFactor</strong>: {(0.03 + (1 - padding / outerRadius) * 0.03).toFixed(2)} (3-6%)
                   </p>
-                  {useContinuousCorners && outerRadius > 12 && (
-                    <p className="break-words">
-                      • <strong>squircle</strong>: +{(0.5 + outerRadius / 96).toFixed(1)}px
-                    </p>
-                  )}
                 </div>
               </div>
             )}
@@ -554,17 +532,6 @@ fun HarmoniousCard(
                   Show corner radius guides
                 </span>
               </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={useContinuousCorners}
-                  onChange={(e) => setUseContinuousCorners(e.target.checked)}
-                  className="h-4 w-4 rounded border-neutral-300"
-                />
-                <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                  Use continuous corners (squircle)
-                </span>
-              </label>
             </div>
           </div>
         </div>
@@ -573,75 +540,227 @@ fun HarmoniousCard(
         <div className="flex flex-col">
           <div className="flex min-h-[400px] flex-1 items-center justify-center rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 p-8 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800">
             <div className="relative">
-              {/* Outer container - the card */}
-              <motion.div
-                layout
-                className={clsx(
-                  "relative bg-white shadow-xl dark:bg-neutral-800",
-                  showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
-                )}
-                style={{
-                  width: 280,
-                  borderRadius: outerRadius,
-                  padding: padding,
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              >
-                {/* Outer radius indicator */}
-                {showBorders && outerRadius > 0 && (
-                  <div
-                    className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm"
-                  >
-                    {outerRadius}
-                  </div>
-                )}
-
-                {/* Inner element - the image */}
+              {/* Card Preview */}
+              {previewType === "card" && (
                 <motion.div
                   layout
                   className={clsx(
-                    "relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400",
-                    showBorders && "ring-2 ring-orange-500/30"
+                    "relative bg-white shadow-xl dark:bg-neutral-800",
+                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
                   )}
                   style={{
-                    borderRadius: innerRadius,
+                    width: 280,
+                    borderRadius: outerRadius,
+                    padding: padding,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {/* Placeholder image content */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg
-                      className="h-12 w-12 text-white/40"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Inner radius indicator */}
-                  {showBorders && innerRadius > 0 && (
-                    <div
-                      className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm"
-                    >
-                      {innerRadius}
+                  {showBorders && outerRadius > 0 && (
+                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                      {outerRadius}
                     </div>
                   )}
+                  <motion.div
+                    layout
+                    className={clsx(
+                      "relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400",
+                      showBorders && "ring-2 ring-orange-500/30"
+                    )}
+                    style={{ borderRadius: innerRadius }}
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg className="h-12 w-12 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    {showBorders && innerRadius > 0 && (
+                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                        {innerRadius}
+                      </div>
+                    )}
+                  </motion.div>
+                  <div className="mt-3 space-y-1.5">
+                    <div className="h-4 w-3/4 rounded bg-neutral-200 dark:bg-neutral-700" />
+                    <div className="h-3 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                  </div>
                 </motion.div>
+              )}
 
-                {/* Card content */}
-                <div className="mt-3 space-y-1.5">
-                  <div className="h-4 w-3/4 rounded bg-neutral-200 dark:bg-neutral-700" />
-                  <div className="h-3 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
-                  <div className="h-3 w-2/3 rounded bg-neutral-100 dark:bg-neutral-700/50" />
-                </div>
-              </motion.div>
+              {/* Button Preview */}
+              {previewType === "button" && (
+                <motion.button
+                  layout
+                  className={clsx(
+                    "relative flex items-center gap-3 bg-swiss-red px-6 py-3 text-white shadow-lg",
+                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
+                  )}
+                  style={{
+                    borderRadius: outerRadius,
+                    padding: `${padding}px ${padding * 2}px`,
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                >
+                  {showBorders && outerRadius > 0 && (
+                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm ring-2 ring-white">
+                      {outerRadius}
+                    </div>
+                  )}
+                  <motion.div
+                    layout
+                    className={clsx(
+                      "flex h-6 w-6 items-center justify-center bg-white/20",
+                      showBorders && "ring-2 ring-orange-500/30"
+                    )}
+                    style={{ borderRadius: innerRadius }}
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  >
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {showBorders && innerRadius > 0 && (
+                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                        {innerRadius}
+                      </div>
+                    )}
+                  </motion.div>
+                  <span className="font-semibold">Submit</span>
+                </motion.button>
+              )}
+
+              {/* Modal Preview */}
+              {previewType === "modal" && (
+                <motion.div
+                  layout
+                  className={clsx(
+                    "relative bg-white shadow-2xl dark:bg-neutral-800",
+                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
+                  )}
+                  style={{
+                    width: 320,
+                    borderRadius: outerRadius,
+                    padding: padding,
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                >
+                  {showBorders && outerRadius > 0 && (
+                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                      {outerRadius}
+                    </div>
+                  )}
+                  <motion.div
+                    layout
+                    className={clsx(
+                      "relative aspect-video w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400",
+                      showBorders && "ring-2 ring-orange-500/30"
+                    )}
+                    style={{ borderRadius: innerRadius }}
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg className="h-10 w-10 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    {showBorders && innerRadius > 0 && (
+                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                        {innerRadius}
+                      </div>
+                    )}
+                  </motion.div>
+                  <div className="mt-4 space-y-2">
+                    <div className="h-5 w-2/3 rounded bg-neutral-200 dark:bg-neutral-700" />
+                    <div className="h-3 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                    <div className="h-3 w-4/5 rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                  </div>
+                  <div className="mt-4 flex gap-2">
+                    <div className="h-9 flex-1 rounded-lg bg-neutral-100 dark:bg-neutral-700" />
+                    <div className="h-9 flex-1 rounded-lg bg-swiss-red" />
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Input Preview */}
+              {previewType === "input" && (
+                <motion.div
+                  layout
+                  className={clsx(
+                    "relative flex items-center gap-3 border-2 border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-800",
+                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
+                  )}
+                  style={{
+                    width: 280,
+                    borderRadius: outerRadius,
+                    padding: padding,
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                >
+                  {showBorders && outerRadius > 0 && (
+                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                      {outerRadius}
+                    </div>
+                  )}
+                  <motion.div
+                    layout
+                    className={clsx(
+                      "flex h-8 w-8 flex-shrink-0 items-center justify-center bg-neutral-100 dark:bg-neutral-700",
+                      showBorders && "ring-2 ring-orange-500/30"
+                    )}
+                    style={{ borderRadius: innerRadius }}
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  >
+                    <svg className="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    {showBorders && innerRadius > 0 && (
+                      <div className="absolute left-6 top-0 flex items-center justify-center rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                        {innerRadius}
+                      </div>
+                    )}
+                  </motion.div>
+                  <span className="text-sm text-neutral-400">Search...</span>
+                </motion.div>
+              )}
+
+              {/* Badge Preview */}
+              {previewType === "badge" && (
+                <motion.div
+                  layout
+                  className={clsx(
+                    "relative flex items-center gap-2 bg-swiss-red/10 text-swiss-red",
+                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
+                  )}
+                  style={{
+                    borderRadius: outerRadius,
+                    padding: `${padding}px ${padding * 1.5}px`,
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                >
+                  {showBorders && outerRadius > 0 && (
+                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
+                      {outerRadius}
+                    </div>
+                  )}
+                  <motion.div
+                    layout
+                    className={clsx(
+                      "flex h-5 w-5 items-center justify-center bg-swiss-red text-white",
+                      showBorders && "ring-2 ring-orange-500/30"
+                    )}
+                    style={{ borderRadius: innerRadius }}
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  >
+                    <span className="text-xs font-bold">3</span>
+                    {showBorders && innerRadius > 0 && (
+                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm">
+                        {innerRadius}
+                      </div>
+                    )}
+                  </motion.div>
+                  <span className="text-sm font-semibold">Notifications</span>
+                </motion.div>
+              )}
 
               {/* Padding indicator */}
               {showBorders && padding > 0 && (
@@ -730,14 +849,14 @@ fun HarmoniousCard(
         </div>
         <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
           <p>
-            Apple popularised this formula with their &quot;continuous corners&quot; (squircle) design 
-            language. The idea is simple: the inner radius should account for the space between 
-            the elements. If you have a 24px outer radius and 16px of padding, the inner radius 
-            should be 8px.
+            Apple popularised this formula with their design language. The idea is simple: the 
+            inner radius should account for the space between the elements. If you have a 24px 
+            outer radius and 16px of padding, the inner radius should be 8px.
           </p>
           <p>
-            This formula works well in most cases and is mathematically precise. SwiftUI&apos;s 
-            <code className="break-all">.containerRelativeFrame()</code> modifier uses this exact calculation.
+            This formula works well in most cases and is mathematically precise. SwiftUI even 
+            has a <code className="break-all">.containerRelativeFrame()</code> modifier that 
+            calculates inner radii automatically for you.
           </p>
         </div>
       </div>
@@ -758,7 +877,7 @@ fun HarmoniousCard(
               
               <h3 className="text-base font-semibold">Three Perceptual Factors</h3>
               
-              <div className="not-prose my-4 grid gap-3 sm:grid-cols-3 sm:gap-4">
+              <div className="not-prose my-4 grid gap-3 sm:grid-cols-2 sm:gap-4">
                 <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
                   <div className="mb-2 text-xl sm:text-2xl">📐</div>
                   <h4 className="text-sm font-semibold sm:text-base">Curve Weight</h4>
@@ -770,14 +889,7 @@ fun HarmoniousCard(
                   <div className="mb-2 text-xl sm:text-2xl">👁️</div>
                   <h4 className="text-sm font-semibold sm:text-base">Gap Perception</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Smaller gaps make the inner curve slightly more prominent.
-                  </p>
-                </div>
-                <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
-                  <div className="mb-2 text-xl sm:text-2xl">◯</div>
-                  <h4 className="text-sm font-semibold sm:text-base">Squircle Extension</h4>
-                  <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Continuous corners extend slightly further, adding ~0.5-1px.
+                    Smaller gaps make the inner curve slightly more prominent, needing a touch more reduction.
                   </p>
                 </div>
               </div>
@@ -787,9 +899,7 @@ fun HarmoniousCard(
                 <pre className="whitespace-pre-wrap break-words text-xs text-neutral-300 sm:whitespace-pre sm:break-normal">
 {`// Subtle optical correction (3-6%)
 curveFactor = 0.03 + (1 - gap/outer) × 0.03
-squircle = continuous ? 0.5 + outer/96 : 0
-
-offset = inner × curveFactor + squircle
+offset = inner × curveFactor
 opticalInner = outer - gap - offset`}
                 </pre>
               </div>
@@ -797,8 +907,7 @@ opticalInner = outer - gap - offset`}
               <p>
                 The curve factor scales between 3% and 6%—a subtle adjustment that&apos;s just 
                 enough to improve visual harmony without being obvious. Smaller gaps mean the 
-                inner curve is slightly more visible. For continuous corners, an additional 
-                ~0.5-1px is added.
+                inner curve is slightly more visible and benefits from marginally more correction.
               </p>
 
               <h3 className="text-base font-semibold">When to Use It</h3>
