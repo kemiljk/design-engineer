@@ -42,8 +42,10 @@ A navigation menu with items spaced evenly feels like a unified group. If one it
 
 Elements that look similar are perceived as related.
 
+<!-- visual-example: gestalt-similarity-demo -->
+
 **How it works:**
-Similarity can be in color, shape, size, texture, or any visual attribute. Similar items feel like they belong together.
+Similarity can be in colour, shape, size, texture, or any visual attribute. Similar items feel like they belong together.
 
 **In UI design:**
 - Use consistent styling for elements with the same function (all buttons look alike)
@@ -51,11 +53,13 @@ Similarity can be in color, shape, size, texture, or any visual attribute. Simil
 - Group related items by giving them shared visual properties
 
 **Example:**
-In a data table, alternating row colors create perceived groups of two rows each. Using different colors for different data types creates category groupings.
+In a data table, alternating row colours create perceived groups of two rows each. Using different colours for different data types creates category groupings.
 
 ### 3. Continuity
 
 The eye follows smooth paths and lines, even when interrupted.
+
+<!-- visual-example: gestalt-continuity-demo -->
 
 **How it works:**
 When elements are arranged along a line or curve, we perceive them as related and follow the path. The eye prefers continuous lines over sharp breaks.
@@ -71,6 +75,8 @@ A horizontal timeline creates continuity. Users naturally follow it from left to
 ### 4. Closure
 
 The brain completes incomplete shapes, perceiving them as whole.
+
+<!-- visual-example: gestalt-closure-demo -->
 
 <!-- illustration: closure-principle -->
 
@@ -89,12 +95,14 @@ A card that extends past the screen edge implies scrollability. Users understand
 
 Elements within the same bounded area are perceived as a group.
 
+<!-- visual-example: gestalt-common-region-demo -->
+
 **How it works:**
-A border, background color, or other visual container creates a region. Everything inside feels related.
+A border, background colour, or other visual container creates a region. Everything inside feels related.
 
 **In UI design:**
 - Use cards to group related content
-- Apply background colors to sections
+- Apply background colours to sections
 - Add borders or dividers to create separation
 
 **Example:**
@@ -103,6 +111,8 @@ A card component groups an image, title, description, and button. Without the ca
 ### 6. Figure-Ground
 
 We perceive elements as either foreground (figure) or background (ground).
+
+<!-- visual-example: gestalt-figure-ground-demo -->
 
 <!-- illustration: figure-ground -->
 

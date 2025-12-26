@@ -21,7 +21,9 @@ Without intentional layout, content sprawls chaotically. With it, even complex p
 
 ## Grid Systems
 
-Grids are invisible structures that organize content. They create consistency, establish rhythm, and simplify decision-making.
+Grids are invisible structures that organise content. They create consistency, establish rhythm, and simplify decision-making.
+
+<!-- visual-example: grid-columns-demo -->
 
 <!-- illustration: grid-overlay -->
 
@@ -132,6 +134,8 @@ Intentionally unbalanced for visual interest.
 ## Responsive Layout
 
 Layouts must adapt to screens from 320px phones to 4K monitors.
+
+<!-- visual-example: responsive-layout-demo -->
 
 <!-- illustration: responsive-breakpoints -->
 

@@ -26,11 +26,15 @@ The opposite is true. Whitespace:
 - **Signals quality:** Premium products use generous spacing
 - **Improves readability:** Text with breathing room is easier to read
 
+<!-- visual-example: whitespace-demo -->
+
 Don't fear whitespace. Embrace it.
 
 ## The 8-Point Grid
 
 The 8-point grid is an industry-standard spacing system. All spacing values are multiples of 8:
+
+<!-- visual-example: spacing-scale-demo -->
 
 <!-- illustration: spacing-scale -->
 

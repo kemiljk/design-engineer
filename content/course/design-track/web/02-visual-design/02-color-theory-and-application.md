@@ -117,10 +117,12 @@ A color palette provides the colors for your entire product. Building one intent
 
 ### The 60-30-10 Rule
 
-A guideline for color distribution:
-- **60%** Neutral/background colors
-- **30%** Secondary colors
-- **10%** Accent/primary colors
+A guideline for colour distribution:
+- **60%** Neutral/background colours
+- **30%** Secondary colours
+- **10%** Accent/primary colours
+
+<!-- visual-example: colour-60-30-10-demo -->
 
 This creates visual balance without overwhelming users.
 
@@ -210,7 +212,7 @@ Each needs a:
 - Border color (medium version)
 - Icon/text color (dark version)
 
-## Accessibility and Color
+## Accessibility and Colour
 
 ### Contrast Requirements
 
@@ -219,6 +221,8 @@ WCAG guidelines specify minimum contrast ratios:
 **Normal text (under 18px):** 4.5:1 contrast ratio
 **Large text (18px+ or 14px bold):** 3:1 contrast ratio
 **UI components and graphics:** 3:1 contrast ratio
+
+<!-- visual-example: contrast-checker-demo -->
 
 ### Testing Contrast
 
