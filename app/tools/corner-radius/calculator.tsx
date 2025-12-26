@@ -44,18 +44,14 @@ const CALCULATION_MODES: { value: CalculationMode; label: string; description: s
  * Calculate optical offset for harmonious corner radii.
  * 
  * The offset compensates for visual perception: larger corner radii carry more
- * visual "weight" and can appear too prominent on nested elements. This formula
- * accounts for:
- * 
- * 1. Outer radius size - larger radii need more correction
- * 2. Gap proportion - smaller gaps relative to radius need more correction
- * 3. Continuous corner compensation - squircles extend further than circular arcs
+ * visual "weight" and can appear too prominent on nested elements. This is a
+ * subtle correction—just enough to improve visual harmony without being obvious.
  * 
  * Formula: offset = (innerRadius × curveFactor) + continuousCornerCompensation
  * 
  * Where:
- * - curveFactor = 0.08-0.12 based on the radius/gap ratio
- * - continuousCornerCompensation = ~1-2px for squircle shapes
+ * - curveFactor = 0.03-0.06 based on the radius/gap ratio (subtle 3-6%)
+ * - continuousCornerCompensation = ~0.5-1px for squircle shapes
  */
 function calculateOpticalOffset(
   outerRadius: number, 
@@ -64,31 +60,28 @@ function calculateOpticalOffset(
 ): number {
   const standardInner = outerRadius - gap;
   
-  // If already at 0, no offset needed
-  if (standardInner <= 0) return 0;
+  // If already at 0 or very small, no offset needed
+  if (standardInner <= 4) return 0;
   
-  // Base curve factor - how much the inner curve "pulls" visually
+  // Subtle curve factor - just enough to reduce visual weight
   // Higher values when the gap is small relative to the radius
   const gapRatio = gap / outerRadius;
-  const curveFactor = 0.06 + (1 - gapRatio) * 0.06; // 0.06-0.12 range
+  const curveFactor = 0.03 + (1 - gapRatio) * 0.03; // 0.03-0.06 range (subtle)
   
   // Base optical correction
   let offset = standardInner * curveFactor;
   
   // Continuous corners (squircles) extend slightly further than circular arcs
-  // at the same nominal radius, requiring additional compensation
-  if (useContinuousCorners) {
-    // Squircle compensation: ~1px base + scaled by radius
-    const squircleCompensation = 1 + (outerRadius / 48);
+  // Small additional compensation for squircle shapes
+  if (useContinuousCorners && outerRadius > 12) {
+    const squircleCompensation = 0.5 + (outerRadius / 96);
     offset += squircleCompensation;
   }
   
-  // Minimum perceptible offset is ~1px
-  // Maximum offset shouldn't exceed 20% of the inner radius
-  const minOffset = standardInner > 8 ? 1 : 0;
-  const maxOffset = standardInner * 0.2;
+  // Maximum offset shouldn't exceed 10% of the inner radius
+  const maxOffset = standardInner * 0.1;
   
-  return Math.round(Math.max(minOffset, Math.min(offset, maxOffset)));
+  return Math.round(Math.min(offset, maxOffset));
 }
 
 type RadiusPreset = {
@@ -537,11 +530,11 @@ fun HarmoniousCard(
                 </p>
                 <div className="mt-2 space-y-1 text-[11px] text-neutral-500">
                   <p className="break-words">
-                    • <strong>curveFactor</strong>: {(0.06 + (1 - padding / outerRadius) * 0.06).toFixed(2)}
+                    • <strong>curveFactor</strong>: {(0.03 + (1 - padding / outerRadius) * 0.03).toFixed(2)} (3-6%)
                   </p>
-                  {useContinuousCorners && (
+                  {useContinuousCorners && outerRadius > 12 && (
                     <p className="break-words">
-                      • <strong>squircle</strong>: {(1 + outerRadius / 48).toFixed(1)}px
+                      • <strong>squircle</strong>: +{(0.5 + outerRadius / 96).toFixed(1)}px
                     </p>
                   )}
                 </div>
@@ -770,21 +763,21 @@ fun HarmoniousCard(
                   <div className="mb-2 text-xl sm:text-2xl">📐</div>
                   <h4 className="text-sm font-semibold sm:text-base">Curve Weight</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Larger radii carry more visual &quot;mass&quot;, creating tension with the outer curve.
+                    Larger radii carry more visual &quot;mass&quot;, creating subtle tension with the outer curve.
                   </p>
                 </div>
                 <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
                   <div className="mb-2 text-xl sm:text-2xl">👁️</div>
                   <h4 className="text-sm font-semibold sm:text-base">Gap Perception</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Smaller gaps make the inner curve more prominent, needing more reduction.
+                    Smaller gaps make the inner curve slightly more prominent.
                   </p>
                 </div>
                 <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
                   <div className="mb-2 text-xl sm:text-2xl">◯</div>
                   <h4 className="text-sm font-semibold sm:text-base">Squircle Extension</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Continuous corners extend further, requiring ~1-2px extra compensation.
+                    Continuous corners extend slightly further, adding ~0.5-1px.
                   </p>
                 </div>
               </div>
@@ -792,19 +785,20 @@ fun HarmoniousCard(
               <h3 className="text-base font-semibold">The Optical Formula</h3>
               <div className="not-prose my-4 overflow-x-auto rounded-lg bg-neutral-900 p-4 dark:bg-neutral-950">
                 <pre className="whitespace-pre-wrap break-words text-xs text-neutral-300 sm:whitespace-pre sm:break-normal">
-{`// Calculate optical offset
-curveFactor = 0.06 + (1 - gap/outer) × 0.06
-squircleBonus = useContinuous ? 1 + outer/48 : 0
+{`// Subtle optical correction (3-6%)
+curveFactor = 0.03 + (1 - gap/outer) × 0.03
+squircle = continuous ? 0.5 + outer/96 : 0
 
-offset = inner × curveFactor + squircleBonus
+offset = inner × curveFactor + squircle
 opticalInner = outer - gap - offset`}
                 </pre>
               </div>
               
               <p>
-                The curve factor scales between 6% and 12% based on how small the gap is relative 
-                to the outer radius. Smaller gaps mean the inner curve is more visible and needs 
-                more correction. The squircle compensation adds ~1-2px for continuous corners.
+                The curve factor scales between 3% and 6%—a subtle adjustment that&apos;s just 
+                enough to improve visual harmony without being obvious. Smaller gaps mean the 
+                inner curve is slightly more visible. For continuous corners, an additional 
+                ~0.5-1px is added.
               </p>
 
               <h3 className="text-base font-semibold">When to Use It</h3>
