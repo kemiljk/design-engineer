@@ -684,30 +684,33 @@ fun HarmoniousCard(
                 // Inner element top-right corner (to avoid clustering)
                 const innerDotX = elementWidth - padding - innerRadius * 0.293;
                 const innerDotY = padding + innerRadius * 0.293;
+                // 20° angle: tan(20°) ≈ 0.364, so for 40px horizontal, vertical ≈ 15px
+                const angleOffsetX = 40;
+                const angleOffsetY = 15;
                 
                 return (
                   <svg
-                    className="pointer-events-none absolute left-0 top-0 h-full"
+                    className="pointer-events-none absolute left-0 top-0 h-full text-neutral-900 dark:text-white"
                     style={{
                       width: elementWidth,
                       overflow: "visible",
                     }}
                   >
-                    {/* OUTER RADIUS - top-left corner, label goes right */}
-                    <circle cx={outerDotX} cy={outerDotY} r="4" fill="#ff4400" />
+                    {/* OUTER RADIUS - top-left corner, label goes right at 20° */}
+                    <circle cx={outerDotX} cy={outerDotY} r="3" fill="currentColor" />
                     <line
                       x1={outerDotX}
                       y1={outerDotY}
-                      x2={outerDotX + 40}
-                      y2={outerDotY - 20}
-                      stroke="#ff4400"
+                      x2={outerDotX + angleOffsetX}
+                      y2={outerDotY - angleOffsetY}
+                      stroke="currentColor"
                       strokeWidth="1"
                       strokeDasharray="3 3"
                     />
                     <text
-                      x={outerDotX + 44}
-                      y={outerDotY - 18}
-                      fill="#ff4400"
+                      x={outerDotX + angleOffsetX + 4}
+                      y={outerDotY - angleOffsetY}
+                      fill="currentColor"
                       style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
                       textAnchor="start"
                       dominantBaseline="middle"
@@ -715,23 +718,23 @@ fun HarmoniousCard(
                       {outerRadius}px
                     </text>
 
-                    {/* INNER RADIUS - top-right corner of inner element, label goes left */}
+                    {/* INNER RADIUS - top-right corner of inner element, label goes left at 20° */}
                     {innerRadius > 0 && (
                       <>
-                        <circle cx={innerDotX} cy={innerDotY} r="3" fill="#f97316" />
+                        <circle cx={innerDotX} cy={innerDotY} r="3" fill="currentColor" />
                         <line
                           x1={innerDotX}
                           y1={innerDotY}
-                          x2={innerDotX - 40}
-                          y2={innerDotY - 20}
-                          stroke="#f97316"
+                          x2={innerDotX - angleOffsetX}
+                          y2={innerDotY - angleOffsetY}
+                          stroke="currentColor"
                           strokeWidth="1"
                           strokeDasharray="3 3"
                         />
                         <text
-                          x={innerDotX - 44}
-                          y={innerDotY - 18}
-                          fill="#f97316"
+                          x={innerDotX - angleOffsetX - 4}
+                          y={innerDotY - angleOffsetY}
+                          fill="currentColor"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
                           textAnchor="end"
                           dominantBaseline="middle"
@@ -745,23 +748,16 @@ fun HarmoniousCard(
                     {padding > 0 && (
                       <g style={{ transform: "translateY(50%)" }}>
                         {/* Horizontal line from outer edge to inner element */}
-                        <line
-                          x1={0}
-                          y1={0}
-                          x2={padding}
-                          y2={0}
-                          stroke="#737373"
-                          strokeWidth="1"
-                        />
-                        {/* Left tick (at outer edge) */}
-                        <line x1={0} y1={-4} x2={0} y2={4} stroke="#737373" strokeWidth="1" />
-                        {/* Right tick (at inner element edge) */}
-                        <line x1={padding} y1={-4} x2={padding} y2={4} stroke="#737373" strokeWidth="1" />
-                        {/* Label above the gap line */}
+                        <line x1={0} y1={0} x2={padding} y2={0} stroke="currentColor" strokeWidth="1" />
+                        {/* Left tick */}
+                        <line x1={0} y1={-4} x2={0} y2={4} stroke="currentColor" strokeWidth="1" />
+                        {/* Right tick */}
+                        <line x1={padding} y1={-4} x2={padding} y2={4} stroke="currentColor" strokeWidth="1" />
+                        {/* Label above */}
                         <text
                           x={padding / 2}
                           y={-8}
-                          fill="#737373"
+                          fill="currentColor"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "10px" }}
                           textAnchor="middle"
                           dominantBaseline="auto"
