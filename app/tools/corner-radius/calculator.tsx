@@ -715,25 +715,25 @@ fun HarmoniousCard(
                       {outerRadius}px
                     </text>
 
-                    {/* INNER RADIUS - top-right corner of inner element */}
+                    {/* INNER RADIUS - top-right corner of inner element, label goes left */}
                     {innerRadius > 0 && (
                       <>
                         <circle cx={innerDotX} cy={innerDotY} r="3" fill="#f97316" />
                         <line
                           x1={innerDotX}
                           y1={innerDotY}
-                          x2={elementWidth + 20}
-                          y2={innerDotY - 15}
+                          x2={innerDotX - 40}
+                          y2={innerDotY - 20}
                           stroke="#f97316"
                           strokeWidth="1"
                           strokeDasharray="3 3"
                         />
                         <text
-                          x={elementWidth + 24}
-                          y={innerDotY - 15}
+                          x={innerDotX - 44}
+                          y={innerDotY - 18}
                           fill="#f97316"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
-                          textAnchor="start"
+                          textAnchor="end"
                           dominantBaseline="middle"
                         >
                           {innerRadius}px
