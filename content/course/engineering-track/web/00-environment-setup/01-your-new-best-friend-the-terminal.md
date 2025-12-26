@@ -230,7 +230,7 @@ That said, don't run commands you don't understand. If someone online tells you 
 
 ### "I need to memorise hundreds of commands"
 
-You'll use maybe 10-20 commands regularly. Everything else you can look up. Even experienced developers Google terminal commands constantly.
+You'll use maybe 10-20 commands regularly. Everything else you can look up. Even experienced developers search for terminal commands constantly.
 
 ### "It's not visual enough for me"
 
