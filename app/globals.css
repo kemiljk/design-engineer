@@ -173,6 +173,16 @@ input[type="checkbox"]:checked {
   border-color: #ff4400;
 }
 
+/* Radio button styling - swiss-red accent */
+input[type="radio"] {
+  accent-color: #ff4400;
+}
+
+input[type="radio"]:checked {
+  background-color: #ff4400;
+  border-color: #ff4400;
+}
+
 /* Animation keyframes */
 @keyframes enter {
   from {

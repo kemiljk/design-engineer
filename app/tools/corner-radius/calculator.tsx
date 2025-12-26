@@ -21,7 +21,7 @@ const CALCULATION_MODES: { value: CalculationMode; label: string; description: s
   { 
     value: "standard", 
     label: "Standard", 
-    description: "Inner = Outer − Gap (Apple's approach)" 
+    description: "Inner = Outer − Gap" 
   },
   { 
     value: "optical", 
@@ -110,7 +110,7 @@ export default function CornerRadiusCalculator() {
 
     switch (mode) {
       case "standard":
-        // Apple's approach: inner = outer - gap
+        // Standard approach: inner = outer - gap
         calculated = outerRadius - padding;
         break;
       case "optical":
@@ -844,19 +844,18 @@ fun HarmoniousCard(
             <p className="font-mono text-lg font-bold text-neutral-900 dark:text-white sm:text-2xl">
               inner = outer − gap
             </p>
-            <p className="mt-2 text-xs text-neutral-500 sm:text-sm">Apple&apos;s containerRelative approach</p>
+            <p className="mt-2 text-xs text-neutral-500 sm:text-sm">The mathematical approach</p>
           </div>
         </div>
         <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
           <p>
-            Apple popularised this formula with their design language. The idea is simple: the 
-            inner radius should account for the space between the elements. If you have a 24px 
-            outer radius and 16px of padding, the inner radius should be 8px.
+            The idea is simple: the inner radius should account for the space between the 
+            elements. If you have a 24px outer radius and 16px of padding, the inner radius 
+            should be 8px.
           </p>
           <p>
-            This formula works well in most cases and is mathematically precise. SwiftUI even 
-            has a <code className="break-all">.containerRelativeFrame()</code> modifier that 
-            calculates inner radii automatically for you.
+            This formula works well in most cases and is mathematically precise. Some platforms 
+            even have built-in modifiers that calculate inner radii automatically for you.
           </p>
         </div>
       </div>
@@ -1007,7 +1006,7 @@ opticalInner = outer - gap - offset`}
             </p>
           </div>
 
-          {/* Standard - Apple's formula */}
+          {/* Standard formula */}
           <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
               <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 sm:px-3 sm:py-1 sm:text-xs">
