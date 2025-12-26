@@ -20,6 +20,7 @@ import {
   SunMoon,
   Combine,
   Tags,
+  SquareStack,
   LucideIcon
 } from "lucide-react";
 import { SignedOut } from "@clerk/nextjs";
@@ -108,6 +109,13 @@ const TOOL_SECTIONS: ToolSection[] = [
         description: "Learn how blend modes work and experiment with stacking them for beautiful effects.",
         href: "/tools/blend-mode-explorer",
         icon: Combine,
+        isGated: false,
+      },
+      {
+        title: "Corner Radius Calculator",
+        description: "Calculate harmonious nested corner radii for optically perfect UI components.",
+        href: "/tools/corner-radius",
+        icon: SquareStack,
         isGated: false,
       },
     ],
