@@ -9,14 +9,14 @@ type OGImageProps = {
 
 async function loadFonts() {
   // Fetch TTF fonts - next/og requires TTF or OTF format (not WOFF/WOFF2)
-  const [instrumentSerifData, hostGroteskData] = await Promise.all([
+  const [instrumentSerifData, instrumentSansData] = await Promise.all([
     // Instrument Serif Regular TTF from fontsource CDN
     fetch(
       "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@latest/latin-400-normal.ttf"
     ).then((res) => res.arrayBuffer()),
-    // Host Grotesk Medium TTF from fontsource CDN
+    // Instrument Sans Medium TTF from fontsource CDN
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-500-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/instrument-sans@latest/latin-500-normal.ttf"
     ).then((res) => res.arrayBuffer()),
   ]);
 
@@ -28,8 +28,8 @@ async function loadFonts() {
       weight: 400 as const,
     },
     {
-      name: "Host Grotesk",
-      data: hostGroteskData,
+      name: "Instrument Sans",
+      data: instrumentSansData,
       style: "normal" as const,
       weight: 500 as const,
     },
@@ -54,7 +54,7 @@ function OGImageTemplate({
         flexDirection: "column",
         backgroundColor: "#fafafa",
         padding: "60px",
-        fontFamily: "Host Grotesk",
+        fontFamily: "Instrument Sans",
       }}
     >
       {/* Top bar with logo and type badge */}
