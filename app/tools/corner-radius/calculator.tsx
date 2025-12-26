@@ -1004,16 +1004,16 @@ opticalInner = outer - gap - offset`}
               </span>
             </div>
             <div
-              className="mx-auto w-full max-w-[180px] bg-neutral-100 dark:bg-neutral-800"
+              className="mx-auto w-full max-w-[180px] bg-neutral-200 dark:bg-neutral-700"
               style={{
-                borderRadius: Math.min(outerRadius, 16),
-                padding: Math.min(padding, 10),
+                borderRadius: outerRadius,
+                padding: padding,
               }}
             >
               <div
-                className="aspect-video w-full bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-600 dark:to-neutral-700"
+                className="aspect-video w-full bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-500 dark:to-neutral-600"
                 style={{
-                  borderRadius: Math.min(outerRadius, 16),
+                  borderRadius: outerRadius,
                 }}
               />
             </div>
@@ -1030,16 +1030,16 @@ opticalInner = outer - gap - offset`}
               </span>
             </div>
             <div
-              className="mx-auto w-full max-w-[180px] bg-neutral-100 dark:bg-neutral-800"
+              className="mx-auto w-full max-w-[180px] bg-neutral-200 dark:bg-neutral-700"
               style={{
-                borderRadius: Math.min(outerRadius, 16),
-                padding: Math.min(padding, 10),
+                borderRadius: outerRadius,
+                padding: padding,
               }}
             >
               <div
                 className="aspect-video w-full bg-gradient-to-br from-amber-400 to-orange-400"
                 style={{
-                  borderRadius: Math.min(standardInnerRadius, 12),
+                  borderRadius: standardInnerRadius,
                 }}
               />
             </div>
@@ -1056,16 +1056,16 @@ opticalInner = outer - gap - offset`}
               </span>
             </div>
             <div
-              className="mx-auto w-full max-w-[180px] bg-neutral-100 dark:bg-neutral-800"
+              className="mx-auto w-full max-w-[180px] bg-neutral-200 dark:bg-neutral-700"
               style={{
-                borderRadius: Math.min(outerRadius, 16),
-                padding: Math.min(padding, 10),
+                borderRadius: outerRadius,
+                padding: padding,
               }}
             >
               <div
                 className="aspect-video w-full bg-gradient-to-br from-swiss-red to-orange-400"
                 style={{
-                  borderRadius: Math.min(Math.max(0, standardInnerRadius - suggestedOffset), 12),
+                  borderRadius: Math.max(0, standardInnerRadius - suggestedOffset),
                 }}
               />
             </div>
