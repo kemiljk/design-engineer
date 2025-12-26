@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Palette,
@@ -14,12 +14,19 @@ import {
   RotateCcw,
   Layers,
   Zap,
+  X,
+  Download,
+  GraduationCap,
+  Wrench,
+  CheckSquare,
+  Square,
 } from "lucide-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
 // Types
 type Category = "color" | "typography" | "spacing" | "effects";
+type BuilderMode = "educational" | "builder";
 
 type PropertyOption = {
   id: string;
@@ -37,6 +44,7 @@ type ContextOption = {
 type ElementOption = {
   id: string;
   label: string;
+  isCustom?: boolean;
 };
 
 type ModifierOption = {
@@ -48,6 +56,16 @@ type ModifierOption = {
 type NamingConvention = "explicit" | "compact" | "component-first";
 
 type OutputFormat = "css" | "camelCase" | "json" | "figma";
+
+type BuilderToken = {
+  name: string;
+  formatted: string;
+  category: Category;
+  property: string;
+  component: string;
+  variant: string;
+  state: string | null;
+};
 
 // Configuration data
 const CATEGORIES: { id: Category; label: string; icon: React.ElementType; description: string }[] = [
@@ -170,6 +188,69 @@ const SCALE_MODIFIERS: ModifierOption[] = [
   { id: "900", label: "900", type: "scale" },
 ];
 
+// Default components for Builder Mode - common UI elements in design systems
+const DEFAULT_COMPONENTS: ElementOption[] = [
+  // Surfaces
+  { id: "page", label: "Page" },
+  { id: "card", label: "Card" },
+  { id: "modal", label: "Modal" },
+  { id: "dialog", label: "Dialog" },
+  { id: "popover", label: "Popover" },
+  { id: "dropdown", label: "Dropdown" },
+  { id: "tooltip", label: "Tooltip" },
+  { id: "sidebar", label: "Sidebar" },
+  { id: "panel", label: "Panel" },
+  // Interactive
+  { id: "button", label: "Button" },
+  { id: "link", label: "Link" },
+  { id: "input", label: "Input" },
+  { id: "textarea", label: "Textarea" },
+  { id: "select", label: "Select" },
+  { id: "checkbox", label: "Checkbox" },
+  { id: "radio", label: "Radio" },
+  { id: "switch", label: "Switch" },
+  { id: "slider", label: "Slider" },
+  // Navigation
+  { id: "nav", label: "Navigation" },
+  { id: "tab", label: "Tab" },
+  { id: "breadcrumb", label: "Breadcrumb" },
+  { id: "pagination", label: "Pagination" },
+  { id: "menu", label: "Menu" },
+  // Data Display
+  { id: "badge", label: "Badge" },
+  { id: "tag", label: "Tag" },
+  { id: "avatar", label: "Avatar" },
+  { id: "table", label: "Table" },
+  { id: "list", label: "List" },
+  // Feedback
+  { id: "alert", label: "Alert" },
+  { id: "toast", label: "Toast" },
+  { id: "progress", label: "Progress" },
+  { id: "skeleton", label: "Skeleton" },
+  // Brand/Semantic
+  { id: "primary", label: "Primary" },
+  { id: "secondary", label: "Secondary" },
+  { id: "accent", label: "Accent" },
+  { id: "success", label: "Success" },
+  { id: "warning", label: "Warning" },
+  { id: "error", label: "Error" },
+  { id: "info", label: "Info" },
+];
+
+// Default properties to include in builder mode
+const DEFAULT_PROPERTIES: Record<Category, string[]> = {
+  color: ["background", "foreground", "border"],
+  typography: ["font-size", "font-weight", "line-height"],
+  spacing: ["padding", "gap"],
+  effects: ["shadow", "radius"],
+};
+
+// Default states for interactive components
+const INTERACTIVE_STATES = ["hover", "active", "focus", "disabled"];
+
+// Default variants
+const DEFAULT_VARIANTS = ["default", "subtle", "emphasis"];
+
 const NAMING_CONVENTIONS: { id: NamingConvention; label: string; description: string; example: string }[] = [
   { id: "explicit", label: "Explicit", description: "Category-Property-Context-Element-Modifier", example: "color-background-surface-card-hover" },
   { id: "compact", label: "Compact", description: "Property-Context-Modifier", example: "bg-surface-hover" },
@@ -268,13 +349,23 @@ function formatTokenName(name: string, format: OutputFormat): string {
 
 // Component
 export default function TokenNamingBuilder() {
-  // Builder state
+  // Mode toggle
+  const [mode, setMode] = useState<BuilderMode>("educational");
+
+  // Educational mode state
   const [category, setCategory] = useState<Category | null>(null);
   const [property, setProperty] = useState<string | null>(null);
   const [context, setContext] = useState<string | null>(null);
   const [element, setElement] = useState<string | null>(null);
   const [variant, setVariant] = useState<string | null>("default");
   const [selectedStates, setSelectedStates] = useState<string[]>([]);
+
+  // Builder mode state
+  const [builderComponents, setBuilderComponents] = useState<ElementOption[]>(() => [...DEFAULT_COMPONENTS]);
+  const [customComponentInput, setCustomComponentInput] = useState("");
+  const [builderCategories, setBuilderCategories] = useState<Category[]>(["color", "typography", "spacing", "effects"]);
+  const [builderVariants, setBuilderVariants] = useState<string[]>(["default"]);
+  const [builderStates, setBuilderStates] = useState<string[]>(INTERACTIVE_STATES);
 
   // Convention & output
   const [convention, setConvention] = useState<NamingConvention>("explicit");
@@ -283,6 +374,7 @@ export default function TokenNamingBuilder() {
   // UI state
   const [copiedToken, setCopiedToken] = useState<string | null>(null);
   const [showAllElements, setShowAllElements] = useState(false);
+  const [copiedAll, setCopiedAll] = useState(false);
 
   // Derived state
   const currentContext = useMemo(() => {
@@ -409,6 +501,187 @@ export default function TokenNamingBuilder() {
     setSelectedStates(["hover", "active", "focus", "disabled"]);
   };
 
+  // Builder mode handlers
+  const handleToggleBuilderComponent = useCallback((componentId: string) => {
+    setBuilderComponents(prev => {
+      const exists = prev.find(c => c.id === componentId);
+      if (exists) {
+        return prev.filter(c => c.id !== componentId);
+      }
+      const defaultComponent = DEFAULT_COMPONENTS.find(c => c.id === componentId);
+      if (defaultComponent) {
+        return [...prev, defaultComponent];
+      }
+      return prev;
+    });
+  }, []);
+
+  const handleAddBuilderComponent = useCallback((componentId: string) => {
+    setBuilderComponents(prev => {
+      const exists = prev.find(c => c.id === componentId);
+      if (exists) return prev;
+      
+      const defaultComponent = DEFAULT_COMPONENTS.find(c => c.id === componentId);
+      if (defaultComponent) {
+        return [...prev, defaultComponent];
+      }
+      return prev;
+    });
+  }, []);
+
+  const handleRemoveBuilderComponent = useCallback((componentId: string) => {
+    setBuilderComponents(prev => prev.filter(c => c.id !== componentId));
+  }, []);
+
+  const handleAddCustomComponent = useCallback(() => {
+    const trimmed = customComponentInput.trim().toLowerCase().replace(/\s+/g, "-");
+    if (!trimmed) return;
+    
+    const exists = builderComponents.find(c => c.id === trimmed);
+    if (exists) {
+      setCustomComponentInput("");
+      return;
+    }
+    
+    const label = customComponentInput.trim().split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    setBuilderComponents(prev => [...prev, { id: trimmed, label, isCustom: true }]);
+    setCustomComponentInput("");
+  }, [customComponentInput, builderComponents]);
+
+  const handleToggleBuilderCategory = useCallback((cat: Category) => {
+    setBuilderCategories(prev => 
+      prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
+    );
+  }, []);
+
+  const handleToggleBuilderVariant = useCallback((variantId: string) => {
+    setBuilderVariants(prev =>
+      prev.includes(variantId) ? prev.filter(v => v !== variantId) : [...prev, variantId]
+    );
+  }, []);
+
+  const handleToggleBuilderState = useCallback((stateId: string) => {
+    setBuilderStates(prev =>
+      prev.includes(stateId) ? prev.filter(s => s !== stateId) : [...prev, stateId]
+    );
+  }, []);
+
+  const handleSelectAllComponents = useCallback(() => {
+    setBuilderComponents([...DEFAULT_COMPONENTS]);
+  }, []);
+
+  const handleClearAllComponents = useCallback(() => {
+    setBuilderComponents([]);
+  }, []);
+
+  const handleResetBuilder = useCallback(() => {
+    setBuilderComponents([...DEFAULT_COMPONENTS]);
+    setBuilderCategories(["color", "typography", "spacing", "effects"]);
+    setBuilderVariants(["default"]);
+    setBuilderStates(INTERACTIVE_STATES);
+    setCustomComponentInput("");
+  }, []);
+
+  // Generate full design system tokens for builder mode
+  const builderTokens = useMemo((): BuilderToken[] => {
+    if (mode !== "builder" || builderComponents.length === 0) return [];
+
+    const tokens: BuilderToken[] = [];
+
+    builderCategories.forEach(cat => {
+      const properties = DEFAULT_PROPERTIES[cat] || [];
+      
+      properties.forEach(prop => {
+        builderComponents.forEach(comp => {
+          builderVariants.forEach(v => {
+            // Base token
+            const baseName = buildTokenName(cat, prop, null, comp.id, v, null, convention);
+            tokens.push({
+              name: baseName,
+              formatted: formatTokenName(baseName, outputFormat),
+              category: cat,
+              property: prop,
+              component: comp.id,
+              variant: v,
+              state: null,
+            });
+
+            // State tokens
+            builderStates.forEach(state => {
+              const stateName = buildTokenName(cat, prop, null, comp.id, v, state, convention);
+              tokens.push({
+                name: stateName,
+                formatted: formatTokenName(stateName, outputFormat),
+                category: cat,
+                property: prop,
+                component: comp.id,
+                variant: v,
+                state,
+              });
+            });
+          });
+        });
+      });
+    });
+
+    return tokens;
+  }, [mode, builderComponents, builderCategories, builderVariants, builderStates, convention, outputFormat]);
+
+  // Group builder tokens by category and component
+  const groupedBuilderTokens = useMemo(() => {
+    const grouped: Record<string, Record<string, BuilderToken[]>> = {};
+    
+    builderTokens.forEach(token => {
+      if (!grouped[token.category]) {
+        grouped[token.category] = {};
+      }
+      if (!grouped[token.category][token.component]) {
+        grouped[token.category][token.component] = [];
+      }
+      grouped[token.category][token.component].push(token);
+    });
+    
+    return grouped;
+  }, [builderTokens]);
+
+  // Generate builder export code
+  const generateBuilderExportCode = useCallback(() => {
+    if (builderTokens.length === 0) {
+      return "// Add components to generate tokens";
+    }
+
+    const allTokens = builderTokens.map(t => t.formatted);
+
+    switch (outputFormat) {
+      case "css":
+        return `:root {\n${allTokens.map(t => `  ${t}: /* value */;`).join("\n")}\n}`;
+      
+      case "camelCase":
+        return `const tokens = {\n${allTokens.map(t => `  ${t}: '/* value */',`).join("\n")}\n};`;
+      
+      case "json": {
+        const jsonObj = buildNestedObject(allTokens, () => "/* value */");
+        return JSON.stringify(jsonObj, null, 2);
+      }
+      
+      case "figma":
+        return allTokens.map(t => {
+          const parts = t.split(".").filter(Boolean);
+          return parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("/");
+        }).join("\n");
+      
+      default:
+        return allTokens.join("\n");
+    }
+  }, [builderTokens, outputFormat]);
+
+  const handleCopyAllBuilderTokens = useCallback(() => {
+    const code = generateBuilderExportCode();
+    navigator.clipboard.writeText(code);
+    setCopiedAll(true);
+    setTimeout(() => setCopiedAll(false), 2000);
+  }, [generateBuilderExportCode]);
+
   // Helper to safely build nested object structure
   const buildNestedObject = (
     tokens: string[],
@@ -487,12 +760,70 @@ export default function TokenNamingBuilder() {
 
   return (
     <div className="space-y-8">
+      {/* Mode Toggle */}
+      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="mb-4">
+          <h2 className="text-lg font-bold">Mode</h2>
+          <p className="mt-1 text-sm text-neutral-500">
+            Choose how you want to build your tokens
+          </p>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <button
+            onClick={() => setMode("educational")}
+            className={clsx(
+              "flex items-start gap-4 rounded-lg border p-4 text-left transition-all",
+              mode === "educational"
+                ? "border-swiss-red bg-swiss-red/5 ring-1 ring-swiss-red"
+                : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
+            )}
+          >
+            <div className={clsx(
+              "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
+              mode === "educational" ? "bg-swiss-red text-white" : "bg-neutral-100 text-neutral-500 dark:bg-neutral-800"
+            )}>
+              <GraduationCap className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="font-medium">Educational</div>
+              <div className="mt-1 text-xs text-neutral-500">
+                Step-by-step guided selection. Learn how semantic tokens are structured.
+              </div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setMode("builder")}
+            className={clsx(
+              "flex items-start gap-4 rounded-lg border p-4 text-left transition-all",
+              mode === "builder"
+                ? "border-swiss-red bg-swiss-red/5 ring-1 ring-swiss-red"
+                : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
+            )}
+          >
+            <div className={clsx(
+              "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
+              mode === "builder" ? "bg-swiss-red text-white" : "bg-neutral-100 text-neutral-500 dark:bg-neutral-800"
+            )}>
+              <Wrench className="h-5 w-5" />
+            </div>
+            <div>
+              <div className="font-medium">Builder</div>
+              <div className="mt-1 text-xs text-neutral-500">
+                Generate a complete token set. Select components, customise, and export.
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+
       {/* Convention Selection */}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold">Naming Convention</h2>
           <button
-            onClick={handleReset}
+            onClick={mode === "builder" ? handleResetBuilder : handleReset}
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
           >
             <RotateCcw className="h-4 w-4" />
@@ -520,6 +851,38 @@ export default function TokenNamingBuilder() {
         </div>
       </div>
 
+      {/* Builder Mode UI */}
+      {mode === "builder" && (
+        <BuilderModeUI
+          builderComponents={builderComponents}
+          customComponentInput={customComponentInput}
+          setCustomComponentInput={setCustomComponentInput}
+          builderCategories={builderCategories}
+          builderVariants={builderVariants}
+          builderStates={builderStates}
+          builderTokens={builderTokens}
+          groupedBuilderTokens={groupedBuilderTokens}
+          outputFormat={outputFormat}
+          setOutputFormat={setOutputFormat}
+          copiedToken={copiedToken}
+          copiedAll={copiedAll}
+          handleToggleBuilderComponent={handleToggleBuilderComponent}
+          handleAddBuilderComponent={handleAddBuilderComponent}
+          handleRemoveBuilderComponent={handleRemoveBuilderComponent}
+          handleAddCustomComponent={handleAddCustomComponent}
+          handleToggleBuilderCategory={handleToggleBuilderCategory}
+          handleToggleBuilderVariant={handleToggleBuilderVariant}
+          handleToggleBuilderState={handleToggleBuilderState}
+          handleSelectAllComponents={handleSelectAllComponents}
+          handleClearAllComponents={handleClearAllComponents}
+          handleCopy={handleCopy}
+          handleCopyAllBuilderTokens={handleCopyAllBuilderTokens}
+          generateBuilderExportCode={generateBuilderExportCode}
+        />
+      )}
+
+      {/* Educational Mode UI */}
+      {mode === "educational" && (
       <div className="grid gap-8 lg:grid-cols-12">
         {/* Builder Panel */}
         <div className="space-y-6 lg:col-span-5">
@@ -967,6 +1330,454 @@ export default function TokenNamingBuilder() {
             />
           )}
         </div>
+      </div>
+      )}
+    </div>
+  );
+}
+
+// Builder Mode UI Component
+type BuilderModeUIProps = {
+  builderComponents: ElementOption[];
+  customComponentInput: string;
+  setCustomComponentInput: (value: string) => void;
+  builderCategories: Category[];
+  builderVariants: string[];
+  builderStates: string[];
+  builderTokens: BuilderToken[];
+  groupedBuilderTokens: Record<string, Record<string, BuilderToken[]>>;
+  outputFormat: OutputFormat;
+  setOutputFormat: (format: OutputFormat) => void;
+  copiedToken: string | null;
+  copiedAll: boolean;
+  handleToggleBuilderComponent: (id: string) => void;
+  handleAddBuilderComponent: (id: string) => void;
+  handleRemoveBuilderComponent: (id: string) => void;
+  handleAddCustomComponent: () => void;
+  handleToggleBuilderCategory: (cat: Category) => void;
+  handleToggleBuilderVariant: (id: string) => void;
+  handleToggleBuilderState: (id: string) => void;
+  handleSelectAllComponents: () => void;
+  handleClearAllComponents: () => void;
+  handleCopy: (token: string) => void;
+  handleCopyAllBuilderTokens: () => void;
+  generateBuilderExportCode: () => string;
+};
+
+function BuilderModeUI({
+  builderComponents,
+  customComponentInput,
+  setCustomComponentInput,
+  builderCategories,
+  builderVariants,
+  builderStates,
+  builderTokens,
+  outputFormat,
+  setOutputFormat,
+  copiedToken,
+  copiedAll,
+  handleAddBuilderComponent,
+  handleRemoveBuilderComponent,
+  handleAddCustomComponent,
+  handleToggleBuilderCategory,
+  handleToggleBuilderVariant,
+  handleToggleBuilderState,
+  handleSelectAllComponents,
+  handleClearAllComponents,
+  handleCopy,
+  handleCopyAllBuilderTokens,
+  generateBuilderExportCode,
+}: BuilderModeUIProps) {
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  
+  return (
+    <div className="grid gap-8 lg:grid-cols-12">
+      {/* Configuration Panel */}
+      <div className="space-y-6 lg:col-span-5">
+        {/* Components Selection */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Layers className="h-5 w-5 text-swiss-red" />
+              <h3 className="font-bold">Components</h3>
+              <span className="rounded-full bg-swiss-red/10 px-2 py-0.5 text-xs font-medium text-swiss-red">
+                {builderComponents.length}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleSelectAllComponents}
+                className="text-xs text-neutral-500 hover:text-swiss-red"
+              >
+                Select all
+              </button>
+              <span className="text-neutral-300">|</span>
+              <button
+                onClick={handleClearAllComponents}
+                className="text-xs text-neutral-500 hover:text-swiss-red"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+
+          {/* Selected Components */}
+          <div className="mb-4 flex flex-wrap gap-2">
+            <AnimatePresence mode="popLayout">
+              {builderComponents.map(comp => (
+                <motion.button
+                  key={comp.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  onClick={() => handleRemoveBuilderComponent(comp.id)}
+                  className={clsx(
+                    "group flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition-all hover:border-red-300 hover:bg-red-50 dark:hover:border-red-800 dark:hover:bg-red-950",
+                    comp.isCustom
+                      ? "border-purple-300 bg-purple-50 text-purple-700 dark:border-purple-800 dark:bg-purple-950 dark:text-purple-300"
+                      : "border-swiss-red/30 bg-swiss-red/5 text-swiss-red"
+                  )}
+                >
+                  {comp.label}
+                  <X className="h-3 w-3 opacity-50 group-hover:opacity-100" />
+                </motion.button>
+              ))}
+            </AnimatePresence>
+          </div>
+
+          {/* Add Custom Component */}
+          <div className="mb-4">
+            <div className="mb-2 text-xs font-medium uppercase text-neutral-500">
+              Add Custom Component
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={customComponentInput}
+                onChange={(e) => setCustomComponentInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleAddCustomComponent();
+                  }
+                }}
+                placeholder="e.g., stepper, chip, carousel..."
+                className="flex-1 rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-swiss-red focus:outline-none focus:ring-1 focus:ring-swiss-red dark:border-neutral-700 dark:bg-neutral-800"
+              />
+              <button
+                onClick={handleAddCustomComponent}
+                disabled={!customComponentInput.trim()}
+                className="flex items-center gap-1.5 rounded-lg bg-swiss-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <Plus className="h-4 w-4" />
+                Add
+              </button>
+            </div>
+          </div>
+
+          {/* Quick Add from Defaults */}
+          {DEFAULT_COMPONENTS.filter(c => !builderComponents.find(bc => bc.id === c.id)).length > 0 && (
+          <div>
+            <div className="mb-2 text-xs font-medium uppercase text-neutral-500">
+              Quick Add Defaults
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {DEFAULT_COMPONENTS.filter(c => !builderComponents.find(bc => bc.id === c.id))
+                .slice(0, 12)
+                .map(comp => (
+                  <button
+                    key={comp.id}
+                    onClick={() => handleAddBuilderComponent(comp.id)}
+                    className="rounded-full border border-dashed border-neutral-300 px-2.5 py-1 text-xs text-neutral-500 transition-all hover:border-swiss-red hover:bg-swiss-red/5 hover:text-swiss-red dark:border-neutral-600"
+                  >
+                    + {comp.label}
+                  </button>
+                ))}
+              {DEFAULT_COMPONENTS.filter(c => !builderComponents.find(bc => bc.id === c.id)).length > 12 && (
+                <span className="px-2 py-1 text-xs text-neutral-400">
+                  +{DEFAULT_COMPONENTS.filter(c => !builderComponents.find(bc => bc.id === c.id)).length - 12} more
+                </span>
+              )}
+            </div>
+          </div>
+          )}
+        </div>
+
+        {/* Categories Selection */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4 flex items-center gap-2">
+            <Palette className="h-5 w-5 text-swiss-red" />
+            <h3 className="font-bold">Categories</h3>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            {CATEGORIES.map(cat => {
+              const isSelected = builderCategories.includes(cat.id);
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => handleToggleBuilderCategory(cat.id)}
+                  className={clsx(
+                    "flex items-center gap-3 rounded-lg border p-3 text-left transition-all",
+                    isSelected
+                      ? "border-swiss-red bg-swiss-red/5"
+                      : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
+                  )}
+                >
+                  {isSelected ? (
+                    <CheckSquare className="h-4 w-4 text-swiss-red" />
+                  ) : (
+                    <Square className="h-4 w-4 text-neutral-400" />
+                  )}
+                  <div className="flex items-center gap-2">
+                    <cat.icon className={clsx(
+                      "h-4 w-4",
+                      isSelected ? "text-swiss-red" : "text-neutral-400"
+                    )} />
+                    <span className="text-sm font-medium">{cat.label}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Variants Selection */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4 flex items-center gap-2">
+            <Sparkles className="h-5 w-5 text-swiss-red" />
+            <h3 className="font-bold">Variants</h3>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {VARIANT_MODIFIERS.map(mod => {
+              const isSelected = builderVariants.includes(mod.id);
+              return (
+                <button
+                  key={mod.id}
+                  onClick={() => handleToggleBuilderVariant(mod.id)}
+                  className={clsx(
+                    "flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm transition-all",
+                    isSelected
+                      ? "border-swiss-red bg-swiss-red text-white"
+                      : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
+                  )}
+                >
+                  {isSelected ? (
+                    <Check className="h-3 w-3" />
+                  ) : null}
+                  {mod.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* States Selection */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4 flex items-center gap-2">
+            <Zap className="h-5 w-5 text-swiss-red" />
+            <h3 className="font-bold">States</h3>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {STATE_MODIFIERS.map(mod => {
+              const isSelected = builderStates.includes(mod.id);
+              return (
+                <button
+                  key={mod.id}
+                  onClick={() => handleToggleBuilderState(mod.id)}
+                  className={clsx(
+                    "flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm transition-all",
+                    isSelected
+                      ? "border-swiss-red bg-swiss-red text-white"
+                      : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
+                  )}
+                >
+                  {isSelected ? (
+                    <Check className="h-3 w-3" />
+                  ) : null}
+                  {mod.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Preview Panel */}
+      <div className="space-y-6 lg:col-span-7">
+        {/* Output Format Selection */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4">
+            <h2 className="text-lg font-bold">Output Format</h2>
+            <p className="mt-1 text-xs text-neutral-500">
+              JSON works with Style Dictionary, W3C DTCG, Figma Variables, and Tokens Studio
+            </p>
+          </div>
+          <div className="relative grid grid-cols-2 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
+            {OUTPUT_FORMATS.map(format => {
+              const isSelected = outputFormat === format.value;
+              return (
+                <button
+                  key={format.value}
+                  onClick={() => setOutputFormat(format.value)}
+                  className={clsx(
+                    "relative z-10 rounded-md px-2 py-2 text-xs font-medium transition-colors",
+                    isSelected
+                      ? "text-neutral-900 dark:text-white"
+                      : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
+                  )}
+                >
+                  {isSelected && (
+                    <motion.div
+                      layoutId="builder-format-indicator"
+                      className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-neutral-700"
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 35,
+                      }}
+                    />
+                  )}
+                  <span className="relative z-10">{format.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Summary Stats */}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="text-2xl font-bold text-swiss-red">{builderComponents.length}</div>
+            <div className="text-xs text-neutral-500">Components</div>
+          </div>
+          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="text-2xl font-bold text-swiss-red">{builderCategories.length}</div>
+            <div className="text-xs text-neutral-500">Categories</div>
+          </div>
+          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="text-2xl font-bold text-swiss-red">{builderStates.length + 1}</div>
+            <div className="text-xs text-neutral-500">States</div>
+          </div>
+          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="text-2xl font-bold text-swiss-red">{builderTokens.length}</div>
+            <div className="text-xs text-neutral-500">Total Tokens</div>
+          </div>
+        </div>
+
+        {/* Token Preview */}
+        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Layers className="h-5 w-5 text-swiss-red" />
+              <h2 className="text-lg font-bold">Token Preview</h2>
+            </div>
+            <button
+              onClick={handleCopyAllBuilderTokens}
+              className="flex items-center gap-2 rounded-lg bg-swiss-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90"
+            >
+              {copiedAll ? (
+                <>
+                  <Check className="h-4 w-4" />
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <Download className="h-4 w-4" />
+                  Export All
+                </>
+              )}
+            </button>
+          </div>
+
+          {builderTokens.length === 0 ? (
+            <div className="py-12 text-center text-neutral-500">
+              <Layers className="mx-auto mb-3 h-12 w-12 text-neutral-300 dark:text-neutral-700" />
+              <p>Add components to start generating tokens</p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {/* Category Groups */}
+              {CATEGORIES.filter(cat => builderCategories.includes(cat.id)).map(cat => {
+                const categoryTokens = builderTokens.filter(t => t.category === cat.id);
+                const isExpanded = expandedCategory === cat.id;
+                
+                return (
+                  <div key={cat.id} className="rounded-lg border border-neutral-200 dark:border-neutral-700">
+                    <button
+                      onClick={() => setExpandedCategory(isExpanded ? null : cat.id)}
+                      className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                    >
+                      <div className="flex items-center gap-2">
+                        <cat.icon className="h-4 w-4 text-swiss-red" />
+                        <span className="font-medium">{cat.label}</span>
+                        <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800">
+                          {categoryTokens.length} tokens
+                        </span>
+                      </div>
+                      <ChevronRight className={clsx(
+                        "h-4 w-4 text-neutral-400 transition-transform",
+                        isExpanded && "rotate-90"
+                      )} />
+                    </button>
+                    
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="max-h-64 overflow-y-auto border-t border-neutral-200 p-3 dark:border-neutral-700">
+                            <div className="grid gap-1">
+                              {categoryTokens.slice(0, 50).map(token => (
+                                <div
+                                  key={token.formatted}
+                                  className="group flex items-center justify-between rounded bg-neutral-50 p-2 dark:bg-neutral-800/50"
+                                >
+                                  <code className="min-w-0 break-all font-mono text-xs text-neutral-600 dark:text-neutral-400">
+                                    {token.formatted}
+                                  </code>
+                                  <button
+                                    onClick={() => handleCopy(token.formatted)}
+                                    className="shrink-0 p-1 text-neutral-400 opacity-0 transition-opacity hover:text-neutral-900 group-hover:opacity-100 dark:hover:text-white"
+                                  >
+                                    {copiedToken === token.formatted ? (
+                                      <Check className="h-3 w-3 text-green-500" />
+                                    ) : (
+                                      <Copy className="h-3 w-3" />
+                                    )}
+                                  </button>
+                                </div>
+                              ))}
+                              {categoryTokens.length > 50 && (
+                                <div className="py-2 text-center text-xs text-neutral-500">
+                                  +{categoryTokens.length - 50} more tokens in export
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Export Code */}
+        {builderTokens.length > 0 && (
+          <CodeBlock
+            label={`Full Export (${OUTPUT_FORMATS.find(f => f.value === outputFormat)?.label}) - ${builderTokens.length} tokens`}
+            code={generateBuilderExportCode()}
+          />
+        )}
       </div>
     </div>
   );
