@@ -552,6 +552,7 @@ fun HarmoniousCard(
                     paddingLeft: padding,
                     paddingRight: padding,
                     paddingBottom: padding * 2,
+                    border: "1px solid rgba(255, 255, 255, 0.05)",
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
@@ -583,6 +584,7 @@ fun HarmoniousCard(
                     width: 280,
                     borderRadius: outerRadius,
                     padding: padding,
+                    border: "1px solid rgba(255, 255, 255, 0.05)",
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
