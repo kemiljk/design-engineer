@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import { Suspense } from "react";
-import { Instrument_Serif, JetBrains_Mono, Host_Grotesk } from "next/font/google";
+import { Instrument_Serif, Martian_Mono, Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
@@ -18,13 +18,13 @@ const serif = Instrument_Serif({
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
+const mono = Martian_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
 });
 
-const sans = Host_Grotesk({
+const sans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
