@@ -539,67 +539,10 @@ fun HarmoniousCard(
         {/* Preview */}
         <div className="flex flex-col">
           <div className="relative flex min-h-[350px] flex-1 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800 sm:min-h-[400px]">
-            {/* Measurement labels - positioned at edges of container */}
-            {showBorders && (
-              <>
-                {/* Outer radius - top left corner */}
-                <div className="absolute left-3 top-3 flex items-center gap-1.5 sm:left-4 sm:top-4">
-                  <div className="h-2.5 w-2.5 rounded-full bg-swiss-red" />
-                  <span className="font-mono text-[11px] text-swiss-red sm:text-xs">
-                    outer: {outerRadius}px
-                  </span>
-                </div>
-                
-                {/* Inner radius - top right corner */}
-                <div className="absolute right-3 top-3 flex items-center gap-1.5 sm:right-4 sm:top-4">
-                  <span className="font-mono text-[11px] text-orange-500 sm:text-xs">
-                    inner: {innerRadius}px
-                  </span>
-                  <div className="h-2.5 w-2.5 rounded-full bg-orange-500" />
-                </div>
-                
-                {/* Gap - bottom center */}
-                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 sm:bottom-4">
-                  <div className="h-2.5 w-2.5 rounded-full bg-neutral-400" />
-                  <span className="font-mono text-[11px] text-neutral-500 sm:text-xs">
-                    gap: {padding}px
-                  </span>
-                </div>
-              </>
-            )}
-
-            {/* Preview element wrapper with corner markers */}
+            
+            {/* Preview element with SVG overlay for measurements */}
             <div className="relative">
-              {/* Corner marker dots when guides enabled */}
-              {showBorders && (
-                <svg 
-                  className="pointer-events-none absolute inset-0 h-full w-full"
-                  style={{ 
-                    width: previewType === "modal" ? 280 : previewType === "button" || previewType === "badge" ? "auto" : 240,
-                    height: "100%"
-                  }}
-                >
-                  {/* Outer corner marker - top right */}
-                  <circle 
-                    cx={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4} 
-                    cy={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4} 
-                    r="3" 
-                    className="fill-swiss-red"
-                  />
-                  {/* Dotted line from outer marker */}
-                  <line 
-                    x1={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4}
-                    y1={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4}
-                    x2="0"
-                    y2="0"
-                    className="stroke-swiss-red/40"
-                    strokeWidth="1"
-                    strokeDasharray="3 2"
-                  />
-                </svg>
-              )}
-
-              {/* Card Preview */}
+              {/* The preview element */}
               {previewType === "card" && (
                 <motion.div
                   layout
@@ -611,16 +554,6 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {/* Inner corner marker */}
-                  {showBorders && padding > 0 && (
-                    <div 
-                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
-                      style={{
-                        top: padding + Math.min(innerRadius * 0.5, 8),
-                        left: padding + Math.min(innerRadius * 0.5, 8),
-                      }}
-                    />
-                  )}
                   <motion.div
                     layout
                     className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
@@ -640,43 +573,26 @@ fun HarmoniousCard(
                 </motion.div>
               )}
 
-              {/* Button Preview */}
               {previewType === "button" && (
-                <motion.div
-                  layout
-                  className="relative"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                <button
+                  className="flex items-center gap-3 bg-swiss-red text-white shadow-lg"
+                  style={{
+                    borderRadius: outerRadius,
+                    padding: `${padding}px ${padding * 2}px`,
+                  }}
                 >
-                  {showBorders && (
-                    <div 
-                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
-                      style={{
-                        top: padding + Math.min(innerRadius * 0.5, 6),
-                        left: padding * 2 + Math.min(innerRadius * 0.5, 6),
-                      }}
-                    />
-                  )}
-                  <button
-                    className="flex items-center gap-3 bg-swiss-red text-white shadow-lg"
-                    style={{
-                      borderRadius: outerRadius,
-                      padding: `${padding}px ${padding * 2}px`,
-                    }}
+                  <div
+                    className="flex h-6 w-6 items-center justify-center bg-white/20"
+                    style={{ borderRadius: innerRadius }}
                   >
-                    <div
-                      className="flex h-6 w-6 items-center justify-center bg-white/20"
-                      style={{ borderRadius: innerRadius }}
-                    >
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="font-semibold">Submit</span>
-                  </button>
-                </motion.div>
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="font-semibold">Submit</span>
+                </button>
               )}
 
-              {/* Modal Preview */}
               {previewType === "modal" && (
                 <motion.div
                   layout
@@ -688,15 +604,6 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && padding > 0 && (
-                    <div 
-                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
-                      style={{
-                        top: padding + Math.min(innerRadius * 0.5, 8),
-                        left: padding + Math.min(innerRadius * 0.5, 8),
-                      }}
-                    />
-                  )}
                   <motion.div
                     layout
                     className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
@@ -721,7 +628,6 @@ fun HarmoniousCard(
                 </motion.div>
               )}
 
-              {/* Input Preview */}
               {previewType === "input" && (
                 <motion.div
                   layout
@@ -733,15 +639,6 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && padding > 0 && (
-                    <div 
-                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
-                      style={{
-                        top: padding + Math.min(innerRadius * 0.5, 6),
-                        left: padding + Math.min(innerRadius * 0.5, 6),
-                      }}
-                    />
-                  )}
                   <motion.div
                     layout
                     className="flex h-8 w-8 flex-shrink-0 items-center justify-center bg-neutral-100 dark:bg-neutral-700"
@@ -756,7 +653,6 @@ fun HarmoniousCard(
                 </motion.div>
               )}
 
-              {/* Badge Preview */}
               {previewType === "badge" && (
                 <motion.div
                   layout
@@ -767,15 +663,6 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && (
-                    <div 
-                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
-                      style={{
-                        top: padding + Math.min(innerRadius * 0.4, 4),
-                        left: padding * 1.5 + Math.min(innerRadius * 0.4, 4),
-                      }}
-                    />
-                  )}
                   <motion.div
                     layout
                     className="flex h-5 w-5 items-center justify-center bg-swiss-red text-white"
@@ -788,15 +675,126 @@ fun HarmoniousCard(
                 </motion.div>
               )}
 
-              {/* Outer corner marker - always on the preview element */}
+              {/* SVG Overlay for measurement annotations */}
               {showBorders && (
-                <div 
-                  className="absolute h-1.5 w-1.5 rounded-full bg-swiss-red"
+                <svg
+                  className="pointer-events-none absolute left-0 top-0"
                   style={{
-                    top: Math.min(outerRadius * 0.4, 12),
-                    left: Math.min(outerRadius * 0.4, 12),
+                    width: previewType === "modal" ? 280 : 240,
+                    height: "100%",
+                    overflow: "visible",
                   }}
-                />
+                >
+                  {/* 
+                    Coordinate math for corner curves:
+                    - For a corner radius r, the 45° point on the arc is at (r × 0.293, r × 0.293) from the corner
+                    - Outer corner: measured from (0, 0)
+                    - Inner corner: measured from (padding, padding)
+                  */}
+                  
+                  {/* Outer radius marker - dot on the outer corner curve */}
+                  <circle
+                    cx={outerRadius * 0.293}
+                    cy={outerRadius * 0.293}
+                    r="4"
+                    fill="#ff4400"
+                  />
+                  {/* Dotted line from outer corner to label area (going up-left) */}
+                  <line
+                    x1={outerRadius * 0.293}
+                    y1={outerRadius * 0.293}
+                    x2={-20}
+                    y2={-20}
+                    stroke="#ff4400"
+                    strokeWidth="1"
+                    strokeDasharray="3 3"
+                  />
+                  {/* Outer label */}
+                  <text
+                    x={-24}
+                    y={-20}
+                    fill="#ff4400"
+                    style={{ fontFamily: "var(--font-mono)", fontSize: "11px" }}
+                    textAnchor="end"
+                  >
+                    {outerRadius}px
+                  </text>
+
+                  {/* Inner radius marker - dot on the inner corner curve */}
+                  {innerRadius > 0 && (
+                    <>
+                      <circle
+                        cx={padding + innerRadius * 0.293}
+                        cy={padding + innerRadius * 0.293}
+                        r="3"
+                        fill="#f97316"
+                      />
+                      {/* Dotted line from inner corner to label area */}
+                      <line
+                        x1={padding + innerRadius * 0.293}
+                        y1={padding + innerRadius * 0.293}
+                        x2={padding + innerRadius * 0.293 + 30}
+                        y2={-20}
+                        stroke="#f97316"
+                        strokeWidth="1"
+                        strokeDasharray="3 3"
+                      />
+                      {/* Inner label */}
+                      <text
+                        x={padding + innerRadius * 0.293 + 34}
+                        y={-16}
+                        fill="#f97316"
+                        style={{ fontFamily: "var(--font-mono)", fontSize: "11px" }}
+                        textAnchor="start"
+                      >
+                        {innerRadius}px
+                      </text>
+                    </>
+                  )}
+
+                  {/* Gap indicator - horizontal bracket showing padding distance */}
+                  {padding > 0 && (
+                    <>
+                      {/* Horizontal line showing gap at left edge */}
+                      <line
+                        x1={-8}
+                        y1={outerRadius}
+                        x2={-8}
+                        y2={outerRadius + padding}
+                        stroke="#a3a3a3"
+                        strokeWidth="1"
+                      />
+                      {/* Top tick */}
+                      <line
+                        x1={-12}
+                        y1={outerRadius}
+                        x2={-4}
+                        y2={outerRadius}
+                        stroke="#a3a3a3"
+                        strokeWidth="1"
+                      />
+                      {/* Bottom tick */}
+                      <line
+                        x1={-12}
+                        y1={outerRadius + padding}
+                        x2={-4}
+                        y2={outerRadius + padding}
+                        stroke="#a3a3a3"
+                        strokeWidth="1"
+                      />
+                      {/* Gap label - positioned to the left */}
+                      <text
+                        x={-16}
+                        y={outerRadius + padding / 2 + 4}
+                        fill="#737373"
+                        style={{ fontFamily: "var(--font-mono)", fontSize: "10px" }}
+                        textAnchor="end"
+                      >
+                        {padding}px
+                      </text>
+                    </>
+                  )}
+                </svg>
               )}
             </div>
           </div>
