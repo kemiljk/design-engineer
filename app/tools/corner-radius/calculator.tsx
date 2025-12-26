@@ -684,9 +684,9 @@ fun HarmoniousCard(
                 // Inner element top-right corner (to avoid clustering)
                 const innerDotX = elementWidth - padding - innerRadius * 0.293;
                 const innerDotY = padding + innerRadius * 0.293;
-                // 20° angle: tan(20°) ≈ 0.364, so for 40px horizontal, vertical ≈ 15px
-                const angleOffsetX = 40;
-                const angleOffsetY = 15;
+                // L-shaped leader line offsets
+                const leaderH = 30; // horizontal segment length
+                const leaderV = 20; // vertical segment length
                 
                 return (
                   <svg
@@ -696,48 +696,44 @@ fun HarmoniousCard(
                       overflow: "visible",
                     }}
                   >
-                    {/* OUTER RADIUS - top-left corner, label goes right at 20° */}
+                    {/* OUTER RADIUS - L-shaped leader: right then up */}
                     <circle cx={outerDotX} cy={outerDotY} r="3" fill="currentColor" />
-                    <line
-                      x1={outerDotX}
-                      y1={outerDotY}
-                      x2={outerDotX + angleOffsetX}
-                      y2={outerDotY - angleOffsetY}
+                    <polyline
+                      points={`${outerDotX},${outerDotY} ${outerDotX + leaderH},${outerDotY} ${outerDotX + leaderH},${outerDotY - leaderV}`}
+                      fill="none"
                       stroke="currentColor"
                       strokeWidth="1"
                       strokeDasharray="3 3"
                     />
                     <text
-                      x={outerDotX + angleOffsetX + 4}
-                      y={outerDotY - angleOffsetY}
+                      x={outerDotX + leaderH}
+                      y={outerDotY - leaderV - 6}
                       fill="currentColor"
                       style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
-                      textAnchor="start"
-                      dominantBaseline="middle"
+                      textAnchor="middle"
+                      dominantBaseline="auto"
                     >
                       {outerRadius}px
                     </text>
 
-                    {/* INNER RADIUS - top-right corner of inner element, label goes left at 20° */}
+                    {/* INNER RADIUS - L-shaped leader: left then up */}
                     {innerRadius > 0 && (
                       <>
                         <circle cx={innerDotX} cy={innerDotY} r="3" fill="currentColor" />
-                        <line
-                          x1={innerDotX}
-                          y1={innerDotY}
-                          x2={innerDotX - angleOffsetX}
-                          y2={innerDotY - angleOffsetY}
+                        <polyline
+                          points={`${innerDotX},${innerDotY} ${innerDotX - leaderH},${innerDotY} ${innerDotX - leaderH},${innerDotY - leaderV}`}
+                          fill="none"
                           stroke="currentColor"
                           strokeWidth="1"
                           strokeDasharray="3 3"
                         />
                         <text
-                          x={innerDotX - angleOffsetX - 4}
-                          y={innerDotY - angleOffsetY}
+                          x={innerDotX - leaderH}
+                          y={innerDotY - leaderV - 6}
                           fill="currentColor"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
-                          textAnchor="end"
-                          dominantBaseline="middle"
+                          textAnchor="middle"
+                          dominantBaseline="auto"
                         >
                           {innerRadius}px
                         </text>
