@@ -511,8 +511,8 @@ fun HarmoniousCard(
               
               {/* Show suggested offset when in custom mode */}
               {mode === "custom" && (
-                <div className="mt-3 rounded-md bg-blue-50 p-3 dark:bg-blue-900/20">
-                  <p className="text-xs text-blue-700 dark:text-blue-300">
+                <div className="mt-3 rounded-md bg-neutral-100 p-3 dark:bg-neutral-800">
+                  <p className="text-xs text-neutral-700 dark:text-neutral-300">
                     💡 Suggested optical offset: <strong>{suggestedOffset}px</strong>
                   </p>
                 </div>
@@ -528,17 +528,21 @@ fun HarmoniousCard(
             
             {/* Optical Offset Formula Explanation */}
             {mode === "optical" && (
-              <div className="rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
+              <div className="overflow-hidden rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
                 <p className="mb-2 text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                   Optical Offset Formula
                 </p>
-                <p className="font-mono text-[11px] text-neutral-600 dark:text-neutral-400">
-                  offset = (inner × curveFactor) + squircleCompensation
+                <p className="break-words font-mono text-[11px] text-neutral-600 dark:text-neutral-400">
+                  offset = (inner × curveFactor) + squircle
                 </p>
                 <div className="mt-2 space-y-1 text-[11px] text-neutral-500">
-                  <p>• <strong>curveFactor</strong>: {(0.06 + (1 - padding / outerRadius) * 0.06).toFixed(2)} (based on gap/radius ratio)</p>
+                  <p className="break-words">
+                    • <strong>curveFactor</strong>: {(0.06 + (1 - padding / outerRadius) * 0.06).toFixed(2)}
+                  </p>
                   {useContinuousCorners && (
-                    <p>• <strong>squircleCompensation</strong>: {(1 + outerRadius / 48).toFixed(1)}px (for continuous corners)</p>
+                    <p className="break-words">
+                      • <strong>squircle</strong>: {(1 + outerRadius / 48).toFixed(1)}px
+                    </p>
                   )}
                 </div>
               </div>
@@ -604,7 +608,7 @@ fun HarmoniousCard(
                   layout
                   className={clsx(
                     "relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400",
-                    showBorders && "ring-2 ring-blue-500/30"
+                    showBorders && "ring-2 ring-orange-500/30"
                   )}
                   style={{
                     borderRadius: innerRadius,
@@ -631,7 +635,7 @@ fun HarmoniousCard(
                   {/* Inner radius indicator */}
                   {showBorders && innerRadius > 0 && (
                     <div
-                      className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-blue-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm"
+                      className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm"
                     >
                       {innerRadius}
                     </div>
@@ -663,7 +667,7 @@ fun HarmoniousCard(
                 <span className="text-neutral-500">Outer radius</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-sm ring-2 ring-blue-500/30" />
+                <div className="h-3 w-3 rounded-sm ring-2 ring-orange-500/30" />
                 <span className="text-neutral-500">Inner radius</span>
               </div>
             </div>
@@ -688,33 +692,33 @@ fun HarmoniousCard(
               padding decreases.
             </p>
           </div>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-3 sm:gap-4">
             <div className="text-center">
               <div
                 className="bg-neutral-200 dark:bg-neutral-700"
-                style={{ borderRadius: 24, padding: 12, width: 100 }}
+                style={{ borderRadius: 24, padding: 10, width: 80 }}
               >
                 <div
-                  className="aspect-square w-full bg-red-400"
+                  className="aspect-square w-full bg-neutral-400"
                   style={{ borderRadius: 24 }}
                 />
               </div>
-              <p className="mt-2 text-xs text-neutral-500">Same radius</p>
-              <p className="text-[10px] text-red-500">Looks wrong</p>
+              <p className="mt-2 text-[10px] text-neutral-500 sm:text-xs">Same radius</p>
+              <p className="text-[10px] text-neutral-400">✗ Wrong</p>
             </div>
-            <div className="text-2xl text-neutral-300">→</div>
+            <div className="text-xl text-neutral-300 sm:text-2xl">→</div>
             <div className="text-center">
               <div
                 className="bg-neutral-200 dark:bg-neutral-700"
-                style={{ borderRadius: 24, padding: 12, width: 100 }}
+                style={{ borderRadius: 24, padding: 10, width: 80 }}
               >
                 <div
-                  className="aspect-square w-full bg-green-400"
+                  className="aspect-square w-full bg-swiss-red"
                   style={{ borderRadius: 10 }}
                 />
               </div>
-              <p className="mt-2 text-xs text-neutral-500">Adjusted radius</p>
-              <p className="text-[10px] text-green-600">Harmonious</p>
+              <p className="mt-2 text-[10px] text-neutral-500 sm:text-xs">Adjusted</p>
+              <p className="text-[10px] text-swiss-red">✓ Correct</p>
             </div>
           </div>
         </div>
@@ -723,12 +727,12 @@ fun HarmoniousCard(
       {/* The Standard Formula */}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">The Standard Formula</h2>
-        <div className="mb-4 flex items-center justify-center rounded-lg bg-neutral-100 p-6 dark:bg-neutral-800">
+        <div className="mb-4 flex items-center justify-center rounded-lg bg-neutral-100 p-4 dark:bg-neutral-800 sm:p-6">
           <div className="text-center">
-            <p className="font-mono text-2xl font-bold text-neutral-900 dark:text-white">
+            <p className="font-mono text-lg font-bold text-neutral-900 dark:text-white sm:text-2xl">
               inner = outer − gap
             </p>
-            <p className="mt-2 text-sm text-neutral-500">Apple&apos;s containerRelative approach</p>
+            <p className="mt-2 text-xs text-neutral-500 sm:text-sm">Apple&apos;s containerRelative approach</p>
           </div>
         </div>
         <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
@@ -740,7 +744,7 @@ fun HarmoniousCard(
           </p>
           <p>
             This formula works well in most cases and is mathematically precise. SwiftUI&apos;s 
-            <code>.containerRelativeFrame()</code> modifier uses this exact calculation.
+            <code className="break-all">.containerRelativeFrame()</code> modifier uses this exact calculation.
           </p>
         </div>
       </div>
@@ -761,41 +765,38 @@ fun HarmoniousCard(
               
               <h3 className="text-base font-semibold">Three Perceptual Factors</h3>
               
-              <div className="not-prose my-4 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-                  <div className="mb-2 text-2xl">📐</div>
-                  <h4 className="font-semibold">Curve Weight</h4>
+              <div className="not-prose my-4 grid gap-3 sm:grid-cols-3 sm:gap-4">
+                <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
+                  <div className="mb-2 text-xl sm:text-2xl">📐</div>
+                  <h4 className="text-sm font-semibold sm:text-base">Curve Weight</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Larger radii carry more visual &quot;mass&quot;. The inner curve competes for 
-                    attention with the outer curve, creating tension.
+                    Larger radii carry more visual &quot;mass&quot;, creating tension with the outer curve.
                   </p>
                 </div>
-                <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-                  <div className="mb-2 text-2xl">👁️</div>
-                  <h4 className="font-semibold">Gap Perception</h4>
+                <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
+                  <div className="mb-2 text-xl sm:text-2xl">👁️</div>
+                  <h4 className="text-sm font-semibold sm:text-base">Gap Perception</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    When the gap is small relative to the radius, the inner curve appears more 
-                    prominent and needs more reduction.
+                    Smaller gaps make the inner curve more prominent, needing more reduction.
                   </p>
                 </div>
-                <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-                  <div className="mb-2 text-2xl">◯</div>
-                  <h4 className="font-semibold">Squircle Extension</h4>
+                <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
+                  <div className="mb-2 text-xl sm:text-2xl">◯</div>
+                  <h4 className="text-sm font-semibold sm:text-base">Squircle Extension</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                    Continuous corners (superellipse) extend further into the corner than circular 
-                    arcs, requiring ~1-2px additional compensation.
+                    Continuous corners extend further, requiring ~1-2px extra compensation.
                   </p>
                 </div>
               </div>
 
               <h3 className="text-base font-semibold">The Optical Formula</h3>
-              <div className="not-prose my-4 rounded-lg bg-neutral-900 p-4 dark:bg-neutral-950">
-                <pre className="text-xs text-neutral-300">
+              <div className="not-prose my-4 overflow-x-auto rounded-lg bg-neutral-900 p-4 dark:bg-neutral-950">
+                <pre className="whitespace-pre-wrap break-words text-xs text-neutral-300 sm:whitespace-pre sm:break-normal">
 {`// Calculate optical offset
-curveFactor = 0.06 + (1 - gap/outer) × 0.06  // 6-12%
+curveFactor = 0.06 + (1 - gap/outer) × 0.06
 squircleBonus = useContinuous ? 1 + outer/48 : 0
 
-offset = standardInner × curveFactor + squircleBonus
+offset = inner × curveFactor + squircleBonus
 opticalInner = outer - gap - offset`}
                 </pre>
               </div>
@@ -875,112 +876,100 @@ opticalInner = outer - gap - offset`}
 
       {/* Visual Comparison */}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
-        <h2 className="mb-6 text-lg font-bold">Visual Comparison</h2>
-        <div className="grid gap-6 sm:grid-cols-3">
+        <h2 className="mb-4 text-lg font-bold sm:mb-6">Visual Comparison</h2>
+        <div className="grid grid-cols-3 gap-2 sm:gap-6">
           {/* Wrong - Same radius */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-700 dark:bg-red-900/30 dark:text-red-400">
-                ✗ Same radius
+              <span className="inline-block rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400 sm:px-3 sm:py-1 sm:text-xs">
+                ✗ Same
               </span>
             </div>
             <div
-              className="mx-auto bg-neutral-100 dark:bg-neutral-800"
+              className="mx-auto w-full max-w-[180px] bg-neutral-100 dark:bg-neutral-800"
               style={{
-                width: 180,
-                borderRadius: outerRadius,
-                padding: padding,
+                borderRadius: Math.min(outerRadius, 16),
+                padding: Math.min(padding, 10),
               }}
             >
               <div
                 className="aspect-video w-full bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-600 dark:to-neutral-700"
                 style={{
-                  borderRadius: outerRadius,
+                  borderRadius: Math.min(outerRadius, 16),
                 }}
               />
             </div>
-            <p className="text-center font-mono text-xs text-neutral-500">
-              Inner: {outerRadius}px
-            </p>
-            <p className="text-center text-[11px] text-neutral-400">
-              Corners appear too round
+            <p className="text-center font-mono text-[10px] text-neutral-500 sm:text-xs">
+              {outerRadius}px
             </p>
           </div>
 
           {/* Standard - Apple's formula */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+              <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 sm:px-3 sm:py-1 sm:text-xs">
                 ○ Standard
               </span>
             </div>
             <div
-              className="mx-auto bg-neutral-100 dark:bg-neutral-800"
+              className="mx-auto w-full max-w-[180px] bg-neutral-100 dark:bg-neutral-800"
               style={{
-                width: 180,
-                borderRadius: outerRadius,
-                padding: padding,
+                borderRadius: Math.min(outerRadius, 16),
+                padding: Math.min(padding, 10),
               }}
             >
               <div
                 className="aspect-video w-full bg-gradient-to-br from-amber-400 to-orange-400"
                 style={{
-                  borderRadius: standardInnerRadius,
+                  borderRadius: Math.min(standardInnerRadius, 12),
                 }}
               />
             </div>
-            <p className="text-center font-mono text-xs text-neutral-500">
-              Inner: {standardInnerRadius}px
-            </p>
-            <p className="text-center text-[11px] text-neutral-400">
-              outer − gap
+            <p className="text-center font-mono text-[10px] text-neutral-500 sm:text-xs">
+              {standardInnerRadius}px
             </p>
           </div>
 
           {/* Optical - With correction */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
+              <span className="inline-block rounded-full bg-swiss-red/10 px-2 py-0.5 text-[10px] font-bold text-swiss-red sm:px-3 sm:py-1 sm:text-xs">
                 ✓ Optical
               </span>
             </div>
             <div
-              className="mx-auto bg-neutral-100 dark:bg-neutral-800"
+              className="mx-auto w-full max-w-[180px] bg-neutral-100 dark:bg-neutral-800"
               style={{
-                width: 180,
-                borderRadius: outerRadius,
-                padding: padding,
+                borderRadius: Math.min(outerRadius, 16),
+                padding: Math.min(padding, 10),
               }}
             >
               <div
                 className="aspect-video w-full bg-gradient-to-br from-swiss-red to-orange-400"
                 style={{
-                  borderRadius: Math.max(0, standardInnerRadius - suggestedOffset),
+                  borderRadius: Math.min(Math.max(0, standardInnerRadius - suggestedOffset), 12),
                 }}
               />
             </div>
-            <p className="text-center font-mono text-xs text-neutral-500">
-              Inner: {Math.max(0, standardInnerRadius - suggestedOffset)}px
-            </p>
-            <p className="text-center text-[11px] text-neutral-400">
-              outer − gap − {suggestedOffset}
+            <p className="text-center font-mono text-[10px] text-neutral-500 sm:text-xs">
+              {Math.max(0, standardInnerRadius - suggestedOffset)}px
             </p>
           </div>
         </div>
         
         {/* Quick comparison stats */}
-        <div className="mt-6 rounded-lg bg-neutral-50 p-4 dark:bg-neutral-800/50">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
-            <div className="flex items-center gap-2">
+        <div className="mt-6 rounded-lg bg-neutral-50 p-3 dark:bg-neutral-800/50 sm:p-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs sm:gap-x-8 sm:text-sm">
+            <div className="flex items-center gap-1 sm:gap-2">
               <span className="text-neutral-500">Outer:</span>
               <span className="font-mono font-medium">{outerRadius}px</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <span className="text-neutral-500">Gap:</span>
               <span className="font-mono font-medium">{padding}px</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-neutral-500">Optical offset:</span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <span className="text-neutral-500">Offset:</span>
               <span className="font-mono font-medium text-swiss-red">−{suggestedOffset}px</span>
             </div>
           </div>
