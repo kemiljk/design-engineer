@@ -538,40 +538,65 @@ fun HarmoniousCard(
 
         {/* Preview */}
         <div className="flex flex-col">
-          <div className="flex min-h-[400px] flex-1 items-center justify-center rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 p-8 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800">
+          <div className="relative flex min-h-[350px] flex-1 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800 sm:min-h-[400px]">
+            {/* Measurement labels - positioned at edges of container */}
+            {showBorders && (
+              <>
+                {/* Outer radius - top left corner */}
+                <div className="absolute left-3 top-3 flex items-center gap-1.5 sm:left-4 sm:top-4">
+                  <div className="h-2.5 w-2.5 rounded-full bg-swiss-red" />
+                  <span className="font-mono text-[11px] text-swiss-red sm:text-xs">
+                    outer: {outerRadius}px
+                  </span>
+                </div>
+                
+                {/* Inner radius - top right corner */}
+                <div className="absolute right-3 top-3 flex items-center gap-1.5 sm:right-4 sm:top-4">
+                  <span className="font-mono text-[11px] text-orange-500 sm:text-xs">
+                    inner: {innerRadius}px
+                  </span>
+                  <div className="h-2.5 w-2.5 rounded-full bg-orange-500" />
+                </div>
+                
+                {/* Gap - bottom center */}
+                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 sm:bottom-4">
+                  <div className="h-2.5 w-2.5 rounded-full bg-neutral-400" />
+                  <span className="font-mono text-[11px] text-neutral-500 sm:text-xs">
+                    gap: {padding}px
+                  </span>
+                </div>
+              </>
+            )}
+
+            {/* Preview element wrapper with corner markers */}
             <div className="relative">
-              {/* Diagrammatic indicators - positioned outside */}
+              {/* Corner marker dots when guides enabled */}
               {showBorders && (
-                <>
-                  {/* Outer radius indicator - top right */}
-                  <div className="absolute -right-16 -top-8 flex items-end gap-1 sm:-right-20">
-                    <svg className="h-8 w-8 text-swiss-red/40" viewBox="0 0 32 32" fill="none">
-                      <path d="M4 28 L24 8" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                      <circle cx="24" cy="8" r="2" fill="currentColor" />
-                    </svg>
-                    <span className="font-mono text-xs font-medium text-swiss-red">{outerRadius}px</span>
-                  </div>
-                  
-                  {/* Inner radius indicator - bottom left */}
-                  {innerRadius > 0 && (
-                    <div className="absolute -bottom-8 -left-16 flex items-start gap-1 sm:-left-20">
-                      <span className="font-mono text-xs font-medium text-orange-500">{innerRadius}px</span>
-                      <svg className="h-8 w-8 text-orange-500/40" viewBox="0 0 32 32" fill="none">
-                        <path d="M28 4 L8 24" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                        <circle cx="8" cy="24" r="2" fill="currentColor" />
-                      </svg>
-                    </div>
-                  )}
-                  
-                  {/* Padding indicator - right side */}
-                  <div className="absolute -right-16 top-1/2 flex -translate-y-1/2 items-center gap-1 sm:-right-20">
-                    <svg className="h-4 w-6 text-neutral-400" viewBox="0 0 24 16" fill="none">
-                      <path d="M0 8 L16 8" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-                      <circle cx="16" cy="8" r="1.5" fill="currentColor" />
-                    </svg>
-                    <span className="font-mono text-[10px] text-neutral-500">gap {padding}px</span>
-                  </div>
-                </>
+                <svg 
+                  className="pointer-events-none absolute inset-0 h-full w-full"
+                  style={{ 
+                    width: previewType === "modal" ? 280 : previewType === "button" || previewType === "badge" ? "auto" : 240,
+                    height: "100%"
+                  }}
+                >
+                  {/* Outer corner marker - top right */}
+                  <circle 
+                    cx={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4} 
+                    cy={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4} 
+                    r="3" 
+                    className="fill-swiss-red"
+                  />
+                  {/* Dotted line from outer marker */}
+                  <line 
+                    x1={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4}
+                    y1={outerRadius > 0 ? Math.min(outerRadius * 0.7, 20) : 4}
+                    x2="0"
+                    y2="0"
+                    className="stroke-swiss-red/40"
+                    strokeWidth="1"
+                    strokeDasharray="3 2"
+                  />
+                </svg>
               )}
 
               {/* Card Preview */}
@@ -586,6 +611,16 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
+                  {/* Inner corner marker */}
+                  {showBorders && padding > 0 && (
+                    <div 
+                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
+                      style={{
+                        top: padding + Math.min(innerRadius * 0.5, 8),
+                        left: padding + Math.min(innerRadius * 0.5, 8),
+                      }}
+                    />
+                  )}
                   <motion.div
                     layout
                     className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
@@ -607,27 +642,38 @@ fun HarmoniousCard(
 
               {/* Button Preview */}
               {previewType === "button" && (
-                <motion.button
+                <motion.div
                   layout
-                  className="relative flex items-center gap-3 bg-swiss-red text-white shadow-lg"
-                  style={{
-                    borderRadius: outerRadius,
-                    padding: `${padding}px ${padding * 2}px`,
-                  }}
+                  className="relative"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  <motion.div
-                    layout
-                    className="flex h-6 w-6 items-center justify-center bg-white/20"
-                    style={{ borderRadius: innerRadius }}
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  {showBorders && (
+                    <div 
+                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
+                      style={{
+                        top: padding + Math.min(innerRadius * 0.5, 6),
+                        left: padding * 2 + Math.min(innerRadius * 0.5, 6),
+                      }}
+                    />
+                  )}
+                  <button
+                    className="flex items-center gap-3 bg-swiss-red text-white shadow-lg"
+                    style={{
+                      borderRadius: outerRadius,
+                      padding: `${padding}px ${padding * 2}px`,
+                    }}
                   >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </motion.div>
-                  <span className="font-semibold">Submit</span>
-                </motion.button>
+                    <div
+                      className="flex h-6 w-6 items-center justify-center bg-white/20"
+                      style={{ borderRadius: innerRadius }}
+                    >
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="font-semibold">Submit</span>
+                  </button>
+                </motion.div>
               )}
 
               {/* Modal Preview */}
@@ -642,6 +688,15 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
+                  {showBorders && padding > 0 && (
+                    <div 
+                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
+                      style={{
+                        top: padding + Math.min(innerRadius * 0.5, 8),
+                        left: padding + Math.min(innerRadius * 0.5, 8),
+                      }}
+                    />
+                  )}
                   <motion.div
                     layout
                     className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
@@ -678,6 +733,15 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
+                  {showBorders && padding > 0 && (
+                    <div 
+                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
+                      style={{
+                        top: padding + Math.min(innerRadius * 0.5, 6),
+                        left: padding + Math.min(innerRadius * 0.5, 6),
+                      }}
+                    />
+                  )}
                   <motion.div
                     layout
                     className="flex h-8 w-8 flex-shrink-0 items-center justify-center bg-neutral-100 dark:bg-neutral-700"
@@ -703,6 +767,15 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
+                  {showBorders && (
+                    <div 
+                      className="absolute h-1.5 w-1.5 rounded-full bg-orange-500"
+                      style={{
+                        top: padding + Math.min(innerRadius * 0.4, 4),
+                        left: padding * 1.5 + Math.min(innerRadius * 0.4, 4),
+                      }}
+                    />
+                  )}
                   <motion.div
                     layout
                     className="flex h-5 w-5 items-center justify-center bg-swiss-red text-white"
@@ -714,22 +787,19 @@ fun HarmoniousCard(
                   <span className="text-sm font-semibold">Notifications</span>
                 </motion.div>
               )}
+
+              {/* Outer corner marker - always on the preview element */}
+              {showBorders && (
+                <div 
+                  className="absolute h-1.5 w-1.5 rounded-full bg-swiss-red"
+                  style={{
+                    top: Math.min(outerRadius * 0.4, 12),
+                    left: Math.min(outerRadius * 0.4, 12),
+                  }}
+                />
+              )}
             </div>
           </div>
-
-          {/* Legend */}
-          {showBorders && (
-            <div className="mt-4 flex items-center justify-center gap-6 text-xs">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-swiss-red" />
-                <span className="font-mono text-neutral-500">outer</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-orange-500" />
-                <span className="font-mono text-neutral-500">inner</span>
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
