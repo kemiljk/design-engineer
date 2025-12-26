@@ -71,7 +71,7 @@ export default async function CoursePage() {
       id: "design-track",
       title: "Design Track",
       description:
-        "Go beyond Vibe Coding. Learn the visual design fundamentals that AI can't teach—develop real taste, understand why designs work, and build skills that last.",
+        "Develop real design taste. Learn visual design fundamentals that make your work beautiful—typography, colour, layout, and the principles behind great interfaces.",
       icon: Layout,
       color: "bg-swiss-red",
       stats: {
@@ -85,7 +85,7 @@ export default async function CoursePage() {
       id: "engineering-track",
       title: "Engineering Track",
       description:
-        "Ship beautiful, thoroughly considered UIs. Learn to build interfaces that users love—not just functional code, but polished, professional experiences.",
+        "Go beyond Vibe Coding. Learn to build interfaces properly—not just prompting AI, but understanding HTML, CSS, and JavaScript from the ground up.",
       icon: Code2,
       color: "bg-neutral-900 dark:bg-neutral-100",
       stats: {

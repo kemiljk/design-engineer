@@ -88,7 +88,7 @@ const faqs = [
       },
       {
         q: "What's the difference between the tracks?",
-        a: "The Design Track helps you go beyond Vibe Coding—you'll learn visual design principles, design tools, design systems, and UX fundamentals that AI simply can't teach. Develop real taste and understand why designs work. The Engineering Track teaches you to ship beautiful, thoroughly considered UIs—programming from scratch with a focus on polish and craft, not just functionality. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
+        a: "The Design Track helps engineers develop real design taste—you'll learn visual design principles, design tools, design systems, and UX fundamentals that AI simply can't teach. Understand why designs work and make confident visual decisions. The Engineering Track helps designers go beyond Vibe Coding—programming from scratch with real understanding, not just AI prompts. Learn HTML, CSS, JavaScript, and build with intention. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
       },
     ],
   },
