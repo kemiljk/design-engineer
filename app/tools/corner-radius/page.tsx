@@ -1,0 +1,22 @@
+import React from "react";
+import { PageHeader } from "@/app/components/page-header";
+import CornerRadiusCalculator from "./calculator";
+
+export const metadata = {
+  title: "Corner Radius Calculator | Design Engineer",
+  description: "Calculate harmonious nested corner radii for optically perfect UI components. Based on Apple's containerRelative approach.",
+};
+
+export default function CornerRadiusPage() {
+  return (
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <PageHeader
+        title="Corner Radius Calculator"
+        description="Calculate harmonious inner radii for nested elements. Achieve optical perfection with Apple-style continuous corners."
+      />
+      <div className="container mx-auto px-4 py-12">
+        <CornerRadiusCalculator />
+      </div>
+    </main>
+  );
+}
