@@ -684,15 +684,12 @@ fun HarmoniousCard(
                 // Inner element top-right corner (to avoid clustering)
                 const innerDotX = elementWidth - padding - innerRadius * 0.293;
                 const innerDotY = padding + innerRadius * 0.293;
-                // Gap dimension sits IN the gap at top edge
-                const gapY = padding / 2; // Vertically centered in the gap
                 
                 return (
                   <svg
-                    className="pointer-events-none absolute left-0 top-0"
+                    className="pointer-events-none absolute left-0 top-0 h-full"
                     style={{
                       width: elementWidth,
-                      height: "100%",
                       overflow: "visible",
                     }}
                   >
@@ -744,40 +741,26 @@ fun HarmoniousCard(
                       </>
                     )}
 
-                    {/* GAP - horizontal dimension IN the gap at top edge */}
+                    {/* GAP - horizontal dimension at 50% height on left edge */}
                     {padding > 0 && (
-                      <>
+                      <g style={{ transform: "translateY(50%)" }}>
                         {/* Horizontal line from outer edge to inner element */}
                         <line
                           x1={0}
-                          y1={gapY}
+                          y1={0}
                           x2={padding}
-                          y2={gapY}
+                          y2={0}
                           stroke="#737373"
                           strokeWidth="1"
                         />
                         {/* Left tick (at outer edge) */}
-                        <line
-                          x1={0}
-                          y1={gapY - 4}
-                          x2={0}
-                          y2={gapY + 4}
-                          stroke="#737373"
-                          strokeWidth="1"
-                        />
+                        <line x1={0} y1={-4} x2={0} y2={4} stroke="#737373" strokeWidth="1" />
                         {/* Right tick (at inner element edge) */}
-                        <line
-                          x1={padding}
-                          y1={gapY - 4}
-                          x2={padding}
-                          y2={gapY + 4}
-                          stroke="#737373"
-                          strokeWidth="1"
-                        />
+                        <line x1={padding} y1={-4} x2={padding} y2={4} stroke="#737373" strokeWidth="1" />
                         {/* Label above the gap line */}
                         <text
                           x={padding / 2}
-                          y={gapY - 8}
+                          y={-8}
                           fill="#737373"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "10px" }}
                           textAnchor="middle"
@@ -785,7 +768,7 @@ fun HarmoniousCard(
                         >
                           {padding}px
                         </text>
-                      </>
+                      </g>
                     )}
                   </svg>
                 );
