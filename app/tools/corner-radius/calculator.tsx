@@ -626,44 +626,44 @@ fun HarmoniousCard(
                       overflow: "visible",
                     }}
                   >
-                    {/* OUTER RADIUS - L-shaped leader: right then up */}
+                    {/* OUTER RADIUS - L-shaped leader: up then right */}
                     <circle cx={outerDotX} cy={outerDotY} r="3" fill="currentColor" />
                     <polyline
-                      points={`${outerDotX},${outerDotY} ${outerDotX + leaderH},${outerDotY} ${outerDotX + leaderH},${outerDotY - leaderV}`}
+                      points={`${outerDotX},${outerDotY} ${outerDotX},${outerDotY - leaderV} ${outerDotX + leaderH},${outerDotY - leaderV}`}
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1"
                       strokeDasharray="3 3"
                     />
                     <text
-                      x={outerDotX + leaderH}
-                      y={outerDotY - leaderV - 6}
+                      x={outerDotX + leaderH + 4}
+                      y={outerDotY - leaderV}
                       fill="currentColor"
                       style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
-                      textAnchor="middle"
-                      dominantBaseline="auto"
+                      textAnchor="start"
+                      dominantBaseline="middle"
                     >
                       {outerRadius}px
                     </text>
 
-                    {/* INNER RADIUS - L-shaped leader: left then up */}
+                    {/* INNER RADIUS - L-shaped leader: up then left */}
                     {innerRadius > 0 && (
                       <>
                         <circle cx={innerDotX} cy={innerDotY} r="3" fill="currentColor" />
                         <polyline
-                          points={`${innerDotX},${innerDotY} ${innerDotX - leaderH},${innerDotY} ${innerDotX - leaderH},${innerDotY - leaderV}`}
+                          points={`${innerDotX},${innerDotY} ${innerDotX},${innerDotY - leaderV} ${innerDotX - leaderH},${innerDotY - leaderV}`}
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="1"
                           strokeDasharray="3 3"
                         />
                         <text
-                          x={innerDotX - leaderH}
-                          y={innerDotY - leaderV - 6}
+                          x={innerDotX - leaderH - 4}
+                          y={innerDotY - leaderV}
                           fill="currentColor"
                           style={{ fontFamily: "ui-monospace, monospace", fontSize: "11px" }}
-                          textAnchor="middle"
-                          dominantBaseline="auto"
+                          textAnchor="end"
+                          dominantBaseline="middle"
                         >
                           {innerRadius}px
                         </text>
