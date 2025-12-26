@@ -10,6 +10,14 @@
 - Navigating the Android Studio interface
 - Creating your first project
 
+## Go Beyond Vibe Coding
+
+If you've been using AI tools to generate Jetpack Compose code—prompting and hoping for the best—you've probably hit a wall. Maybe the code builds but you don't understand it. Maybe you can't debug issues or customise behaviour. Maybe you feel like an imposter.
+
+That's Vibe Coding. And whilst it's a valid starting point, to truly own your work—to build Android apps with intention and ship with confidence—you need to understand Kotlin and Compose properly.
+
+**This track teaches you real Android engineering skills.** Not just copying and pasting, but genuinely understanding how to build native Android interfaces. Android Studio is where that journey begins.
+
 ## What Is Android Studio?
 
 Android Studio is Google's official IDE (Integrated Development Environment) for Android development. It's built on IntelliJ IDEA (a powerful, professional code editor) and includes everything you need to build Android apps:

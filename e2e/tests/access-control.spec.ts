@@ -31,8 +31,8 @@ test.describe('Access Control - Free Tier', () => {
 
   test('free users can access first lesson of each track', async ({ page }) => {
     const firstLessons = [
-      'design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal',
-      'engineering-track/web/01-html-fundamentals/01-what-is-html',
+      'design-track/web/01-foundations/01-what-is-visual-design',
+      'engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal',
     ];
     
     for (const lesson of firstLessons) {

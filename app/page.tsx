@@ -171,7 +171,7 @@ const homepageFaqs = [
   },
   {
     q: "Do I need any prior experience?",
-    a: "No prior experience is required for the beginner tracks. The Design Track assumes no coding knowledge, and the Engineering Track starts from the fundamentals. However, you should be comfortable using a computer and have a genuine interest in building digital products.",
+    a: "No prior experience is required for the beginner tracks. The Engineering Track assumes no design tool knowledge and starts from terminal basics. The Design Track assumes no prior design knowledge and teaches visual fundamentals from scratch. However, you should be comfortable using a computer and have a genuine interest in building digital products.",
   },
   {
     q: "What platforms does the course cover?",
@@ -388,13 +388,13 @@ async function CourseSection() {
       icon: Layout,
       title: "Design Track",
       description:
-        "Go beyond Vibe Coding—develop real design taste that AI can't replicate",
+        "Develop real design taste—visual fundamentals that AI can't teach",
       color: "bg-swiss-red",
     },
     {
       icon: Code2,
       title: "Engineering Track",
-      description: "Ship beautiful, thoroughly considered UIs that users love",
+      description: "Go beyond Vibe Coding—build with real understanding, not just AI prompts",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {

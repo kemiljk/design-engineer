@@ -445,4 +445,4 @@ You're ready to start designing and building iOS interfaces!
 
 ## Next Steps
 
-Continue to [iOS Design Philosophy](../01-hig-fundamentals/01-ios-design-philosophy.md) →
+Continue to [Introduction to Swift](../01-swift-basics/01-introduction-to-swift.md) →

@@ -15,14 +15,14 @@ interface TrackPlatformSelectorProps {
 
 const START_LINKS: Record<PlatformTrackKey, Record<string, string>> = {
   design: {
-    web: "/course/design-track/web/00-environment-setup/01-your-new-best-friend-the-terminal",
-    ios: "/course/design-track/ios/00-environment-setup/01-getting-started-with-xcode",
-    android: "/course/design-track/android/00-environment-setup/01-getting-started-with-android-studio",
+    web: "/course/design-track/web/01-foundations/01-what-is-visual-design",
+    ios: "/course/design-track/ios/01-hig-fundamentals/01-ios-design-philosophy",
+    android: "/course/design-track/android/01-material-design/01-material-design-philosophy",
   },
   engineering: {
-    web: "/course/engineering-track/web/01-html-fundamentals/01-what-is-html",
-    ios: "/course/engineering-track/ios/01-swift-basics/01-introduction-to-swift",
-    android: "/course/engineering-track/android/01-kotlin-basics/01-introduction-to-kotlin",
+    web: "/course/engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal",
+    ios: "/course/engineering-track/ios/00-environment-setup/01-getting-started-with-xcode",
+    android: "/course/engineering-track/android/00-environment-setup/01-getting-started-with-android-studio",
   },
   convergence: {
     web: "/course/convergence/web/01-motion-and-interaction/01-why-motion-matters",
