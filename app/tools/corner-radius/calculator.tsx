@@ -71,22 +71,20 @@ function calculateOpticalOffset(outerRadius: number, gap: number): number {
   return Math.round(Math.min(offset, maxOffset));
 }
 
-type PreviewType = "card" | "button" | "modal" | "input" | "badge";
+type PreviewLayout = "vertical" | "horizontal";
 
 type RadiusPreset = {
   name: string;
   outerRadius: number;
   padding: number;
-  preview: PreviewType;
+  layout: PreviewLayout;
 };
 
 const PRESETS: RadiusPreset[] = [
-  { name: "Card", outerRadius: 16, padding: 12, preview: "card" },
-  { name: "Modal", outerRadius: 24, padding: 16, preview: "modal" },
-  { name: "Button", outerRadius: 12, padding: 8, preview: "button" },
-  { name: "Input", outerRadius: 8, padding: 12, preview: "input" },
-  { name: "Badge", outerRadius: 20, padding: 6, preview: "badge" },
-  { name: "Large Card", outerRadius: 32, padding: 24, preview: "card" },
+  { name: "Small", outerRadius: 12, padding: 8, layout: "horizontal" },
+  { name: "Medium", outerRadius: 16, padding: 12, layout: "horizontal" },
+  { name: "Large", outerRadius: 24, padding: 16, layout: "vertical" },
+  { name: "Extra Large", outerRadius: 32, padding: 20, layout: "vertical" },
 ];
 
 export default function CornerRadiusCalculator() {
@@ -95,8 +93,8 @@ export default function CornerRadiusCalculator() {
   const [customOffset, setCustomOffset] = useState(0);
   const [mode, setMode] = useState<CalculationMode>("standard");
   const [platform, setPlatform] = useState<Platform>("css");
-  const [activePreset, setActivePreset] = useState<string | null>("Modal");
-  const [previewType, setPreviewType] = useState<PreviewType>("modal");
+  const [activePreset, setActivePreset] = useState<string | null>("Large");
+  const [previewLayout, setPreviewLayout] = useState<PreviewLayout>("vertical");
   const [showBorders, setShowBorders] = useState(true);
 
   // Calculate the suggested optical offset
@@ -157,7 +155,7 @@ export default function CornerRadiusCalculator() {
     setOuterRadius(preset.outerRadius);
     setPadding(preset.padding);
     setActivePreset(preset.name);
-    setPreviewType(preset.preview);
+    setPreviewLayout(preset.layout);
   };
 
   const handleSliderChange = () => {
@@ -540,10 +538,10 @@ fun HarmoniousCard(
         <div className="flex flex-col">
           <div className="relative flex min-h-[350px] flex-1 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800 sm:min-h-[400px]">
             
-            {/* Preview element with SVG overlay for measurements */}
+            {/* Preview card */}
             <div className="relative">
-              {/* The preview element */}
-              {previewType === "card" && (
+              {/* Vertical card layout - image on top */}
+              {previewLayout === "vertical" && (
                 <motion.div
                   layout
                   className="relative bg-white shadow-xl dark:bg-neutral-800"
@@ -573,30 +571,11 @@ fun HarmoniousCard(
                 </motion.div>
               )}
 
-              {previewType === "button" && (
-                <button
-                  className="flex items-center gap-3 bg-swiss-red text-white shadow-lg"
-                  style={{
-                    borderRadius: outerRadius,
-                    padding: `${padding}px ${padding * 2}px`,
-                  }}
-                >
-                  <div
-                    className="flex h-6 w-6 items-center justify-center bg-white/20"
-                    style={{ borderRadius: innerRadius }}
-                  >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="font-semibold">Submit</span>
-                </button>
-              )}
-
-              {previewType === "modal" && (
+              {/* Horizontal card layout - text left, square image right */}
+              {previewLayout === "horizontal" && (
                 <motion.div
                   layout
-                  className="relative bg-white shadow-2xl dark:bg-neutral-800"
+                  className="relative flex items-center gap-3 bg-white shadow-xl dark:bg-neutral-800"
                   style={{
                     width: 280,
                     borderRadius: outerRadius,
@@ -604,89 +583,40 @@ fun HarmoniousCard(
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
+                  <div className="flex-1 space-y-1.5">
+                    <div className="h-3 w-4/5 rounded bg-neutral-200 dark:bg-neutral-700" />
+                    <div className="h-2 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                    <div className="h-2 w-3/4 rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                  </div>
                   <motion.div
                     layout
-                    className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
+                    className="relative h-16 w-16 flex-shrink-0 overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
                     style={{ borderRadius: innerRadius }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <svg className="h-8 w-8 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg className="h-6 w-6 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
                   </motion.div>
-                  <div className="mt-3 space-y-1.5">
-                    <div className="h-4 w-2/3 rounded bg-neutral-200 dark:bg-neutral-700" />
-                    <div className="h-2 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
-                  </div>
-                  <div className="mt-3 flex gap-2">
-                    <div className="h-7 flex-1 rounded bg-neutral-100 dark:bg-neutral-700" />
-                    <div className="h-7 flex-1 rounded bg-swiss-red" />
-                  </div>
-                </motion.div>
-              )}
-
-              {previewType === "input" && (
-                <motion.div
-                  layout
-                  className="relative flex items-center gap-3 border-2 border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-800"
-                  style={{
-                    width: 240,
-                    borderRadius: outerRadius,
-                    padding: padding,
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                >
-                  <motion.div
-                    layout
-                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center bg-neutral-100 dark:bg-neutral-700"
-                    style={{ borderRadius: innerRadius }}
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  >
-                    <svg className="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </motion.div>
-                  <span className="text-sm text-neutral-400">Search...</span>
-                </motion.div>
-              )}
-
-              {previewType === "badge" && (
-                <motion.div
-                  layout
-                  className="relative flex items-center gap-2 bg-swiss-red/10 text-swiss-red"
-                  style={{
-                    borderRadius: outerRadius,
-                    padding: `${padding}px ${padding * 1.5}px`,
-                  }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                >
-                  <motion.div
-                    layout
-                    className="flex h-5 w-5 items-center justify-center bg-swiss-red text-white"
-                    style={{ borderRadius: innerRadius }}
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  >
-                    <span className="text-xs font-bold">3</span>
-                  </motion.div>
-                  <span className="text-sm font-semibold">Notifications</span>
                 </motion.div>
               )}
 
               {/* SVG Overlay for measurement annotations */}
               {showBorders && (() => {
-                const elementWidth = previewType === "modal" ? 280 : 240;
+                const elementWidth = previewLayout === "horizontal" ? 280 : 240;
                 // 45° point on corner arc: r × (1 - cos(45°)) ≈ r × 0.293
                 const outerDotX = outerRadius * 0.293;
                 const outerDotY = outerRadius * 0.293;
-                // Inner element top-right corner (to avoid clustering)
+                
+                // Inner element position - top-right corner of inner element
                 const innerDotX = elementWidth - padding - innerRadius * 0.293;
                 const innerDotY = padding + innerRadius * 0.293;
+                
                 // L-shaped leader line offsets
-                const leaderH = 30; // horizontal segment length
-                const leaderV = 20; // vertical segment length
+                const leaderH = 30;
+                const leaderV = 20;
                 
                 return (
                   <svg
@@ -743,13 +673,9 @@ fun HarmoniousCard(
                     {/* GAP - horizontal dimension at 50% height on left edge */}
                     {padding > 0 && (
                       <g style={{ transform: "translateY(50%)" }}>
-                        {/* Horizontal line from outer edge to inner element */}
                         <line x1={0} y1={0} x2={padding} y2={0} stroke="currentColor" strokeWidth="1" />
-                        {/* Left tick */}
                         <line x1={0} y1={-4} x2={0} y2={4} stroke="currentColor" strokeWidth="1" />
-                        {/* Right tick */}
                         <line x1={padding} y1={-4} x2={padding} y2={4} stroke="currentColor" strokeWidth="1" />
-                        {/* Label above */}
                         <text
                           x={padding / 2}
                           y={-8}
