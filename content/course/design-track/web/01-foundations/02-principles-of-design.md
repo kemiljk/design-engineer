@@ -19,6 +19,8 @@ Let's examine each principle.
 
 Hierarchy establishes the order of importance in a design. It answers: "What should users notice first? Second? What can wait?"
 
+<!-- visual-example: hierarchy-demo -->
+
 ### How Hierarchy Works
 
 Your eyes are drawn to certain elements before others based on:
@@ -49,6 +51,8 @@ Without clear hierarchy, every element competes for attention and nothing wins. 
 
 Balance is the distribution of visual weight across a design. Balanced designs feel stable; unbalanced designs feel dynamic or unsettling.
 
+<!-- visual-example: balance-demo -->
+
 <!-- illustration: balance-types -->
 
 ### Types of Balance
@@ -76,6 +80,8 @@ The sides aren't identical, but they feel balanced because the visual weight is 
 ## Contrast
 
 Contrast is the difference between elements. It creates visual interest, establishes hierarchy, and improves readability.
+
+<!-- visual-example: contrast-demo -->
 
 ### Types of Contrast
 
@@ -111,6 +117,8 @@ A helpful guideline for color contrast:
 
 Repetition creates consistency through recurring visual elements. It helps users learn patterns and builds cohesion.
 
+<!-- visual-example: repetition-demo -->
+
 ### What Gets Repeated
 
 - **Colors**: Consistent palette throughout
@@ -137,7 +145,9 @@ Design systems are essentially codified repetition. They define how elements sho
 
 ## Alignment
 
-Alignment is the placement of elements relative to each other. It creates visual connections and organization.
+Alignment is the placement of elements relative to each other. It creates visual connections and organisation.
+
+<!-- visual-example: alignment-demo -->
 
 <!-- illustration: alignment-grid -->
 
@@ -171,6 +181,8 @@ We'll cover grids in depth in later lessons.
 ## Proximity
 
 Proximity uses space to indicate relationships. Elements that are close together are perceived as related.
+
+<!-- visual-example: proximity-demo -->
 
 ### Proximity in Practice
 

@@ -15,6 +15,7 @@ import {
 } from "./lesson-layout";
 import { IllustrationRenderer } from "./illustrations/illustration-renderer";
 import { ExerciseRenderer } from "./exercises";
+import { VisualExampleRenderer } from "./visual-examples";
 
 interface CourseMarkdownProps {
   content: string;
@@ -30,6 +31,7 @@ interface ParsedSection {
     | "takeaways"
     | "content"
     | "illustration"
+    | "visual-example"
     | "exercise-interactive";
   content: string;
   id?: string;
@@ -114,19 +116,29 @@ function parseContent(content: string): ParsedSection[] {
     remaining = remaining.replace(takeawaysResult.match, "");
   }
 
-  // Process remaining content for illustrations, exercises, and h2 sections
+  // Process remaining content for illustrations, visual examples, exercises, and h2 sections
   const illustrationRegex = /<!--\s*illustration:\s*([a-z0-9-]+)\s*-->/g;
+  const visualExampleRegex = /<!--\s*visual-example:\s*([a-z0-9-]+)\s*-->/g;
   const exerciseRegex = /<!--\s*exercise:\s*([a-z-]+)\n([\s\S]*?)-->/g;
   let lastIndex = 0;
   let match;
   const contentParts: ParsedSection[] = [];
 
-  // Combine all special blocks (illustrations and exercises) with their positions
-  const specialBlocks: { type: 'illustration' | 'exercise-interactive'; index: number; length: number; content: string; exerciseType?: string }[] = [];
+  // Combine all special blocks (illustrations, visual examples, and exercises) with their positions
+  const specialBlocks: { type: 'illustration' | 'visual-example' | 'exercise-interactive'; index: number; length: number; content: string; exerciseType?: string }[] = [];
 
   while ((match = illustrationRegex.exec(remaining)) !== null) {
     specialBlocks.push({
       type: 'illustration',
+      index: match.index,
+      length: match[0].length,
+      content: match[1],
+    });
+  }
+
+  while ((match = visualExampleRegex.exec(remaining)) !== null) {
+    specialBlocks.push({
+      type: 'visual-example',
       index: match.index,
       length: match[0].length,
       content: match[1],
@@ -161,6 +173,8 @@ function parseContent(content: string): ParsedSection[] {
     
     if (block.type === 'illustration') {
       contentParts.push({ type: "illustration", content: block.content });
+    } else if (block.type === 'visual-example') {
+      contentParts.push({ type: "visual-example", content: block.content });
     } else {
       contentParts.push({
         type: "exercise-interactive",
@@ -397,6 +411,13 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
             return (
               <div key={index} className="my-8">
                 <IllustrationRenderer type={section.content} />
+              </div>
+            );
+
+          case "visual-example":
+            return (
+              <div key={index} className="my-8">
+                <VisualExampleRenderer type={section.content} />
               </div>
             );
 

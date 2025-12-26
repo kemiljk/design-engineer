@@ -138,6 +138,8 @@ Hierarchy uses size, weight, and style to communicate importance. A clear hierar
 
 ### The Type Scale
 
+<!-- visual-example: type-scale-demo -->
+
 <!-- illustration: type-scale -->
 
 A type scale is a set of consistent sizes used throughout a product. Rather than arbitrary sizes, scales create rhythm and consistency.
@@ -180,6 +182,8 @@ Size alone doesn't create hierarchy. Combine with:
 
 The number of characters per line dramatically affects readability.
 
+<!-- visual-example: measure-demo -->
+
 ### Optimal Line Length
 
 **For body text:** 50-75 characters per line (including spaces)
@@ -207,6 +211,8 @@ On desktop screens, content can span too wide. Solutions:
 ## Line Height (Leading)
 
 Line height is the vertical space between lines. It dramatically affects readability.
+
+<!-- visual-example: line-height-demo -->
 
 ### Guidelines
 

@@ -36,4 +36,9 @@ export {
   ILLUSTRATION_MAP,
 } from "./illustrations";
 
+export {
+  VisualExampleRenderer,
+  VISUAL_EXAMPLE_MAP,
+} from "./visual-examples";
+
 export { default as CourseMarkdown } from "./course-markdown";
