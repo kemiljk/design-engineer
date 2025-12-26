@@ -540,49 +540,67 @@ fun HarmoniousCard(
         <div className="flex flex-col">
           <div className="flex min-h-[400px] flex-1 items-center justify-center rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 p-8 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800">
             <div className="relative">
+              {/* Diagrammatic indicators - positioned outside */}
+              {showBorders && (
+                <>
+                  {/* Outer radius indicator - top right */}
+                  <div className="absolute -right-16 -top-8 flex items-end gap-1 sm:-right-20">
+                    <svg className="h-8 w-8 text-swiss-red/40" viewBox="0 0 32 32" fill="none">
+                      <path d="M4 28 L24 8" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+                      <circle cx="24" cy="8" r="2" fill="currentColor" />
+                    </svg>
+                    <span className="font-mono text-xs font-medium text-swiss-red">{outerRadius}px</span>
+                  </div>
+                  
+                  {/* Inner radius indicator - bottom left */}
+                  {innerRadius > 0 && (
+                    <div className="absolute -bottom-8 -left-16 flex items-start gap-1 sm:-left-20">
+                      <span className="font-mono text-xs font-medium text-orange-500">{innerRadius}px</span>
+                      <svg className="h-8 w-8 text-orange-500/40" viewBox="0 0 32 32" fill="none">
+                        <path d="M28 4 L8 24" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+                        <circle cx="8" cy="24" r="2" fill="currentColor" />
+                      </svg>
+                    </div>
+                  )}
+                  
+                  {/* Padding indicator - right side */}
+                  <div className="absolute -right-16 top-1/2 flex -translate-y-1/2 items-center gap-1 sm:-right-20">
+                    <svg className="h-4 w-6 text-neutral-400" viewBox="0 0 24 16" fill="none">
+                      <path d="M0 8 L16 8" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+                      <circle cx="16" cy="8" r="1.5" fill="currentColor" />
+                    </svg>
+                    <span className="font-mono text-[10px] text-neutral-500">gap {padding}px</span>
+                  </div>
+                </>
+              )}
+
               {/* Card Preview */}
               {previewType === "card" && (
                 <motion.div
                   layout
-                  className={clsx(
-                    "relative bg-white shadow-xl dark:bg-neutral-800",
-                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
-                  )}
+                  className="relative bg-white shadow-xl dark:bg-neutral-800"
                   style={{
-                    width: 280,
+                    width: 240,
                     borderRadius: outerRadius,
                     padding: padding,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && outerRadius > 0 && (
-                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
-                      {outerRadius}
-                    </div>
-                  )}
                   <motion.div
                     layout
-                    className={clsx(
-                      "relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400",
-                      showBorders && "ring-2 ring-orange-500/30"
-                    )}
+                    className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
                     style={{ borderRadius: innerRadius }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <svg className="h-12 w-12 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-10 w-10 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    {showBorders && innerRadius > 0 && (
-                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
-                        {innerRadius}
-                      </div>
-                    )}
                   </motion.div>
                   <div className="mt-3 space-y-1.5">
-                    <div className="h-4 w-3/4 rounded bg-neutral-200 dark:bg-neutral-700" />
-                    <div className="h-3 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                    <div className="h-3 w-3/4 rounded bg-neutral-200 dark:bg-neutral-700" />
+                    <div className="h-2 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
                   </div>
                 </motion.div>
               )}
@@ -591,38 +609,22 @@ fun HarmoniousCard(
               {previewType === "button" && (
                 <motion.button
                   layout
-                  className={clsx(
-                    "relative flex items-center gap-3 bg-swiss-red px-6 py-3 text-white shadow-lg",
-                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
-                  )}
+                  className="relative flex items-center gap-3 bg-swiss-red text-white shadow-lg"
                   style={{
                     borderRadius: outerRadius,
                     padding: `${padding}px ${padding * 2}px`,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && outerRadius > 0 && (
-                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm ring-2 ring-white">
-                      {outerRadius}
-                    </div>
-                  )}
                   <motion.div
                     layout
-                    className={clsx(
-                      "flex h-6 w-6 items-center justify-center bg-white/20",
-                      showBorders && "ring-2 ring-orange-500/30"
-                    )}
+                    className="flex h-6 w-6 items-center justify-center bg-white/20"
                     style={{ borderRadius: innerRadius }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    {showBorders && innerRadius > 0 && (
-                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm">
-                        {innerRadius}
-                      </div>
-                    )}
                   </motion.div>
                   <span className="font-semibold">Submit</span>
                 </motion.button>
@@ -632,51 +634,34 @@ fun HarmoniousCard(
               {previewType === "modal" && (
                 <motion.div
                   layout
-                  className={clsx(
-                    "relative bg-white shadow-2xl dark:bg-neutral-800",
-                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
-                  )}
+                  className="relative bg-white shadow-2xl dark:bg-neutral-800"
                   style={{
-                    width: 320,
+                    width: 280,
                     borderRadius: outerRadius,
                     padding: padding,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && outerRadius > 0 && (
-                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
-                      {outerRadius}
-                    </div>
-                  )}
                   <motion.div
                     layout
-                    className={clsx(
-                      "relative aspect-video w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400",
-                      showBorders && "ring-2 ring-orange-500/30"
-                    )}
+                    className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-swiss-red to-orange-400"
                     style={{ borderRadius: innerRadius }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <svg className="h-10 w-10 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-8 w-8 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    {showBorders && innerRadius > 0 && (
-                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
-                        {innerRadius}
-                      </div>
-                    )}
                   </motion.div>
-                  <div className="mt-4 space-y-2">
-                    <div className="h-5 w-2/3 rounded bg-neutral-200 dark:bg-neutral-700" />
-                    <div className="h-3 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
-                    <div className="h-3 w-4/5 rounded bg-neutral-100 dark:bg-neutral-700/50" />
+                  <div className="mt-3 space-y-1.5">
+                    <div className="h-4 w-2/3 rounded bg-neutral-200 dark:bg-neutral-700" />
+                    <div className="h-2 w-full rounded bg-neutral-100 dark:bg-neutral-700/50" />
                   </div>
-                  <div className="mt-4 flex gap-2">
-                    <div className="h-9 flex-1 rounded-lg bg-neutral-100 dark:bg-neutral-700" />
-                    <div className="h-9 flex-1 rounded-lg bg-swiss-red" />
+                  <div className="mt-3 flex gap-2">
+                    <div className="h-7 flex-1 rounded bg-neutral-100 dark:bg-neutral-700" />
+                    <div className="h-7 flex-1 rounded bg-swiss-red" />
                   </div>
                 </motion.div>
               )}
@@ -685,39 +670,23 @@ fun HarmoniousCard(
               {previewType === "input" && (
                 <motion.div
                   layout
-                  className={clsx(
-                    "relative flex items-center gap-3 border-2 border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-800",
-                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
-                  )}
+                  className="relative flex items-center gap-3 border-2 border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-800"
                   style={{
-                    width: 280,
+                    width: 240,
                     borderRadius: outerRadius,
                     padding: padding,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && outerRadius > 0 && (
-                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
-                      {outerRadius}
-                    </div>
-                  )}
                   <motion.div
                     layout
-                    className={clsx(
-                      "flex h-8 w-8 flex-shrink-0 items-center justify-center bg-neutral-100 dark:bg-neutral-700",
-                      showBorders && "ring-2 ring-orange-500/30"
-                    )}
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center bg-neutral-100 dark:bg-neutral-700"
                     style={{ borderRadius: innerRadius }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     <svg className="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                    {showBorders && innerRadius > 0 && (
-                      <div className="absolute left-6 top-0 flex items-center justify-center rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm">
-                        {innerRadius}
-                      </div>
-                    )}
                   </motion.div>
                   <span className="text-sm text-neutral-400">Search...</span>
                 </motion.div>
@@ -727,46 +696,23 @@ fun HarmoniousCard(
               {previewType === "badge" && (
                 <motion.div
                   layout
-                  className={clsx(
-                    "relative flex items-center gap-2 bg-swiss-red/10 text-swiss-red",
-                    showBorders && "ring-2 ring-swiss-red/30 ring-offset-2 ring-offset-transparent"
-                  )}
+                  className="relative flex items-center gap-2 bg-swiss-red/10 text-swiss-red"
                   style={{
                     borderRadius: outerRadius,
                     padding: `${padding}px ${padding * 1.5}px`,
                   }}
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  {showBorders && outerRadius > 0 && (
-                    <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-swiss-red px-2 py-0.5 text-[10px] font-bold text-white shadow-sm">
-                      {outerRadius}
-                    </div>
-                  )}
                   <motion.div
                     layout
-                    className={clsx(
-                      "flex h-5 w-5 items-center justify-center bg-swiss-red text-white",
-                      showBorders && "ring-2 ring-orange-500/30"
-                    )}
+                    className="flex h-5 w-5 items-center justify-center bg-swiss-red text-white"
                     style={{ borderRadius: innerRadius }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
                     <span className="text-xs font-bold">3</span>
-                    {showBorders && innerRadius > 0 && (
-                      <div className="absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-orange-500 px-1.5 py-0.5 text-[9px] font-bold text-white shadow-sm">
-                        {innerRadius}
-                      </div>
-                    )}
                   </motion.div>
                   <span className="text-sm font-semibold">Notifications</span>
                 </motion.div>
-              )}
-
-              {/* Padding indicator */}
-              {showBorders && padding > 0 && (
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-neutral-500">
-                  padding: {padding}px
-                </div>
               )}
             </div>
           </div>
@@ -775,12 +721,12 @@ fun HarmoniousCard(
           {showBorders && (
             <div className="mt-4 flex items-center justify-center gap-6 text-xs">
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-sm ring-2 ring-swiss-red/30" />
-                <span className="text-neutral-500">Outer radius</span>
+                <div className="h-2 w-2 rounded-full bg-swiss-red" />
+                <span className="font-mono text-neutral-500">outer</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-sm ring-2 ring-orange-500/30" />
-                <span className="text-neutral-500">Inner radius</span>
+                <div className="h-2 w-2 rounded-full bg-orange-500" />
+                <span className="font-mono text-neutral-500">inner</span>
               </div>
             </div>
           )}
