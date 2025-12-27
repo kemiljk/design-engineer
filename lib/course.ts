@@ -55,6 +55,12 @@ const ACCESS_MAP: Record<Type.AccessLevel, string[]> = {
 const TEST_MODE = process.env.NEXT_PUBLIC_COURSE_TEST_MODE === "true";
 const TEST_ACCESS_LEVEL = process.env.NEXT_PUBLIC_COURSE_TEST_ACCESS as Type.AccessLevel | undefined;
 
+// User IDs that should bypass test mode and use real enrollments
+// This allows specific users to test real progress/notes saving while others see test mode
+const TEST_MODE_BYPASS_USER_IDS = new Set([
+  "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J", // Owner - always use real enrollment
+]);
+
 // File path for runtime test access override (used by E2E tests)
 const TEST_ACCESS_OVERRIDE_FILE = path.join(process.cwd(), ".test-access-override");
 
