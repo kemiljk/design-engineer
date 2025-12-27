@@ -50,6 +50,8 @@ interface RectProps {
   fill?: string;
   stroke?: string;
   strokeWidth?: number;
+  rx?: number;
+  opacity?: number;
 }
 
 export function Rect({
@@ -60,6 +62,8 @@ export function Rect({
   fill = "none",
   stroke = "currentColor",
   strokeWidth = STROKE_WIDTHS.normal,
+  rx,
+  opacity,
 }: RectProps) {
   return (
     <rect
@@ -70,6 +74,8 @@ export function Rect({
       fill={fill}
       stroke={stroke}
       strokeWidth={strokeWidth}
+      rx={rx}
+      opacity={opacity}
     />
   );
 }
