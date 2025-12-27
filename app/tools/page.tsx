@@ -230,7 +230,7 @@ export default function ToolsPage() {
                   <Link
                     key={tool.title}
                     href={tool.href}
-                    className="group relative flex flex-col justify-between overflow-hidden border border-neutral-200 bg-white p-5 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red md:p-6"
+                    className="group relative flex h-full flex-col justify-between overflow-hidden border border-neutral-200 bg-white p-5 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red md:p-6"
                   >
                     <div>
                       <div className="mb-4 flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors group-hover:bg-swiss-red dark:bg-neutral-800 md:h-12 md:w-12">

@@ -313,7 +313,7 @@ function ToolsSection() {
             <NextLink
               key={tool.title}
               href={tool.href}
-              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex flex-col border border-neutral-200 bg-white p-4 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
+              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex h-full flex-col border border-neutral-200 bg-white p-4 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
             >
               <div className="mb-3 flex items-center justify-between">
                 <div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
