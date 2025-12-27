@@ -306,7 +306,7 @@ export default async function CoursePage() {
                   Start Design (Web)
                 </Button>
                 <Button
-                  href="/course/engineering-track/web/01-html-fundamentals/01-what-is-html"
+                  href="/course/engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal"
                   variant="outline"
                   startContent={<Code2 className="h-4 w-4" />}
                   className="px-4 py-2 text-sm font-medium"
