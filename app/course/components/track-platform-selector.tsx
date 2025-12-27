@@ -74,20 +74,20 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
             
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-white">{platformData.title}</h3>
-              <div className="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
-                <span className="flex items-center gap-1.5">
-                  <BookOpen className="h-3.5 w-3.5" />
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-500 dark:text-neutral-400">
+                <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
+                  <BookOpen className="h-3.5 w-3.5 shrink-0" />
                   {platformData.lessons} lessons
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="h-3.5 w-3.5" />
+                <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
+                  <Clock className="h-3.5 w-3.5 shrink-0" />
                   {getEstimatedDuration(platformData.lessons)}
                 </span>
               </div>
             </div>
 
             <div className="flex shrink-0 items-center gap-2 font-medium text-swiss-red transition-colors group-hover:text-neutral-900 dark:group-hover:text-white">
-              Start
+              <span className="hidden sm:inline">Start</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>

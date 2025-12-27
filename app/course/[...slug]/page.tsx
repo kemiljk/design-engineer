@@ -13,6 +13,7 @@ import {
   formatModuleName,
   isLessonCompleted,
   getEffectiveTestAccessLevel,
+  shouldUseRealEnrollment,
 } from "@/lib/course";
 import { hasPreviewAccess } from "@/lib/preview-access";
 import { formatTitle } from "@/lib/format";
@@ -127,12 +128,21 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   // Check for preview access (secret token for friends/reviewers)
   const previewAccess = await hasPreviewAccess();
+  
+  // Check if this user should always use their real enrollment (owner/enrolled users testing)
+  const useRealEnrollment = userId && shouldUseRealEnrollment(userId);
 
   let hasAccess = isFree;
   let enrollment = null;
 
-  if (previewAccess) {
-    // Preview token grants full access
+  if (useRealEnrollment) {
+    // Bypass user - always load and use their real enrollment
+    // This allows them to test notes, progress, etc. even if preview cookie is set
+    enrollment = await getUserEnrollment(userId);
+    const accessLevel = enrollment?.metadata.access_level || "free";
+    hasAccess = canAccessLesson(accessLevel, lessonPath);
+  } else if (previewAccess) {
+    // Preview token grants full access (for friends/reviewers without real enrollment)
     hasAccess = true;
   } else if (testMode && testAccessLevel && testAccessLevel !== "free") {
     // Test mode override - grant access based on test access level
