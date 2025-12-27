@@ -21,33 +21,42 @@
     "Liberation Mono", monospace;
 
   /* 
-   * Swiss Type Scale - 1.333 ratio (Perfect Fourth)
-   * Bold, confident jumps between sizes
-   * 16px base for optimal screen reading
+   * Swiss Type Scale with TIGHT line-heights
+   * Overrides Tailwind defaults - larger text gets tighter leading
    */
-  --text-xs: 0.75rem;      /* 12px - Fine print, captions */
-  --text-sm: 0.875rem;     /* 14px - Secondary text, metadata */
-  --text-base: 1rem;       /* 16px - Body copy */
-  --text-lg: 1.125rem;     /* 18px - Lead paragraphs */
-  --text-xl: 1.333rem;     /* 21.3px - Small headings */
-  --text-2xl: 1.777rem;    /* 28.4px - H4 */
-  --text-3xl: 2.369rem;    /* 37.9px - H3 */
-  --text-4xl: 3.157rem;    /* 50.5px - H2 */
-  --text-5xl: 4.209rem;    /* 67.3px - H1 */
-  --text-6xl: 5.61rem;     /* 89.8px - Display */
-  --text-7xl: 7.478rem;    /* 119.6px - Hero */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.35;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.35;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.25;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.2;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.1;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.05;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
 
-  /* 
-   * Line Heights - Optical precision
-   * Tighter as size increases (large text needs less leading)
-   * Body text generous for comfortable reading
-   */
+  /* Line height utilities */
   --leading-none: 1;
-  --leading-tighter: 0.9;   /* Display/Hero text */
-  --leading-tight: 0.95;    /* Large headings */
-  --leading-snug: 1.05;     /* Medium headings */
-  --leading-normal: 1.5;    /* Body copy - generous */
-  --leading-relaxed: 1.65;  /* Small text, captions */
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
 
   /* 
    * Letter Spacing - Optical compensation
