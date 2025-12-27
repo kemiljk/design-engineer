@@ -52,7 +52,7 @@ export default function PageTitle() {
         className="relative border-2 border-foreground p-2 md:border-[3px] md:p-4"
         variants={designVariants}
       >
-        <span className="text-4xl font-bold italic tracking-tight md:text-5xl lg:text-6xl">
+        <span className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           design
         </span>
         <MousePointer />
