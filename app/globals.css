@@ -185,28 +185,27 @@ h5, h6 {
   line-height: 1.25;
 }
 
-  /* Paragraphs - comfortable reading */
-  p {
-    line-height: 1.55;
-    letter-spacing: -0.01em;
-  }
+/* Paragraphs - comfortable reading */
+p {
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
 
-  /* Lists inherit body styling */
-  li {
-    line-height: 1.55;
-  }
+/* Lists inherit body styling */
+li {
+  line-height: 1.55;
+}
 
-  /* Strong emphasis */
-  strong, b {
-    @apply font-bold;
-  }
+/* Strong emphasis */
+strong, b {
+  font-weight: 700;
+}
 
-  /* Small text - slightly looser */
-  small {
-    @apply text-sm;
-    line-height: 1.4;
-    letter-spacing: 0;
-  }
+/* Small text - slightly looser */
+small {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 
 /* 
