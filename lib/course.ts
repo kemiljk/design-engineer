@@ -61,6 +61,14 @@ const TEST_MODE_BYPASS_USER_IDS = new Set([
   "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J", // Owner - always use real enrollment
 ]);
 
+/**
+ * Check if a user should always use their real enrollment
+ * (bypasses both test mode AND preview access for enrolled feature testing)
+ */
+export function shouldUseRealEnrollment(userId: string): boolean {
+  return TEST_MODE_BYPASS_USER_IDS.has(userId);
+}
+
 // File path for runtime test access override (used by E2E tests)
 const TEST_ACCESS_OVERRIDE_FILE = path.join(process.cwd(), ".test-access-override");
 
