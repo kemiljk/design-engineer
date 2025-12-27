@@ -9,6 +9,12 @@ import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-json";
 import "prismjs/components/prism-cshtml";
 import "prismjs/components/prism-regex";
+import "prismjs/components/prism-swift";
+import "prismjs/components/prism-kotlin";
+import "prismjs/components/prism-bash";
+import "prismjs/components/prism-markdown";
+import "prismjs/components/prism-powershell";
+import "prismjs/components/prism-java";
 import { ScrollContainer } from "@/app/components/ui";
 import CopyButton from "./CopyButton";
 
