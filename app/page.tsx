@@ -386,7 +386,7 @@ async function CourseSection() {
           {tracks.map((track) => (
             <div
               key={track.title}
-              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex flex-col overflow-hidden border border-neutral-200 bg-white transition-colors dark:border-neutral-800 dark:bg-neutral-900"
+              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors dark:border-neutral-800 dark:bg-neutral-900"
             >
               <div
                 className={cn(
