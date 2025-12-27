@@ -8,6 +8,7 @@ import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
 import { getReadingTime } from "@/lib/utils";
 import { PageHeader } from "@/app/components/page-header";
+import * as Type from "@/lib/types";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -157,9 +158,9 @@ export default async function Post(props: {
         <ul role="list" className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2">
           {allPosts !== undefined &&
             allPosts
-              .filter((nextPost: { id: string }) => nextPost?.id !== post?.id)
+              .filter((nextPost: Type.Post) => nextPost?.id !== post?.id)
               .slice(0, 4)
-              .map((nextPost: { id: string }) => (
+              .map((nextPost: Type.Post) => (
                 <ContentCard key={nextPost.id} post={nextPost} />
               ))}
         </ul>
