@@ -14,6 +14,7 @@ const serif = Imbue({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
+  axes: ["opsz"],
 });
 
 const mono = Martian_Mono({
