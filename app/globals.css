@@ -164,45 +164,44 @@
    * Heading Hierarchy
    * Each level has precise line-height and tracking
    * Larger = tighter (optical compensation)
+   * Using !important to override Tailwind's text-* line-height
    */
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-bold;
     text-wrap: balance;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em;
   }
 
   h1 {
-    @apply text-4xl;
-    line-height: 0.95;
-    letter-spacing: -0.035em;
+    line-height: 0.95 !important;
+    letter-spacing: -0.03em;
   }
 
   h2 {
-    @apply text-3xl;
-    line-height: 1;
+    line-height: 1 !important;
     letter-spacing: -0.025em;
   }
 
   h3 {
-    @apply text-2xl;
-    line-height: 1.05;
+    line-height: 1.05 !important;
     letter-spacing: -0.02em;
   }
 
   h4 {
-    @apply text-xl;
-    line-height: 1.1;
+    line-height: 1.1 !important;
     letter-spacing: -0.015em;
   }
 
   h5 {
-    @apply text-lg font-semibold;
-    line-height: 1.2;
+    @apply font-semibold;
+    line-height: 1.15 !important;
     letter-spacing: -0.01em;
   }
 
   h6 {
-    @apply text-base font-semibold;
-    line-height: 1.3;
+    @apply font-semibold;
+    line-height: 1.2 !important;
     letter-spacing: 0;
   }
 
