@@ -1,12 +1,13 @@
-import { ArrowLeftIcon, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import Markdown from "@/app/components/Markdown";
 import CopyButton from "@/app/components/copy-button";
 import { RelativeDate } from "@/app/components/relative-date";
 import { format, parseISO } from "date-fns";
-import { Button, Chip, Avatar, Divider } from "@/app/components/ui";
+import { Chip, Avatar, Divider } from "@/app/components/ui";
 import { getPost, getPosts } from "@/lib/cosmic";
 import { ContentCard } from "@/app/components/content-card";
 import { getReadingTime } from "@/lib/utils";
+import { PageHeader } from "@/app/components/page-header";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -99,81 +100,70 @@ export default async function Post(props: {
   const readingTime = getReadingTime(post.metadata?.content || "");
 
   return (
-    <div>
-      <div className="container-readable">
-        {post && (
-          <>
-            <div className="mb-8 flex w-full items-center justify-between">
-              <Button
-                href="/posts"
-                variant="ghost"
-                startContent={
-                  <ArrowLeftIcon className="size-4 shrink-0 text-inherit transition ease-out group-hover:-translate-x-1" />
-                }
-              >
-                Go back
-              </Button>
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+      <PageHeader
+        title={post.title}
+        description={post.metadata.snippet}
+      >
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-neutral-500">
+          {post.metadata.categories && post.metadata.categories.length > 0 && (
+            <div className="flex items-center gap-2">
+              {post.metadata.categories.map((category: { id?: string; title: string }) => (
+                <Chip key={category.id || category.title} variant="outline" radius="full">
+                  {category.title}
+                </Chip>
+              ))}
             </div>
-            <article>
-              {post.metadata.categories && post.metadata.categories.length > 0 && (
-                <div className="mb-4 flex items-center gap-x-2">
-                  {post.metadata.categories.map((category: any) => (
-                    <Chip key={category.id || category.title} variant="outline" radius="full">
-                      {category.title}
-                    </Chip>
-                  ))}
-                </div>
-              )}
-              <h1 className="text-2xl font-black tracking-tighter text-foreground lg:text-4xl">
-                {post.title}
-              </h1>
-              <div className="mb-8 mt-4 flex w-full flex-wrap items-center justify-start gap-x-4">
-                <div className="flex items-center gap-x-2">
-                  <Avatar
-                    size="sm"
-                    src={post.metadata.author.metadata?.image?.imgix_url || ""}
-                    alt={post.metadata.author.title}
-                    fallback={post.metadata.author.title}
-                  />
-                  <span className="text-sm text-neutral-700 dark:text-neutral-300">
-                    {post.metadata.author.title}
-                  </span>
-                </div>
-                <span className="text-sm text-neutral-500">•</span>
-                <span className="text-sm text-neutral-500">
-                  {postPublished}
-                </span>
-                <span className="text-sm text-neutral-500">•</span>
-                <span className="flex items-center gap-1 text-sm text-neutral-500">
-                  <Clock className="h-3.5 w-3.5" />
-                  {readingTime} min read
-                </span>
-              </div>
-              <Markdown
-                className="prose prose-zinc pb-4 dark:prose-invert"
-                content={post.metadata.content}
-              />
-              <span className="pb-16 pt-8 text-sm text-neutral-500">
-                Last updated: {postModified} (<RelativeDate date={post.modified_at} />)
-              </span>
-            </article>
-          </>
-        )}
-        <div className="flex w-full items-center justify-center space-x-2 pb-4 pt-8">
+          )}
+          <div className="flex items-center gap-2">
+            <Avatar
+              size="sm"
+              src={post.metadata.author.metadata?.image?.imgix_url || ""}
+              alt={post.metadata.author.title}
+              fallback={post.metadata.author.title}
+            />
+            <span className="text-neutral-700 dark:text-neutral-300">
+              {post.metadata.author.title}
+            </span>
+          </div>
+          <span className="text-neutral-400">•</span>
+          <span>{postPublished}</span>
+          <span className="text-neutral-400">•</span>
+          <span className="flex items-center gap-1">
+            <Clock className="h-3.5 w-3.5" />
+            {readingTime} min read
+          </span>
+        </div>
+      </PageHeader>
+
+      <div className="container-readable py-12">
+        <article>
+          <Markdown
+            className="prose prose-zinc dark:prose-invert"
+            content={post.metadata.content}
+          />
+          <p className="mt-8 text-sm text-neutral-500">
+            Last updated: {postModified} (<RelativeDate date={post.modified_at} />)
+          </p>
+        </article>
+
+        <div className="flex w-full items-center justify-center space-x-2 py-8">
           <CopyButton />
         </div>
+
         <Divider className="my-4" />
-        <h3 className="pb-2">More to explore</h3>
+
+        <h3 className="pb-2 font-bold">More to explore</h3>
         <ul role="list" className="mt-2 grid grid-cols-1 gap-8 md:grid-cols-2">
           {allPosts !== undefined &&
             allPosts
               .filter((nextPost: { id: string }) => nextPost?.id !== post?.id)
               .slice(0, 4)
-              .map((nextPost: any) => (
+              .map((nextPost: { id: string }) => (
                 <ContentCard key={nextPost.id} post={nextPost} />
               ))}
         </ul>
       </div>
-    </div>
+    </main>
   );
 }

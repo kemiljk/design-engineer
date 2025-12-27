@@ -14,7 +14,7 @@ export default function SpectrumGeneratorPage() {
         title="Spectrum Generator"
         description="Generate a harmonious colour scale from any starting colour using perceptually uniform OKLCH."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <SpectrumGenerator />
       </div>
     </main>

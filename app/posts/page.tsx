@@ -42,18 +42,15 @@ const PostsPage = async (props: {
       />
 
       <div className="container-page py-12">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <Search 
-          initialSearchTerm={searchTerm} page="posts" />
-            <SubmitArticle />
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2">
-            {filteredPosts.map((post: Type.Post) => {
-              return <ContentCard key={post.id} post={post} />;
-            })}
-          </div>
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <Search initialSearchTerm={searchTerm} page="posts" />
+          <SubmitArticle />
+        </div>
+        
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filteredPosts.map((post: Type.Post) => {
+            return <ContentCard key={post.id} post={post} />;
+          })}
         </div>
       </div>
     </main>

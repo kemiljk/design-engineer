@@ -14,7 +14,7 @@ export default function BlendModeExplorerPage() {
         title="Blend Mode Explorer"
         description="Understand how each blend mode works and experiment with stacking them for beautiful effects."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <BlendModeExplorer />
       </div>
     </main>

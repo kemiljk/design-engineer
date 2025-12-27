@@ -15,7 +15,7 @@ export default function TokenNamingPage() {
         title="Semantic Token Naming"
         description="Build consistent, well-structured design token names. Choose your naming convention, then generate complete token sets with variants and states."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <TokenNamingBuilder />
       </div>
     </main>

@@ -14,7 +14,7 @@ export default function ShadowGeneratorPage() {
         title="Shadow Generator"
         description="Design beautiful shadows and export them for web and mobile platforms."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <ShadowGenerator />
       </div>
     </main>

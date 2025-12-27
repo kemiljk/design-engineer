@@ -17,7 +17,7 @@ export default function AccessibilityAuditorPage() {
         title="Accessibility Auditor"
         description="Paste your code to get an instant AI analysis of accessibility, semantics, and contrast."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <SignedIn>
           <AccessibilityAuditor />
         </SignedIn>

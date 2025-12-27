@@ -51,7 +51,7 @@ export default async function TaskBuilderPage() {
         description="AI-powered tool to generate practice scenarios and interview tasks."
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <SignedIn>
           <div className="mx-auto max-w-3xl">
             <TaskBuilder suggestions={suggestions} />

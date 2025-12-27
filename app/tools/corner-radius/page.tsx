@@ -14,7 +14,7 @@ export default function CornerRadiusPage() {
         title="Corner Radius Calculator"
         description="Calculate harmonious inner radii for nested elements. Achieve optical perfection with Apple-style continuous corners."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <CornerRadiusCalculator />
       </div>
     </main>

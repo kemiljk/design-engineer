@@ -15,7 +15,7 @@ export default function BorderComparisonPage() {
         title="Border Comparison"
         description="See why semi-transparent borders often look better than solid grey borders on colourful backgrounds."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <BorderComparison />
       </div>
     </main>

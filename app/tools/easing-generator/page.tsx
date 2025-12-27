@@ -14,7 +14,7 @@ export default function EasingGeneratorPage() {
         title="Easing Generator"
         description="Fine-tune your animations with custom cubic-bezier curves."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <EasingGenerator />
       </div>
     </main>

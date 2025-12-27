@@ -14,7 +14,7 @@ export default function TouchTargetPage() {
         title="Touch Target Calculator"
         description="Check if your interactive elements meet accessibility guidelines for iOS, Android, and web."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <TouchTargetCalculator />
       </div>
     </main>

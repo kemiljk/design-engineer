@@ -14,7 +14,7 @@ export default function GradientGeneratorPage() {
         title="Gradient Generator"
         description="Design linear, radial, and conic gradients with multiple colour stops. Export for web and mobile."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <GradientGenerator />
       </div>
     </main>

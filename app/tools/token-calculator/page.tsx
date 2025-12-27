@@ -14,7 +14,7 @@ export default function TokenCalculatorPage() {
         title="Design Token Calculator"
         description="Create harmonious typography and spacing scales. Export directly to Tailwind, CSS, or SCSS."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <TokenCalculator />
       </div>
     </main>

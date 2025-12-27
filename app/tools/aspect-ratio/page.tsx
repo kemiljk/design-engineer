@@ -14,7 +14,7 @@ export default function AspectRatioPage() {
         title="Aspect Ratio Calculator"
         description="Calculate dimensions and ratios for responsive media."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <AspectRatioCalculator />
       </div>
     </main>

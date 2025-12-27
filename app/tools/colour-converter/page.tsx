@@ -14,7 +14,7 @@ export default function ColourConverterPage() {
         title="Colour Converter"
         description="Convert colours between web and native formats. Explore variations and harmonies."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <ColourConverter />
       </div>
     </main>

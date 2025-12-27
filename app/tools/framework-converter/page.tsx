@@ -14,7 +14,7 @@ export default function FrameworkConverterPage() {
         title="Framework Converter"
         description="Convert component syntax between popular JavaScript frameworks. Handles common patterns like state, events, and templating."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <FrameworkConverter />
       </div>
     </main>

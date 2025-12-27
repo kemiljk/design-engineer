@@ -219,18 +219,18 @@ export default async function LessonPage({ params }: LessonPageProps) {
           )}
         </div>
 
-        <article className="rounded-none border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="border-b border-neutral-200 p-6 dark:border-neutral-800">
+        <article>
+          <div className="mb-8">
             <BreadcrumbNav slug={slug} />
-            <h1 className="text-3xl font-bold">{title}</h1>
+            <h1 className="mt-4 text-3xl font-bold">{title}</h1>
           </div>
 
-          <div className="p-6">
+          <div className="prose prose-neutral dark:prose-invert max-w-none">
             <LessonContent content={contentWithoutTitle} />
             {isTrackIndex && <TrackPlatformSelector trackSlug={slug[0]} />}
           </div>
 
-          <div className="border-t border-neutral-200 p-6 dark:border-neutral-800">
+          <div className="mt-12 border-t border-neutral-200 pt-6 dark:border-neutral-800">
             {currentModule && totalInModule > 0 && (
               <div className="mb-6 text-center">
                 <span className="text-sm text-neutral-500">

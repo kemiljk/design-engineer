@@ -14,7 +14,7 @@ export default function SpringPhysicsPage() {
         title="Spring Physics Playground"
         description="Experiment with spring parameters to create organic animations. Export to code instantly."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <SpringPhysicsPlayground />
       </div>
     </main>

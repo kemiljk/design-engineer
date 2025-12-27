@@ -14,7 +14,7 @@ export default function IconGeneratorPage() {
         title="App Icon Sizes"
         description="Reference guide for all required app icon dimensions across iOS, Android, macOS, and web."
       />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <IconGenerator />
       </div>
     </main>
