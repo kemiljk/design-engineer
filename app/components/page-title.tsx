@@ -49,41 +49,28 @@ export default function PageTitle() {
       animate="visible"
     >
       <motion.div
-        className="relative border-2 border-foreground p-2 md:border-[3px] md:p-4 lg:p-5"
+        className="relative border-2 border-foreground p-2 md:border-[3px] md:p-4"
         variants={designVariants}
       >
-        <span 
-          className="text-[2.5rem] font-bold italic md:text-[3.5rem] lg:text-[5rem]"
-          style={{ letterSpacing: "-0.03em" }}
-        >
+        <span className="text-4xl font-bold italic tracking-tight md:text-5xl lg:text-6xl">
           design
         </span>
         <MousePointer />
       </motion.div>
       <motion.span
-        className="hidden text-[3.5rem] md:block lg:text-[5rem]"
-        style={{ letterSpacing: "-0.02em" }}
+        className="hidden text-5xl tracking-tight md:block lg:text-6xl"
         variants={timesVariants}
       >
         &times;
       </motion.span>
       <motion.div className="flex items-center" variants={engineerVariants}>
-        <span 
-          className="font-mono text-[2.5rem] font-semibold md:text-[3.5rem] lg:text-[5rem]"
-          style={{ letterSpacing: "-0.05em" }}
-        >
+        <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
           {`<`}
         </span>
-        <span 
-          className="text-swiss-red font-mono text-[2.5rem] font-semibold md:text-[3.5rem] lg:text-[5rem]"
-          style={{ letterSpacing: "-0.05em" }}
-        >
+        <span className="text-swiss-red font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
           Engineer
         </span>
-        <span 
-          className="font-mono text-[2.5rem] font-semibold md:text-[3.5rem] lg:text-[5rem]"
-          style={{ letterSpacing: "-0.05em" }}
-        >
+        <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
           {` />`}
         </span>
       </motion.div>

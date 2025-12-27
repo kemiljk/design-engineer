@@ -219,16 +219,10 @@ export default function ToolsPage() {
               style={{ animationDelay: `${idx * 60}ms` }}
             >
               <div className="mb-8">
-                <h2
-                  className="text-2xl font-bold text-neutral-900 dark:text-white md:text-[1.75rem]"
-                  style={{ lineHeight: 1, letterSpacing: "-0.025em" }}
-                >
+                <h2 className="text-xl font-bold text-neutral-900 md:text-2xl dark:text-white">
                   {section.title}
                 </h2>
-                <p 
-                  className="mt-2 text-neutral-500 dark:text-neutral-400"
-                  style={{ lineHeight: 1.5 }}
-                >
+                <p className="mt-2 text-neutral-500 dark:text-neutral-400">
                   {section.description}
                 </p>
               </div>
@@ -245,17 +239,11 @@ export default function ToolsPage() {
                         <tool.icon className="h-5 w-5 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none sm:h-6 sm:w-6" />
                       </div>
                       
-                      <h3
-                        className="mb-2 text-lg font-bold text-neutral-900 dark:text-white"
-                        style={{ lineHeight: 1.1, letterSpacing: "-0.015em" }}
-                      >
+                      <h3 className="mb-2 text-base font-bold text-neutral-900 sm:text-lg dark:text-white">
                         {tool.title}
                       </h3>
                       
-                      <p 
-                        className="mb-4 text-[0.9375rem] text-neutral-500 dark:text-neutral-400 sm:mb-6"
-                        style={{ lineHeight: 1.45 }}
-                      >
+                      <p className="mb-4 text-sm text-neutral-500 sm:mb-6 dark:text-neutral-400">
                         {tool.description}
                       </p>
                     </div>

@@ -52,10 +52,7 @@ export function ContentCard({
 
           <div className="flex flex-1 flex-col justify-between p-6">
             <div className="flex flex-col gap-4">
-              <div 
-                className="flex items-center gap-2 text-xs font-semibold uppercase text-neutral-400 dark:text-neutral-500"
-                style={{ letterSpacing: "0.05em" }}
-              >
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
                 <span>
                   {new Date(post.metadata.published_date).toLocaleDateString(
                     "en-gb",
@@ -70,14 +67,11 @@ export function ContentCard({
                 <span>{readingTime} min read</span>
               </div>
 
-              <h2
-                className="text-xl font-bold text-foreground transition-colors group-hover:text-swiss-red md:text-[1.375rem]"
-                style={{ lineHeight: 1.1, letterSpacing: "-0.02em" }}
-              >
+              <h2 className="text-lg font-bold text-foreground transition-colors group-hover:text-swiss-red md:text-xl">
                 {post.title}
               </h2>
 
-              <div className="prose prose-sm line-clamp-3 w-full text-neutral-500 dark:text-neutral-400 dark:prose-invert" style={{ lineHeight: 1.5 }}>
+              <div className="prose prose-sm line-clamp-3 w-full text-neutral-500 dark:text-neutral-400 dark:prose-invert">
                 <Markdown
                   components={{
                     a: ({ children }) => (

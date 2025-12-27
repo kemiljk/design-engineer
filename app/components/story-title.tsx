@@ -52,8 +52,7 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
         }}
       >
         <motion.h1
-          className={`inline-block text-[2.5rem] text-foreground md:text-[3.5rem] lg:text-[4rem]`}
-          style={{ lineHeight: 0.92, letterSpacing: "-0.04em" }}
+          className={`inline-block text-3xl text-foreground md:text-4xl lg:text-5xl`}
           animate={{
             fontWeight: isSticky ? 600 : 700,
           }}

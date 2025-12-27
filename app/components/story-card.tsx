@@ -62,16 +62,10 @@ export function StoryCard({
           <div className="px-6">
             {story.metadata.is_available ? (
               <>
-                <h2
-                  className="text-xl font-bold"
-                  style={{ lineHeight: 1.05, letterSpacing: "-0.02em" }}
-                >
+                <h2 className="text-lg font-bold md:text-xl">
                   {story.title}
                 </h2>
-                <p 
-                  className="line-clamp-3 w-full pt-3 text-[0.9375rem] text-neutral-500 dark:text-neutral-400"
-                  style={{ lineHeight: 1.5 }}
-                >
+                <p className="line-clamp-3 w-full pt-3 text-sm text-neutral-500 dark:text-neutral-400">
                   {story.metadata.snippet.slice(0, 200)}...
                 </p>
               </>
