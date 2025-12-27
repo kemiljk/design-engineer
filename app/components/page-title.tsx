@@ -58,19 +58,19 @@ export default function PageTitle() {
         <MousePointer />
       </motion.div>
       <motion.span
-        className="hidden text-5xl tracking-tight md:block lg:text-6xl"
+        className="hidden text-4xl tracking-tight md:block md:text-5xl lg:text-6xl"
         variants={timesVariants}
       >
         &times;
       </motion.span>
       <motion.div className="flex items-center" variants={engineerVariants}>
-        <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
+        <span className="font-mono text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
           {`<`}
         </span>
-        <span className="text-swiss-red font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
+        <span className="text-swiss-red font-mono text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
           Engineer
         </span>
-        <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
+        <span className="font-mono text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
           {` />`}
         </span>
       </motion.div>

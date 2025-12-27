@@ -163,11 +163,12 @@
   /* 
    * Heading Hierarchy - Swiss style
    * Tight leading, negative tracking
+   * !important needed to override Tailwind's text-* line-heights
    */
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4 {
     @apply font-sans font-bold tracking-tight;
     text-wrap: balance;
-    line-height: 1.1;
+    line-height: 1.1 !important;
   }
 
   h1, h2 {
@@ -175,7 +176,9 @@
   }
 
   h5, h6 {
-    @apply font-semibold leading-snug tracking-normal;
+    @apply font-sans font-semibold tracking-normal;
+    text-wrap: balance;
+    line-height: 1.25 !important;
   }
 
   /* Paragraphs - comfortable reading */
