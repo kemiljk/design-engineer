@@ -161,48 +161,24 @@
   }
 
   /* 
-   * Heading Hierarchy
-   * Each level has precise line-height and tracking
-   * Larger = tighter (optical compensation)
-   * Using !important to override Tailwind's text-* line-height
+   * Heading Hierarchy - Swiss style
+   * Tight leading, negative tracking
    */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold;
+    @apply font-sans font-bold leading-tight tracking-tight;
     text-wrap: balance;
-    line-height: 1.1 !important;
-    letter-spacing: -0.02em;
   }
 
   h1 {
-    line-height: 0.95 !important;
-    letter-spacing: -0.03em;
+    @apply leading-none tracking-tighter;
   }
 
   h2 {
-    line-height: 1 !important;
-    letter-spacing: -0.025em;
+    @apply leading-none tracking-tight;
   }
 
-  h3 {
-    line-height: 1.05 !important;
-    letter-spacing: -0.02em;
-  }
-
-  h4 {
-    line-height: 1.1 !important;
-    letter-spacing: -0.015em;
-  }
-
-  h5 {
-    @apply font-semibold;
-    line-height: 1.15 !important;
-    letter-spacing: -0.01em;
-  }
-
-  h6 {
-    @apply font-semibold;
-    line-height: 1.2 !important;
-    letter-spacing: 0;
+  h5, h6 {
+    @apply font-semibold leading-snug tracking-normal;
   }
 
   /* Paragraphs - comfortable reading */
