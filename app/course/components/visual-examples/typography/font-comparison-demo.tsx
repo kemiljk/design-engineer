@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 
 type ComparisonMode = "alphabet" | "xheight" | "numbers" | "pangram";
@@ -150,18 +149,17 @@ export function FontComparisonDemo() {
             {selectedFonts.map((fontName, index) => {
               const style = overlayStyles[index];
               return (
-                <motion.span
+                <span
                   key={fontName}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: style.opacity }}
                   className={`absolute bottom-0 ${modeContent.xheight.size} font-normal leading-none`}
                   style={{
                     fontFamily: fontsLoaded ? fonts.find(f => f.name === fontName)!.family : "inherit",
                     color: style.color || (index === 0 ? undefined : "#525252"),
+                    opacity: style.opacity,
                   }}
                 >
                   {modeContent.xheight.text}
-                </motion.span>
+                </span>
               );
             })}
           </div>
@@ -199,12 +197,8 @@ export function FontComparisonDemo() {
           {selectedFonts.map((fontName, index) => {
             const font = fonts.find(f => f.name === fontName)!;
             return (
-              <motion.div
+              <div
                 key={fontName}
-                layout
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
                 className={`relative flex items-center gap-4 p-4 ${
                   index !== selectedFonts.length - 1
                     ? "border-b border-neutral-200 dark:border-neutral-700"
@@ -234,7 +228,7 @@ export function FontComparisonDemo() {
                     {modeContent[mode].text}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

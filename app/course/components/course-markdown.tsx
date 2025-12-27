@@ -271,6 +271,100 @@ function extractListItems(content: string): string[] {
   return items;
 }
 
+// Component to render markdown content that may contain illustration/visual-example comments
+function MarkdownWithIllustrations({
+  content,
+  components,
+}: {
+  content: string;
+  components: any;
+}) {
+  const illustrationRegex = /<!--\s*illustration:\s*([a-z0-9-]+)\s*-->/g;
+  const visualExampleRegex = /<!--\s*visual-example:\s*([a-z0-9-]+)\s*-->/g;
+
+  // Find all special blocks
+  const blocks: { type: 'text' | 'illustration' | 'visual-example'; content: string; index: number; length: number }[] = [];
+  let match;
+
+  while ((match = illustrationRegex.exec(content)) !== null) {
+    blocks.push({
+      type: 'illustration',
+      content: match[1],
+      index: match.index,
+      length: match[0].length,
+    });
+  }
+
+  while ((match = visualExampleRegex.exec(content)) !== null) {
+    blocks.push({
+      type: 'visual-example',
+      content: match[1],
+      index: match.index,
+      length: match[0].length,
+    });
+  }
+
+  // If no special blocks, just render markdown
+  if (blocks.length === 0) {
+    return (
+      <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+        {content}
+      </ReactMarkdown>
+    );
+  }
+
+  // Sort by position and interleave with text
+  blocks.sort((a, b) => a.index - b.index);
+
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+
+  blocks.forEach((block, i) => {
+    // Add text before this block
+    if (block.index > lastIndex) {
+      const textBefore = content.slice(lastIndex, block.index).trim();
+      if (textBefore) {
+        parts.push(
+          <ReactMarkdown key={`text-${i}`} components={components} remarkPlugins={[remarkGfm]}>
+            {textBefore}
+          </ReactMarkdown>
+        );
+      }
+    }
+
+    // Add the special block
+    if (block.type === 'illustration') {
+      parts.push(
+        <div key={`ill-${i}`} className="my-6">
+          <IllustrationRenderer type={block.content} />
+        </div>
+      );
+    } else if (block.type === 'visual-example') {
+      parts.push(
+        <div key={`ve-${i}`} className="my-6">
+          <VisualExampleRenderer type={block.content} />
+        </div>
+      );
+    }
+
+    lastIndex = block.index + block.length;
+  });
+
+  // Add remaining text after last block
+  if (lastIndex < content.length) {
+    const textAfter = content.slice(lastIndex).trim();
+    if (textAfter) {
+      parts.push(
+        <ReactMarkdown key="text-end" components={components} remarkPlugins={[remarkGfm]}>
+          {textAfter}
+        </ReactMarkdown>
+      );
+    }
+  }
+
+  return <>{parts}</>;
+}
+
 const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
   content,
   className,
@@ -401,12 +495,10 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
             return (
               <SectionWrapper key={index} id={section.id}>
                 <ExerciseCard>
-                  <ReactMarkdown
+                  <MarkdownWithIllustrations
+                    content={section.content}
                     components={components}
-                    remarkPlugins={[remarkGfm]}
-                  >
-                    {section.content}
-                  </ReactMarkdown>
+                  />
                 </ExerciseCard>
               </SectionWrapper>
             );

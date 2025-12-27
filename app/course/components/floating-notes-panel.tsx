@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import Link from "next/link";
 import {
   StickyNote,
@@ -9,8 +9,8 @@ import {
   Plus,
   Pin,
   Trash2,
-  List,
   ExternalLink,
+  ChevronUp,
 } from "lucide-react";
 import { useDebounceValue } from "usehooks-ts";
 import { cn } from "@/lib/utils";
@@ -20,6 +20,12 @@ interface FloatingNotesPanelProps {
   lessonPath: string;
   lessonTitle: string;
 }
+
+const springTransition = {
+  type: "spring" as const,
+  damping: 32,
+  stiffness: 400,
+};
 
 export function FloatingNotesPanel({
   lessonPath,
@@ -32,7 +38,7 @@ export function FloatingNotesPanel({
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [viewMode, setViewMode] = useState<"lesson" | "all">("lesson");
-  const [view, setView] = useState<"list" | "edit">("edit");
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [debouncedContent] = useDebounceValue(editingContent, 1000);
 
@@ -67,6 +73,33 @@ export function FloatingNotesPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedContent, activeNoteId]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
+
   const createNewNote = async () => {
     try {
       const response = await fetch("/api/course/notes", {
@@ -90,7 +123,6 @@ export function FloatingNotesPanel({
         setNotes((prev) => [data.note, ...prev]);
         setActiveNoteId(data.note.id);
         setEditingContent("");
-        setView("edit");
       }
     } catch (error) {
       console.error("Failed to create note:", error);
@@ -147,16 +179,12 @@ export function FloatingNotesPanel({
   const selectNote = (note: CourseNote) => {
     setActiveNoteId(note.id);
     setEditingContent(note.metadata.content);
-    setView("edit");
   };
 
   const activeNote = notes.find((n) => n.id === activeNoteId);
 
-  const updateNote = (noteId: string, updates: any) => {
+  const updateNote = (noteId: string, updates: { is_pinned?: boolean; content?: string }) => {
     if (updates.is_pinned !== undefined) {
-      // Logic assumes updates.is_pinned is the *new* state
-      // togglePin takes the *current* state and flips it
-      // So pass the *inverse* of the new state (which is the old state)
       togglePin(noteId, !updates.is_pinned);
     }
     if (updates.content !== undefined) {
@@ -165,211 +193,207 @@ export function FloatingNotesPanel({
   };
 
   return (
-    <>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          "fixed bottom-6 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all",
-          "bg-swiss-red text-white hover:scale-105",
-          isOpen && "bg-neutral-800"
-        )}
-      >
-        <span className="sr-only">Notes</span>
-        {isOpen ? <X className="h-5 w-5" /> : <StickyNote className="h-5 w-5" />}
-      </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-20 right-4 z-40 flex h-[500px] w-96 flex-col overflow-hidden rounded-none border border-neutral-200 bg-white shadow-2xl dark:border-neutral-800 dark:bg-neutral-900"
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-3 dark:border-neutral-800">
-              <div className="flex items-center gap-2">
-                <StickyNote className="h-5 w-5 text-swiss-red" />
-                <h3 className="font-semibold">Course Notes</h3>
-              </div>
-              <div className="flex gap-1">
-                <button
-                  onClick={() => setView("list")}
-                  className={cn(
-                    "rounded-none p-1 transition-colors",
-                    view === "list"
-                      ? "bg-swiss-red/10 text-swiss-red"
-                      : "text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                  )}
-                >
-                  <List className="h-4 w-4" />
-                </button>
-                <button
-                  onClick={() => createNewNote()}
-                  className={cn(
-                    "rounded-none p-1 transition-colors",
-                    view === "edit"
-                      ? "bg-swiss-red/10 text-swiss-red"
-                      : "text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                  )}
-                >
-                  <Plus className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* View Mode Toggle */}
-            <div className="flex items-center gap-2 border-b border-neutral-200 px-4 py-2 dark:border-neutral-800">
-              <button
-                onClick={() => setViewMode("lesson")}
-                className={cn(
-                  "px-3 py-1 text-xs font-medium rounded-full transition-colors",
-                  viewMode === "lesson"
-                    ? "bg-swiss-red text-white"
-                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
-                )}
+    <LayoutGroup>
+      <div ref={containerRef} className="fixed bottom-6 right-4 z-40">
+        <motion.div
+          layout
+          className="overflow-hidden border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
+          style={{ borderRadius: 24 }}
+          transition={springTransition}
+        >
+          <AnimatePresence mode="popLayout">
+            {isOpen ? (
+              <motion.div
+                key="expanded"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className="flex h-[420px] w-[320px] max-w-[calc(100vw-2rem)] flex-col"
               >
-                This Lesson
-              </button>
-              <button
-                onClick={() => setViewMode("all")}
-                className={cn(
-                  "px-3 py-1 text-xs font-medium rounded-full transition-colors",
-                  viewMode === "all"
-                    ? "bg-swiss-red text-white"
-                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
-                )}
-              >
-                All Notes
-              </button>
-              <Link
-                href="/course/notes"
-                className="ml-auto flex items-center gap-1 text-xs text-neutral-500 hover:text-swiss-red"
-              >
-                Full View
-                <ExternalLink className="h-3 w-3" />
-              </Link>
-            </div>
-
-            {/* Current Lesson Info */}
-            {lessonPath && viewMode === "lesson" && (
-              <div className="border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-800/50">
-                <p className="truncate text-xs text-neutral-500 dark:text-neutral-400">
-                  {lessonPath.split("/").pop()?.replace(/-/g, " ")}
-                </p>
-              </div>
-            )}
-
-            <div className="flex flex-1 overflow-hidden">
-              {/* Notes List */}
-              <div className="w-1/3 overflow-y-auto border-r border-neutral-200 dark:border-neutral-800">
-                <button
-                  onClick={() => createNewNote()}
-                  className="flex w-full items-center gap-2 border-b border-neutral-100 px-3 py-2 text-left text-sm text-swiss-red hover:bg-swiss-red/5 dark:border-neutral-800 dark:hover:bg-neutral-800"
-                >
-                  <Plus className="h-3 w-3" />
-                  New Note
-                </button>
-
-                {isLoading ? (
-                  <div className="flex justify-center py-8">
-                    <div className="h-6 w-6 animate-spin rounded-full border-2 border-swiss-red border-t-transparent" />
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-neutral-100 px-4 py-3 dark:border-neutral-800">
+                  <div className="flex items-center gap-2">
+                    <StickyNote className="h-4 w-4 text-swiss-red" />
+                    <span className="text-sm font-semibold text-neutral-900 dark:text-white">
+                      Notes
+                    </span>
+                    {isSaving && (
+                      <span className="text-xs text-neutral-400">Saving...</span>
+                    )}
                   </div>
-                ) : notes.length === 0 ? (
-                  <div className="px-3 py-8 text-center text-sm text-neutral-400">
-                    No notes yet
-                  </div>
-                ) : (
-                  notes.map((note) => (
-                    <button
-                      key={note.id}
-                      onClick={() => selectNote(note)}
-                      className={cn(
-                        "group flex w-full items-start gap-2 border-b border-neutral-100 px-3 py-2 text-left transition-colors dark:border-neutral-800",
-                        activeNote?.id === note.id
-                          ? "bg-swiss-red/5 dark:bg-swiss-red/10"
-                          : "hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
-                      )}
+                  <div className="flex items-center gap-1">
+                    <Link
+                      href="/course/notes"
+                      className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                      title="Full view"
                     >
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium">
-                          {note.metadata.content || "Empty note"}
-                        </p>
-                        {viewMode === "all" && (
-                          <p className="text-xs text-neutral-400 truncate">
-                            {note.metadata.lesson_path.split('/').slice(-2).join(' › ')}
-                          </p>
-                        )}
-                        <p className="text-xs text-neutral-400">
-                          {new Date(note.created_at).toLocaleDateString()}
-                        </p>
-                      </div>
-                      {note.metadata.is_pinned && (
-                        <Pin className="h-3 w-3 shrink-0 text-swiss-red" />
-                      )}
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </Link>
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                      aria-label="Close notes"
+                    >
+                      <X className="h-4 w-4" />
                     </button>
-                  ))
-                )}
-              </div>
-
-              {/* Editor */}
-              <div className="flex flex-1 flex-col">
-                {view === "edit" && activeNote ? (
-                  <>
-                    <div className="flex items-center justify-between border-b border-neutral-200 px-3 py-2 dark:border-neutral-800">
-                      <div className="flex items-center gap-2">
-                        {isSaving && (
-                          <span className="text-xs text-neutral-400">
-                            Saving...
-                          </span>
-                        )}
-                      </div>
-                      <div className="flex gap-1">
-                        <button
-                          onClick={() =>
-                            updateNote(activeNote.id, {
-                              is_pinned: !activeNote.metadata.is_pinned,
-                            })
-                          }
-                          className={cn(
-                            "rounded-none p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800",
-                            activeNote.metadata.is_pinned
-                              ? "text-swiss-red"
-                              : "text-neutral-400"
-                          )}
-                          title="Pin note"
-                        >
-                          <Pin className="h-3 w-3" />
-                        </button>
-                        <button
-                          onClick={() => deleteNote(activeNote.id)}
-                          className="rounded-none p-1 text-neutral-400 hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
-                          title="Delete note"
-                        >
-                          <Trash2 className="h-3 w-3" />
-                        </button>
-                      </div>
-                    </div>
-                    <textarea
-                      value={editingContent}
-                      onChange={(e) =>
-                        updateNote(activeNote.id, { content: e.target.value })
-                      }
-                      placeholder="Write your note here..."
-                      className="flex-1 resize-none border-none bg-transparent p-4 focus:ring-0"
-                    />
-                  </>
-                ) : (
-                  <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center text-neutral-400">
-                    <StickyNote className="h-8 w-8" />
-                    <p className="text-sm">Select or create a note</p>
                   </div>
+                </div>
+
+                {/* View Mode Toggle */}
+                <div className="flex items-center gap-2 border-b border-neutral-100 px-4 py-2 dark:border-neutral-800">
+                  <button
+                    onClick={() => setViewMode("lesson")}
+                    className={cn(
+                      "rounded-full px-3 py-1 text-xs font-medium transition-colors",
+                      viewMode === "lesson"
+                        ? "bg-swiss-red text-white"
+                        : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
+                    )}
+                  >
+                    This Lesson
+                  </button>
+                  <button
+                    onClick={() => setViewMode("all")}
+                    className={cn(
+                      "rounded-full px-3 py-1 text-xs font-medium transition-colors",
+                      viewMode === "all"
+                        ? "bg-swiss-red text-white"
+                        : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
+                    )}
+                  >
+                    All Notes
+                  </button>
+                </div>
+
+                <div className="flex flex-1 overflow-hidden">
+                  {/* Notes List */}
+                  <div className="scrollbar-hide w-2/5 overflow-y-auto border-r border-neutral-100 dark:border-neutral-800">
+                    <button
+                      onClick={() => createNewNote()}
+                      className="flex w-full items-center gap-2 border-b border-neutral-100 px-3 py-2.5 text-left text-sm text-swiss-red transition-colors hover:bg-swiss-red/5 dark:border-neutral-800 dark:hover:bg-neutral-800"
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                      <span className="font-medium">New</span>
+                    </button>
+
+                    {isLoading ? (
+                      <div className="flex justify-center py-8">
+                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-swiss-red border-t-transparent" />
+                      </div>
+                    ) : notes.length === 0 ? (
+                      <div className="px-3 py-6 text-center text-xs text-neutral-400">
+                        No notes yet
+                      </div>
+                    ) : (
+                      notes.map((note) => (
+                        <button
+                          key={note.id}
+                          onClick={() => selectNote(note)}
+                          className={cn(
+                            "group relative flex w-full items-start gap-2 border-b border-neutral-100 px-3 py-2.5 text-left transition-colors dark:border-neutral-800",
+                            activeNote?.id === note.id
+                              ? "bg-neutral-100 dark:bg-neutral-800"
+                              : "hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+                          )}
+                        >
+                          {activeNote?.id === note.id && (
+                            <motion.div
+                              layoutId="activeNoteBg"
+                              className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800"
+                              transition={springTransition}
+                            />
+                          )}
+                          <div className="relative z-10 min-w-0 flex-1">
+                            <p className="truncate text-xs font-medium text-neutral-900 dark:text-white">
+                              {note.metadata.content?.slice(0, 30) || "Empty note"}
+                            </p>
+                            <p className="mt-0.5 text-[10px] text-neutral-400">
+                              {new Date(note.created_at).toLocaleDateString()}
+                            </p>
+                          </div>
+                          {note.metadata.is_pinned && (
+                            <Pin className="relative z-10 h-3 w-3 shrink-0 text-swiss-red" />
+                          )}
+                        </button>
+                      ))
+                    )}
+                  </div>
+
+                  {/* Editor */}
+                  <div className="flex flex-1 flex-col">
+                    {activeNote ? (
+                      <>
+                        <div className="flex items-center justify-end gap-1 border-b border-neutral-100 px-2 py-1.5 dark:border-neutral-800">
+                          <button
+                            onClick={() =>
+                              updateNote(activeNote.id, {
+                                is_pinned: !activeNote.metadata.is_pinned,
+                              })
+                            }
+                            className={cn(
+                              "rounded-full p-1.5 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800",
+                              activeNote.metadata.is_pinned
+                                ? "text-swiss-red"
+                                : "text-neutral-400"
+                            )}
+                            title="Pin note"
+                          >
+                            <Pin className="h-3 w-3" />
+                          </button>
+                          <button
+                            onClick={() => deleteNote(activeNote.id)}
+                            className="rounded-full p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
+                            title="Delete note"
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </button>
+                        </div>
+                        <textarea
+                          value={editingContent}
+                          onChange={(e) =>
+                            updateNote(activeNote.id, { content: e.target.value })
+                          }
+                          placeholder="Write your note here..."
+                          className="flex-1 resize-none border-none bg-transparent p-3 text-sm focus:ring-0 dark:text-white"
+                        />
+                      </>
+                    ) : (
+                      <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center text-neutral-400">
+                        <StickyNote className="h-6 w-6" />
+                        <p className="text-xs">Select or create a note</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.button
+                key="collapsed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                onClick={() => setIsOpen(true)}
+                className="flex h-12 items-center gap-3 px-4"
+                aria-label="Open notes"
+                aria-expanded={isOpen}
+              >
+                <StickyNote className="h-4 w-4 text-swiss-red" />
+                <span className="hidden text-sm font-medium text-neutral-900 sm:block dark:text-white">
+                  Notes
+                </span>
+                {notes.length > 0 && (
+                  <span className="shrink-0 rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium tabular-nums text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400">
+                    {notes.length}
+                  </span>
                 )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+                <ChevronUp className="h-4 w-4 shrink-0 text-neutral-400" />
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </LayoutGroup>
   );
 }

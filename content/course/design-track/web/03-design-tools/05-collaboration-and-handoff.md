@@ -318,36 +318,9 @@ Tools like Style Dictionary, Figma Tokens, or design-to-code plugins enable this
 
 ## Handoff Checklist
 
-Before marking designs as ready:
+Before marking designs as ready, work through this interactive checklist. Your progress is saved automatically and you can export it in various formats to share with your team.
 
-### Visual Design
-
-- [ ] All components use defined styles
-- [ ] Colors are from the palette
-- [ ] Typography uses text styles
-- [ ] Spacing is on the grid
-
-### Completeness
-
-- [ ] All screens/states designed
-- [ ] Hover states included
-- [ ] Error states included
-- [ ] Loading states included
-- [ ] Empty states included
-- [ ] Responsive breakpoints covered
-
-### Documentation
-
-- [ ] Layers properly named
-- [ ] File organized
-- [ ] Edge cases noted
-- [ ] Complex interactions documented
-
-### Assets
-
-- [ ] Icons exported (SVG)
-- [ ] Images exported (appropriate sizes)
-- [ ] Assets named consistently
+<!-- visual-example: handoff-checklist-demo -->
 
 ## Try It Yourself
 

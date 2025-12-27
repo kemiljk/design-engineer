@@ -48,6 +48,8 @@ import { AppleDeviceFamily } from "./concepts/apple-device-family";
 import { AndroidDeviceFamily } from "./concepts/android-device-family";
 import { MaterialDynamicColor } from "./concepts/material-dynamic-color";
 import { DesignHandoffFlow } from "./concepts/design-handoff-flow";
+import { TokenPipeline } from "./concepts/token-pipeline";
+import { TokenFileStructure } from "./concepts/token-file-structure";
 import { DesignTrackHero } from "./heroes/design-track-hero";
 import { EngineeringTrackHero } from "./heroes/engineering-track-hero";
 import { ConvergenceTrackHero } from "./heroes/convergence-track-hero";
@@ -103,6 +105,8 @@ export const ILLUSTRATION_MAP: Record<string, React.ComponentType> = {
   "android-device-family": AndroidDeviceFamily,
   "material-dynamic-color": MaterialDynamicColor,
   "design-handoff-flow": DesignHandoffFlow,
+  "token-pipeline": TokenPipeline,
+  "token-file-structure": TokenFileStructure,
   "design-track-hero": DesignTrackHero,
   "engineering-track-hero": EngineeringTrackHero,
   "convergence-track-hero": ConvergenceTrackHero,

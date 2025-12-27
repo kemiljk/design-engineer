@@ -20,6 +20,15 @@ import { SpacingScaleDemo, WhitespaceDemo } from "./spacing";
 // Layout
 import { GridColumnsDemo, ResponsiveLayoutDemo } from "./layout";
 
+// Design Tools
+import { AutoLayoutDemo, SizingBehaviorsDemo, ConstraintsDemo, HandoffChecklistDemo } from "./design-tools";
+
+// Design Systems
+import { TokenExplorerDemo } from "./design-systems";
+
+// UX
+import { PersonaCardDemo } from "./ux";
+
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   // Design Principles
   "hierarchy-demo": HierarchyDemo,
@@ -55,6 +64,18 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   // Layout
   "grid-columns-demo": GridColumnsDemo,
   "responsive-layout-demo": ResponsiveLayoutDemo,
+  
+  // Design Tools
+  "auto-layout-demo": AutoLayoutDemo,
+  "sizing-behaviors-demo": SizingBehaviorsDemo,
+  "constraints-demo": ConstraintsDemo,
+  "handoff-checklist-demo": HandoffChecklistDemo,
+  
+  // Design Systems
+  "token-explorer-demo": TokenExplorerDemo,
+  
+  // UX
+  "persona-card-demo": PersonaCardDemo,
 };
 
 interface VisualExampleRendererProps {

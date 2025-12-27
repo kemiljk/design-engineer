@@ -51,23 +51,23 @@ export function ContrastCheckerDemo() {
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Controls */}
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
                 Text Colour
               </label>
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2">
                 <input
                   type="color"
                   value={textColour}
                   onChange={(e) => setTextColour(e.target.value)}
-                  className="h-10 w-14 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
+                  className="h-10 w-10 shrink-0 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
                 />
                 <input
                   type="text"
                   value={textColour}
                   onChange={(e) => setTextColour(e.target.value)}
-                  className="flex-1 rounded border border-neutral-200 bg-neutral-50 px-2 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                  className="h-10 w-full min-w-0 rounded border border-neutral-200 bg-neutral-50 px-2 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
                 />
               </div>
             </div>
@@ -75,18 +75,18 @@ export function ContrastCheckerDemo() {
               <label className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
                 Background Colour
               </label>
-              <div className="flex gap-2">
+              <div className="flex items-center gap-2">
                 <input
                   type="color"
                   value={bgColour}
                   onChange={(e) => setBgColour(e.target.value)}
-                  className="h-10 w-14 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
+                  className="h-10 w-10 shrink-0 cursor-pointer rounded border border-neutral-200 dark:border-neutral-700"
                 />
                 <input
                   type="text"
                   value={bgColour}
                   onChange={(e) => setBgColour(e.target.value)}
-                  className="flex-1 rounded border border-neutral-200 bg-neutral-50 px-2 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
+                  className="h-10 w-full min-w-0 rounded border border-neutral-200 bg-neutral-50 px-2 font-mono text-xs dark:border-neutral-700 dark:bg-neutral-800"
                 />
               </div>
             </div>

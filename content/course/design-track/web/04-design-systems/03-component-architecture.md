@@ -27,7 +27,7 @@ If a component does too much, split it.
 
 Components should combine to create larger patterns:
 
-```
+```text
 Page
 ├── Header
 │   ├── Logo
@@ -91,13 +91,13 @@ Ask:
 ### Variant vs. Prop
 
 Use variants for semantically different configurations:
-```
+```tsx
 <Button variant="primary">  // This IS different
 <Button variant="danger">   // From this
 ```
 
-Use props for customization within a variant:
-```
+Use props for customisation within a variant:
+```tsx
 <Button variant="primary" size="lg" disabled>
 ```
 
@@ -161,7 +161,7 @@ Design for realistic combinations.
 
 Define areas where content can be inserted:
 
-```
+```text
 Card
 ├── [Media slot]       ← Image, video, or graphic
 ├── [Header slot]      ← Title, subtitle
@@ -175,7 +175,7 @@ Each slot is optional. The component adapts.
 
 Related components that work together:
 
-```
+```tsx
 <Select>
   <SelectTrigger />
   <SelectContent>
@@ -191,7 +191,7 @@ The parent provides context; children provide content.
 
 Components that arrange other components:
 
-```
+```tsx
 <Stack direction="vertical" gap="md">
   <ComponentA />
   <ComponentB />
@@ -205,7 +205,7 @@ Layout components separate structure from content.
 
 Let consumers customize rendering:
 
-```
+```tsx
 <DataTable
   data={items}
   renderRow={(item) => (
@@ -243,7 +243,7 @@ Set sensible defaults:
 - Most common usage should require minimal props
 - Defaults should be the "safe" option
 
-```
+```text
 Button
 ├── variant: "primary" (default)
 ├── size: "medium" (default)

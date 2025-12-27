@@ -55,110 +55,70 @@ Define space between container edges and children:
 ### Alignment
 
 Control where children sit within the container:
-- **Primary axis:** Start, center, end, space-between
-- **Cross axis:** Start, center, end, stretch
+- **Primary axis:** Start, centre, end, space-between
+- **Cross axis:** Start, centre, end, stretch
 
 This mirrors CSS Flexbox exactly.
 
 ## Building with Auto Layout
 
-### Simple Button
+The interactive example below shows how auto layout properties translate into real UI components. Toggle between examples to see the Figma-style properties panel update.
 
-A button is a horizontal layout:
-```
-[Icon] [Text]
-   ↔ 8px gap
-← 16px padding →
-```
+<!-- visual-example: auto-layout-demo -->
 
-Setup:
-1. Create a frame
-2. Apply auto layout
-3. Set direction: horizontal
-4. Set gap: 8px
-5. Set padding: 12px vertical, 16px horizontal
-6. Add icon and text as children
+### How It Works
 
-Now the button:
-- Grows when text is longer
-- Shrinks when text is shorter
-- Maintains consistent padding
-- Keeps icon and text properly spaced
+**Button:** A horizontal layout with icon and text as children. The 8px gap keeps them spaced, and the padding creates breathing room around the content. The button grows or shrinks based on the label length.
 
-### Card Component
+**Card:** A vertical layout stacking image, title, description, and actions. The 16px gap creates consistent rhythm between sections. The card adapts to different content lengths automatically.
 
-A card is typically vertical:
-```
-[ Image           ]
-[ Title           ]    ↕ vertical layout
-[ Description     ]    ↕ 16px gap
-[ Action Button   ]
-← 24px padding all around →
-```
+**Form Row:** Demonstrates mixed sizing behaviours—the label stays fixed width, the input fills available space, and the button hugs its content.
 
-The card adapts:
-- Different title lengths
-- Varying description lengths
-- Optional elements (image present or not)
+**Navigation:** Uses space-between alignment to push the logo left and actions right, with nav items in the centre.
 
 ### Nested Auto Layout
 
-Layouts nest for complex components:
-```
-Card (vertical)
-├── Header (horizontal)
-│   ├── Avatar
-│   └── User Info (vertical)
-│       ├── Name
-│       └── Date
-├── Content
-│   ├── Title
-│   └── Description
-└── Footer (horizontal)
-    ├── Like Button
-    ├── Comment Button
-    └── Share Button
-```
+Layouts nest for complex components. A social media card might have:
+
+- **Card** (vertical layout, 16px gap)
+  - **Header** (horizontal layout, 12px gap)
+    - Avatar
+    - **User Info** (vertical layout, 4px gap)
+      - Name
+      - Date
+  - **Content** (vertical layout, 8px gap)
+    - Title
+    - Description
+  - **Footer** (horizontal layout, 16px gap)
+    - Like Button
+    - Comment Button
+    - Share Button
 
 Each level has its own direction, gap, and padding.
 
-## Sizing Behaviors
+## Sizing Behaviours
 
-Children can behave differently when the container resizes:
+Children can behave differently when the container resizes. The interactive demo below lets you experiment with each sizing mode.
+
+<!-- visual-example: sizing-behaviors-demo -->
 
 ### Fixed Size
 
-Element stays the same size regardless of container.
-
-**Use for:** Icons, avatars, fixed-width buttons
+Element stays the same size regardless of container. Use for icons, avatars, and fixed-width labels.
 
 ### Hug Contents
 
-Element sizes to fit its children.
-
-**Use for:** Buttons (hug text), tags, badges
+Element sizes to fit its children. Use for buttons, tags, and badges that should adapt to their text.
 
 ### Fill Container
 
-Element expands to fill available space.
-
-**Use for:** Input fields in a form row, main content areas
-
-### Example: Form Row
-
-```
-[ Label (fixed) ][ Input (fill) ][ Button (hug) ]
-```
-
-- Label: Fixed 100px width
-- Input: Fills remaining space
-- Button: Sizes to its content
-
-The input stretches on wider screens, shrinks on narrower screens.
+Element expands to fill available space. Use for input fields, main content areas, and anything that should stretch.
 
 ## Constraints
 
-Constraints (in tools that support them) define how elements behave when their parent resizes.
+Constraints define how elements behave when their parent resizes. They're essential for responsive positioning.
+
+<!-- visual-example: constraints-demo -->
 
 ### Position Constraints
 
@@ -166,23 +126,9 @@ Control how elements stay positioned:
 - **Left:** Maintains distance from left edge
 - **Right:** Maintains distance from right edge
 - **Left and Right:** Stretches horizontally
-- **Center:** Stays horizontally centered
+- **Centre:** Stays horizontally centred
 
-Same applies vertically (Top, Bottom, Top and Bottom, Center).
-
-### Example: Sticky Header
-
-A header should:
-- Stay at the top (top constraint)
-- Stretch full width (left and right constraints)
-
-### Example: Floating Action Button
-
-A FAB should:
-- Stay in bottom-right corner
-- Maintain fixed distance from edges
-
-Set: Right constraint, Bottom constraint, fixed size.
+Same applies vertically (Top, Bottom, Top and Bottom, Centre).
 
 ## Responsive Components
 
@@ -216,49 +162,16 @@ Use component variants or separate designs for each breakpoint.
 
 ## Common Patterns
 
-### Buttons
+Here are the auto layout settings for common UI patterns:
 
-```
-Horizontal auto layout
-Gap: 8px (if icon present)
-Padding: 12px 24px (vertical horizontal)
-Children: [Icon?] [Label]
-```
-
-### Form Fields
-
-```
-Vertical auto layout
-Gap: 4px
-Children: [Label] [Input] [Error?]
-```
-
-### Lists
-
-```
-Vertical auto layout
-Gap: 0 (or 1px for dividers)
-Children: [List Item] repeated
-```
-
-### Navigation
-
-```
-Horizontal auto layout
-Gap: 8px (between items)
-Padding: 16px
-Alignment: Space between (logo left, nav right)
-```
-
-### Modals
-
-```
-Vertical auto layout
-Gap: 24px
-Padding: 32px
-Width: Fill (with max-width)
-Children: [Header] [Content] [Actions]
-```
+| Component | Direction | Gap | Padding | Key Settings |
+|-----------|-----------|-----|---------|--------------|
+| **Button** | Horizontal | 8px | 12px / 24px | Centre aligned, hug contents |
+| **Form Field** | Vertical | 4px | 0 | Label, Input, Error stack |
+| **List** | Vertical | 0–1px | 0 | Dividers via gap or borders |
+| **Navigation** | Horizontal | 8px | 16px | Space-between alignment |
+| **Modal** | Vertical | 24px | 32px | Max-width constraint |
+| **Card** | Vertical | 16px | 24px | Stretch children to fill |
 
 ## Debugging Auto Layout
 

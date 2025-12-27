@@ -31,6 +31,10 @@ Tokens abstract raw values into meaningful names. This abstraction provides:
 
 ## Token Categories
 
+Explore the different categories of tokens in a design system:
+
+<!-- visual-example: token-explorer-demo -->
+
 ### Color Tokens
 
 All colors in your system:
@@ -210,24 +214,9 @@ button-background-disabled
 
 ## Token Hierarchies
 
-Organize tokens into logical groups:
+Organise tokens into logical groups:
 
-```
-tokens/
-├── color/
-│   ├── primitive.json    # blue-500, gray-100, etc.
-│   ├── semantic.json     # primary, background, text
-│   └── component.json    # button-bg, input-border
-├── spacing/
-│   ├── scale.json        # space-1 through space-16
-│   └── semantic.json     # padding-component, gap-section
-├── typography/
-│   ├── font.json         # families, sizes, weights
-│   └── semantic.json     # heading-lg, body-md
-└── effects/
-    ├── shadow.json
-    └── radius.json
-```
+<!-- illustration: token-file-structure -->
 
 ## Tokens in Design Tools
 
@@ -351,17 +340,7 @@ Tools that automate the pipeline:
 
 ### Example Pipeline
 
-```
-Figma Variables
-      ↓
-  Export JSON
-      ↓
- Style Dictionary
-      ↓
-  ┌───┴───┐
-  ↓       ↓
-CSS     JS/TS
-```
+<!-- illustration: token-pipeline -->
 
 ## Token Governance
 

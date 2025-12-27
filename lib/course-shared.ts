@@ -1,5 +1,7 @@
 // Shared course utilities - safe to import from client components
 
+import { formatTitle } from "./format";
+
 // Course structure constants - these reflect the actual content
 export const COURSE_STRUCTURE = {
   introduction: {
@@ -138,10 +140,8 @@ export function getEstimatedDuration(lessonCount: number): string {
 
 // Format module name for display
 export function formatModuleName(moduleName: string): string {
-  return moduleName
+  const cleaned = moduleName
     .replace(/^\d+-/, '')
-    .replace(/-/g, ' ')
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .replace(/-/g, ' ');
+  return formatTitle(cleaned);
 }

@@ -22,7 +22,6 @@ type SyntaxHighlighterProps = {
   code: string;
   language?: string;
   showCopyButton?: boolean;
-  overrideCopyPosition?: boolean;
   className?: string;
   previewCode?: string;
   textClassName?: string;
@@ -32,7 +31,6 @@ const SyntaxHighlighter = ({
   code,
   language = "plain",
   showCopyButton,
-  overrideCopyPosition,
   className,
 }: SyntaxHighlighterProps) => {
   const highlighted = useMemo(() => {
@@ -74,12 +72,8 @@ const SyntaxHighlighter = ({
         </div>
       </ScrollContainer>
       {showCopyButton && (
-        <div className="absolute right-0 top-0">
-          <CopyButton
-            text={code}
-            className="right-0"
-            overridePosition={overrideCopyPosition}
-          />
+        <div className="absolute right-0 top-0 p-2">
+          <CopyButton text={code} />
         </div>
       )}
     </div>

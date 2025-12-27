@@ -9,6 +9,7 @@ interface ExampleWrapperProps {
   children: React.ReactNode;
   controls?: React.ReactNode;
   className?: string;
+  allowOverflow?: boolean;
 }
 
 export function ExampleWrapper({
@@ -17,11 +18,13 @@ export function ExampleWrapper({
   children,
   controls,
   className,
+  allowOverflow = false,
 }: ExampleWrapperProps) {
   return (
     <figure
       className={cn(
-        "not-prose my-8 overflow-hidden rounded-xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900",
+        "not-prose my-8 rounded-xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900",
+        !allowOverflow && "overflow-hidden",
         className
       )}
     >

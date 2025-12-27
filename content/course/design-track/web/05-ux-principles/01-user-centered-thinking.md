@@ -96,14 +96,9 @@ Personas are fictional characters representing user types:
 - Technical comfort level
 - Context of use
 
-Example:
-> **Sarah, Marketing Manager**
-> Goals: Create campaigns quickly, track performance
-> Frustrations: Too many clicks to do simple tasks, confusing analytics
-> Context: Uses product on laptop, often in meetings, interrupted frequently
-> Technical level: Comfortable with web apps, not with code
+**Example Persona:**
 
-Personas help teams align on who they're designing for.
+<!-- visual-example: persona-card-demo -->
 
 ### Journey Mapping
 
