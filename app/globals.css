@@ -159,27 +159,31 @@
     line-height: 1.5;
     letter-spacing: -0.01em;
   }
+}
 
-  /* 
-   * Heading Hierarchy - Swiss style
-   * Tight leading, negative tracking
-   * !important needed to override Tailwind's text-* line-heights
-   */
-  h1, h2, h3, h4 {
-    @apply font-sans font-bold tracking-tight;
-    text-wrap: balance;
-    line-height: 1.1 !important;
-  }
+/* 
+ * Heading Hierarchy - Swiss style
+ * Outside @layer so it overrides Tailwind's text-* utilities
+ */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  line-height: 1.1;
+}
 
-  h1, h2 {
-    @apply tracking-tighter;
-  }
+h1, h2 {
+  letter-spacing: -0.03em;
+}
 
-  h5, h6 {
-    @apply font-sans font-semibold tracking-normal;
-    text-wrap: balance;
-    line-height: 1.25 !important;
-  }
+h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-wrap: balance;
+  line-height: 1.25;
+}
 
   /* Paragraphs - comfortable reading */
   p {

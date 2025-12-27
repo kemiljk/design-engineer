@@ -64,13 +64,13 @@ export default function PageTitle() {
         &times;
       </motion.span>
       <motion.div className="flex items-center" variants={engineerVariants}>
-        <span className="font-mono text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
+        <span className="font-mono text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
           {`<`}
         </span>
-        <span className="text-swiss-red font-mono text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
+        <span className="text-swiss-red font-mono text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
           Engineer
         </span>
-        <span className="font-mono text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
+        <span className="font-mono text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
           {` />`}
         </span>
       </motion.div>
