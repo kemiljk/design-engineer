@@ -285,11 +285,13 @@ async function uploadToCosmicMedia(
 
 async function updatePostWithImage(
   postId: string,
-  mediaId: string
+  mediaName: string
 ): Promise<void> {
+  // Update both thumbnail and metadata.image with the media name
   await cosmic.objects.updateOne(postId, {
+    thumbnail: mediaName,
     metadata: {
-      image: mediaId,
+      image: mediaName,
     },
   });
 }
@@ -346,7 +348,7 @@ async function main() {
       const media = await uploadToCosmicMedia(imageBuffer, filename);
 
       console.log(`🔗 Updating post with image...`);
-      await updatePostWithImage(post.id, media.id);
+      await updatePostWithImage(post.id, media.name);
 
       console.log(`✅ Done: ${media.imgix_url}\n`);
       generated++;
