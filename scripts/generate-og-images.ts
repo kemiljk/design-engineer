@@ -14,25 +14,26 @@ const cosmic = createBucketClient({
 
 async function loadFonts() {
   // Use TTF format - satori requires OTF or TTF, not WOFF
-  const instrumentSerifUrl = "https://fonts.gstatic.com/s/instrumentserif/v5/jizBRFtNs2ka5fXjeivQ4LroWlx-2zI.ttf";
-  const hostGroteskUrl = "https://fonts.gstatic.com/s/hostgrotesk/v5/co3UmWBnlCJ3U42vbbfdwMjzqHAXOdFzqU5PudXOzhY.ttf";
+  // Swiss typography: Host Grotesk only (regular + bold weights)
+  const hostGroteskRegularUrl = "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-400-normal.ttf";
+  const hostGroteskBoldUrl = "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-700-normal.ttf";
 
-  const [instrumentSerifResponse, hostGroteskResponse] = await Promise.all([
-    fetch(instrumentSerifUrl),
-    fetch(hostGroteskUrl),
+  const [regularResponse, boldResponse] = await Promise.all([
+    fetch(hostGroteskRegularUrl),
+    fetch(hostGroteskBoldUrl),
   ]);
 
-  if (!instrumentSerifResponse.ok) {
-    throw new Error(`Failed to fetch Instrument Serif: ${instrumentSerifResponse.status}`);
+  if (!regularResponse.ok) {
+    throw new Error(`Failed to fetch Host Grotesk Regular: ${regularResponse.status}`);
   }
-  if (!hostGroteskResponse.ok) {
-    throw new Error(`Failed to fetch Host Grotesk: ${hostGroteskResponse.status}`);
+  if (!boldResponse.ok) {
+    throw new Error(`Failed to fetch Host Grotesk Bold: ${boldResponse.status}`);
   }
 
-  const instrumentSerif = await instrumentSerifResponse.arrayBuffer();
-  const hostGrotesk = await hostGroteskResponse.arrayBuffer();
+  const hostGroteskRegular = await regularResponse.arrayBuffer();
+  const hostGroteskBold = await boldResponse.arrayBuffer();
 
-  return { instrumentSerif, hostGrotesk };
+  return { hostGroteskRegular, hostGroteskBold };
 }
 
 function createOgImageMarkup(title: string, description: string) {
@@ -181,11 +182,11 @@ function createOgImageMarkup(title: string, description: string) {
                 props: {
                   style: {
                     fontSize: isLongTitle ? "56px" : "72px",
-                    fontFamily: "Instrument Serif",
-                    fontWeight: 400,
+                    fontFamily: "Host Grotesk",
+                    fontWeight: 700,
                     color: "#171717",
                     lineHeight: 1.1,
-                    letterSpacing: "-0.02em",
+                    letterSpacing: "-0.025em",
                     margin: 0,
                     maxWidth: "900px",
                   },
@@ -237,7 +238,7 @@ function createOgImageMarkup(title: string, description: string) {
 async function generateOgImage(
   title: string,
   description: string,
-  fonts: { instrumentSerif: ArrayBuffer; hostGrotesk: ArrayBuffer }
+  fonts: { hostGroteskRegular: ArrayBuffer; hostGroteskBold: ArrayBuffer }
 ): Promise<Buffer> {
   const markup = createOgImageMarkup(title, description);
 
@@ -246,15 +247,15 @@ async function generateOgImage(
     height: 630,
     fonts: [
       {
-        name: "Instrument Serif",
-        data: fonts.instrumentSerif,
+        name: "Host Grotesk",
+        data: fonts.hostGroteskRegular,
         weight: 400,
         style: "normal",
       },
       {
         name: "Host Grotesk",
-        data: fonts.hostGrotesk,
-        weight: 500,
+        data: fonts.hostGroteskBold,
+        weight: 700,
         style: "normal",
       },
     ],
