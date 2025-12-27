@@ -67,7 +67,10 @@ export function ContentCard({
                 <span>{readingTime} min read</span>
               </div>
 
-              <h2 className="text-xl font-bold leading-tight tracking-tight text-foreground transition-colors group-hover:text-swiss-red">
+              <h2
+                className="text-lg font-bold text-foreground transition-colors group-hover:text-swiss-red md:text-xl"
+                style={{ lineHeight: 1.15, letterSpacing: "-0.015em" }}
+              >
                 {post.title}
               </h2>
 

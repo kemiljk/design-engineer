@@ -184,7 +184,8 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
 
           {/* Row 2: Title */}
           <motion.h1
-            className="relative z-10 col-span-full pb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
+            className="relative z-10 col-span-full pb-4 text-4xl font-bold md:text-5xl lg:text-6xl"
+            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
             variants={contentVariants}
             initial="hidden"
             animate="visible"

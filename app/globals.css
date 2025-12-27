@@ -127,27 +127,43 @@
   h1,
   h2,
   h3,
-  h4 {
-    @apply font-sans font-bold tracking-tight;
+  h4,
+  h5,
+  h6 {
+    @apply font-sans font-bold;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   h1 {
-    @apply text-4xl leading-tight;
-    letter-spacing: var(--tracking-tighter);
+    @apply text-4xl;
+    letter-spacing: -0.03em;
   }
 
   h2 {
-    @apply text-3xl leading-tight;
-    letter-spacing: var(--tracking-tight);
+    @apply text-3xl;
+    letter-spacing: -0.025em;
   }
 
   h3 {
-    @apply text-2xl leading-snug;
-    letter-spacing: var(--tracking-tight);
+    @apply text-2xl;
   }
 
   h4 {
-    @apply text-xl leading-snug;
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  /* Body text - comfortable reading */
+  p, li {
+    line-height: 1.5;
   }
 }
 

@@ -99,8 +99,13 @@ export function TrackCard({
         <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
           {icon}
         </div>
-        <h3 className="mb-2 text-xl font-bold">{title}</h3>
-        <p className="mb-6 flex-1 text-sm text-neutral-600 dark:text-neutral-400">
+        <h3
+          className="mb-2 text-lg font-bold md:text-xl"
+          style={{ lineHeight: 1.15, letterSpacing: "-0.015em" }}
+        >
+          {title}
+        </h3>
+        <p className="mb-6 flex-1 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
           {description}
         </p>
 

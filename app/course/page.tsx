@@ -153,7 +153,7 @@ export default async function CoursePage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
               <div className="mb-8 flex items-center justify-between">
-                <h2 className="text-2xl font-bold">Your Progress</h2>
+                <h2 className="text-xl font-bold md:text-2xl" style={{ lineHeight: 1.1 }}>Your Progress</h2>
                 <div className="flex items-center gap-2 text-sm text-neutral-500">
                   <Trophy className="text-swiss-red h-4 w-4" />
                   <span>
@@ -190,7 +190,7 @@ export default async function CoursePage() {
                 <div className="bg-swiss-red flex h-8 w-8 items-center justify-center text-sm font-bold text-white">
                   1
                 </div>
-                <h2 className="text-2xl font-bold">Start Here</h2>
+                <h2 className="text-xl font-bold md:text-2xl" style={{ lineHeight: 1.1 }}>Start Here</h2>
                 <span className="rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
                   Free
                 </span>
@@ -204,7 +204,10 @@ export default async function CoursePage() {
                   <Sparkles className="text-swiss-red h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="group-hover:text-swiss-red mb-2 text-xl font-bold">
+                  <h3
+                    className="group-hover:text-swiss-red mb-2 text-lg font-bold md:text-xl"
+                    style={{ lineHeight: 1.15 }}
+                  >
                     Introduction to Design Engineering
                   </h3>
                   <p className="mb-4 text-neutral-600 dark:text-neutral-400">
@@ -236,7 +239,7 @@ export default async function CoursePage() {
           <div className="flex h-8 w-8 items-center justify-center bg-neutral-200 text-sm font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
             {introCompleted ? "1" : "2"}
           </div>
-          <h2 className="text-2xl font-bold">Choose Your Track</h2>
+          <h2 className="text-xl font-bold md:text-2xl" style={{ lineHeight: 1.1 }}>Choose Your Track</h2>
           {!userId && (
             <Button
               href="/sign-in"
@@ -275,7 +278,7 @@ export default async function CoursePage() {
                 <Sparkles className="h-4 w-4" />
                 Start Free
               </div>
-              <h2 className="mb-4 text-2xl font-bold">Try Before You Buy</h2>
+              <h2 className="mb-3 text-xl font-bold md:text-2xl" style={{ lineHeight: 1.1 }}>Try Before You Buy</h2>
               <p className="mb-4 text-neutral-600 dark:text-neutral-400">
                 {introCompleted
                   ? "The first module of each track is completely free. Start learning—no credit card required."
@@ -324,7 +327,7 @@ export default async function CoursePage() {
         <div className="border-t border-neutral-200 py-16 dark:border-neutral-800">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl">
-              <h2 className="mb-8 text-2xl font-bold">Getting Started</h2>
+              <h2 className="mb-6 text-xl font-bold md:text-2xl" style={{ lineHeight: 1.1 }}>Getting Started</h2>
               <Link
                 href="/course/00-introduction/01-welcome"
                 className="hover:border-swiss-red dark:hover:border-swiss-red group flex items-center justify-between border border-neutral-200 bg-white p-6 transition-all hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
@@ -338,7 +341,10 @@ export default async function CoursePage() {
                       {course.structure.introduction.lessons} lessons
                     </span>
                   </div>
-                  <h3 className="group-hover:text-swiss-red text-lg font-semibold">
+                  <h3
+                    className="group-hover:text-swiss-red text-base font-bold md:text-lg"
+                    style={{ lineHeight: 1.2 }}
+                  >
                     Introduction to Design Engineering
                   </h3>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -359,7 +365,7 @@ export default async function CoursePage() {
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-3">
               <div>
-                <h3 className="mb-4 font-bold">Course</h3>
+                <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-neutral-900 dark:text-white">Course</h3>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li>
                     <Link
@@ -404,7 +410,7 @@ export default async function CoursePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="mb-4 font-bold">Support</h3>
+                <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-neutral-900 dark:text-white">Support</h3>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li>
                     <Link href="/course/faq" className="hover:text-swiss-red">
@@ -451,7 +457,7 @@ export default async function CoursePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="mb-4 font-bold">Guarantee</h3>
+                <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-neutral-900 dark:text-white">Guarantee</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   14-day money-back guarantee. If you&apos;re not satisfied with
                   the course, contact us within 14 days for a full refund—no
