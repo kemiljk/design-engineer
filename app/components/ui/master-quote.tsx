@@ -78,7 +78,7 @@ export function MasterQuote({ children, className }: MasterQuoteProps) {
           >
             &ldquo;
           </span>
-          <p className="relative z-10 text-xl font-bold leading-snug tracking-tight text-neutral-900 md:text-2xl lg:text-3xl dark:text-white">
+          <p className="relative z-10 text-xl font-bold leading-[1.1] tracking-tight text-neutral-900 md:text-2xl lg:text-3xl dark:text-white">
             {parsed.quoteText}
           </p>
         </blockquote>
