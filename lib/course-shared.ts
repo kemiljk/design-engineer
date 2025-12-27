@@ -10,10 +10,9 @@ export const COURSE_STRUCTURE = {
   design: {
     web: {
       title: "Design (Web)",
-      lessons: 29, // 4 new + 25 existing
+      lessons: 25,
       freeLessons: 1, // Only first lesson free
       modules: [
-        { id: "00-environment-setup", title: "Environment Setup", lessons: 4 },
         { id: "01-foundations", title: "Foundations of Visual Design", lessons: 4 },
         { id: "02-visual-design", title: "Visual Design Deep Dive", lessons: 5 },
         { id: "03-design-tools", title: "Design Tools Mastery", lessons: 5 },
@@ -24,10 +23,9 @@ export const COURSE_STRUCTURE = {
     },
     ios: {
       title: "Design (iOS)",
-      lessons: 21, // 3 new + 18 existing
+      lessons: 18,
       freeLessons: 1,
       modules: [
-        { id: "00-environment-setup", title: "Environment Setup", lessons: 3 },
         { id: "01-hig-fundamentals", title: "HIG Fundamentals", lessons: 4 },
         { id: "02-ios-design-patterns", title: "iOS Design Patterns", lessons: 4 },
         { id: "03-designing-for-ios", title: "Designing for iOS", lessons: 4 },
@@ -37,10 +35,9 @@ export const COURSE_STRUCTURE = {
     },
     android: {
       title: "Design (Android)",
-      lessons: 21, // 3 new + 18 existing
+      lessons: 18,
       freeLessons: 1,
       modules: [
-        { id: "00-environment-setup", title: "Environment Setup", lessons: 3 },
         { id: "01-material-design", title: "Material Design", lessons: 4 },
         { id: "02-android-design-patterns", title: "Android Design Patterns", lessons: 4 },
         { id: "03-designing-for-android", title: "Designing for Android", lessons: 4 },
@@ -52,12 +49,13 @@ export const COURSE_STRUCTURE = {
   engineering: {
     web: {
       title: "Engineering (Web)",
-      lessons: 34,
+      lessons: 38,
       freeLessons: 1,
       modules: [
+        { id: "00-environment-setup", title: "Environment Setup", lessons: 4 },
         { id: "01-html-fundamentals", title: "HTML Fundamentals", lessons: 6 },
         { id: "02-css-mastery", title: "CSS Mastery", lessons: 8 },
-        { id: "03-javascript-essentials", title: "JavaScript Essentials", lessons: 7 },
+        { id: "03-javascript-essentials", title: "JavaScript Essentials", lessons: 8 },
         { id: "04-building-components", title: "Building Components", lessons: 6 },
         { id: "05-design-systems-in-code", title: "Design Systems in Code", lessons: 5 },
         { id: "06-capstone", title: "Capstone Project", lessons: 1 },
@@ -65,9 +63,10 @@ export const COURSE_STRUCTURE = {
     },
     ios: {
       title: "Engineering (iOS)",
-      lessons: 18,
+      lessons: 21,
       freeLessons: 1,
       modules: [
+        { id: "00-environment-setup", title: "Environment Setup", lessons: 3 },
         { id: "01-swift-basics", title: "Swift Basics", lessons: 6 },
         { id: "02-swiftui-fundamentals", title: "SwiftUI Fundamentals", lessons: 6 },
         { id: "03-building-interfaces", title: "Building Interfaces", lessons: 5 },
@@ -76,9 +75,10 @@ export const COURSE_STRUCTURE = {
     },
     android: {
       title: "Engineering (Android)",
-      lessons: 18,
+      lessons: 21,
       freeLessons: 1,
       modules: [
+        { id: "00-environment-setup", title: "Environment Setup", lessons: 3 },
         { id: "01-kotlin-basics", title: "Kotlin Basics", lessons: 6 },
         { id: "02-compose-fundamentals", title: "Compose Fundamentals", lessons: 6 },
         { id: "03-building-interfaces", title: "Building Interfaces", lessons: 5 },
