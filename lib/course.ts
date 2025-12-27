@@ -126,8 +126,11 @@ export function canAccessLesson(
 export async function getUserEnrollment(
   userId: string
 ): Promise<Type.CourseEnrollment | null> {
-  // Test mode override
-  if (TEST_MODE) {
+  // Check if this user should bypass test mode (e.g., owner testing real progress)
+  const bypassTestMode = TEST_MODE_BYPASS_USER_IDS.has(userId);
+  
+  // Test mode override (unless user is in bypass list)
+  if (TEST_MODE && !bypassTestMode) {
     const effectiveAccessLevel = await getTestAccessLevel();
     if (effectiveAccessLevel && effectiveAccessLevel !== "free") {
       return {
