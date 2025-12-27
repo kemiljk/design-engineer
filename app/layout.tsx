@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import { Suspense } from "react";
-import { Instrument_Serif, Martian_Mono, Instrument_Sans } from "next/font/google";
+import { Imbue, Martian_Mono, Host_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
@@ -10,10 +10,8 @@ import { BannerWrapper } from "./components/banner-wrapper";
 import { EmailSubscriber } from "./components/email-subscriber";
 import { KeyboardHint } from "./components/keyboard-hint";
 
-const serif = Instrument_Serif({
+const serif = Imbue({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
   variable: "--font-serif",
   display: "swap",
 });
@@ -24,7 +22,7 @@ const mono = Martian_Mono({
   display: "swap",
 });
 
-const sans = Instrument_Sans({
+const sans = Host_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",

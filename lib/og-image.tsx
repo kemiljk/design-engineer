@@ -9,27 +9,27 @@ type OGImageProps = {
 
 async function loadFonts() {
   // Fetch TTF fonts - next/og requires TTF or OTF format (not WOFF/WOFF2)
-  const [instrumentSerifData, instrumentSansData] = await Promise.all([
-    // Instrument Serif Regular TTF from fontsource CDN
+  const [imbueData, hostGroteskData] = await Promise.all([
+    // Imbue Regular TTF from fontsource CDN
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@latest/latin-400-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/imbue@latest/latin-400-normal.ttf"
     ).then((res) => res.arrayBuffer()),
-    // Instrument Sans Medium TTF from fontsource CDN
+    // Host Grotesk Medium TTF from fontsource CDN
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/instrument-sans@latest/latin-500-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-500-normal.ttf"
     ).then((res) => res.arrayBuffer()),
   ]);
 
   return [
     {
-      name: "Instrument Serif",
-      data: instrumentSerifData,
+      name: "Imbue",
+      data: imbueData,
       style: "normal" as const,
       weight: 400 as const,
     },
     {
-      name: "Instrument Sans",
-      data: instrumentSansData,
+      name: "Host Grotesk",
+      data: hostGroteskData,
       style: "normal" as const,
       weight: 500 as const,
     },
@@ -54,7 +54,7 @@ function OGImageTemplate({
         flexDirection: "column",
         backgroundColor: "#fafafa",
         padding: "60px",
-        fontFamily: "Instrument Sans",
+        fontFamily: "Host Grotesk",
       }}
     >
       {/* Top bar with logo and type badge */}
@@ -158,7 +158,7 @@ function OGImageTemplate({
         <h1
           style={{
             fontSize: isLongTitle ? "56px" : "72px",
-            fontFamily: "Instrument Serif",
+            fontFamily: "Imbue",
             fontWeight: 400,
             color: "#171717",
             lineHeight: 1.1,
