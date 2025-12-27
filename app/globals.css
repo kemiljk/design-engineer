@@ -12,16 +12,63 @@
   --color-foreground: #171717;
   --color-background: #ffffff;
 
-  /* Font families */
+  /* Font families - Swiss typography: single sans-serif family */
   --font-sans:
     var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif:
-    var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times,
-    serif;
   --font-mono:
     var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
+
+  /* 
+   * Swiss Type Scale with TIGHT line-heights
+   * Overrides Tailwind defaults - larger text gets tighter leading
+   */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.35;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.35;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.25;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.2;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.1;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.05;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+
+  /* Line height utilities */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* 
+   * Letter Spacing - Optical compensation
+   * Negative tracking for large text (optically correct)
+   * Slight positive for small caps and tiny text
+   */
+  --tracking-tightest: -0.05em;  /* Display text */
+  --tracking-tighter: -0.035em; /* H1 */
+  --tracking-tight: -0.02em;    /* H2-H3 */
+  --tracking-normal: -0.01em;   /* Body (slight negative for Host Grotesk) */
+  --tracking-wide: 0.05em;      /* Small caps, labels */
+  --tracking-wider: 0.1em;      /* Uppercase micro text */
 
   /* Border radius - all set to 0 for design system */
   --radius-sm: 0;
@@ -101,16 +148,127 @@
   box-sizing: border-box;
 }
 
-.font-serif {
-  @apply tracking-normal;
+/* 
+ * Swiss Typography System
+ * Inspired by Müller-Brockmann, Ruder, and the Basel school
+ * Bold, confident, mathematically precise
+ */
+@layer base {
+  /* Base HTML - optimal reading */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Body copy - generous leading for comfortable reading */
+  body {
+    @apply font-sans text-base;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
 }
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply font-serif;
+/* 
+ * Heading Hierarchy - Swiss style
+ * Outside @layer so it overrides Tailwind's text-* utilities
+ */
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  line-height: 1.1;
+}
+
+h1, h2 {
+  letter-spacing: -0.03em;
+}
+
+h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-wrap: balance;
+  line-height: 1.25;
+}
+
+/* Paragraphs - comfortable reading */
+p {
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+/* Lists inherit body styling */
+li {
+  line-height: 1.55;
+}
+
+/* Strong emphasis */
+strong, b {
+  font-weight: 700;
+}
+
+/* Small text - slightly looser */
+small {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+/* 
+ * Utility classes for display typography
+ * Use these for hero sections, feature callouts
+ */
+@layer utilities {
+  /* Display - for hero headlines */
+  .text-display {
+    @apply text-5xl font-bold;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  /* Hero - massive impact text */
+  .text-hero {
+    @apply text-6xl font-bold;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+  }
+
+  /* Mega - for single word impact */
+  .text-mega {
+    @apply text-7xl font-bold;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+
+  /* Label - small caps style */
+  .text-label {
+    @apply text-xs font-semibold uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  /* Overline - category/section markers */
+  .text-overline {
+    @apply text-xs font-bold uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  /* Caption - image captions, footnotes */
+  .text-caption {
+    @apply text-sm;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  /* Lead - introductory paragraphs */
+  .text-lead {
+    @apply text-lg;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 }
 

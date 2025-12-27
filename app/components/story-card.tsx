@@ -62,8 +62,10 @@ export function StoryCard({
           <div className="px-6">
             {story.metadata.is_available ? (
               <>
-                <h2>{story.title}</h2>
-                <p className="line-clamp-3 w-full pt-3 text-sm text-neutral-600 dark:text-neutral-400">
+                <h2 className="text-lg font-bold md:text-xl">
+                  {story.title}
+                </h2>
+                <p className="line-clamp-3 w-full pt-3 text-sm text-neutral-500 dark:text-neutral-400">
                   {story.metadata.snippet.slice(0, 200)}...
                 </p>
               </>

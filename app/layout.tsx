@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import { Suspense } from "react";
-import { Instrument_Serif, Martian_Mono, Instrument_Sans } from "next/font/google";
+import { Martian_Mono, Host_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
@@ -10,21 +10,13 @@ import { BannerWrapper } from "./components/banner-wrapper";
 import { EmailSubscriber } from "./components/email-subscriber";
 import { KeyboardHint } from "./components/keyboard-hint";
 
-const serif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
 const mono = Martian_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
 });
 
-const sans = Instrument_Sans({
+const sans = Host_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -62,7 +54,7 @@ export default function RootLayout({
         }
       >
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
+          className={`${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
           <a
             href="#content"

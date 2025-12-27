@@ -91,7 +91,7 @@ export function TypeScaleDemo() {
           </p>
           <article>
             <motion.h2
-              className="mb-2 font-serif font-bold text-neutral-900 dark:text-white"
+              className="mb-2 font-sans font-bold tracking-tight text-neutral-900 dark:text-white"
               style={{ fontSize: `${baseSize * Math.pow(ratioNum, 3)}px`, lineHeight: 1.2 }}
               layout
             >

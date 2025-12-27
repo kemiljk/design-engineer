@@ -52,7 +52,7 @@ async function HeroSection() {
           {/* Content */}
           <div className="flex flex-col items-center gap-8 lg:col-span-7 lg:items-start">
             <PageTitle />
-            <p className="max-w-2xl text-center text-xl leading-relaxed text-neutral-600 md:text-2xl lg:text-left dark:text-neutral-400">
+            <p className="max-w-2xl text-center text-lg text-neutral-500 md:text-xl lg:text-left dark:text-neutral-400">
               {home.metadata.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
@@ -198,7 +198,7 @@ function FAQSection() {
           <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
             Questions?
           </p>
-          <h2 className="text-3xl font-bold md:text-4xl">
+          <h2 className="text-2xl font-bold md:text-3xl">
             Frequently Asked Questions
           </h2>
         </div>
@@ -301,10 +301,10 @@ function ToolsSection() {
                 Free Tools
               </span>
             </div>
-            <h2 className="text-2xl font-bold md:text-3xl">
+            <h2 className="text-xl font-bold md:text-2xl">
               Design Engineering Toolkit
             </h2>
-            <p className="mt-2 max-w-xl text-neutral-600 dark:text-neutral-400">
+            <p className="mt-2 max-w-xl text-neutral-500 dark:text-neutral-400">
               Professional utilities for animation, colour, typography, and
               cross-platform development. No sign-up required.
             </p>
@@ -334,10 +334,10 @@ function ToolsSection() {
                   {tool.category}
                 </span>
               </div>
-              <h3 className="mb-1 font-bold text-neutral-900 dark:text-white">
+              <h3 className="mb-1.5 text-base font-bold text-neutral-900 dark:text-white">
                 {tool.title}
               </h3>
-              <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
                 {tool.description}
               </p>
               <div className="text-swiss-red mt-3 flex items-center gap-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100">
@@ -417,11 +417,11 @@ async function CourseSection() {
             <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
               Learn Design Engineering
             </p>
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-2xl font-bold md:text-3xl">
               The Complete Course
             </h2>
           </div>
-          <p className="max-w-md text-neutral-600 dark:text-neutral-400">
+          <p className="max-w-md text-neutral-500 dark:text-neutral-400">
             For designers going beyond Vibe Coding, and engineers shipping
             beautiful, thoroughly considered interfaces.
           </p>
@@ -447,8 +447,8 @@ async function CourseSection() {
                     )}
                   />
                 </div>
-                <h3 className="mb-2 text-xl font-bold">{track.title}</h3>
-                <p className="flex-1 text-sm text-neutral-600 dark:text-neutral-400">
+                <h3 className="mb-2 text-lg font-bold">{track.title}</h3>
+                <p className="flex-1 text-neutral-500 dark:text-neutral-400">
                   {track.description}
                 </p>
               </div>

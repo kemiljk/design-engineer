@@ -172,9 +172,9 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           </div>
 
           {/* Row 1: Accent bar */}
-          <div className="relative z-10 col-span-full pt-8 pb-3 md:pt-10 lg:pt-12">
+          <div className="relative z-10 col-span-full pt-10 pb-4 md:pt-12 lg:pt-14">
             <motion.div
-              className="h-1 w-8 origin-left bg-swiss-red md:w-10 lg:w-12"
+              className="h-1 w-10 origin-left bg-swiss-red md:w-12 lg:w-14"
               variants={accentVariants}
               initial="hidden"
               animate="visible"
@@ -182,9 +182,9 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             />
           </div>
 
-          {/* Row 2: Title */}
+          {/* Row 2: Title - Bold Swiss display typography */}
           <motion.h1
-            className="relative z-10 col-span-full pb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
+            className="relative z-10 col-span-full pb-5 text-3xl font-bold text-foreground md:pb-6 md:text-4xl lg:text-5xl"
             variants={contentVariants}
             initial="hidden"
             animate="visible"
@@ -192,10 +192,10 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             {title}
           </motion.h1>
 
-          {/* Row 3: Description */}
+          {/* Row 3: Description - Comfortable reading measure */}
           {description && (
             <motion.p
-              className="relative z-10 col-span-full pb-4 text-base leading-relaxed text-pretty text-neutral-600 md:col-span-5 md:text-lg lg:col-span-8 dark:text-neutral-400"
+              className="relative z-10 col-span-full pb-4 text-pretty text-neutral-500 md:col-span-5 md:text-lg lg:col-span-7 dark:text-neutral-400"
               variants={descriptionVariants}
               initial="hidden"
               animate="visible"

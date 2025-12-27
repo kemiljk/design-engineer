@@ -49,28 +49,28 @@ export default function PageTitle() {
       animate="visible"
     >
       <motion.div
-        className="relative border-2 border-foreground p-2 md:border-4 md:p-4"
+        className="relative border-2 border-foreground p-2 md:border-[3px] md:p-4"
         variants={designVariants}
       >
-        <span className="text-4xl font-bold italic tracking-tight md:text-5xl lg:text-7xl">
+        <span className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           design
         </span>
         <MousePointer />
       </motion.div>
       <motion.span
-        className="hidden text-5xl md:block lg:text-7xl"
+        className="hidden text-4xl tracking-tight md:block md:text-5xl lg:text-6xl"
         variants={timesVariants}
       >
         &times;
       </motion.span>
       <motion.div className="flex items-center" variants={engineerVariants}>
-        <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-7xl">
+        <span className="font-mono text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
           {`<`}
         </span>
-        <span className="text-swiss-red font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-7xl">
+        <span className="text-swiss-red font-mono text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
           Engineer
         </span>
-        <span className="font-mono text-4xl font-semibold tracking-tighter md:text-5xl lg:text-7xl">
+        <span className="font-mono text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
           {` />`}
         </span>
       </motion.div>

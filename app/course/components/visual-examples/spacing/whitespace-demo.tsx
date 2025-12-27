@@ -43,7 +43,7 @@ export function WhitespaceDemo() {
           transition={{ duration: 0.2 }}
         >
           <motion.h3
-            className="font-serif text-xl font-bold text-neutral-900 dark:text-white"
+            className="font-sans text-xl font-bold tracking-tight text-neutral-900 dark:text-white"
             style={{ marginBottom: spacing.gap }}
             layout
           >

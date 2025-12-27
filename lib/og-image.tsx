@@ -9,29 +9,30 @@ type OGImageProps = {
 
 async function loadFonts() {
   // Fetch TTF fonts - next/og requires TTF or OTF format (not WOFF/WOFF2)
-  const [instrumentSerifData, instrumentSansData] = await Promise.all([
-    // Instrument Serif Regular TTF from fontsource CDN
+  // Swiss typography: single sans-serif family with multiple weights
+  const [hostGroteskRegular, hostGroteskBold] = await Promise.all([
+    // Host Grotesk Regular for body text
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/instrument-serif@latest/latin-400-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-400-normal.ttf"
     ).then((res) => res.arrayBuffer()),
-    // Instrument Sans Medium TTF from fontsource CDN
+    // Host Grotesk Bold for headings
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/instrument-sans@latest/latin-500-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-700-normal.ttf"
     ).then((res) => res.arrayBuffer()),
   ]);
 
   return [
     {
-      name: "Instrument Serif",
-      data: instrumentSerifData,
+      name: "Host Grotesk",
+      data: hostGroteskRegular,
       style: "normal" as const,
       weight: 400 as const,
     },
     {
-      name: "Instrument Sans",
-      data: instrumentSansData,
+      name: "Host Grotesk",
+      data: hostGroteskBold,
       style: "normal" as const,
-      weight: 500 as const,
+      weight: 700 as const,
     },
   ];
 }
@@ -54,7 +55,7 @@ function OGImageTemplate({
         flexDirection: "column",
         backgroundColor: "#fafafa",
         padding: "60px",
-        fontFamily: "Instrument Sans",
+        fontFamily: "Host Grotesk",
       }}
     >
       {/* Top bar with logo and type badge */}
@@ -158,11 +159,11 @@ function OGImageTemplate({
         <h1
           style={{
             fontSize: isLongTitle ? "56px" : "72px",
-            fontFamily: "Instrument Serif",
-            fontWeight: 400,
+            fontFamily: "Host Grotesk",
+            fontWeight: 700,
             color: "#171717",
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
+            lineHeight: 1,
+            letterSpacing: "-0.025em",
             margin: 0,
             maxWidth: "900px",
           }}
@@ -174,8 +175,8 @@ function OGImageTemplate({
           <p
             style={{
               fontSize: "24px",
-              color: "#737373",
-              lineHeight: 1.4,
+              color: "#525252",
+              lineHeight: 1.5,
               margin: 0,
               maxWidth: "800px",
             }}
