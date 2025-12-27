@@ -172,9 +172,9 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           </div>
 
           {/* Row 1: Accent bar */}
-          <div className="relative z-10 col-span-full pt-8 pb-3 md:pt-10 lg:pt-12">
+          <div className="relative z-10 col-span-full pt-10 pb-4 md:pt-12 lg:pt-16">
             <motion.div
-              className="h-1 w-8 origin-left bg-swiss-red md:w-10 lg:w-12"
+              className="h-1.5 w-10 origin-left bg-swiss-red md:w-12 lg:h-2 lg:w-16"
               variants={accentVariants}
               initial="hidden"
               animate="visible"
@@ -182,10 +182,10 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             />
           </div>
 
-          {/* Row 2: Title */}
+          {/* Row 2: Title - Bold Swiss display typography */}
           <motion.h1
-            className="relative z-10 col-span-full pb-4 text-4xl font-bold md:text-5xl lg:text-6xl"
-            style={{ lineHeight: 1.05, letterSpacing: "-0.03em" }}
+            className="relative z-10 col-span-full pb-5 text-[2.5rem] font-bold text-foreground md:pb-6 md:text-[3.5rem] lg:text-[4.5rem]"
+            style={{ lineHeight: 0.92, letterSpacing: "-0.04em" }}
             variants={contentVariants}
             initial="hidden"
             animate="visible"
@@ -193,10 +193,11 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             {title}
           </motion.h1>
 
-          {/* Row 3: Description */}
+          {/* Row 3: Description - Comfortable reading measure */}
           {description && (
             <motion.p
-              className="relative z-10 col-span-full pb-4 text-base leading-relaxed text-pretty text-neutral-600 md:col-span-5 md:text-lg lg:col-span-8 dark:text-neutral-400"
+              className="relative z-10 col-span-full pb-4 text-base text-pretty text-neutral-500 md:col-span-5 md:text-lg lg:col-span-7 lg:text-xl dark:text-neutral-400"
+              style={{ lineHeight: 1.5, letterSpacing: "-0.01em" }}
               variants={descriptionVariants}
               initial="hidden"
               animate="visible"

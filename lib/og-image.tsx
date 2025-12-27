@@ -158,14 +158,14 @@ function OGImageTemplate({
       >
         <h1
           style={{
-            fontSize: isLongTitle ? "56px" : "72px",
+            fontSize: isLongTitle ? "60px" : "80px",
             fontFamily: "Host Grotesk",
             fontWeight: 700,
             color: "#171717",
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
+            lineHeight: 0.95,
+            letterSpacing: "-0.035em",
             margin: 0,
-            maxWidth: "900px",
+            maxWidth: "950px",
           }}
         >
           {title}
@@ -174,9 +174,10 @@ function OGImageTemplate({
         {description && (
           <p
             style={{
-              fontSize: "24px",
-              color: "#737373",
+              fontSize: "26px",
+              color: "#525252",
               lineHeight: 1.4,
+              letterSpacing: "-0.01em",
               margin: 0,
               maxWidth: "800px",
             }}

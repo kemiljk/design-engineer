@@ -91,7 +91,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
       components={components}
       {...props}
       className={cn(
-        "prose prose-neutral text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-headings:leading-tight prose-h1:tracking-tighter prose-h2:tracking-tight prose-h3:tracking-tight prose-li:list-disc prose-img:rounded-none",
+        "prose prose-neutral max-w-none text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none",
         props.className ? props.className : null,
       )}
       remarkPlugins={[remarkGfm]}

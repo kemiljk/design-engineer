@@ -5,8 +5,8 @@ export default function SectionTitle({
 }) {
   return (
     <h2
-      className="text-2xl font-bold text-foreground md:text-3xl lg:text-4xl"
-      style={{ lineHeight: 1.1, letterSpacing: "-0.025em" }}
+      className="text-[1.75rem] font-bold text-foreground md:text-[2.25rem] lg:text-[3rem]"
+      style={{ lineHeight: 0.95, letterSpacing: "-0.03em" }}
     >
       {children}
     </h2>

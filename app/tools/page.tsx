@@ -218,14 +218,17 @@ export default function ToolsPage() {
               className="motion-enter"
               style={{ animationDelay: `${idx * 60}ms` }}
             >
-              <div className="mb-6">
+              <div className="mb-8">
                 <h2
-                  className="text-xl font-bold text-neutral-900 dark:text-white md:text-2xl"
-                  style={{ lineHeight: 1.1, letterSpacing: "-0.02em" }}
+                  className="text-2xl font-bold text-neutral-900 dark:text-white md:text-[1.75rem]"
+                  style={{ lineHeight: 1, letterSpacing: "-0.025em" }}
                 >
                   {section.title}
                 </h2>
-                <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                <p 
+                  className="mt-2 text-neutral-500 dark:text-neutral-400"
+                  style={{ lineHeight: 1.5 }}
+                >
                   {section.description}
                 </p>
               </div>
@@ -243,13 +246,16 @@ export default function ToolsPage() {
                       </div>
                       
                       <h3
-                        className="mb-1.5 text-base font-bold text-neutral-900 dark:text-white sm:text-lg"
-                        style={{ lineHeight: 1.2, letterSpacing: "-0.01em" }}
+                        className="mb-2 text-lg font-bold text-neutral-900 dark:text-white"
+                        style={{ lineHeight: 1.1, letterSpacing: "-0.015em" }}
                       >
                         {tool.title}
                       </h3>
                       
-                      <p className="mb-4 text-sm leading-snug text-neutral-500 dark:text-neutral-400 sm:mb-6">
+                      <p 
+                        className="mb-4 text-[0.9375rem] text-neutral-500 dark:text-neutral-400 sm:mb-6"
+                        style={{ lineHeight: 1.45 }}
+                      >
                         {tool.description}
                       </p>
                     </div>

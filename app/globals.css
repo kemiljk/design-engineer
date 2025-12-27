@@ -20,29 +20,46 @@
     var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
 
-  /* Swiss Type Scale - 1.25 ratio (Major Third) with 16px base */
-  --text-xs: 0.64rem;      /* 10.24px - Caption */
-  --text-sm: 0.8rem;       /* 12.8px - Small */
-  --text-base: 1rem;       /* 16px - Body */
-  --text-lg: 1.25rem;      /* 20px - Lead */
-  --text-xl: 1.563rem;     /* 25px - H4 */
-  --text-2xl: 1.953rem;    /* 31.25px - H3 */
-  --text-3xl: 2.441rem;    /* 39px - H2 */
-  --text-4xl: 3.052rem;    /* 48.8px - H1 */
-  --text-5xl: 3.815rem;    /* 61px - Display */
+  /* 
+   * Swiss Type Scale - 1.333 ratio (Perfect Fourth)
+   * Bold, confident jumps between sizes
+   * 16px base for optimal screen reading
+   */
+  --text-xs: 0.75rem;      /* 12px - Fine print, captions */
+  --text-sm: 0.875rem;     /* 14px - Secondary text, metadata */
+  --text-base: 1rem;       /* 16px - Body copy */
+  --text-lg: 1.125rem;     /* 18px - Lead paragraphs */
+  --text-xl: 1.333rem;     /* 21.3px - Small headings */
+  --text-2xl: 1.777rem;    /* 28.4px - H4 */
+  --text-3xl: 2.369rem;    /* 37.9px - H3 */
+  --text-4xl: 3.157rem;    /* 50.5px - H2 */
+  --text-5xl: 4.209rem;    /* 67.3px - H1 */
+  --text-6xl: 5.61rem;     /* 89.8px - Display */
+  --text-7xl: 7.478rem;    /* 119.6px - Hero */
 
-  /* Line heights - tighter for headings, comfortable for body */
+  /* 
+   * Line Heights - Optical precision
+   * Tighter as size increases (large text needs less leading)
+   * Body text generous for comfortable reading
+   */
   --leading-none: 1;
-  --leading-tight: 1.15;
-  --leading-snug: 1.3;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
+  --leading-tighter: 0.9;   /* Display/Hero text */
+  --leading-tight: 0.95;    /* Large headings */
+  --leading-snug: 1.05;     /* Medium headings */
+  --leading-normal: 1.5;    /* Body copy - generous */
+  --leading-relaxed: 1.65;  /* Small text, captions */
 
-  /* Letter spacing - Swiss style: tight for large text */
-  --tracking-tighter: -0.03em;
-  --tracking-tight: -0.02em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.025em;
+  /* 
+   * Letter Spacing - Optical compensation
+   * Negative tracking for large text (optically correct)
+   * Slight positive for small caps and tiny text
+   */
+  --tracking-tightest: -0.05em;  /* Display text */
+  --tracking-tighter: -0.035em; /* H1 */
+  --tracking-tight: -0.02em;    /* H2-H3 */
+  --tracking-normal: -0.01em;   /* Body (slight negative for Host Grotesk) */
+  --tracking-wide: 0.05em;      /* Small caps, labels */
+  --tracking-wider: 0.1em;      /* Uppercase micro text */
 
   /* Border radius - all set to 0 for design system */
   --radius-sm: 0;
@@ -122,48 +139,149 @@
   box-sizing: border-box;
 }
 
-/* Swiss typography - headings use sans with bold weight and tight tracking */
+/* 
+ * Swiss Typography System
+ * Inspired by Müller-Brockmann, Ruder, and the Basel school
+ * Bold, confident, mathematically precise
+ */
 @layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  /* Base HTML - optimal reading */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Body copy - generous leading for comfortable reading */
+  body {
+    @apply font-sans text-base;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  /* 
+   * Heading Hierarchy
+   * Each level has precise line-height and tracking
+   * Larger = tighter (optical compensation)
+   */
+  h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-bold;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   h1 {
     @apply text-4xl;
-    letter-spacing: -0.03em;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
   }
 
   h2 {
     @apply text-3xl;
+    line-height: 1;
     letter-spacing: -0.025em;
   }
 
   h3 {
     @apply text-2xl;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   h4 {
     @apply text-xl;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
   }
 
   h5 {
-    @apply text-lg;
+    @apply text-lg font-semibold;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 
   h6 {
-    @apply text-base;
+    @apply text-base font-semibold;
+    line-height: 1.3;
+    letter-spacing: 0;
   }
 
-  /* Body text - comfortable reading */
-  p, li {
+  /* Paragraphs - comfortable reading */
+  p {
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+  }
+
+  /* Lists inherit body styling */
+  li {
+    line-height: 1.55;
+  }
+
+  /* Strong emphasis */
+  strong, b {
+    @apply font-bold;
+  }
+
+  /* Small text - slightly looser */
+  small {
+    @apply text-sm;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+}
+
+/* 
+ * Utility classes for display typography
+ * Use these for hero sections, feature callouts
+ */
+@layer utilities {
+  /* Display - for hero headlines */
+  .text-display {
+    @apply text-5xl font-bold;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  /* Hero - massive impact text */
+  .text-hero {
+    @apply text-6xl font-bold;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+  }
+
+  /* Mega - for single word impact */
+  .text-mega {
+    @apply text-7xl font-bold;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+
+  /* Label - small caps style */
+  .text-label {
+    @apply text-xs font-semibold uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  /* Overline - category/section markers */
+  .text-overline {
+    @apply text-xs font-bold uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+
+  /* Caption - image captions, footnotes */
+  .text-caption {
+    @apply text-sm;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  /* Lead - introductory paragraphs */
+  .text-lead {
+    @apply text-lg;
     line-height: 1.5;
+    letter-spacing: -0.01em;
   }
 }
 
