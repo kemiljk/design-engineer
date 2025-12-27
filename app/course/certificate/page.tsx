@@ -28,7 +28,7 @@ export default async function CertificatesPage() {
   const eligibilities = [webEligibility, iosEligibility, androidEligibility];
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="mx-auto max-w-4xl px-4 py-12">
         <Link
           href="/course"
