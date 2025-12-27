@@ -75,7 +75,7 @@ export function GestaltSimilarityDemo() {
       }
     >
       <div className="flex flex-col items-center gap-8">
-        {/* Grid of elements */}
+        {/* Grid of elements - fixed cell size to prevent layout shift */}
         <div className="grid grid-cols-6 gap-3">
           {[0, 1, 2].map((row) =>
             [0, 1, 2, 3, 4, 5].map((col) => {
@@ -83,35 +83,33 @@ export function GestaltSimilarityDemo() {
               return (
                 <div
                   key={`${row}-${col}`}
-                  className={`flex items-center justify-center ${style.shape} ${style.size} ${style.color}`}
-                />
+                  className="flex h-10 w-10 items-center justify-center"
+                >
+                  <div
+                    className={`${style.shape} ${style.size} ${style.color} transition-all duration-200`}
+                  />
+                </div>
               );
             })
           )}
         </div>
 
-        {/* Insight */}
-        <div className="text-center">
-          {similarityType === "color" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              The grid visually splits into two groups based on <strong>colour</strong> alone
-            </p>
-          )}
-          {similarityType === "shape" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Circles vs squares create distinct groups through <strong>shape</strong>
-            </p>
-          )}
-          {similarityType === "size" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Large vs small elements create groupings through <strong>size</strong>
-            </p>
-          )}
-          {similarityType === "none" && (
-            <p className="text-sm text-neutral-500 dark:text-neutral-400">
-              With uniform styling, the grid appears as one undifferentiated group
-            </p>
-          )}
+        {/* Insight - fixed height to prevent layout shift */}
+        <div className="min-h-[2.5rem] text-center">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {similarityType === "color" && (
+              <>The grid visually splits into two groups based on <strong>colour</strong> alone</>
+            )}
+            {similarityType === "shape" && (
+              <>Circles vs squares create distinct groups through <strong>shape</strong></>
+            )}
+            {similarityType === "size" && (
+              <>Large vs small elements create groupings through <strong>size</strong></>
+            )}
+            {similarityType === "none" && (
+              <>With uniform styling, the grid appears as one undifferentiated group</>
+            )}
+          </p>
         </div>
       </div>
     </ExampleWrapper>

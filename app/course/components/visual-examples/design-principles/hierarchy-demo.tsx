@@ -36,7 +36,7 @@ export function HierarchyDemo() {
           subtitle: "text-base text-neutral-600 dark:text-neutral-300",
           body: "text-base text-neutral-600 dark:text-neutral-300",
           meta: "text-base text-neutral-600 dark:text-neutral-300",
-          cta: "text-base text-neutral-600 dark:text-neutral-300 px-4 py-2 border border-neutral-300 dark:border-neutral-600",
+          cta: "text-base text-neutral-600 dark:text-neutral-300 px-4 py-2 ring-1 ring-neutral-300 dark:ring-neutral-600",
           secondary: "text-base text-neutral-600 dark:text-neutral-300",
         };
       case "competing":
@@ -91,24 +91,14 @@ export function HierarchyDemo() {
         </div>
       </div>
 
-      {mode === "clear" && (
-        <p className="mt-6 text-xs text-neutral-600 italic dark:text-neutral-400">
-          ✓ Clear hierarchy: Your eye naturally moves from title → subtitle →
-          body → action
+      {/* Insight - fixed height to prevent layout shift */}
+      <div className="mt-6 min-h-[2.5rem]">
+        <p className={`text-xs italic ${mode === "clear" ? "text-neutral-600 dark:text-neutral-400" : "text-[#ff4400]"}`}>
+          {mode === "clear" && "✓ Clear hierarchy: Your eye naturally moves from title → subtitle → body → action"}
+          {mode === "flat" && "✗ No hierarchy: Everything looks equally important. Where should you look first?"}
+          {mode === "competing" && "✗ Competing elements: Multiple focal points fight for attention. Nothing wins."}
         </p>
-      )}
-      {mode === "flat" && (
-        <p className="mt-6 text-xs text-[#ff4400] italic">
-          ✗ No hierarchy: Everything looks equally important. Where should you
-          look first?
-        </p>
-      )}
-      {mode === "competing" && (
-        <p className="mt-6 text-xs text-[#ff4400] italic">
-          ✗ Competing elements: Multiple focal points fight for attention.
-          Nothing wins.
-        </p>
-      )}
+      </div>
     </ExampleWrapper>
   );
 }

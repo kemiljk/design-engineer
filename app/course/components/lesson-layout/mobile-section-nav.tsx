@@ -107,14 +107,14 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
       {/* Floating Pill - visible on mobile only */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-4 right-20 z-40 flex h-12 items-center gap-3 overflow-hidden border border-neutral-200 bg-white px-4 shadow-lg xl:hidden dark:border-neutral-700 dark:bg-neutral-900"
+        className="fixed bottom-6 left-4 z-40 flex h-12 w-max max-w-[calc(100%-6rem)] items-center gap-3 overflow-hidden border border-neutral-200 bg-white px-4 shadow-lg xl:hidden dark:border-neutral-700 dark:bg-neutral-900"
         style={{ borderRadius: "9999px" }}
         whileTap={{ scale: 0.97 }}
         aria-label="Open section navigation"
         aria-expanded={isOpen}
       >
         {/* Current section name */}
-        <span className="flex-1 truncate text-sm font-medium text-neutral-900 dark:text-white">
+        <span className="truncate text-sm font-medium text-neutral-900 dark:text-white">
           {activeSectionData?.label || "Sections"}
         </span>
 

@@ -66,11 +66,11 @@ export function LineHeightDemo() {
               })}
             </div>
 
-            {/* Recommendations */}
+            {/* Recommendations - use ring instead of border to prevent layout shift */}
             <div className="space-y-2 text-sm">
-              <div className={`rounded p-2 ${
+              <div className={`rounded p-2 transition-all ${
                 lineHeight >= 1.4 && lineHeight <= 1.6 
-                  ? "border border-neutral-300 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700" 
+                  ? "ring-1 ring-neutral-300 bg-neutral-200 dark:ring-neutral-600 dark:bg-neutral-700" 
                   : "bg-neutral-100 dark:bg-neutral-800"
               }`}>
                 <span className={`font-medium ${
@@ -81,9 +81,9 @@ export function LineHeightDemo() {
                   Body Text: 1.4–1.6 {lineHeight >= 1.4 && lineHeight <= 1.6 && "✓"}
                 </span>
               </div>
-              <div className={`rounded p-2 ${
+              <div className={`rounded p-2 transition-all ${
                 lineHeight >= 1.1 && lineHeight <= 1.3 
-                  ? "border border-neutral-300 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700" 
+                  ? "ring-1 ring-neutral-300 bg-neutral-200 dark:ring-neutral-600 dark:bg-neutral-700" 
                   : "bg-neutral-100 dark:bg-neutral-800"
               }`}>
                 <span className={`font-medium ${

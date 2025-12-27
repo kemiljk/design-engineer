@@ -95,8 +95,8 @@ export function GestaltFigureGroundDemo() {
         </AnimatePresence>
       </div>
 
-      {/* Insight */}
-      <div className="mt-4 space-y-2 text-center">
+      {/* Insight - fixed height to prevent layout shift */}
+      <div className="mt-4 min-h-[4rem] space-y-2 text-center">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {showModal
             ? overlayOpacity >= 40
@@ -104,15 +104,13 @@ export function GestaltFigureGroundDemo() {
               : "With low overlay opacity, the separation between figure and ground is unclear"
             : "Click 'Show Modal' to see figure-ground separation in action"}
         </p>
-        {showModal && (
-          <p className="text-xs text-neutral-500">
-            Overlay at {overlayOpacity}%: {
-              overlayOpacity >= 60 ? "Strong separation" :
-              overlayOpacity >= 30 ? "Moderate separation" :
-              "Weak separation—modal doesn't stand out enough"
-            }
-          </p>
-        )}
+        <p className={`text-xs text-neutral-500 transition-opacity ${showModal ? "opacity-100" : "opacity-0"}`}>
+          Overlay at {overlayOpacity}%: {
+            overlayOpacity >= 60 ? "Strong separation" :
+            overlayOpacity >= 30 ? "Moderate separation" :
+            "Weak separation—modal doesn't stand out enough"
+          }
+        </p>
       </div>
     </ExampleWrapper>
   );

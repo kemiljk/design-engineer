@@ -8,18 +8,35 @@ type RegionType = "none" | "background" | "border" | "both";
 export function GestaltCommonRegionDemo() {
   const [regionType, setRegionType] = useState<RegionType>("background");
 
-  const getGroupStyle = (isGrouped: boolean) => {
-    if (!isGrouped) return "";
-    
+  // Always include p-4 and rounded-lg to prevent layout shift
+  // Use ring (box-shadow) instead of border to avoid affecting box model
+  const getGroupStyle = () => {
+    const base = "p-4 rounded-lg transition-all duration-200";
     switch (regionType) {
       case "none":
-        return "";
+        return base; // Keep padding but no visual boundary
       case "background":
-        return "bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg";
+        return `${base} bg-neutral-100 dark:bg-neutral-800`;
       case "border":
-        return "border-2 border-neutral-300 dark:border-neutral-600 p-4 rounded-lg";
+        return `${base} ring-2 ring-neutral-300 dark:ring-neutral-600`;
       case "both":
-        return "bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-600 p-4 rounded-lg";
+        return `${base} bg-neutral-100 dark:bg-neutral-800 ring-2 ring-neutral-300 dark:ring-neutral-600`;
+    }
+  };
+
+  // Card styles that reflect each state
+  // Use ring/shadow instead of border to avoid layout shift
+  const getCardStyle = () => {
+    const base = "flex max-w-[180px] flex-col gap-3 p-4 rounded-lg transition-all duration-200";
+    switch (regionType) {
+      case "none":
+        return base; // Keep padding but no visual boundary
+      case "background":
+        return `${base} bg-white shadow-md dark:bg-neutral-800`;
+      case "border":
+        return `${base} ring-1 ring-neutral-200 dark:ring-neutral-700`;
+      case "both":
+        return `${base} ring-1 ring-neutral-200 bg-white shadow-md dark:ring-neutral-700 dark:bg-neutral-800`;
     }
   };
 
@@ -69,9 +86,7 @@ export function GestaltCommonRegionDemo() {
         {/* Navigation example */}
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           {/* Primary navigation group */}
-          <div
-            className={`flex gap-2 ${getGroupStyle(regionType !== "none")}`}
-          >
+          <div className={`flex gap-2 ${getGroupStyle()}`}>
             {items.slice(0, 3).map((item) => (
               <div
                 key={item.label}
@@ -84,9 +99,7 @@ export function GestaltCommonRegionDemo() {
           </div>
 
           {/* Secondary navigation group */}
-          <div
-            className={`flex gap-2 ${getGroupStyle(regionType !== "none")}`}
-          >
+          <div className={`flex gap-2 ${getGroupStyle()}`}>
             {items.slice(3).map((item) => (
               <div
                 key={item.label}
@@ -100,27 +113,13 @@ export function GestaltCommonRegionDemo() {
         </div>
 
         {/* Insight */}
-        <div className="text-center">
-          {regionType === "none" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Without boundaries, all items appear equally related (or unrelated)
-            </p>
-          )}
-          {regionType === "background" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Background colour creates distinct regions that group related items
-            </p>
-          )}
-          {regionType === "border" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Borders explicitly define the boundary of each group
-            </p>
-          )}
-          {regionType === "both" && (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              Combined background and border create the strongest grouping
-            </p>
-          )}
+        <div className="min-h-[2.5rem] text-center">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {regionType === "none" && "Without boundaries, all items appear equally related (or unrelated)"}
+            {regionType === "background" && "Background colour creates distinct regions that group related items"}
+            {regionType === "border" && "Borders explicitly define the boundary of each group"}
+            {regionType === "both" && "Combined background and border create the strongest grouping"}
+          </p>
         </div>
 
         {/* Card example */}
@@ -129,13 +128,7 @@ export function GestaltCommonRegionDemo() {
             Card Component Example
           </p>
           <div className="flex justify-center gap-4">
-            <div
-              className={`flex max-w-[180px] flex-col gap-3 ${
-                regionType !== "none" 
-                  ? "rounded-lg border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800" 
-                  : ""
-              }`}
-            >
+            <div className={getCardStyle()}>
               <div className="h-20 w-full rounded bg-neutral-200 dark:bg-neutral-600" />
               <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Card Title</h4>
               <p className="text-xs text-neutral-500">Card description text</p>
@@ -144,10 +137,11 @@ export function GestaltCommonRegionDemo() {
               </button>
             </div>
           </div>
-          <p className="text-center text-xs text-neutral-500">
-            {regionType !== "none" 
-              ? "The card boundary groups image, title, description, and button as one unit"
-              : "Without a card boundary, elements feel disconnected"}
+          <p className="min-h-[2.5rem] text-center text-xs text-neutral-500">
+            {regionType === "none" && "Without a card boundary, elements feel disconnected"}
+            {regionType === "background" && "Background creates a subtle container for the content"}
+            {regionType === "border" && "Border explicitly defines the card boundary"}
+            {regionType === "both" && "Combined background and border create the strongest grouping"}
           </p>
         </div>
       </div>

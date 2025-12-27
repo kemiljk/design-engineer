@@ -95,11 +95,11 @@ export function Colour603010Demo() {
             </div>
           </div>
 
-          {/* Balance indicator */}
-          <div className={`rounded p-2 text-center text-sm ${
+          {/* Balance indicator - use ring instead of border to prevent layout shift */}
+          <div className={`rounded p-2 text-center text-sm transition-all ${
             isBalanced 
-              ? "border border-neutral-300 bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" 
-              : "border border-[#ff4400]/30 bg-[#ff4400]/10 text-[#ff4400]"
+              ? "ring-1 ring-neutral-300 bg-neutral-100 text-neutral-700 dark:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" 
+              : "ring-1 ring-[#ff4400]/30 bg-[#ff4400]/10 text-[#ff4400]"
           }`}>
             {isBalanced 
               ? "✓ Well-balanced distribution" 

@@ -120,23 +120,13 @@ export function AlignmentDemo() {
           </div>
         </div>
 
-        {/* Insight */}
-        <div className="mt-4 text-center">
-          {alignment === "aligned" && (
-            <p className="text-xs text-neutral-600 dark:text-neutral-400">
-              ✓ Left alignment creates an invisible line that guides the eye smoothly
-            </p>
-          )}
-          {alignment === "centered" && (
-            <p className="text-xs text-neutral-600 dark:text-neutral-400">
-              ✓ Centre alignment works for short, impactful content (but harder to scan)
-            </p>
-          )}
-          {alignment === "misaligned" && (
-            <p className="text-xs text-[#ff4400]">
-              ✗ Random offsets create visual chaos—the eye has no clear path to follow
-            </p>
-          )}
+        {/* Insight - fixed height to prevent layout shift */}
+        <div className="mt-4 min-h-[2rem] text-center">
+          <p className={`text-xs ${alignment === "misaligned" ? "text-[#ff4400]" : "text-neutral-600 dark:text-neutral-400"}`}>
+            {alignment === "aligned" && "✓ Left alignment creates an invisible line that guides the eye smoothly"}
+            {alignment === "centered" && "✓ Centre alignment works for short, impactful content (but harder to scan)"}
+            {alignment === "misaligned" && "✗ Random offsets create visual chaos—the eye has no clear path to follow"}
+          </p>
         </div>
       </div>
     </ExampleWrapper>
