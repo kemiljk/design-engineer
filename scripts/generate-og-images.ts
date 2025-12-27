@@ -320,11 +320,14 @@ async function main() {
   let skipped = 0;
   let errors = 0;
 
+  // Set to true to regenerate all images (e.g., after font changes)
+  const FORCE_REGENERATE = false;
+
   for (const post of posts) {
     const filename = `og-${post.slug}.png`;
 
     // Check if post already has an image (skip if it looks like a generated OG image)
-    if (post.metadata.image?.imgix_url?.includes(`og-${post.slug}`)) {
+    if (!FORCE_REGENERATE && post.metadata.image?.imgix_url?.includes(`og-${post.slug}`)) {
       console.log(`⏭️  Skipping "${post.title}" - already has generated OG image`);
       skipped++;
       continue;
