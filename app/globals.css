@@ -165,16 +165,13 @@
    * Tight leading, negative tracking
    */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold leading-tight tracking-tight;
+    @apply font-sans font-bold tracking-tight;
     text-wrap: balance;
+    line-height: 1.1;
   }
 
-  h1 {
-    @apply leading-none tracking-tighter;
-  }
-
-  h2 {
-    @apply leading-none tracking-tight;
+  h1, h2 {
+    @apply tracking-tighter;
   }
 
   h5, h6 {
