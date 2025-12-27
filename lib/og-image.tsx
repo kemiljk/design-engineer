@@ -9,29 +9,30 @@ type OGImageProps = {
 
 async function loadFonts() {
   // Fetch TTF fonts - next/og requires TTF or OTF format (not WOFF/WOFF2)
-  const [imbueData, hostGroteskData] = await Promise.all([
-    // Imbue Regular TTF from fontsource CDN
+  // Swiss typography: single sans-serif family with multiple weights
+  const [hostGroteskRegular, hostGroteskBold] = await Promise.all([
+    // Host Grotesk Regular for body text
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/imbue@latest/latin-400-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-400-normal.ttf"
     ).then((res) => res.arrayBuffer()),
-    // Host Grotesk Medium TTF from fontsource CDN
+    // Host Grotesk Bold for headings
     fetch(
-      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-500-normal.ttf"
+      "https://cdn.jsdelivr.net/fontsource/fonts/host-grotesk@latest/latin-700-normal.ttf"
     ).then((res) => res.arrayBuffer()),
   ]);
 
   return [
     {
-      name: "Imbue",
-      data: imbueData,
+      name: "Host Grotesk",
+      data: hostGroteskRegular,
       style: "normal" as const,
       weight: 400 as const,
     },
     {
       name: "Host Grotesk",
-      data: hostGroteskData,
+      data: hostGroteskBold,
       style: "normal" as const,
-      weight: 500 as const,
+      weight: 700 as const,
     },
   ];
 }
@@ -158,8 +159,8 @@ function OGImageTemplate({
         <h1
           style={{
             fontSize: isLongTitle ? "56px" : "72px",
-            fontFamily: "Imbue",
-            fontWeight: 400,
+            fontFamily: "Host Grotesk",
+            fontWeight: 700,
             color: "#171717",
             lineHeight: 1.1,
             letterSpacing: "-0.02em",

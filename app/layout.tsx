@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import { Suspense } from "react";
-import { Imbue, Martian_Mono, Host_Grotesk } from "next/font/google";
+import { Martian_Mono, Host_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
@@ -9,13 +9,6 @@ import { Providers } from "./providers";
 import { BannerWrapper } from "./components/banner-wrapper";
 import { EmailSubscriber } from "./components/email-subscriber";
 import { KeyboardHint } from "./components/keyboard-hint";
-
-const serif = Imbue({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  axes: ["opsz"],
-});
 
 const mono = Martian_Mono({
   subsets: ["latin"],
@@ -61,7 +54,7 @@ export default function RootLayout({
         }
       >
         <body
-          className={`${serif.variable} ${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
+          className={`${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
           <a
             href="#content"

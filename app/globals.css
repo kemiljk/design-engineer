@@ -12,16 +12,37 @@
   --color-foreground: #171717;
   --color-background: #ffffff;
 
-  /* Font families */
+  /* Font families - Swiss typography: single sans-serif family */
   --font-sans:
     var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif:
-    var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times,
-    serif;
   --font-mono:
     var(--font-mono), ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
+
+  /* Swiss Type Scale - 1.25 ratio (Major Third) with 16px base */
+  --text-xs: 0.64rem;      /* 10.24px - Caption */
+  --text-sm: 0.8rem;       /* 12.8px - Small */
+  --text-base: 1rem;       /* 16px - Body */
+  --text-lg: 1.25rem;      /* 20px - Lead */
+  --text-xl: 1.563rem;     /* 25px - H4 */
+  --text-2xl: 1.953rem;    /* 31.25px - H3 */
+  --text-3xl: 2.441rem;    /* 39px - H2 */
+  --text-4xl: 3.052rem;    /* 48.8px - H1 */
+  --text-5xl: 3.815rem;    /* 61px - Display */
+
+  /* Line heights - tighter for headings, comfortable for body */
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Letter spacing - Swiss style: tight for large text */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
 
   /* Border radius - all set to 0 for design system */
   --radius-sm: 0;
@@ -101,16 +122,32 @@
   box-sizing: border-box;
 }
 
-.font-serif {
-  @apply tracking-normal;
-}
-
+/* Swiss typography - headings use sans with bold weight and tight tracking */
 @layer base {
   h1,
   h2,
   h3,
   h4 {
-    @apply font-serif;
+    @apply font-sans font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl leading-tight;
+    letter-spacing: var(--tracking-tighter);
+  }
+
+  h2 {
+    @apply text-3xl leading-tight;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  h3 {
+    @apply text-2xl leading-snug;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  h4 {
+    @apply text-xl leading-snug;
   }
 }
 
