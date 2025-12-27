@@ -33,7 +33,7 @@ const ResourcesPage: React.FC = async () => {
               className="flex h-full flex-col border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
             >
               <h2 className="mb-2 text-xl font-bold">{item.title}</h2>
-              <p className="mb-6 flex-1 text-sm text-neutral-600 dark:text-neutral-400">
+              <p className="mb-6 text-sm text-neutral-600 dark:text-neutral-400">
                 {item.metadata.description}
               </p>
               <div className="flex flex-col gap-2">

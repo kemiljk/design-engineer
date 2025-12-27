@@ -102,7 +102,7 @@ export function TrackCard({
         <h3 className="mb-2 text-lg font-bold md:text-xl">
           {title}
         </h3>
-        <p className="mb-6 flex-1 text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="mb-6 text-sm text-neutral-500 dark:text-neutral-400">
           {description}
         </p>
 
