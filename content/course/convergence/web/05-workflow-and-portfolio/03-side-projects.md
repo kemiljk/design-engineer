@@ -1,6 +1,6 @@
 # Side Projects
 
-> **Quick Summary:** Side projects are where Design Engineers level up fastest. No constraints, no stakeholders, just learning by building.
+> **Quick Summary:** Side projects are where Design Engineers grow fastest. No constraints, no stakeholders, just learning by building.
 
 ## What You'll Learn
 
@@ -10,6 +10,8 @@
 - Turning projects into portfolio pieces
 
 ## Why Side Projects Matter
+
+> *"Stay hungry, stay foolish."* — Stewart Brand
 
 At work, you're constrained by:
 - Existing tech stack

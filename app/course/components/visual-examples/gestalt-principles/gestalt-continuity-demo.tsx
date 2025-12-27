@@ -95,8 +95,8 @@ export function GestaltContinuityDemo() {
           )}
 
           {/* Intersection points */}
-          <circle cx="140" cy="80" r="6" className="fill-red-400" />
-          <circle cx="260" cy="80" r="6" className="fill-red-400" />
+          <circle cx="140" cy="80" r="6" className="fill-[#ff4400]" />
+          <circle cx="260" cy="80" r="6" className="fill-[#ff4400]" />
         </svg>
 
         {/* Explanation */}
@@ -104,7 +104,7 @@ export function GestaltContinuityDemo() {
           {type === "continuous" && (
             <div className="space-y-2">
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Even at intersection points (red dots), you perceive <strong>one flowing line</strong>
+                Even at intersection points (orange dots), you perceive <strong>one flowing line</strong>
               </p>
               <p className="text-xs text-neutral-500">
                 The brain prefers continuous paths over abrupt changes

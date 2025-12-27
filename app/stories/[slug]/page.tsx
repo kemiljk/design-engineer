@@ -36,7 +36,7 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
   const readingTime = Math.ceil(totalWords / 200);
 
   return (
-    <article className="mx-auto h-full w-full p-4 md:p-16 lg:max-w-4xl lg:p-24">
+    <article className="container-readable py-8 md:py-16 lg:py-24">
       <div className="flex flex-col items-center gap-2 md:gap-4">
         <Avatar
           className="h-40 w-40"

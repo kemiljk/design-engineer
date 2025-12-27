@@ -11,6 +11,8 @@
 
 ## The Shift in Perspective
 
+> *"Design is not just what it looks like and feels like. Design is how it works."* — Steve Jobs
+
 It's tempting to design for yourself. You understand your own preferences, and building for yourself is fast.
 
 But you are not your user.

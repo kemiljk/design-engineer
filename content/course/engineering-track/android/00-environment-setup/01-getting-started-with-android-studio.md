@@ -44,7 +44,7 @@ Even if you're primarily a designer, understanding Android Studio helps you:
 Android Studio runs on Mac, Windows, and Linux:
 
 ### Mac
-- macOS 10.14 (Mojave) or higher
+- macOS 11 (Big Sur) or later
 - Apple Silicon or Intel processor
 - 8GB RAM minimum (16GB recommended)
 - 8GB disk space minimum (SSD recommended)
@@ -176,7 +176,7 @@ Let's create a simple Jetpack Compose project:
 - **Package name:** com.yourname.myfirstapp
 - **Save location:** Choose your preferred folder
 - **Language:** Kotlin
-- **Minimum SDK:** API 24 (Android 7.0) is a good default
+- **Minimum SDK:** API 26 (Android 8.0) is a good default
 - **Build configuration language:** Kotlin DSL (Recommended)
 
 Click **Finish**.

@@ -11,7 +11,9 @@
 
 ## The Psychology of Perception
 
-Gestalt is a German word meaning "form" or "shape." Gestalt psychology, developed in the early 20th century, studies how humans perceive patterns and organize visual information.
+> *"The whole is other than the sum of its parts."* — Kurt Koffka
+
+Gestalt is a German word meaning "form" or "shape." Gestalt psychology, developed in the early 20th century, studies how humans perceive patterns and organise visual information.
 
 The core insight: **The brain doesn't see individual elements. It sees relationships and wholes.**
 

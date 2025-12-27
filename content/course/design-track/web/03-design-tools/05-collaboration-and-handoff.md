@@ -11,6 +11,8 @@
 
 ## The Handoff Problem
 
+> *"The details are not the details. They make the design."* — Charles Eames
+
 Traditional handoff is where designs go to die:
 
 1. Designer creates mockups

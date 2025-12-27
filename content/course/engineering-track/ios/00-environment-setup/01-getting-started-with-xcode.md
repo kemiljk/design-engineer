@@ -42,7 +42,7 @@ Even if you're primarily a designer, understanding Xcode helps you:
 
 Before installing, ensure your Mac meets the requirements:
 
-- **macOS:** Xcode requires macOS 13 (Ventura) or later
+- **macOS:** Xcode requires macOS 14 (Sonoma) or later
 - **Storage:** At least 35GB free (Xcode is large)
 - **Memory:** 8GB RAM minimum, 16GB recommended
 - **Apple Silicon or Intel:** Both work, Apple Silicon is faster

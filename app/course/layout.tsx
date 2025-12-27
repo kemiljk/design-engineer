@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { TestModePanel } from "./components/test-mode-panel";
 import { PreviewModeBanner } from "./components/preview-mode-banner";
 import { getCourseAvailability } from "@/lib/cosmic";
 import { ComingSoon } from "./components/coming-soon";
@@ -23,15 +22,15 @@ export default async function CourseLayout({
     hasPreviewAccess(),
   ]);
 
-  // Preview access bypasses the availability check
-  if (!is_available && !previewAccess) {
+  // Test mode, preview access, or development mode bypass the availability check
+  const isDevelopment = process.env.NODE_ENV === "development";
+  if (!is_available && !previewAccess && !isTestMode && !isDevelopment) {
     return <ComingSoon />;
   }
 
   return (
     <>
       {children}
-      {isTestMode && <TestModePanel />}
       <PreviewModeBanner />
     </>
   );

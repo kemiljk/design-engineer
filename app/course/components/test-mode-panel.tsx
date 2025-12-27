@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Bug, RefreshCw, CheckCircle, XCircle, ChevronDown, ChevronUp, Trash2 } from "lucide-react";
+import { Bug, RefreshCw, CheckCircle, XCircle, Trash2 } from "lucide-react";
 
 interface DebugData {
   userId: string;
@@ -125,7 +125,7 @@ export function TestModePanel() {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 z-50">
+    <div className="fixed bottom-6 left-6 z-50">
       <button
         onClick={() => {
           setIsOpen(!isOpen);
@@ -133,15 +133,14 @@ export function TestModePanel() {
             fetchDebugData();
           }
         }}
-        className="flex items-center gap-2 rounded-full bg-yellow-500 px-4 py-2 text-sm font-medium text-black shadow-lg hover:bg-yellow-400"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500 text-black shadow-lg transition-all hover:scale-105 hover:bg-yellow-400"
+        aria-label="Toggle debug panel"
       >
-        <Bug className="h-4 w-4" />
-        Test Mode
-        {isOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronUp className="h-4 w-4" />}
+        <Bug className="h-5 w-5" />
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-12 left-0 w-96 rounded-lg border border-neutral-200 bg-white p-4 shadow-xl dark:border-neutral-700 dark:bg-neutral-800">
+        <div className="absolute bottom-14 left-0 w-96 rounded-lg border border-neutral-200 bg-white p-4 shadow-xl dark:border-neutral-700 dark:bg-neutral-800">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="font-bold">Debug Panel</h3>
             <button

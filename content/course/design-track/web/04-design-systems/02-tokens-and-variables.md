@@ -11,6 +11,8 @@
 
 ## What Are Design Tokens?
 
+> *"The strength of a design system is in its constraints."* — Nathan Curtis
+
 Design tokens are named containers for design values:
 
 ```

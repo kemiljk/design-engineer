@@ -1,3 +1,7 @@
+---
+estimatedTime: 10
+---
+
 # How This Course Works
 
 > **Quick Summary:** This lesson explains the course structure, how to navigate between lessons, and how to get the most from your learning experience.

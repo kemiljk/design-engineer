@@ -1000,8 +1000,8 @@ ${layerBoxes}
               className={clsx(
                 "relative overflow-hidden rounded-lg border transition-all",
                 expandedPreset === preset.name
-                  ? "border-swiss-red shadow-lg lg:col-span-2 lg:row-span-2"
-                  : "border-neutral-200 hover:border-neutral-300 hover:shadow-md dark:border-neutral-700 dark:hover:border-neutral-600"
+                  ? "border-swiss-red lg:col-span-2 lg:row-span-2"
+                  : "border-neutral-200 hover:border-swiss-red dark:border-neutral-700 dark:hover:border-swiss-red"
               )}
             >
               {/* Preview - clickable */}

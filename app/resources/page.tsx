@@ -24,7 +24,7 @@ const ResourcesPage: React.FC = async () => {
         description="A curated collection of tools, guides, and references for Design Engineers."
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <div className="mx-auto max-w-5xl">
           {/* Resources Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

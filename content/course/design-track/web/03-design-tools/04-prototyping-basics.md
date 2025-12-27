@@ -11,6 +11,8 @@
 
 ## Why Prototype?
 
+> *"If a picture is worth a thousand words, a prototype is worth a thousand meetings."* — Tom and David Kelley, IDEO
+
 Static mockups only go so far. They can't show:
 - How navigation flows between screens
 - How interactions feel

@@ -35,10 +35,10 @@ export function MeasureDemo() {
           </span>
           <div className={`rounded px-2 py-1 text-xs font-medium ${
             charCount >= 50 && charCount <= 75
-              ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300"
+              ? "bg-neutral-200 text-neutral-900 dark:bg-neutral-700 dark:text-white"
               : charCount < 50
-              ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300"
-              : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"
+              ? "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400"
+              : "bg-[#ff4400]/10 text-[#ff4400]"
           }`}>
             {charCount >= 50 && charCount <= 75 && "Optimal"}
             {charCount < 50 && "Too Short"}
@@ -61,18 +61,18 @@ export function MeasureDemo() {
         <div className="w-full max-w-2xl">
           <div className="relative h-8 w-full rounded-full bg-neutral-100 dark:bg-neutral-800">
             {/* Zones */}
-            <div className="absolute left-[30%] h-full w-[20%] rounded-l-full bg-yellow-100 dark:bg-yellow-900/30" />
-            <div className="absolute left-[50%] h-full w-[25%] bg-green-100 dark:bg-green-900/30" />
-            <div className="absolute left-[75%] h-full w-[25%] rounded-r-full bg-red-100 dark:bg-red-900/30" />
+            <div className="absolute left-[30%] h-full w-[20%] rounded-l-full bg-neutral-200 dark:bg-neutral-700" />
+            <div className="absolute left-[50%] h-full w-[25%] bg-neutral-300 dark:bg-neutral-600" />
+            <div className="absolute left-[75%] h-full w-[25%] rounded-r-full bg-[#ff4400]/20" />
             
             {/* Labels */}
-            <span className="absolute left-[40%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-yellow-700 dark:text-yellow-300">
+            <span className="absolute left-[40%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-neutral-500 dark:text-neutral-400">
               Short
             </span>
-            <span className="absolute left-[62.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-green-700 dark:text-green-300">
+            <span className="absolute left-[62.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-neutral-700 dark:text-neutral-300">
               Optimal
             </span>
-            <span className="absolute left-[87.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-red-700 dark:text-red-300">
+            <span className="absolute left-[87.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-[#ff4400]">
               Long
             </span>
 

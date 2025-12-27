@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 
 type SimilarityType = "color" | "shape" | "size" | "none";
@@ -82,11 +81,9 @@ export function GestaltSimilarityDemo() {
             [0, 1, 2, 3, 4, 5].map((col) => {
               const style = getItemStyle(row, col);
               return (
-                <motion.div
+                <div
                   key={`${row}-${col}`}
                   className={`flex items-center justify-center ${style.shape} ${style.size} ${style.color}`}
-                  layout
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 />
               );
             })

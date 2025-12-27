@@ -21,6 +21,8 @@ Without intentional layout, content sprawls chaotically. With it, even complex p
 
 ## Grid Systems
 
+> *"The grid system is an aid, not a guarantee."* — Josef Müller-Brockmann
+
 Grids are invisible structures that organise content. They create consistency, establish rhythm, and simplify decision-making.
 
 <!-- visual-example: grid-columns-demo -->
@@ -52,6 +54,8 @@ Grids are invisible structures that organise content. They create consistency, e
 ```
 
 ### When to Break the Grid
+
+> *"The grid is there so you know when to break it."* — d×e
 
 Grids are guides, not prisons. Break them intentionally for:
 - Emphasis (an element that spans "outside" feels important)

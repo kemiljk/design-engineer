@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "@/app/components/SyntaxHighlighter";
 import { cn } from "@/lib/utils";
-import { Callout } from "@/app/components/ui";
+import { MasterQuote } from "@/app/components/ui";
 import {
   SummaryCard,
   ObjectivesCard,
@@ -299,9 +299,26 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
         HTMLAnchorElement
       >
     ) => {
+      const href = a.href || "";
+      
+      // Transform relative .md links to proper course routes
+      // e.g., "./02-what-is-design-engineering.md" → "02-what-is-design-engineering"
+      if (href.startsWith("./") && href.endsWith(".md")) {
+        const lessonSlug = href.slice(2, -3); // Remove "./" and ".md"
+        return (
+          <a
+            href={lessonSlug}
+            className="my-0 inline-flex items-center text-swiss-red hover:underline"
+          >
+            {a.children}
+          </a>
+        );
+      }
+      
+      // External links open in new tab
       return (
         <a
-          href={a.href}
+          href={href}
           rel="noopener noreferrer"
           target="_blank"
           className="my-0 inline-flex items-center"
@@ -351,13 +368,7 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
       );
     },
     blockquote: (blockquote: React.HTMLAttributes<HTMLElement>) => {
-      return (
-        <Callout as="blockquote" className="not-prose my-8">
-          <div className="prose prose-neutral text-pretty dark:prose-invert">
-            {blockquote.children}
-          </div>
-        </Callout>
-      );
+      return <MasterQuote>{blockquote.children}</MasterQuote>;
     },
   }), []);
 

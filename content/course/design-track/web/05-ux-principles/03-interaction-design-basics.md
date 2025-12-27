@@ -21,6 +21,8 @@ If information architecture is the blueprint, interaction design is the operatin
 
 ## Affordances
 
+> *"The real problem with the interface is that it is an interface."* — Don Norman
+
 An affordance is what an object allows you to do.
 
 <!-- illustration: affordance-signifier -->

@@ -11,6 +11,8 @@
 
 ## Beyond Component Libraries
 
+> *"Design systems aren't about limitations—they're about shared language."* — d×e
+
 Many people confuse design systems with component libraries. They're related but distinct:
 
 **Component Library:** A collection of reusable UI components (buttons, inputs, cards).

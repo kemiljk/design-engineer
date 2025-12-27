@@ -11,6 +11,8 @@
 
 ## The Framework
 
+> *"Contrast is the essence of communication."* — Jan Tschichold
+
 Design principles aren't rules to memorise. They're tools for making decisions. When you understand these principles, you can analyse why some designs work and others don't. You can make intentional choices instead of random ones.
 
 Let's examine each principle.
@@ -42,7 +44,9 @@ Without clear hierarchy, every element competes for attention and nothing wins. 
 
 ### Common Hierarchy Mistakes
 
-- **Everything is bold**: When everything is emphasized, nothing is
+> *"If you have to explain the hierarchy, there isn't one."* — d×e
+
+- **Everything is bold**: When everything is emphasised, nothing is
 - **Too many sizes**: Creates visual chaos
 - **Competing focal points**: Multiple elements fighting for attention
 - **Flat hierarchy**: All elements feel equally important

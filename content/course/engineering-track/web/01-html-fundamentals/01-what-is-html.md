@@ -1,3 +1,7 @@
+---
+estimatedTime: 12
+---
+
 # What is HTML?
 
 > **Quick Summary:** HTML is the skeleton of every web page. It's the structural foundation that gives content meaning and makes the web accessible.
@@ -10,6 +14,8 @@
 - Why semantic HTML matters for Design Engineers
 
 ## The Foundation of the Web
+
+> *"The web is more a social creation than a technical one."* — Tim Berners-Lee
 
 Every website you've ever visited is built on HTML. When you load a page, your browser receives HTML—a text document that describes the content and structure of that page.
 

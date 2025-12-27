@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function RefundPolicyPage() {
   return (
     <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
-      <div className="mx-auto max-w-3xl px-4 py-12">
+      <div className="container-readable py-12">
         <Link
           href="/course"
           className="mb-8 inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"

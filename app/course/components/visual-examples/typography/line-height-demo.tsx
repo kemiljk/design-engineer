@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, SliderControl } from "../base/example-wrapper";
 
 export function LineHeightDemo() {
@@ -28,14 +27,12 @@ export function LineHeightDemo() {
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Text sample */}
         <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-800">
-          <motion.p
+          <p
             className="text-neutral-700 dark:text-neutral-300"
             style={{ lineHeight, fontSize: "16px" }}
-            layout
-            transition={{ duration: 0.2 }}
           >
             {sampleText}
-          </motion.p>
+          </p>
         </div>
 
         {/* Visual indicator */}
@@ -46,11 +43,10 @@ export function LineHeightDemo() {
               {[0, 1, 2, 3].map((i) => {
                 const baselineY = 20 + (i * 16 * lineHeight);
                 return (
-                  <motion.div
+                  <div
                     key={i}
                     className="absolute left-0 right-0"
-                    animate={{ top: baselineY }}
-                    transition={{ duration: 0.2 }}
+                    style={{ top: baselineY }}
                   >
                     <div className="flex items-center gap-2">
                       <div className="h-px flex-1 bg-neutral-300 dark:bg-neutral-600" />
@@ -58,14 +54,14 @@ export function LineHeightDemo() {
                       <div className="h-px flex-1 bg-neutral-300 dark:bg-neutral-600" />
                     </div>
                     {i < 3 && (
-                      <motion.div
+                      <div
                         className="absolute left-0 ml-2 mt-1 text-[10px] font-mono text-neutral-400"
-                        animate={{ height: 16 * lineHeight - 16 }}
+                        style={{ height: 16 * lineHeight - 16 }}
                       >
                         ↕ {(lineHeight * 16 - 16).toFixed(0)}px
-                      </motion.div>
+                      </div>
                     )}
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
@@ -74,12 +70,12 @@ export function LineHeightDemo() {
             <div className="space-y-2 text-sm">
               <div className={`rounded p-2 ${
                 lineHeight >= 1.4 && lineHeight <= 1.6 
-                  ? "bg-green-50 dark:bg-green-900/20" 
+                  ? "border border-neutral-300 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700" 
                   : "bg-neutral-100 dark:bg-neutral-800"
               }`}>
                 <span className={`font-medium ${
                   lineHeight >= 1.4 && lineHeight <= 1.6 
-                    ? "text-green-700 dark:text-green-300" 
+                    ? "text-neutral-900 dark:text-white" 
                     : "text-neutral-500"
                 }`}>
                   Body Text: 1.4–1.6 {lineHeight >= 1.4 && lineHeight <= 1.6 && "✓"}
@@ -87,12 +83,12 @@ export function LineHeightDemo() {
               </div>
               <div className={`rounded p-2 ${
                 lineHeight >= 1.1 && lineHeight <= 1.3 
-                  ? "bg-green-50 dark:bg-green-900/20" 
+                  ? "border border-neutral-300 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700" 
                   : "bg-neutral-100 dark:bg-neutral-800"
               }`}>
                 <span className={`font-medium ${
                   lineHeight >= 1.1 && lineHeight <= 1.3 
-                    ? "text-green-700 dark:text-green-300" 
+                    ? "text-neutral-900 dark:text-white" 
                     : "text-neutral-500"
                 }`}>
                   Headings: 1.1–1.3 {lineHeight >= 1.1 && lineHeight <= 1.3 && "✓"}

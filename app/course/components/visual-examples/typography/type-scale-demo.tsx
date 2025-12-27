@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup, SliderControl } from "../base/example-wrapper";
 
 type ScaleRatio = "1.125" | "1.2" | "1.25" | "1.333";
@@ -63,23 +62,20 @@ export function TypeScaleDemo() {
           {scale.slice().reverse().map(({ name, step }) => {
             const size = baseSize * Math.pow(ratioNum, step);
             return (
-              <motion.div
+              <div
                 key={name}
                 className="flex items-baseline gap-3"
-                layout
-                transition={{ duration: 0.2 }}
               >
                 <span className="w-12 shrink-0 text-right font-mono text-xs text-neutral-400">
                   {size.toFixed(0)}px
                 </span>
-                <motion.span
+                <span
                   className="font-semibold text-neutral-900 dark:text-white"
                   style={{ fontSize: `${size}px`, lineHeight: 1.2 }}
-                  layout
                 >
                   {name}
-                </motion.span>
-              </motion.div>
+                </span>
+              </div>
             );
           })}
         </div>
@@ -90,43 +86,39 @@ export function TypeScaleDemo() {
             In Context
           </p>
           <article>
-            <motion.h2
+            <h2
               className="mb-2 font-sans font-bold tracking-tight text-neutral-900 dark:text-white"
               style={{ fontSize: `${baseSize * Math.pow(ratioNum, 3)}px`, lineHeight: 1.2 }}
-              layout
             >
               Article Title
-            </motion.h2>
-            <motion.p
+            </h2>
+            <p
               className="mb-3 text-neutral-500"
               style={{ fontSize: `${baseSize * Math.pow(ratioNum, 1)}px` }}
-              layout
             >
               Subtitle goes here
-            </motion.p>
-            <motion.p
+            </p>
+            <p
               className="text-neutral-600 dark:text-neutral-300"
               style={{ fontSize: `${baseSize}px`, lineHeight: 1.6 }}
-              layout
             >
               Body text shows how readable content appears at this size. 
               Good typography creates comfortable reading.
-            </motion.p>
-            <motion.span
+            </p>
+            <span
               className="mt-2 block text-neutral-400"
               style={{ fontSize: `${baseSize * Math.pow(ratioNum, -1)}px` }}
-              layout
             >
               Caption text • 5 min read
-            </motion.span>
+            </span>
           </article>
         </div>
       </div>
 
       {/* Insight */}
-      <div className="mt-4 rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
-        <p className="text-xs text-blue-700 dark:text-blue-300">
-          <strong>{ratioNames[ratio]} ({ratio})</strong>:{" "}
+      <div className="mt-4 rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900">
+        <p className="text-xs text-neutral-600 dark:text-neutral-400">
+          <strong className="text-neutral-900 dark:text-white">{ratioNames[ratio]} ({ratio})</strong>:{" "}
           {ratio === "1.125" && "Subtle differences—good for dense UIs with many text levels"}
           {ratio === "1.2" && "Balanced scale—popular for web, clear but not dramatic"}
           {ratio === "1.25" && "Good contrast—works well for most content sites"}

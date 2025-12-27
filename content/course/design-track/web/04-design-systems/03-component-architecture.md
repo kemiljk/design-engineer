@@ -11,6 +11,8 @@
 
 ## Principles of Component Architecture
 
+> *"Styles come and go. Good design is a language, not a style."* — Massimo Vignelli
+
 ### Single Responsibility
 
 Each component should do one thing well:

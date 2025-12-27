@@ -18,9 +18,9 @@ const lineVariants = {
   visible: (i: number) => ({
     scaleY: 1,
     transition: {
-      duration: duration.slow,
+      duration: duration.normal,
       ease: ease.outQuint,
-      delay: i * 0.015,
+      delay: i * 0.008,
     },
   }),
 };
@@ -30,9 +30,9 @@ const horizontalLineVariants = {
   visible: (i: number) => ({
     scaleX: 1,
     transition: {
-      duration: duration.slow,
+      duration: duration.normal,
       ease: ease.outQuint,
-      delay: 0.08 + i * 0.03,
+      delay: 0.05 + i * 0.02,
     },
   }),
 };
@@ -44,46 +44,46 @@ const accentVariants = {
     transition: {
       duration: duration.normal,
       ease: ease.outQuint,
-      delay: 0.2,
+      delay: 0.1,
     },
   },
 };
 
 const contentVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: duration.slow,
-      ease: ease.outQuint,
-      delay: 0.25,
-    },
-  },
-};
-
-const descriptionVariants = {
   hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: duration.slow,
+      duration: duration.normal,
       ease: ease.outQuint,
-      delay: 0.32,
+      delay: 0.15,
+    },
+  },
+};
+
+const descriptionVariants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: duration.normal,
+      ease: ease.outQuint,
+      delay: 0.2,
     },
   },
 };
 
 const childrenVariants = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0, y: 8 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: duration.slow,
+      duration: duration.normal,
       ease: ease.outQuint,
-      delay: 0.4,
+      delay: 0.25,
     },
   },
 };
@@ -224,29 +224,17 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
             className="pointer-events-none absolute left-0 top-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 bg-swiss-red"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.2, ease: ease.outQuint }}
+            transition={{ delay: 0.25, duration: 0.15, ease: ease.outQuint }}
             aria-hidden="true"
           />
           <motion.div
             className="pointer-events-none absolute bottom-0 right-0 h-2 w-2 translate-x-1/2 translate-y-1/2 bg-swiss-red"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.2, ease: ease.outQuint }}
+            transition={{ delay: 0.3, duration: 0.15, ease: ease.outQuint }}
             aria-hidden="true"
           />
 
-          {/* Grid label */}
-          <motion.span
-            className="pointer-events-none absolute top-2 right-0 font-mono text-[10px] tracking-wider text-neutral-300 dark:text-neutral-700"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.3 }}
-            aria-hidden="true"
-          >
-            <span className="md:hidden">4</span>
-            <span className="hidden md:inline lg:hidden">6</span>
-            <span className="hidden lg:inline">12</span>
-          </motion.span>
         </div>
       </div>
 
@@ -256,8 +244,8 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{
-          delay: 0.35,
-          duration: duration.slower,
+          delay: 0.2,
+          duration: duration.slow,
           ease: ease.outQuint,
         }}
         aria-hidden="true"

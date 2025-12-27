@@ -40,7 +40,7 @@ async function HeroSection() {
 
   return (
     <div className="w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <div className="container-page">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Illustration - top on mobile, right on desktop */}
           <div className="order-first flex items-center justify-center lg:order-last lg:col-span-5">
@@ -57,18 +57,15 @@ async function HeroSection() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
               <SignedOut>
-                <Button
-                  href="/sign-up"
-                  className="h-12 px-8 text-base font-bold tracking-wider uppercase"
-                >
+                <Button href="/sign-up" size="xl">
                   Sign up
                 </Button>
               </SignedOut>
               <Button
                 href="/course"
                 variant="outline"
+                size="xl"
                 endContent={<ArrowRight className="h-4 w-4" />}
-                className="h-12 px-8 text-base font-medium tracking-wider uppercase"
               >
                 Explore the course
               </Button>
@@ -83,7 +80,7 @@ async function HeroSection() {
 function HeroSkeleton() {
   return (
     <div className="w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <div className="container-page">
         <div className="flex flex-col items-start gap-8">
           <div className="h-12 w-3/4 animate-pulse bg-neutral-100 lg:w-1/2 dark:bg-neutral-800" />
           <div className="h-24 w-full max-w-2xl animate-pulse bg-neutral-100 dark:bg-neutral-800" />
@@ -132,7 +129,7 @@ async function SponsorsSection() {
           {sponsors.map((sponsor) => (
             <div
               key={sponsor.id}
-              className="flex items-center gap-2 grayscale transition-all hover:grayscale-0"
+              className="flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
             >
               <Image
                 src={`${sponsor.metadata.logo.imgix_url}?w=200&auto=format`}
@@ -193,14 +190,10 @@ function FAQSection() {
       as="div"
       className="w-full border-t border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
     >
-      <div className="mx-auto max-w-3xl px-4 md:px-8">
+      <div className="container-readable">
         <div className="mb-8 text-center">
-          <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
-            Questions?
-          </p>
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Frequently Asked Questions
-          </h2>
+          <p className="heading-eyebrow mb-2">Questions?</p>
+          <h2 className="heading-section">Frequently Asked Questions</h2>
         </div>
         <FAQAccordion questions={homepageFaqs} />
         <div className="mt-8 text-center">
@@ -289,7 +282,7 @@ function ToolsSection() {
       as="div"
       className="w-full border-y border-neutral-200 bg-neutral-50 py-16 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/50"
     >
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <div className="container-page">
         {/* Header */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -297,13 +290,9 @@ function ToolsSection() {
               <div className="bg-swiss-red flex h-8 w-8 items-center justify-center">
                 <Wrench className="h-4 w-4 text-white" />
               </div>
-              <span className="text-swiss-red font-mono text-xs tracking-widest uppercase">
-                Free Tools
-              </span>
+              <span className="heading-eyebrow">Free Tools</span>
             </div>
-            <h2 className="text-xl font-bold md:text-2xl">
-              Design Engineering Toolkit
-            </h2>
+            <h2 className="heading-section">Design Engineering Toolkit</h2>
             <p className="mt-2 max-w-xl text-neutral-500 dark:text-neutral-400">
               Professional utilities for animation, colour, typography, and
               cross-platform development. No sign-up required.
@@ -324,7 +313,7 @@ function ToolsSection() {
             <NextLink
               key={tool.title}
               href={tool.href}
-              className="group relative flex flex-col border border-neutral-200 bg-white p-4 transition-all hover:border-neutral-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700"
+              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex flex-col border border-neutral-200 bg-white p-4 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
             >
               <div className="mb-3 flex items-center justify-between">
                 <div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
@@ -334,47 +323,16 @@ function ToolsSection() {
                   {tool.category}
                 </span>
               </div>
-              <h3 className="mb-1.5 text-base font-bold text-neutral-900 dark:text-white">
-                {tool.title}
-              </h3>
+              <h3 className="heading-card mb-1.5">{tool.title}</h3>
               <p className="text-sm text-neutral-500 dark:text-neutral-400">
                 {tool.description}
               </p>
               <div className="text-swiss-red mt-3 flex items-center gap-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100">
-                Open tool
                 <ArrowRight className="h-3 w-3" />
               </div>
             </NextLink>
           ))}
         </AnimatedGrid>
-
-        {/* Bottom Stats */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 border-t border-neutral-200 pt-8 text-sm text-neutral-500 md:gap-10 dark:border-neutral-800">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">
-              100%
-            </span>
-            <span>Free to use</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">
-              Web + Mobile
-            </span>
-            <span>Platform support</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">
-              Tailwind v4
-            </span>
-            <span>Ready exports</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-900 dark:text-white">
-              No login
-            </span>
-            <span>Required</span>
-          </div>
-        </div>
       </div>
     </AnimatedSection>
   );
@@ -394,7 +352,8 @@ async function CourseSection() {
     {
       icon: Code2,
       title: "Engineering Track",
-      description: "Go beyond Vibe Coding—build with real understanding, not just AI prompts",
+      description:
+        "Go beyond Vibe Coding—build with real understanding, not just AI prompts",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
@@ -411,15 +370,11 @@ async function CourseSection() {
       as="div"
       className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
     >
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <div className="container-page">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-swiss-red mb-2 font-mono text-xs tracking-widest uppercase">
-              Learn Design Engineering
-            </p>
-            <h2 className="text-2xl font-bold md:text-3xl">
-              The Complete Course
-            </h2>
+            <p className="heading-eyebrow mb-2">Learn Design Engineering</p>
+            <h2 className="heading-section">The Complete Course</h2>
           </div>
           <p className="max-w-md text-neutral-500 dark:text-neutral-400">
             For designers going beyond Vibe Coding, and engineers shipping
@@ -431,7 +386,7 @@ async function CourseSection() {
           {tracks.map((track) => (
             <div
               key={track.title}
-              className="group relative flex flex-col overflow-hidden border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex flex-col overflow-hidden border border-neutral-200 bg-white transition-colors dark:border-neutral-800 dark:bg-neutral-900"
             >
               <div
                 className={cn(
@@ -447,7 +402,7 @@ async function CourseSection() {
                     )}
                   />
                 </div>
-                <h3 className="mb-2 text-lg font-bold">{track.title}</h3>
+                <h3 className="heading-card mb-2">{track.title}</h3>
                 <p className="flex-1 text-neutral-500 dark:text-neutral-400">
                   {track.description}
                 </p>
@@ -470,8 +425,8 @@ async function CourseSection() {
           <div className="flex gap-4">
             <Button
               href="/course"
+              size="lg"
               endContent={<ArrowRight className="h-4 w-4" />}
-              className="h-auto px-6 py-3 text-sm font-bold tracking-wider uppercase"
             >
               {isCourseAvailable ? "Start Learning" : "Learn More"}
             </Button>
@@ -485,7 +440,7 @@ async function CourseSection() {
 function CourseSectionSkeleton() {
   return (
     <div className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <div className="container-page">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div className="h-24 w-64 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
           <div className="h-16 w-96 animate-pulse bg-neutral-100 dark:bg-neutral-800" />
@@ -516,7 +471,7 @@ export default function Home() {
 
       <ToolsSection />
 
-      <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+      <div className="container-page py-16 md:py-24">
         <AnimatedSection
           as="div"
           className="mb-12 flex flex-col items-start justify-between gap-8 border-b border-neutral-200 pb-8 md:flex-row md:items-end dark:border-neutral-800"

@@ -48,7 +48,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
   const platforms = ["web", "ios", "android"] as const;
 
   return (
-    <div className="my-12 grid gap-6 md:grid-cols-3">
+    <div className="my-12 flex flex-col gap-4">
       {platforms.map((platform) => {
         // @ts-ignore - we know the structure matches
         const platformData = trackData[platform];
@@ -59,49 +59,35 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
           <Link
             key={platform}
             href={startLink}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-none border border-neutral-200 bg-white p-6 no-underline transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+            className="group relative flex items-center gap-6 overflow-hidden border border-neutral-200 bg-white p-5 no-underline transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red"
           >
-            {/* Top accent border on hover - Swiss Red */}
+            {/* Left accent border on hover - Swiss Red */}
             <div
               className={cn(
-                "absolute inset-x-0 top-0 h-1 bg-swiss-red opacity-0 transition-opacity group-hover:opacity-100"
+                "absolute inset-y-0 left-0 w-1 bg-swiss-red opacity-0 transition-opacity group-hover:opacity-100"
               )}
             />
             
-            <div>
-              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
-                <Icon className="h-6 w-6 text-neutral-900 dark:text-white" />
-              </div>
-              
-              <h3 className="mb-2 text-xl font-bold text-neutral-900 dark:text-white">{platformData.title}</h3>
-              
-              <div className="mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="h-4 w-4" />
-                  <span>{platformData.lessons} lessons</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  <span>{getEstimatedDuration(platformData.lessons)}</span>
-                </div>
-              </div>
-
-              <div className="mb-6 border-t border-neutral-100 pt-4 dark:border-neutral-800">
-                <p className="mb-2 text-xs font-semibold text-neutral-500 uppercase tracking-wider">Modules</p>
-                <ul className="m-0 list-none space-y-1 p-0 text-sm text-neutral-600 dark:text-neutral-400">
-                  {/* @ts-ignore */}
-                  {platformData.modules.map((m) => (
-                    <li key={m.id} className="m-0 flex items-center gap-2 p-0">
-                       <span className="h-1 w-1 shrink-0 rounded-full bg-neutral-300 dark:bg-neutral-700" />
-                       <span className="truncate">{m.title}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
+              <Icon className="h-6 w-6 text-neutral-900 dark:text-white" />
+            </div>
+            
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg font-bold text-neutral-900 dark:text-white">{platformData.title}</h3>
+              <div className="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+                <span className="flex items-center gap-1.5">
+                  <BookOpen className="h-3.5 w-3.5" />
+                  {platformData.lessons} lessons
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5" />
+                  {getEstimatedDuration(platformData.lessons)}
+                </span>
               </div>
             </div>
 
-            <div className="mt-auto flex items-center gap-2 font-medium text-swiss-red transition-colors group-hover:text-neutral-900 dark:group-hover:text-white">
-              Start {platform === "ios" ? "iOS" : platform.charAt(0).toUpperCase() + platform.slice(1)}
+            <div className="flex shrink-0 items-center gap-2 font-medium text-swiss-red transition-colors group-hover:text-neutral-900 dark:group-hover:text-white">
+              Start
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>
           </Link>

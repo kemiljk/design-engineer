@@ -1,3 +1,7 @@
+---
+estimatedTime: 10
+---
+
 # What is Visual Design?
 
 > **Quick Summary:** Visual design is the strategic use of imagery, colour, typography, and space to guide users and communicate meaning. Not just decoration, but deliberate communication.
@@ -10,6 +14,8 @@
 - The core elements you'll master in this module
 
 ## Beyond "Making Things Pretty"
+
+> *"Design is thinking made visual."* — Saul Bass
 
 When engineers think about design, they often imagine the final polish: icons, colours, nice fonts. But visual design is much more fundamental than aesthetics.
 
@@ -116,6 +122,8 @@ How close or far elements are from each other. Proximity signals relationships. 
 These principles work together. A well-designed interface applies all of them, often unconsciously. In the following lessons, we'll make them conscious.
 
 ## Design Is Learned
+
+> *"Taste is just pattern recognition. You can train it."* — d×e
 
 Here's good news: visual design is a skill, not a talent. Some people may have natural inclinations, but the principles are learnable, practicable, and improvable.
 

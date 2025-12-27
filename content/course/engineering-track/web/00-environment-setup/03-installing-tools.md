@@ -127,7 +127,7 @@ winget install OpenJS.NodeJS
 node --version
 ```
 
-You should see something like `v20.x.x`.
+You should see something like `v22.x.x` (or `v20.x.x` for maintenance LTS).
 
 ```bash
 npm --version
@@ -151,7 +151,7 @@ If you work on multiple projects requiring different Node versions, install a ve
 **Mac/Linux - nvm:**
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
 **Windows - nvm-windows:**

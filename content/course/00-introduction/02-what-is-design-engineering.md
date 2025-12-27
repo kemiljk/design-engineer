@@ -1,3 +1,7 @@
+---
+estimatedTime: 12
+---
+
 # What is Design Engineering?
 
 > **Quick Summary:** Design Engineering is the practice of bridging design and development—not by being mediocre at both, but by being fluent enough in each to eliminate the gaps where quality gets lost.

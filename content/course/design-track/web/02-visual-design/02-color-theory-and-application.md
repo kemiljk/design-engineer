@@ -12,6 +12,8 @@
 
 ## The Language of Color
 
+> *"Colour is a power which directly influences the soul."* — Wassily Kandinsky
+
 Before diving into application, let's establish the vocabulary:
 
 <!-- illustration: color-wheel -->

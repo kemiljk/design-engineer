@@ -11,6 +11,8 @@
 
 ## What Is Accessibility?
 
+> *"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."* — Tim Berners-Lee
+
 Web accessibility (a11y) means designing and building interfaces that work for everyone, including people with:
 - **Visual impairments:** Blindness, low vision, color blindness
 - **Motor impairments:** Limited fine motor control, inability to use mouse
@@ -62,6 +64,8 @@ The Web Content Accessibility Guidelines (WCAG) define success criteria at three
 - **A:** Minimum accessibility
 - **AA:** Target for most sites (legal requirement in many places)
 - **AAA:** Enhanced accessibility
+
+WCAG 2.2 (released October 2023) is the current version, adding important criteria for mobile accessibility, cognitive accessibility, and users with low vision.
 
 ## Test Your Understanding
 

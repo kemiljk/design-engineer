@@ -11,6 +11,8 @@
 
 ## The Problem with "Pretty"
 
+> *"Content precedes design. Design in the absence of content is not design, it's decoration."* — Jeffrey Zeldman
+
 When engineers build interfaces without design training, they often make one of two mistakes:
 
 **Mistake 1: No design effort.** The interface is purely functional. Default styles, no visual consideration. It works, but it's hard to use and feels untrustworthy.
@@ -141,6 +143,8 @@ Signs that design decisions lack intention:
 **Copy-paste styling:** Elements styled like another site or app without understanding why.
 
 ## The Courage to Remove
+
+> *"Ninety percent of design is asking 'what if I removed this?'"* — d×e
 
 Intentional design often means removing things.
 

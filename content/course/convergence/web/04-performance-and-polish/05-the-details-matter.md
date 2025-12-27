@@ -11,6 +11,8 @@
 
 ## What Is Polish?
 
+> *"Details make perfection, and perfection is not a detail."* — Leonardo da Vinci
+
 <!-- illustration: polish-checklist -->
 
 Polish isn't any single thing—it's the accumulation of small decisions:

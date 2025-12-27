@@ -12,6 +12,8 @@
 
 ## The Role of Visual Elements
 
+> *"A logo is less important than the product it signifies; what it means is more important than what it looks like."* — Paul Rand
+
 Icons, images, and illustrations serve specific purposes:
 
 - **Recognition:** Quickly identify functions or content

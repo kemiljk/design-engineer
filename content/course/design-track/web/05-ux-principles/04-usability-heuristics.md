@@ -11,6 +11,8 @@
 
 ## What Are Usability Heuristics?
 
+> *"A user interface is like a joke. If you have to explain it, it's not that good."* — Martin LeBlanc
+
 Heuristics are rules of thumb. Usability heuristics are established principles that predict usability problems.
 
 Jakob Nielsen's 10 Usability Heuristics (1994) remain the most influential framework. They're not laws, but guidelines that catch common issues.

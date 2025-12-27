@@ -11,7 +11,8 @@ const ACRONYMS = new Set([
 // Words that should stay lowercase (unless at start)
 const LOWERCASE_WORDS = new Set([
   'a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'on', 'at',
-  'to', 'from', 'by', 'with', 'in', 'of', 'vs',
+  'to', 'from', 'by', 'with', 'in', 'of', 'vs', 'is', 'are', 'was',
+  'be', 'been', 'being', 'as', 'if', 'so', 'yet',
 ]);
 
 /**

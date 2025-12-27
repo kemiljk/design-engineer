@@ -58,7 +58,7 @@ export function GridColumnsDemo() {
             {Array.from({ length: 12 }).map((_, i) => (
               <div
                 key={i}
-                className="h-full bg-red-100/50 dark:bg-red-900/20"
+                className="h-full bg-[#ff4400]/10"
               />
             ))}
           </div>
@@ -101,9 +101,9 @@ export function GridColumnsDemo() {
       </div>
 
       {/* Insight */}
-      <div className="mt-4 rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
-        <p className="text-xs text-blue-700 dark:text-blue-300">
-          <strong>Why 12 columns?</strong> 12 is divisible by 2, 3, 4, and 6, making it 
+      <div className="mt-4 rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900">
+        <p className="text-xs text-neutral-600 dark:text-neutral-400">
+          <strong className="text-neutral-900 dark:text-white">Why 12 columns?</strong> 12 is divisible by 2, 3, 4, and 6, making it 
           incredibly flexible for creating various layouts while maintaining alignment.
         </p>
       </div>

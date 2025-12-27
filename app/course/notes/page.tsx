@@ -53,7 +53,7 @@ export default async function NotesPage() {
   
   return (
     <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
-      <div className="mx-auto max-w-4xl px-4 py-8">
+      <div className="container-page py-8">
         <Link
           href="/course"
           className="mb-8 inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"

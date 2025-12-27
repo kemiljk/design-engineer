@@ -79,7 +79,7 @@ export function TrackCard({
   return (
     <Link
       href={`/course/${id}`}
-      className="group relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-all hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+      className="group relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red"
     >
       {/* Recommended Badge */}
       {isRecommended && (

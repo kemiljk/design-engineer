@@ -26,7 +26,7 @@ export default function DesignEngineeringPage() {
         description="The discipline that bridges design and development, and why it matters."
       />
 
-      <div className="container mx-auto max-w-4xl px-4 py-16 md:py-24">
+      <div className="container-readable py-16 md:py-24">
         {/* Introduction */}
         <div className="mb-16">
           <p className="text-xl leading-relaxed text-neutral-700 md:text-2xl dark:text-neutral-300">

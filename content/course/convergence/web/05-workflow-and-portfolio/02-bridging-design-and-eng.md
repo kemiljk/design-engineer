@@ -11,6 +11,8 @@
 
 ## The Gap
 
+> *"The best designers understand technology and the best technologists understand design."* — John Maeda
+
 Common problems when design and engineering are siloed:
 - "That's not what I designed"
 - "That's technically impossible"

@@ -1,3 +1,7 @@
+---
+estimatedTime: 10
+---
+
 # Choosing Your Path
 
 > **Quick Summary:** This course offers multiple tracks and platforms. Here's how to choose the right path for your background, goals, and interests.

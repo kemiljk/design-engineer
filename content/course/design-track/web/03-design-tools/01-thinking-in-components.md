@@ -11,6 +11,8 @@
 
 ## The Component Mental Model
 
+> *"We're not designing pages, we're designing systems of components."* — Stephen Hay
+
 A component is a self-contained, reusable piece of UI. Instead of designing entire pages from scratch, you design building blocks that combine to create pages.
 
 This approach:

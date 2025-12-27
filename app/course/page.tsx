@@ -17,7 +17,7 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
-import { Button } from "@/app/components/ui";
+import { Badge, Button } from "@/app/components/ui";
 import { PageHeader } from "@/app/components/page-header";
 import { ProgressTracker } from "./components/progress-tracker";
 import { ContinueLearning } from "./components/continue-learning";
@@ -150,10 +150,10 @@ export default async function CoursePage() {
       {/* Progress Section */}
       {userId && progress && (
         <div className="border-b border-neutral-200 bg-neutral-50 py-12 dark:border-neutral-800 dark:bg-neutral-900/50">
-          <div className="container mx-auto px-4">
+          <div className="container-page">
             <div className="mx-auto max-w-5xl">
               <div className="mb-8 flex items-center justify-between">
-                <h2 className="text-xl font-bold md:text-2xl">Your Progress</h2>
+                <h2 className="heading-subsection">Your Progress</h2>
                 <div className="flex items-center gap-2 text-sm text-neutral-500">
                   <Trophy className="text-swiss-red h-4 w-4" />
                   <span>
@@ -170,7 +170,7 @@ export default async function CoursePage() {
       {/* Continue Learning Section */}
       {lastActivity && lastActivity.status !== "completed" && (
         <div className="border-b border-neutral-200 bg-white py-8 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="container mx-auto px-4">
+          <div className="container-page">
             <div className="mx-auto max-w-5xl">
               <ContinueLearning
                 lessonPath={lastActivity.lessonPath}
@@ -184,21 +184,19 @@ export default async function CoursePage() {
       {/* Start Here - Introduction (only show if not completed) */}
       {!introCompleted && (
         <div className="border-b border-neutral-200 bg-white py-12 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="container mx-auto px-4">
+          <div className="container-page">
             <div className="mx-auto max-w-4xl">
               <div className="mb-6 flex items-center gap-3">
                 <div className="bg-swiss-red flex h-8 w-8 items-center justify-center text-sm font-bold text-white">
                   1
                 </div>
-                <h2 className="text-xl font-bold md:text-2xl">Start Here</h2>
-                <span className="rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
-                  Free
-                </span>
+                <h2 className="heading-subsection">Start Here</h2>
+                <Badge variant="success">Free</Badge>
               </div>
 
               <Link
                 href="/course/00-introduction/01-welcome"
-                className="hover:border-swiss-red group flex items-start gap-6 border border-neutral-200 bg-neutral-50 p-6 transition-all hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800/50"
+                className="group flex items-start gap-6 border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:border-swiss-red dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:border-swiss-red"
               >
                 <div className="bg-swiss-red/10 flex h-12 w-12 shrink-0 items-center justify-center">
                   <Sparkles className="text-swiss-red h-6 w-6" />
@@ -231,12 +229,12 @@ export default async function CoursePage() {
       )}
 
       {/* Tracks Grid */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container-page py-16">
         <div className="mb-8 flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center bg-neutral-200 text-sm font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
             {introCompleted ? "1" : "2"}
           </div>
-          <h2 className="text-xl font-bold md:text-2xl">Choose Your Track</h2>
+          <h2 className="heading-subsection">Choose Your Track</h2>
           {!userId && (
             <Button
               href="/sign-in"
@@ -269,13 +267,13 @@ export default async function CoursePage() {
       {/* Free Content Callout - only show for non-enrolled users */}
       {(!accessLevel || accessLevel === "free") && (
         <div className="border-t border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50">
-          <div className="container mx-auto px-4">
+          <div className="container-page">
             <div className="mx-auto max-w-3xl text-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
+              <Badge variant="success" className="mb-4 gap-2 px-4 py-2">
                 <Sparkles className="h-4 w-4" />
                 Start Free
-              </div>
-              <h2 className="mb-4 text-xl font-bold md:text-2xl">Try Before You Buy</h2>
+              </Badge>
+              <h2 className="heading-subsection mb-4">Try Before You Buy</h2>
               <p className="mb-4 text-neutral-600 dark:text-neutral-400">
                 {introCompleted
                   ? "The first module of each track is completely free. Start learning—no credit card required."
@@ -319,47 +317,14 @@ export default async function CoursePage() {
         </div>
       )}
 
-      {/* Introduction Section (only show if not completed) */}
-      {!introCompleted && (
-        <div className="border-t border-neutral-200 py-16 dark:border-neutral-800">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-6 text-xl font-bold md:text-2xl">Getting Started</h2>
-              <Link
-                href="/course/00-introduction/01-welcome"
-                className="hover:border-swiss-red dark:hover:border-swiss-red group flex items-center justify-between border border-neutral-200 bg-white p-6 transition-all hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
-              >
-                <div>
-                  <div className="mb-2 flex items-center gap-2">
-                    <span className="rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">
-                      Free
-                    </span>
-                    <span className="text-xs text-neutral-500">
-                      {course.structure.introduction.lessons} lessons
-                    </span>
-                  </div>
-                  <h3 className="group-hover:text-swiss-red text-base font-bold md:text-lg">
-                    Introduction to Design Engineering
-                  </h3>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                    Learn what Design Engineering is, why it matters, and how
-                    this course will help you master both disciplines.
-                  </p>
-                </div>
-                <ArrowRight className="group-hover:text-swiss-red h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Course Footer */}
       <div className="border-t border-neutral-200 bg-white py-12 dark:border-neutral-800 dark:bg-neutral-900">
-        <div className="container mx-auto px-4">
+        <div className="container-page">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-3">
               <div>
-                <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-neutral-900 dark:text-white">Course</h3>
+                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">Course</h3>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li>
                     <Link
@@ -404,7 +369,7 @@ export default async function CoursePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-neutral-900 dark:text-white">Support</h3>
+                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">Support</h3>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li>
                     <Link href="/course/faq" className="hover:text-swiss-red">
@@ -451,7 +416,7 @@ export default async function CoursePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-neutral-900 dark:text-white">Guarantee</h3>
+                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">Guarantee</h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   14-day money-back guarantee. If you&apos;re not satisfied with
                   the course, contact us within 14 days for a full refund—no

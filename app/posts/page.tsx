@@ -41,7 +41,7 @@ const PostsPage = async (props: {
         description="Insights, tutorials, and perspectives on design engineering from our community."
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <div className="mx-auto max-w-5xl">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <Search 

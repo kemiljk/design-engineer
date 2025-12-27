@@ -98,8 +98,8 @@ export function Colour603010Demo() {
           {/* Balance indicator */}
           <div className={`rounded p-2 text-center text-sm ${
             isBalanced 
-              ? "bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-300" 
-              : "bg-yellow-50 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-300"
+              ? "border border-neutral-300 bg-neutral-100 text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" 
+              : "border border-[#ff4400]/30 bg-[#ff4400]/10 text-[#ff4400]"
           }`}>
             {isBalanced 
               ? "✓ Well-balanced distribution" 

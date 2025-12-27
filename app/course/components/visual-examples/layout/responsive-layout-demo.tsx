@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { Monitor, Tablet, Smartphone } from "lucide-react";
 
@@ -62,10 +61,9 @@ export function ResponsiveLayoutDemo() {
     >
       <div className="flex justify-center">
         {/* Device frame */}
-        <motion.div
+        <div
           className="overflow-hidden rounded-lg border-4 border-neutral-800 bg-neutral-800 dark:border-neutral-300"
-          animate={{ width: Math.min(currentViewport.width, 800) }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          style={{ width: Math.min(currentViewport.width, 800) }}
         >
           {/* Screen */}
           <div className="overflow-hidden bg-white dark:bg-neutral-900">
@@ -84,46 +82,41 @@ export function ResponsiveLayoutDemo() {
             </div>
 
             {/* Content */}
-            <motion.div
+            <div
               className="p-4"
               style={{ minHeight: 300 }}
-              layout
             >
               {/* Hero */}
               <div className="mb-4 rounded-lg bg-neutral-100 p-4 dark:bg-neutral-800">
-                <motion.div
+                <div
                   className="h-4 rounded bg-neutral-300 dark:bg-neutral-600"
-                  animate={{ width: viewport === "mobile" ? "100%" : "60%" }}
-                  transition={{ duration: 0.3 }}
+                  style={{ width: viewport === "mobile" ? "100%" : "60%" }}
                 />
-                <motion.div
+                <div
                   className="mt-2 h-3 rounded bg-neutral-200 dark:bg-neutral-700"
-                  animate={{ width: viewport === "mobile" ? "100%" : "40%" }}
-                  transition={{ duration: 0.3 }}
+                  style={{ width: viewport === "mobile" ? "100%" : "40%" }}
                 />
               </div>
 
               {/* Card grid */}
-              <motion.div
+              <div
                 className="grid gap-3"
                 style={{ gridTemplateColumns: `repeat(${getGridColumns()}, 1fr)` }}
-                layout
               >
                 {[1, 2, 3].map((i) => (
-                  <motion.div
+                  <div
                     key={i}
                     className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800"
-                    layout
                   >
                     <div className="mb-2 aspect-video rounded bg-neutral-100 dark:bg-neutral-700" />
                     <div className="h-3 w-3/4 rounded bg-neutral-200 dark:bg-neutral-600" />
                     <div className="mt-1 h-2 w-1/2 rounded bg-neutral-100 dark:bg-neutral-700" />
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Breakpoint info */}

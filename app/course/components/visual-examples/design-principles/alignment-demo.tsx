@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 
 type AlignmentType = "aligned" | "misaligned" | "centered";
@@ -66,89 +65,75 @@ export function AlignmentDemo() {
       <div className="relative mx-auto max-w-md">
         {/* Alignment guide line */}
         {showGuide && alignment !== "centered" && (
-          <motion.div
-            className="absolute top-0 h-full w-0.5 bg-red-400/50 dark:bg-red-500/50"
-            initial={{ opacity: 0 }}
-            animate={{ 
-              opacity: 1,
-              left: alignment === "aligned" ? 0 : undefined,
-            }}
-            transition={{ duration: 0.3 }}
+          <div
+            className="absolute left-0 top-0 h-full w-0.5 bg-[#ff4400]/50"
           />
         )}
         {showGuide && alignment === "centered" && (
-          <motion.div
-            className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-red-400/50 dark:bg-red-500/50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
+          <div
+            className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-[#ff4400]/50"
           />
         )}
 
         {/* Content */}
         <div className="space-y-4 rounded-lg border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-700 dark:bg-neutral-800">
-          <motion.h3
+          <h3
             className="text-xl font-bold text-neutral-900 dark:text-white"
-            animate={{
+            style={{
               marginLeft: typeof offsets.title === "number" ? offsets.title : 0,
               textAlign: typeof offsets.title === "string" ? offsets.title as "center" : "left",
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             Design Article Title
-          </motion.h3>
+          </h3>
           
-          <motion.p
+          <p
             className="text-sm text-neutral-500 dark:text-neutral-400"
-            animate={{
+            style={{
               marginLeft: typeof offsets.subtitle === "number" ? offsets.subtitle : 0,
               textAlign: typeof offsets.subtitle === "string" ? offsets.subtitle as "center" : "left",
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             By John Doe • 5 minute read
-          </motion.p>
+          </p>
           
-          <motion.p
+          <p
             className="text-neutral-600 dark:text-neutral-300"
-            animate={{
+            style={{
               marginLeft: typeof offsets.body === "number" ? offsets.body : 0,
               textAlign: typeof offsets.body === "string" ? offsets.body as "center" : "left",
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             This is the body text of the article. Notice how alignment affects 
             the readability and visual flow of the content.
-          </motion.p>
+          </p>
           
-          <motion.div
-            animate={{
+          <div
+            style={{
               marginLeft: typeof offsets.button === "number" ? offsets.button : 0,
-              textAlign: typeof offsets.button === "string" ? offsets.button as "center" : "left",
             }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className={alignment === "centered" ? "flex justify-center" : ""}
           >
             <div className="inline-block rounded bg-neutral-900 px-4 py-2 text-sm font-medium text-white dark:bg-white dark:text-neutral-900">
               Read More
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Insight */}
         <div className="mt-4 text-center">
           {alignment === "aligned" && (
-            <p className="text-xs text-green-600 dark:text-green-400">
+            <p className="text-xs text-neutral-600 dark:text-neutral-400">
               ✓ Left alignment creates an invisible line that guides the eye smoothly
             </p>
           )}
           {alignment === "centered" && (
-            <p className="text-xs text-blue-600 dark:text-blue-400">
+            <p className="text-xs text-neutral-600 dark:text-neutral-400">
               ✓ Centre alignment works for short, impactful content (but harder to scan)
             </p>
           )}
           {alignment === "misaligned" && (
-            <p className="text-xs text-red-500 dark:text-red-400">
+            <p className="text-xs text-[#ff4400]">
               ✗ Random offsets create visual chaos—the eye has no clear path to follow
             </p>
           )}

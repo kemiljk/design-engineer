@@ -17,7 +17,7 @@ const StoriesPage: React.FC = async () => {
         description="Conversations with leading Design Engineers about their craft, career, and creative process."
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <div className="flex flex-wrap justify-center gap-8">
           {stories
             .filter((story) => !story.metadata.is_pending)

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 
 type BaseUnit = 4 | 8;
@@ -51,10 +50,9 @@ export function SpacingScaleDemo() {
               <span className="w-8 text-right font-mono text-xs text-neutral-500">
                 {step.name}
               </span>
-              <motion.div
+              <div
                 className="h-6 rounded bg-neutral-800 dark:bg-neutral-200"
-                animate={{ width: step.value }}
-                transition={{ duration: 0.3 }}
+                style={{ width: step.value }}
               />
               <span className="font-mono text-xs text-neutral-400">
                 {step.value}px
@@ -72,10 +70,9 @@ export function SpacingScaleDemo() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
               Card Component
             </p>
-            <motion.div
+            <div
               className="rounded-lg bg-white shadow-sm dark:bg-neutral-900"
               style={{ padding: scale[3].value }}
-              layout
             >
               <div className="flex items-start" style={{ gap: scale[2].value }}>
                 <div 
@@ -94,7 +91,7 @@ export function SpacingScaleDemo() {
                 className="h-8 w-24 rounded bg-neutral-900 dark:bg-white"
                 style={{ marginTop: scale[3].value }}
               />
-            </motion.div>
+            </div>
           </div>
 
           {/* Spacing annotations */}
@@ -108,9 +105,9 @@ export function SpacingScaleDemo() {
       </div>
 
       {/* Insight */}
-      <div className="mt-4 rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
-        <p className="text-xs text-blue-700 dark:text-blue-300">
-          <strong>Why {baseUnit}px?</strong>{" "}
+      <div className="mt-4 rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-900">
+        <p className="text-xs text-neutral-600 dark:text-neutral-400">
+          <strong className="text-neutral-900 dark:text-white">Why {baseUnit}px?</strong>{" "}
           {baseUnit === 8 
             ? "8 divides evenly by 2 and 4, aligns with most screen sizes, and is used by Material Design, iOS, and most design systems."
             : "4px allows finer control for dense UIs while still maintaining a consistent system."}

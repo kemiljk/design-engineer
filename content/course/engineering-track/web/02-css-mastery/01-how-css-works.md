@@ -1,3 +1,7 @@
+---
+estimatedTime: 15
+---
+
 # How CSS Works
 
 > **Quick Summary:** CSS is the language that styles web pages. Understanding the cascade, specificity, and inheritance helps you write predictable, maintainable styles.
@@ -10,6 +14,8 @@
 - How inheritance works
 
 ## What is CSS?
+
+> *"CSS is like Lego for the web—simple blocks that combine into complex structures."* — Håkon Wium Lie
 
 CSS (Cascading Style Sheets) controls how HTML elements look:
 

@@ -11,6 +11,8 @@
 
 ## What Makes a DE Portfolio Different
 
+> *"Talk is cheap. Show me the code."* — Linus Torvalds
+
 Design portfolios show process and outcomes.
 Engineering portfolios show code and systems.
 

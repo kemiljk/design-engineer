@@ -11,6 +11,8 @@
 
 ## The Language of Interactivity
 
+> *"Always bet on JavaScript."* — Brendan Eich
+
 HTML provides structure. CSS provides style. JavaScript provides behavior.
 
 When you:

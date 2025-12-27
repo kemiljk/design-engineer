@@ -97,6 +97,44 @@
 }
 
 :root {
+  /* 
+   * Semantic Colour Tokens
+   * "Less, but better." — Dieter Rams
+   * 
+   * Usage Rules:
+   * - swiss-red: Primary actions, brand accent, active states
+   * - success: Positive feedback, free badges, confirmations
+   * - warning: Caution states, test mode indicators
+   * - neutral: Secondary actions, body text, borders
+   */
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-success-dark: #15803d;
+  --color-warning: #ca8a04;
+  --color-warning-light: #fef9c3;
+  --color-warning-dark: #a16207;
+
+  /* 
+   * Spacing Scale (8-point grid)
+   * "You see spacing before you see content." — d×e
+   * 
+   * Usage:
+   * - xs (4px): Icon padding, tight gaps
+   * - sm (8px): Related items, inline spacing
+   * - md (16px): Standard component padding
+   * - lg (24px): Card padding, comfortable gaps
+   * - xl (32px): Between card groups
+   * - 2xl (48px): Minor section padding
+   * - 3xl (64px): Major section padding
+   */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
   /* Easing curves */
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -138,6 +176,12 @@
 .dark {
   --color-foreground: #fafafa;
   --color-background: #000000;
+  --color-success: #22c55e;
+  --color-success-light: #052e16;
+  --color-success-dark: #4ade80;
+  --color-warning: #eab308;
+  --color-warning-light: #422006;
+  --color-warning-dark: #facc15;
   --illustration-dark: #fafafa;
   --illustration-muted: #a8a8a8;
   --illustration-light: #404040;
@@ -270,11 +314,70 @@ small {
     line-height: 1.5;
     letter-spacing: -0.01em;
   }
+
+  /* 
+   * Semantic Heading Classes
+   * Swiss-inspired hierarchy: absolute clarity at every level
+   * "Typography has one plain duty before it and that is to convey information in writing." — Emil Ruder
+   */
+  
+  /* Section headings - primary level (e.g., "The Complete Course", "Design Engineering Toolkit") */
+  .heading-section {
+    @apply text-2xl font-bold text-neutral-900 md:text-3xl dark:text-white;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  /* Subsection headings - secondary level (e.g., track titles within a section) */
+  .heading-subsection {
+    @apply text-xl font-bold text-neutral-900 md:text-2xl dark:text-white;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  /* Card headings - tertiary level (e.g., tool names, article titles) */
+  .heading-card {
+    @apply text-base font-bold text-neutral-900 md:text-lg dark:text-white;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  /* Eyebrow/overline text - category markers above headings */
+  .heading-eyebrow {
+    @apply text-swiss-red font-mono text-xs tracking-widest uppercase;
+  }
 }
 
 @layer utilities {
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-swiss-red/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* 
+   * Design Testing Utility
+   * Apply to a container to test if hierarchy works without colour
+   * "Hierarchy should work in black and white first." — d×e
+   */
+  .test-grayscale {
+    filter: grayscale(1);
+  }
+
+  /* 
+   * Unified Grid System
+   * Swiss-inspired layout containers matching PageHeader grid
+   * Primary: 1280px max, Readable: ~65ch for long-form content
+   * Responsive padding: 16px → 24px → 32px (8pt grid)
+   */
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
+  }
+
+  .container-readable {
+    @apply mx-auto w-full max-w-prose px-4 md:px-6 lg:px-8;
+  }
+
+  .grid-page {
+    @apply grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12;
   }
 }
 

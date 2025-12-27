@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 
 type RegionType = "none" | "background" | "border" | "both";
@@ -70,10 +69,8 @@ export function GestaltCommonRegionDemo() {
         {/* Navigation example */}
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           {/* Primary navigation group */}
-          <motion.div
+          <div
             className={`flex gap-2 ${getGroupStyle(regionType !== "none")}`}
-            layout
-            transition={{ duration: 0.2 }}
           >
             {items.slice(0, 3).map((item) => (
               <div
@@ -84,13 +81,11 @@ export function GestaltCommonRegionDemo() {
                 <span className="text-[8px] text-neutral-500">{item.label}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Secondary navigation group */}
-          <motion.div
+          <div
             className={`flex gap-2 ${getGroupStyle(regionType !== "none")}`}
-            layout
-            transition={{ duration: 0.2 }}
           >
             {items.slice(3).map((item) => (
               <div
@@ -101,7 +96,7 @@ export function GestaltCommonRegionDemo() {
                 <span className="text-[8px] text-neutral-500">{item.label}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         {/* Insight */}
@@ -134,13 +129,12 @@ export function GestaltCommonRegionDemo() {
             Card Component Example
           </p>
           <div className="flex justify-center gap-4">
-            <motion.div
+            <div
               className={`flex max-w-[180px] flex-col gap-3 ${
                 regionType !== "none" 
                   ? "rounded-lg border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800" 
                   : ""
               }`}
-              layout
             >
               <div className="h-20 w-full rounded bg-neutral-200 dark:bg-neutral-600" />
               <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Card Title</h4>
@@ -148,7 +142,7 @@ export function GestaltCommonRegionDemo() {
               <button className="rounded bg-neutral-900 px-3 py-1 text-xs font-medium text-white dark:bg-white dark:text-neutral-900">
                 Action
               </button>
-            </motion.div>
+            </div>
           </div>
           <p className="text-center text-xs text-neutral-500">
             {regionType !== "none" 

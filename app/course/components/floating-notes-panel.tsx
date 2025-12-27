@@ -169,13 +169,13 @@ export function FloatingNotesPanel({
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all",
+          "fixed bottom-6 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all",
           "bg-swiss-red text-white hover:scale-105",
           isOpen && "bg-neutral-800"
         )}
       >
         <span className="sr-only">Notes</span>
-        {isOpen ? <X className="h-6 w-6" /> : <StickyNote className="h-6 w-6" />}
+        {isOpen ? <X className="h-5 w-5" /> : <StickyNote className="h-5 w-5" />}
       </button>
 
       <AnimatePresence>
@@ -184,7 +184,7 @@ export function FloatingNotesPanel({
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-40 flex h-[500px] w-96 flex-col overflow-hidden rounded-none border border-neutral-200 bg-white shadow-2xl dark:border-neutral-800 dark:bg-neutral-900"
+            className="fixed bottom-20 right-4 z-40 flex h-[500px] w-96 flex-col overflow-hidden rounded-none border border-neutral-200 bg-white shadow-2xl dark:border-neutral-800 dark:bg-neutral-900"
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-3 dark:border-neutral-800">

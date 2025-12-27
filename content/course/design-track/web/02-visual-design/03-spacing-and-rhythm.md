@@ -11,11 +11,15 @@
 
 ## The Invisible Art
 
+> *"You see spacing before you see content."* — d×e
+
 Spacing is design's invisible medium. You don't see spacing directly. You see its effects. Good spacing makes interfaces feel organised, calm, and professional. Bad spacing makes them feel chaotic, cramped, or disconnected.
 
 Most engineers underspacing. Designs feel crowded because elements are packed together without breathing room. When in doubt, add more space.
 
 ## Whitespace is Not Wasted Space
+
+> *"White space is to be regarded as an active element, not a passive background."* — Jan Tschichold
 
 A common misconception: empty space is wasted space that should be filled with content.
 
@@ -264,7 +268,9 @@ Edge padding (space between content and screen edge) is critical on mobile:
 **Bad:** Using borders/lines to separate what space could separate.
 **Good:** Using whitespace as the primary separator.
 
-## The Squint Test
+## Testing Your Spacing System
+
+### The Squint Test
 
 A quick way to evaluate spacing: squint at your interface until you can't read text. You should still see:
 - Clear groupings
@@ -272,6 +278,18 @@ A quick way to evaluate spacing: squint at your interface until you can't read t
 - Balanced distribution
 
 If everything blurs into one mass, spacing needs work.
+
+### The Zoom Out Test
+
+Zoom out in your browser or design tool until the page fits in a small area. Does the structure remain clear? Can you identify different sections and their relationships?
+
+### The Scroll Test
+
+Scroll through your interface at medium speed. Does the rhythm feel consistent? Do related items stay grouped and distinct sections remain separated?
+
+These tests work for typography too—see [Typography Fundamentals](./01-typography-fundamentals.md) for how they apply to type hierarchy.
+
+**Pro tip:** Spacing and typography work together. Good vertical rhythm is established by your type scale's line-height, then extended through your spacing system.
 
 ## Try It Yourself
 

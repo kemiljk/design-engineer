@@ -11,6 +11,8 @@
 
 ## What is Information Architecture?
 
+> *"Information architecture is the art and science of organising and labelling information to support usability."* — Richard Saul Wurman
+
 Information architecture (IA) is the structural design of information:
 - How content is organized into categories
 - How categories relate to each other

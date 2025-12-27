@@ -100,7 +100,7 @@ export default async function Post(props: {
 
   return (
     <div>
-      <div className="mx-auto max-w-prose px-4">
+      <div className="container-readable">
         {post && (
           <>
             <div className="mb-8 flex w-full items-center justify-between">

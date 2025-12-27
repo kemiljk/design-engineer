@@ -93,8 +93,8 @@ export function GestaltClosureDemo() {
         </div>
 
         {/* Insight */}
-        <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
-          <p className="text-center text-sm text-blue-700 dark:text-blue-300">
+        <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <p className="text-center text-sm text-neutral-600 dark:text-neutral-400">
             {completeness >= 60
               ? "Even with gaps, you recognise these as complete shapes"
               : completeness >= 40

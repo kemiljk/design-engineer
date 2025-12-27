@@ -5,8 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+/**
+ * Button Component
+ * 
+ * Size Guide (use these, avoid inline overrides):
+ * - sm (h-8):  Compact UI, secondary actions in tight spaces
+ * - md (h-9):  Default, most buttons
+ * - lg (h-10): Primary CTAs, form submits
+ * - xl (h-12): Hero sections, major conversion points
+ */
 const buttonVariants = cva(
-  "focus-ring group inline-flex items-center justify-center gap-2 font-medium transition-[color,background-color,border-color,transform] duration-150 ease-out active:translate-y-px disabled:pointer-events-none disabled:opacity-50 motion-reduce:transform-none motion-reduce:transition-none",
+  "focus-ring group inline-flex items-center justify-center gap-2 font-medium transition-[color,background-color,border-color,transform] duration-150 ease-out active:translate-y-0.5 disabled:pointer-events-none disabled:opacity-50 motion-reduce:transform-none motion-reduce:transition-none",
   {
     variants: {
       variant: {
@@ -26,7 +35,8 @@ const buttonVariants = cva(
       size: {
         sm: "h-8 px-3 text-xs",
         md: "h-9 px-4 text-sm",
-        lg: "h-10 px-6 text-base",
+        lg: "h-10 px-6 text-sm font-semibold",
+        xl: "h-12 px-8 text-base font-bold tracking-wider uppercase",
       },
     },
     defaultVariants: {

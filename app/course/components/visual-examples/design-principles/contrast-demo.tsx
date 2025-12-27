@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup, SliderControl } from "../base/example-wrapper";
 
 type ContrastType = "size" | "weight" | "color";
@@ -84,47 +83,41 @@ export function ContrastDemo() {
       <div className="grid gap-6 sm:grid-cols-2">
         {/* Example Card */}
         <div className="space-y-3 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-          <motion.div
-            layout
+          <div
             style={styles.primary}
             className="text-neutral-900 dark:text-white"
           >
             Primary Heading
-          </motion.div>
-          <motion.div
-            layout
+          </div>
+          <div
             style={styles.secondary}
             className="text-neutral-700 dark:text-neutral-300"
           >
             Secondary supporting text that provides context for the heading above.
-          </motion.div>
-          <motion.div
-            layout
+          </div>
+          <div
             style={styles.tertiary}
             className="text-neutral-500 dark:text-neutral-400"
           >
             Tertiary details: 12 Dec 2024 • 5 min
-          </motion.div>
+          </div>
         </div>
 
         {/* Visual Indicator */}
         <div className="flex items-center justify-center">
           <div className="space-y-2 text-center">
             <div className="flex items-end justify-center gap-2">
-              <motion.div
+              <div
                 className="w-8 rounded bg-neutral-900 dark:bg-white"
-                animate={{ height: 20 + 60 * (contrastLevel / 100) }}
-                transition={{ duration: 0.2 }}
+                style={{ height: 20 + 60 * (contrastLevel / 100) }}
               />
-              <motion.div
+              <div
                 className="w-8 rounded bg-neutral-400 dark:bg-neutral-500"
-                animate={{ height: 30 + 10 * (1 - contrastLevel / 100) }}
-                transition={{ duration: 0.2 }}
+                style={{ height: 30 + 10 * (1 - contrastLevel / 100) }}
               />
-              <motion.div
+              <div
                 className="w-8 rounded bg-neutral-300 dark:bg-neutral-600"
-                animate={{ height: 20 + 5 * (1 - contrastLevel / 100) }}
-                transition={{ duration: 0.2 }}
+                style={{ height: 20 + 5 * (1 - contrastLevel / 100) }}
               />
             </div>
             <p className="text-xs text-neutral-500">

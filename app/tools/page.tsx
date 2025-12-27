@@ -210,7 +210,7 @@ export default function ToolsPage() {
         description="Utilities and generators to supercharge your design engineering workflow."
       />
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container-page py-12">
         <div className="space-y-16">
           {TOOL_SECTIONS.map((section, idx) => (
             <section
@@ -219,9 +219,7 @@ export default function ToolsPage() {
               style={{ animationDelay: `${idx * 60}ms` }}
             >
               <div className="mb-8">
-                <h2 className="text-xl font-bold text-neutral-900 md:text-2xl dark:text-white">
-                  {section.title}
-                </h2>
+                <h2 className="heading-section">{section.title}</h2>
                 <p className="mt-2 text-neutral-500 dark:text-neutral-400">
                   {section.description}
                 </p>
@@ -232,34 +230,27 @@ export default function ToolsPage() {
                   <Link
                     key={tool.title}
                     href={tool.href}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-200 bg-white p-4 transition-[border-color,box-shadow,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-md hover:ring-1 hover:ring-swiss-red/10 hover:ring-inset dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-neutral-700 motion-reduce:transform-none motion-reduce:transition-none sm:p-6"
+                    className="group relative flex flex-col justify-between overflow-hidden border border-neutral-200 bg-white p-5 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red md:p-6"
                   >
                     <div>
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-swiss-red text-white shadow-sm transition-colors sm:h-12 sm:w-12">
-                        <tool.icon className="h-5 w-5 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none sm:h-6 sm:w-6" />
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors group-hover:bg-swiss-red dark:bg-neutral-800 md:h-12 md:w-12">
+                        <tool.icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400 md:h-6 md:w-6" />
                       </div>
                       
-                      <h3 className="mb-2 text-base font-bold text-neutral-900 sm:text-lg dark:text-white">
-                        {tool.title}
-                      </h3>
+                      <h3 className="heading-card mb-2">{tool.title}</h3>
                       
-                      <p className="mb-4 text-sm text-neutral-500 sm:mb-6 dark:text-neutral-400">
+                      <p className="text-sm text-neutral-500 dark:text-neutral-400">
                         {tool.description}
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between gap-4 border-t border-neutral-100 pt-4 dark:border-neutral-800">
-                      <span className="text-sm font-medium text-neutral-900 group-hover:underline dark:text-white">
-                        Open Tool
-                      </span>
-                      <div className="flex items-center gap-2">
-                        {tool.isGated && (
-                          <SignedOut>
-                            <Lock className="h-4 w-4 text-neutral-400" />
-                          </SignedOut>
-                        )}
-                        <ArrowRight className="h-4 w-4 text-neutral-400 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-1 motion-reduce:transition-none dark:text-neutral-500" />
-                      </div>
+                    <div className="mt-4 flex items-center justify-end gap-2 border-t border-neutral-100 pt-4 dark:border-neutral-800">
+                      {tool.isGated && (
+                        <SignedOut>
+                          <Lock className="h-4 w-4 text-neutral-400" />
+                        </SignedOut>
+                      )}
+                      <ArrowRight className="h-4 w-4 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-swiss-red dark:text-neutral-500" />
                     </div>
                   </Link>
                 ))}

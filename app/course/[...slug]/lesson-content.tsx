@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 import CourseMarkdown from "../components/course-markdown";
-import { SideNav } from "../components/lesson-layout";
+import { SideNav, MobileSectionNav } from "../components/lesson-layout";
 
 interface LessonContentProps {
   content: string;
@@ -25,6 +25,7 @@ export function LessonContent({ content }: LessonContentProps) {
   return (
     <>
       <SideNav sections={sections} />
+      <MobileSectionNav sections={sections} />
       <CourseMarkdown content={content} onSectionsDetected={handleSectionsDetected} />
     </>
   );

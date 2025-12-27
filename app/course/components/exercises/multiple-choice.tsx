@@ -8,11 +8,28 @@ import { fireSuccessConfetti } from "@/lib/confetti";
 import { ExerciseWrapper } from "./exercise-wrapper";
 import type { MultipleChoiceExercise } from "@/lib/exercise-types";
 
-// Fisher-Yates shuffle algorithm
-function shuffleArray<T>(array: T[]): T[] {
+// Seeded random number generator for deterministic shuffling
+function seededRandom(seed: string): () => number {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    const char = seed.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return () => {
+    hash = Math.imul(hash ^ (hash >>> 16), 2246822507);
+    hash = Math.imul(hash ^ (hash >>> 13), 3266489909);
+    hash ^= hash >>> 16;
+    return (hash >>> 0) / 4294967296;
+  };
+}
+
+// Fisher-Yates shuffle with seeded random
+function shuffleArray<T>(array: T[], seed: string): T[] {
   const shuffled = [...array];
+  const random = seededRandom(seed);
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
@@ -23,10 +40,11 @@ interface MultipleChoiceProps {
 }
 
 export function MultipleChoice({ exercise }: MultipleChoiceProps) {
-  // Shuffle options once on mount (useMemo with empty deps equivalent)
+  // Shuffle options deterministically using exercise ID as seed
+  // This ensures same order on server and client
   const shuffledOptions = useMemo(
-    () => shuffleArray(exercise.options),
-    [exercise.id] // Re-shuffle only if exercise changes
+    () => shuffleArray(exercise.options, exercise.id),
+    [exercise.id, exercise.options]
   );
   
   const [selectedId, setSelectedId] = useState<string | null>(null);

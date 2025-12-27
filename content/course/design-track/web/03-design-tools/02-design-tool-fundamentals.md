@@ -11,6 +11,8 @@
 
 ## Tool-Agnostic Thinking
 
+> *"The computer is just a tool. It's got the same merit as a pencil, nothing more, nothing less."* — Paula Scher
+
 This lesson focuses on concepts, not specific tools. Whether you use Figma, Sketch, Adobe XD, or Penpot, the fundamentals are the same:
 
 - Frames/artboards contain your designs

@@ -1,3 +1,7 @@
+---
+estimatedTime: 8
+---
+
 # Welcome to the Design Engineer Course
 
 > **Quick Summary:** You're about to learn how to bridge the gap between design and engineering. It's a skill set that's increasingly valuable and deeply rewarding.

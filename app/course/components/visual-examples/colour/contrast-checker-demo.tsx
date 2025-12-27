@@ -104,31 +104,31 @@ export function ContrastCheckerDemo() {
             {/* WCAG compliance */}
             <div className="space-y-2">
               <div className={`flex items-center justify-between rounded p-2 ${
-                passesAA ? "bg-green-100 dark:bg-green-900/30" : "bg-red-100 dark:bg-red-900/30"
+                passesAA ? "bg-neutral-200 dark:bg-neutral-700" : "bg-[#ff4400]/10"
               }`}>
                 <span className="text-xs font-medium">AA Normal Text (4.5:1)</span>
                 <span className={`text-xs font-bold ${
-                  passesAA ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"
+                  passesAA ? "text-neutral-900 dark:text-white" : "text-[#ff4400]"
                 }`}>
                   {passesAA ? "PASS" : "FAIL"}
                 </span>
               </div>
               <div className={`flex items-center justify-between rounded p-2 ${
-                passesAALarge ? "bg-green-100 dark:bg-green-900/30" : "bg-red-100 dark:bg-red-900/30"
+                passesAALarge ? "bg-neutral-200 dark:bg-neutral-700" : "bg-[#ff4400]/10"
               }`}>
                 <span className="text-xs font-medium">AA Large Text (3:1)</span>
                 <span className={`text-xs font-bold ${
-                  passesAALarge ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"
+                  passesAALarge ? "text-neutral-900 dark:text-white" : "text-[#ff4400]"
                 }`}>
                   {passesAALarge ? "PASS" : "FAIL"}
                 </span>
               </div>
               <div className={`flex items-center justify-between rounded p-2 ${
-                passesAAA ? "bg-green-100 dark:bg-green-900/30" : "bg-yellow-100 dark:bg-yellow-900/30"
+                passesAAA ? "bg-neutral-200 dark:bg-neutral-700" : "bg-neutral-100 dark:bg-neutral-800"
               }`}>
                 <span className="text-xs font-medium">AAA Normal Text (7:1)</span>
                 <span className={`text-xs font-bold ${
-                  passesAAA ? "text-green-700 dark:text-green-300" : "text-yellow-700 dark:text-yellow-300"
+                  passesAAA ? "text-neutral-900 dark:text-white" : "text-neutral-500 dark:text-neutral-400"
                 }`}>
                   {passesAAA ? "PASS" : "FAIL"}
                 </span>

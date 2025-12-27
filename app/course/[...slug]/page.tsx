@@ -4,7 +4,7 @@ import Link from "next/link";
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { ArrowLeft, ArrowRight, Lock, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, Lock } from "lucide-react";
 import { 
   getUserEnrollment, 
   canAccessLesson, 
@@ -16,6 +16,7 @@ import {
 } from "@/lib/course";
 import { hasPreviewAccess } from "@/lib/preview-access";
 import { formatTitle } from "@/lib/format";
+import { BreadcrumbNav } from "../components/breadcrumb-nav";
 import { UpgradePrompt } from "../components/upgrade-prompt";
 import { FloatingNotesPanel } from "../components/floating-notes-panel";
 import { LessonTracker } from "../components/lesson-tracker";
@@ -152,7 +153,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
     return (
       <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
-        <div className="mx-auto max-w-4xl px-4 py-8">
+        <div className="container-readable py-8">
           <Link
             href={backLink.href}
             className="mb-8 inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
@@ -201,7 +202,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   return (
     <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
-      <div className="mx-auto max-w-4xl px-4 py-8">
+      <div className="container-readable py-8">
         <div className="mb-8 flex items-center justify-between">
           <Link
             href={backLink.href}
@@ -220,10 +221,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         <article className="rounded-none border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
           <div className="border-b border-neutral-200 p-6 dark:border-neutral-800">
-            <div className="mb-2 flex items-center gap-2 text-sm text-neutral-500">
-              <BookOpen className="h-4 w-4" />
-              <span>{lessonPath.replace(/\//g, " › ")}</span>
-            </div>
+            <BreadcrumbNav slug={slug} />
             <h1 className="text-3xl font-bold">{title}</h1>
           </div>
 

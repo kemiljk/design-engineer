@@ -9,7 +9,7 @@ import { HierarchyDemo, ContrastDemo, BalanceDemo, ProximityDemo, AlignmentDemo,
 import { GestaltSimilarityDemo, GestaltContinuityDemo, GestaltClosureDemo, GestaltCommonRegionDemo, GestaltFigureGroundDemo } from "./gestalt-principles";
 
 // Typography
-import { TypeScaleDemo, LineHeightDemo, MeasureDemo } from "./typography";
+import { TypeScaleDemo, LineHeightDemo, MeasureDemo, TypographicShowcaseDemo, FontPairingDemo, FontComparisonDemo } from "./typography";
 
 // Colour
 import { Colour603010Demo, ContrastCheckerDemo } from "./colour";
@@ -40,6 +40,9 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "type-scale-demo": TypeScaleDemo,
   "line-height-demo": LineHeightDemo,
   "measure-demo": MeasureDemo,
+  "typographic-showcase-demo": TypographicShowcaseDemo,
+  "font-pairing-demo": FontPairingDemo,
+  "font-comparison-demo": FontComparisonDemo,
   
   // Colour
   "colour-60-30-10-demo": Colour603010Demo,
