@@ -187,7 +187,7 @@ interface RateLimitEntry {
 const rateLimitStore = new Map<string, RateLimitEntry>();
 
 // Rate limit configuration
-const RATE_LIMIT_CONFIG = {
+export const RATE_LIMIT_CONFIG = {
   // Maximum lessons per window
   maxLessonsPerWindow: 30,
   // Time window in milliseconds (10 minutes)
@@ -307,7 +307,7 @@ export function logSuspiciousActivity(
   reason: string,
   metadata?: Record<string, unknown>
 ): void {
-  // In production, this would send to a logging service
+  // Log to console for immediate visibility
   console.warn('[CONTENT_PROTECTION] Suspicious activity detected:', {
     timestamp: new Date().toISOString(),
     userId,
@@ -315,4 +315,45 @@ export function logSuspiciousActivity(
     reason,
     ...metadata,
   });
+}
+
+/**
+ * Send email alert for suspicious activity
+ * This should be called from a server context (API route or server component)
+ */
+export async function sendSuspiciousActivityAlert(
+  userId: string,
+  lessonPath: string,
+  reason: string,
+  metadata?: Record<string, unknown>
+): Promise<boolean> {
+  const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || "internal-protection-key";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  
+  try {
+    const response = await fetch(`${baseUrl}/api/course/suspicious-activity`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-internal-api-key": INTERNAL_API_KEY,
+      },
+      body: JSON.stringify({
+        userId,
+        lessonPath,
+        reason,
+        metadata,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("[CONTENT_PROTECTION] Failed to send alert email:", response.status);
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.error("[CONTENT_PROTECTION] Error sending alert email:", error);
+    return false;
+  }
 }

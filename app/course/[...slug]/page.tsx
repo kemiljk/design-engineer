@@ -29,7 +29,9 @@ import { LessonContent } from "./lesson-content";
 import { 
   watermarkContent, 
   checkRateLimit, 
-  logSuspiciousActivity 
+  logSuspiciousActivity,
+  sendSuspiciousActivityAlert,
+  RATE_LIMIT_CONFIG,
 } from "@/lib/content-protection";
 
 function getRequiredAccess(lessonPath: string): ProductKey {
@@ -206,11 +208,24 @@ export default async function LessonPage({ params }: LessonPageProps) {
   if (userId && !isFree) {
     const rateLimit = checkRateLimit(userId, lessonPath);
     
-    // Log suspicious activity
+    // Log and alert on suspicious activity
     if (rateLimit.suspicious) {
-      logSuspiciousActivity(userId, lessonPath, 'High lesson access rate', {
+      const alertMetadata = {
         remaining: rateLimit.remaining,
         resetAt: new Date(rateLimit.resetAt).toISOString(),
+        accessCount: RATE_LIMIT_CONFIG.suspiciousThreshold,
+      };
+      
+      logSuspiciousActivity(userId, lessonPath, 'High lesson access rate', alertMetadata);
+      
+      // Send email alert (fire-and-forget, don't block page render)
+      sendSuspiciousActivityAlert(
+        userId, 
+        lessonPath, 
+        'High lesson access rate', 
+        alertMetadata
+      ).catch(() => {
+        // Silently fail - already logged to console
       });
     }
     
