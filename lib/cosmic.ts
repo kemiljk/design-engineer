@@ -315,3 +315,122 @@ export const getCourseAvailability = unstable_cache(
   ["course-availability"],
   { revalidate: 60, tags: ["course-availability"] }
 );
+
+// Gallery Project Functions
+
+export const getGalleryProjects = unstable_cache(
+  async (options?: { 
+    status?: Type.GalleryProjectStatus; 
+    platform?: Type.GalleryProjectPlatform;
+    track?: Type.GalleryProjectTrack;
+    limit?: number;
+  }): Promise<Type.GalleryProject[]> => {
+    try {
+      const query: Record<string, unknown> = {
+        type: "gallery-projects",
+      };
+      
+      if (options?.status) {
+        query["metadata.status"] = options.status;
+      }
+      if (options?.platform) {
+        query["metadata.platform"] = options.platform;
+      }
+      if (options?.track) {
+        query["metadata.track"] = options.track;
+      }
+      
+      let request = cosmic.objects
+        .find(query)
+        .props("id,slug,title,created_at,modified_at,metadata")
+        .depth(1)
+        .sort("-created_at");
+      
+      if (options?.limit) {
+        request = request.limit(options.limit);
+      }
+      
+      const { objects } = await request;
+      return objects || [];
+    } catch (error: unknown) {
+      if (error && typeof error === "object" && "status" in error && error.status === 404) {
+        return [];
+      }
+      console.error("Error fetching gallery projects:", error);
+      return [];
+    }
+  },
+  ["gallery-projects"],
+  { revalidate: 300, tags: ["gallery-projects"] }
+);
+
+export const getFeaturedGalleryProjects = unstable_cache(
+  async (limit: number = 6): Promise<Type.GalleryProject[]> => {
+    try {
+      const { objects } = await cosmic.objects
+        .find({
+          type: "gallery-projects",
+          "metadata.status": "featured",
+        })
+        .props("id,slug,title,created_at,modified_at,metadata")
+        .depth(1)
+        .sort("-metadata.featured_at")
+        .limit(limit);
+      
+      return objects || [];
+    } catch (error: unknown) {
+      if (error && typeof error === "object" && "status" in error && error.status === 404) {
+        return [];
+      }
+      console.error("Error fetching featured gallery projects:", error);
+      return [];
+    }
+  },
+  ["gallery-projects-featured"],
+  { revalidate: 300, tags: ["gallery-projects"] }
+);
+
+export const getUserGalleryProjects = async (
+  userId: string
+): Promise<Type.GalleryProject[]> => {
+  try {
+    const { objects } = await cosmic.objects
+      .find({
+        type: "gallery-projects",
+        "metadata.user_id": userId,
+      })
+      .props("id,slug,title,created_at,modified_at,metadata")
+      .depth(1)
+      .sort("-created_at");
+    
+    return objects || [];
+  } catch (error: unknown) {
+    if (error && typeof error === "object" && "status" in error && error.status === 404) {
+      return [];
+    }
+    console.error("Error fetching user gallery projects:", error);
+    return [];
+  }
+};
+
+export const getGalleryProject = async (
+  slug: string
+): Promise<Type.GalleryProject | null> => {
+  try {
+    const { object } = await cosmic.objects
+      .findOne({
+        type: "gallery-projects",
+        slug,
+      })
+      .props("id,slug,title,created_at,modified_at,metadata")
+      .depth(1);
+    
+    return object || null;
+  } catch (error: unknown) {
+    if (error && typeof error === "object" && "status" in error && error.status === 404) {
+      return null;
+    }
+    console.error("Error fetching gallery project:", error);
+    return null;
+  }
+};
