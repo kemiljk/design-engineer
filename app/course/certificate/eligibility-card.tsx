@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CheckCircle, Circle, Award, Loader2 } from "lucide-react";
-import type { CertificateEligibility } from "@/lib/types";
+import type { CertificateEligibility, CertificateTrack } from "@/lib/types";
 import { useRouter } from "next/navigation";
 
 interface EligibilityCardProps {
@@ -17,6 +17,7 @@ const platformTitles = {
 
 export function EligibilityCard({ eligibility }: EligibilityCardProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const [claimingTrack, setClaimingTrack] = useState<CertificateTrack | null>(null);
   const router = useRouter();
   
   const { platform, eligible, designComplete, engineeringComplete, convergenceComplete } = eligibility;
@@ -35,7 +36,7 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
     );
   }
 
-  const handleClaim = async () => {
+  const handleClaimMaster = async () => {
     setIsLoading(true);
     try {
       const response = await fetch("/api/course/certificate", {
@@ -57,10 +58,56 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
     }
   };
 
-  const tracks = [
-    { name: "Design Track", complete: designComplete, progress: eligibility.designProgress },
-    { name: "Engineering Track", complete: engineeringComplete, progress: eligibility.engineeringProgress },
-    { name: "Convergence Track", complete: convergenceComplete, progress: eligibility.convergenceProgress },
+  const handleClaimTrack = async (track: CertificateTrack) => {
+    setClaimingTrack(track);
+    try {
+      const response = await fetch("/api/course/certificate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ platform, track }),
+      });
+      
+      if (response.ok) {
+        router.refresh();
+      } else {
+        const data = await response.json();
+        alert(data.error || "Failed to claim certificate");
+      }
+    } catch (error) {
+      console.error("Error claiming track certificate:", error);
+    } finally {
+      setClaimingTrack(null);
+    }
+  };
+
+  const tracks: { 
+    name: string; 
+    track: CertificateTrack;
+    complete: boolean; 
+    progress: { completed: number; total: number };
+    certificate: typeof eligibility.designCertificate;
+  }[] = [
+    { 
+      name: "Design Track", 
+      track: "design",
+      complete: designComplete, 
+      progress: eligibility.designProgress,
+      certificate: eligibility.designCertificate,
+    },
+    { 
+      name: "Engineering Track", 
+      track: "engineering",
+      complete: engineeringComplete, 
+      progress: eligibility.engineeringProgress,
+      certificate: eligibility.engineeringCertificate,
+    },
+    { 
+      name: "Convergence", 
+      track: "convergence",
+      complete: convergenceComplete, 
+      progress: eligibility.convergenceProgress,
+      certificate: eligibility.convergenceCertificate,
+    },
   ];
 
   return (
@@ -71,25 +118,41 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
         {tracks.map((track) => (
           <div key={track.name} className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-2">
-              {track.complete ? (
+              {track.certificate ? (
                 <CheckCircle className="h-4 w-4 text-green-500" />
+              ) : track.complete ? (
+                <CheckCircle className="h-4 w-4 text-swiss-red" />
               ) : (
                 <Circle className="h-4 w-4 text-neutral-300" />
               )}
-              <span className={track.complete ? "text-green-600 dark:text-green-400" : ""}>
+              <span className={track.certificate ? "text-green-600 dark:text-green-400" : track.complete ? "text-swiss-red" : ""}>
                 {track.name}
               </span>
             </div>
-            <span className="text-xs text-neutral-500">
-              {track.progress.completed}/{track.progress.total}
-            </span>
+            <div className="flex items-center gap-2">
+              {track.certificate ? (
+                <span className="text-xs text-green-600 dark:text-green-400">✓</span>
+              ) : track.complete ? (
+                <button
+                  onClick={() => handleClaimTrack(track.track)}
+                  disabled={claimingTrack !== null}
+                  className="text-xs text-swiss-red hover:underline disabled:opacity-50"
+                >
+                  {claimingTrack === track.track ? "..." : "Claim"}
+                </button>
+              ) : (
+                <span className="text-xs text-neutral-500">
+                  {track.progress.completed}/{track.progress.total}
+                </span>
+              )}
+            </div>
           </div>
         ))}
       </div>
 
       {eligible ? (
         <button
-          onClick={handleClaim}
+          onClick={handleClaimMaster}
           disabled={isLoading}
           className="w-full flex items-center justify-center gap-2 bg-swiss-red px-4 py-2 text-sm font-medium text-white hover:bg-neutral-900 disabled:opacity-50"
         >
@@ -101,13 +164,13 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
           ) : (
             <>
               <Award className="h-4 w-4" />
-              Claim Certificate
+              Claim Design Engineer Certificate
             </>
           )}
         </button>
       ) : (
         <div className="text-center text-sm text-neutral-500">
-          Complete all tracks to earn this certificate
+          Complete all tracks for the full certificate
         </div>
       )}
     </div>

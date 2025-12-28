@@ -317,7 +317,28 @@ export type CourseLesson = {
 // Certificate Types
 
 export type CertificatePlatform = 'web' | 'ios' | 'android';
+export type CertificateTrack = 'design' | 'engineering' | 'convergence';
 
+// Track Certificate - awarded for completing a single track
+export type TrackCertificate = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: string;
+  metadata: {
+    user_id: string;
+    user_name: string;
+    user_email: string;
+    platform: CertificatePlatform;
+    track: CertificateTrack;
+    issued_at: string;
+    certificate_number: string;
+    completed_at: string;
+    total_time_spent_seconds: number;
+  };
+};
+
+// Master Certificate - awarded for completing all three tracks
 export type Certificate = {
   id: string;
   slug: string;
@@ -337,6 +358,14 @@ export type Certificate = {
   };
 };
 
+export type TrackCertificateEligibility = {
+  platform: CertificatePlatform;
+  track: CertificateTrack;
+  eligible: boolean;
+  progress: { completed: number; total: number };
+  certificate?: TrackCertificate;
+};
+
 export type CertificateEligibility = {
   platform: CertificatePlatform;
   eligible: boolean;
@@ -347,6 +376,10 @@ export type CertificateEligibility = {
   engineeringProgress: { completed: number; total: number };
   convergenceProgress: { completed: number; total: number };
   certificate?: Certificate;
+  // Track certificates
+  designCertificate?: TrackCertificate;
+  engineeringCertificate?: TrackCertificate;
+  convergenceCertificate?: TrackCertificate;
 };
 
 // LemonSqueezy Product Types

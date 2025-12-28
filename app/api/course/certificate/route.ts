@@ -1,11 +1,14 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { 
-  checkCertificateEligibility, 
-  getUserCertificates, 
-  issueCertificate 
+  checkCertificateEligibility,
+  checkTrackCertificateEligibility,
+  getUserCertificates,
+  getUserTrackCertificates,
+  issueCertificate,
+  issueTrackCertificate,
 } from "@/lib/certificate";
-import type { CertificatePlatform } from "@/lib/types";
+import type { CertificatePlatform, CertificateTrack } from "@/lib/types";
 import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET(request: NextRequest) {
@@ -20,7 +23,22 @@ export async function GET(request: NextRequest) {
   
   const { searchParams } = new URL(request.url);
   const platform = searchParams.get("platform") as CertificatePlatform | null;
+  const track = searchParams.get("track") as CertificateTrack | null;
   
+  // Check specific track eligibility
+  if (platform && track) {
+    if (!['web', 'ios', 'android'].includes(platform)) {
+      return NextResponse.json({ error: "Invalid platform" }, { status: 400 });
+    }
+    if (!['design', 'engineering', 'convergence'].includes(track)) {
+      return NextResponse.json({ error: "Invalid track" }, { status: 400 });
+    }
+    
+    const eligibility = await checkTrackCertificateEligibility(userId, platform, track);
+    return NextResponse.json({ eligibility });
+  }
+  
+  // Check platform eligibility (includes track certificates)
   if (platform) {
     if (!['web', 'ios', 'android'].includes(platform)) {
       return NextResponse.json({ error: "Invalid platform" }, { status: 400 });
@@ -30,7 +48,11 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ eligibility });
   }
   
-  const certificates = await getUserCertificates(userId);
+  // Get all certificates
+  const [certificates, trackCertificates] = await Promise.all([
+    getUserCertificates(userId),
+    getUserTrackCertificates(userId),
+  ]);
   
   const [webEligibility, iosEligibility, androidEligibility] = await Promise.all([
     checkCertificateEligibility(userId, 'web'),
@@ -40,6 +62,7 @@ export async function GET(request: NextRequest) {
   
   return NextResponse.json({
     certificates,
+    trackCertificates,
     eligibility: {
       web: webEligibility,
       ios: iosEligibility,
@@ -60,7 +83,7 @@ export async function POST(request: NextRequest) {
   }
   
   const body = await request.json();
-  const { platform } = body as { platform: CertificatePlatform };
+  const { platform, track } = body as { platform: CertificatePlatform; track?: CertificateTrack };
   
   if (!platform || !['web', 'ios', 'android'].includes(platform)) {
     return NextResponse.json({ error: "Invalid platform" }, { status: 400 });
@@ -70,6 +93,17 @@ export async function POST(request: NextRequest) {
     const userName = user.fullName || user.firstName || 'Student';
     const userEmail = user.emailAddresses[0]?.emailAddress || '';
     
+    // Issue track certificate if track is specified
+    if (track) {
+      if (!['design', 'engineering', 'convergence'].includes(track)) {
+        return NextResponse.json({ error: "Invalid track" }, { status: 400 });
+      }
+      
+      const certificate = await issueTrackCertificate(userId, userName, userEmail, platform, track);
+      return NextResponse.json({ certificate }, { status: 201 });
+    }
+    
+    // Issue master certificate (requires all tracks)
     const certificate = await issueCertificate(userId, userName, userEmail, platform);
     
     return NextResponse.json({ certificate }, { status: 201 });
