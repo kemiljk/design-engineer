@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "Is there a student discount?",
-    a: "Yes! Students with a valid .edu or university email address receive 30% off any purchase. Simply sign up with your student email and we'll send you a discount code.",
+    a: "Yes! Students with a valid university email (.edu, .ac.uk, etc.) receive 30% off any purchase. Enter your student email in the discount form on our pricing page — we'll automatically verify it and instantly email you a unique discount code to use at checkout. No manual verification needed.",
   },
   {
     q: "Is there a free trial?",
