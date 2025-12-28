@@ -27,6 +27,221 @@ export const EmailWaitlistTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   </div>
 );
 
+export const CourseWaitlistConfirmationTemplate: React.FC<
+  Readonly<EmailTemplateProps>
+> = ({ email }) => (
+  <div
+    style={{
+      fontFamily:
+        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      maxWidth: "600px",
+      margin: "0 auto",
+      backgroundColor: "#ffffff",
+    }}
+  >
+    {/* Header with brand accent */}
+    <div
+      style={{
+        borderTop: "4px solid #ff4400",
+        padding: "32px 24px 24px",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "12px",
+          fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+          color: "#ff4400",
+          margin: "0 0 16px 0",
+        }}
+      >
+        Design Engineer Course
+      </p>
+      <h1
+        style={{
+          fontSize: "28px",
+          fontWeight: 700,
+          color: "#171717",
+          margin: "0 0 16px 0",
+          lineHeight: 1.1,
+          letterSpacing: "-0.02em",
+        }}
+      >
+        You&apos;re on the list!
+      </h1>
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: 1.6,
+          color: "#525252",
+          margin: "0",
+        }}
+      >
+        Thanks for signing up to be notified about the Design Engineer Course.
+        We&apos;ll let you know at <strong style={{ color: "#171717" }}>{email}</strong> as
+        soon as there&apos;s news.
+      </p>
+    </div>
+
+    {/* What to expect */}
+    <div
+      style={{
+        padding: "24px",
+        backgroundColor: "#fafafa",
+        borderTop: "1px solid #e5e5e5",
+        borderBottom: "1px solid #e5e5e5",
+      }}
+    >
+      <h2
+        style={{
+          fontSize: "14px",
+          fontWeight: 700,
+          color: "#171717",
+          margin: "0 0 16px 0",
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+        }}
+      >
+        What to Expect
+      </h2>
+      <ul
+        style={{
+          margin: "0",
+          padding: "0",
+          listStyle: "none",
+        }}
+      >
+        <li
+          style={{
+            fontSize: "15px",
+            lineHeight: 1.5,
+            color: "#525252",
+            padding: "8px 0",
+            paddingLeft: "24px",
+            position: "relative",
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              left: "0",
+              color: "#ff4400",
+              fontWeight: 700,
+            }}
+          >
+            →
+          </span>
+          Early access announcements and launch updates
+        </li>
+        <li
+          style={{
+            fontSize: "15px",
+            lineHeight: 1.5,
+            color: "#525252",
+            padding: "8px 0",
+            paddingLeft: "24px",
+            position: "relative",
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              left: "0",
+              color: "#ff4400",
+              fontWeight: 700,
+            }}
+          >
+            →
+          </span>
+          Exclusive subscriber-only discounts
+        </li>
+        <li
+          style={{
+            fontSize: "15px",
+            lineHeight: 1.5,
+            color: "#525252",
+            padding: "8px 0",
+            paddingLeft: "24px",
+            position: "relative",
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              left: "0",
+              color: "#ff4400",
+              fontWeight: 700,
+            }}
+          >
+            →
+          </span>
+          Behind-the-scenes course development insights
+        </li>
+      </ul>
+    </div>
+
+    {/* CTA Section */}
+    <div style={{ padding: "24px", textAlign: "center" }}>
+      <p
+        style={{
+          fontSize: "15px",
+          lineHeight: 1.6,
+          color: "#525252",
+          margin: "0 0 20px 0",
+        }}
+      >
+        In the meantime, explore what we&apos;re building:
+      </p>
+      <a
+        href="https://designengineer.xyz/course"
+        style={{
+          display: "inline-block",
+          backgroundColor: "#ff4400",
+          color: "#ffffff",
+          fontSize: "14px",
+          fontWeight: 600,
+          textDecoration: "none",
+          padding: "12px 24px",
+          letterSpacing: "0.02em",
+        }}
+      >
+        Explore the Course →
+      </a>
+    </div>
+
+    {/* Footer */}
+    <div
+      style={{
+        padding: "24px",
+        borderTop: "1px solid #e5e5e5",
+        textAlign: "center",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "13px",
+          color: "#a3a3a3",
+          margin: "0 0 8px 0",
+          lineHeight: 1.5,
+        }}
+      >
+        d×e · Design Engineer Course
+      </p>
+      <a
+        href="https://designengineer.xyz"
+        style={{
+          fontSize: "13px",
+          color: "#a3a3a3",
+          textDecoration: "none",
+        }}
+      >
+        designengineer.xyz
+      </a>
+    </div>
+  </div>
+);
+
 export const EmailSubmissionTemplate: React.FC<
   Readonly<EmailTemplateProps>
 > = ({ email }) => (

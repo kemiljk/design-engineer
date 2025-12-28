@@ -1,4 +1,7 @@
-import { EmailWaitlistTemplate } from "../../components/email-template";
+import {
+  EmailWaitlistTemplate,
+  CourseWaitlistConfirmationTemplate,
+} from "../../components/email-template";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
@@ -26,6 +29,17 @@ export async function POST(request: Request) {
       await resend.contacts.create({
         audienceId,
         email,
+      });
+
+      // Send confirmation email to the subscriber
+      await resend.emails.send({
+        from: "d×e <hello@designengineer.xyz>",
+        to: [email],
+        subject: "You're on the list! Design Engineer Course",
+        react: CourseWaitlistConfirmationTemplate({
+          email,
+        }) as React.ReactElement<unknown>,
+        text: "Thanks for signing up to be notified about the Design Engineer Course. We'll let you know as soon as there's news.",
       });
 
       // Notify admin about new subscriber
