@@ -280,12 +280,13 @@ export function FloatingNotesPanel({
       togglePin(noteId, !updates.is_pinned);
     }
     if (updates.content !== undefined) {
-      setEditingContent(updates.content);
+      const newContent = updates.content;
+      setEditingContent(newContent);
       // Also update the note in the notes array so preview updates
       setNotes((prev) =>
         prev.map((n) =>
           n.id === noteId
-            ? { ...n, metadata: { ...n.metadata, content: updates.content } }
+            ? { ...n, metadata: { ...n.metadata, content: newContent } }
             : n
         )
       );

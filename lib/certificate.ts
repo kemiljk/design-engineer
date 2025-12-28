@@ -61,11 +61,22 @@ export async function checkCertificateEligibility(
 ): Promise<Type.CertificateEligibility> {
   const requirements = PLATFORM_REQUIREMENTS[platform];
   
-  const [designStatus, engineeringStatus, convergenceStatus, existingCert] = await Promise.all([
+  const [
+    designStatus, 
+    engineeringStatus, 
+    convergenceStatus, 
+    existingCert,
+    designTrackCert,
+    engineeringTrackCert,
+    convergenceTrackCert,
+  ] = await Promise.all([
     getTrackCompletionStatus(userId, requirements.design.track, requirements.design.platform),
     getTrackCompletionStatus(userId, requirements.engineering.track, requirements.engineering.platform),
     getTrackCompletionStatus(userId, requirements.convergence.track, requirements.convergence.platform),
     getUserCertificate(userId, platform),
+    getUserTrackCertificate(userId, platform, 'design'),
+    getUserTrackCertificate(userId, platform, 'engineering'),
+    getUserTrackCertificate(userId, platform, 'convergence'),
   ]);
   
   const designComplete = designStatus.completed >= requirements.design.total;
@@ -82,6 +93,9 @@ export async function checkCertificateEligibility(
     engineeringProgress: { completed: engineeringStatus.completed, total: requirements.engineering.total },
     convergenceProgress: { completed: convergenceStatus.completed, total: requirements.convergence.total },
     certificate: existingCert || undefined,
+    designCertificate: designTrackCert || undefined,
+    engineeringCertificate: engineeringTrackCert || undefined,
+    convergenceCertificate: convergenceTrackCert || undefined,
   };
 }
 
@@ -100,13 +114,54 @@ export async function getUserCertificate(
       .depth(1)
       .limit(1);
     
-    return objects?.[0] || null;
-  } catch (error: unknown) {
-    if (error && typeof error === "object" && "status" in error && error.status === 404) {
-      return null;
-    }
-    console.error("Error fetching certificate:", error);
+    // Filter out track certificates (which have a track field)
+    const masterCerts = objects?.filter((obj: { metadata: { track?: Type.CertificateTrack } }) => !obj.metadata.track) || [];
+    return masterCerts[0] || null;
+  } catch {
+    // No certificates is an expected state - return null silently
     return null;
+  }
+}
+
+export async function getUserTrackCertificate(
+  userId: string,
+  platform: Type.CertificatePlatform,
+  track: Type.CertificateTrack
+): Promise<Type.TrackCertificate | null> {
+  try {
+    const { objects } = await cosmic.objects
+      .find({
+        type: "course-certificates",
+        "metadata.user_id": userId,
+        "metadata.platform": platform,
+        "metadata.track": track,
+      })
+      .props("id,slug,title,created_at,metadata")
+      .depth(1)
+      .limit(1);
+    
+    return objects?.[0] || null;
+  } catch {
+    // No certificates is an expected state - return null silently
+    return null;
+  }
+}
+
+export async function getUserTrackCertificates(userId: string): Promise<Type.TrackCertificate[]> {
+  try {
+    const { objects } = await cosmic.objects
+      .find({
+        type: "course-certificates",
+        "metadata.user_id": userId,
+      })
+      .props("id,slug,title,created_at,metadata")
+      .depth(1);
+    
+    // Filter to only track certificates (which have a track field)
+    return objects?.filter((obj: { metadata: { track?: Type.CertificateTrack } }) => obj.metadata.track) || [];
+  } catch {
+    // No certificates is an expected state - return empty array silently
+    return [];
   }
 }
 
@@ -120,17 +175,15 @@ export async function getUserCertificates(userId: string): Promise<Type.Certific
       .props("id,slug,title,created_at,metadata")
       .depth(1);
     
-    return objects || [];
-  } catch (error: unknown) {
-    if (error && typeof error === "object" && "status" in error && error.status === 404) {
-      return [];
-    }
-    console.error("Error fetching certificates:", error);
+    // Filter to only master certificates (which don't have a track field)
+    return objects?.filter((obj: { metadata: { track?: Type.CertificateTrack } }) => !obj.metadata.track) || [];
+  } catch {
+    // No certificates is an expected state - return empty array silently
     return [];
   }
 }
 
-export async function getCertificateBySlug(slug: string): Promise<Type.Certificate | null> {
+export async function getCertificateBySlug(slug: string): Promise<Type.Certificate | Type.TrackCertificate | null> {
   try {
     const { object } = await cosmic.objects
       .findOne({
@@ -141,11 +194,8 @@ export async function getCertificateBySlug(slug: string): Promise<Type.Certifica
       .depth(1);
     
     return object || null;
-  } catch (error: unknown) {
-    if (error && typeof error === "object" && "status" in error && error.status === 404) {
-      return null;
-    }
-    console.error("Error fetching certificate:", error);
+  } catch {
+    // Certificate not found - return null (could be invalid/broken link)
     return null;
   }
 }
@@ -218,7 +268,96 @@ export function formatPlatformName(platform: Type.CertificatePlatform): string {
   return names[platform];
 }
 
+export function formatTrackName(track: Type.CertificateTrack): string {
+  const names = { design: 'Design', engineering: 'Engineering', convergence: 'Convergence' };
+  return names[track];
+}
+
 export function getTotalLessonsForPlatform(platform: Type.CertificatePlatform): number {
   const req = PLATFORM_REQUIREMENTS[platform];
   return req.design.total + req.engineering.total + req.convergence.total;
+}
+
+// Check eligibility for a specific track certificate
+export async function checkTrackCertificateEligibility(
+  userId: string,
+  platform: Type.CertificatePlatform,
+  track: Type.CertificateTrack
+): Promise<Type.TrackCertificateEligibility> {
+  const trackMap = {
+    design: 'design-track',
+    engineering: 'engineering-track',
+    convergence: 'convergence',
+  } as const;
+  
+  const [status, existingCert] = await Promise.all([
+    getTrackCompletionStatus(userId, trackMap[track], platform),
+    getUserTrackCertificate(userId, platform, track),
+  ]);
+  
+  const requirements = PLATFORM_REQUIREMENTS[platform];
+  const trackReq = requirements[track];
+  
+  return {
+    platform,
+    track,
+    eligible: status.completed >= trackReq.total,
+    progress: { completed: status.completed, total: trackReq.total },
+    certificate: existingCert || undefined,
+  };
+}
+
+// Issue a track-specific certificate
+export async function issueTrackCertificate(
+  userId: string,
+  userName: string,
+  userEmail: string,
+  platform: Type.CertificatePlatform,
+  track: Type.CertificateTrack
+): Promise<Type.TrackCertificate> {
+  const eligibility = await checkTrackCertificateEligibility(userId, platform, track);
+  
+  if (!eligibility.eligible) {
+    throw new Error(`User is not eligible for ${platform} ${track} certificate`);
+  }
+  
+  if (eligibility.certificate) {
+    return eligibility.certificate;
+  }
+  
+  const trackMap = {
+    design: 'design-track',
+    engineering: 'engineering-track',
+    convergence: 'convergence',
+  } as const;
+  
+  const status = await getTrackCompletionStatus(userId, trackMap[track], platform);
+  const progress = await getUserProgress(userId);
+  const totalTimeSpent = progress?.metadata.total_time_spent_seconds || 0;
+  
+  const certificateNumber = generateCertificateNumber();
+  const slug = `cert-${platform}-${track}-${userId}-${nanoid(8)}`.toLowerCase();
+  const today = new Date().toISOString().split('T')[0];
+  
+  const platformTitles = { web: 'Web', ios: 'iOS', android: 'Android' };
+  const trackTitles = { design: 'Design', engineering: 'Engineering', convergence: 'Convergence' };
+  
+  const result = await cosmic.objects.insertOne({
+    type: "course-certificates",
+    title: `${platformTitles[platform]} ${trackTitles[track]} Track Certificate - ${userName}`,
+    slug,
+    metadata: {
+      user_id: userId,
+      user_name: userName,
+      user_email: userEmail,
+      platform,
+      track,
+      issued_at: today,
+      certificate_number: certificateNumber,
+      completed_at: status.completedAt || today,
+      total_time_spent_seconds: totalTimeSpent,
+    },
+  });
+  
+  return result.object;
 }

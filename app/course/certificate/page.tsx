@@ -2,8 +2,9 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Award } from "lucide-react";
-import { getUserCertificates, checkCertificateEligibility } from "@/lib/certificate";
+import { getUserCertificates, getUserTrackCertificates, checkCertificateEligibility } from "@/lib/certificate";
 import { CertificateCard } from "./certificate-card";
+import { TrackCertificateCard } from "./track-certificate-card";
 import { EligibilityCard } from "./eligibility-card";
 
 export const metadata = {
@@ -18,14 +19,16 @@ export default async function CertificatesPage() {
     redirect("/sign-in?redirect_url=/course/certificate");
   }
   
-  const [certificates, webEligibility, iosEligibility, androidEligibility] = await Promise.all([
+  const [certificates, trackCertificates, webEligibility, iosEligibility, androidEligibility] = await Promise.all([
     getUserCertificates(userId),
+    getUserTrackCertificates(userId),
     checkCertificateEligibility(userId, 'web'),
     checkCertificateEligibility(userId, 'ios'),
     checkCertificateEligibility(userId, 'android'),
   ]);
   
   const eligibilities = [webEligibility, iosEligibility, androidEligibility];
+  const hasAnyCertificates = certificates.length > 0 || trackCertificates.length > 0;
 
   return (
     <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
@@ -44,14 +47,17 @@ export default async function CertificatesPage() {
             <h1 className="text-3xl font-bold">Your Certificates</h1>
           </div>
           <p className="text-neutral-600 dark:text-neutral-400">
-            Complete all three tracks (Design, Engineering, Convergence) for a platform 
-            to earn your Design Engineer certificate.
+            Earn track certificates as you complete each track, and unlock your 
+            Design Engineer certificate by completing all three tracks for a platform.
           </p>
         </div>
 
         {certificates.length > 0 && (
           <section className="mb-12">
-            <h2 className="text-xl font-bold mb-4">Earned Certificates</h2>
+            <h2 className="text-xl font-bold mb-4">Design Engineer Certificates</h2>
+            <p className="text-sm text-neutral-500 mb-4">
+              Earned by completing all three tracks (Design, Engineering, Convergence) for a platform.
+            </p>
             <div className="grid gap-4">
               {certificates.map((cert) => (
                 <CertificateCard key={cert.id} certificate={cert} />
@@ -60,9 +66,23 @@ export default async function CertificatesPage() {
           </section>
         )}
 
+        {trackCertificates.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-xl font-bold mb-4">Track Certificates</h2>
+            <p className="text-sm text-neutral-500 mb-4">
+              Earned by completing individual tracks.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {trackCertificates.map((cert) => (
+                <TrackCertificateCard key={cert.id} certificate={cert} />
+              ))}
+            </div>
+          </section>
+        )}
+
         <section>
           <h2 className="text-xl font-bold mb-4">
-            {certificates.length > 0 ? "Other Certificates" : "Available Certificates"}
+            {hasAnyCertificates ? "Progress Towards Certificates" : "Available Certificates"}
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {eligibilities.map((eligibility) => (

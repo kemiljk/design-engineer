@@ -2,16 +2,39 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Award, CheckCircle, Calendar, Clock, ExternalLink } from "lucide-react";
 import { getCertificateBySlug, getTotalLessonsForPlatform } from "@/lib/certificate";
+import { COURSE_STRUCTURE } from "@/lib/course-shared";
+import type { CertificatePlatform, CertificateTrack } from "@/lib/types";
 
 interface VerifyPageProps {
   params: Promise<{ slug: string }>;
 }
 
-const platformTitles = {
+const platformTitles: Record<CertificatePlatform, string> = {
   web: "Web Design Engineer",
   ios: "iOS Design Engineer",
   android: "Android Design Engineer",
 };
+
+const platformNames: Record<CertificatePlatform, string> = {
+  web: "Web",
+  ios: "iOS",
+  android: "Android",
+};
+
+const trackTitles: Record<CertificateTrack, string> = {
+  design: "Design Track",
+  engineering: "Engineering Track",
+  convergence: "Convergence Track",
+};
+
+function getTrackLessonCount(platform: CertificatePlatform, track: CertificateTrack): number {
+  const trackMap = {
+    design: COURSE_STRUCTURE.design[platform].lessons,
+    engineering: COURSE_STRUCTURE.engineering[platform].lessons,
+    convergence: COURSE_STRUCTURE.convergence[platform].lessons,
+  };
+  return trackMap[track];
+}
 
 export async function generateMetadata({ params }: VerifyPageProps) {
   const { slug } = await params;
@@ -21,9 +44,20 @@ export async function generateMetadata({ params }: VerifyPageProps) {
     return { title: "Certificate Not Found" };
   }
   
+  const { metadata } = certificate;
+  const isTrackCert = 'track' in metadata && metadata.track;
+  
+  if (isTrackCert) {
+    const track = metadata.track as CertificateTrack;
+    return {
+      title: `${metadata.user_name} - ${platformNames[metadata.platform]} ${trackTitles[track]} | Design Engineer`,
+      description: `Verify ${metadata.user_name}'s ${trackTitles[track]} certificate`,
+    };
+  }
+  
   return {
-    title: `${certificate.metadata.user_name} - ${platformTitles[certificate.metadata.platform]} | Design Engineer`,
-    description: `Verify ${certificate.metadata.user_name}'s Design Engineer certificate`,
+    title: `${metadata.user_name} - ${platformTitles[metadata.platform]} | Design Engineer`,
+    description: `Verify ${metadata.user_name}'s Design Engineer certificate`,
   };
 }
 
@@ -36,7 +70,10 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
   }
   
   const { metadata } = certificate;
-  const issuedDate = new Date(metadata.issued_at).toLocaleDateString("en-US", {
+  const isTrackCert = 'track' in metadata && metadata.track;
+  const track = isTrackCert ? (metadata.track as CertificateTrack) : null;
+  
+  const issuedDate = new Date(metadata.issued_at).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -50,6 +87,10 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
     }
     return `${minutes}m`;
   };
+
+  const lessonCount = isTrackCert && track
+    ? getTrackLessonCount(metadata.platform, track)
+    : getTotalLessonsForPlatform(metadata.platform);
 
   return (
     <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 py-12">
@@ -67,7 +108,9 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
             <h1 className="text-sm font-medium tracking-widest text-swiss-red mb-2">
               DESIGN ENGINEER
             </h1>
-            <h2 className="text-2xl font-bold mb-1">Certificate of Completion</h2>
+            <h2 className="text-2xl font-bold mb-1">
+              {isTrackCert ? "Track Certificate" : "Certificate of Completion"}
+            </h2>
             <p className="text-neutral-500">The Design Engineer Course</p>
           </div>
 
@@ -75,11 +118,22 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
             <p className="text-sm text-neutral-500 mb-2">This certifies that</p>
             <p className="text-3xl font-bold mb-2">{metadata.user_name}</p>
             <p className="text-sm text-neutral-500 mb-4">
-              has successfully completed all requirements for
+              has successfully completed {isTrackCert ? "the" : "all requirements for"}
             </p>
-            <p className="text-xl font-bold text-swiss-red">
-              {platformTitles[metadata.platform]}
-            </p>
+            {isTrackCert && track ? (
+              <>
+                <p className="text-xl font-bold mb-1">
+                  {trackTitles[track]}
+                </p>
+                <p className="text-swiss-red font-medium">
+                  {platformNames[metadata.platform]} Platform
+                </p>
+              </>
+            ) : (
+              <p className="text-xl font-bold text-swiss-red">
+                {platformTitles[metadata.platform]}
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-3 gap-4 py-6 border-y border-neutral-200 dark:border-neutral-800 mb-6">
@@ -102,7 +156,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
                 <Award className="h-4 w-4" />
                 <span className="text-xs">Lessons</span>
               </div>
-              <p className="font-medium text-sm">{getTotalLessonsForPlatform(metadata.platform)}</p>
+              <p className="font-medium text-sm">{lessonCount}</p>
             </div>
           </div>
 
