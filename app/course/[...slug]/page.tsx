@@ -22,6 +22,7 @@ import { UpgradePrompt } from "../components/upgrade-prompt";
 import { FloatingNotesPanel } from "../components/floating-notes-panel";
 import { LessonTracker } from "../components/lesson-tracker";
 import { MarkCompleteButton } from "../components/mark-complete-button";
+import { TrackCompletionCTA } from "../components/track-completion-cta";
 import { getProductWithPrice } from "@/lib/lemonsqueezy";
 import type { ProductKey } from "@/lib/types";
 import { TrackPlatformSelector } from "../components/track-platform-selector";
@@ -456,7 +457,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-3" />
+                  <TrackCompletionCTA lessonPath={lessonPath} isLoggedIn={!!userId} />
                 )}
               </div>
             </div>

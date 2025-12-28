@@ -13,9 +13,10 @@ interface CheckpointItem {
 interface CheckpointCardProps {
   items: string[];
   storageKey: string;
+  title?: string;
 }
 
-export function CheckpointCard({ items, storageKey }: CheckpointCardProps) {
+export function CheckpointCard({ items, storageKey, title = "Checklist" }: CheckpointCardProps) {
   const [checklistItems, setChecklistItems] = useState<CheckpointItem[]>(() =>
     items.map((label, i) => ({
       id: `${storageKey}-${i}`,
@@ -125,12 +126,12 @@ export function CheckpointCard({ items, storageKey }: CheckpointCardProps) {
                     : "text-neutral-900 dark:text-white"
                 )}
               >
-                {isComplete ? "Checkpoint Complete!" : "Checkpoint"}
+                {isComplete ? `${title} Complete!` : title}
               </h4>
               <p className="text-xs text-neutral-500 dark:text-neutral-400">
                 {isComplete
                   ? "You're ready to move on"
-                  : "Before moving on, verify:"}
+                  : "Track your progress:"}
               </p>
             </div>
           </div>

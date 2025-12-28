@@ -306,19 +306,66 @@ function extractCheckboxItems(content: string): string[] {
   return items;
 }
 
-// Component to render markdown content that may contain illustration/visual-example comments
+// Helper to find checklist blocks in content
+function findChecklistBlocks(content: string): { start: number; end: number; items: string[] }[] {
+  const blocks: { start: number; end: number; items: string[] }[] = [];
+  const lines = content.split('\n');
+  let currentBlock: { start: number; items: string[]; startLine: number } | null = null;
+  let charIndex = 0;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const checkboxMatch = line.match(/^\s*[-*]\s+\[[\sx]\]\s+(.+)$/i);
+    
+    if (checkboxMatch) {
+      if (!currentBlock) {
+        currentBlock = { start: charIndex, items: [], startLine: i };
+      }
+      currentBlock.items.push(checkboxMatch[1].trim());
+    } else {
+      // Non-checkbox line - close current block if exists
+      if (currentBlock && currentBlock.items.length > 0) {
+        blocks.push({
+          start: currentBlock.start,
+          end: charIndex,
+          items: currentBlock.items,
+        });
+        currentBlock = null;
+      }
+    }
+    
+    charIndex += line.length + 1; // +1 for newline
+  }
+
+  // Close final block if exists
+  if (currentBlock && currentBlock.items.length > 0) {
+    blocks.push({
+      start: currentBlock.start,
+      end: charIndex,
+      items: currentBlock.items,
+    });
+  }
+
+  return blocks;
+}
+
+// Component to render markdown content that may contain illustration/visual-example comments and checklists
 function MarkdownWithIllustrations({
   content,
   components,
+  lessonPath,
+  sectionId,
 }: {
   content: string;
   components: any;
+  lessonPath?: string;
+  sectionId?: string;
 }) {
   const illustrationRegex = /<!--\s*illustration:\s*([a-z0-9-]+)\s*-->/g;
   const visualExampleRegex = /<!--\s*visual-example:\s*([a-z0-9-]+)\s*-->/g;
 
   // Find all special blocks
-  const blocks: { type: 'text' | 'illustration' | 'visual-example'; content: string; index: number; length: number }[] = [];
+  const blocks: { type: 'text' | 'illustration' | 'visual-example' | 'checklist'; content: string; index: number; length: number; items?: string[] }[] = [];
   let match;
 
   while ((match = illustrationRegex.exec(content)) !== null) {
@@ -339,6 +386,18 @@ function MarkdownWithIllustrations({
     });
   }
 
+  // Find checklist blocks
+  const checklistBlocks = findChecklistBlocks(content);
+  for (const cb of checklistBlocks) {
+    blocks.push({
+      type: 'checklist',
+      content: '',
+      index: cb.start,
+      length: cb.end - cb.start,
+      items: cb.items,
+    });
+  }
+
   // If no special blocks, just render markdown
   if (blocks.length === 0) {
     return (
@@ -353,6 +412,7 @@ function MarkdownWithIllustrations({
 
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
+  let checklistCounter = 0;
 
   blocks.forEach((block, i) => {
     // Add text before this block
@@ -379,6 +439,18 @@ function MarkdownWithIllustrations({
         <div key={`ve-${i}`} className="my-6">
           <VisualExampleRenderer type={block.content} />
         </div>
+      );
+    } else if (block.type === 'checklist' && block.items && block.items.length > 0) {
+      const storageKey = lessonPath
+        ? `${lessonPath.replace(/\//g, "-")}-${sectionId || 'content'}-checklist-${checklistCounter}`
+        : `checklist-${i}`;
+      checklistCounter++;
+      parts.push(
+        <CheckpointCard
+          key={`checklist-${i}`}
+          items={block.items}
+          storageKey={storageKey}
+        />
       );
     }
 
@@ -534,6 +606,8 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
                   <MarkdownWithIllustrations
                     content={section.content}
                     components={components}
+                    lessonPath={lessonPath}
+                    sectionId={section.id}
                   />
                 </ExerciseCard>
               </SectionWrapper>
@@ -568,21 +642,25 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
             );
 
           case "checkpoint":
-            if (section.checkpointItems && section.checkpointItems.length > 0) {
-              // Create a storage key from the lesson path
-              const storageKey = lessonPath
-                ? lessonPath.replace(/\//g, "-")
-                : `checkpoint-${index}`;
-              return (
-                <SectionWrapper key={index} id={section.id}>
-                  <CheckpointCard
-                    items={section.checkpointItems}
-                    storageKey={storageKey}
+            // Checkpoint sections are now handled as regular content with checklists
+            // The MarkdownWithIllustrations component will automatically convert
+            // any checklist items into interactive CheckpointCard components
+            return (
+              <SectionWrapper key={index} id={section.id}>
+                <div
+                  className={cn(
+                    "prose prose-neutral max-w-none text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none"
+                  )}
+                >
+                  <MarkdownWithIllustrations
+                    content={section.content}
+                    components={components}
+                    lessonPath={lessonPath}
+                    sectionId={section.id}
                   />
-                </SectionWrapper>
-              );
-            }
-            return null;
+                </div>
+              </SectionWrapper>
+            );
 
           case "content":
           default:
@@ -593,9 +671,12 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
                     "prose prose-neutral max-w-none text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none"
                   )}
                 >
-                  <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
-                    {section.content}
-                  </ReactMarkdown>
+                  <MarkdownWithIllustrations
+                    content={section.content}
+                    components={components}
+                    lessonPath={lessonPath}
+                    sectionId={section.id}
+                  />
                 </div>
               </SectionWrapper>
             );
