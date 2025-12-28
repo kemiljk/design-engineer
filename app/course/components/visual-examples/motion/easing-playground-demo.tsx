@@ -86,7 +86,7 @@ export function EasingPlaygroundDemo() {
     setIsPlaying(true);
     await controls.start({
       x: [0, 200],
-      transition: { duration: 1, ease: points as unknown as number[] },
+      transition: { duration: 1, ease: points },
     });
     await new Promise((resolve) => setTimeout(resolve, 500));
     await controls.start({

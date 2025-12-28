@@ -108,7 +108,7 @@ export function createTransition(
 ): Transition {
   return {
     duration,
-    ease: easings[easing] as unknown as number[],
+    ease: easings[easing],
   };
 }
 

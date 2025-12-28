@@ -27,9 +27,10 @@ export function SpringPhysicsDemo() {
   const historyRef = useRef<number[]>([]);
   const frameRef = useRef<number>(0);
 
-  // Update spring config when state changes
+  // Trigger spring animation when config changes
   useEffect(() => {
-    springValue.set(springValue.get(), { stiffness, damping, mass });
+    // Re-trigger the spring to the current value to show the new physics
+    springValue.set(springValue.get());
   }, [stiffness, damping, mass, springValue]);
 
   // Canvas Drawing Loop

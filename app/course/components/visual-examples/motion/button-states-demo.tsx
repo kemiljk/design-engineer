@@ -16,7 +16,7 @@ type ButtonState = "idle" | "hover" | "pressed" | "loading" | "success";
 export function ButtonStatesDemo() {
   const [activeState, setActiveState] = useState<ButtonState>("idle");
   const [showCode, setShowCode] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const triggerLoading = () => {
     setActiveState("loading");
