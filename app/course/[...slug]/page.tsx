@@ -4,7 +4,7 @@ import Link from "next/link";
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { ArrowLeft, ArrowRight, Lock } from "lucide-react";
+import { ArrowLeft, ArrowRight, Lock, Clock } from "lucide-react";
 import { 
   getUserEnrollment, 
   canAccessLesson, 
@@ -26,6 +26,13 @@ import { getProductWithPrice } from "@/lib/lemonsqueezy";
 import type { ProductKey } from "@/lib/types";
 import { TrackPlatformSelector } from "../components/track-platform-selector";
 import { LessonContent } from "./lesson-content";
+import { 
+  watermarkContent, 
+  checkRateLimit, 
+  logSuspiciousActivity,
+  sendSuspiciousActivityAlert,
+  RATE_LIMIT_CONFIG,
+} from "@/lib/content-protection";
 
 function getRequiredAccess(lessonPath: string): ProductKey {
   if (lessonPath.startsWith("design-track/web")) return "design_web";
@@ -197,6 +204,78 @@ export default async function LessonPage({ params }: LessonPageProps) {
     );
   }
 
+  // Rate limiting check for authenticated users accessing paid content
+  if (userId && !isFree) {
+    const rateLimit = checkRateLimit(userId, lessonPath);
+    
+    // Log and alert on suspicious activity
+    if (rateLimit.suspicious) {
+      const alertMetadata = {
+        remaining: rateLimit.remaining,
+        resetAt: new Date(rateLimit.resetAt).toISOString(),
+        accessCount: RATE_LIMIT_CONFIG.suspiciousThreshold,
+      };
+      
+      logSuspiciousActivity(userId, lessonPath, 'High lesson access rate', alertMetadata);
+      
+      // Send email alert (fire-and-forget, don't block page render)
+      sendSuspiciousActivityAlert(
+        userId, 
+        lessonPath, 
+        'High lesson access rate', 
+        alertMetadata
+      ).catch(() => {
+        // Silently fail - already logged to console
+      });
+    }
+    
+    // Show rate limit message if exceeded
+    if (!rateLimit.allowed) {
+      const resetTime = new Date(rateLimit.resetAt);
+      const minutesRemaining = Math.ceil((rateLimit.resetAt - Date.now()) / 60000);
+      
+      return (
+        <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+          <div className="container-readable py-8">
+            <Link
+              href={backLink.href}
+              className="mb-8 inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              {backLink.label}
+            </Link>
+
+            <div className="rounded-none border border-amber-200 bg-amber-50 p-8 dark:border-amber-800 dark:bg-amber-950">
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-none bg-amber-100 dark:bg-amber-900">
+                  <Clock className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold text-amber-900 dark:text-amber-100">
+                    Slow Down a Bit
+                  </h1>
+                  <p className="text-sm text-amber-700 dark:text-amber-300">
+                    You&apos;re accessing lessons faster than expected
+                  </p>
+                </div>
+              </div>
+              
+              <p className="mb-4 text-amber-800 dark:text-amber-200">
+                To ensure the best learning experience and protect our content, 
+                we limit how quickly you can access lessons. Please take a short 
+                break and return in about {minutesRemaining} minute{minutesRemaining !== 1 ? 's' : ''}.
+              </p>
+              
+              <p className="text-sm text-amber-600 dark:text-amber-400">
+                Access resets at {resetTime.toLocaleTimeString()}
+              </p>
+            </div>
+          </div>
+        </main>
+      );
+    }
+  }
+
   const [adjacentLessons, lessonCompleted] = await Promise.all([
     getAdjacentLessonsAcrossModules(lessonPath),
     userId ? isLessonCompleted(userId, lessonPath) : Promise.resolve(false),
@@ -206,7 +285,13 @@ export default async function LessonPage({ params }: LessonPageProps) {
   // Extract title from content (first h1) and remove it from content to avoid duplication
   const titleMatch = lesson.content.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1] : slug[slug.length - 1];
-  const contentWithoutTitle = lesson.content.replace(/^#\s+.+\n*/m, "");
+  let contentWithoutTitle = lesson.content.replace(/^#\s+.+\n*/m, "");
+  
+  // Apply watermarking for authenticated users on paid content
+  // This embeds invisible user identification for content leak tracing
+  if (userId && !isFree) {
+    contentWithoutTitle = watermarkContent(contentWithoutTitle, userId, lessonPath);
+  }
 
   const isTrackIndex = slug.length === 1 && ["design-track", "engineering-track", "convergence"].includes(slug[0]);
 

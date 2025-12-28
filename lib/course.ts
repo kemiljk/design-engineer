@@ -32,9 +32,19 @@ const ACCESS_MAP: Record<Type.AccessLevel, string[]> = {
   design_web: ["design-track/web"],
   design_ios: ["design-track/ios"],
   design_android: ["design-track/android"],
+  design_full: [
+    "design-track/web",
+    "design-track/ios",
+    "design-track/android",
+  ],
   engineering_web: ["engineering-track/web"],
   engineering_ios: ["engineering-track/ios"],
   engineering_android: ["engineering-track/android"],
+  engineering_full: [
+    "engineering-track/web",
+    "engineering-track/ios",
+    "engineering-track/android",
+  ],
   full: [
     "design-track/web",
     "design-track/ios",
@@ -432,12 +442,26 @@ function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
       return intro + COURSE_STRUCTURE.design.ios.lessons;
     case "design_android":
       return intro + COURSE_STRUCTURE.design.android.lessons;
+    case "design_full":
+      return (
+        intro +
+        COURSE_STRUCTURE.design.web.lessons +
+        COURSE_STRUCTURE.design.ios.lessons +
+        COURSE_STRUCTURE.design.android.lessons
+      );
     case "engineering_web":
       return intro + COURSE_STRUCTURE.engineering.web.lessons;
     case "engineering_ios":
       return intro + COURSE_STRUCTURE.engineering.ios.lessons;
     case "engineering_android":
       return intro + COURSE_STRUCTURE.engineering.android.lessons;
+    case "engineering_full":
+      return (
+        intro +
+        COURSE_STRUCTURE.engineering.web.lessons +
+        COURSE_STRUCTURE.engineering.ios.lessons +
+        COURSE_STRUCTURE.engineering.android.lessons
+      );
     case "full":
       // Full access: all tracks
       return (

@@ -10,6 +10,7 @@ const LEMONSQUEEZY_WEBHOOK_SECRET = process.env.LEMONSQUEEZY_WEBHOOK_SECRET;
 const API_BASE = "https://api.lemonsqueezy.com/v1";
 
 export const PRODUCT_CONFIG = {
+  // Individual platform tracks
   design_web: {
     name: "Design Track (Web)",
     variantId: process.env.LEMON_PRODUCT_DESIGN_WEB,
@@ -23,6 +24,7 @@ export const PRODUCT_CONFIG = {
       "Interactive exercises",
       "Lifetime access",
     ],
+    tier: "platform",
   },
   design_ios: {
     name: "Design Track (iOS)",
@@ -36,6 +38,7 @@ export const PRODUCT_CONFIG = {
       "Interactive exercises",
       "Lifetime access",
     ],
+    tier: "platform",
   },
   design_android: {
     name: "Design Track (Android)",
@@ -49,6 +52,7 @@ export const PRODUCT_CONFIG = {
       "Interactive exercises",
       "Lifetime access",
     ],
+    tier: "platform",
   },
   engineering_web: {
     name: "Engineering Track (Web)",
@@ -63,6 +67,7 @@ export const PRODUCT_CONFIG = {
       "Interactive exercises",
       "Lifetime access",
     ],
+    tier: "platform",
   },
   engineering_ios: {
     name: "Engineering Track (iOS)",
@@ -76,6 +81,7 @@ export const PRODUCT_CONFIG = {
       "Interactive exercises",
       "Lifetime access",
     ],
+    tier: "platform",
   },
   engineering_android: {
     name: "Engineering Track (Android)",
@@ -89,23 +95,61 @@ export const PRODUCT_CONFIG = {
       "Interactive exercises",
       "Lifetime access",
     ],
+    tier: "platform",
   },
-  full: {
-    name: "Convergence: All-Access Pass",
-    variantId: process.env.LEMON_PRODUCT_FULL,
-    description: "Complete access to everything - all tracks, all platforms, all content",
+  
+  // Full track bundles (all platforms within a track)
+  design_full: {
+    name: "Design: Full Access",
+    variantId: process.env.LEMON_PRODUCT_DESIGN_FULL,
+    description: "Complete Design Track across all platforms",
     features: [
-      "✨ ALL 156 LESSONS - EVERYTHING INCLUDED",
-      "All Design Track lessons (Web, iOS, Android)",
-      "All Engineering Track lessons (Web, iOS, Android)",
-      "Exclusive Convergence Track (motion, prototyping, workflow)",
-      "All 3 platforms: Web, iOS & Android",
-      "All interactive exercises & assessments",
-      "Future course updates included forever",
-      "Lifetime access - learn at your own pace",
+      "All Design lessons (Web, iOS, Android)",
+      "48+ comprehensive lessons",
+      "Visual design fundamentals",
+      "Platform-specific patterns (HIG, Material)",
+      "Design systems architecture",
+      "UX principles",
+      "All interactive exercises",
+      "Lifetime access",
+    ],
+    tier: "track",
+  },
+  engineering_full: {
+    name: "Engineering: Full Access",
+    variantId: process.env.LEMON_PRODUCT_ENGINEERING_FULL,
+    description: "Complete Engineering Track across all platforms",
+    features: [
+      "All Engineering lessons (Web, iOS, Android)",
+      "67+ comprehensive lessons",
+      "Web: HTML, CSS, JavaScript, React",
+      "iOS: Swift & SwiftUI",
+      "Android: Kotlin & Compose",
+      "Component architecture",
+      "All interactive exercises",
+      "Lifetime access",
+    ],
+    tier: "track",
+  },
+  
+  // Everything bundle
+  full: {
+    name: "Convergence: All-Access",
+    variantId: process.env.LEMON_PRODUCT_FULL,
+    description: "Everything included — all tracks, all platforms, plus exclusive content",
+    features: [
+      "✨ ALL 156+ LESSONS INCLUDED",
+      "Complete Design Track (all platforms)",
+      "Complete Engineering Track (all platforms)",
+      "Exclusive Convergence content",
+      "Advanced motion & prototyping",
+      "Accessibility deep-dive",
+      "Career & portfolio guidance",
+      "All future updates included",
       "Priority support",
     ],
     popular: true,
+    tier: "bundle",
   },
 } as const;
 

@@ -317,6 +317,100 @@ export default async function CoursePage() {
         </div>
       )}
 
+      {/* Pricing Preview - only show for non-enrolled users */}
+      {(!accessLevel || accessLevel === "free") && (
+        <div className="border-t border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="container-page">
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-8 text-center">
+                <h2 className="heading-subsection mb-2">Simple, Transparent Pricing</h2>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  One-time payment. Lifetime access. No subscriptions.
+                </p>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-3">
+                {/* Design Full */}
+                <div className="rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50">
+                  <div className="mb-1 text-xs font-medium uppercase tracking-wider text-swiss-red">
+                    Design Track
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold">Full Access</h3>
+                  <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                    All design content across Web, iOS & Android
+                  </p>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold">£299</span>
+                    <span className="text-neutral-500"> one-time</span>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li>✓ 48+ design lessons</li>
+                    <li>✓ All 3 platforms</li>
+                    <li>✓ Lifetime access</li>
+                  </ul>
+                </div>
+
+                {/* Engineering Full */}
+                <div className="rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50">
+                  <div className="mb-1 text-xs font-medium uppercase tracking-wider text-neutral-500">
+                    Engineering Track
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold">Full Access</h3>
+                  <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                    All engineering content across Web, iOS & Android
+                  </p>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold">£349</span>
+                    <span className="text-neutral-500"> one-time</span>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li>✓ 67+ engineering lessons</li>
+                    <li>✓ All 3 platforms</li>
+                    <li>✓ Lifetime access</li>
+                  </ul>
+                </div>
+
+                {/* Convergence */}
+                <div className="rounded-none border-2 border-swiss-red bg-swiss-red/5 p-6 dark:bg-swiss-red/10">
+                  <div className="mb-1 flex items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-swiss-red">
+                      Best Value
+                    </span>
+                    <Sparkles className="h-3 w-3 text-swiss-red" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold">Convergence</h3>
+                  <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                    Everything — Design + Engineering + exclusive content
+                  </p>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold text-swiss-red">£599</span>
+                    <span className="text-neutral-500"> one-time</span>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <li>✓ ALL 156+ lessons</li>
+                    <li>✓ Exclusive advanced content</li>
+                    <li>✓ Lifetime access + updates</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+                <Button
+                  href="/course/pricing"
+                  endContent={<ArrowRight className="h-4 w-4" />}
+                  className="px-6 py-3 font-medium"
+                >
+                  View All Pricing Options
+                </Button>
+                <p className="mt-4 text-sm text-neutral-500">
+                  14-day money-back guarantee • Individual platform tracks from £99
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
 
       {/* Course Footer */}
       <div className="border-t border-neutral-200 bg-white py-12 dark:border-neutral-800 dark:bg-neutral-900">

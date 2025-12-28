@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { Check, CheckCircle2, AlertCircle } from "lucide-react";
 
@@ -22,30 +22,15 @@ export function MarkCompleteButton({
   const [error, setError] = useState<string | null>(null);
   const [secondsElapsed, setSecondsElapsed] = useState(0);
   const startTime = useRef(Date.now());
+  const isCompletedRef = useRef(isCompleted);
 
-  // Timer to track time and auto-complete
+  // Keep ref in sync with state
   useEffect(() => {
-    if (isCompleted) return;
+    isCompletedRef.current = isCompleted;
+  }, [isCompleted]);
 
-    startTime.current = Date.now();
-    setSecondsElapsed(0);
-
-    const interval = setInterval(() => {
-      const elapsed = Math.floor((Date.now() - startTime.current) / 1000);
-      setSecondsElapsed(elapsed);
-
-      // Auto-complete after threshold
-      if (elapsed >= MIN_TIME_FOR_AUTO_COMPLETE && !isCompleted) {
-        markComplete(true);
-        clearInterval(interval);
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [lessonPath, initialCompleted]);
-
-  const markComplete = async (isAuto = false) => {
-    if (isCompleted) return;
+  const markComplete = useCallback(async (isAuto = false) => {
+    if (isCompletedRef.current) return;
 
     if (!isAuto) {
       setIsLoading(true);
@@ -78,9 +63,30 @@ export function MarkCompleteButton({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [lessonPath, onComplete]);
 
   const handleClick = () => markComplete(false);
+
+  // Timer to track time and auto-complete
+  useEffect(() => {
+    if (isCompletedRef.current) return;
+
+    startTime.current = Date.now();
+    setSecondsElapsed(0);
+
+    const interval = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime.current) / 1000);
+      setSecondsElapsed(elapsed);
+
+      // Auto-complete after threshold
+      if (elapsed >= MIN_TIME_FOR_AUTO_COMPLETE && !isCompletedRef.current) {
+        markComplete(true);
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [lessonPath, initialCompleted, markComplete]);
 
   if (error) {
     return (
