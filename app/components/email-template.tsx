@@ -241,11 +241,16 @@ export const CourseWaitlistConfirmationTemplate: React.FC<
       <p
         style={{
           fontSize: "12px",
-          color: "#d4d4d4",
-          margin: "16px 0 0 0",
-          lineHeight: 1.5,
+          color: "#a3a3a3",
+          margin: "20px 0 0 0",
+          lineHeight: 1.6,
+          maxWidth: "400px",
+          marginLeft: "auto",
+          marginRight: "auto",
         }}
       >
+        You&apos;re receiving this email because you signed up to be notified about the
+        Design Engineer Course at designengineer.xyz. Didn&apos;t sign up?{" "}
         <a
           href={`https://designengineer.xyz/api/unsubscribe?email=${encodeURIComponent(email)}`}
           style={{
@@ -253,8 +258,9 @@ export const CourseWaitlistConfirmationTemplate: React.FC<
             textDecoration: "underline",
           }}
         >
-          Unsubscribe
+          Unsubscribe here
         </a>
+        .
       </p>
     </div>
   </div>
