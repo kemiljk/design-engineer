@@ -110,8 +110,8 @@ export function SliderControl({
   unit = "",
 }: SliderControlProps) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
+    <div className="flex items-center gap-2 sm:gap-3">
+      <span className="shrink-0 text-xs font-medium text-neutral-500 dark:text-neutral-400">
         {label}
       </span>
       <div className="relative flex items-center">
@@ -122,10 +122,10 @@ export function SliderControl({
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="h-1.5 w-32 cursor-pointer appearance-none rounded-full bg-neutral-200 accent-neutral-900 dark:bg-neutral-700 dark:accent-white"
+          className="h-1.5 w-20 cursor-pointer appearance-none rounded-full bg-neutral-200 accent-neutral-900 sm:w-32 dark:bg-neutral-700 dark:accent-white"
         />
       </div>
-      <span className="min-w-[3.5rem] rounded-lg bg-white px-2 py-1 text-center font-mono text-xs text-neutral-600 shadow-sm ring-1 ring-neutral-200/50 dark:bg-neutral-800 dark:text-neutral-400 dark:ring-neutral-700/50">
+      <span className="min-w-[3rem] shrink-0 rounded-lg bg-white px-2 py-1 text-center font-mono text-xs text-neutral-600 shadow-sm ring-1 ring-neutral-200/50 sm:min-w-[3.5rem] dark:bg-neutral-800 dark:text-neutral-400 dark:ring-neutral-700/50">
         {value}{unit}
       </span>
     </div>

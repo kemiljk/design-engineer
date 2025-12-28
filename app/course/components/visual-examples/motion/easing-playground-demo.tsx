@@ -85,7 +85,7 @@ export function EasingPlaygroundDemo() {
   const playAnimation = async () => {
     setIsPlaying(true);
     await controls.start({
-      x: [0, 200],
+      x: "100%",
       transition: { duration: 1, ease: points },
     });
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -114,7 +114,7 @@ transition: transform 1s ${formatCubicBezier(points)};`;
   const motionCode = `import { motion } from "motion/react";
 
 <motion.div
-  animate={{ x: 200 }}
+  animate={{ x: "100%" }}
   transition={{
     duration: 1,
     ease: [${points.map((p) => p.toFixed(2)).join(", ")}]
@@ -160,12 +160,13 @@ transition: transform 1s ${formatCubicBezier(points)};`;
       <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
         {/* SVG Curve Editor */}
         <div className="flex flex-col items-center gap-4">
-          <div className="relative overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="relative w-full max-w-[280px] overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
             <svg
               ref={svgRef}
               width={width}
               height={height}
-              className="touch-none select-none"
+              viewBox={`0 0 ${width} ${height}`}
+              className="h-auto w-full touch-none select-none"
               onPointerMove={handlePointerMove}
               onPointerUp={handlePointerUp}
               onPointerLeave={handlePointerUp}
@@ -295,11 +296,14 @@ transition: transform 1s ${formatCubicBezier(points)};`;
             {/* Animation track */}
             <div className="relative h-24 rounded-2xl border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
               <div className="absolute top-1/2 left-6 right-6 h-px bg-neutral-200 dark:bg-neutral-800" />
-              <motion.div
-                animate={controls}
-                initial={{ x: 0 }}
-                className="absolute left-6 top-1/2 h-12 w-12 -translate-y-1/2 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20"
-              />
+              {/* Track container for percentage-based animation */}
+              <div className="absolute top-1/2 left-6 right-[calc(1.5rem+48px)] -translate-y-1/2">
+                <motion.div
+                  animate={controls}
+                  initial={{ x: 0 }}
+                  className="h-12 w-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20"
+                />
+              </div>
             </div>
           </div>
 

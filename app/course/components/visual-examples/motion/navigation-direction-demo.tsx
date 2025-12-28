@@ -132,8 +132,8 @@ function Navigation() {
                 {level === 0 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
               </button>
 
-              <div className="ml-6 flex items-start gap-4">
-                <CornerDownRight className="mt-4 size-5 text-neutral-300" />
+              <div className="ml-3 flex items-start gap-2 sm:ml-6 sm:gap-4">
+                <CornerDownRight className="mt-4 hidden size-5 text-neutral-300 sm:block" />
                 <button 
                   onClick={() => navigate(1)}
                   className={cn(
@@ -143,16 +143,16 @@ function Navigation() {
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <Layers className={cn("size-5", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
-                  <span className={cn("font-medium", level === 1 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
+                  <Layers className={cn("size-5 shrink-0", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <span className={cn("truncate font-medium", level === 1 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                     Level 2: Projects
                   </span>
-                  {level === 1 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
+                  {level === 1 && <span className="ml-auto flex h-2 w-2 shrink-0 rounded-full bg-indigo-500 animate-pulse" />}
                 </button>
               </div>
 
-              <div className="ml-16 flex items-start gap-4">
-                <CornerDownRight className="mt-4 size-5 text-neutral-300" />
+              <div className="ml-6 flex items-start gap-2 sm:ml-12 sm:gap-4">
+                <CornerDownRight className="mt-4 hidden size-5 text-neutral-300 sm:block" />
                 <button 
                   onClick={() => navigate(2)}
                   className={cn(
@@ -162,11 +162,11 @@ function Navigation() {
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <FileText className={cn("size-5", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
-                  <span className={cn("font-medium", level === 2 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
+                  <FileText className={cn("size-5 shrink-0", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <span className={cn("truncate font-medium", level === 2 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                     Level 3: Details
                   </span>
-                  {level === 2 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
+                  {level === 2 && <span className="ml-auto flex h-2 w-2 shrink-0 rounded-full bg-indigo-500 animate-pulse" />}
                 </button>
               </div>
             </div>

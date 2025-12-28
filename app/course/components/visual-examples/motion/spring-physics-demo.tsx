@@ -20,8 +20,8 @@ export function SpringPhysicsDemo() {
   // Motion Value for the spring
   const springValue = useSpring(0, { stiffness, damping, mass });
   
-  // Map spring value (0-1) to pixel positions
-  const x = useTransform(springValue, [0, 1], [0, 300]);
+  // Map spring value (0-1) to percentage positions for responsiveness
+  const xPercent = useTransform(springValue, [0, 1], ["0%", "100%"]);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const historyRef = useRef<number[]>([]);
@@ -174,7 +174,7 @@ export function SpringPhysicsDemo() {
   const motionCode = `import { motion } from "motion/react";
 
 <motion.div
-  animate={{ x: 300 }}
+  animate={{ x: "100%" }}
   transition={{
     type: "spring",
     stiffness: ${stiffness},
@@ -281,27 +281,29 @@ export function SpringPhysicsDemo() {
           <div className="relative h-32 rounded-2xl border border-neutral-200 bg-neutral-50/50 p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
             {/* Markers */}
             <div className="absolute top-0 bottom-0 left-6 w-px border-l border-dashed border-neutral-300 dark:border-neutral-700" />
-            <div className="absolute top-0 bottom-0 left-[306px] w-px border-l border-dashed border-indigo-300 dark:border-indigo-900/50" />
+            <div className="absolute top-0 bottom-0 right-6 w-px border-l border-dashed border-indigo-300 dark:border-indigo-900/50" />
             
-            <motion.div
-              style={{ x }}
-              className="absolute top-1/2 -mt-6 ml-6 h-12 w-12 cursor-grab active:cursor-grabbing"
-              drag="x"
-              dragConstraints={{ left: 0, right: 300 }}
-              dragElastic={0}
-              onDragEnd={(_, info) => {
-                // Snap to 0 or 300 based on release position
-                const target = info.point.x > 150 ? 1 : 0;
-                springValue.set(target);
-                historyRef.current = [];
-              }}
-            >
-              <div className="h-full w-full rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-xl shadow-indigo-500/30 ring-2 ring-white dark:ring-neutral-900">
-                <div className="absolute inset-0 flex items-center justify-center text-white/50">
-                  <Activity className="size-5" />
+            {/* Track container for percentage-based animation */}
+            <div className="absolute top-1/2 left-6 right-[calc(1.5rem+48px)] -translate-y-1/2">
+              <motion.div
+                style={{ x: xPercent }}
+                className="h-12 w-12 cursor-grab active:cursor-grabbing"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.1}
+                onDragEnd={(_, info) => {
+                  const target = info.offset.x > 50 ? 1 : 0;
+                  springValue.set(target);
+                  historyRef.current = [];
+                }}
+              >
+                <div className="h-full w-full rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 shadow-xl shadow-indigo-500/30 ring-2 ring-white dark:ring-neutral-900">
+                  <div className="absolute inset-0 flex items-center justify-center text-white/50">
+                    <Activity className="size-5" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
 
           {/* Real-time Graph */}
