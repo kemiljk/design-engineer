@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "./logo";
-import { Menu, MoreHorizontal, X } from "lucide-react";
+import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -366,22 +366,22 @@ export default function Nav({
               <UserButton.MenuItems>
                 <UserButton.Link
                   label="My Dashboard"
-                  labelIcon={<span className="text-xs">📊</span>}
+                  labelIcon={<LayoutDashboard className="h-4 w-4" />}
                   href="/course/dashboard"
                 />
                 <UserButton.Link
                   label="My Notes"
-                  labelIcon={<span className="text-xs">📝</span>}
+                  labelIcon={<StickyNote className="h-4 w-4" />}
                   href="/course/notes"
                 />
                 <UserButton.Link
                   label="Certificates"
-                  labelIcon={<span className="text-xs">🏆</span>}
+                  labelIcon={<Award className="h-4 w-4" />}
                   href="/course/certificate"
                 />
                 <UserButton.Link
                   label="Project Gallery"
-                  labelIcon={<span className="text-xs">🎨</span>}
+                  labelIcon={<FolderKanban className="h-4 w-4" />}
                   href="/course/gallery"
                 />
               </UserButton.MenuItems>

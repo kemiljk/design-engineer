@@ -25,22 +25,22 @@ const statusConfig = {
   pending: {
     label: "Pending Review",
     icon: Clock,
-    className: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
+    className: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400",
   },
   approved: {
     label: "Published",
     icon: CheckCircle,
-    className: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
+    className: "bg-swiss-red/10 text-swiss-red",
   },
   featured: {
     label: "Featured",
     icon: Sparkles,
-    className: "bg-swiss-red/10 text-swiss-red",
+    className: "bg-swiss-red text-white",
   },
   rejected: {
     label: "Rejected",
     icon: Clock,
-    className: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+    className: "bg-neutral-200 text-neutral-500 dark:bg-neutral-700 dark:text-neutral-400",
   },
 };
 

@@ -147,6 +147,12 @@ anime({
 });
 ```
 
+## CSS vs JavaScript Animation
+
+When should you use CSS vs a JavaScript library? Here's a side-by-side comparison:
+
+<!-- visual-example: css-vs-js-demo -->
+
 ## Choosing Your Approach
 
 | Scenario | Recommendation |
@@ -161,6 +167,10 @@ anime({
 ## React Animation Patterns
 
 ### AnimatePresence for Exit Animations
+
+AnimatePresence enables exit animations—something CSS alone cannot do:
+
+<!-- visual-example: animate-presence-demo -->
 
 ```tsx
 import { AnimatePresence, motion } from 'motion/react';
@@ -182,6 +192,24 @@ function List({ items }) {
   );
 }
 ```
+
+### Gesture-Based Animation
+
+Motion makes it easy to create gesture-driven interactions with physics:
+
+<!-- visual-example: gesture-animation-demo -->
+
+### Layout Animations
+
+The `layout` prop automatically animates position and size changes:
+
+<!-- visual-example: layout-animation-demo -->
+
+### Reduced Motion Support
+
+Always respect the user's motion preferences for accessibility:
+
+<!-- visual-example: reduced-motion-demo -->
 
 ## Try It Yourself
 

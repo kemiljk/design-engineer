@@ -142,6 +142,8 @@ function Link({ to, children }) {
 
 ## Transition Patterns
 
+<!-- visual-example: page-transition-types-demo -->
+
 ### Cross-fade (Default)
 Old page fades out, new page fades in simultaneously.
 
@@ -154,7 +156,11 @@ Pages slide in a direction (useful for navigation hierarchy).
 ### Morph
 Shared elements animate smoothly between their positions.
 
+<!-- visual-example: shared-element-demo -->
+
 ## Best Practices
+
+<!-- visual-example: navigation-direction-demo -->
 
 1. **Keep it brief** - 200-400ms total
 2. **Don't block interaction** - Users should be able to navigate during transition
