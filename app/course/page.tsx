@@ -460,6 +460,22 @@ export default async function CoursePage() {
                       Certificates
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/course/gallery"
+                      className="hover:text-swiss-red"
+                    >
+                      Project Gallery
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/course/dashboard"
+                      className="hover:text-swiss-red"
+                    >
+                      My Dashboard
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div>

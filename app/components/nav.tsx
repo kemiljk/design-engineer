@@ -362,7 +362,30 @@ export default function Nav({
                 },
               }}
               afterSignOutUrl="/"
-            />
+            >
+              <UserButton.MenuItems>
+                <UserButton.Link
+                  label="My Dashboard"
+                  labelIcon={<span className="text-xs">📊</span>}
+                  href="/course/dashboard"
+                />
+                <UserButton.Link
+                  label="My Notes"
+                  labelIcon={<span className="text-xs">📝</span>}
+                  href="/course/notes"
+                />
+                <UserButton.Link
+                  label="Certificates"
+                  labelIcon={<span className="text-xs">🏆</span>}
+                  href="/course/certificate"
+                />
+                <UserButton.Link
+                  label="Project Gallery"
+                  labelIcon={<span className="text-xs">🎨</span>}
+                  href="/course/gallery"
+                />
+              </UserButton.MenuItems>
+            </UserButton>
           </SignedIn>
 
           {/* Mobile Menu Toggle */}

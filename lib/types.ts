@@ -405,3 +405,33 @@ export type ProductWithPrice = {
   formattedPrice: string;
   popular?: boolean;
 };
+
+// Gallery Project Types
+
+export type GalleryProjectPlatform = 'web' | 'ios' | 'android';
+export type GalleryProjectTrack = 'design' | 'engineering' | 'convergence';
+export type GalleryProjectStatus = 'pending' | 'approved' | 'featured' | 'rejected';
+
+export type GalleryProject = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: string;
+  modified_at?: string;
+  metadata: {
+    user_id: string;
+    user_name: string;
+    user_email: string;
+    platform: GalleryProjectPlatform;
+    track: GalleryProjectTrack;
+    description: string;
+    thumbnail_url: string;
+    project_url?: string;
+    github_url?: string;
+    video_url?: string;
+    technologies: string[];
+    status: GalleryProjectStatus;
+    featured_at?: string;
+    admin_notes?: string;
+  };
+};
