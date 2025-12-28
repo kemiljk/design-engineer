@@ -41,9 +41,9 @@ const galleryMetafields = [
     type: "select-dropdown",
     required: true,
     options: [
-      { value: "web", text: "Web" },
-      { value: "ios", text: "iOS" },
-      { value: "android", text: "Android" },
+      { key: "web", value: "Web" },
+      { key: "ios", value: "iOS" },
+      { key: "android", value: "Android" },
     ],
   },
   {
@@ -52,9 +52,9 @@ const galleryMetafields = [
     type: "select-dropdown",
     required: true,
     options: [
-      { value: "design", text: "Design" },
-      { value: "engineering", text: "Engineering" },
-      { value: "convergence", text: "Convergence" },
+      { key: "design", value: "Design" },
+      { key: "engineering", value: "Engineering" },
+      { key: "convergence", value: "Convergence" },
     ],
   },
   {
@@ -99,10 +99,10 @@ const galleryMetafields = [
     type: "select-dropdown",
     required: true,
     options: [
-      { value: "pending", text: "Pending Review" },
-      { value: "approved", text: "Approved" },
-      { value: "featured", text: "Featured" },
-      { value: "rejected", text: "Rejected" },
+      { key: "pending", value: "Pending Review" },
+      { key: "approved", value: "Approved" },
+      { key: "featured", value: "Featured" },
+      { key: "rejected", value: "Rejected" },
     ],
   },
   {
