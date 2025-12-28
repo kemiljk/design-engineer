@@ -96,15 +96,8 @@ export async function POST() {
     {
       key: "technologies",
       title: "Technologies",
-      type: "repeater",
+      type: "json",
       required: false,
-      repeater_fields: [
-        {
-          title: "Technology",
-          key: "technology",
-          type: "text",
-        },
-      ],
     },
     {
       key: "status",
@@ -179,8 +172,11 @@ export async function POST() {
     });
   } catch (error) {
     console.error("Gallery setup error:", error);
+    const errorDetails = error instanceof Error 
+      ? { message: error.message, stack: error.stack }
+      : String(error);
     return NextResponse.json(
-      { error: "Setup failed", details: String(error), steps: results.steps },
+      { error: "Setup failed", details: errorDetails, steps: results.steps },
       { status: 500 }
     );
   }
