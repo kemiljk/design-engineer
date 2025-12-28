@@ -218,10 +218,7 @@ export function BundleCard({ product, currentAccess, userId, convertedPrice, cur
       <ul className="mb-6 flex-1 space-y-2">
         {product.features.map((feature, index) => (
           <li key={index} className="flex items-start gap-2 text-sm">
-            <Check className={cn(
-              "mt-0.5 h-4 w-4 shrink-0",
-              isConvergence ? "text-swiss-red" : "text-green-600"
-            )} />
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-swiss-red" />
             <span className={feature.startsWith("✨") ? "font-medium" : ""}>
               {feature}
             </span>

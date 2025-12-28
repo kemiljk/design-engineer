@@ -202,15 +202,15 @@ export function ComingSoon() {
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
                     67+ engineering lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
                     All 3 platforms
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
                     Lifetime access
                   </li>
                 </ul>
