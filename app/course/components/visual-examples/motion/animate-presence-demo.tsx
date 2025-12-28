@@ -1,255 +1,212 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence, Reorder } from "motion/react";
-import { Plus, X, Check } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Plus, X, Check, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
+  ControlGroup,
+  ControlButton,
 } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-interface Todo {
+type Todo = {
   id: number;
   text: string;
-  completed: boolean;
-}
-
-let nextId = 4;
-
-const initialTodos: Todo[] = [
-  { id: 1, text: "Learn Motion library", completed: true },
-  { id: 2, text: "Build animation demos", completed: false },
-  { id: 3, text: "Polish the details", completed: false },
-];
+};
 
 export function AnimatePresenceDemo() {
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
-  const [newTodo, setNewTodo] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([
+    { id: 1, text: "Review pull requests" },
+    { id: 2, text: "Update documentation" },
+    { id: 3, text: "Team sync" },
+  ]);
   const [showCode, setShowCode] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
-  const addTodo = () => {
-    if (!newTodo.trim()) return;
-    setTodos((prev) => [...prev, { id: nextId++, text: newTodo, completed: false }]);
-    setNewTodo("");
-  };
+  const addTodo = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputValue.trim()) return;
 
-  const toggleTodo = (id: number) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    setTodos([{ id: Date.now(), text: inputValue }, ...todos]);
+    setInputValue("");
   };
 
   const removeTodo = (id: number) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    setTodos(todos.filter((t) => t.id !== id));
   };
 
-  const motionCode = `import { motion, AnimatePresence, Reorder } from "motion/react";
+  const cssCode = `/* 
+  Pure CSS exit animations are tricky.
+  You usually need to add a class, 
+  wait for the animation to finish, 
+  and THEN remove the element from DOM.
+*/
 
-function TodoList() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  return (
-    <Reorder.Group
-      axis="y"
-      values={todos}
-      onReorder={setTodos}
-      className="space-y-2"
-    >
-      <AnimatePresence initial={false}>
-        {todos.map((todo) => (
-          <Reorder.Item
-            key={todo.id}
-            value={todo}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center gap-3 rounded-lg border p-3"
-          >
-            <Checkbox 
-              checked={todo.completed} 
-              onChange={() => toggleTodo(todo.id)} 
-            />
-            <span className={todo.completed ? "line-through" : ""}>
-              {todo.text}
-            </span>
-            <button onClick={() => removeTodo(todo.id)}>
-              <X className="size-4" />
-            </button>
-          </Reorder.Item>
-        ))}
-      </AnimatePresence>
-    </Reorder.Group>
-  );
+.item-exit {
+  animation: slideOut 0.3s forwards;
 }
 
-// Key points:
-// 1. AnimatePresence enables exit animations
-// 2. Each item needs a unique key prop
-// 3. exit prop defines the leaving animation
-// 4. initial={false} prevents animation on mount
-// 5. Reorder.Group enables drag-to-reorder with layout animation`;
+@keyframes slideOut {
+  to { opacity: 0; height: 0; margin: 0; }
+}`;
+
+  const motionCode = `import { motion, AnimatePresence } from "motion/react";
+
+function TodoList() {
+  const [items, setItems] = useState(initialItems);
+
+  return (
+    <ul>
+      <AnimatePresence initial={false} mode="popLayout">
+        {items.map((item) => (
+          <motion.li
+            layout
+            key={item.id}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+          >
+            {item.text}
+          </motion.li>
+        ))}
+      </AnimatePresence>
+    </ul>
+  );
+}`;
 
   const codeTabs: CodeTab[] = [
+    { label: "CSS", language: "css", code: cssCode },
     { label: "Motion", language: "tsx", code: motionCode },
   ];
 
   return (
     <ExampleWrapper
-      title="AnimatePresence & Lists"
-      description="Items animate in, out, and reorder smoothly. Try adding, completing, removing, and dragging items."
+      title="Exit Animations"
+      description="AnimatePresence allows components to animate out when they're removed from the React tree."
       controls={
-        <div className="flex items-center justify-end">
-          <button
+        <div className="flex justify-end">
+          <ControlButton
+            active={showCode}
             onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
           >
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Todo list demo */}
-        <div className="mx-auto max-w-md">
-          {/* Add todo input */}
-          <div className="mb-4 flex gap-2">
-            <input
-              type="text"
-              value={newTodo}
-              onChange={(e) => setNewTodo(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && addTodo()}
-              placeholder="Add a new task..."
-              className="flex-1 rounded-lg border border-neutral-200 bg-white px-4 py-2.5 text-sm text-neutral-900 outline-none transition-colors focus:border-swiss-red focus:ring-2 focus:ring-swiss-red/20 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
-            />
-            <button
-              onClick={addTodo}
-              disabled={!newTodo.trim()}
-              className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-lg transition-colors",
-                newTodo.trim()
-                  ? "bg-swiss-red text-white hover:bg-swiss-red/90"
-                  : "bg-neutral-200 text-neutral-400 dark:bg-neutral-700"
-              )}
-            >
-              <Plus className="size-5" />
-            </button>
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="mx-auto max-w-md overflow-hidden rounded-[24px] bg-white shadow-xl dark:bg-neutral-900">
+          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white">
+            <h3 className="text-2xl font-bold">Tasks</h3>
+            <p className="text-indigo-100 opacity-80">
+              {todos.length} remaining
+            </p>
           </div>
 
-          {/* Todo list */}
-          <Reorder.Group
-            axis="y"
-            values={todos}
-            onReorder={setTodos}
-            className="space-y-2"
-          >
-            <AnimatePresence initial={false}>
-              {todos.map((todo) => (
-                <Reorder.Item
-                  key={todo.id}
-                  value={todo}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20, height: 0, marginBottom: 0 }}
-                  transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                  className={cn(
-                    "flex cursor-grab items-center gap-3 rounded-lg border bg-white p-3 shadow-sm active:cursor-grabbing dark:bg-neutral-900",
-                    todo.completed
-                      ? "border-green-200 bg-green-50/50 dark:border-green-900/50 dark:bg-green-900/10"
-                      : "border-neutral-200 dark:border-neutral-800"
-                  )}
-                >
-                  {/* Checkbox */}
-                  <button
-                    onClick={() => toggleTodo(todo.id)}
-                    className={cn(
-                      "flex h-5 w-5 items-center justify-center rounded border-2 transition-colors",
-                      todo.completed
-                        ? "border-green-500 bg-green-500"
-                        : "border-neutral-300 hover:border-neutral-400 dark:border-neutral-600"
-                    )}
-                  >
-                    {todo.completed && <Check className="size-3 text-white" />}
-                  </button>
+          <div className="p-6">
+            <form onSubmit={addTodo} className="relative mb-8">
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="Add a new task..."
+                className="w-full rounded-[12px] bg-neutral-100 px-4 py-3 pr-12 text-neutral-900 placeholder:text-neutral-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-neutral-800 dark:text-white"
+              />
+              <button
+                type="submit"
+                disabled={!inputValue.trim()}
+                className="absolute top-2 right-2 rounded-[8px] bg-white p-1 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
+              >
+                <Plus className="size-5" />
+              </button>
+            </form>
 
-                  {/* Text */}
-                  <span
-                    className={cn(
-                      "flex-1 text-sm transition-colors",
-                      todo.completed
-                        ? "text-neutral-400 line-through"
-                        : "text-neutral-700 dark:text-neutral-300"
-                    )}
+            <ul className="space-y-3">
+              <AnimatePresence initial={false} mode="popLayout">
+                {todos.map((todo) => (
+                  <motion.li
+                    layout
+                    key={todo.id}
+                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.8,
+                      transition: { duration: 0.2 },
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                      mass: 1,
+                    }}
+                    className="group flex items-center justify-between rounded-[12px] border border-neutral-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
                   >
-                    {todo.text}
-                  </span>
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={() => removeTodo(todo.id)}
+                        className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-neutral-300 text-transparent transition-all hover:border-emerald-500 hover:text-emerald-500 dark:border-neutral-600"
+                      >
+                        <Check className="size-3" strokeWidth={4} />
+                      </button>
+                      <span className="font-medium text-neutral-700 dark:text-neutral-200">
+                        {todo.text}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => removeTodo(todo.id)}
+                      className="text-neutral-400 opacity-0 transition-opacity group-hover:opacity-100 hover:text-rose-500"
+                    >
+                      <Trash2 className="size-4" />
+                    </button>
+                  </motion.li>
+                ))}
+              </AnimatePresence>
+            </ul>
 
-                  {/* Delete button */}
-                  <button
-                    onClick={() => removeTodo(todo.id)}
-                    className="rounded p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800"
-                  >
-                    <X className="size-4" />
-                  </button>
-                </Reorder.Item>
-              ))}
-            </AnimatePresence>
-          </Reorder.Group>
-
-          {/* Empty state */}
-          <AnimatePresence>
             {todos.length === 0 && (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="py-8 text-center text-sm text-neutral-500"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex flex-col items-center justify-center py-12 text-center text-neutral-400"
               >
-                No tasks yet. Add one above!
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800">
+                  <Check className="size-8 text-neutral-300 dark:text-neutral-600" />
+                </div>
+                <p>All tasks completed!</p>
               </motion.div>
             )}
-          </AnimatePresence>
+          </div>
         </div>
 
-        {/* Feature highlights */}
-        <div className="grid gap-4 sm:grid-cols-3">
-          {[
-            {
-              title: "Enter Animation",
-              desc: "Items slide in from the left when added",
-              color: "border-blue-200 bg-blue-50 dark:border-blue-900/50 dark:bg-blue-900/20",
-            },
-            {
-              title: "Exit Animation",
-              desc: "Items slide out and collapse when removed",
-              color: "border-rose-200 bg-rose-50 dark:border-rose-900/50 dark:bg-rose-900/20",
-            },
-            {
-              title: "Reorder Animation",
-              desc: "Drag items to reorder with smooth layout transitions",
-              color: "border-violet-200 bg-violet-50 dark:border-violet-900/50 dark:bg-violet-900/20",
-            },
-          ].map((item) => (
-            <div key={item.title} className={cn("rounded-lg border p-3", item.color)}>
-              <p className="text-xs font-semibold text-neutral-900 dark:text-white">
-                {item.title}
-              </p>
-              <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+        {/* Visual Explanation */}
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              Graceful Exit
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Without exit animations, items just disappear instantly, causing
+              the layout to snap. Animating height and opacity allows the list
+              to close the gap smoothly.
+            </p>
+          </div>
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              popLayout Mode
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              The `mode="popLayout"` prop removes the exiting element from the
+              layout immediately (absolute positioning) so siblings can animate
+              into their new places simultaneously.
+            </p>
+          </div>
         </div>
 
-        {/* Code panel */}
         {showCode && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -262,4 +219,3 @@ function TodoList() {
     </ExampleWrapper>
   );
 }
-

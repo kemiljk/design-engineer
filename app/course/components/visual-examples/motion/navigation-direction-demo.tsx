@@ -1,298 +1,229 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Home, Folder, File } from "lucide-react";
+import { ChevronLeft, ChevronRight, Layers, Layout, FileText, CornerDownRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-interface PathItem {
-  id: string;
-  label: string;
-  icon: React.ElementType;
-}
-
-const paths: PathItem[][] = [
-  [{ id: "home", label: "Home", icon: Home }],
-  [
-    { id: "home", label: "Home", icon: Home },
-    { id: "projects", label: "Projects", icon: Folder },
-  ],
-  [
-    { id: "home", label: "Home", icon: Home },
-    { id: "projects", label: "Projects", icon: Folder },
-    { id: "design-system", label: "Design System", icon: Folder },
-  ],
-  [
-    { id: "home", label: "Home", icon: Home },
-    { id: "projects", label: "Projects", icon: Folder },
-    { id: "design-system", label: "Design System", icon: Folder },
-    { id: "tokens", label: "tokens.json", icon: File },
-  ],
-];
-
-const pageContent: Record<string, { title: string; items: string[] }> = {
-  home: { title: "Home", items: ["Projects", "Settings", "Profile"] },
-  projects: { title: "Projects", items: ["Design System", "Marketing Site", "Mobile App"] },
-  "design-system": { title: "Design System", items: ["tokens.json", "components/", "docs/"] },
-  tokens: { title: "tokens.json", items: ["colors", "spacing", "typography", "shadows"] },
-};
+type Level = 0 | 1 | 2;
 
 export function NavigationDirectionDemo() {
-  const [currentPathIndex, setCurrentPathIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [level, setLevel] = useState<Level>(0);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const [showCode, setShowCode] = useState(false);
 
-  const currentPath = paths[currentPathIndex];
-  const currentPage = currentPath[currentPath.length - 1];
-  const content = pageContent[currentPage.id];
-
-  const navigateTo = (pathIndex: number) => {
-    setDirection(pathIndex > currentPathIndex ? 1 : -1);
-    setCurrentPathIndex(pathIndex);
-  };
-
-  const goForward = () => {
-    if (currentPathIndex < paths.length - 1) {
-      setDirection(1);
-      setCurrentPathIndex((prev) => prev + 1);
-    }
-  };
-
-  const goBack = () => {
-    if (currentPathIndex > 0) {
-      setDirection(-1);
-      setCurrentPathIndex((prev) => prev - 1);
-    }
-  };
-
-  const motionCode = `import { motion, AnimatePresence } from "motion/react";
-import { useState, useRef } from "react";
-
-function DirectionalNav() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const navigate = (newPage: number) => {
-    // Set direction based on navigation
-    setDirection(newPage > currentPage ? 1 : -1);
-    setCurrentPage(newPage);
+  const navigate = (newLevel: Level) => {
+    setDirection(newLevel > level ? "forward" : "back");
+    setLevel(newLevel);
   };
 
   const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
-      opacity: 0,
+    enter: (direction: "forward" | "back") => ({
+      x: direction === "forward" ? "100%" : "-25%",
+      opacity: direction === "forward" ? 1 : 0.5,
+      scale: direction === "forward" ? 1 : 0.95,
+      zIndex: direction === "forward" ? 10 : 0
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
+      zIndex: 5,
     },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -100 : 100,
-      opacity: 0,
+    exit: (direction: "forward" | "back") => ({
+      x: direction === "forward" ? "-25%" : "100%",
+      opacity: direction === "forward" ? 0.5 : 1,
+      scale: direction === "forward" ? 0.95 : 1,
+      zIndex: direction === "forward" ? 0 : 10
     }),
   };
 
+  const cssCode = `/* 
+  Directional transitions require knowing 
+  both the "from" and "to" states.
+  This is best handled in JS.
+*/
+
+.slide-forward-enter { transform: translateX(100%); }
+.slide-forward-exit { transform: translateX(-25%); }
+
+.slide-back-enter { transform: translateX(-25%); }
+.slide-back-exit { transform: translateX(100%); }`;
+
+  const motionCode = `import { motion, AnimatePresence } from "motion/react";
+
+const variants = {
+  enter: (direction) => ({
+    x: direction > 0 ? "100%" : "-25%",
+    opacity: direction > 0 ? 1 : 0.5
+  }),
+  center: { x: 0, opacity: 1 },
+  exit: (direction) => ({
+    x: direction > 0 ? "-25%" : "100%",
+    opacity: direction > 0 ? 0.5 : 1
+  })
+};
+
+function Navigation() {
+  const [[page, direction], setPage] = useState([0, 0]);
+
+  const paginate = (newDirection) => {
+    setPage([page + newDirection, newDirection]);
+  };
+
   return (
-    <AnimatePresence mode="wait" custom={direction}>
+    <AnimatePresence initial={false} custom={direction}>
       <motion.div
-        key={currentPage}
+        key={page}
         custom={direction}
         variants={variants}
         initial="enter"
         animate="center"
         exit="exit"
-        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {/* Page content */}
+        <PageContent />
       </motion.div>
     </AnimatePresence>
   );
 }`;
 
   const codeTabs: CodeTab[] = [
+    { label: "CSS", language: "css", code: cssCode },
     { label: "Motion", language: "tsx", code: motionCode },
   ];
 
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 100 : -100,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -100 : 100,
-      opacity: 0,
-    }),
-  };
-
   return (
     <ExampleWrapper
-      title="Directional Navigation"
-      description="Pages slide left when going 'forward' and right when going 'back', maintaining spatial awareness."
+      title="Direction Indicates Hierarchy"
+      description="Movement on the X-axis communicates depth. Forward (right-to-left) means deeper, Back (left-to-right) means shallower."
       controls={
-        <div className="flex items-center justify-end">
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
-          >
+        <div className="flex justify-end">
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Browser-like interface */}
-        <div className="overflow-hidden rounded-xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-1 border-b border-neutral-200 bg-neutral-50 px-4 py-2 dark:border-neutral-800 dark:bg-neutral-950">
-            {currentPath.map((item, index) => (
-              <React.Fragment key={item.id}>
-                {index > 0 && (
-                  <ChevronRight className="size-4 text-neutral-400" />
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* Hierarchy Visualization */}
+          <div className="flex flex-col justify-center rounded-[12px] border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="mb-6 text-sm font-semibold text-neutral-900 dark:text-white">
+              Information Architecture
+            </h4>
+            <div className="space-y-4">
+              <button 
+                onClick={() => navigate(0)}
+                className={cn(
+                  "flex w-full items-center gap-3 rounded-[8px] border p-3 transition-all",
+                  level === 0 
+                    ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
+                    : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                 )}
-                <button
-                  onClick={() => navigateTo(index)}
+              >
+                <Layout className={cn("size-5", level === 0 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                <span className={cn("font-medium", level === 0 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
+                  Level 1: Dashboard
+                </span>
+                {level === 0 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
+              </button>
+
+              <div className="ml-6 flex items-start gap-4">
+                <CornerDownRight className="mt-4 size-5 text-neutral-300" />
+                <button 
+                  onClick={() => navigate(1)}
                   className={cn(
-                    "flex items-center gap-1.5 rounded px-2 py-1 text-sm transition-colors",
-                    index === currentPath.length - 1
-                      ? "font-medium text-neutral-900 dark:text-white"
-                      : "text-neutral-500 hover:bg-neutral-200 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                    "flex flex-1 items-center gap-3 rounded-[8px] border p-3 transition-all",
+                    level === 1
+                      ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
+                      : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <item.icon className="size-3.5" />
-                  {item.label}
+                  <Layers className={cn("size-5", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <span className={cn("font-medium", level === 1 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
+                    Level 2: Projects
+                  </span>
+                  {level === 1 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
                 </button>
-              </React.Fragment>
-            ))}
+              </div>
+
+              <div className="ml-16 flex items-start gap-4">
+                <CornerDownRight className="mt-4 size-5 text-neutral-300" />
+                <button 
+                  onClick={() => navigate(2)}
+                  className={cn(
+                    "flex flex-1 items-center gap-3 rounded-[8px] border p-3 transition-all",
+                    level === 2
+                      ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
+                      : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
+                  )}
+                >
+                  <FileText className={cn("size-5", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <span className={cn("font-medium", level === 2 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
+                    Level 3: Details
+                  </span>
+                  {level === 2 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="relative h-64 overflow-hidden">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={currentPage.id}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                className="absolute inset-0 p-6"
-              >
-                <h2 className="text-xl font-bold text-neutral-900 dark:text-white">
-                  {content.title}
-                </h2>
-                <div className="mt-4 space-y-2">
-                  {content.items.map((item, i) => (
-                    <motion.button
-                      key={item}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                      onClick={goForward}
-                      disabled={currentPathIndex === paths.length - 1}
-                      className={cn(
-                        "flex w-full items-center gap-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-left transition-colors dark:border-neutral-800 dark:bg-neutral-800",
-                        currentPathIndex < paths.length - 1 &&
-                          "hover:border-swiss-red/30 hover:bg-swiss-red/5"
-                      )}
-                    >
-                      {item.includes(".") ? (
-                        <File className="size-5 text-neutral-400" />
-                      ) : (
-                        <Folder className="size-5 text-blue-500" />
-                      )}
-                      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                        {item}
-                      </span>
-                      {currentPathIndex < paths.length - 1 && (
-                        <ChevronRight className="ml-auto size-4 text-neutral-400" />
-                      )}
-                    </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+          {/* Preview */}
+          <div className="flex justify-center">
+            <div className="relative h-[400px] w-[240px] overflow-hidden rounded-[24px] border-[6px] border-neutral-900 bg-black shadow-xl dark:border-neutral-700">
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                  key={level}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  className={cn(
+                    "absolute inset-0 flex flex-col p-4",
+                    level === 0 ? "bg-white dark:bg-neutral-900" :
+                    level === 1 ? "bg-neutral-50 dark:bg-neutral-800" :
+                    "bg-neutral-100 dark:bg-neutral-900"
+                  )}
+                >
+                  <div className="mb-4 flex items-center gap-2">
+                    {level > 0 && (
+                      <button onClick={() => navigate((level - 1) as Level)}>
+                        <ChevronLeft className="size-5 text-neutral-500" />
+                      </button>
+                    )}
+                    <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
+                      {level === 0 ? "Dashboard" : level === 1 ? "Projects" : "Project A"}
+                    </h3>
+                  </div>
 
-          {/* Navigation buttons */}
-          <div className="flex items-center justify-between border-t border-neutral-200 bg-neutral-50 px-4 py-3 dark:border-neutral-800 dark:bg-neutral-950">
-            <button
-              onClick={goBack}
-              disabled={currentPathIndex === 0}
-              className={cn(
-                "flex items-center gap-1 text-sm font-medium transition-colors",
-                currentPathIndex === 0
-                  ? "text-neutral-300 dark:text-neutral-700"
-                  : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-              )}
-            >
-              ← Back
-            </button>
-            <span className="text-xs text-neutral-400">
-              Depth: {currentPathIndex + 1} / {paths.length}
-            </span>
-            <button
-              onClick={goForward}
-              disabled={currentPathIndex === paths.length - 1}
-              className={cn(
-                "flex items-center gap-1 text-sm font-medium transition-colors",
-                currentPathIndex === paths.length - 1
-                  ? "text-neutral-300 dark:text-neutral-700"
-                  : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-              )}
-            >
-              Forward →
-            </button>
+                  <div className="flex-1 space-y-3">
+                    <div className="h-24 rounded-[12px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-12 rounded-[8px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-12 rounded-[8px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    
+                    {level < 2 && (
+                      <button
+                        onClick={() => navigate((level + 1) as Level)}
+                        className="mt-4 flex w-full items-center justify-between rounded-[8px] bg-indigo-600 px-4 py-3 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700"
+                      >
+                        Go Deeper <ChevronRight className="size-3" />
+                      </button>
+                    )}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 
-        {/* Direction indicator */}
-        <div className="flex items-center justify-center gap-8 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="text-center">
-            <p className="text-xs font-medium text-neutral-500">Going Deeper</p>
-            <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-              Content slides ← left
-            </p>
-          </div>
-          <div className="h-8 w-px bg-neutral-200 dark:bg-neutral-700" />
-          <div className="text-center">
-            <p className="text-xs font-medium text-neutral-500">Going Back</p>
-            <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
-              Content slides right →
-            </p>
-          </div>
-        </div>
-
-        {/* Key insight */}
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>Spatial consistency:</strong> By sliding content in the direction of 
-            navigation, users maintain a mental model of where they are in the hierarchy. 
-            Going "forward" pushes old content left; going "back" brings it from the left. 
-            This matches our natural reading direction (LTR) and iOS navigation patterns.
-          </p>
-        </div>
-
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -300,4 +231,3 @@ function DirectionalNav() {
     </ExampleWrapper>
   );
 }
-

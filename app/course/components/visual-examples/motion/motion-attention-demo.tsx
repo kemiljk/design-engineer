@@ -2,145 +2,126 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Bell, X, MessageSquare, Heart, User } from "lucide-react";
+import {
+  Bell,
+  MessageSquare,
+  Mail,
+  Calendar,
+  X,
+  CheckCircle2,
+  AlertCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
   ControlGroup,
+  ControlButton,
 } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-interface Toast {
-  id: number;
+type Notification = {
+  id: string;
   title: string;
-  icon: React.ElementType;
-  color: string;
-}
-
-let toastId = 0;
+  message: string;
+  type: "message" | "mail" | "event";
+  time: string;
+};
 
 export function MotionAttentionDemo() {
-  const [count, setCount] = useState(3);
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
   const [showCode, setShowCode] = useState(false);
   const bellRef = useRef<HTMLButtonElement>(null);
 
-  const addNotification = () => {
-    setCount((prev) => prev + 1);
-  };
-
-  const addToast = () => {
-    const icons = [MessageSquare, Heart, User];
-    const titles = ["New message received", "Someone liked your post", "New follower"];
-    const colors = ["bg-blue-500", "bg-rose-500", "bg-violet-500"];
-    const index = toastId % 3;
-
-    const newToast: Toast = {
-      id: toastId++,
-      title: titles[index],
-      icon: icons[index],
-      color: colors[index],
+  const addNotification = (type: Notification["type"]) => {
+    const id = Math.random().toString(36).substr(2, 9);
+    const newNotification: Notification = {
+      id,
+      type,
+      title:
+        type === "message"
+          ? "New Message"
+          : type === "mail"
+            ? "New Email"
+            : "Upcoming Event",
+      message:
+        type === "message"
+          ? "Sarah sent you a photo"
+          : type === "mail"
+            ? "Invoice #2024-001"
+            : "Team Standup in 15m",
+      time: "Just now",
     };
 
-    setToasts((prev) => [...prev.slice(-2), newToast]);
-    setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== newToast.id));
-    }, 3000);
+    setNotifications((prev) => [newNotification, ...prev].slice(0, 3));
+    setUnreadCount((prev) => prev + 1);
   };
 
-  const removeToast = (id: number) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
+  const removeNotification = (id: string) => {
+    setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  const cssCode = `/* Badge pulse animation */
-.badge {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  const clearAll = () => {
+    setNotifications([]);
+    setUnreadCount(0);
+  };
+
+  const cssCode = `.badge {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-/* Toast slide-in */
 .toast {
-  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Toast exit */
-.toast-exit {
-  animation: slideOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards;
-}
-
-@keyframes slideOut {
-  to {
-    opacity: 0;
-    transform: translateX(100%);
-  }
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }`;
 
   const motionCode = `import { motion, AnimatePresence } from "motion/react";
 
-// Notification badge with pulse
-function NotificationBell({ count }: { count: number }) {
+function NotificationSystem() {
   return (
-    <button className="relative">
-      <Bell className="size-6" />
-      {count > 0 && (
-        <motion.span
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute -top-1 -right-1 flex h-5 w-5 
-            items-center justify-center rounded-full 
-            bg-swiss-red text-xs text-white"
-        >
-          {count}
-          {/* Pulse ring */}
-          <motion.span
-            animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity,
-              ease: "easeOut" 
-            }}
-            className="absolute inset-0 rounded-full bg-swiss-red"
-          />
-        </motion.span>
-      )}
-    </button>
-  );
-}
-
-// Toast notifications
-function Toasts({ toasts, onRemove }) {
-  return (
-    <div className="fixed bottom-4 right-4 space-y-2">
+    <>
+      {/* Badge Animation */}
       <AnimatePresence>
-        {toasts.map((toast) => (
+        {count > 0 && (
           <motion.div
-            key={toast.id}
-            initial={{ opacity: 0, x: 100, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 100, scale: 0.9 }}
-            transition={{ type: "spring", damping: 25 }}
-            className="rounded-lg bg-white p-4 shadow-lg"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            transition={{ type: "spring", stiffness: 500, damping: 25 }}
+            className="absolute -right-1 -top-1 size-5 rounded-full bg-red-500"
           >
-            {toast.title}
+            {count}
           </motion.div>
-        ))}
+        )}
       </AnimatePresence>
-    </div>
+
+      {/* Toast Stack */}
+      <div className="fixed bottom-4 right-4 flex flex-col gap-2">
+        <AnimatePresence initial={false} mode="popLayout">
+          {notifications.map((n) => (
+            <motion.div
+              key={n.id}
+              layout
+              initial={{ opacity: 0, x: 20, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+              className="w-80 rounded-2xl bg-white p-4 shadow-lg"
+            >
+              {/* Content */}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </>
   );
 }`;
 
@@ -152,158 +133,194 @@ function Toasts({ toasts, onRemove }) {
   return (
     <ExampleWrapper
       title="Motion Guides Attention"
-      description="Animation directs focus to new content without being disruptive."
+      description="Motion captures focus. Use it to signal important updates without being disruptive."
       controls={
-        <div className="flex items-center justify-end">
-          <button
+        <div className="flex justify-end">
+          <ControlButton
+            active={showCode}
             onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
           >
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-8">
-        {/* Demo area */}
-        <div className="relative flex h-64 items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-800">
-          {/* Bell with badge */}
-          <div className="flex flex-col items-center gap-4">
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="relative flex h-[400px] flex-col overflow-hidden bg-neutral-50 dark:bg-neutral-900">
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-neutral-200 bg-white px-6 py-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900/50">
+            <div className="flex items-center gap-3">
+              <div className="h-3 w-3 rounded-full bg-rose-500" />
+              <div className="h-3 w-3 rounded-full bg-amber-500" />
+              <div className="h-3 w-3 rounded-full bg-emerald-500" />
+            </div>
+
             <button
               ref={bellRef}
-              onClick={addNotification}
-              className="relative rounded-full bg-white p-4 shadow-md transition-transform hover:scale-105 active:scale-95 dark:bg-neutral-700"
+              onClick={clearAll}
+              className="relative rounded-full p-2 text-neutral-500 transition-colors hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
             >
-              <Bell className="size-6 text-neutral-700 dark:text-neutral-300" />
+              <Bell className="size-5" />
               <AnimatePresence>
-                {count > 0 && (
-                  <motion.span
+                {unreadCount > 0 && (
+                  <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0 }}
                     transition={{ type: "spring", stiffness: 500, damping: 25 }}
-                    className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-swiss-red px-1 text-xs font-bold text-white"
+                    className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[10px] font-bold text-white ring-2 ring-white dark:ring-neutral-900"
                   >
-                    {count > 99 ? "99+" : count}
-                    {/* Pulse ring */}
-                    <motion.span
-                      animate={{
-                        scale: [1, 1.8],
-                        opacity: [0.4, 0],
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                      }}
-                      className="absolute inset-0 rounded-full bg-swiss-red"
-                    />
-                  </motion.span>
+                    {unreadCount}
+                  </motion.div>
                 )}
               </AnimatePresence>
             </button>
-            <div className="flex gap-2">
-              <button
-                onClick={addNotification}
-                className="rounded bg-swiss-red px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-swiss-red/90"
-              >
-                Add Badge +1
-              </button>
-              <button
-                onClick={() => setCount(0)}
-                className="rounded bg-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-700 transition-colors hover:bg-neutral-300 dark:bg-neutral-600 dark:text-neutral-300"
-              >
-                Clear
-              </button>
+          </div>
+
+          {/* Main Area */}
+          <div className="flex-1 p-6">
+            <div className="mx-auto max-w-sm space-y-4 text-center">
+              <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">
+                Trigger Notification
+              </h3>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                Click a button below to simulate an incoming notification. Watch
+                how motion guides your eye.
+              </p>
+
+              <div className="flex justify-center gap-3 pt-4">
+                <button
+                  onClick={() => addNotification("message")}
+                  className="flex flex-col items-center gap-2 rounded-[24px] bg-white p-4 shadow-sm transition-all hover:shadow-md active:scale-95 dark:bg-neutral-800"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+                    <MessageSquare className="size-5" />
+                  </div>
+                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                    Message
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => addNotification("mail")}
+                  className="flex flex-col items-center gap-2 rounded-[24px] bg-white p-4 shadow-sm transition-all hover:shadow-md active:scale-95 dark:bg-neutral-800"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                    <Mail className="size-5" />
+                  </div>
+                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                    Email
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => addNotification("event")}
+                  className="flex flex-col items-center gap-2 rounded-[24px] bg-white p-4 shadow-sm transition-all hover:shadow-md active:scale-95 dark:bg-neutral-800"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">
+                    <Calendar className="size-5" />
+                  </div>
+                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                    Event
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Toast trigger */}
-          <div className="absolute bottom-4 left-4">
-            <button
-              onClick={addToast}
-              className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-colors hover:bg-neutral-50 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-600"
-            >
-              <MessageSquare className="size-4" />
-              Trigger Toast
-            </button>
-          </div>
-
-          {/* Toast container */}
-          <div className="absolute bottom-4 right-4 space-y-2">
-            <AnimatePresence>
-              {toasts.map((toast) => (
+          {/* Toast Container */}
+          <div className="pointer-events-none absolute right-6 bottom-6 flex w-80 flex-col gap-2">
+            <AnimatePresence initial={false} mode="popLayout">
+              {notifications.map((n) => (
                 <motion.div
-                  key={toast.id}
-                  initial={{ opacity: 0, x: 100, scale: 0.9 }}
+                  key={n.id}
+                  layout
+                  initial={{ opacity: 0, x: 20, scale: 0.95 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 100, scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="flex items-center gap-3 rounded-lg border border-neutral-200 bg-white p-3 shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
+                  exit={{
+                    opacity: 0,
+                    scale: 0.95,
+                    transition: { duration: 0.2 },
+                  }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 300 }}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    if (offset.x > 100 || velocity.x > 500) {
+                      removeNotification(n.id);
+                    }
+                  }}
+                  className="pointer-events-auto relative overflow-hidden rounded-[24px] border border-neutral-200 bg-white/90 p-4 shadow-lg backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/90"
                 >
-                  <div
-                    className={cn(
-                      "flex h-8 w-8 items-center justify-center rounded-full",
-                      toast.color
-                    )}
-                  >
-                    <toast.icon className="size-4 text-white" />
+                  <div className="flex items-start gap-3">
+                    <div
+                      className={cn(
+                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
+                        n.type === "message"
+                          ? "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400"
+                          : n.type === "mail"
+                            ? "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
+                            : "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
+                      )}
+                    >
+                      {n.type === "message" ? (
+                        <MessageSquare className="size-4" />
+                      ) : n.type === "mail" ? (
+                        <Mail className="size-4" />
+                      ) : (
+                        <Calendar className="size-4" />
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+                          {n.title}
+                        </h4>
+                        <span className="text-[10px] text-neutral-400">
+                          {n.time}
+                        </span>
+                      </div>
+                      <p className="line-clamp-1 text-xs text-neutral-500 dark:text-neutral-400">
+                        {n.message}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => removeNotification(n.id)}
+                      className="-mt-1 -mr-1 ml-1 rounded-full p-1 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                    >
+                      <X className="size-4" />
+                    </button>
                   </div>
-                  <p className="text-sm font-medium text-neutral-900 dark:text-white">
-                    {toast.title}
-                  </p>
-                  <button
-                    onClick={() => removeToast(toast.id)}
-                    className="ml-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
-                  >
-                    <X className="size-4" />
-                  </button>
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
         </div>
 
-        {/* Explanation */}
+        {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-              Badge Animation
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
+              <CheckCircle2 className="size-4 text-emerald-500" />
+              Non-Blocking
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              The notifications appear in the periphery (bottom-right) and don't
+              block the main content area. This respects user flow.
             </p>
-            <ul className="mt-2 space-y-1 text-xs text-neutral-500">
-              <li>• Scale in when count goes from 0 to 1</li>
-              <li>• Subtle pulse ring draws peripheral attention</li>
-              <li>• Spring physics makes appearance feel natural</li>
-            </ul>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-              Toast Animation
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
+              <AlertCircle className="size-4 text-indigo-500" />
+              Natural Entry
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              They slide in from the nearest edge (right), which feels physical
+              and predictable. No teleporting elements.
             </p>
-            <ul className="mt-2 space-y-1 text-xs text-neutral-500">
-              <li>• Slides in from right (non-intrusive position)</li>
-              <li>• Spring transition feels physical</li>
-              <li>• Stacks elegantly without pushing content</li>
-            </ul>
           </div>
         </div>
 
-        {/* Key insight */}
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>The balance:</strong> Motion should attract attention without demanding it. 
-            The pulse is subtle enough to notice in peripheral vision without distracting 
-            from the current task. Toasts slide in from the edge, announcing themselves 
-            without blocking content.
-          </p>
-        </div>
-
-        {/* Code panel */}
         {showCode && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -316,4 +333,3 @@ function Toasts({ toasts, onRemove }) {
     </ExampleWrapper>
   );
 }
-

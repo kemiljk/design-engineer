@@ -2,14 +2,59 @@
 
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart } from "lucide-react";
+import { Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
 import confetti from "canvas-confetti";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
   ControlGroup,
+  ControlButton,
 } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
+
+// Reusable Platform Button
+function PlatformLikeButton({
+  name,
+  icon: Icon,
+  bg,
+  color = "text-white",
+}: {
+  name: string;
+  icon: any;
+  bg: string;
+  color?: string;
+}) {
+  const [liked, setLiked] = useState(false);
+
+  return (
+    <button
+      onClick={() => setLiked(!liked)}
+      className="flex flex-col items-center gap-3 rounded-[24px] p-6 shadow-md transition-transform active:scale-95"
+      style={{ background: bg }}
+    >
+      <motion.div
+        animate={liked ? { scale: [1, 1.4, 0.9, 1.1, 1] } : { scale: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Icon
+          className={cn("size-8 transition-colors", color)}
+          style={{
+            fill: liked ? "currentColor" : "transparent",
+            strokeWidth: 2,
+          }}
+        />
+      </motion.div>
+      <span
+        className={cn(
+          "text-xs font-bold tracking-wider uppercase opacity-90",
+          color,
+        )}
+      >
+        {name}
+      </span>
+    </button>
+  );
+}
 
 export function LikeButtonDemo() {
   const [isLiked, setIsLiked] = useState(false);
@@ -18,12 +63,11 @@ export function LikeButtonDemo() {
   const [particles, setParticles] = useState<number[]>([]);
 
   const triggerConfetti = useCallback((x: number, y: number) => {
-    // Mini confetti burst
     confetti({
       particleCount: 30,
       spread: 60,
       origin: { x: x / window.innerWidth, y: y / window.innerHeight },
-      colors: ["#ff4400", "#ff6b35", "#ff8f66"],
+      colors: ["#ec4899", "#f472b6", "#db2777"],
       ticks: 50,
       gravity: 1.2,
       scalar: 0.8,
@@ -38,10 +82,9 @@ export function LikeButtonDemo() {
 
     if (!isLiked) {
       triggerConfetti(x, y);
-      // Add particle IDs for the burst effect
-      const newParticles = Array.from({ length: 6 }, (_, i) => Date.now() + i);
+      const newParticles = Array.from({ length: 8 }, (_, i) => Date.now() + i);
       setParticles(newParticles);
-      setTimeout(() => setParticles([]), 600);
+      setTimeout(() => setParticles([]), 700);
     }
 
     setIsLiked(!isLiked);
@@ -56,10 +99,12 @@ export function LikeButtonDemo() {
   background: transparent;
   border: none;
   cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.2s;
 }
 
-.heart {
-  transition: transform 0.15s ease-out;
+.like-button:hover {
+  background: rgba(236, 72, 153, 0.1);
 }
 
 .heart--liked {
@@ -71,18 +116,6 @@ export function LikeButtonDemo() {
   25% { transform: scale(1.3); }
   50% { transform: scale(0.95); }
   100% { transform: scale(1); }
-}
-
-.heart-icon {
-  fill: transparent;
-  stroke: currentColor;
-  stroke-width: 2;
-  transition: fill 0.2s, stroke 0.2s;
-}
-
-.heart--liked .heart-icon {
-  fill: #ff4400;
-  stroke: #ff4400;
 }`;
 
   const motionCode = `import { motion, AnimatePresence } from "motion/react";
@@ -95,7 +128,6 @@ function LikeButton() {
 
   const handleLike = (e: React.MouseEvent) => {
     if (!isLiked) {
-      // Trigger confetti burst
       const rect = e.currentTarget.getBoundingClientRect();
       confetti({
         particleCount: 30,
@@ -104,30 +136,20 @@ function LikeButton() {
           x: (rect.left + rect.width / 2) / window.innerWidth, 
           y: (rect.top + rect.height / 2) / window.innerHeight 
         },
-        colors: ["#ff4400", "#ff6b35", "#ff8f66"],
+        colors: ["#ec4899", "#f472b6", "#db2777"],
       });
     }
-    
     setIsLiked(!isLiked);
     setLikeCount(prev => isLiked ? prev - 1 : prev + 1);
   };
 
   return (
-    <button onClick={handleLike} className="flex items-center gap-2">
+    <button onClick={handleLike} className="group flex items-center gap-2">
       <motion.div
-        animate={isLiked ? {
-          scale: [1, 1.3, 0.95, 1],
-        } : { scale: 1 }}
+        animate={isLiked ? { scale: [1, 1.3, 0.95, 1] } : { scale: 1 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
-        <Heart
-          className={cn(
-            "size-6 transition-colors",
-            isLiked 
-              ? "fill-swiss-red stroke-swiss-red" 
-              : "fill-transparent stroke-current"
-          )}
-        />
+        <Heart className={isLiked ? "fill-pink-500 text-pink-500" : ""} />
       </motion.div>
       
       <AnimatePresence mode="wait">
@@ -136,7 +158,6 @@ function LikeButton() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          className="text-sm font-medium tabular-nums"
         >
           {likeCount}
         </motion.span>
@@ -161,137 +182,207 @@ function LikeButton() {
               {isLiked ? "Liked" : "Not liked"} • {likeCount} likes
             </span>
           </ControlGroup>
-          <button
+          <ControlButton
+            active={showCode}
             onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
           >
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
       <div className="space-y-8">
-        {/* Interactive like button */}
+        {/* Main interactive showcase - Social card */}
         <div className="flex flex-col items-center gap-6">
-          <div className="flex h-32 w-full items-center justify-center rounded-lg bg-neutral-100 dark:bg-neutral-800">
-            <button
-              onClick={handleLike}
-              className="relative flex items-center gap-3 rounded-lg px-6 py-3 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
-            >
-              {/* Particle burst */}
-              <AnimatePresence>
-                {particles.map((id, i) => (
-                  <motion.div
-                    key={id}
-                    initial={{ scale: 0, opacity: 1 }}
-                    animate={{
-                      scale: 1.5,
-                      opacity: 0,
-                      x: Math.cos((i / 6) * Math.PI * 2) * 30,
-                      y: Math.sin((i / 6) * Math.PI * 2) * 30,
-                    }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-swiss-red"
-                  />
-                ))}
-              </AnimatePresence>
-
-              <motion.div
-                animate={
-                  isLiked
-                    ? {
-                        scale: [1, 1.3, 0.95, 1],
-                      }
-                    : { scale: 1 }
-                }
-                transition={{ duration: 0.35, ease: "easeOut" }}
-              >
-                <Heart
-                  className={cn(
-                    "size-8 transition-colors duration-200",
-                    isLiked
-                      ? "fill-swiss-red stroke-swiss-red"
-                      : "fill-transparent stroke-neutral-600 dark:stroke-neutral-400"
-                  )}
-                />
-              </motion.div>
-
-              <div className="flex flex-col items-start">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={likeCount}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.15 }}
-                    className="font-mono text-lg font-bold tabular-nums text-neutral-900 dark:text-white"
-                  >
-                    {likeCount.toLocaleString()}
-                  </motion.span>
-                </AnimatePresence>
-                <span className="text-xs text-neutral-500">likes</span>
+          <div className="relative flex w-full justify-center bg-neutral-100 p-8 dark:bg-neutral-900/50">
+            {/* Social card */}
+            <div className="relative w-80 overflow-hidden rounded-[24px] border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+              {/* Header */}
+              <div className="flex items-center gap-3 border-b border-neutral-100 p-4 dark:border-neutral-800">
+                <div className="h-10 w-10 overflow-hidden !rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5">
+                  <div className="h-full w-full !rounded-full bg-white p-0.5 dark:bg-neutral-900">
+                    <div className="h-full w-full !rounded-full bg-gradient-to-br from-indigo-500 to-purple-600" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-neutral-900 dark:text-white">
+                    Design Engineer
+                  </p>
+                  <p className="text-xs text-neutral-500">
+                    @designengineer • 2h
+                  </p>
+                </div>
               </div>
-            </button>
+
+              {/* Content */}
+              <div className="p-4">
+                <p className="text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-300">
+                  Just shipped a beautiful new animation library! The spring
+                  physics make everything feel so much more alive. 🚀✨
+                </p>
+              </div>
+
+              {/* Actions */}
+              <div className="flex items-center justify-between border-t border-neutral-100 px-2 py-2 dark:border-neutral-800">
+                {/* Like button */}
+                <button
+                  onClick={handleLike}
+                  className="group relative flex items-center gap-2 rounded-[24px] px-3 py-2 transition-colors hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                >
+                  {/* Particle burst */}
+                  <AnimatePresence>
+                    {particles.map((id, i) => (
+                      <motion.div
+                        key={id}
+                        initial={{ scale: 0, opacity: 1 }}
+                        animate={{
+                          scale: 2,
+                          opacity: 0,
+                          x: Math.cos((i / 8) * Math.PI * 2) * 30,
+                          y: Math.sin((i / 8) * Math.PI * 2) * 30,
+                        }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="absolute top-1/2 left-3 -translate-y-1/2"
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: 3,
+                          background: "#ec4899",
+                        }}
+                      />
+                    ))}
+                  </AnimatePresence>
+
+                  <motion.div
+                    animate={
+                      isLiked ? { scale: [1, 1.4, 0.9, 1.1, 1] } : { scale: 1 }
+                    }
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <Heart
+                      className={cn(
+                        "size-[20px] transition-all duration-200",
+                        isLiked
+                          ? "fill-pink-500 text-pink-500"
+                          : "text-neutral-400 group-hover:text-pink-500",
+                      )}
+                    />
+                  </motion.div>
+
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={likeCount}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.15 }}
+                      className={cn(
+                        "text-sm font-medium tabular-nums transition-colors",
+                        isLiked
+                          ? "text-pink-600 dark:text-pink-400"
+                          : "text-neutral-500",
+                      )}
+                    >
+                      {likeCount}
+                    </motion.span>
+                  </AnimatePresence>
+                </button>
+
+                {/* Comment button */}
+                <button className="flex items-center gap-2 rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-sky-50 hover:text-sky-500 dark:hover:bg-sky-900/20 dark:hover:text-sky-400">
+                  <MessageCircle className="size-[20px]" />
+                  <span className="text-sm font-medium">24</span>
+                </button>
+
+                {/* Share button */}
+                <button className="flex items-center gap-2 rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-emerald-50 hover:text-emerald-500 dark:hover:bg-emerald-900/20 dark:hover:text-emerald-400">
+                  <Share2 className="size-[20px]" />
+                  <span className="text-sm font-medium">8</span>
+                </button>
+
+                {/* Bookmark */}
+                <button className="flex items-center rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-amber-50 hover:text-amber-500 dark:hover:bg-amber-900/20 dark:hover:text-amber-400">
+                  <Bookmark className="size-[20px]" />
+                </button>
+              </div>
+            </div>
           </div>
 
-          <p className="text-center text-sm text-neutral-500">
-            Click the heart to see the animation and confetti burst
-          </p>
+          {/* Animation breakdown */}
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                step: "1",
+                title: "Scale Pop",
+                desc: "Heart bounces through 100% → 140% → 90% → 110% → 100%",
+                color:
+                  "bg-pink-100 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400",
+                border: "border-pink-200 dark:border-pink-900/50",
+              },
+              {
+                step: "2",
+                title: "Colour Fill",
+                desc: "Instant colour transition with glowing drop-shadow",
+                color:
+                  "bg-violet-100 text-violet-600 dark:bg-violet-900/30 dark:text-violet-400",
+                border: "border-violet-200 dark:border-violet-900/50",
+              },
+              {
+                step: "3",
+                title: "Confetti",
+                desc: "Particle burst radiates outward from the heart",
+                color:
+                  "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
+                border: "border-amber-200 dark:border-amber-900/50",
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className={cn(
+                  "rounded-[24px] border bg-white p-5 shadow-sm dark:bg-neutral-900",
+                  item.border,
+                )}
+              >
+                <div
+                  className={cn(
+                    "mb-3 flex h-7 w-7 items-center justify-center rounded-[8px] text-xs font-bold",
+                    item.color,
+                  )}
+                >
+                  {item.step}
+                </div>
+                <p className="text-sm font-bold text-neutral-900 dark:text-white">
+                  {item.title}
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Animation breakdown */}
+        {/* Platform variants - Interactive */}
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="text-xs font-semibold text-swiss-red">1. Scale Pop</p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Heart scales up to 130%, then overshoots down to 95%, settling at 100%
-            </p>
-          </div>
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="text-xs font-semibold text-swiss-red">2. Colour Fill</p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Fill and stroke transition from transparent to swiss-red simultaneously
-            </p>
-          </div>
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="text-xs font-semibold text-swiss-red">3. Confetti</p>
-            <p className="mt-1 text-xs text-neutral-500">
-              canvas-confetti creates a burst of particles on first like
-            </p>
-          </div>
-        </div>
-
-        {/* Variants */}
-        <div className="flex items-center justify-center gap-8 rounded-lg border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
-          {/* Minimal */}
-          <div className="flex flex-col items-center gap-2">
-            <Heart className="size-6 fill-swiss-red stroke-swiss-red" />
-            <span className="text-xs text-neutral-500">Minimal</span>
-          </div>
-          
-          {/* With count */}
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center gap-1.5">
-              <Heart className="size-5 fill-swiss-red stroke-swiss-red" />
-              <span className="text-sm font-medium">2.4k</span>
-            </div>
-            <span className="text-xs text-neutral-500">With count</span>
-          </div>
-          
-          {/* Badge style */}
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex items-center gap-2 rounded-full bg-swiss-red/10 px-3 py-1.5">
-              <Heart className="size-4 fill-swiss-red stroke-swiss-red" />
-              <span className="text-sm font-medium text-swiss-red">Liked</span>
-            </div>
-            <span className="text-xs text-neutral-500">Badge</span>
-          </div>
+          <PlatformLikeButton
+            name="Instagram"
+            icon={Heart}
+            bg="linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)"
+          />
+          <PlatformLikeButton name="X" icon={Heart} bg="#000000" />
+          <PlatformLikeButton
+            name="YouTube"
+            icon={({ className, style }: any) => (
+              <svg className={className} style={style} viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                />
+              </svg>
+            )}
+            bg="linear-gradient(135deg, #FF0000 0%, #cc0000 100%)"
+          />
         </div>
 
         {/* Code panel */}
@@ -307,4 +398,3 @@ function LikeButton() {
     </ExampleWrapper>
   );
 }
-

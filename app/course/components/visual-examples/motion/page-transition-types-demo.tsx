@@ -2,128 +2,96 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Smartphone, Settings, User, Home } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-  ControlButton,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-type TransitionType = "fade" | "slide" | "scale" | "slideUp";
-
-const pages = [
-  { id: 1, title: "Home", color: "from-blue-500 to-blue-600", content: "Welcome to the app" },
-  { id: 2, title: "Products", color: "from-violet-500 to-violet-600", content: "Browse our products" },
-  { id: 3, title: "About", color: "from-emerald-500 to-emerald-600", content: "Learn about us" },
-];
-
-const transitions: Record<TransitionType, { initial: object; animate: object; exit: object }> = {
-  fade: {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-  },
-  slide: {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -100 },
-  },
-  scale: {
-    initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 1.1 },
-  },
-  slideUp: {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
-  },
-};
+type TransitionType = "push" | "modal" | "fade";
 
 export function PageTransitionTypesDemo() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [transitionType, setTransitionType] = useState<TransitionType>("fade");
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [type, setType] = useState<TransitionType>("push");
   const [showCode, setShowCode] = useState(false);
 
-  const goToPage = (index: number) => {
-    setCurrentPage(index);
+  const pages = [
+    { id: 0, title: "Home", color: "bg-white dark:bg-neutral-900", icon: Home },
+    { id: 1, title: "Profile", color: "bg-neutral-50 dark:bg-neutral-800", icon: User },
+    { id: 2, title: "Settings", color: "bg-neutral-100 dark:bg-neutral-900", icon: Settings },
+  ];
+
+  const next = () => setCurrentPage((prev) => (prev + 1) % pages.length);
+  const prev = () => setCurrentPage((prev) => (prev - 1 + pages.length) % pages.length);
+
+  const getVariants = () => {
+    switch (type) {
+      case "push":
+        return {
+          initial: { x: "100%", opacity: 1 },
+          animate: { x: 0, opacity: 1 },
+          exit: { x: "-20%", opacity: 0.5 }, // iOS style parallax
+        };
+      case "modal":
+        return {
+          initial: { y: "100%" },
+          animate: { y: 0 },
+          exit: { y: "100%" },
+        };
+      case "fade":
+        return {
+          initial: { opacity: 0, scale: 0.95 },
+          animate: { opacity: 1, scale: 1 },
+          exit: { opacity: 0, scale: 1.05 },
+        };
+    }
   };
 
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % pages.length);
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + pages.length) % pages.length);
-  };
-
-  const page = pages[currentPage];
-  const transition = transitions[transitionType];
-
-  const cssCode = `/* Fade transition */
-.page-fade-enter {
-  opacity: 0;
-}
-.page-fade-enter-active {
-  opacity: 1;
-  transition: opacity 0.3s ease-out;
-}
-.page-fade-exit-active {
-  opacity: 0;
-  transition: opacity 0.2s ease-in;
+  const cssCode = `.page-enter {
+  transform: translateX(100%);
 }
 
-/* Slide transition */
-.page-slide-enter {
-  opacity: 0;
-  transform: translateX(100px);
-}
-.page-slide-enter-active {
-  opacity: 1;
+.page-enter-active {
   transform: translateX(0);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.page-slide-exit-active {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 0.2s ease-in;
+  transition: transform 300ms;
 }`;
 
   const motionCode = `import { motion, AnimatePresence } from "motion/react";
 
-const pageTransitions = {
+const variants = {
+  push: {
+    initial: { x: "100%" },
+    animate: { x: 0 },
+    exit: { x: "-25%" }
+  },
+  modal: {
+    initial: { y: "100%" },
+    animate: { y: 0 },
+    exit: { y: "100%" }
+  },
   fade: {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
-    exit: { opacity: 0 },
-  },
-  slide: {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -100 },
-  },
-  scale: {
-    initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 1.1 },
-  },
+    exit: { opacity: 0 }
+  }
 };
 
-function PageWrapper({ children, transitionKey }) {
-  const transition = pageTransitions.${transitionType};
-  
+function App() {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout" initial={false}>
       <motion.div
-        key={transitionKey}
-        initial={transition.initial}
-        animate={transition.animate}
-        exit={transition.exit}
-        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        key={location.pathname}
+        variants={variants[type]}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ 
+          type: "spring", 
+          stiffness: 300, 
+          damping: 30 
+        }}
+        className="page"
       >
-        {children}
+        <Component />
       </motion.div>
     </AnimatePresence>
   );
@@ -136,138 +104,143 @@ function PageWrapper({ children, transitionKey }) {
 
   return (
     <ExampleWrapper
-      title="Page Transition Types"
-      description="Compare different transition styles. Each creates a different feel and suits different contexts."
+      title="Page Transition Patterns"
+      description="Different transitions communicate different spatial models to the user."
       controls={
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <ControlGroup label="Type">
-            {(Object.keys(transitions) as TransitionType[]).map((type) => (
+          <ControlGroup label="Transition Type">
+            {(["push", "modal", "fade"] as const).map((t) => (
               <ControlButton
-                key={type}
-                active={transitionType === type}
-                onClick={() => setTransitionType(type)}
+                key={t}
+                active={type === t}
+                onClick={() => {
+                  setType(t);
+                  setCurrentPage(0);
+                }}
               >
-                {type}
+                {t.charAt(0).toUpperCase() + t.slice(1)}
               </ControlButton>
             ))}
           </ControlGroup>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
-          >
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Browser frame */}
-        <div className="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
-          {/* Browser chrome */}
-          <div className="flex items-center gap-2 border-b border-neutral-200 bg-neutral-50 px-4 py-3 dark:border-neutral-800 dark:bg-neutral-950">
-            <div className="flex gap-1.5">
-              <div className="h-3 w-3 rounded-full bg-red-400" />
-              <div className="h-3 w-3 rounded-full bg-amber-400" />
-              <div className="h-3 w-3 rounded-full bg-green-400" />
-            </div>
-            <div className="flex-1">
-              <div className="mx-auto max-w-xs rounded bg-neutral-200 px-3 py-1 text-center text-xs text-neutral-500 dark:bg-neutral-800">
-                example.com/{page.title.toLowerCase()}
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="flex justify-center">
+          <div className="relative h-[500px] w-[280px] overflow-hidden rounded-[32px] border-[8px] border-neutral-900 bg-black shadow-2xl dark:border-neutral-700">
+            {/* Status Bar */}
+            <div className="absolute left-0 right-0 top-0 z-20 flex justify-between px-6 py-3 text-[10px] font-bold text-neutral-900 dark:text-white">
+              <span>9:41</span>
+              <div className="flex gap-1">
+                <div className="h-2.5 w-2.5 rounded-full bg-current opacity-20" />
+                <div className="h-2.5 w-2.5 rounded-full bg-current opacity-20" />
+                <div className="h-2.5 w-2.5 rounded-full bg-current" />
               </div>
             </div>
-          </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-between border-b border-neutral-200 bg-white px-4 py-2 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="flex gap-1">
-              {pages.map((p, i) => (
-                <button
-                  key={p.id}
-                  onClick={() => goToPage(i)}
-                  className={cn(
-                    "rounded px-3 py-1.5 text-xs font-medium transition-colors",
-                    currentPage === i
-                      ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                      : "text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
-                  )}
-                >
-                  {p.title}
-                </button>
-              ))}
-            </div>
-            <div className="flex gap-1">
-              <button
-                onClick={prevPage}
-                className="rounded p-1.5 text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-              >
-                <ChevronLeft className="size-4" />
-              </button>
-              <button
-                onClick={nextPage}
-                className="rounded p-1.5 text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-              >
-                <ChevronRight className="size-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Page content */}
-          <div className="relative h-48 overflow-hidden">
-            <AnimatePresence mode="wait">
+            {/* Content Area */}
+            <AnimatePresence mode="popLayout" initial={false}>
               <motion.div
-                key={page.id}
-                initial={transition.initial}
-                animate={transition.animate}
-                exit={transition.exit}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                key={currentPage}
+                variants={getVariants()}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30,
+                  mass: 0.8,
+                }}
                 className={cn(
-                  "absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br text-white",
-                  page.color
+                  "absolute inset-0 flex flex-col pt-12",
+                  pages[currentPage].color
                 )}
               >
-                <h2 className="text-2xl font-bold">{page.title}</h2>
-                <p className="mt-2 text-white/80">{page.content}</p>
+                <div className="flex-1 px-6">
+                  <h2 className="mb-2 text-2xl font-bold text-neutral-900 dark:text-white">
+                    {pages[currentPage].title}
+                  </h2>
+                  <div className="space-y-3">
+                    <div className="h-4 w-2/3 rounded-[4px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-4 w-full rounded-[4px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-4 w-5/6 rounded-[4px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                  </div>
+
+                  <div className="mt-8 grid grid-cols-2 gap-3">
+                    <div className="aspect-square rounded-[16px] bg-neutral-100 dark:bg-neutral-800" />
+                    <div className="aspect-square rounded-[16px] bg-neutral-100 dark:bg-neutral-800" />
+                  </div>
+                </div>
+
+                {/* Simulated Tab Bar */}
+                <div className="mt-auto flex justify-around border-t border-neutral-200 bg-white py-4 dark:border-neutral-800 dark:bg-neutral-900">
+                  {pages.map((p, i) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setCurrentPage(i)}
+                      className={cn(
+                        "flex flex-col items-center gap-1 transition-colors",
+                        currentPage === i ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400"
+                      )}
+                    >
+                      <p.icon className="size-5" />
+                      <span className="text-[10px] font-medium">{p.title}</span>
+                    </button>
+                  ))}
+                </div>
               </motion.div>
             </AnimatePresence>
+
+            {/* Dynamic Island Notch */}
+            <div className="absolute left-1/2 top-2 z-30 h-6 w-20 -translate-x-1/2 rounded-full bg-black" />
           </div>
         </div>
 
-        {/* Transition explanations */}
-        <div className="grid gap-4 sm:grid-cols-4">
+        {/* Visual Explanation */}
+        <div className="grid gap-4 sm:grid-cols-3">
           {[
-            { type: "fade", desc: "Subtle, universal. Good default choice." },
-            { type: "slide", desc: "Shows direction. Good for navigation." },
-            { type: "scale", desc: "Zoom effect. Good for modals/cards." },
-            { type: "slideUp", desc: "Reveals from below. Good for new content." },
+            { 
+              mode: "push", 
+              label: "Push", 
+              desc: "Standard iOS navigation. Implies moving deeper into a hierarchy (x-axis)."
+            },
+            { 
+              mode: "modal", 
+              label: "Modal", 
+              desc: "Temporary context. Implies layering on top of current view (y-axis)."
+            },
+            { 
+              mode: "fade", 
+              label: "Fade", 
+              desc: "State change. Implies changing content within the same container."
+            }
           ].map((item) => (
-            <div
-              key={item.type}
+            <div 
+              key={item.mode}
               className={cn(
-                "rounded-lg border p-3 transition-colors",
-                transitionType === item.type
-                  ? "border-swiss-red bg-swiss-red/5"
-                  : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
+                "rounded-[12px] border p-4 transition-colors",
+                type === item.mode
+                  ? "border-neutral-900 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
+                  : "border-transparent bg-white dark:bg-neutral-900"
               )}
             >
-              <p className="text-xs font-semibold capitalize text-neutral-900 dark:text-white">
-                {item.type}
+              <h4 className="mb-1 text-sm font-semibold text-neutral-900 dark:text-white">
+                {item.label}
+              </h4>
+              <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                {item.desc}
               </p>
-              <p className="mt-1 text-xs text-neutral-500">{item.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -275,4 +248,3 @@ function PageWrapper({ children, transitionKey }) {
     </ExampleWrapper>
   );
 }
-

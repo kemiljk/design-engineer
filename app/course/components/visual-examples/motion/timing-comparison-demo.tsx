@@ -1,91 +1,67 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, useAnimationControls } from "motion/react";
-import { Play, RotateCcw } from "lucide-react";
+import { motion } from "motion/react";
+import { Play, RotateCcw, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-  SliderControl,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
-import { easings } from "./motion-utils";
-
-const durations = [100, 200, 300, 500, 800];
 
 export function TimingComparisonDemo() {
-  const [baseDuration, setBaseDuration] = useState(300);
-  const [showCode, setShowCode] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showCode, setShowCode] = useState(false);
+  
+  // Use a key to force re-mounting of motion components for clean replay
+  const [key, setKey] = useState(0);
 
-  const controls1 = useAnimationControls();
-  const controls2 = useAnimationControls();
-  const controls3 = useAnimationControls();
-
-  const d1 = Math.round(baseDuration * 0.5);
-  const d2 = baseDuration;
-  const d3 = Math.round(baseDuration * 1.5);
-
-  const playAll = async () => {
+  const togglePlay = () => {
+    if (isPlaying) return;
+    setKey(k => k + 1);
     setIsPlaying(true);
-    
-    await Promise.all([
-      controls1.start({
-        x: 200,
-        transition: { duration: d1 / 1000, ease: easings.smooth as unknown as number[] },
-      }),
-      controls2.start({
-        x: 200,
-        transition: { duration: d2 / 1000, ease: easings.smooth as unknown as number[] },
-      }),
-      controls3.start({
-        x: 200,
-        transition: { duration: d3 / 1000, ease: easings.smooth as unknown as number[] },
-      }),
-    ]);
-
-    setIsPlaying(false);
+    setTimeout(() => setIsPlaying(false), 2000);
   };
 
-  const resetAll = async () => {
-    setIsPlaying(false);
-    await Promise.all([
-      controls1.set({ x: 0 }),
-      controls2.set({ x: 0 }),
-      controls3.set({ x: 0 }),
-    ]);
-  };
-
-  const cssCode = `.element-fast {
-  transition: transform ${d1}ms cubic-bezier(0.4, 0, 0.2, 1);
+  const cssCode = `.linear {
+  transition: transform 1.5s linear;
 }
 
-.element-normal {
-  transition: transform ${d2}ms cubic-bezier(0.4, 0, 0.2, 1);
+.ease-out {
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.element-slow {
-  transition: transform ${d3}ms cubic-bezier(0.4, 0, 0.2, 1);
+.spring {
+  /* Requires JS/Motion for true physics */
 }`;
 
-  const motionCode = `// Fast - small UI changes, hover states
-<motion.div
-  animate={{ x: 200 }}
-  transition={{ duration: ${(d1 / 1000).toFixed(2)} }}
-/>
+  const motionCode = `import { motion } from "motion/react";
 
-// Normal - most interactions
-<motion.div
-  animate={{ x: 200 }}
-  transition={{ duration: ${(d2 / 1000).toFixed(2)} }}
-/>
+function Race() {
+  return (
+    <>
+      {/* Linear: Robotic, unnatural */}
+      <motion.div 
+        animate={{ x: "100%" }} 
+        transition={{ ease: "linear", duration: 1.5 }} 
+      />
 
-// Slow - large reveals, page transitions
-<motion.div
-  animate={{ x: 200 }}
-  transition={{ duration: ${(d3 / 1000).toFixed(2)} }}
-/>`;
+      {/* Ease Out: Smooth, standard UI */}
+      <motion.div 
+        animate={{ x: "100%" }} 
+        transition={{ ease: [0.22, 1, 0.36, 1], duration: 1.5 }} 
+      />
+
+      {/* Spring: Physical, energetic */}
+      <motion.div 
+        animate={{ x: "100%" }} 
+        transition={{ 
+          type: "spring", 
+          stiffness: 100, 
+          damping: 12 
+        }} 
+      />
+    </>
+  );
+}`;
 
   const codeTabs: CodeTab[] = [
     { label: "CSS", language: "css", code: cssCode },
@@ -94,142 +70,113 @@ export function TimingComparisonDemo() {
 
   return (
     <ExampleWrapper
-      title="Timing Comparison"
-      description="See how different durations affect the feel of an animation. Adjust the base duration to experiment."
+      title="Timing Functions"
+      description="The same movement feels completely different depending on the easing or physics used."
       controls={
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <SliderControl
-            label="Base Duration"
-            value={baseDuration}
-            min={100}
-            max={800}
-            step={50}
-            onChange={setBaseDuration}
-            unit="ms"
-          />
-          <ControlGroup label="">
-            <button
-              onClick={() => setShowCode(!showCode)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-                showCode
-                  ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                  : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-              )}
-            >
-              {showCode ? "Hide Code" : "Show Code"}
-            </button>
-          </ControlGroup>
+        <div className="flex items-center justify-between">
+          <button
+            onClick={togglePlay}
+            disabled={isPlaying}
+            className="flex items-center gap-2 bg-neutral-900 px-4 py-2 text-xs font-bold text-white shadow-lg transition-all hover:bg-neutral-800 active:scale-95 disabled:opacity-50 dark:bg-neutral-800 dark:text-neutral-200 dark:ring-1 dark:ring-neutral-700/80 dark:hover:bg-neutral-700 dark:hover:text-white"
+          >
+            {isPlaying ? (
+              <>
+                <Activity className="size-3.5 animate-pulse" />
+                Running...
+              </>
+            ) : (
+              <>
+                <Play className="size-3.5 fill-current" />
+                Start Race
+              </>
+            )}
+          </button>
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
+            {showCode ? "Hide Code" : "Show Code"}
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Controls */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={resetAll}
-            className="flex h-8 w-8 items-center justify-center rounded bg-neutral-200 text-neutral-600 transition-colors hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-600"
-            aria-label="Reset"
-          >
-            <RotateCcw className="size-4" />
-          </button>
-          <button
-            onClick={playAll}
-            disabled={isPlaying}
-            className={cn(
-              "flex h-8 items-center gap-2 rounded px-4 text-sm font-medium transition-colors",
-              isPlaying
-                ? "bg-neutral-300 text-neutral-500 dark:bg-neutral-600"
-                : "bg-swiss-red text-white hover:bg-swiss-red/90"
-            )}
-          >
-            <Play className="size-4" />
-            Play All
-          </button>
-        </div>
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="rounded-[24px] border border-neutral-200 bg-white p-8 shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="space-y-10">
+            
+            {/* Tracks */}
+            {[
+              { id: "linear", label: "Linear", desc: "Constant speed (Robotic)", color: "bg-neutral-400" },
+              { id: "ease", label: "Ease Out", desc: "Decelerates (Natural)", color: "bg-indigo-500" },
+              { id: "spring", label: "Spring", desc: "Overshoots (Playful)", color: "bg-emerald-500" },
+            ].map((track) => (
+              <div key={track.id} className="relative">
+                <div className="mb-2 flex items-baseline justify-between">
+                  <h4 className="text-sm font-bold text-neutral-900 dark:text-white">{track.label}</h4>
+                  <span className="text-[10px] font-medium text-neutral-500">{track.desc}</span>
+                </div>
+                
+                {/* Track line */}
+                <div className="relative h-14 rounded-2xl bg-neutral-100/50 dark:bg-neutral-800/50">
+                  {/* Ticks */}
+                  <div className="absolute inset-0 flex justify-between px-7">
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} className="h-full w-px bg-neutral-200/50 dark:bg-neutral-700/30" />
+                    ))}
+                  </div>
 
-        {/* Animation tracks */}
-        <div className="space-y-4">
-          {/* Fast */}
-          <div className="flex items-center gap-4">
-            <div className="w-20 text-right">
-              <span className="font-mono text-sm font-medium text-blue-500">
-                {d1}ms
-              </span>
-              <p className="text-xs text-neutral-500">Fast</p>
-            </div>
-            <div className="relative h-12 flex-1 rounded-lg bg-neutral-100 dark:bg-neutral-800">
-              <motion.div
-                animate={controls1}
-                initial={{ x: 0 }}
-                className="absolute left-2 top-1/2 h-8 w-8 -translate-y-1/2 rounded bg-blue-500 shadow-md"
-              />
-            </div>
-          </div>
+                  {/* Runner */}
+                  <div className="absolute inset-y-0 left-0 right-14 flex items-center">
+                    <motion.div
+                      key={`${track.id}-${key}`}
+                      initial={{ x: 0 }}
+                      animate={isPlaying ? { x: "100%" } : { x: 0 }}
+                      transition={
+                        track.id === "linear" ? { duration: 1.5, ease: "linear" } :
+                        track.id === "ease" ? { duration: 1.5, ease: [0.22, 1, 0.36, 1] } :
+                        { type: "spring", stiffness: 80, damping: 10 } // Spring
+                      }
+                      className="relative z-10 flex h-10 w-10 items-center justify-center rounded-[12px] shadow-lg transition-shadow"
+                      style={{
+                        backgroundColor: track.id === "linear" ? "#9ca3af" : 
+                                       track.id === "ease" ? "#6366f1" : "#10b981"
+                      }}
+                    >
+                      <div className="h-2 w-2 rounded-full bg-white/90" />
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            ))}
 
-          {/* Normal */}
-          <div className="flex items-center gap-4">
-            <div className="w-20 text-right">
-              <span className="font-mono text-sm font-medium text-swiss-red">
-                {d2}ms
-              </span>
-              <p className="text-xs text-neutral-500">Normal</p>
-            </div>
-            <div className="relative h-12 flex-1 rounded-lg bg-neutral-100 dark:bg-neutral-800">
-              <motion.div
-                animate={controls2}
-                initial={{ x: 0 }}
-                className="absolute left-2 top-1/2 h-8 w-8 -translate-y-1/2 rounded bg-swiss-red shadow-md"
-              />
-            </div>
-          </div>
-
-          {/* Slow */}
-          <div className="flex items-center gap-4">
-            <div className="w-20 text-right">
-              <span className="font-mono text-sm font-medium text-violet-500">
-                {d3}ms
-              </span>
-              <p className="text-xs text-neutral-500">Slow</p>
-            </div>
-            <div className="relative h-12 flex-1 rounded-lg bg-neutral-100 dark:bg-neutral-800">
-              <motion.div
-                animate={controls3}
-                initial={{ x: 0 }}
-                className="absolute left-2 top-1/2 h-8 w-8 -translate-y-1/2 rounded bg-violet-500 shadow-md"
-              />
-            </div>
           </div>
         </div>
 
-        {/* Guidelines */}
-        <div className="grid grid-cols-3 gap-4 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <div>
-            <p className="text-xs font-semibold text-blue-500">100-200ms</p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Hover states, toggles, micro-feedback
+        {/* Visual Explanation */}
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Linear</h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Good for: Spinners, scrolling marquees.<br/>
+              Bad for: Anything that moves from A to B.
             </p>
           </div>
-          <div>
-            <p className="text-xs font-semibold text-swiss-red">200-400ms</p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Modals, dropdowns, standard interactions
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Ease Out</h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Good for: Modals entering, cards sliding in.<br/>
+              Why: Mimics friction slowing objects down.
             </p>
           </div>
-          <div>
-            <p className="text-xs font-semibold text-violet-500">400-700ms</p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Page transitions, large reveals
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Spring</h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Good for: Interactions, toggles, gestures.<br/>
+              Why: Responds to velocity, feels "heavy".
             </p>
           </div>
         </div>
 
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -237,4 +184,3 @@ export function TimingComparisonDemo() {
     </ExampleWrapper>
   );
 }
-

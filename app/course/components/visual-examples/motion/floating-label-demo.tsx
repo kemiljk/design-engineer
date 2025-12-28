@@ -1,94 +1,57 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
 export function FloatingLabelDemo() {
-  const [value, setValue] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
   const [showCode, setShowCode] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const isFloating = isFocused || value.length > 0;
-
-  const cssCode = `.field {
-  position: relative;
-}
-
-.input {
-  width: 100%;
-  padding: 20px 16px 8px;
-  font-size: 16px;
-  border: 2px solid var(--neutral-200);
-  border-radius: 8px;
-  background: white;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.input:focus {
-  outline: none;
-  border-color: #ff4400;
-  box-shadow: 0 0 0 3px rgba(255, 68, 0, 0.15);
-}
-
-.label {
+  const cssCode = `.label {
   position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--neutral-500);
+  left: 1rem;
+  top: 1rem;
+  transform-origin: left top;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
-  transition: 
-    top 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.2s;
 }
 
-.input:focus + .label,
-.input:not(:placeholder-shown) + .label {
-  top: 12px;
-  transform: translateY(0);
-  font-size: 12px;
-  color: #ff4400;
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label {
+  transform: translateY(-0.75rem) scale(0.75);
+  color: #6366f1; /* indigo-500 */
 }`;
 
   const motionCode = `import { motion } from "motion/react";
-import { useState } from "react";
 
-function FloatingLabelInput({ label }: { label: string }) {
-  const [value, setValue] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-
-  const isFloating = isFocused || value.length > 0;
+function Input({ label, value, onChange }) {
+  const [focused, setFocused] = useState(false);
+  const isActive = focused || value.length > 0;
 
   return (
     <div className="relative">
       <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        className="w-full rounded-lg border-2 px-4 pt-5 pb-2 
-          border-neutral-200 focus:border-swiss-red
-          focus:ring-3 focus:ring-swiss-red/15 outline-none"
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        onChange={onChange}
+        className="pt-6 pb-2"
       />
       <motion.label
         initial={false}
         animate={{
-          top: isFloating ? 8 : "50%",
-          y: isFloating ? 0 : "-50%",
-          fontSize: isFloating ? 12 : 16,
-          color: isFocused ? "#ff4400" : "#737373",
+          y: isActive ? -12 : 0,
+          scale: isActive ? 0.75 : 1,
+          color: focused ? "#6366f1" : "#9ca3af"
         }}
-        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-        className="absolute left-4 pointer-events-none origin-left"
+        transition={{ duration: 0.2 }}
+        className="absolute left-4 top-4"
       >
         {label}
       </motion.label>
@@ -103,111 +66,148 @@ function FloatingLabelInput({ label }: { label: string }) {
 
   return (
     <ExampleWrapper
-      title="Floating Label Input"
-      description="Material Design-inspired input with animated label that floats on focus."
+      title="Floating Labels"
+      description="The label acts as a placeholder, then moves out of the way to become a persistent legend."
       controls={
-        <div className="flex items-center justify-between">
-          <ControlGroup label="">
-            <span className="text-xs text-neutral-500">
-              {isFocused ? "Focused" : value ? "Filled" : "Empty"}
-            </span>
-          </ControlGroup>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
-          >
+        <div className="flex justify-end">
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-8">
-        {/* Interactive input */}
-        <div className="mx-auto max-w-sm">
-          <div className="relative">
-            <input
-              type="text"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-              className={cn(
-                "w-full rounded-lg border-2 bg-white px-4 pb-2 pt-5 text-base text-neutral-900 outline-none transition-all duration-200",
-                "dark:bg-neutral-900 dark:text-white",
-                isFocused
-                  ? "border-swiss-red ring-3 ring-swiss-red/15"
-                  : "border-neutral-200 dark:border-neutral-700"
-              )}
-            />
-            <motion.label
-              initial={false}
-              animate={{
-                top: isFloating ? 8 : "50%",
-                y: isFloating ? 0 : "-50%",
-                fontSize: isFloating ? 12 : 16,
-                color: isFocused ? "#ff4400" : "#737373",
-              }}
-              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-              className="pointer-events-none absolute left-4 origin-left"
-            >
-              Email address
-            </motion.label>
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="mx-auto max-w-sm rounded-[32px] border border-neutral-200 bg-white p-8 shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="mb-8 text-center">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-[24px] bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+              <Lock className="size-6" />
+            </div>
+            <h3 className="text-xl font-bold text-neutral-900 dark:text-white">Welcome Back</h3>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">Please sign in to continue</p>
           </div>
 
-          <p className="mt-2 text-xs text-neutral-500">
-            Click the input to see the label float up
-          </p>
+          <div className="space-y-6">
+            {/* Email Field */}
+            <div className="relative">
+              <motion.div
+                layout
+                className={cn(
+                  "absolute inset-0 rounded-[12px] border transition-colors",
+                  focusedField === "email" 
+                    ? "border-indigo-500 bg-indigo-50/10 dark:bg-indigo-900/10" 
+                    : "border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
+                )}
+              />
+              <div className="relative z-10 flex items-center px-4">
+                <Mail className={cn(
+                  "mr-3 size-5 transition-colors",
+                  focusedField === "email" ? "text-indigo-500" : "text-neutral-400"
+                )} />
+                <div className="relative flex-1 py-3">
+                  <motion.label
+                    initial={false}
+                    animate={{
+                      y: focusedField === "email" || email ? -8 : 0,
+                      scale: focusedField === "email" || email ? 0.75 : 1,
+                      x: focusedField === "email" || email ? -4 : 0,
+                    }}
+                    className={cn(
+                      "absolute left-0 top-3 origin-left text-base font-medium transition-colors pointer-events-none",
+                      focusedField === "email" ? "text-indigo-500" : "text-neutral-500"
+                    )}
+                  >
+                    Email Address
+                  </motion.label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onFocus={() => setFocusedField("email")}
+                    onBlur={() => setFocusedField(null)}
+                    className="relative z-10 w-full bg-transparent pt-4 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Password Field */}
+            <div className="relative">
+              <motion.div
+                layout
+                className={cn(
+                  "absolute inset-0 rounded-[12px] border transition-colors",
+                  focusedField === "password" 
+                    ? "border-indigo-500 bg-indigo-50/10 dark:bg-indigo-900/10" 
+                    : "border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
+                )}
+              />
+              <div className="relative z-10 flex items-center px-4">
+                <Lock className={cn(
+                  "mr-3 size-5 transition-colors",
+                  focusedField === "password" ? "text-indigo-500" : "text-neutral-400"
+                )} />
+                <div className="relative flex-1 py-3">
+                  <motion.label
+                    initial={false}
+                    animate={{
+                      y: focusedField === "password" || password ? -8 : 0,
+                      scale: focusedField === "password" || password ? 0.75 : 1,
+                      x: focusedField === "password" || password ? -4 : 0,
+                    }}
+                    className={cn(
+                      "absolute left-0 top-3 origin-left text-base font-medium transition-colors pointer-events-none",
+                      focusedField === "password" ? "text-indigo-500" : "text-neutral-500"
+                    )}
+                  >
+                    Password
+                  </motion.label>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onFocus={() => setFocusedField("password")}
+                    onBlur={() => setFocusedField(null)}
+                    className="relative z-10 w-full bg-transparent pt-4 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
+                  />
+                </div>
+                <button
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="ml-2 text-neutral-400 hover:text-neutral-600 focus:outline-none dark:hover:text-neutral-200"
+                >
+                  {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
+                </button>
+              </div>
+            </div>
+
+            <button className="w-full rounded-[12px] bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-700 hover:shadow-indigo-500/40 active:scale-[0.98]">
+              Sign In
+            </button>
+          </div>
         </div>
 
-        {/* Multiple examples */}
+        {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          {/* Filled state */}
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="mb-3 text-xs font-medium text-neutral-500">Filled State</p>
-            <div className="relative">
-              <input
-                type="text"
-                defaultValue="john@example.com"
-                className="w-full rounded-lg border-2 border-neutral-200 bg-white px-4 pb-2 pt-5 text-base text-neutral-900 outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
-                readOnly
-              />
-              <span className="pointer-events-none absolute left-4 top-2 text-xs text-swiss-red">
-                Email address
-              </span>
-            </div>
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              Space Efficiency
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Combines the label and input into a single visual unit, saving vertical space while maintaining clarity.
+            </p>
           </div>
-
-          {/* Error state */}
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <p className="mb-3 text-xs font-medium text-neutral-500">Error State</p>
-            <div className="relative">
-              <input
-                type="text"
-                defaultValue="invalid-email"
-                className="w-full rounded-lg border-2 border-red-500 bg-white px-4 pb-2 pt-5 text-base text-neutral-900 outline-none dark:bg-neutral-800 dark:text-white"
-                readOnly
-              />
-              <span className="pointer-events-none absolute left-4 top-2 text-xs text-red-500">
-                Email address
-              </span>
-              <p className="mt-1 text-xs text-red-500">
-                Please enter a valid email address
-              </p>
-            </div>
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              Context Preservation
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Unlike standard placeholders that disappear when typing, the floating label remains visible, reminding the user what field they're editing.
+            </p>
           </div>
         </div>
 
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -215,4 +215,3 @@ function FloatingLabelInput({ label }: { label: string }) {
     </ExampleWrapper>
   );
 }
-

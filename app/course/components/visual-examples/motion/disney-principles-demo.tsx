@@ -1,301 +1,159 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, useAnimationControls } from "motion/react";
-import { Play } from "lucide-react";
+import { motion } from "motion/react";
+import { RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-} from "../base/example-wrapper";
+import { ExampleWrapper, SliderControl, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-type Principle = "squashStretch" | "anticipation" | "followThrough" | "secondary";
-
-interface PrincipleConfig {
-  label: string;
-  description: string;
-  enabled: boolean;
-}
-
 export function DisneyPrinciplesDemo() {
-  const [principles, setPrinciples] = useState<Record<Principle, boolean>>({
-    squashStretch: true,
-    anticipation: true,
-    followThrough: true,
-    secondary: true,
-  });
   const [showCode, setShowCode] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [elasticity, setElasticity] = useState(0.5);
+  const [key, setKey] = useState(0);
 
-  const controls = useAnimationControls();
+  const reset = () => setKey(k => k + 1);
 
-  const principleInfo: Record<Principle, { label: string; description: string }> = {
-    squashStretch: {
-      label: "Squash & Stretch",
-      description: "Elements compress and expand to show weight and impact",
-    },
-    anticipation: {
-      label: "Anticipation",
-      description: "Small wind-up motion before the main action",
-    },
-    followThrough: {
-      label: "Follow Through",
-      description: "Elements overshoot and settle into final position",
-    },
-    secondary: {
-      label: "Secondary Action",
-      description: "Supporting motion that reinforces the main action",
-    },
-  };
+  // Calculate deformation based on elasticity slider
+  const squash = 1 - (0.4 * elasticity); // Max squash 0.6
+  const stretch = 1 + (0.4 * elasticity); // Max stretch 1.4
 
-  const togglePrinciple = (key: Principle) => {
-    setPrinciples((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
+  const cssCode = `/* 
+  Parametric physics simulations are extremely 
+  hard in CSS. You'd need complex keyframes 
+  for every possible elasticity value.
+*/`;
 
-  const playAnimation = async () => {
-    setIsAnimating(true);
-    
-    // Reset
-    await controls.set({ 
-      scale: 1, 
-      y: 0, 
-      scaleX: 1, 
-      scaleY: 1,
-      rotate: 0,
-    });
+  const motionCode = `import { motion } from "motion/react";
 
-    const sequence: Array<{
-      animate: Record<string, number | number[]>;
-      transition: Record<string, unknown>;
-    }> = [];
+function BouncingBall({ elasticity }) {
+  const stretch = 1 + (0.4 * elasticity);
+  const squash = 1 - (0.4 * elasticity);
 
-    // Anticipation - small wind-up
-    if (principles.anticipation) {
-      sequence.push({
-        animate: { 
-          y: 8, 
-          scaleY: principles.squashStretch ? 0.92 : 1,
-          scaleX: principles.squashStretch ? 1.08 : 1,
-        },
-        transition: { duration: 0.15, ease: [0.4, 0, 1, 1] },
-      });
-    }
-
-    // Main action - jump up
-    sequence.push({
-      animate: { 
-        y: -60, 
-        scaleY: principles.squashStretch ? 1.15 : 1,
-        scaleX: principles.squashStretch ? 0.9 : 1,
-      },
-      transition: { duration: 0.2, ease: [0, 0, 0.2, 1] },
-    });
-
-    // Follow through - overshoot and settle
-    if (principles.followThrough) {
-      sequence.push({
-        animate: { 
-          y: 5, 
-          scaleY: principles.squashStretch ? 0.88 : 1,
-          scaleX: principles.squashStretch ? 1.12 : 1,
-        },
-        transition: { duration: 0.15, ease: [0.4, 0, 1, 1] },
-      });
-      sequence.push({
-        animate: { 
-          y: 0, 
-          scaleY: 1,
-          scaleX: 1,
-        },
-        transition: { 
-          type: "spring", 
-          stiffness: 400, 
-          damping: 15 
-        },
-      });
-    } else {
-      sequence.push({
-        animate: { 
-          y: 0, 
-          scaleY: 1,
-          scaleX: 1,
-        },
-        transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] },
-      });
-    }
-
-    // Play sequence
-    for (const step of sequence) {
-      await controls.start(step.animate, step.transition);
-    }
-
-    setIsAnimating(false);
-  };
-
-  const motionCode = `import { motion, useAnimationControls } from "motion/react";
-
-const controls = useAnimationControls();
-
-async function playAnimation() {
-${principles.anticipation ? `  // Anticipation - wind up
-  await controls.start({ 
-    y: 8, ${principles.squashStretch ? "\n    scaleY: 0.92, scaleX: 1.08," : ""}
-  }, { duration: 0.15 });
-` : ""}
-  // Main action - jump
-  await controls.start({ 
-    y: -60, ${principles.squashStretch ? "\n    scaleY: 1.15, scaleX: 0.9," : ""}
-  }, { duration: 0.2 });
-${principles.followThrough ? `
-  // Follow through - overshoot
-  await controls.start({ 
-    y: 5, ${principles.squashStretch ? "\n    scaleY: 0.88, scaleX: 1.12," : ""}
-  }, { duration: 0.15 });
-
-  // Settle with spring
-  await controls.start({ 
-    y: 0, scaleY: 1, scaleX: 1,
-  }, { type: "spring", stiffness: 400, damping: 15 });` : `
-  // Return to rest
-  await controls.start({ 
-    y: 0, scaleY: 1, scaleX: 1,
-  }, { duration: 0.2 });`}
-}
-
-<motion.button animate={controls}>
-  Click Me${principles.secondary ? `
-  <motion.span className="ripple" />` : ""}
-</motion.button>`;
+  return (
+    <motion.div
+      animate={{
+        y: [0, -180, 0],
+        scaleY: [squash, stretch, squash], 
+        scaleX: [stretch, squash, stretch], 
+      }}
+      transition={{
+        duration: 1.2,
+        repeat: Infinity,
+        ease: "linear",
+        times: [0, 0.5, 1]
+      }}
+    />
+  );
+}`;
 
   const codeTabs: CodeTab[] = [
+    { label: "CSS", language: "css", code: cssCode },
     { label: "Motion", language: "tsx", code: motionCode },
   ];
 
   return (
     <ExampleWrapper
-      title="Disney's 12 Principles"
-      description="Toggle principles to see how they affect the animation's personality and appeal."
+      title="Squash and Stretch"
+      description="Objects deform when they move fast or hit a surface, emphasizing speed and weight."
       controls={
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap gap-2">
-            {(Object.keys(principles) as Principle[]).map((key) => (
-              <button
-                key={key}
-                onClick={() => togglePrinciple(key)}
-                className={cn(
-                  "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-                  principles[key]
-                    ? "bg-swiss-red text-white"
-                    : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-                )}
-              >
-                {principleInfo[key].label}
-              </button>
-            ))}
+          <SliderControl
+            label="Elasticity"
+            value={elasticity}
+            min={0}
+            max={1}
+            step={0.1}
+            onChange={setElasticity}
+          />
+          <div className="flex items-center gap-2">
+            <button
+              onClick={reset}
+              className="flex items-center gap-2 rounded-xl bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
+            >
+              <RotateCcw className="size-3.5" />
+              Reset
+            </button>
+            <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
+              {showCode ? "Hide Code" : "Show Code"}
+            </ControlButton>
           </div>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
-          >
-            {showCode ? "Hide Code" : "Show Code"}
-          </button>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Animation preview */}
-        <div className="flex flex-col items-center gap-6">
-          <div className="relative flex h-40 w-full items-end justify-center rounded-lg bg-gradient-to-b from-neutral-100 to-neutral-50 dark:from-neutral-800 dark:to-neutral-900">
-            {/* Shadow */}
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="relative h-[320px] overflow-hidden rounded-[24px] border border-neutral-200 bg-gradient-to-b from-neutral-50 to-neutral-100 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950">
+          <div className="absolute inset-0 flex items-end justify-center pb-12">
+            {/* The Ball */}
             <motion.div
-              animate={controls}
-              className="absolute bottom-6 h-3 w-16 rounded-full bg-neutral-900/10 blur-sm dark:bg-black/20"
-              style={{ 
-                transformOrigin: "center bottom",
+              key={key}
+              animate={{
+                y: [0, -200, 0],
               }}
-            />
-            
-            {/* Button */}
-            <motion.button
-              animate={controls}
-              onClick={playAnimation}
-              disabled={isAnimating}
-              className={cn(
-                "relative mb-6 flex h-14 w-40 items-center justify-center gap-2 rounded-lg font-semibold text-white shadow-lg transition-colors",
-                "bg-gradient-to-b from-swiss-red to-red-600",
-                "hover:from-red-500 hover:to-red-700",
-                isAnimating && "pointer-events-none"
-              )}
-              style={{ transformOrigin: "center bottom" }}
-              whileHover={!isAnimating ? { scale: 1.02 } : undefined}
+              transition={{
+                duration: 1.2,
+                repeat: Infinity,
+                ease: [0.3, 0.7, 0.4, 1], // Custom bounce easing
+              }}
+              className="relative z-10"
             >
-              <Play className="size-4" />
-              Click Me
-              
-              {/* Secondary action - ripple */}
-              {principles.secondary && isAnimating && (
-                <motion.span
-                  initial={{ scale: 0.5, opacity: 0.5 }}
-                  animate={{ scale: 2.5, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 rounded-lg bg-white"
-                />
-              )}
-            </motion.button>
+              <motion.div
+                animate={{
+                  scaleY: [squash, stretch, squash],
+                  scaleX: [stretch, squash, stretch],
+                }}
+                transition={{
+                  duration: 1.2,
+                  repeat: Infinity,
+                  ease: "linear",
+                  times: [0, 0.5, 1] // Sync deformation with jump apex
+                }}
+                className="h-16 w-16 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 shadow-[inset_-4px_-4px_10px_rgba(0,0,0,0.2)]"
+              >
+                {/* Specular Highlight */}
+                <div className="absolute left-3 top-3 h-5 w-5 rounded-full bg-white/30 blur-[2px]" />
+              </motion.div>
+            </motion.div>
+            
+            {/* Dynamic Shadow */}
+            <motion.div
+              animate={{
+                scale: [1, 0.4, 1],
+                opacity: [0.3, 0.1, 0.3],
+              }}
+              transition={{
+                duration: 1.2,
+                repeat: Infinity,
+                ease: [0.3, 0.7, 0.4, 1],
+              }}
+              className="absolute bottom-12 h-3 w-16 rounded-[100%] bg-black blur-md"
+            />
           </div>
         </div>
 
-        {/* Principle explanations */}
-        <div className="grid gap-3 sm:grid-cols-2">
-          {(Object.keys(principles) as Principle[]).map((key) => (
-            <div
-              key={key}
-              className={cn(
-                "rounded-lg border p-3 transition-colors",
-                principles[key]
-                  ? "border-swiss-red/30 bg-swiss-red/5"
-                  : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
-              )}
-            >
-              <div className="flex items-center gap-2">
-                <div
-                  className={cn(
-                    "h-2 w-2 rounded-full",
-                    principles[key] ? "bg-swiss-red" : "bg-neutral-400"
-                  )}
-                />
-                <p className="text-sm font-medium text-neutral-900 dark:text-white">
-                  {principleInfo[key].label}
-                </p>
-              </div>
-              <p className="mt-1 text-xs text-neutral-500">
-                {principleInfo[key].description}
-              </p>
-            </div>
-          ))}
+        {/* Visual Explanation */}
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              Anticipation & Follow Through
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              The ball stretches vertically as it accelerates upwards (fighting gravity) and squashes horizontally when it impacts the ground (absorbing energy).
+            </p>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              Volume Conservation
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              Critically, volume must be maintained. If an object gets flatter (squash), it must also get wider (stretch).
+            </p>
+          </div>
         </div>
 
-        {/* Comparison note */}
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>Try it:</strong> Turn off all principles and compare. Without them, 
-            the animation feels robotic and lifeless. These subtle touches make motion 
-            feel natural and engaging.
-          </p>
-        </div>
-
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -303,4 +161,3 @@ ${principles.followThrough ? `
     </ExampleWrapper>
   );
 }
-

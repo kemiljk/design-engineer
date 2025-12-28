@@ -1,106 +1,87 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, useAnimationControls } from "motion/react";
-import { Play, RotateCcw, Image as ImageIcon } from "lucide-react";
+import { motion } from "motion/react";
+import { RotateCcw, Mail, MessageSquare, Calendar, Bell, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-  ControlButton,
-  SliderControl,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
-import { easings } from "./motion-utils";
 
 type Direction = "forward" | "reverse" | "center";
 
-const cards = [
-  { id: 1, title: "Dashboard", color: "bg-blue-500" },
-  { id: 2, title: "Analytics", color: "bg-violet-500" },
-  { id: 3, title: "Reports", color: "bg-emerald-500" },
-  { id: 4, title: "Settings", color: "bg-amber-500" },
-  { id: 5, title: "Profile", color: "bg-rose-500" },
-  { id: 6, title: "Messages", color: "bg-cyan-500" },
+const items = [
+  { id: 1, title: "New Message", sub: "Sarah sent you a photo", time: "2m", icon: MessageSquare, color: "bg-indigo-500" },
+  { id: 2, title: "Meeting Reminder", sub: "Team Standup in 15m", time: "15m", icon: Calendar, color: "bg-emerald-500" },
+  { id: 3, title: "Email Received", sub: "Project Update: Q4 Goals", time: "1h", icon: Mail, color: "bg-blue-500" },
+  { id: 4, title: "System Alert", sub: "Backup completed successfully", time: "2h", icon: CheckCircle2, color: "bg-amber-500" },
+  { id: 5, title: "New Follower", sub: "Alex started following you", time: "3h", icon: Bell, color: "bg-rose-500" },
 ];
 
 export function StaggerChoreographyDemo() {
   const [staggerDelay, setStaggerDelay] = useState(80);
   const [direction, setDirection] = useState<Direction>("forward");
   const [showCode, setShowCode] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [key, setKey] = useState(0);
 
   const calculateDelay = (index: number) => {
     switch (direction) {
       case "forward":
         return index * staggerDelay;
       case "reverse":
-        return (cards.length - 1 - index) * staggerDelay;
+        return (items.length - 1 - index) * staggerDelay;
       case "center":
-        const center = (cards.length - 1) / 2;
+        const center = (items.length - 1) / 2;
         return Math.abs(index - center) * staggerDelay;
     }
   };
 
-  const replay = () => {
-    setIsVisible(false);
-    setTimeout(() => setIsVisible(true), 100);
-  };
+  const replay = () => setKey(k => k + 1);
 
-  const cssCode = `.card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeSlideIn 0.4s ease-out forwards;
-}
+  const cssCode = `.item:nth-child(1) { animation-delay: ${calculateDelay(0)}ms; }
+.item:nth-child(2) { animation-delay: ${calculateDelay(1)}ms; }
+.item:nth-child(3) { animation-delay: ${calculateDelay(2)}ms; }
 
-/* Stagger with nth-child */
-.card:nth-child(1) { animation-delay: ${calculateDelay(0)}ms; }
-.card:nth-child(2) { animation-delay: ${calculateDelay(1)}ms; }
-.card:nth-child(3) { animation-delay: ${calculateDelay(2)}ms; }
-.card:nth-child(4) { animation-delay: ${calculateDelay(3)}ms; }
-.card:nth-child(5) { animation-delay: ${calculateDelay(4)}ms; }
-.card:nth-child(6) { animation-delay: ${calculateDelay(5)}ms; }
-
-@keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}`;
+/* 
+  Manually calculating delays in CSS is tedious 
+  and hard to maintain if the list length changes.
+*/`;
 
   const motionCode = `import { motion } from "motion/react";
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: ${staggerDelay / 1000},
-      ${direction === "reverse" ? "staggerDirection: -1," : ""}
+      // For complex staggering (like center out),
+      // we often calculate delays manually per item
+      // or use a custom variant function.
     },
   },
 };
 
-const itemVariants = {
+const item = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: (customDelay) => ({
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
-  },
+    transition: { delay: customDelay }
+  })
 };
 
-<motion.div
-  variants={containerVariants}
-  initial="hidden"
+<motion.ul 
+  variants={container} 
+  initial="hidden" 
   animate="visible"
 >
-  {cards.map((card) => (
-    <motion.div key={card.id} variants={itemVariants}>
-      {card.title}
-    </motion.div>
+  {items.map((i, index) => (
+    <motion.li 
+      key={i.id} 
+      custom={calculateDelay(index) / 1000} 
+      variants={item} 
+    />
   ))}
-</motion.div>`;
+</motion.ul>`;
 
   const codeTabs: CodeTab[] = [
     { label: "CSS", language: "css", code: cssCode },
@@ -113,7 +94,7 @@ const itemVariants = {
       description="Coordinate multiple elements with staggered delays for elegant list animations."
       controls={
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-6">
             <SliderControl
               label="Stagger"
               value={staggerDelay}
@@ -125,125 +106,132 @@ const itemVariants = {
             />
             <ControlGroup label="Direction">
               {(["forward", "reverse", "center"] as const).map((dir) => (
-                <ControlButton
-                  key={dir}
-                  active={direction === dir}
-                  onClick={() => setDirection(dir)}
-                >
-                  {dir}
+                <ControlButton key={dir} active={direction === dir} onClick={() => setDirection(dir)}>
+                  {dir.charAt(0).toUpperCase() + dir.slice(1)}
                 </ControlButton>
               ))}
             </ControlGroup>
           </div>
-          <ControlGroup label="">
-            <button
-              onClick={() => setShowCode(!showCode)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-                showCode
-                  ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                  : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-              )}
-            >
-              {showCode ? "Hide Code" : "Show Code"}
-            </button>
-          </ControlGroup>
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
+            {showCode ? "Hide Code" : "Show Code"}
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Replay button */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={replay}
-            className="flex h-8 items-center gap-2 rounded bg-swiss-red px-4 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90"
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Interactive List */}
+        <div className="relative min-h-[400px] overflow-hidden border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="mb-6 flex items-center justify-between">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Notifications</h4>
+            <button
+              onClick={replay}
+              className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-medium text-neutral-600 shadow-sm transition-colors hover:bg-neutral-50 hover:text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white"
+            >
+              <RotateCcw className="size-3" />
+              Replay
+            </button>
+          </div>
+          
+          <motion.ul
+            key={key}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 }
+            }}
+            className="space-y-3"
           >
-            <RotateCcw className="size-4" />
-            Replay
-          </button>
-          <span className="text-xs text-neutral-500">
-            Total duration: {(cards.length - 1) * staggerDelay + 400}ms
-          </span>
-        </div>
-
-        {/* Card grid */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {isVisible &&
-            cards.map((card, index) => (
-              <motion.div
-                key={card.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: calculateDelay(index) / 1000,
-                  ease: easings.smooth as unknown as number[],
-                }}
-                className="group overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
-              >
-                <div
-                  className={cn(
-                    "flex h-24 items-center justify-center",
-                    card.color
-                  )}
-                >
-                  <ImageIcon className="size-8 text-white/60" />
-                </div>
-                <div className="p-3">
-                  <p className="text-sm font-medium text-neutral-900 dark:text-white">
-                    {card.title}
-                  </p>
-                  <p className="mt-0.5 text-xs text-neutral-500">
-                    Delay: {calculateDelay(index)}ms
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-        </div>
-
-        {/* Timing visualisation */}
-        <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <p className="mb-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">
-            Timeline
-          </p>
-          <div className="space-y-2">
-            {cards.map((card, index) => {
-              const delay = calculateDelay(index);
-              const totalDuration = (cards.length - 1) * staggerDelay + 400;
-              const startPercent = (delay / totalDuration) * 100;
-              const widthPercent = (400 / totalDuration) * 100;
-
+            {items.map((item, index) => {
+              const delay = calculateDelay(index) / 1000;
+              
               return (
-                <div key={card.id} className="flex items-center gap-3">
-                  <span className="w-16 text-xs text-neutral-500">
-                    Card {index + 1}
-                  </span>
-                  <div className="relative h-4 flex-1 rounded bg-neutral-200 dark:bg-neutral-800">
-                    <div
-                      className={cn("absolute h-full rounded", card.color)}
-                      style={{
-                        left: `${startPercent}%`,
-                        width: `${widthPercent}%`,
-                      }}
-                    />
+                <motion.li
+                  key={item.id}
+                  variants={{
+                    hidden: { opacity: 0, x: -20 },
+                    visible: { 
+                      opacity: 1, 
+                      x: 0,
+                      transition: { 
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 24,
+                        delay: delay 
+                      }
+                    }
+                  }}
+                  className="flex items-center gap-4 rounded-[24px] bg-white p-3 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/5"
+                >
+                  <div className={cn("flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm", item.color)}>
+                    <item.icon className="size-5" />
                   </div>
-                </div>
+                  <div className="min-w-0 flex-1">
+                    <h5 className="truncate text-sm font-semibold text-neutral-900 dark:text-white">{item.title}</h5>
+                    <p className="truncate text-xs text-neutral-500 dark:text-neutral-400">{item.sub}</p>
+                  </div>
+                  <span className="text-xs font-medium text-neutral-400">{item.time}</span>
+                </motion.li>
               );
             })}
-          </div>
+          </motion.ul>
         </div>
 
-        {/* Code panel */}
-        {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
-            <CodePanel tabs={codeTabs} />
-          </motion.div>
-        )}
+        {/* Timeline Visualizer */}
+        <div className="flex flex-col gap-6">
+          <div className="rounded-[32px] border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-400">Timeline</h4>
+            <div className="space-y-4">
+              {items.map((item, index) => {
+                const delay = calculateDelay(index);
+                const maxDelay = Math.max(...items.map((_, i) => calculateDelay(i)));
+                const widthPercent = (delay / (maxDelay + 200)) * 100; // +200 for buffer
+                
+                return (
+                  <div key={item.id} className="group flex items-center gap-3">
+                    <span className="w-6 text-xs font-medium text-neutral-400">#{index + 1}</span>
+                    <div className="relative flex-1">
+                      {/* Grid line */}
+                      <div className="absolute inset-0 flex items-center">
+                        <div className="h-px w-full bg-neutral-100 dark:bg-neutral-800" />
+                      </div>
+                      
+                      {/* Delay bar */}
+                      <div 
+                        className="relative h-2 rounded-full bg-neutral-200 dark:bg-neutral-800"
+                        style={{ width: `${widthPercent}%` }}
+                      />
+                      
+                      {/* Active block */}
+                      <motion.div
+                        key={key}
+                        initial={{ scaleX: 0, opacity: 0 }}
+                        animate={{ scaleX: 1, opacity: 1 }}
+                        transition={{ delay: delay / 1000, duration: 0.1 }}
+                        className={cn("absolute top-1/2 h-4 w-12 -translate-y-1/2 rounded-full shadow-sm", item.color)}
+                        style={{ left: `${widthPercent}%` }}
+                      />
+                    </div>
+                    <span className="w-12 text-right font-mono text-xs text-neutral-500">
+                      {delay}ms
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          <div className="rounded-[24px] bg-neutral-100 p-4 text-xs leading-relaxed text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
+            <span className="font-semibold text-neutral-900 dark:text-white">Pro Tip:</span> Stagger delays should be short (30-100ms). Too long and the animation feels sluggish; too short and it looks like a single block moving.
+          </div>
+        </div>
       </div>
+
+      {showCode && (
+        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-8">
+          <CodePanel tabs={codeTabs} />
+        </motion.div>
+      )}
     </ExampleWrapper>
   );
 }
-

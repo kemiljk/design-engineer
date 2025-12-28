@@ -1,150 +1,60 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
+import { Zap, Shield, Globe, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-  ControlButton,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-type AnimationType = "fade" | "slideUp" | "slideLeft" | "scale";
-
-const cards = [
-  { id: 1, title: "Design Tokens", desc: "Consistent visual language", color: "bg-blue-500" },
-  { id: 2, title: "Components", desc: "Reusable building blocks", color: "bg-violet-500" },
-  { id: 3, title: "Patterns", desc: "Common UI solutions", color: "bg-emerald-500" },
-  { id: 4, title: "Guidelines", desc: "Usage documentation", color: "bg-amber-500" },
-  { id: 5, title: "Accessibility", desc: "Inclusive design", color: "bg-rose-500" },
-  { id: 6, title: "Motion", desc: "Animation system", color: "bg-cyan-500" },
-];
-
-const animations: Record<AnimationType, { hidden: object; visible: object }> = {
-  fade: {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  },
-  slideUp: {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 },
-  },
-  slideLeft: {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0 },
-  },
-  scale: {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-  },
-};
-
-function RevealCard({ 
-  card, 
-  index, 
-  animation 
-}: { 
-  card: typeof cards[0]; 
-  index: number;
-  animation: AnimationType;
-}) {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const anim = animations[animation];
-
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={anim}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: [0.4, 0, 0.2, 1],
-      }}
-      className="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
-    >
-      <div className={cn("h-20", card.color)} />
-      <div className="p-4">
-        <h3 className="font-bold text-neutral-900 dark:text-white">{card.title}</h3>
-        <p className="mt-1 text-sm text-neutral-500">{card.desc}</p>
-      </div>
-    </motion.div>
-  );
-}
-
 export function ScrollRevealDemo() {
-  const [animation, setAnimation] = useState<AnimationType>("slideUp");
   const [showCode, setShowCode] = useState(false);
-  const [key, setKey] = useState(0);
+  const containerRef = useRef(null);
+  
+  // We use key to force re-render/re-animation for the demo replay
+  const [replayKey, setReplayKey] = useState(0);
 
-  const resetAnimation = () => {
-    setKey((prev) => prev + 1);
-  };
+  const features = [
+    { title: "Fast", desc: "Optimized for speed", icon: Zap, color: "bg-amber-500" },
+    { title: "Secure", desc: "Bank-grade security", icon: Shield, color: "bg-emerald-500" },
+    { title: "Global", desc: "CDN edge network", icon: Globe, color: "bg-blue-500" },
+    { title: "Smart", desc: "AI-powered automation", icon: Cpu, color: "bg-purple-500" },
+  ];
 
-  const cssCode = `.reveal-card {
+  const cssCode = `.reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-card.visible {
+.reveal.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Stagger delays with CSS */
-.reveal-card:nth-child(1) { transition-delay: 0s; }
-.reveal-card:nth-child(2) { transition-delay: 0.1s; }
-.reveal-card:nth-child(3) { transition-delay: 0.2s; }
-/* etc... */
-
-/* Or use CSS Scroll-Driven Animations */
-.reveal-card {
-  animation: reveal linear;
-  animation-timeline: view();
-  animation-range: entry 0% entry 50%;
-}
-
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
 }`;
 
-  const motionCode = `import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+  const motionCode = `import { motion } from "motion/react";
 
-function RevealCard({ children, delay = 0 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { 
-    once: true,      // Only animate once
-    margin: "-50px"  // Trigger 50px before entering
-  });
-
+function FeatureList() {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{
-        duration: 0.5,
-        delay,
-        ease: [0.4, 0, 0.2, 1],
-      }}
-    >
-      {children}
-    </motion.div>
+    <div className="grid grid-cols-2 gap-4">
+      {features.map((feature, i) => (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ 
+            duration: 0.5, 
+            delay: i * 0.1,
+            ease: "easeOut" 
+          }}
+          className="card"
+        >
+          {feature.title}
+        </motion.div>
+      ))}
+    </div>
   );
-}
-
-// Usage with staggered delays
-{cards.map((card, index) => (
-  <RevealCard key={card.id} delay={index * 0.1}>
-    <Card {...card} />
-  </RevealCard>
-))}`;
+}`;
 
   const codeTabs: CodeTab[] = [
     { label: "CSS", language: "css", code: cssCode },
@@ -153,102 +63,97 @@ function RevealCard({ children, delay = 0 }) {
 
   return (
     <ExampleWrapper
-      title="Scroll Reveal Animation"
-      description="Cards animate in as they enter the viewport. Scroll to see the effect."
+      title="Scroll Reveal"
+      description="Elements fade and slide in as they enter the viewport, creating a sense of arrival."
       controls={
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-3">
-            <ControlGroup label="Style">
-              {(Object.keys(animations) as AnimationType[]).map((type) => (
-                <ControlButton
-                  key={type}
-                  active={animation === type}
-                  onClick={() => {
-                    setAnimation(type);
-                    resetAnimation();
-                  }}
-                >
-                  {type}
-                </ControlButton>
-              ))}
-            </ControlGroup>
-            <button
-              onClick={resetAnimation}
-              className="rounded-md bg-swiss-red px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-swiss-red/90"
-            >
-              Reset
-            </button>
-          </div>
+        <div className="flex items-center justify-between">
           <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
+            onClick={() => setReplayKey(k => k + 1)}
+            className="bg-neutral-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 dark:ring-1 dark:ring-neutral-700/80 dark:hover:bg-neutral-700 dark:hover:text-white"
           >
-            {showCode ? "Hide Code" : "Show Code"}
+            Reset Demo
           </button>
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
+            {showCode ? "Hide Code" : "Show Code"}
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Scrollable container */}
-        <div className="h-80 overflow-y-auto rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="mb-4 rounded-lg bg-white p-4 dark:bg-neutral-800">
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              👇 Scroll down to reveal cards
-            </p>
-          </div>
-          
-          <div className="h-32" /> {/* Spacer */}
-          
-          <div key={key} className="grid gap-4 sm:grid-cols-2">
-            {cards.map((card, index) => (
-              <RevealCard
-                key={card.id}
-                card={card}
-                index={index}
-                animation={animation}
-              />
-            ))}
-          </div>
-          
-          <div className="h-32" /> {/* Spacer */}
-        </div>
-
-        {/* Animation types */}
-        <div className="grid gap-4 sm:grid-cols-4">
-          {[
-            { type: "fade", desc: "Simple opacity fade" },
-            { type: "slideUp", desc: "Fade + slide from below" },
-            { type: "slideLeft", desc: "Fade + slide from right" },
-            { type: "scale", desc: "Fade + scale up" },
-          ].map((item) => (
-            <div
-              key={item.type}
-              className={cn(
-                "rounded-lg border p-3 transition-colors",
-                animation === item.type
-                  ? "border-swiss-red bg-swiss-red/5"
-                  : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
-              )}
-            >
-              <p className="text-xs font-semibold capitalize text-neutral-900 dark:text-white">
-                {item.type}
-              </p>
-              <p className="mt-1 text-xs text-neutral-500">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Code panel */}
-        {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="relative h-[400px] overflow-hidden border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
+          <div 
+            key={replayKey}
+            className="absolute inset-0 overflow-y-auto p-8 scroll-smooth"
+            ref={containerRef}
           >
+            <div className="mx-auto max-w-md space-y-24 pb-24">
+              {/* Hero Section */}
+              <div className="space-y-4 text-center">
+                <div className="mx-auto h-12 w-12 rounded-[12px] bg-neutral-200 dark:bg-neutral-800" />
+                <div className="mx-auto h-6 w-32 rounded-[8px] bg-neutral-200 dark:bg-neutral-800" />
+                <div className="mx-auto h-4 w-48 rounded-[6px] bg-neutral-100 dark:bg-neutral-900" />
+                <p className="pt-8 text-sm text-neutral-400">↓ Scroll down</p>
+              </div>
+
+              {/* Reveal Section */}
+              <div className="space-y-8">
+                <h3 className="text-center text-lg font-bold text-neutral-900 dark:text-white">
+                  Why Choose Us
+                </h3>
+                
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {features.map((feature, i) => (
+                    <motion.div
+                      key={feature.title}
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ root: containerRef, margin: "-10% 0px -10% 0px", once: true }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: i * 0.1,
+                        ease: [0.21, 0.47, 0.32, 0.98] 
+                      }}
+                      className="flex flex-col items-center gap-3 rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-neutral-200 dark:bg-neutral-900 dark:ring-neutral-800"
+                    >
+                      <div className={cn("flex h-10 w-10 items-center justify-center rounded-full text-white shadow-md", feature.color)}>
+                        <feature.icon className="size-5" />
+                      </div>
+                      <div className="text-center">
+                        <h4 className="font-semibold text-neutral-900 dark:text-white">{feature.title}</h4>
+                        <p className="text-xs text-neutral-500 dark:text-neutral-400">{feature.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer Section */}
+              <div className="space-y-4 text-center opacity-50">
+                <div className="mx-auto h-4 w-24 rounded-[6px] bg-neutral-200 dark:bg-neutral-800" />
+                <div className="mx-auto h-3 w-40 rounded-[6px] bg-neutral-100 dark:bg-neutral-900" />
+              </div>
+            </div>
+          </div>
+          
+          {/* Scroll fade overlays */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-neutral-50 to-transparent dark:from-neutral-950" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-neutral-50 to-transparent dark:from-neutral-950" />
+        </div>
+
+        {/* Visual Explanation */}
+        <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
+          <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-[10px] text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">i</span>
+            Staggered Entry
+          </h4>
+          <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+            Notice how the cards don't appear all at once. The <code className="rounded-[6px] bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">delay: i * 0.1</code> creates a "waterfall" effect that makes the content feel lighter and more elegant.
+          </p>
+        </div>
+
+        {showCode && (
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -256,4 +161,3 @@ function RevealCard({ children, delay = 0 }) {
     </ExampleWrapper>
   );
 }
-

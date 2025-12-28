@@ -62,7 +62,6 @@ import {
   CssVsJsDemo,
   AnimatePresenceDemo,
   GestureAnimationDemo,
-  LayoutAnimationDemo,
   ReducedMotionDemo,
 } from "./motion";
 
@@ -150,7 +149,6 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "css-vs-js-demo": CssVsJsDemo,
   "animate-presence-demo": AnimatePresenceDemo,
   "gesture-animation-demo": GestureAnimationDemo,
-  "layout-animation-demo": LayoutAnimationDemo,
   "reduced-motion-demo": ReducedMotionDemo,
 };
 

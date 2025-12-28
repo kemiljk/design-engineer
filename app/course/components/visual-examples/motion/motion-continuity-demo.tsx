@@ -1,8 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
-import { Grid3X3, List, LayoutGrid } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  LayoutGrid,
+  List,
+  FileImage,
+  FileText,
+  FileVideo,
+  Music,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -11,67 +18,83 @@ import {
 } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-type Layout = "grid" | "list";
+type ViewMode = "grid" | "list";
 
-const items = [
-  { id: 1, title: "Design", color: "bg-blue-500" },
-  { id: 2, title: "Code", color: "bg-violet-500" },
-  { id: 3, title: "Motion", color: "bg-emerald-500" },
-  { id: 4, title: "Ship", color: "bg-amber-500" },
+const files = [
+  {
+    id: 1,
+    name: "Project_Proposal.pdf",
+    type: "doc",
+    size: "2.4 MB",
+    color: "bg-blue-500",
+    icon: FileText,
+  },
+  {
+    id: 2,
+    name: "Hero_Image.png",
+    type: "image",
+    size: "4.1 MB",
+    color: "bg-purple-500",
+    icon: FileImage,
+  },
+  {
+    id: 3,
+    name: "Demo_Reel.mp4",
+    type: "video",
+    size: "145 MB",
+    color: "bg-rose-500",
+    icon: FileVideo,
+  },
+  {
+    id: 4,
+    name: "Background_Loop.mp3",
+    type: "audio",
+    size: "12 MB",
+    color: "bg-amber-500",
+    icon: Music,
+  },
 ];
 
 export function MotionContinuityDemo() {
-  const [layout, setLayout] = useState<Layout>("grid");
-  const [useTransitions, setUseTransitions] = useState(true);
+  const [view, setView] = useState<ViewMode>("grid");
   const [showCode, setShowCode] = useState(false);
 
-  const cssCode = `/* With transitions */
-.card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Layout-specific styles */
-.card--grid {
-  width: calc(50% - 8px);
-  height: 120px;
-}
-
-.card--list {
+  const cssCode = `.grid-item {
+  /* No automatic layout animation */
   width: 100%;
-  height: 64px;
 }
 
-/* Without transitions - jarring! */
-.card--no-transition {
-  transition: none;
-}`;
+.list-item {
+  width: 100%;
+}
+
+/* 
+  Without FLIP animations (JavaScript), 
+  changing layout happens instantly 
+  and feels jarring.
+*/`;
 
   const motionCode = `import { motion } from "motion/react";
 
-function LayoutSwitcher() {
-  const [layout, setLayout] = useState<"grid" | "list">("grid");
+function FileManager() {
+  const [view, setView] = useState("grid");
 
   return (
-    <div className={cn(
-      layout === "grid" 
-        ? "grid grid-cols-2 gap-4" 
-        : "flex flex-col gap-2"
-    )}>
-      {items.map((item) => (
+    <div className={view === "grid" ? "grid grid-cols-2" : "flex flex-col"}>
+      {files.map((file) => (
         <motion.div
-          key={item.id}
-          layout // This enables layout animations!
+          layout // The magic prop
+          key={file.id}
           transition={{
             type: "spring",
             stiffness: 400,
-            damping: 30,
+            damping: 25
           }}
-          className={cn(
-            "rounded-lg",
-            layout === "grid" ? "h-32" : "h-16"
-          )}
+          className="rounded-2xl bg-white p-4 shadow-sm"
         >
-          {item.title}
+          {/* Content automatically morphs */}
+          <motion.div layout className="icon" />
+          <motion.span layout>{file.name}</motion.span>
         </motion.div>
       ))}
     </div>
@@ -86,202 +109,138 @@ function LayoutSwitcher() {
   return (
     <ExampleWrapper
       title="Motion Creates Continuity"
-      description="Toggle between layouts with and without transitions to feel the difference."
+      description="Layout animations help users maintain context when the structure of the page changes."
       controls={
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-4">
-            <ControlGroup label="Layout">
-              <ControlButton
-                active={layout === "grid"}
-                onClick={() => setLayout("grid")}
-              >
-                <LayoutGrid className="mr-1.5 size-3.5" />
-                Grid
-              </ControlButton>
-              <ControlButton
-                active={layout === "list"}
-                onClick={() => setLayout("list")}
-              >
-                <List className="mr-1.5 size-3.5" />
-                List
-              </ControlButton>
-            </ControlGroup>
-            <ControlGroup label="Transitions">
-              <ControlButton
-                active={useTransitions}
-                onClick={() => setUseTransitions(true)}
-              >
-                On
-              </ControlButton>
-              <ControlButton
-                active={!useTransitions}
-                onClick={() => setUseTransitions(false)}
-              >
-                Off
-              </ControlButton>
-            </ControlGroup>
-          </div>
-          <button
+        <div className="flex justify-end">
+          <ControlButton
+            active={showCode}
             onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
           >
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-8">
-        {/* Side by side comparison */}
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* With transitions */}
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-xs font-semibold text-green-600 dark:text-green-400">
-                ✓ With Transitions
-              </span>
-            </div>
-            <div
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="relative border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
+          {/* Controls - Moved to Top Right */}
+          <div className="absolute top-4 right-4 z-10 flex gap-1 rounded-[8px] bg-white p-1 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10">
+            <button
+              onClick={() => setView("grid")}
               className={cn(
-                layout === "grid"
-                  ? "grid grid-cols-2 gap-3"
-                  : "flex flex-col gap-2"
+                "flex items-center gap-2 rounded-[6px] px-3 py-1.5 text-xs font-medium transition-all",
+                view === "grid"
+                  ? "bg-neutral-100 text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
+                  : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700/50 dark:hover:text-neutral-200",
               )}
             >
-              {items.map((item) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 30,
-                  }}
-                  className={cn(
-                    "flex items-center rounded-lg px-4 font-medium text-white",
-                    item.color,
-                    layout === "grid" ? "h-24 justify-center" : "h-12"
-                  )}
-                >
-                  {item.title}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Without transitions */}
-          <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-xs font-semibold text-red-600 dark:text-red-400">
-                ✗ Without Transitions
-              </span>
-            </div>
-            <div
+              <LayoutGrid className="size-3.5" />
+              Grid
+            </button>
+            <button
+              onClick={() => setView("list")}
               className={cn(
-                layout === "grid"
-                  ? "grid grid-cols-2 gap-3"
-                  : "flex flex-col gap-2"
+                "flex items-center gap-2 rounded-[6px] px-3 py-1.5 text-xs font-medium transition-all",
+                view === "list"
+                  ? "bg-neutral-100 text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
+                  : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700/50 dark:hover:text-neutral-200",
               )}
             >
-              {items.map((item) => (
-                <div
-                  key={item.id}
-                  className={cn(
-                    "flex items-center rounded-lg px-4 font-medium text-white",
-                    item.color,
-                    layout === "grid" ? "h-24 justify-center" : "h-12"
-                  )}
-                >
-                  {item.title}
-                </div>
-              ))}
-            </div>
+              <List className="size-3.5" />
+              List
+            </button>
           </div>
-        </div>
 
-        {/* Interactive demo */}
-        <div className="rounded-lg border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="mb-4 flex items-center justify-between">
-            <span className="text-sm font-medium text-neutral-900 dark:text-white">
-              Interactive Preview
-            </span>
-            <span
+          <div className="mt-12">
+            {" "}
+            {/* Add margin for controls */}
+            <motion.div
+              layout
               className={cn(
-                "text-xs font-medium",
-                useTransitions ? "text-green-500" : "text-red-500"
+                "gap-4",
+                view === "grid" ? "grid grid-cols-2" : "flex flex-col",
               )}
             >
-              Transitions: {useTransitions ? "ON" : "OFF"}
-            </span>
+              <AnimatePresence>
+                {files.map((file) => (
+                  <motion.div
+                    layout
+                    key={file.id}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 30,
+                      layout: { duration: 0.3 },
+                    }}
+                    className={cn(
+                      "group relative overflow-hidden rounded-[24px] bg-white p-4 shadow-sm ring-1 ring-neutral-200 transition-shadow hover:shadow-md dark:bg-neutral-800 dark:ring-neutral-700",
+                      view === "list" && "flex items-center gap-4",
+                    )}
+                  >
+                    <motion.div
+                      layout
+                      className={cn(
+                        "flex items-center justify-center rounded-[12px] text-white",
+                        file.color,
+                        view === "grid"
+                          ? "mb-3 aspect-square w-full"
+                          : "h-10 w-10 shrink-0",
+                      )}
+                    >
+                      <file.icon
+                        className={cn(view === "grid" ? "size-8" : "size-5")}
+                      />
+                    </motion.div>
+
+                    <div className="min-w-0 flex-1">
+                      <motion.h4
+                        layout
+                        className="truncate text-sm font-medium text-neutral-900 dark:text-white"
+                      >
+                        {file.name}
+                      </motion.h4>
+                      <motion.p
+                        layout
+                        className="text-xs text-neutral-500 dark:text-neutral-400"
+                      >
+                        {file.type.toUpperCase()} • {file.size}
+                      </motion.p>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </div>
-          <div
-            className={cn(
-              layout === "grid"
-                ? "grid grid-cols-2 gap-4 sm:grid-cols-4"
-                : "flex flex-col gap-3"
-            )}
-          >
-            {items.map((item) =>
-              useTransitions ? (
-                <motion.div
-                  key={item.id}
-                  layout
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 30,
-                  }}
-                  className={cn(
-                    "flex items-center rounded-lg px-4 font-semibold text-white shadow-sm",
-                    item.color,
-                    layout === "grid" ? "h-28 justify-center" : "h-14"
-                  )}
-                >
-                  {item.title}
-                </motion.div>
-              ) : (
-                <div
-                  key={item.id}
-                  className={cn(
-                    "flex items-center rounded-lg px-4 font-semibold text-white shadow-sm",
-                    item.color,
-                    layout === "grid" ? "h-28 justify-center" : "h-14"
-                  )}
-                >
-                  {item.title}
-                </div>
-              )
-            )}
+        </div>
+
+        {/* Visual Explanation */}
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              Spatial Constancy
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              When items move from one position to another, our brain tracks
+              them. Without motion, the change feels like a "refresh" where we
+              lose our place.
+            </p>
+          </div>
+          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
+              The `layout` Prop
+            </h4>
+            <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+              In Framer Motion, adding `layout` to a component automatically
+              calculates the start and end positions and creates a performant
+              FLIP animation.
+            </p>
           </div>
         </div>
 
-        {/* Key insight */}
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>The difference:</strong> Without transitions, layout changes are jarring 
-            and confusing—the brain struggles to track what moved where. With smooth 
-            transitions, each element's journey is visible, maintaining spatial awareness 
-            and reducing cognitive load.
-          </p>
-        </div>
-
-        {/* Technical note */}
-        <div className="rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <p className="text-sm font-medium text-neutral-900 dark:text-white">
-            Motion's <code className="rounded bg-neutral-200 px-1.5 py-0.5 font-mono text-xs dark:bg-neutral-800">layout</code> prop
-          </p>
-          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-            Adding <code className="font-mono text-xs">layout</code> to a motion component 
-            automatically animates any layout changes (size, position) using FLIP 
-            (First-Last-Invert-Play) technique. No manual position tracking needed.
-          </p>
-        </div>
-
-        {/* Code panel */}
         {showCode && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -294,4 +253,3 @@ function LayoutSwitcher() {
     </ExampleWrapper>
   );
 }
-

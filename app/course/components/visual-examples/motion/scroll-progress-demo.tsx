@@ -1,13 +1,9 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-  ControlButton,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
 type ProgressStyle = "bar" | "circle" | "segments";
@@ -43,12 +39,6 @@ export function ScrollProgressDemo() {
 @keyframes grow {
   from { transform: scaleX(0); }
   to { transform: scaleX(1); }
-}
-
-/* For browsers without scroll-timeline support */
-.progress-bar-js {
-  transform: scaleX(var(--scroll-progress, 0));
-  transition: transform 0.1s ease-out;
 }`;
 
   const motionCode = `import { motion, useScroll, useSpring } from "motion/react";
@@ -58,12 +48,9 @@ function ReadingProgress() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
-    container: containerRef, // Track specific container
-    // OR for full page:
-    // target: document.body,
+    container: containerRef,
   });
 
-  // Optional: smooth out the progress with spring
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -72,39 +59,14 @@ function ReadingProgress() {
 
   return (
     <>
-      {/* Progress bar */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-1 
-          bg-swiss-red origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-indigo-600 origin-left z-50"
       />
-
-      {/* Scrollable content */}
       <div ref={containerRef} className="overflow-y-auto">
         {/* Content... */}
       </div>
     </>
-  );
-}
-
-// Circular progress variant
-function CircularProgress() {
-  const { scrollYProgress } = useScroll();
-  
-  return (
-    <svg className="w-12 h-12 fixed bottom-4 right-4">
-      <circle cx="24" cy="24" r="20" className="stroke-neutral-200" />
-      <motion.circle
-        cx="24" cy="24" r="20"
-        className="stroke-swiss-red"
-        strokeDasharray="126"
-        style={{ 
-          pathLength: scrollYProgress,
-          rotate: -90,
-          transformOrigin: "center",
-        }}
-      />
-    </svg>
   );
 }`;
 
@@ -112,9 +74,6 @@ function CircularProgress() {
     { label: "CSS", language: "css", code: cssCode },
     { label: "Motion", language: "tsx", code: motionCode },
   ];
-
-  // Circle progress
-  const circumference = 2 * Math.PI * 20;
 
   return (
     <ExampleWrapper
@@ -124,157 +83,152 @@ function CircularProgress() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <ControlGroup label="Style">
             {(["bar", "circle", "segments"] as const).map((s) => (
-              <ControlButton
-                key={s}
-                active={style === s}
-                onClick={() => setStyle(s)}
-              >
+              <ControlButton key={s} active={style === s} onClick={() => setStyle(s)}>
                 {s}
               </ControlButton>
             ))}
           </ControlGroup>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
-          >
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-6">
-        {/* Progress demo */}
-        <div className="relative overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800">
-          {/* Progress indicators */}
-          {style === "bar" && (
-            <motion.div
-              style={{ scaleX }}
-              className="absolute left-0 right-0 top-0 z-10 h-1 origin-left bg-swiss-red"
-            />
-          )}
-
-          {style === "circle" && (
-            <div className="absolute right-3 top-3 z-10">
-              <svg width="40" height="40" className="rotate-[-90deg]">
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="16"
-                  fill="none"
-                  strokeWidth="3"
-                  className="stroke-neutral-200 dark:stroke-neutral-700"
-                />
-                <motion.circle
-                  cx="20"
-                  cy="20"
-                  r="16"
-                  fill="none"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  className="stroke-swiss-red"
-                  style={{
-                    pathLength: scrollYProgress,
-                  }}
-                />
-              </svg>
-            </div>
-          )}
-
-          {style === "segments" && (
-            <div className="absolute left-0 right-0 top-0 z-10 flex gap-1 bg-neutral-100 p-1 dark:bg-neutral-900">
-              {[0, 0.25, 0.5, 0.75].map((threshold, i) => (
-                <motion.div
-                  key={i}
-                  className="h-1 flex-1 rounded-full"
-                  style={{
-                    backgroundColor: scrollYProgress.get() > threshold ? "#ff4400" : "#e5e5e5",
-                  }}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Scrollable content */}
+      <div className="space-y-8">
+        {/* Reader Device Mockup */}
+        <div className="relative mx-auto max-w-sm">
+          {/* Device Frame */}
           <div
-            ref={containerRef}
-            className="h-64 overflow-y-auto bg-white px-6 py-4 dark:bg-neutral-900"
+            className="relative overflow-hidden bg-white shadow-2xl"
+            style={{
+              borderRadius: 32,
+              border: "8px solid #1a1a1a",
+              height: 480,
+            }}
           >
-            <article className="prose prose-sm dark:prose-invert max-w-none">
-              <h2 className="text-lg font-bold">The Art of Scroll Progress</h2>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Scroll progress indicators give users a sense of orientation within 
-                long-form content. They answer the question: "How much more is there?"
-              </p>
-              <h3 className="mt-4 text-base font-bold">When to Use</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Progress indicators work best for:
-              </p>
-              <ul className="text-neutral-600 dark:text-neutral-400">
-                <li>Long articles and blog posts</li>
-                <li>Documentation pages</li>
-                <li>Terms of service/legal documents</li>
-                <li>Multi-step forms</li>
-              </ul>
-              <h3 className="mt-4 text-base font-bold">Design Considerations</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Keep it subtle—the progress indicator shouldn't compete with content. 
-                A thin bar at the top or a small circular indicator in the corner 
-                works well.
-              </p>
-              <h3 className="mt-4 text-base font-bold">Performance</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Use CSS scroll-driven animations where supported for best performance. 
-                Fall back to JavaScript scroll listeners with requestAnimationFrame 
-                or a library like Motion for smooth updates.
-              </p>
-              <h3 className="mt-4 text-base font-bold">Accessibility</h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Consider adding aria-label or visually hidden text for screen readers. 
-                The progress bar is decorative, but can be helpful context for some users.
-              </p>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                That's it! You've reached the end of this content. Notice how the 
-                progress indicator shows 100% completion.
-              </p>
-            </article>
+            {/* Dynamic Island */}
+            <div className="absolute left-1/2 top-3 z-50 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
+
+            {/* Progress indicators */}
+            {style === "bar" && (
+              <div className="absolute left-0 right-0 top-0 z-20 h-16 bg-white/90 backdrop-blur-md">
+                <motion.div
+                  style={{ scaleX }}
+                  className="absolute bottom-0 left-0 right-0 h-1 origin-left bg-indigo-600"
+                />
+                <div className="flex h-full items-end justify-center pb-3">
+                  <span className="text-sm font-semibold text-neutral-900">The Art of Motion</span>
+                </div>
+              </div>
+            )}
+
+            {style === "circle" && (
+              <div className="absolute bottom-6 right-6 z-20">
+                <svg width="48" height="48" className="rotate-[-90deg]">
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="20"
+                    fill="white"
+                    strokeWidth="4"
+                    className="stroke-neutral-100 shadow-sm"
+                  />
+                  <motion.circle
+                    cx="24"
+                    cy="24"
+                    r="20"
+                    fill="none"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    className="stroke-indigo-600"
+                    style={{ pathLength: scrollYProgress }}
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-neutral-900">
+                  <motion.span>
+                    {useSpring(scrollYProgress, { stiffness: 100, damping: 30 }).get().toFixed(0)}%
+                  </motion.span>
+                </div>
+              </div>
+            )}
+
+            {style === "segments" && (
+              <div className="absolute left-0 right-0 top-0 z-20 flex gap-1 bg-white/90 p-2 pt-12 backdrop-blur-md">
+                {[0, 0.25, 0.5, 0.75].map((threshold, i) => (
+                  <div key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-neutral-200">
+                    <motion.div
+                      className="h-full w-full bg-indigo-600 origin-left"
+                      style={{
+                        scaleX: useTransform(
+                          scrollYProgress,
+                          [threshold, threshold + 0.25],
+                          [0, 1]
+                        ),
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Scrollable Content */}
+            <div
+              ref={containerRef}
+              className="h-full overflow-y-auto bg-white"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
+              <div className={cn("px-6 pb-12", style === "bar" ? "pt-20" : "pt-12")}>
+                <h2 className="mb-4 text-2xl font-bold text-neutral-900">The Power of Motion</h2>
+                <div className="space-y-4 text-base leading-relaxed text-neutral-600">
+                  <p>
+                    Motion design is not just about making things move. It&apos;s about creating a
+                    narrative, guiding the user&apos;s attention, and providing meaningful feedback.
+                  </p>
+                  <p>
+                    When we scroll, we expect a relationship between our gesture and the content. A
+                    progress indicator bridges this gap, offering a spatial map of our journey.
+                  </p>
+                  <div className="my-6 overflow-hidden rounded-2xl bg-neutral-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
+                      alt="Abstract fluid art"
+                      className="h-48 w-full object-cover"
+                    />
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-neutral-900">Why It Matters</h3>
+                  <p>
+                    Users often scan content before reading. Knowing how long an article is helps
+                    them commit to the experience. It reduces anxiety and sets expectations.
+                  </p>
+                  <p>
+                    Consider the context. For infinite feeds, a progress bar is misleading. For
+                    finite stories, it&apos;s essential navigation.
+                  </p>
+                  <h3 className="mb-2 text-lg font-bold text-neutral-900">Implementation</h3>
+                  <p>
+                    With modern CSS scroll-driven animations, we can achieve this effect performantly
+                    on the compositor thread, meaning no jank even if the main thread is busy.
+                  </p>
+                  <p>
+                    The examples above demonstrate different ways to visualize this data. A simple
+                    bar is standard, but circular indicators can be less intrusive on mobile.
+                  </p>
+                  <div className="mt-8 rounded-xl bg-indigo-50 p-4 text-sm text-indigo-900">
+                    <strong>Pro Tip:</strong> Use spring physics for the progress value to smooth out
+                    sudden jumps in scroll position.
+                  </div>
+                  <div className="h-24" /> {/* Spacer */}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Style comparison */}
-        <div className="grid gap-4 sm:grid-cols-3">
-          {[
-            { style: "bar", desc: "Classic top bar, minimal footprint" },
-            { style: "circle", desc: "Compact, shows percentage visually" },
-            { style: "segments", desc: "Shows major sections/chapters" },
-          ].map((item) => (
-            <div
-              key={item.style}
-              className={cn(
-                "rounded-lg border p-3 transition-colors",
-                style === item.style
-                  ? "border-swiss-red bg-swiss-red/5"
-                  : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
-              )}
-            >
-              <p className="text-xs font-semibold capitalize text-neutral-900 dark:text-white">
-                {item.style}
-              </p>
-              <p className="mt-1 text-xs text-neutral-500">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -282,4 +236,3 @@ function CircularProgress() {
     </ExampleWrapper>
   );
 }
-

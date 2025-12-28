@@ -2,97 +2,55 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Settings, User, LogOut, HelpCircle } from "lucide-react";
+import { ChevronRight, Settings, User, LogOut, HelpCircle, Bell, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  ExampleWrapper,
-  ControlGroup,
-  ControlButton,
-} from "../base/example-wrapper";
+import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-type Origin = "center" | "top-left" | "button";
+type Origin = "center" | "top-left" | "trigger";
 
 const menuItems = [
-  { icon: User, label: "Profile" },
-  { icon: Settings, label: "Settings" },
-  { icon: HelpCircle, label: "Help" },
-  { icon: LogOut, label: "Sign out" },
+  { icon: User, label: "Profile", shortcut: "P" },
+  { icon: Bell, label: "Notifications", shortcut: "N", badge: 2 },
+  { icon: Settings, label: "Settings", shortcut: "S" },
+  { icon: HelpCircle, label: "Support", shortcut: "?" },
 ];
 
 export function MotionRelationshipsDemo() {
   const [isOpen, setIsOpen] = useState(false);
-  const [origin, setOrigin] = useState<Origin>("button");
+  const [origin, setOrigin] = useState<Origin>("trigger");
   const [showCode, setShowCode] = useState(false);
 
-  const getTransformOrigin = () => {
-    switch (origin) {
-      case "center":
-        return "center center";
-      case "top-left":
-        return "top left";
-      case "button":
-        return "top center";
-    }
-  };
-
-  const cssCode = `.dropdown {
-  transform-origin: top center; /* Expands from trigger */
-  animation: dropdownOpen 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  const cssCode = `.menu {
+  transform-origin: var(--origin);
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes dropdownOpen {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Different origins create different relationships */
-.dropdown--from-center {
-  transform-origin: center center;
-}
-
-.dropdown--from-top-left {
-  transform-origin: top left;
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }`;
 
   const motionCode = `import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown } from "lucide-react";
 
-function Dropdown() {
-  const [isOpen, setIsOpen] = useState(false);
-
+function ContextMenu({ isOpen, origin }) {
   return (
-    <div className="relative">
-      <button onClick={() => setIsOpen(!isOpen)}>
-        Menu
-        <ChevronDown className={cn(
-          "transition-transform",
-          isOpen && "rotate-180"
-        )} />
-      </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -8 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -8 }}
-            transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
-            style={{ transformOrigin: "top center" }}
-            className="absolute top-full mt-2 w-48 rounded-lg 
-              bg-white shadow-lg border"
-          >
-            {/* Menu items */}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          style={{ 
+            transformOrigin: origin === "trigger" ? "top left" : "center" 
+          }}
+          className="absolute top-full left-0 mt-2 w-56 rounded-2xl bg-white/80 p-1 shadow-xl backdrop-blur-xl"
+        >
+          {/* Menu items */}
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }`;
 
@@ -104,91 +62,112 @@ function Dropdown() {
   return (
     <ExampleWrapper
       title="Motion Shows Relationships"
-      description="The dropdown expands FROM its trigger, creating a clear spatial relationship."
+      description="The origin of an animation tells the user where a new element belongs in the hierarchy."
       controls={
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <ControlGroup label="Transform Origin">
-            {(["button", "center", "top-left"] as const).map((o) => (
+            {(["trigger", "center", "top-left"] as const).map((o) => (
               <ControlButton
                 key={o}
                 active={origin === o}
-                onClick={() => setOrigin(o)}
+                onClick={() => {
+                  setOrigin(o);
+                  setIsOpen(false);
+                  setTimeout(() => setIsOpen(true), 150);
+                }}
               >
-                {o === "button" ? "From Button" : o}
+                {o === "trigger" ? "From Trigger" : o === "top-left" ? "Top Left" : "Center"}
               </ControlButton>
             ))}
           </ControlGroup>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
-              showCode
-                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
-            )}
-          >
+          <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
             {showCode ? "Hide Code" : "Show Code"}
-          </button>
+          </ControlButton>
         </div>
       }
     >
-      <div className="space-y-8">
-        {/* Interactive dropdown */}
-        <div className="flex h-64 items-start justify-center rounded-lg bg-neutral-100 p-8 dark:bg-neutral-800">
+      <div className="space-y-12">
+        {/* Interactive Demo */}
+        <div className="flex h-80 items-center justify-center bg-neutral-100 dark:bg-neutral-900/50">
           <div className="relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
-                "flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 font-medium text-neutral-900 shadow-sm transition-colors",
-                "hover:bg-neutral-50 dark:bg-neutral-700 dark:text-white dark:hover:bg-neutral-600",
-                isOpen && "ring-2 ring-swiss-red/20"
+                "flex items-center gap-2 rounded-[12px] bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition-all hover:bg-neutral-50 active:scale-95 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700",
+                isOpen && "ring-2 ring-indigo-500/20 dark:ring-indigo-500/40"
               )}
             >
-              <User className="size-4" />
-              Account
-              <ChevronDown
-                className={cn(
-                  "size-4 transition-transform duration-200",
-                  isOpen && "rotate-180"
-                )}
-              />
+              <div className="flex h-5 w-5 items-center justify-center rounded-[8px] bg-gradient-to-br from-indigo-500 to-purple-600 text-[10px] font-bold text-white">
+                K
+              </div>
+              <span>Karl's Workspace</span>
+              <ChevronRight className={cn("ml-2 size-4 text-neutral-400 transition-transform", isOpen && "rotate-90")} />
             </button>
 
             <AnimatePresence>
               {isOpen && (
                 <>
-                  {/* Backdrop */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    onClick={() => setIsOpen(false)}
                     className="fixed inset-0 z-10"
+                    onClick={() => setIsOpen(false)}
                   />
-
-                  {/* Menu */}
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: -8 }}
+                    initial={{ opacity: 0, scale: 0.95, y: origin === "trigger" ? 4 : 0 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: -8 }}
-                    transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
-                    style={{ transformOrigin: getTransformOrigin() }}
-                    className="absolute left-0 top-full z-20 mt-2 w-48 overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
+                    exit={{ opacity: 0, scale: 0.95, y: origin === "trigger" ? 4 : 0 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    style={{
+                      transformOrigin: origin === "trigger" ? "top left" : origin === "top-left" ? "0 0" : "center",
+                    }}
+                    className="absolute left-0 top-full z-20 mt-2 min-w-[240px] overflow-hidden rounded-[24px] border border-neutral-200 bg-white/80 p-1.5 shadow-xl backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/80"
                   >
+                    <div className="mb-1.5 flex items-center gap-2 px-2 py-1.5 text-xs text-neutral-500">
+                      <span>karl@designengineer.com</span>
+                      <span className="rounded-[6px] bg-emerald-100 px-1.5 py-0.5 text-[10px] font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Pro</span>
+                    </div>
+                    
+                    <div className="h-px bg-neutral-100 dark:bg-neutral-800" />
+                    
                     <div className="py-1">
-                      {menuItems.map((item, index) => (
-                        <motion.button
+                      {menuItems.map((item, i) => (
+                        <button
                           key={item.label}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.05 }}
-                          onClick={() => setIsOpen(false)}
-                          className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm text-neutral-700 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                          className="flex w-full items-center justify-between rounded-[12px] px-2 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-indigo-50 hover:text-indigo-900 dark:text-neutral-300 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-100"
                         >
-                          <item.icon className="size-4 text-neutral-400" />
-                          {item.label}
-                        </motion.button>
+                          <div className="flex items-center gap-2.5">
+                            <item.icon className="size-4 opacity-70" />
+                            <span>{item.label}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            {item.badge && (
+                              <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white">
+                                {item.badge}
+                              </span>
+                            )}
+                            <span className="text-xs text-neutral-400 opacity-60">⌘{item.shortcut}</span>
+                          </div>
+                        </button>
                       ))}
+                    </div>
+
+                    <div className="h-px bg-neutral-100 dark:bg-neutral-800" />
+
+                    <div className="py-1">
+                      <button className="flex w-full items-center justify-between rounded-[12px] px-2 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800">
+                        <div className="flex items-center gap-2.5">
+                          <Plus className="size-4 opacity-70" />
+                          <span>New Team</span>
+                        </div>
+                      </button>
+                      <button className="flex w-full items-center justify-between rounded-[12px] px-2 py-1.5 text-sm text-rose-600 transition-colors hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-900/20">
+                        <div className="flex items-center gap-2.5">
+                          <LogOut className="size-4 opacity-70" />
+                          <span>Log Out</span>
+                        </div>
+                      </button>
                     </div>
                   </motion.div>
                 </>
@@ -197,70 +176,55 @@ function Dropdown() {
           </div>
         </div>
 
-        {/* Origin explanation */}
+        {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-3">
-          <div
-            className={cn(
-              "rounded-lg border p-4 transition-colors",
-              origin === "button"
-                ? "border-swiss-red bg-swiss-red/5"
-                : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
-            )}
-          >
-            <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-              From Button
-            </p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Menu appears to grow from the button—shows a clear parent-child relationship
-            </p>
-          </div>
-          <div
-            className={cn(
-              "rounded-lg border p-4 transition-colors",
-              origin === "center"
-                ? "border-swiss-red bg-swiss-red/5"
-                : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
-            )}
-          >
-            <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-              From Centre
-            </p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Menu expands from its own centre—feels disconnected from the trigger
-            </p>
-          </div>
-          <div
-            className={cn(
-              "rounded-lg border p-4 transition-colors",
-              origin === "top-left"
-                ? "border-swiss-red bg-swiss-red/5"
-                : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900"
-            )}
-          >
-            <p className="text-sm font-semibold text-neutral-900 dark:text-white">
-              From Top-Left
-            </p>
-            <p className="mt-1 text-xs text-neutral-500">
-              Menu grows from corner—might work for corner-positioned triggers
-            </p>
-          </div>
+          {[
+            { 
+              mode: "trigger", 
+              label: "From Trigger", 
+              desc: "Feels connected. The menu physically grows from the button that spawned it.",
+              correct: true
+            },
+            { 
+              mode: "center", 
+              label: "From Center", 
+              desc: "Feels disconnected. Like a modal or alert that interrupts flow.",
+              correct: false
+            },
+            { 
+              mode: "top-left", 
+              label: "From Top-Left", 
+              desc: "Feels mechanical. Uses the browser's default coordinate system (0,0).",
+              correct: false
+            }
+          ].map((item) => (
+            <div 
+              key={item.mode}
+              className={cn(
+                "rounded-[12px] border p-4 transition-colors",
+                origin === item.mode
+                  ? "border-neutral-900 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
+                  : "border-transparent bg-white dark:bg-neutral-900"
+              )}
+            >
+              <div className="mb-2 flex items-center gap-2">
+                <div className={cn(
+                  "h-2 w-2 rounded-full",
+                  item.correct ? "bg-emerald-500" : "bg-neutral-300 dark:bg-neutral-600"
+                )} />
+                <span className="text-sm font-semibold text-neutral-900 dark:text-white">
+                  {item.label}
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
+                {item.desc}
+              </p>
+            </div>
+          ))}
         </div>
 
-        {/* Key insight */}
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/50 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>The principle:</strong> Motion should reveal relationships. When a 
-            menu expands from its trigger, users intuitively understand where it came 
-            from and how to dismiss it. This is why "From Button" feels most natural.
-          </p>
-        </div>
-
-        {/* Code panel */}
         {showCode && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}
@@ -268,4 +232,3 @@ function Dropdown() {
     </ExampleWrapper>
   );
 }
-

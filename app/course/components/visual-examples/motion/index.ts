@@ -60,6 +60,5 @@ export { ScrollLinkedHeaderDemo } from "./scroll-linked-header-demo";
 export { CssVsJsDemo } from "./css-vs-js-demo";
 export { AnimatePresenceDemo } from "./animate-presence-demo";
 export { GestureAnimationDemo } from "./gesture-animation-demo";
-export { LayoutAnimationDemo } from "./layout-animation-demo";
 export { ReducedMotionDemo } from "./reduced-motion-demo";
 
