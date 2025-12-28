@@ -5,6 +5,9 @@ import { submitGalleryProject, updateGalleryProject, deleteGalleryProject } from
 import { requireCourseAvailable } from "@/lib/course-availability";
 import { getUserEnrollment } from "@/lib/course";
 import type { GalleryProjectPlatform, GalleryProjectTrack } from "@/lib/types";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export async function GET(request: NextRequest) {
   const unavailableResponse = await requireCourseAvailable();
@@ -93,10 +96,13 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  const userName = user.fullName || user.firstName || "Anonymous";
+  const userEmail = user.emailAddresses[0]?.emailAddress || "";
+
   const project = await submitGalleryProject({
     user_id: userId,
-    user_name: user.fullName || user.firstName || "Anonymous",
-    user_email: user.emailAddresses[0]?.emailAddress || "",
+    user_name: userName,
+    user_email: userEmail,
     platform: platform as GalleryProjectPlatform,
     track: track as GalleryProjectTrack,
     description,
@@ -106,6 +112,47 @@ export async function POST(request: NextRequest) {
     video_url: videoUrl || undefined,
     technologies: technologies || [],
   });
+
+  // Send email notification to admin
+  try {
+    const platformLabel = { web: "Web", ios: "iOS", android: "Android" }[platform];
+    const trackLabel = { design: "Design", engineering: "Engineering", convergence: "Convergence" }[track];
+
+    await resend.emails.send({
+      from: "d×e Course <hello@designengineer.xyz>",
+      to: ["hello@designengineer.xyz"],
+      subject: `🎨 New Gallery Submission: ${platformLabel} ${trackLabel}`,
+      text: `
+New Capstone Project Submitted
+
+Student: ${userName}
+Email: ${userEmail}
+Platform: ${platformLabel}
+Track: ${trackLabel}
+
+Description:
+${description}
+
+Links:
+${thumbnailUrl ? `• Thumbnail: ${thumbnailUrl}` : ""}
+${projectUrl ? `• Project: ${projectUrl}` : ""}
+${githubUrl ? `• GitHub: ${githubUrl}` : ""}
+${videoUrl ? `• Video: ${videoUrl}` : ""}
+
+Technologies: ${technologies?.length ? technologies.join(", ") : "None specified"}
+
+---
+To approve this project:
+1. Go to Cosmic Dashboard → Gallery Projects
+2. Find this submission (slug: ${project.slug})
+3. Change status from "Pending Review" to "Approved" or "Featured"
+4. Save/Publish the changes
+      `.trim(),
+    });
+  } catch (emailError) {
+    // Log but don't fail the submission if email fails
+    console.error("Failed to send gallery submission notification:", emailError);
+  }
 
   return NextResponse.json({ project }, { status: 201 });
 }
