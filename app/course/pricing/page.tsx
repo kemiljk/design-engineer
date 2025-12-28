@@ -2,8 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { ArrowLeft, Check, Sparkles } from "lucide-react";
-import { PricingCard, PlatformTierCard } from "./pricing-card";
+import { PricingCard, PlatformTierCard, BundleCard } from "./pricing-card";
 import { StudentDiscountForm } from "./student-discount-form";
+import { PricingClientWrapper } from "./pricing-client-wrapper";
 import { getUserEnrollment } from "@/lib/course";
 import { getProductsWithPrices } from "@/lib/lemonsqueezy";
 import type { ProductWithPrice } from "@/lib/types";
@@ -13,8 +14,10 @@ export const metadata: Metadata = {
   description: "Choose your path to becoming a Design Engineer. Flexible pricing for individuals and teams.",
 };
 
-const MAIN_TIER_KEYS = ["design_web", "engineering_web", "full"] as const;
-const PLATFORM_TIER_KEYS = ["design_ios", "design_android", "engineering_ios", "engineering_android"] as const;
+// Bundle tiers (best value)
+const BUNDLE_TIER_KEYS = ["design_full", "engineering_full", "full"] as const;
+// Individual platform tracks
+const PLATFORM_TIER_KEYS = ["design_web", "design_ios", "design_android", "engineering_web", "engineering_ios", "engineering_android"] as const;
 
 export default async function PricingPage() {
   const { userId } = await auth();
@@ -27,21 +30,25 @@ export default async function PricingPage() {
 
   const allProducts = await getProductsWithPrices();
   
-  const mainTiers = MAIN_TIER_KEYS
+  // Bundle tiers (Design Full, Engineering Full, Convergence)
+  const bundleTiers = BUNDLE_TIER_KEYS
     .map(key => allProducts.find(p => p.key === key))
     .filter((p): p is ProductWithPrice => p !== undefined);
     
+  // Individual platform tracks
   const platformTiers = PLATFORM_TIER_KEYS
     .map(key => allProducts.find(p => p.key === key))
     .filter((p): p is ProductWithPrice => p !== undefined);
 
   const fullProduct = allProducts.find(p => p.key === "full");
-  const individualTotal = allProducts
-    .filter(p => p.key !== "full")
-    .reduce((sum, p) => sum + p.price, 0);
-  const savings = individualTotal > 0 && fullProduct ? individualTotal - fullProduct.price : 0;
-  const savingsPercent = individualTotal > 0 && fullProduct 
-    ? Math.round((savings / individualTotal) * 100) 
+  
+  // Calculate savings vs buying all individual tracks
+  const individualTrackTotal = platformTiers.reduce((sum, p) => sum + p.price, 0);
+  const convergenceSavings = individualTrackTotal > 0 && fullProduct 
+    ? individualTrackTotal - fullProduct.price 
+    : 0;
+  const convergenceSavingsPercent = individualTrackTotal > 0 && fullProduct 
+    ? Math.round((convergenceSavings / individualTrackTotal) * 100) 
     : 0;
 
   return (
@@ -64,10 +71,6 @@ export default async function PricingPage() {
             Choose the path that fits your goals. All plans include lifetime access 
             and a 14-day money-back guarantee.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-swiss-red bg-swiss-red/5 px-6 py-3 text-sm font-medium text-swiss-red dark:bg-swiss-red/10">
-            <Sparkles className="h-4 w-4" />
-            <span>Best Value: Convergence includes ALL tracks + exclusive advanced content</span>
-          </div>
         </div>
 
         {/* Current Access Banner */}
@@ -75,87 +78,22 @@ export default async function PricingPage() {
           <div className="mb-8 rounded-none border border-green-200 bg-green-50 p-4 text-center dark:border-green-800 dark:bg-green-950/30">
             <p className="text-green-800 dark:text-green-200">
               <Check className="mr-2 inline h-4 w-4" />
-              You have <strong>{currentAccess === "full" ? "Full Access" : currentAccess}</strong>. 
+              You have <strong>{currentAccess === "full" ? "Convergence All-Access" : currentAccess.replace(/_/g, " ")}</strong>. 
               Thank you for being a student!
             </p>
           </div>
         )}
 
-        {/* Value Comparison */}
-        {savings > 0 && (
-          <div className="mb-12 rounded-none border-2 border-swiss-red bg-swiss-red/5 p-8 dark:bg-swiss-red/10">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-4 text-2xl font-bold">
-                <span className="text-swiss-red">Convergence All-Access</span> = Everything Included
-              </h2>
-              <p className="mb-6 text-neutral-600 dark:text-neutral-400">
-                Get complete access to all Design, Engineering, and Convergence content across Web, iOS, and Android 
-                - at a fraction of the cost of buying tracks individually.
-              </p>
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-none border border-neutral-300 bg-white p-6 dark:border-neutral-700 dark:bg-neutral-900">
-                  <p className="mb-2 text-sm font-medium text-neutral-500">Individual Tracks Total</p>
-                  <p className="mb-1 text-3xl font-bold line-through opacity-50">
-                    {new Intl.NumberFormat("en-GB", {
-                      style: "currency",
-                      currency: "GBP",
-                    }).format(individualTotal)}
-                  </p>
-                  <p className="text-xs text-neutral-500">
-                    Buying all 6 tracks separately
-                  </p>
-                </div>
-                <div className="rounded-none border-2 border-swiss-red bg-white p-6 dark:bg-neutral-900">
-                  <p className="mb-2 text-sm font-medium text-swiss-red">Convergence All-Access Price</p>
-                  <p className="mb-1 text-3xl font-bold text-swiss-red">
-                    {fullProduct?.formattedPrice}
-                  </p>
-                  <p className="text-xs font-bold text-green-600 dark:text-green-400">
-                    SAVE {savingsPercent}% (
-                    {new Intl.NumberFormat("en-GB", {
-                      style: "currency",
-                      currency: "GBP",
-                    }).format(savings)})
-                  </p>
-                </div>
-              </div>
-              <div className="mt-6 text-sm text-neutral-600 dark:text-neutral-400">
-                💡 <strong>Students save even more</strong> - email us for a 30% discount code
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Main Pricing Cards */}
-        <div className="mb-16 grid gap-8 md:grid-cols-3">
-          {mainTiers.map((product) => (
-            <PricingCard
-              key={product.key}
-              product={product}
-              currentAccess={currentAccess}
-              userId={userId}
-            />
-          ))}
-        </div>
-
-        {/* Platform-specific tiers */}
-        {platformTiers.length > 0 && (
-          <div className="mb-16">
-            <h2 className="mb-6 text-center text-xl font-bold">
-              Or choose a specific platform
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {platformTiers.map((product) => (
-                <PlatformTierCard
-                  key={product.key}
-                  product={product}
-                  currentAccess={currentAccess}
-                  userId={userId}
-                />
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Client wrapper for currency selection */}
+        <PricingClientWrapper
+          bundleTiers={bundleTiers}
+          platformTiers={platformTiers}
+          currentAccess={currentAccess}
+          userId={userId}
+          convergenceSavings={convergenceSavings}
+          convergenceSavingsPercent={convergenceSavingsPercent}
+          individualTrackTotal={individualTrackTotal}
+        />
 
         {/* Student Discount Form */}
         <div className="mb-8">

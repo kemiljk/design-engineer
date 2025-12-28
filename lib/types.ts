@@ -287,9 +287,11 @@ export type CourseEnrollment = {
       | "design_web"
       | "design_ios"
       | "design_android"
+      | "design_full"
       | "engineering_web"
       | "engineering_ios"
       | "engineering_android"
+      | "engineering_full"
       | "full";
     purchased_at?: string;
     expires_at?: string;
@@ -353,9 +355,11 @@ export type ProductKey =
   | "design_web"
   | "design_ios"
   | "design_android"
+  | "design_full"
   | "engineering_web"
   | "engineering_ios"
   | "engineering_android"
+  | "engineering_full"
   | "full";
 
 export type ProductWithPrice = {
