@@ -6,6 +6,7 @@ import {
   Zap,
   Bell,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
@@ -27,6 +28,14 @@ const faqs = [
   {
     q: "What platforms does the course cover?",
     a: "The course covers three platforms: Web (HTML, CSS, JavaScript), iOS (Swift, SwiftUI), and Android (Kotlin, Jetpack Compose). Each platform has its own Design Track, Engineering Track, and Convergence modules so you can specialise in your preferred platform.",
+  },
+  {
+    q: "How does pricing work?",
+    a: "We offer flexible pricing options: individual platform tracks (e.g., Design Web only) from £99, full track access (all platforms within Design or Engineering) from £299, or Convergence All-Access at £599 which includes everything plus exclusive advanced content. All purchases are one-time payments with lifetime access—no subscriptions.",
+  },
+  {
+    q: "Is there a student discount?",
+    a: "Yes! Students with a valid .edu or university email address receive 30% off any purchase. Simply sign up with your student email and we'll send you a discount code.",
   },
   {
     q: "Is there a free trial?",
@@ -139,6 +148,109 @@ export function ComingSoon() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Pricing Preview */}
+          <div className="mb-16">
+            <h2 className="mb-2 text-center text-2xl font-bold">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="mb-8 text-center text-neutral-600 dark:text-neutral-400">
+              One-time payment. Lifetime access. No subscriptions.
+            </p>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {/* Design Full */}
+              <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+                <div className="mb-1 text-xs font-medium uppercase tracking-wider text-swiss-red">
+                  Design Track
+                </div>
+                <h3 className="mb-2 text-lg font-bold">Full Access</h3>
+                <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                  All design content across Web, iOS & Android
+                </p>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold">£299</span>
+                </div>
+                <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    48+ design lessons
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    All 3 platforms
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    Lifetime access
+                  </li>
+                </ul>
+              </div>
+
+              {/* Engineering Full */}
+              <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+                <div className="mb-1 text-xs font-medium uppercase tracking-wider text-neutral-500">
+                  Engineering Track
+                </div>
+                <h3 className="mb-2 text-lg font-bold">Full Access</h3>
+                <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                  All engineering content across Web, iOS & Android
+                </p>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold">£349</span>
+                </div>
+                <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+                    67+ engineering lessons
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+                    All 3 platforms
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+                    Lifetime access
+                  </li>
+                </ul>
+              </div>
+
+              {/* Convergence */}
+              <div className="border-2 border-swiss-red bg-swiss-red/5 p-6 dark:bg-swiss-red/10">
+                <div className="mb-1 flex items-center gap-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-swiss-red">
+                    Best Value
+                  </span>
+                  <Sparkles className="h-3 w-3 text-swiss-red" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold">Convergence</h3>
+                <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                  Everything — Design + Engineering + exclusive content
+                </p>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold text-swiss-red">£599</span>
+                </div>
+                <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    ALL 156+ lessons
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    Exclusive advanced content
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    Lifetime access + updates
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="mt-6 text-center text-sm text-neutral-500">
+              Individual platform tracks from £99 · Students get 30% off · 14-day money-back guarantee
+            </p>
           </div>
 
           {/* Newsletter Signup */}
