@@ -22,6 +22,8 @@ Every micro-interaction has four parts:
 
 ## Button Interactions
 
+<!-- visual-example: button-states-demo -->
+
 ### Hover State
 
 ```css
@@ -94,6 +96,8 @@ Every micro-interaction has four parts:
 
 ### Floating Label
 
+<!-- visual-example: floating-label-demo -->
+
 ```css
 .field {
   position: relative;
@@ -118,6 +122,8 @@ Every micro-interaction has four parts:
 
 ### Validation Feedback
 
+<!-- visual-example: form-validation-demo -->
+
 ```css
 .input--error {
   border-color: var(--error);
@@ -139,6 +145,8 @@ Every micro-interaction has four parts:
 ```
 
 ## Toggle & Checkbox
+
+<!-- visual-example: toggle-switch-demo -->
 
 ### Custom Toggle
 
@@ -189,6 +197,8 @@ Every micro-interaction has four parts:
 
 ## Like/Heart Animation
 
+<!-- visual-example: like-button-demo -->
+
 ```css
 .heart {
   transform: scale(1);
@@ -213,6 +223,8 @@ Every micro-interaction has four parts:
 ```
 
 ## Skeleton Loading
+
+<!-- visual-example: skeleton-loading-demo -->
 
 ```css
 .skeleton {

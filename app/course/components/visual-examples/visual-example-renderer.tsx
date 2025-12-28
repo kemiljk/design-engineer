@@ -29,6 +29,43 @@ import { TokenExplorerDemo } from "./design-systems";
 // UX
 import { PersonaCardDemo } from "./ux";
 
+// Motion
+import {
+  // Lesson 1: Why Motion Matters
+  MotionFeedbackDemo,
+  MotionRelationshipsDemo,
+  MotionAttentionDemo,
+  MotionContinuityDemo,
+  // Lesson 2: Principles of UI Animation
+  EasingPlaygroundDemo,
+  TimingComparisonDemo,
+  StaggerChoreographyDemo,
+  SpringPhysicsDemo,
+  DisneyPrinciplesDemo,
+  // Lesson 3: Micro-interactions
+  ButtonStatesDemo,
+  FloatingLabelDemo,
+  ToggleSwitchDemo,
+  LikeButtonDemo,
+  SkeletonLoadingDemo,
+  FormValidationDemo,
+  // Lesson 4: Page Transitions
+  PageTransitionTypesDemo,
+  SharedElementDemo,
+  NavigationDirectionDemo,
+  // Lesson 5: Scroll-Based Animation
+  ScrollRevealDemo,
+  ParallaxLayersDemo,
+  ScrollProgressDemo,
+  ScrollLinkedHeaderDemo,
+  // Lesson 6: Implementing Motion
+  CssVsJsDemo,
+  AnimatePresenceDemo,
+  GestureAnimationDemo,
+  LayoutAnimationDemo,
+  ReducedMotionDemo,
+} from "./motion";
+
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   // Design Principles
   "hierarchy-demo": HierarchyDemo,
@@ -76,6 +113,45 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   
   // UX
   "persona-card-demo": PersonaCardDemo,
+  
+  // Motion - Lesson 1: Why Motion Matters
+  "motion-feedback-demo": MotionFeedbackDemo,
+  "motion-relationships-demo": MotionRelationshipsDemo,
+  "motion-attention-demo": MotionAttentionDemo,
+  "motion-continuity-demo": MotionContinuityDemo,
+  
+  // Motion - Lesson 2: Principles of UI Animation
+  "easing-playground-demo": EasingPlaygroundDemo,
+  "timing-comparison-demo": TimingComparisonDemo,
+  "stagger-choreography-demo": StaggerChoreographyDemo,
+  "spring-physics-demo": SpringPhysicsDemo,
+  "disney-principles-demo": DisneyPrinciplesDemo,
+  
+  // Motion - Lesson 3: Micro-interactions
+  "button-states-demo": ButtonStatesDemo,
+  "floating-label-demo": FloatingLabelDemo,
+  "toggle-switch-demo": ToggleSwitchDemo,
+  "like-button-demo": LikeButtonDemo,
+  "skeleton-loading-demo": SkeletonLoadingDemo,
+  "form-validation-demo": FormValidationDemo,
+  
+  // Motion - Lesson 4: Page Transitions
+  "page-transition-types-demo": PageTransitionTypesDemo,
+  "shared-element-demo": SharedElementDemo,
+  "navigation-direction-demo": NavigationDirectionDemo,
+  
+  // Motion - Lesson 5: Scroll-Based Animation
+  "scroll-reveal-demo": ScrollRevealDemo,
+  "parallax-layers-demo": ParallaxLayersDemo,
+  "scroll-progress-demo": ScrollProgressDemo,
+  "scroll-linked-header-demo": ScrollLinkedHeaderDemo,
+  
+  // Motion - Lesson 6: Implementing Motion
+  "css-vs-js-demo": CssVsJsDemo,
+  "animate-presence-demo": AnimatePresenceDemo,
+  "gesture-animation-demo": GestureAnimationDemo,
+  "layout-animation-demo": LayoutAnimationDemo,
+  "reduced-motion-demo": ReducedMotionDemo,
 };
 
 interface VisualExampleRendererProps {

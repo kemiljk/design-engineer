@@ -22,12 +22,16 @@ Users need to know their actions were received:
 - Item deleted → smooth removal
 - Form submitted → success animation
 
+<!-- visual-example: motion-feedback-demo -->
+
 ### Showing Relationships
 
 Motion reveals how elements relate:
 - Dropdown expands from trigger
 - Modal emerges from button that opened it
 - Page transitions show navigation direction
+
+<!-- visual-example: motion-relationships-demo -->
 
 ### Guiding Attention
 
@@ -36,12 +40,16 @@ Animation directs focus:
 - Error message highlights field
 - Progress indicator shows system status
 
+<!-- visual-example: motion-attention-demo -->
+
 ### Creating Continuity
 
 Motion smooths jarring changes:
 - State changes that would otherwise be sudden
 - Layout shifts as content loads
 - Content entering and leaving
+
+<!-- visual-example: motion-continuity-demo -->
 
 ## When to Use Animation
 

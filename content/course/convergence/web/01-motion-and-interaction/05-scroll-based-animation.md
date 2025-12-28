@@ -11,18 +11,20 @@
 
 ## Types of Scroll Animation
 
-<!-- illustration: scroll-animation-types -->
-
 ### Scroll-Triggered
 Animation plays when element enters viewport, then completes independently:
 - Fade in on scroll
 - Staggered list reveals
+
+<!-- visual-example: scroll-reveal-demo -->
 
 ### Scroll-Linked
 Animation progress tied directly to scroll position:
 - Parallax effects
 - Progress indicators
 - Morphing headers
+
+<!-- visual-example: scroll-progress-demo -->
 
 ## CSS Scroll-Driven Animations
 
@@ -94,6 +96,8 @@ document.querySelectorAll('.reveal').forEach((el) => {
 
 ## Parallax Effects
 
+<!-- visual-example: parallax-layers-demo -->
+
 ### CSS-Only Parallax
 
 ```css
@@ -122,6 +126,12 @@ window.addEventListener('scroll', () => {
     `translateY(${scrolled * 0.5}px)`;
 });
 ```
+
+## Scroll-Linked Headers
+
+A common pattern is morphing headers that shrink, add blur, and change appearance as users scroll:
+
+<!-- visual-example: scroll-linked-header-demo -->
 
 ## Staggered Reveals
 

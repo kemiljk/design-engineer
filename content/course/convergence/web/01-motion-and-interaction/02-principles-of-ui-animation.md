@@ -13,6 +13,8 @@
 
 Animation duration depends on purpose and distance:
 
+<!-- visual-example: timing-comparison-demo -->
+
 ### Quick Feedback (100-200ms)
 - Button hover states
 - Checkbox toggles
@@ -38,7 +40,7 @@ Animation duration depends on purpose and distance:
 
 Easing controls acceleration and deceleration.
 
-<!-- illustration: easing-curves -->
+<!-- visual-example: easing-playground-demo -->
 
 ### Linear
 ```css
@@ -74,6 +76,8 @@ Create custom curves for unique feels. The example above creates an "overshoot" 
 
 When multiple elements animate, coordinate them:
 
+<!-- visual-example: stagger-choreography-demo -->
+
 ### Stagger
 Elements animate in sequence with slight delays:
 ```css
@@ -88,7 +92,15 @@ Related elements move together—expanding dropdown arrows rotate as menus open.
 ### Hierarchy
 More important elements animate first or more prominently.
 
+## Spring Physics
+
+Spring animations create natural-feeling motion by simulating physical forces. Adjust stiffness, damping, and mass to achieve different feels.
+
+<!-- visual-example: spring-physics-demo -->
+
 ## Disney's 12 Principles (Applied to UI)
+
+<!-- visual-example: disney-principles-demo -->
 
 ### Squash and Stretch
 Elements can compress and expand subtly—buttons squishing slightly on press.
