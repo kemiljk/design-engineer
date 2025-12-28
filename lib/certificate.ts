@@ -115,7 +115,7 @@ export async function getUserCertificate(
       .limit(1);
     
     // Filter out track certificates (which have a track field)
-    const masterCerts = objects?.filter(obj => !obj.metadata.track) || [];
+    const masterCerts = objects?.filter((obj: { metadata: { track?: Type.CertificateTrack } }) => !obj.metadata.track) || [];
     return masterCerts[0] || null;
   } catch {
     // No certificates is an expected state - return null silently
@@ -158,7 +158,7 @@ export async function getUserTrackCertificates(userId: string): Promise<Type.Tra
       .depth(1);
     
     // Filter to only track certificates (which have a track field)
-    return objects?.filter(obj => obj.metadata.track) || [];
+    return objects?.filter((obj: { metadata: { track?: Type.CertificateTrack } }) => obj.metadata.track) || [];
   } catch {
     // No certificates is an expected state - return empty array silently
     return [];
@@ -176,7 +176,7 @@ export async function getUserCertificates(userId: string): Promise<Type.Certific
       .depth(1);
     
     // Filter to only master certificates (which don't have a track field)
-    return objects?.filter(obj => !obj.metadata.track) || [];
+    return objects?.filter((obj: { metadata: { track?: Type.CertificateTrack } }) => !obj.metadata.track) || [];
   } catch {
     // No certificates is an expected state - return empty array silently
     return [];
