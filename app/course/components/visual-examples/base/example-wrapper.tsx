@@ -23,7 +23,7 @@ export function ExampleWrapper({
   return (
     <figure
       className={cn(
-        "not-prose my-8 border border-neutral-200/60 bg-white shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900",
+        "not-prose my-8 w-full max-w-full border border-neutral-200/60 bg-white shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900",
         !allowOverflow && "overflow-hidden",
         className
       )}
