@@ -115,8 +115,8 @@ export async function POST(request: NextRequest) {
 
   // Send email notification to admin
   try {
-    const platformLabel = { web: "Web", ios: "iOS", android: "Android" }[platform];
-    const trackLabel = { design: "Design", engineering: "Engineering", convergence: "Convergence" }[track];
+    const platformLabel = { web: "Web", ios: "iOS", android: "Android" }[platform as GalleryProjectPlatform];
+    const trackLabel = { design: "Design", engineering: "Engineering", convergence: "Convergence" }[track as GalleryProjectTrack];
 
     await resend.emails.send({
       from: "d×e Course <hello@designengineer.xyz>",
