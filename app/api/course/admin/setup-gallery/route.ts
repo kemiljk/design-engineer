@@ -2,19 +2,19 @@ import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { cosmic } from "@/lib/cosmic";
 
-// Only available in development or for specific admin users
-const ALLOW_ADMIN = process.env.NODE_ENV === "development";
+// Only available in development mode
+const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
 const ADMIN_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
 
 export async function POST() {
   const { userId } = await auth();
   
-  if (!ALLOW_ADMIN && userId !== ADMIN_USER_ID) {
-    return NextResponse.json({ error: "Admin not available" }, { status: 403 });
-  }
-
-  if (!userId) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  // In development, allow unauthenticated access for setup scripts
+  // In production, require admin user
+  if (!IS_DEVELOPMENT) {
+    if (userId !== ADMIN_USER_ID) {
+      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
+    }
   }
 
   const results: { steps: string[]; errors: string[] } = {
