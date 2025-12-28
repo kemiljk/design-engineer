@@ -2,7 +2,6 @@ import type { Viewport } from "next";
 import { Suspense } from "react";
 import { Martian_Mono, Host_Grotesk } from "next/font/google";
 import Script from "next/script";
-import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import MainNav from "./components/main-nav";
 import { Providers } from "./providers";
@@ -45,14 +44,6 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <ClerkProvider
-        signInFallbackRedirectUrl={
-          process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL
-        }
-        signUpFallbackRedirectUrl={
-          process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL
-        }
-      >
         <body
           className={`${mono.variable} ${sans.variable} relative h-full min-h-screen w-full overflow-x-hidden font-sans text-foreground antialiased transition-colors duration-200 ease-in-out dark:bg-background`}
         >
@@ -62,7 +53,10 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <Providers>
+          <Providers
+            signInFallbackRedirectUrl={process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL}
+            signUpFallbackRedirectUrl={process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL}
+          >
             <Suspense fallback={null}>
               <BannerWrapper />
             </Suspense>
@@ -70,11 +64,10 @@ export default function RootLayout({
             <div id="content" tabIndex={-1} className="outline-none">
               {children}
             </div>
+            <EmailSubscriber />
+            <KeyboardHint />
           </Providers>
-          <EmailSubscriber />
-          <KeyboardHint />
         </body>
-      </ClerkProvider>
     </html>
   );
 }

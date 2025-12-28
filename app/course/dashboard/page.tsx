@@ -154,8 +154,8 @@ export default async function DashboardPage() {
             href="/course/notes"
             className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
           >
-            <div className="flex h-12 w-12 items-center justify-center bg-yellow-500/10">
-              <StickyNote className="h-6 w-6 text-yellow-600" />
+            <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
+              <StickyNote className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div className="flex-1">
               <h3 className="font-bold group-hover:text-swiss-red">My Notes</h3>
@@ -168,8 +168,8 @@ export default async function DashboardPage() {
             href="/course/certificate"
             className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
           >
-            <div className="flex h-12 w-12 items-center justify-center bg-green-500/10">
-              <Award className="h-6 w-6 text-green-600" />
+            <div className="flex h-12 w-12 items-center justify-center bg-swiss-red/10">
+              <Award className="h-6 w-6 text-swiss-red" />
             </div>
             <div className="flex-1">
               <h3 className="font-bold group-hover:text-swiss-red">Certificates</h3>
@@ -187,8 +187,8 @@ export default async function DashboardPage() {
             href="/course/gallery"
             className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
           >
-            <div className="flex h-12 w-12 items-center justify-center bg-purple-500/10">
-              <FolderKanban className="h-6 w-6 text-purple-600" />
+            <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
+              <FolderKanban className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div className="flex-1">
               <h3 className="font-bold group-hover:text-swiss-red">Project Gallery</h3>
@@ -202,7 +202,7 @@ export default async function DashboardPage() {
         <section className="mb-12">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-lg font-bold">
-              <StickyNote className="h-5 w-5 text-yellow-600" />
+              <StickyNote className="h-5 w-5 text-neutral-500" />
               Recent Notes
             </h2>
             {notes.length > 3 && (
@@ -248,7 +248,7 @@ export default async function DashboardPage() {
         <section className="mb-12">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-lg font-bold">
-              <FolderKanban className="h-5 w-5 text-purple-600" />
+              <FolderKanban className="h-5 w-5 text-neutral-500" />
               My Project Submissions
             </h2>
             {enrollment && (
@@ -321,7 +321,7 @@ export default async function DashboardPage() {
           <section className="mb-12">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="flex items-center gap-2 text-lg font-bold">
-                <Award className="h-5 w-5 text-green-600" />
+                <Award className="h-5 w-5 text-swiss-red" />
                 Earned Certificates
               </h2>
               <Link
@@ -336,16 +336,16 @@ export default async function DashboardPage() {
               {certificates.map((cert) => (
                 <div
                   key={cert.id}
-                  className="flex items-center gap-3 rounded-none border border-green-200 bg-green-50 p-4 dark:border-green-900 dark:bg-green-950/30"
+                  className="flex items-center gap-3 border border-swiss-red/20 bg-swiss-red/5 p-4 dark:border-swiss-red/30 dark:bg-swiss-red/10"
                 >
-                  <Award className="h-8 w-8 text-green-600" />
+                  <Award className="h-8 w-8 text-swiss-red" />
                   <div>
                     <p className="font-medium">
                       {cert.metadata.platform === "web" && "Web Design Engineer"}
                       {cert.metadata.platform === "ios" && "iOS Design Engineer"}
                       {cert.metadata.platform === "android" && "Android Design Engineer"}
                     </p>
-                    <p className="text-xs text-green-600">
+                    <p className="text-xs text-swiss-red">
                       {new Date(cert.metadata.issued_at).toLocaleDateString()}
                     </p>
                   </div>
