@@ -194,9 +194,9 @@ function LikeButton() {
       <div className="space-y-8">
         {/* Main interactive showcase - Social card */}
         <div className="flex flex-col items-center gap-6">
-          <div className="relative flex w-full justify-center bg-neutral-100 p-8 dark:bg-neutral-900/50">
+          <div className="relative flex w-full justify-center bg-neutral-100 p-4 sm:p-8 dark:bg-neutral-900/50">
             {/* Social card */}
-            <div className="relative w-80 overflow-hidden rounded-[24px] border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="relative w-full max-w-80 overflow-hidden rounded-[24px] border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
               {/* Header */}
               <div className="flex items-center gap-3 border-b border-neutral-100 p-4 dark:border-neutral-800">
                 <div className="h-10 w-10 overflow-hidden !rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5">
