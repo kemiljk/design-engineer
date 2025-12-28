@@ -17,6 +17,8 @@ Heuristics are rules of thumb. Usability heuristics are established principles t
 
 Jakob Nielsen's 10 Usability Heuristics (1994) remain the most influential framework. They're not laws, but guidelines that catch common issues.
 
+<!-- illustration: heuristics-grid -->
+
 ## The 10 Heuristics
 
 ### 1. Visibility of System Status
@@ -193,6 +195,8 @@ Heuristic evaluation is a fast, cheap usability inspection method.
    - 2: Minor. Causes delay, low priority.
    - 3: Major. Causes significant issues, important to fix.
    - 4: Catastrophic. Blocks users, must fix.
+
+<!-- illustration: severity-scale -->
 
 5. **Compile findings:** Group by severity or heuristic.
 

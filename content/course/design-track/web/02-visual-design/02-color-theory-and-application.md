@@ -130,21 +130,17 @@ This creates visual balance without overwhelming users.
 
 ### Creating Palette Variations
 
-Each color needs variations for different contexts:
+Each colour needs variations for different contexts:
 
-```
-Primary Blue:
-├── 50  - Lightest (backgrounds)
-├── 100 - Light (hover states)
-├── 200 
-├── 300 
-├── 400 
-├── 500 - Base (primary use)
-├── 600 
-├── 700 - Dark (pressed states)
-├── 800 
-└── 900 - Darkest (high contrast)
-```
+| Scale | Usage |
+|-------|-------|
+| 50 | Lightest (backgrounds) |
+| 100 | Light (hover states) |
+| 200-400 | Intermediate tints |
+| 500 | Base (primary use) |
+| 600 | Slightly dark |
+| 700 | Dark (pressed states) |
+| 800-900 | Darkest (high contrast) |
 
 Tools like Tailwind CSS use this 50-900 scale. It provides predictable variations.
 
@@ -181,12 +177,11 @@ Or use tools:
 
 Layer backgrounds to create depth:
 
-```
-Light mode:
-├── Page background: hsl(0, 0%, 98%)
-├── Card background: hsl(0, 0%, 100%)
-└── Elevated element: hsl(0, 0%, 100%) + shadow
-```
+| Surface | Value (Light Mode) |
+|---------|-------------------|
+| Page background | hsl(0, 0%, 98%) |
+| Card background | hsl(0, 0%, 100%) |
+| Elevated element | hsl(0, 0%, 100%) + shadow |
 
 ### Interactive States
 

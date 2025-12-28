@@ -50,6 +50,18 @@ import { MaterialDynamicColor } from "./concepts/material-dynamic-color";
 import { DesignHandoffFlow } from "./concepts/design-handoff-flow";
 import { TokenPipeline } from "./concepts/token-pipeline";
 import { TokenFileStructure } from "./concepts/token-file-structure";
+import { FeedbackLoop } from "./concepts/feedback-loop";
+import { TouchTargetSizes } from "./concepts/touch-target-sizes";
+import { FalseHiddenAffordances } from "./concepts/false-hidden-affordances";
+import { SignifierStrength } from "./concepts/signifier-strength";
+import { HeuristicsGrid } from "./concepts/heuristics-grid";
+import { SeverityScale } from "./concepts/severity-scale";
+import { ContentExtremes } from "./concepts/content-extremes";
+import { PermissionStates } from "./concepts/permission-states";
+import { HierarchyDepth } from "./concepts/hierarchy-depth";
+import { OrganizationSchemes } from "./concepts/organization-schemes";
+import { UserJourneyMap } from "./concepts/user-journey-map";
+import { UxTraps } from "./concepts/ux-traps";
 import { DesignTrackHero } from "./heroes/design-track-hero";
 import { EngineeringTrackHero } from "./heroes/engineering-track-hero";
 import { ConvergenceTrackHero } from "./heroes/convergence-track-hero";
@@ -107,6 +119,18 @@ export const ILLUSTRATION_MAP: Record<string, React.ComponentType> = {
   "design-handoff-flow": DesignHandoffFlow,
   "token-pipeline": TokenPipeline,
   "token-file-structure": TokenFileStructure,
+  "feedback-loop": FeedbackLoop,
+  "touch-target-sizes": TouchTargetSizes,
+  "false-hidden-affordances": FalseHiddenAffordances,
+  "signifier-strength": SignifierStrength,
+  "heuristics-grid": HeuristicsGrid,
+  "severity-scale": SeverityScale,
+  "content-extremes": ContentExtremes,
+  "permission-states": PermissionStates,
+  "hierarchy-depth": HierarchyDepth,
+  "organization-schemes": OrganizationSchemes,
+  "user-journey-map": UserJourneyMap,
+  "ux-traps": UxTraps,
   "design-track-hero": DesignTrackHero,
   "engineering-track-hero": EngineeringTrackHero,
   "convergence-track-hero": ConvergenceTrackHero,
@@ -117,7 +141,10 @@ interface IllustrationRendererProps {
   caption?: string;
 }
 
-export function IllustrationRenderer({ type, caption }: IllustrationRendererProps) {
+export function IllustrationRenderer({
+  type,
+  caption,
+}: IllustrationRendererProps) {
   const Component = ILLUSTRATION_MAP[type];
 
   if (!Component) {

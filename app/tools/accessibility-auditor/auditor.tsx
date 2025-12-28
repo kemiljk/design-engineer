@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { readStreamableValue } from "ai/rsc";
+import { readStreamableValue } from '@ai-sdk/rsc';
 import { auditAccessibility } from "./actions";
 import { Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";

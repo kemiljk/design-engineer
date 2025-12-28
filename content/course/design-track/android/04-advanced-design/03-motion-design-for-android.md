@@ -131,12 +131,13 @@ Material Design timing:
 - Avoid for movement
 
 ### Material Easing Values
-```
-Standard: cubic-bezier(0.2, 0, 0, 1)
-Emphasized: cubic-bezier(0.05, 0.7, 0.1, 1)
-EmphasizedDecelerate: cubic-bezier(0.05, 0.7, 0.1, 1)
-EmphasizedAccelerate: cubic-bezier(0.3, 0, 0.8, 0.15)
-```
+
+| Easing | Value |
+|--------|-------|
+| Standard | cubic-bezier(0.2, 0, 0, 1) |
+| Emphasized | cubic-bezier(0.05, 0.7, 0.1, 1) |
+| EmphasizedDecelerate | cubic-bezier(0.05, 0.7, 0.1, 1) |
+| EmphasizedAccelerate | cubic-bezier(0.3, 0, 0.8, 0.15) |
 
 ## Designing Transitions
 

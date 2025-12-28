@@ -31,7 +31,7 @@ Apply your design system:
 ### Hero Patterns
 
 **Split layout:**
-```
+```plaintext
 ┌────────────────────────────────────────┐
 │  Headline              │               │
 │  that captures         │    [IMAGE]    │
@@ -43,7 +43,7 @@ Apply your design system:
 ```
 
 **Centred layout:**
-```
+```plaintext
 ┌────────────────────────────────────────┐
 │         Centred Headline               │
 │      Supporting text here              │
@@ -54,7 +54,7 @@ Apply your design system:
 ```
 
 **Full-bleed image:**
-```
+```plaintext
 ┌────────────────────────────────────────┐
 │ ╔════════════════════════════════════╗ │
 │ ║     Headline over image            ║ │

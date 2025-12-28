@@ -63,11 +63,12 @@ Material shadows have two layers:
 - Subtle fill
 
 ### Shadow Values by Elevation
-```
-1dp: key 0 1px 1px, ambient 0 1px 3px
-3dp: key 0 2px 3px, ambient 0 3px 4px
-6dp: key 0 4px 6px, ambient 0 6px 10px
-```
+
+| Elevation | Key Shadow | Ambient Shadow |
+|-----------|------------|----------------|
+| 1dp | 0 1px 1px | 0 1px 3px |
+| 3dp | 0 2px 3px | 0 3px 4px |
+| 6dp | 0 4px 6px | 0 6px 10px |
 
 ## Surface Tint
 

@@ -15,12 +15,11 @@
 
 Design tokens are named containers for design values:
 
-```
-Instead of:         Use:
-#3B82F6            primary-500
-16px               space-4
-Inter Bold 24px    heading-large
-```
+| Instead of | Use |
+|------------|-----|
+| #3B82F6 | primary-500 |
+| 16px | space-4 |
+| Inter Bold 24px | heading-large |
 
 Tokens abstract raw values into meaningful names. This abstraction provides:
 
@@ -35,93 +34,107 @@ Explore the different categories of tokens in a design system:
 
 <!-- visual-example: token-explorer-demo -->
 
-### Color Tokens
+### Colour Tokens
 
-All colors in your system:
+All colours in your system:
 
-```
-brand:
-  primary: #3B82F6
-  secondary: #10B981
+**Brand colours:**
 
-neutral:
-  50: #F9FAFB
-  100: #F3F4F6
-  ...
-  900: #111827
+| Token | Value |
+|-------|-------|
+| primary | #3B82F6 |
+| secondary | #10B981 |
 
-semantic:
-  error: #EF4444
-  warning: #F59E0B
-  success: #10B981
-  info: #3B82F6
-```
+**Neutral scale:** 50 (#F9FAFB) through 900 (#111827)
+
+**Semantic colours:**
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| error | #EF4444 | Destructive actions, errors |
+| warning | #F59E0B | Warnings, caution states |
+| success | #10B981 | Success, completion |
+| info | #3B82F6 | Informational |
 
 ### Spacing Tokens
 
 Margin, padding, and gap values:
 
-```
-space:
-  1: 4px
-  2: 8px
-  3: 12px
-  4: 16px
-  5: 20px
-  6: 24px
-  8: 32px
-  10: 40px
-  12: 48px
-  16: 64px
-```
+| Token | Value |
+|-------|-------|
+| space-1 | 4px |
+| space-2 | 8px |
+| space-3 | 12px |
+| space-4 | 16px |
+| space-5 | 20px |
+| space-6 | 24px |
+| space-8 | 32px |
+| space-10 | 40px |
+| space-12 | 48px |
+| space-16 | 64px |
 
 ### Typography Tokens
 
-Font properties:
+**Font families:**
 
-```
-font-family:
-  sans: 'Inter', system-ui, sans-serif
-  mono: 'JetBrains Mono', monospace
+| Token | Value |
+|-------|-------|
+| sans | 'Inter', system-ui, sans-serif |
+| mono | 'JetBrains Mono', monospace |
 
-font-size:
-  xs: 12px
-  sm: 14px
-  base: 16px
-  lg: 18px
-  xl: 20px
-  2xl: 24px
+**Font sizes:**
 
-font-weight:
-  regular: 400
-  medium: 500
-  semibold: 600
-  bold: 700
+| Token | Value |
+|-------|-------|
+| xs | 12px |
+| sm | 14px |
+| base | 16px |
+| lg | 18px |
+| xl | 20px |
+| 2xl | 24px |
 
-line-height:
-  tight: 1.25
-  normal: 1.5
-  loose: 1.75
-```
+**Font weights:**
+
+| Token | Value |
+|-------|-------|
+| regular | 400 |
+| medium | 500 |
+| semibold | 600 |
+| bold | 700 |
+
+**Line heights:**
+
+| Token | Value |
+|-------|-------|
+| tight | 1.25 |
+| normal | 1.5 |
+| loose | 1.75 |
 
 ### Other Tokens
 
-```
-border-radius:
-  sm: 4px
-  md: 8px
-  lg: 12px
-  full: 9999px
+**Border radius:**
 
-shadow:
-  sm: 0 1px 2px rgba(0,0,0,0.05)
-  md: 0 4px 6px rgba(0,0,0,0.1)
-  lg: 0 10px 15px rgba(0,0,0,0.1)
+| Token | Value |
+|-------|-------|
+| sm | 4px |
+| md | 8px |
+| lg | 12px |
+| full | 9999px |
 
-border-width:
-  thin: 1px
-  thick: 2px
-```
+**Shadows:**
+
+| Token | Value |
+|-------|-------|
+| sm | 0 1px 2px rgba(0,0,0,0.05) |
+| md | 0 4px 6px rgba(0,0,0,0.1) |
+| lg | 0 10px 15px rgba(0,0,0,0.1) |
+
+**Border width:**
+
+| Token | Value |
+|-------|-------|
+| thin | 1px |
+| thick | 2px |
 
 ## Primitive vs. Semantic Tokens
 
@@ -160,15 +173,10 @@ Semantic tokens apply the palette to purposes.
 
 This separation enables theming:
 
-```
-Light theme:
-  color-background: {gray-100}  → #F3F4F6
-  color-text: {gray-900}        → #111827
-
-Dark theme:
-  color-background: {gray-900}  → #111827
-  color-text: {gray-100}        → #F3F4F6
-```
+| Token | Light Theme | Dark Theme |
+|-------|-------------|------------|
+| color-background | gray-100 → #F3F4F6 | gray-900 → #111827 |
+| color-text | gray-900 → #111827 | gray-100 → #F3F4F6 |
 
 Same semantic tokens, different values.
 

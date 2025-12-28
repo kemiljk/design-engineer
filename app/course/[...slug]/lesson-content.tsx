@@ -6,9 +6,10 @@ import { SideNav, MobileSectionNav } from "../components/lesson-layout";
 
 interface LessonContentProps {
   content: string;
+  lessonPath?: string;
 }
 
-export function LessonContent({ content }: LessonContentProps) {
+export function LessonContent({ content, lessonPath }: LessonContentProps) {
   const [sections, setSections] = useState<{ id: string; label: string }[]>([]);
   const hasInitialized = useRef(false);
 
@@ -26,7 +27,11 @@ export function LessonContent({ content }: LessonContentProps) {
     <>
       <SideNav sections={sections} />
       <MobileSectionNav sections={sections} />
-      <CourseMarkdown content={content} onSectionsDetected={handleSectionsDetected} />
+      <CourseMarkdown
+        content={content}
+        lessonPath={lessonPath}
+        onSectionsDetected={handleSectionsDetected}
+      />
     </>
   );
 }

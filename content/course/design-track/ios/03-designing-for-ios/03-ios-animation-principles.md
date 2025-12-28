@@ -85,13 +85,16 @@ When specifying animation:
 - Prototype key interactions
 
 ### Example Specification
-```
-Button Tap Animation:
-- Scale down to 0.96 on touch down
-- Spring back on release
-- Spring: Stiffness 400, Damping 30
-- Feel: Quick, responsive snap
-```
+
+**Button Tap Animation:**
+
+| Property | Value |
+|----------|-------|
+| Touch down | Scale to 0.96 |
+| Release | Spring back to 1.0 |
+| Spring stiffness | 400 |
+| Spring damping | 30 |
+| Feel | Quick, responsive snap |
 
 ## Interactive Animations
 

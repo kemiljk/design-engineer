@@ -1,11 +1,74 @@
 import {
   Illustration,
   Rect,
-  Circle,
   Label,
   ILLUSTRATION_COLORS,
 } from "../base/primitives";
 import { GRID, CONTENT } from "../base/grid";
+
+function XIcon({ x, y, size = 14, color }: { x: number; y: number; size?: number; color: string }) {
+  const half = size / 2;
+  return (
+    <g transform={`translate(${x - half}, ${y - half})`}>
+      <path
+        d={`M ${size * 0.2} ${size * 0.2} L ${size * 0.8} ${size * 0.8} M ${size * 0.8} ${size * 0.2} L ${size * 0.2} ${size * 0.8}`}
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        fill="none"
+      />
+    </g>
+  );
+}
+
+function MinusIcon({ x, y, size = 14, color }: { x: number; y: number; size?: number; color: string }) {
+  const half = size / 2;
+  return (
+    <g transform={`translate(${x - half}, ${y - half})`}>
+      <path
+        d={`M ${size * 0.2} ${size * 0.5} L ${size * 0.8} ${size * 0.5}`}
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        fill="none"
+      />
+    </g>
+  );
+}
+
+function CheckIcon({ x, y, size = 14, color }: { x: number; y: number; size?: number; color: string }) {
+  const half = size / 2;
+  return (
+    <g transform={`translate(${x - half}, ${y - half})`}>
+      <path
+        d={`M ${size * 0.15} ${size * 0.5} L ${size * 0.4} ${size * 0.75} L ${size * 0.85} ${size * 0.25}`}
+        stroke={color}
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </g>
+  );
+}
+
+function CursorIcon({ x, y, size = 20 }: { x: number; y: number; size?: number }) {
+  const scale = size / 32;
+  return (
+    <g transform={`translate(${x}, ${y}) scale(${scale})`}>
+      <path
+        d="M11.3795 30.363L0.179102 1.44238C-0.130998 0.641685 0.657602 -0.146915 1.46838 0.153085L30.7529 10.9896C31.5877 11.2985 31.6333 12.4518 30.8253 12.8246L19.0831 18.2428C18.8658 18.343 18.6918 18.517 18.5926 18.7333L13.2317 30.4182C12.8629 31.2222 11.6988 31.1875 11.3795 30.363Z"
+        fill="currentColor"
+      />
+      <path
+        d="M-0.289795 1.6208L10.9106 30.5414C11.3895 31.7781 13.1357 31.8301 13.689 30.6242L19.0498 18.9392C19.0994 18.8311 19.1864 18.7441 19.295 18.694L31.0373 13.2758C32.2492 12.7166 32.1809 10.9867 30.9286 10.5233L1.64412 -0.313185C0.427978 -0.763185 -0.754995 0.419815 -0.289795 1.6208Z"
+        stroke="currentColor"
+        strokeWidth={0.75}
+        fill="none"
+      />
+    </g>
+  );
+}
 
 export function AffordanceSignifier() {
   const colWidth = (CONTENT.width - 40) / 3;
@@ -60,15 +123,12 @@ export function AffordanceSignifier() {
         </text>
 
         {/* X mark */}
-        <text
+        <XIcon
           x={CONTENT.left + colWidth / 2}
-          y={startY + 110}
-          fontSize={16}
-          fill={ILLUSTRATION_COLORS.muted}
-          textAnchor="middle"
-        >
-          ✗
-        </text>
+          y={startY + 105}
+          size={16}
+          color={ILLUSTRATION_COLORS.muted}
+        />
       </g>
 
       {/* Column 2: Weak signifier */}
@@ -109,16 +169,13 @@ export function AffordanceSignifier() {
           Border hints at interactivity
         </text>
 
-        {/* Partial check */}
-        <text
+        {/* Minus / partial indicator */}
+        <MinusIcon
           x={CONTENT.centerX}
-          y={startY + 110}
-          fontSize={16}
-          fill={ILLUSTRATION_COLORS.muted}
-          textAnchor="middle"
-        >
-          ~
-        </text>
+          y={startY + 105}
+          size={16}
+          color={ILLUSTRATION_COLORS.muted}
+        />
       </g>
 
       {/* Column 3: Strong signifier */}
@@ -149,9 +206,9 @@ export function AffordanceSignifier() {
         </text>
 
         {/* Cursor indicator */}
-        <path
-          d={`M ${CONTENT.right - colWidth / 2 + 30} ${startY + 50} l 0 14 l 4 -4 l 6 8 l 3 -2 l -6 -8 l 5 -1 z`}
-          fill="currentColor"
+        <CursorIcon
+          x={CONTENT.right - colWidth / 2 + 30}
+          y={startY + 42}
         />
 
         <text
@@ -162,19 +219,16 @@ export function AffordanceSignifier() {
           textAnchor="middle"
           fontFamily="system-ui, -apple-system, sans-serif"
         >
-          Color, cursor, contrast
+          Colour, cursor, contrast
         </text>
 
         {/* Check mark */}
-        <text
+        <CheckIcon
           x={CONTENT.right - colWidth / 2}
-          y={startY + 110}
-          fontSize={16}
-          fill={ILLUSTRATION_COLORS.primary}
-          textAnchor="middle"
-        >
-          ✓
-        </text>
+          y={startY + 105}
+          size={16}
+          color={ILLUSTRATION_COLORS.primary}
+        />
       </g>
 
       {/* Bottom explanation */}
@@ -186,7 +240,7 @@ export function AffordanceSignifier() {
         textAnchor="middle"
         fontFamily="system-ui, -apple-system, sans-serif"
       >
-        Signifiers: color, shape, cursor, shadow, position
+        Signifiers: colour, shape, cursor, shadow, position
       </text>
     </Illustration>
   );

@@ -81,40 +81,18 @@ Now translate your brand into a systematic design language.
 
 Create a structured colour palette:
 
-```
-Primary
-├── primary-50   (lightest tint)
-├── primary-100
-├── primary-200
-├── primary-300
-├── primary-400
-├── primary-500  (main colour)
-├── primary-600
-├── primary-700
-├── primary-800
-├── primary-900  (darkest shade)
+**Primary & Secondary** — Each needs a full scale from 50 (lightest) to 900 (darkest), with 500 as the main colour.
 
-Secondary
-└── (Same structure as primary)
+**Neutral (Grays)** — Same 50-900 scale, where 50 is near white and 900 is near black.
 
-Neutral (Grays)
-├── neutral-50   (near white)
-├── neutral-100
-├── neutral-200
-├── neutral-300
-├── neutral-400
-├── neutral-500
-├── neutral-600
-├── neutral-700
-├── neutral-800
-├── neutral-900  (near black)
+**Semantic colours:**
 
-Semantic
-├── success (green)
-├── warning (amber/yellow)
-├── error (red)
-├── info (blue)
-```
+| Purpose | Typical Colour |
+|---------|----------------|
+| Success | Green |
+| Warning | Amber/Yellow |
+| Error | Red |
+| Info | Blue |
 
 **Tips:**
 - Use a tool like [Coolors](https://coolors.co) or [Realtime Colors](https://realtimecolors.com)
@@ -132,49 +110,32 @@ Choose fonts and define your type scale:
 
 **Type Scale:**
 
-```
-Display:    48-72px / Bold / Heading font
-            (Hero headlines only)
-
-H1:         36-48px / Bold
-            (Page section titles)
-
-H2:         28-32px / Semibold
-            (Subsection titles)
-
-H3:         22-24px / Semibold
-            (Card titles, smaller sections)
-
-H4:         18-20px / Semibold
-            (Minor headings)
-
-Body Large: 18-20px / Regular
-            (Intro paragraphs, featured text)
-
-Body:       16px / Regular
-            (Main content, default)
-
-Small:      14px / Regular
-            (Captions, labels, helper text)
-
-Tiny:       12px / Medium
-            (Badges, metadata)
-```
+| Style | Size | Weight | Usage |
+|-------|------|--------|-------|
+| Display | 48-72px | Bold | Hero headlines only |
+| H1 | 36-48px | Bold | Page section titles |
+| H2 | 28-32px | Semibold | Subsection titles |
+| H3 | 22-24px | Semibold | Card titles, smaller sections |
+| H4 | 18-20px | Semibold | Minor headings |
+| Body Large | 18-20px | Regular | Intro paragraphs, featured text |
+| Body | 16px | Regular | Main content, default |
+| Small | 14px | Regular | Captions, labels, helper text |
+| Tiny | 12px | Medium | Badges, metadata |
 
 ### Spacing Scale
 
 Define consistent spacing values:
 
-```
-4px   (xs)   — Tight internal spacing
-8px   (sm)   — Small gaps, icon spacing
-16px  (md)   — Default component spacing
-24px  (lg)   — Section padding, card spacing
-32px  (xl)   — Between related sections
-48px  (2xl)  — Major section gaps
-64px  (3xl)  — Page section separation
-96px  (4xl)  — Hero/footer breathing room
-```
+| Token | Value | Usage |
+|-------|-------|-------|
+| xs | 4px | Tight internal spacing |
+| sm | 8px | Small gaps, icon spacing |
+| md | 16px | Default component spacing |
+| lg | 24px | Section padding, card spacing |
+| xl | 32px | Between related sections |
+| 2xl | 48px | Major section gaps |
+| 3xl | 64px | Page section separation |
+| 4xl | 96px | Hero/footer breathing room |
 
 **Usage guidelines:**
 - 4px-8px: Within components
@@ -186,32 +147,25 @@ Define consistent spacing values:
 
 Define corner rounding:
 
-```
-none:   0px     (sharp corners)
-sm:     4px     (subtle rounding)
-md:     8px     (default, buttons, inputs)
-lg:     12px    (cards, containers)
-xl:     16px    (larger containers)
-full:   9999px  (pills, avatars)
-```
+| Token | Value | Usage |
+|-------|-------|-------|
+| none | 0px | Sharp corners |
+| sm | 4px | Subtle rounding |
+| md | 8px | Default, buttons, inputs |
+| lg | 12px | Cards, containers |
+| xl | 16px | Larger containers |
+| full | 9999px | Pills, avatars |
 
 ### Shadows
 
 Define elevation levels:
 
-```
-sm:   0 1px 2px rgba(0,0,0,0.05)
-      (subtle, cards at rest)
-
-md:   0 4px 6px rgba(0,0,0,0.07)
-      (default elevation)
-
-lg:   0 10px 15px rgba(0,0,0,0.1)
-      (hover states, dropdowns)
-
-xl:   0 20px 25px rgba(0,0,0,0.15)
-      (modals, popovers)
-```
+| Token | Value | Usage |
+|-------|-------|-------|
+| sm | 0 1px 2px rgba(0,0,0,0.05) | Subtle, cards at rest |
+| md | 0 4px 6px rgba(0,0,0,0.07) | Default elevation |
+| lg | 0 10px 15px rgba(0,0,0,0.1) | Hover states, dropdowns |
+| xl | 0 20px 25px rgba(0,0,0,0.15) | Modals, popovers |
 
 ## Checkpoint
 

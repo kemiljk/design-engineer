@@ -88,22 +88,30 @@ Shape communicates personality:
 ## Putting It Together
 
 ### Example Theme
-```
-Color:
-  Primary: Brand blue
-  Secondary: Warm coral
-  Tertiary: Soft green
 
-Typography:
-  Display: Brand serif
-  Body: System sans-serif
-  Labels: System sans-serif
+**Colour:**
 
-Shape:
-  Small: 8dp
-  Medium: 16dp
-  Large: 24dp
-```
+| Role | Value |
+|------|-------|
+| Primary | Brand blue |
+| Secondary | Warm coral |
+| Tertiary | Soft green |
+
+**Typography:**
+
+| Role | Font |
+|------|------|
+| Display | Brand serif |
+| Body | System sans-serif |
+| Labels | System sans-serif |
+
+**Shape:**
+
+| Size | Corner Radius |
+|------|---------------|
+| Small | 8dp |
+| Medium | 16dp |
+| Large | 24dp |
 
 ### Consistency
 - Apply theme uniformly

@@ -64,18 +64,13 @@ For each section, define:
 
 Real (or realistic) copy makes better designs:
 
-```
-Hero:
-- Headline: "Ship better products, faster" (5-8 words)
-- Subhead: "The all-in-one platform for product teams 
-  to plan, build, and ship together." (15-25 words)
-- CTA: "Start free trial" (2-4 words)
-
-Feature:
-- Title: "Real-time collaboration" (2-4 words)
-- Description: "See changes as they happen. 
-  Comment, react, and resolve inline." (10-20 words)
-```
+| Element | Example | Length |
+|---------|---------|--------|
+| Hero headline | "Ship better products, faster" | 5-8 words |
+| Hero subhead | "The all-in-one platform for product teams to plan, build, and ship together." | 15-25 words |
+| Hero CTA | "Start free trial" | 2-4 words |
+| Feature title | "Real-time collaboration" | 2-4 words |
+| Feature description | "See changes as they happen. Comment, react, and resolve inline." | 10-20 words |
 
 ## Step 2: Desktop Wireframes
 
@@ -99,7 +94,7 @@ For each section, sketch:
 
 ### Wireframe Techniques
 
-```
+```plaintext
 ┌─────────────────────────────────────────────┐
 │  [Logo]              [Nav] [Nav] [CTA]      │
 ├─────────────────────────────────────────────┤

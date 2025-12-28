@@ -98,15 +98,15 @@ Map to Material type scale:
 
 ### Color Documentation
 
-Use Material color roles:
+Use Material colour roles:
 
-```
-Primary text → MaterialTheme.colorScheme.onSurface
-Secondary text → MaterialTheme.colorScheme.onSurfaceVariant
-Background → MaterialTheme.colorScheme.surface
-Accent → MaterialTheme.colorScheme.primary
-Error → MaterialTheme.colorScheme.error
-```
+| Design Token | Compose Colour |
+|--------------|----------------|
+| Primary text | MaterialTheme.colorScheme.onSurface |
+| Secondary text | MaterialTheme.colorScheme.onSurfaceVariant |
+| Background | MaterialTheme.colorScheme.surface |
+| Accent | MaterialTheme.colorScheme.primary |
+| Error | MaterialTheme.colorScheme.error |
 
 ### Component Specifications
 

@@ -28,12 +28,9 @@ export const QnABlock = ({
           src={qna.person.metadata?.image.imgix_url}
           alt={qna.person.title}
         />
-        <Markdown
-          key={qna.content}
-          className="space-y-4 text-zinc-700 dark:text-zinc-300"
-        >
-          {qna.content}
-        </Markdown>
+        <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
+          <Markdown>{qna.content}</Markdown>
+        </div>
       </div>
     </div>
   );

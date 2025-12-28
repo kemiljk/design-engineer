@@ -102,15 +102,17 @@ When documenting motion:
 - Example or reference
 
 ### Example Spec
-```
-Card → Detail Transition:
-- Pattern: Container transform
-- Duration: 300ms
-- Easing: Emphasized
-- Card image becomes hero
-- Card title moves to top
-- Details fade in after transform
-```
+
+**Card → Detail Transition:**
+
+| Property | Value |
+|----------|-------|
+| Pattern | Container transform |
+| Duration | 300ms |
+| Easing | Emphasized |
+| Card image | Becomes hero |
+| Card title | Moves to top |
+| Details | Fade in after transform |
 
 ## Try It Yourself
 

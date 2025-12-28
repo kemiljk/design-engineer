@@ -213,6 +213,8 @@ What if text is longer than expected?
 - Good for: Variable importance
 - Risk: Extra interaction required
 
+<!-- illustration: content-extremes -->
+
 ### Short Content
 
 What if there's less content than expected?
@@ -263,6 +265,8 @@ Users can't always do everything.
 - **Hide:** Removes clutter but users don't know it exists
 - **Disable:** Shows existence but can frustrate
 - **Explain:** Helps but adds visual complexity
+
+<!-- illustration: permission-states -->
 
 Context determines the right approach.
 

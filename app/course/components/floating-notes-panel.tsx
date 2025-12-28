@@ -39,8 +39,14 @@ export function FloatingNotesPanel({
   const [isSaving, setIsSaving] = useState(false);
   const [viewMode, setViewMode] = useState<"lesson" | "all">("lesson");
   const containerRef = useRef<HTMLDivElement>(null);
+  const editingContentRef = useRef(editingContent);
 
   const [debouncedContent] = useDebounceValue(editingContent, 1000);
+
+  // Keep ref in sync for use in async callbacks
+  useEffect(() => {
+    editingContentRef.current = editingContent;
+  }, [editingContent]);
 
   const fetchNotes = useCallback(async () => {
     setIsLoading(true);
@@ -101,6 +107,26 @@ export function FloatingNotesPanel({
   }, [isOpen]);
 
   const createNewNote = async () => {
+    const tempId = `temp-${Date.now()}`;
+    const optimisticNote: CourseNote = {
+      id: tempId,
+      slug: tempId,
+      title: `Note: ${lessonPath}`,
+      created_at: new Date().toISOString(),
+      modified_at: new Date().toISOString(),
+      metadata: {
+        user_id: "",
+        lesson_path: lessonPath,
+        note_type: "general",
+        content: "",
+        is_pinned: false,
+      },
+    };
+
+    setNotes((prev) => [optimisticNote, ...prev]);
+    setActiveNoteId(tempId);
+    setEditingContent("");
+
     try {
       const response = await fetch("/api/course/notes", {
         method: "POST",
@@ -115,21 +141,51 @@ export function FloatingNotesPanel({
 
       if (!response.ok) {
         console.error("Failed to create note:", response.status);
+        setNotes((prev) => prev.filter((n) => n.id !== tempId));
+        setActiveNoteId(null);
         return;
       }
 
       const data = await response.json();
       if (data.note) {
-        setNotes((prev) => [data.note, ...prev]);
+        // Get content typed while the API was in flight
+        const typedContent = editingContentRef.current;
+        
+        // Preserve any content typed while the API was in flight
+        setNotes((prev) =>
+          prev.map((n) => {
+            if (n.id === tempId) {
+              return {
+                ...data.note,
+                metadata: {
+                  ...data.note.metadata,
+                  content: typedContent || data.note.metadata.content,
+                },
+              };
+            }
+            return n;
+          })
+        );
         setActiveNoteId(data.note.id);
-        setEditingContent("");
+
+        // If content was typed during API call, save it now
+        if (typedContent) {
+          saveNote(data.note.id, typedContent);
+        }
       }
     } catch (error) {
       console.error("Failed to create note:", error);
+      setNotes((prev) => prev.filter((n) => n.id !== tempId));
+      setActiveNoteId(null);
     }
   };
 
   const saveNote = async (noteId: string, content: string) => {
+    // Skip API call for optimistic notes that haven't been saved yet
+    if (noteId.startsWith("temp-")) {
+      return;
+    }
+
     setIsSaving(true);
     try {
       await fetch("/api/course/notes", {
@@ -145,40 +201,76 @@ export function FloatingNotesPanel({
   };
 
   const deleteNote = async (noteId: string) => {
+    const noteToDelete = notes.find((n) => n.id === noteId);
+    
+    setNotes((prev) => prev.filter((n) => n.id !== noteId));
+    if (activeNoteId === noteId) {
+      setActiveNoteId(null);
+      setEditingContent("");
+    }
+
+    // Skip API call for optimistic notes that haven't been saved yet
+    if (noteId.startsWith("temp-")) {
+      return;
+    }
+
     try {
-      await fetch(`/api/course/notes?noteId=${noteId}`, { method: "DELETE" });
-      setNotes((prev) => prev.filter((n) => n.id !== noteId));
-      if (activeNoteId === noteId) {
-        setActiveNoteId(null);
-        setEditingContent("");
+      const response = await fetch(`/api/course/notes?noteId=${noteId}`, { method: "DELETE" });
+      if (!response.ok && noteToDelete) {
+        setNotes((prev) => [noteToDelete, ...prev]);
       }
     } catch (error) {
       console.error("Failed to delete note:", error);
+      if (noteToDelete) {
+        setNotes((prev) => [noteToDelete, ...prev]);
+      }
     }
   };
 
   const togglePin = async (noteId: string, currentPinned: boolean) => {
+    setNotes((prev) =>
+      prev.map((n) =>
+        n.id === noteId
+          ? { ...n, metadata: { ...n.metadata, is_pinned: !currentPinned } }
+          : n
+      )
+    );
+
+    // Skip API call for optimistic notes that haven't been saved yet
+    if (noteId.startsWith("temp-")) {
+      return;
+    }
+
     try {
-      await fetch("/api/course/notes", {
+      const response = await fetch("/api/course/notes", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ noteId, isPinned: !currentPinned }),
       });
+      if (!response.ok) {
+        setNotes((prev) =>
+          prev.map((n) =>
+            n.id === noteId
+              ? { ...n, metadata: { ...n.metadata, is_pinned: currentPinned } }
+              : n
+          )
+        );
+      }
+    } catch (error) {
+      console.error("Failed to toggle pin:", error);
       setNotes((prev) =>
         prev.map((n) =>
           n.id === noteId
-            ? { ...n, metadata: { ...n.metadata, is_pinned: !currentPinned } }
+            ? { ...n, metadata: { ...n.metadata, is_pinned: currentPinned } }
             : n
         )
       );
-    } catch (error) {
-      console.error("Failed to toggle pin:", error);
     }
   };
 
   const selectNote = (note: CourseNote) => {
     setActiveNoteId(note.id);
-    setEditingContent(note.metadata.content);
+    setEditingContent(note.metadata.content ?? "");
   };
 
   const activeNote = notes.find((n) => n.id === activeNoteId);
@@ -189,6 +281,14 @@ export function FloatingNotesPanel({
     }
     if (updates.content !== undefined) {
       setEditingContent(updates.content);
+      // Also update the note in the notes array so preview updates
+      setNotes((prev) =>
+        prev.map((n) =>
+          n.id === noteId
+            ? { ...n, metadata: { ...n.metadata, content: updates.content } }
+            : n
+        )
+      );
     }
   };
 

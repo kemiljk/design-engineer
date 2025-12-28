@@ -43,11 +43,14 @@ export async function POST(request: NextRequest) {
 
   const enrollment = await getUserEnrollment(userId);
   const accessLevel = enrollment?.metadata.access_level || "free";
-  const hasAccess = canAccessLesson(accessLevel, lessonPath);
+  
+  // Development mode grants full access
+  const isDevelopment = process.env.NODE_ENV === "development";
+  const hasAccess = isDevelopment || canAccessLesson(accessLevel, lessonPath);
 
   return NextResponse.json({
     hasAccess,
-    accessLevel,
+    accessLevel: isDevelopment ? "full" : accessLevel,
     requiresUpgrade: !hasAccess,
   });
 }

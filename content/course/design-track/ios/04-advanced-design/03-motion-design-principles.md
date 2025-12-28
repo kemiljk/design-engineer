@@ -123,13 +123,14 @@ Include in your specs:
 - Interaction trigger
 
 Example spec:
-```
-Animation: Card expansion
-Trigger: Tap
-Duration: 0.35s
-Spring damping: 0.85
-Curve: Spring
-```
+
+| Property | Value |
+|----------|-------|
+| Animation | Card expansion |
+| Trigger | Tap |
+| Duration | 0.35s |
+| Spring damping | 0.85 |
+| Curve | Spring |
 
 ## Designing for Reduce Motion
 

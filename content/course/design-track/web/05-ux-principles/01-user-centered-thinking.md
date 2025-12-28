@@ -111,6 +111,8 @@ Map the entire user experience:
 
 Journey maps reveal touchpoints you might neglect.
 
+<!-- illustration: user-journey-map -->
+
 ## Applying User Thinking
 
 Once you understand users, apply that understanding:
@@ -190,6 +192,8 @@ Building features you want rather than users need.
 Dismissing complaints as user error or unusual cases.
 
 **Fix:** Treat complaints as data. Patterns matter.
+
+<!-- illustration: ux-traps -->
 
 ## User Research Basics
 

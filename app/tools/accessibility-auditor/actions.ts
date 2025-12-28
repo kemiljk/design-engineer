@@ -1,17 +1,15 @@
 "use server";
 
-import { CoreMessage, LanguageModelV1, streamText } from "ai";
+import { streamText } from "ai";
 import { anthropic } from "@ai-sdk/anthropic";
-import { createStreamableValue } from "ai/rsc";
+import { createStreamableValue } from "@ai-sdk/rsc";
 
 export async function auditAccessibility(code: string) {
-  "use server";
-
-  const stream = createStreamableValue();
+  const stream = createStreamableValue("");
 
   (async () => {
-    const { textStream } = await streamText({
-      model: anthropic("claude-3-haiku-20240307") as unknown as LanguageModelV1,
+    const { textStream } = streamText({
+      model: anthropic("claude-3-haiku-20240307"),
       system: `You are an expert Accessibility Auditor for web development (React/HTML/CSS).
 Your goal is to analyze the provided code snippet and identify accessibility issues, semantic structure problems, and potential contrast violations.
 
@@ -28,7 +26,9 @@ Focus on:
 - Focus management.
 
 If the code is already perfect, praise it and explain why it's good.`,
-      messages: [{ role: "user", content: `Please audit this code for accessibility:\n\n${code}` }] as CoreMessage[],
+      messages: [
+        { role: "user", content: `Please audit this code for accessibility:\n\n${code}` },
+      ],
     });
 
     for await (const text of textStream) {

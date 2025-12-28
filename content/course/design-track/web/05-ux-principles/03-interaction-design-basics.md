@@ -48,6 +48,8 @@ When something looks interactive but isn't:
 
 False affordances confuse and frustrate users.
 
+<!-- illustration: false-hidden-affordances -->
+
 ### Hidden Affordances
 
 When something is interactive but doesn't look it:
@@ -81,6 +83,8 @@ Match signifier strength to importance:
 
 Not everything should scream for attention.
 
+<!-- illustration: signifier-strength -->
+
 ## Feedback
 
 Feedback tells users what happened in response to their action.
@@ -94,6 +98,8 @@ Without feedback, users don't know if:
 - What happened as a result
 
 Feedback closes the interaction loop.
+
+<!-- illustration: feedback-loop -->
 
 ### Types of Feedback
 
@@ -138,6 +144,8 @@ The fundamental interaction:
 - Clear tap targets (44px minimum for touch)
 - Visual feedback on press
 - Consistent behavior across similar elements
+
+<!-- illustration: touch-target-sizes -->
 
 ### Hover (Desktop)
 

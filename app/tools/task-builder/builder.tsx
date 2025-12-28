@@ -11,8 +11,8 @@ import {
   MessageSquare,
   ArrowUp,
 } from "lucide-react";
-import { Message, continueConversation } from "../actions";
-import { readStreamableValue } from "ai/rsc";
+import { ConversationMessage, continueConversation } from "../actions";
+import { readStreamableValue } from '@ai-sdk/rsc';
 import { TaskBuilderSuggestion } from "@/lib/types";
 
 function TaskBuilder({
@@ -20,7 +20,7 @@ function TaskBuilder({
 }: {
   suggestions: TaskBuilderSuggestion[];
 }) {
-  const [conversation, setConversation] = useState<Message[]>([]);
+  const [conversation, setConversation] = useState<ConversationMessage[]>([]);
   const [input, setInput] = useState<string>("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState<number | null>(null);
@@ -149,10 +149,8 @@ function TaskBuilder({
                         )}
                       </Button>
                     </div>
-                    <div className="p-6">
-                      <Markdown className="prose prose-neutral max-w-none dark:prose-invert prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-p:text-neutral-600 prose-li:text-neutral-600 dark:prose-p:text-neutral-400 dark:prose-li:text-neutral-400">
-                        {message.content}
-                      </Markdown>
+                    <div className="prose prose-neutral max-w-none p-6 dark:prose-invert prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-p:text-neutral-600 prose-li:text-neutral-600 dark:prose-p:text-neutral-400 dark:prose-li:text-neutral-400">
+                      <Markdown>{message.content}</Markdown>
                     </div>
                   </div>
                 )}

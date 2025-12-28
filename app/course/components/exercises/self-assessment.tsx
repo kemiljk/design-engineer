@@ -186,14 +186,12 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
           {exercise.difficulty}
         </span>
       </div>
-
       {/* Description */}
       {exercise.description && (
         <div className="border-b border-neutral-200 bg-neutral-100 px-4 py-3 dark:border-neutral-700 dark:bg-neutral-800">
           <p className="text-sm text-neutral-600 dark:text-neutral-400">{exercise.description}</p>
         </div>
       )}
-
       {/* Content */}
       <div className="p-6 space-y-8">
         {/* Rating Scale Legend */}

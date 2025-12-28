@@ -1,0 +1,214 @@
+---
+estimatedTime: 15
+---
+
+# Capstone: Custom Composables
+
+> **Quick Summary:** Extract reusable composable components and create custom modifiers for consistency.
+
+**Time Estimate:** 2-3 hours
+
+## What You'll Learn
+
+- Creating reusable Compose components
+- Building custom modifiers
+- Designing Material 3 styled components
+- Creating empty state composables
+
+## Custom Card Component
+
+```kotlin
+@Composable
+fun TaskCard(
+    task: Task,
+    onToggleComplete: () -> Unit,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        onClick = onClick,
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            IconButton(
+                onClick = onToggleComplete,
+                modifier = Modifier.semantics {
+                    contentDescription = if (task.isComplete) {
+                        "Mark ${task.title} as incomplete"
+                    } else {
+                        "Mark ${task.title} as complete"
+                    }
+                }
+            ) {
+                Icon(
+                    imageVector = if (task.isComplete) {
+                        Icons.Default.CheckCircle
+                    } else {
+                        Icons.Default.RadioButtonUnchecked
+                    },
+                    contentDescription = null,
+                    tint = if (task.isComplete) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.outline
+                    }
+                )
+            }
+            
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = task.title,
+                    style = MaterialTheme.typography.bodyLarge,
+                    textDecoration = if (task.isComplete) {
+                        TextDecoration.LineThrough
+                    } else null,
+                    color = if (task.isComplete) {
+                        MaterialTheme.colorScheme.outline
+                    } else {
+                        MaterialTheme.colorScheme.onSurface
+                    }
+                )
+                
+                task.dueDate?.let { dueDate ->
+                    Text(
+                        text = formatDate(dueDate),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            
+            PriorityBadge(priority = task.priority)
+        }
+    }
+}
+```
+
+## Custom Badge Component
+
+```kotlin
+@Composable
+fun PriorityBadge(
+    priority: Priority,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        color = priority.color.copy(alpha = 0.15f),
+        shape = MaterialTheme.shapes.small,
+        modifier = modifier
+    ) {
+        Text(
+            text = priority.label,
+            style = MaterialTheme.typography.labelSmall,
+            color = priority.color,
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+        )
+    }
+}
+```
+
+## Empty State Component
+
+```kotlin
+@Composable
+fun EmptyState(
+    title: String,
+    message: String,
+    icon: ImageVector,
+    action: (() -> Unit)? = null,
+    actionLabel: String? = null,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            modifier = Modifier.size(64.dp),
+            tint = MaterialTheme.colorScheme.outline
+        )
+        
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleLarge,
+            textAlign = TextAlign.Center
+        )
+        
+        Text(
+            text = message,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center
+        )
+        
+        if (action != null && actionLabel != null) {
+            Button(onClick = action) {
+                Text(actionLabel)
+            }
+        }
+    }
+}
+```
+
+## Custom Modifier Extensions
+
+```kotlin
+fun Modifier.shimmer(): Modifier = composed {
+    var size by remember { mutableStateOf(IntSize.Zero) }
+    val transition = rememberInfiniteTransition()
+    val startOffsetX by transition.animateFloat(
+        initialValue = -2 * size.width.toFloat(),
+        targetValue = 2 * size.width.toFloat(),
+        animationSpec = infiniteRepeatable(
+            animation = tween(1000)
+        )
+    )
+    
+    background(
+        brush = Brush.linearGradient(
+            colors = listOf(
+                Color.LightGray.copy(alpha = 0.6f),
+                Color.LightGray.copy(alpha = 0.2f),
+                Color.LightGray.copy(alpha = 0.6f),
+            ),
+            start = Offset(startOffsetX, 0f),
+            end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat())
+        )
+    )
+    .onGloballyPositioned { size = it.size }
+}
+```
+
+## Checkpoint
+
+Before moving on, verify:
+
+- [ ] TaskCard (or equivalent) component extracted
+- [ ] PriorityBadge/status component created
+- [ ] Empty state component ready
+- [ ] Custom modifiers work
+- [ ] Components are reusable across screens
+- [ ] All components use Material 3 theming
+
+## Try It Yourself
+
+1. Identify repeated UI patterns in your screens
+2. Extract them into separate composable files
+3. Create modifiers for common styling
+4. Test components with previews
+
+## Next Steps
+
+Continue to [Phase 4: Polish & Accessibility](./05-capstone-polish.md) →
+

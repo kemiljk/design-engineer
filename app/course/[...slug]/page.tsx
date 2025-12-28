@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import fs from "fs/promises";
@@ -78,6 +78,43 @@ interface LessonPageProps {
   params: Promise<{ slug: string[] }>;
 }
 
+async function getFirstLessonPath(slugPath: string[]): Promise<string | null> {
+  const contentPath = path.join(process.cwd(), "content/course", ...slugPath);
+  
+  try {
+    const stats = await fs.stat(contentPath);
+    if (!stats.isDirectory()) return null;
+    
+    const entries = await fs.readdir(contentPath, { withFileTypes: true });
+    
+    // Check if this directory has only subdirectories (no .md files)
+    const mdFiles = entries.filter(e => e.isFile() && e.name.endsWith(".md"));
+    if (mdFiles.length > 0) return null; // Has content, no redirect needed
+    
+    // Find first module directory (e.g., "00-environment-setup" or "01-foundations")
+    const moduleDirs = entries
+      .filter(e => e.isDirectory() && !e.name.startsWith('.'))
+      .map(e => e.name)
+      .sort();
+    
+    if (moduleDirs.length === 0) return null;
+    
+    const firstModulePath = path.join(contentPath, moduleDirs[0]);
+    const moduleFiles = await fs.readdir(firstModulePath);
+    const lessonFiles = moduleFiles
+      .filter(f => f.endsWith('.md') && f !== 'index.md')
+      .sort();
+    
+    if (lessonFiles.length === 0) return null;
+    
+    // Return the full lesson path
+    const lessonSlug = lessonFiles[0].replace('.md', '');
+    return [...slugPath, moduleDirs[0], lessonSlug].join('/');
+  } catch {
+    return null;
+  }
+}
+
 async function getLessonContent(slugPath: string[]) {
   const contentPath = path.join(process.cwd(), "content/course", ...slugPath);
 
@@ -122,6 +159,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const lesson = await getLessonContent(slug);
 
   if (!lesson) {
+    // Check if this is a platform-level path that should redirect to first lesson
+    // e.g., design-track/web → design-track/web/01-foundations/01-what-is-visual-design
+    const firstLessonPath = await getFirstLessonPath(slug);
+    if (firstLessonPath) {
+      redirect(`/course/${firstLessonPath}`);
+    }
     notFound();
   }
 
@@ -136,13 +179,19 @@ export default async function LessonPage({ params }: LessonPageProps) {
   // Check for preview access (secret token for friends/reviewers)
   const previewAccess = await hasPreviewAccess();
   
+  // Development mode grants full access
+  const isDevelopment = process.env.NODE_ENV === "development";
+  
   // Check if this user should always use their real enrollment (owner/enrolled users testing)
   const useRealEnrollment = userId && shouldUseRealEnrollment(userId);
 
   let hasAccess = isFree;
   let enrollment = null;
 
-  if (useRealEnrollment) {
+  if (isDevelopment) {
+    // Development mode grants full access for local testing
+    hasAccess = true;
+  } else if (useRealEnrollment) {
     // Bypass user - always load and use their real enrollment
     // This allows them to test notes, progress, etc. even if preview cookie is set
     enrollment = await getUserEnrollment(userId);
@@ -321,7 +370,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
           </div>
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
-            <LessonContent content={contentWithoutTitle} />
+            <LessonContent content={contentWithoutTitle} lessonPath={lessonPath} />
             {isTrackIndex && <TrackPlatformSelector trackSlug={slug[0]} />}
           </div>
 
@@ -430,6 +479,11 @@ export async function generateMetadata({ params }: LessonPageProps) {
   const lesson = await getLessonContent(slug);
 
   if (!lesson) {
+    // Check if this will redirect (don't return "not found" for redirect pages)
+    const firstLessonPath = await getFirstLessonPath(slug);
+    if (firstLessonPath) {
+      return { title: "Redirecting... | Design Engineer Course" };
+    }
     return { title: "Lesson Not Found" };
   }
 

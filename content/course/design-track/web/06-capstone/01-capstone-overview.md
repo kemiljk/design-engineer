@@ -1,27 +1,20 @@
 ---
-estimatedTime: 10
+estimatedTime: 5
 ---
 
-# Capstone Project: Overview
+# Capstone Project: Product Landing Page
 
-> **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy product landing page. This overview explains the project, deliverables, and how to choose your product.
+> **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy product landing page. This overview explains what you'll create and how to choose your product.
 
-## What You'll Learn
+## Why This Project?
 
-- How to synthesise all design skills into a cohesive project
-- What makes a strong portfolio piece
-- How to choose the right product type for your capstone
+Landing pages are exceptional portfolio pieces because they showcase the full breadth of design skills:
 
-## Project Overview
-
-This capstone brings together everything from the Design Track: visual design fundamentals, typography, colour, spacing, design tools, systems thinking, and UX principles. You'll design a complete product landing page that demonstrates professional-level work.
-
-**Why this project?** Landing pages are essential portfolio pieces. They showcase:
-- Visual design skills (typography, colour, composition)
-- Systematic thinking (tokens, components)
-- Responsive design (desktop to mobile)
-- Interaction design (prototype behaviours)
-- Communication skills (selling a product visually)
+- **Visual design** — Typography, colour, composition
+- **Systematic thinking** — Tokens, components, consistency
+- **Responsive design** — Desktop to mobile adaptation
+- **Interaction design** — Prototype behaviours
+- **Communication** — Selling a product visually
 
 **Total Time Estimate:** 8-12 hours across all phases
 
@@ -29,64 +22,53 @@ This capstone brings together everything from the Design Track: visual design fu
 
 By the end of this capstone, you'll have:
 
-### 1. Complete Landing Page Design
-- Desktop layout (1440px or 1920px)
-- Tablet layout (768px)
-- Mobile layout (375px)
+1. **Complete Landing Page Design** — Desktop (1440px), tablet (768px), and mobile (375px) layouts
+2. **Mini Design System** — Colour tokens, typography scale, spacing scale, and component library
+3. **Interactive Prototype** — Hero interactions, navigation, and key user flows
+4. **Case Study Documentation** — Process documentation and design rationale
 
-### 2. Mini Design System
-- Colour tokens (primary, secondary, neutral, semantic)
-- Typography scale (6-8 styles)
-- Spacing scale (4-8 values)
-- Component library (buttons, cards, inputs, etc.)
-
-### 3. Interactive Prototype
-- Hero interactions
-- Navigation behaviour
-- Key user flows
-- Scroll-based transitions (optional)
-
-### 4. Case Study Documentation
-- Project brief and goals
-- Design decisions and rationale
-- Process documentation
-- Final deliverables
-
-## The Brief: Choose Your Product
+## Choose Your Product
 
 Select one of these product types, or propose your own:
 
 ### Option A: SaaS Product
-
 Design a landing page for a B2B software tool:
 - **Suggestions:** Project management, analytics dashboard, design tool, developer tool
 - **Sections:** Hero, features grid, pricing table, testimonials, CTA
 - **Challenge:** Balance information density with visual appeal
 
 ### Option B: Consumer App
-
 Design a landing page for a mobile-first consumer product:
 - **Suggestions:** Fitness app, finance app, meditation app, social app
 - **Sections:** Hero with app preview, key features, app store badges, social proof
 - **Challenge:** Create excitement while clearly explaining the product
 
 ### Option C: Physical Product
-
 Design a landing page for a DTC (direct-to-consumer) product:
 - **Suggestions:** Smart home device, wellness product, sustainable goods
 - **Sections:** Hero with product imagery, features/benefits, how it works, reviews
 - **Challenge:** Make a physical product feel tangible on screen
 
 ### Option D: Creative Service
-
 Design a landing page for a creative agency or freelancer:
 - **Suggestions:** Design studio, photography, video production
 - **Sections:** Portfolio showcase, services, about/team, contact
 - **Challenge:** Let the work speak while maintaining clear UX
 
-## Evaluation Criteria
+## The Phases
 
-Your capstone will be evaluated on:
+This capstone is broken into four focused phases:
+
+| Phase | Focus | Time |
+|-------|-------|------|
+| [1. Foundation & Tokens](./02-capstone-foundation.md) | Research, brand definition, design tokens | 2-3 hours |
+| [2. Layout & Wireframes](./03-capstone-layout.md) | Content strategy, wireframes, responsive planning | 1-2 hours |
+| [3. Visual Design](./04-capstone-visual-design.md) | Hero, components, full page, responsive designs | 3-4 hours |
+| [4. Polish & Documentation](./05-capstone-polish.md) | Refinement, prototype, case study | 2-3 hours |
+
+## Self-Evaluation Criteria
+
+Use these criteria to assess your own work throughout the project. Be honest with yourself—the goal is growth, not perfection:
 
 | Criteria | Developing | Proficient | Excellent |
 |----------|-----------|------------|-----------|
@@ -97,49 +79,33 @@ Your capstone will be evaluated on:
 | **Interaction Design** | Basic hover states | Clear interaction patterns | Delightful micro-interactions, fluid prototype |
 | **Communication** | Design exists but rationale unclear | Process documented, decisions explained | Compelling story, clear thinking, portfolio-ready |
 
-## Examples for Inspiration
+## Inspiration
 
 Study these landing pages for different approaches:
 
-**SaaS:**
-- Linear (linear.app) — Clean, systematic
-- Notion (notion.so) — Playful, content-rich
-- Vercel (vercel.com) — Technical, sophisticated
+**SaaS:** Linear, Notion, Vercel — Clean, systematic, sophisticated
 
-**Consumer:**
-- Headspace (headspace.com) — Warm, approachable
-- Robinhood (robinhood.com) — Bold, simple
-- Oura (ouraring.com) — Premium, minimal
+**Consumer:** Headspace, Robinhood, Oura — Warm, bold, premium
 
-**DTC Product:**
-- Apple (apple.com/airpods) — Premium, focused
-- Allbirds (allbirds.com) — Sustainable, warm
-- Dyson (dyson.com) — Technical, precise
+**DTC Product:** Apple AirPods, Allbirds, Dyson — Premium, focused, precise
 
-**Creative:**
-- Basic Agency (basic.agency) — Bold typography
-- Pentagram (pentagram.com) — Work-focused
-- Anagrama (anagrama.com) — Elegant, minimal
+**Creative:** Basic Agency, Pentagram, Anagrama — Bold typography, work-focused, elegant
 
 ## Tips for Success
 
-1. **Start with content.** Real or realistic copy makes better designs.
-2. **Design mobile first.** It forces clarity and prioritisation.
-3. **Use real imagery.** Unsplash and similar resources help avoid placeholder-itis.
-4. **Get feedback early.** Share wireframes before investing in polish.
-5. **Don't over-design.** Know when to stop adding and start refining.
-6. **Document as you go.** Taking screenshots during process saves time later.
+1. **Start with content** — Real or realistic copy makes better designs
+2. **Design mobile first** — It forces clarity and prioritisation
+3. **Use real imagery** — Unsplash helps avoid placeholder-itis
+4. **Get feedback early** — Share wireframes before investing in polish
+5. **Don't over-design** — Know when to stop adding and start refining
+6. **Document as you go** — Taking screenshots during process saves time later
 
-## Try It Yourself
+## Get Started
 
-Before moving to the next phase:
+Before moving to Phase 1:
 
 1. **Choose your product type** from Options A-D (or propose your own)
 2. **Research 5-10 landing pages** in your chosen category
 3. **Create a new Figma file** for your capstone project
-4. **Set up pages** for: Inspiration, Tokens, Components, Desktop, Tablet, Mobile
 
-## Next Steps
-
-Continue to [Capstone: Foundation and Tokens](./02-capstone-foundation.md) →
-
+Ready? Continue to [Phase 1: Foundation & Tokens](./02-capstone-foundation.md) →

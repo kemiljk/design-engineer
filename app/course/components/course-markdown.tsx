@@ -11,6 +11,7 @@ import {
   ObjectivesCard,
   ExerciseCard,
   TakeawaysCard,
+  CheckpointCard,
   SectionWrapper,
 } from "./lesson-layout";
 import { IllustrationRenderer } from "./illustrations/illustration-renderer";
@@ -20,6 +21,7 @@ import { VisualExampleRenderer } from "./visual-examples";
 interface CourseMarkdownProps {
   content: string;
   className?: string;
+  lessonPath?: string;
   onSectionsDetected?: (sections: { id: string; label: string }[]) => void;
 }
 
@@ -29,6 +31,7 @@ interface ParsedSection {
     | "objectives"
     | "exercise"
     | "takeaways"
+    | "checkpoint"
     | "content"
     | "illustration"
     | "visual-example"
@@ -36,6 +39,7 @@ interface ParsedSection {
   content: string;
   id?: string;
   label?: string;
+  checkpointItems?: string[];
 }
 
 function extractSection(content: string, headerPattern: RegExp): { match: string; content: string } | null {
@@ -114,6 +118,21 @@ function parseContent(content: string): ParsedSection[] {
       label: "Key Takeaways",
     });
     remaining = remaining.replace(takeawaysResult.match, "");
+  }
+
+  // Extract Checkpoint sections
+  const checkpointResult = extractSection(remaining, /##\s*Checkpoint\s*/);
+  if (checkpointResult) {
+    // Extract checkbox items from the checkpoint content
+    const checkboxItems = extractCheckboxItems(checkpointResult.content);
+    sections.push({
+      type: "checkpoint",
+      content: checkpointResult.content,
+      id: "checkpoint",
+      label: "Checkpoint",
+      checkpointItems: checkboxItems,
+    });
+    remaining = remaining.replace(checkpointResult.match, "");
   }
 
   // Process remaining content for illustrations, visual examples, exercises, and h2 sections
@@ -250,6 +269,9 @@ function parseContent(content: string): ParsedSection[] {
 
   orderedSections.push(...contentParts);
 
+  const checkpointSection = sections.find((s) => s.type === "checkpoint");
+  if (checkpointSection) orderedSections.push(checkpointSection);
+
   const exerciseSection = sections.find((s) => s.type === "exercise");
   if (exerciseSection) orderedSections.push(exerciseSection);
 
@@ -264,6 +286,19 @@ function extractListItems(content: string): string[] {
   const lines = content.split("\n");
   for (const line of lines) {
     const match = line.match(/^[-*]\s+(.+)$/);
+    if (match) {
+      items.push(match[1].trim());
+    }
+  }
+  return items;
+}
+
+function extractCheckboxItems(content: string): string[] {
+  const items: string[] = [];
+  const lines = content.split("\n");
+  for (const line of lines) {
+    // Match checkbox items: - [ ] or - [x] followed by text (with optional leading whitespace for nested items)
+    const match = line.match(/^\s*[-*]\s+\[[\sx]\]\s+(.+)$/i);
     if (match) {
       items.push(match[1].trim());
     }
@@ -368,6 +403,7 @@ function MarkdownWithIllustrations({
 const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
   content,
   className,
+  lessonPath,
   onSectionsDetected,
 }) => {
   const parsedSections = useMemo(() => parseContent(content), [content]);
@@ -531,19 +567,36 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
               </div>
             );
 
+          case "checkpoint":
+            if (section.checkpointItems && section.checkpointItems.length > 0) {
+              // Create a storage key from the lesson path
+              const storageKey = lessonPath
+                ? lessonPath.replace(/\//g, "-")
+                : `checkpoint-${index}`;
+              return (
+                <SectionWrapper key={index} id={section.id}>
+                  <CheckpointCard
+                    items={section.checkpointItems}
+                    storageKey={storageKey}
+                  />
+                </SectionWrapper>
+              );
+            }
+            return null;
+
           case "content":
           default:
             return (
               <SectionWrapper key={index} id={section.id}>
-                <ReactMarkdown
-                  components={components}
+                <div
                   className={cn(
                     "prose prose-neutral max-w-none text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none"
                   )}
-                  remarkPlugins={[remarkGfm]}
                 >
-                  {section.content}
-                </ReactMarkdown>
+                  <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+                    {section.content}
+                  </ReactMarkdown>
+                </div>
               </SectionWrapper>
             );
         }

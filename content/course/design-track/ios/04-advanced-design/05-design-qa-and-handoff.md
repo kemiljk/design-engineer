@@ -90,14 +90,14 @@ Map to iOS text styles:
 
 ### Color Documentation
 
-Provide semantic color mapping:
+Provide semantic colour mapping:
 
-```
-Label Primary → Color.primary
-Label Secondary → Color.secondary
-Background → Color(UIColor.systemBackground)
-Accent → Color.accentColor
-```
+| Design Token | SwiftUI Colour |
+|--------------|----------------|
+| Label Primary | Color.primary |
+| Label Secondary | Color.secondary |
+| Background | Color(UIColor.systemBackground) |
+| Accent | Color.accentColor |
 
 ### Component Specs
 

@@ -97,6 +97,8 @@ Subjective, requires judgment:
 
 Most products use hybrid schemes—topical navigation with task-based sections.
 
+<!-- illustration: organization-schemes -->
+
 ## Navigation Patterns
 
 Navigation helps users move through information.
@@ -177,6 +179,8 @@ Better principle: Each step should feel like progress toward the goal.
 - Cons: More navigation, risk of getting lost
 
 **Balance:** Usually 2-4 levels for primary navigation, with 5-9 items per level.
+
+<!-- illustration: hierarchy-depth -->
 
 ## Labeling
 

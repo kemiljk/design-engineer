@@ -125,10 +125,8 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
             <source src={story.metadata.video_url} type="video/mp4" />
           </video>
         )}
-        <article className="w-full rounded-none bg-neutral-50 p-4 dark:bg-neutral-900">
-          <Markdown className="prose text-sm text-neutral-700 dark:prose-invert dark:text-neutral-300">
-            {story.metadata.summary}
-          </Markdown>
+        <article className="prose w-full rounded-none bg-neutral-50 p-4 text-sm text-neutral-700 dark:prose-invert dark:bg-neutral-900 dark:text-neutral-300">
+          <Markdown>{story.metadata.summary}</Markdown>
         </article>
         <div className="mt-6 flex w-full items-center gap-2 text-neutral-500">
           <InfoIcon className="h-6 w-6 text-swiss-red" />
