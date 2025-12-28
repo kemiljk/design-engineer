@@ -31,6 +31,8 @@ export async function POST(request: Request) {
         email,
       });
 
+      const unsubscribeUrl = `https://designengineer.xyz/api/unsubscribe?email=${encodeURIComponent(email)}`;
+
       // Send confirmation email to the subscriber
       await resend.emails.send({
         from: "d×e <hello@designengineer.xyz>",
@@ -40,6 +42,10 @@ export async function POST(request: Request) {
           email,
         }) as React.ReactElement<unknown>,
         text: "Thanks for signing up to be notified about the Design Engineer Course. We'll let you know as soon as there's news.",
+        headers: {
+          "List-Unsubscribe": `<${unsubscribeUrl}>`,
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+        },
       });
 
       // Notify admin about new subscriber

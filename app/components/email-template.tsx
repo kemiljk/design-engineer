@@ -238,6 +238,24 @@ export const CourseWaitlistConfirmationTemplate: React.FC<
       >
         designengineer.xyz
       </a>
+      <p
+        style={{
+          fontSize: "12px",
+          color: "#d4d4d4",
+          margin: "16px 0 0 0",
+          lineHeight: 1.5,
+        }}
+      >
+        <a
+          href={`https://designengineer.xyz/api/unsubscribe?email=${encodeURIComponent(email)}`}
+          style={{
+            color: "#a3a3a3",
+            textDecoration: "underline",
+          }}
+        >
+          Unsubscribe
+        </a>
+      </p>
     </div>
   </div>
 );
