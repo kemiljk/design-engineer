@@ -1,3 +1,7 @@
+import {
+  EmailWaitlistTemplate,
+  CourseWaitlistConfirmationTemplate,
+} from "../../components/email-template";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
@@ -19,10 +23,40 @@ export async function POST(request: Request) {
     const existingContacts = await resend.contacts.list({ audienceId });
     const emails = existingContacts.data?.data?.map((c) => c.email) || [];
 
-    if (!emails.includes(email)) {
+    const isNewSubscriber = !emails.includes(email);
+
+    if (isNewSubscriber) {
       await resend.contacts.create({
         audienceId,
         email,
+      });
+
+      const unsubscribeUrl = `https://designengineer.xyz/api/unsubscribe?email=${encodeURIComponent(email)}`;
+
+      // Send confirmation email to the subscriber
+      await resend.emails.send({
+        from: "d×e <hello@designengineer.xyz>",
+        to: [email],
+        subject: "You're on the list! Design Engineer Course",
+        react: CourseWaitlistConfirmationTemplate({
+          email,
+        }) as React.ReactElement<unknown>,
+        text: "Thanks for signing up to be notified about the Design Engineer Course. We'll let you know as soon as there's news.",
+        headers: {
+          "List-Unsubscribe": `<${unsubscribeUrl}>`,
+          "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+        },
+      });
+
+      // Notify admin about new subscriber
+      await resend.emails.send({
+        from: "dxe <hello@designengineer.xyz>",
+        to: ["hello@designengineer.xyz"],
+        subject: "New course waitlist subscriber",
+        react: EmailWaitlistTemplate({
+          email,
+        }) as React.ReactElement<unknown>,
+        text: `${email} just signed up to be notified about the course.`,
       });
     }
 
