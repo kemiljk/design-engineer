@@ -41,11 +41,11 @@ Before handing off, consider what developers need to build accurately:
 - Font size
 - Line height
 - Letter spacing
-- Text color
+- Text colour
 
 ### Colors
 
-- Exact color values (hex, RGB, HSL)
+- Exact colour values (hex, RGB, HSL)
 - Color usage context (when to use which)
 - Transparency values
 
@@ -149,7 +149,7 @@ Define tokens in your tool:
 ```
 Colors:
 - primary/500: #3B82F6
-- gray/100: #F3F4F6
+- grey/100: #F3F4F6
 - error/500: #EF4444
 
 Spacing:
@@ -168,9 +168,9 @@ Developers use matching tokens:
 
 ```css
 :root {
-  --color-primary-500: #3b82f6;
-  --color-neutral-100: #f3f4f6;
-  --color-error-500: #ef4444;
+  --colour-primary-500: #3b82f6;
+  --colour-neutral-100: #f3f4f6;
+  --colour-error-500: #ef4444;
 
   --space-2: 8px;
   --space-4: 16px;
@@ -311,7 +311,7 @@ iconPosition: 'left' | 'right' | null
 Ideally:
 
 - Design tokens exported to code
-- Single source for colors, spacing, typography
+- Single source for colours, spacing, typography
 - Updates propagate automatically
 
 Tools like Style Dictionary, Figma Tokens, or design-to-code plugins enable this.
@@ -346,7 +346,7 @@ For a complex component:
 
 Create a token mapping document:
 
-1. List your design tokens (colors, spacing, typography)
+1. List your design tokens (colours, spacing, typography)
 2. Propose corresponding CSS variable names
 3. Note any gaps or inconsistencies
 

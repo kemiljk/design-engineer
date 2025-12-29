@@ -16,7 +16,7 @@
 
 Before diving into application, let's establish the vocabulary:
 
-<!-- illustration: color-wheel -->
+<!-- illustration: colour-wheel -->
 
 ### Colour Properties
 
@@ -42,7 +42,7 @@ HSL is more useful for creating palettes because you can:
 - Create predictable dark/light versions
 
 ```css
-/* Base color */
+/* Base colour */
 --primary: hsl(220, 65%, 50%);
 
 /* Lighter variant - just increase lightness */
@@ -82,7 +82,7 @@ Colours carry associations, some universal, some cultural. Understanding these h
 - Use for: Premium products, creative industries
 - Caution: Can feel pretentious if overused
 
-**Neutral (gray, black, white):** Sophistication, balance, modernity
+**Neutral (grey, black, white):** Sophistication, balance, modernity
 - Use for: Content, UI chrome, professional applications
 - Caution: Too neutral can feel boring or empty
 
@@ -101,7 +101,7 @@ A colour palette provides the colours for your entire product. Building one inte
 
 ### Anatomy of a UI Palette
 
-<!-- illustration: color-palette -->
+<!-- illustration: colour-palette -->
 
 **Primary colour:** Your brand colour. Used for key actions, branding elements.
 
@@ -317,7 +317,7 @@ Take an existing light interface and design dark mode colours:
 
 <!-- exercise: multiple-choice
 {
-  "id": "color-accessibility-quiz",
+  "id": "colour-accessibility-quiz",
   "type": "multiple-choice",
   "title": "Colour and Accessibility",
   "description": "Test your understanding of accessible colour usage.",

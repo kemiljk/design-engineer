@@ -1,6 +1,6 @@
 # Material Foundations
 
-> **Quick Summary:** Material Design provides foundational systems for layout, color, typography, and iconography that work together coherently.
+> **Quick Summary:** Material Design provides foundational systems for layout, colour, typography, and iconography that work together coherently.
 
 ## What You'll Learn
 
@@ -30,14 +30,14 @@ All measurements align to 8dp:
 ## Color System
 
 ### Baseline Colors
-- **Primary:** Main brand color
-- **Secondary:** Accent color
+- **Primary:** Main brand colour
+- **Secondary:** Accent colour
 - **Tertiary:** Additional accent
 - **Error:** Error states
 - **Neutral:** Backgrounds and surfaces
 
 ### Tonal Palettes
-Each color generates a range of tones (0-100):
+Each colour generates a range of tones (0-100):
 - 0: Darkest
 - 50: Midpoint
 - 100: Lightest
@@ -55,8 +55,8 @@ Colors extracted from user's wallpaper:
 - Creates personal connection
 
 ### Surface Colors
-Surfaces use neutral colors with tints:
-- Surface tint from primary color
+Surfaces use neutral colours with tints:
+- Surface tint from primary colour
 - Higher elevation = more tint
 - Creates unified, harmonious feel
 
@@ -94,7 +94,7 @@ Generous line heights for readability:
 - Unique brand expression
 - Simple, recognizable shapes
 - Follow icon grid (48×48)
-- Limited color palette
+- Limited colour palette
 
 ### Icon Usage
 - Use outlined for unselected states
@@ -113,10 +113,10 @@ Set up a Material layout grid in Figma:
 
 ### Exercise 2: Color Palette
 
-Create a Material 3 color palette:
+Create a Material 3 colour palette:
 - Primary with tonal range
 - Secondary and tertiary
-- Surface colors with tint
+- Surface colours with tint
 - Error and success states
 
 ## Test Your Understanding
@@ -128,23 +128,23 @@ Create a Material 3 color palette:
   "title": "Material Foundations",
   "description": "Test your understanding of Material Design foundations.",
   "difficulty": "medium",
-  "question": "What is Material 3's approach to color customization?",
+  "question": "What is Material 3's approach to colour customisation?",
   "options": [
     {
       "id": "a",
-      "text": "Fixed color palettes that can't be changed",
+      "text": "Fixed colour palettes that can't be changed",
       "isCorrect": false,
-      "explanation": "Material 3 is highly customizable through dynamic color."
+      "explanation": "Material 3 is highly customizable through dynamic colour."
     },
     {
       "id": "b",
-      "text": "Dynamic Color that can derive a full palette from a single seed color or wallpaper",
+      "text": "Dynamic Color that can derive a full palette from a single seed colour or wallpaper",
       "isCorrect": true,
-      "explanation": "Correct! Material 3 introduces Dynamic Color—a system that generates harmonious color palettes from a source color. On Android 12+, it can even adapt to the user's wallpaper."
+      "explanation": "Correct! Material 3 introduces Dynamic Color—a system that generates harmonious colour palettes from a source colour. On Android 12+, it can even adapt to the user's wallpaper."
     },
     {
       "id": "c",
-      "text": "Only primary and secondary colors can be customized",
+      "text": "Only primary and secondary colours can be customised",
       "isCorrect": false,
       "explanation": "Dynamic Color generates an entire palette including surfaces, containers, and tonal variations."
     },
@@ -161,8 +161,8 @@ Create a Material 3 color palette:
 ## Key Takeaways
 
 - 8dp grid underlies all measurements
-- Tonal color palettes enable flexibility
-- Dynamic color personalizes the experience
+- Tonal colour palettes enable flexibility
+- Dynamic colour personalizes the experience
 - Type scale provides semantic roles
 - Icons have consistent geometry and sizing
 

@@ -16,7 +16,7 @@
 Targets elements by tag name:
 
 ```css
-p { color: #333; }
+p { colour: #333; }
 h1 { font-size: 2rem; }
 ```
 
@@ -126,7 +126,7 @@ input[required] {
 /* Data attributes */
 [data-theme="dark"] {
   background: #1a1a1a;
-  color: white;
+  colour: white;
 }
 ```
 
@@ -188,7 +188,7 @@ h1 ~ p { margin-left: 1rem; }
 
 ```css
 /* All links in nav (descendant) */
-.nav a { color: white; }
+.nav a { colour: white; }
 
 /* Only direct children ul (child) */
 .nav > ul { display: flex; }
@@ -205,7 +205,7 @@ Pseudo-classes target elements in specific states or patterns.
 
 ```css
 /* Mouse over */
-a:hover { color: blue; }
+a:hover { colour: blue; }
 
 /* Keyboard focus */
 a:focus { outline: 2px solid blue; }
@@ -220,8 +220,8 @@ button:focus-visible { outline: 2px solid blue; }
 ### Link States
 
 ```css
-a:link { color: blue; }      /* Unvisited */
-a:visited { color: purple; } /* Visited */
+a:link { colour: blue; }      /* Unvisited */
+a:visited { colour: purple; } /* Visited */
 ```
 
 Order matters: `:link`, `:visited`, `:hover`, `:active` (LVHA).
@@ -229,13 +229,13 @@ Order matters: `:link`, `:visited`, `:hover`, `:active` (LVHA).
 ### Form States
 
 ```css
-input:focus { border-color: blue; }
+input:focus { border-colour: blue; }
 input:disabled { opacity: 0.5; }
 input:checked { ... } /* Checkboxes, radios */
 input:required { ... }
 input:optional { ... }
-input:valid { border-color: green; }
-input:invalid { border-color: red; }
+input:valid { border-colour: green; }
+input:invalid { border-colour: red; }
 input:placeholder-shown { ... }
 ```
 
@@ -307,7 +307,7 @@ Create content before or after an element:
 ```css
 .required-field::before {
   content: "* ";
-  color: red;
+  colour: red;
 }
 
 .external-link::after {
@@ -337,7 +337,7 @@ Style selected text:
 ```css
 ::selection {
   background: yellow;
-  color: black;
+  colour: black;
 }
 ```
 
@@ -347,7 +347,7 @@ Style input placeholders:
 
 ```css
 input::placeholder {
-  color: #999;
+  colour: #999;
   font-style: italic;
 }
 ```
@@ -358,7 +358,7 @@ Style list markers:
 
 ```css
 li::marker {
-  color: blue;
+  colour: blue;
   font-weight: bold;
 }
 ```
@@ -406,7 +406,7 @@ Single-purpose classes:
 
 ### Exercise 1: Zebra Striping
 
-Use `nth-child` to create alternating row colors in a table without adding classes to HTML.
+Use `nth-child` to create alternating row colours in a table without adding classes to HTML.
 
 ### Exercise 2: Form Validation Styling
 

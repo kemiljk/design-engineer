@@ -171,7 +171,7 @@ Text(
 - [ ] Loading indicators present
 
 ### Accessibility
-- [ ] All elements labeled
+- [ ] All elements labelled
 - [ ] TalkBack tested
 - [ ] Touch targets 48dp+
 - [ ] Color contrast sufficient
@@ -181,7 +181,7 @@ Text(
 ### Exercise 1: Like Animation
 
 Create an animated like button:
-- Heart fills with color
+- Heart fills with colour
 - Scale bounce
 - Particle burst
 - Haptic feedback

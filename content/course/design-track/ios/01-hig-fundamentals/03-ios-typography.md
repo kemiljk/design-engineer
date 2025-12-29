@@ -164,4 +164,4 @@ If you have an iOS device, change the text size setting. Open several apps and n
 
 ## Next Steps
 
-Continue to [iOS Color and Materials](./04-ios-color-and-materials.md) →
+Continue to [iOS Color and Materials](./04-ios-colour-and-materials.md) →

@@ -41,7 +41,7 @@ Introduced in iOS 16:
 
 ### Characteristics
 - Much smaller than Home Screen
-- Limited color (monochrome + accent)
+- Limited colour (monochrome + accent)
 - Even more glanceable
 - Three placement areas
 

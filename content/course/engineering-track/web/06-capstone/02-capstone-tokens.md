@@ -31,7 +31,7 @@ Create your folder structure:
 my-component-library/
 ├── src/
 │   ├── tokens/
-│   │   ├── colors.css
+│   │   ├── colours.css
 │   │   ├── typography.css
 │   │   ├── spacing.css
 │   │   └── index.css
@@ -52,46 +52,46 @@ my-component-library/
 Create your colour system with semantic aliases:
 
 ```css
-/* src/tokens/colors.css */
+/* src/tokens/colours.css */
 :root {
   /* Primary */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
+  --colour-primary-50: #eff6ff;
+  --colour-primary-100: #dbeafe;
+  --colour-primary-500: #3b82f6;
+  --colour-primary-600: #2563eb;
+  --colour-primary-700: #1d4ed8;
   
   /* Neutral */
-  --color-neutral-0: #ffffff;
-  --color-neutral-50: #f9fafb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-200: #e5e7eb;
-  --color-neutral-300: #d1d5db;
-  --color-neutral-500: #6b7280;
-  --color-neutral-700: #374151;
-  --color-neutral-900: #111827;
+  --colour-neutral-0: #ffffff;
+  --colour-neutral-50: #f9fafb;
+  --colour-neutral-100: #f3f4f6;
+  --colour-neutral-200: #e5e7eb;
+  --colour-neutral-300: #d1d5db;
+  --colour-neutral-500: #6b7280;
+  --colour-neutral-700: #374151;
+  --colour-neutral-900: #111827;
   
   /* Semantic */
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --colour-success: #22c55e;
+  --colour-warning: #f59e0b;
+  --colour-error: #ef4444;
+  --colour-info: #3b82f6;
   
   /* Theme-aware aliases */
-  --color-background: var(--color-neutral-0);
-  --color-surface: var(--color-neutral-50);
-  --color-border: var(--color-neutral-200);
-  --color-text-primary: var(--color-neutral-900);
-  --color-text-secondary: var(--color-neutral-500);
+  --colour-background: var(--colour-neutral-0);
+  --colour-surface: var(--colour-neutral-50);
+  --colour-border: var(--colour-neutral-200);
+  --colour-text-primary: var(--colour-neutral-900);
+  --colour-text-secondary: var(--colour-neutral-500);
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: var(--color-neutral-900);
-  --color-surface: var(--color-neutral-700);
-  --color-border: var(--color-neutral-500);
-  --color-text-primary: var(--color-neutral-50);
-  --color-text-secondary: var(--color-neutral-300);
+  --colour-background: var(--colour-neutral-900);
+  --colour-surface: var(--colour-neutral-700);
+  --colour-border: var(--colour-neutral-500);
+  --colour-text-primary: var(--colour-neutral-50);
+  --colour-text-secondary: var(--colour-neutral-300);
 }
 ```
 
@@ -171,7 +171,7 @@ Import all tokens:
 
 ```css
 /* src/tokens/index.css */
-@import './colors.css';
+@import './colours.css';
 @import './typography.css';
 @import './spacing.css';
 ```

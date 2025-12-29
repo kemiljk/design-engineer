@@ -187,13 +187,13 @@ element.classList.replace('old', 'new');
 ### Inline Styles
 
 ```javascript
-element.style.color = 'blue';
+element.style.colour = 'blue';
 element.style.backgroundColor = 'yellow';  // camelCase
 element.style.fontSize = '18px';
 
 // Multiple styles
 Object.assign(element.style, {
-  color: 'blue',
+  colour: 'blue',
   backgroundColor: 'yellow',
   padding: '10px'
 });
@@ -214,11 +214,11 @@ styles.display;   // "block"
 
 ```javascript
 // Set CSS variable
-document.documentElement.style.setProperty('--primary-color', 'blue');
+document.documentElement.style.setProperty('--primary-colour', 'blue');
 
 // Get CSS variable
 getComputedStyle(document.documentElement)
-  .getPropertyValue('--primary-color');
+  .getPropertyValue('--primary-colour');
 ```
 
 ## Practical Patterns

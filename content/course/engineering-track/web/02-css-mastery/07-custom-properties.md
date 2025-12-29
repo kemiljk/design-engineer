@@ -15,15 +15,15 @@ Custom properties are user-defined values:
 
 ```css
 :root {
-  --primary-color: #3b82f6;
+  --primary-colour: #3b82f6;
 }
 
 .button {
-  background: var(--primary-color);
+  background: var(--primary-colour);
 }
 ```
 
-Change `--primary-color` once, update everywhere.
+Change `--primary-colour` once, update everywhere.
 
 ## Defining Custom Properties
 
@@ -45,7 +45,7 @@ Names must start with `--`.
 
 ```css
 :root {
-  --color-primary: #3b82f6;
+  --colour-primary: #3b82f6;
   --spacing-md: 1rem;
 }
 ```
@@ -67,7 +67,7 @@ Names must start with `--`.
 
 ```css
 .button {
-  background: var(--color-primary);
+  background: var(--colour-primary);
   padding: var(--spacing-md);
 }
 ```
@@ -78,8 +78,8 @@ If the property isn't defined:
 
 ```css
 .button {
-  background: var(--color-primary, blue);
-  /* Use blue if --color-primary isn't defined */
+  background: var(--colour-primary, blue);
+  /* Use blue if --colour-primary isn't defined */
 }
 ```
 
@@ -87,7 +87,7 @@ If the property isn't defined:
 
 ```css
 .button {
-  background: var(--theme-primary, var(--color-primary, blue));
+  background: var(--theme-primary, var(--colour-primary, blue));
 }
 ```
 
@@ -99,12 +99,12 @@ Custom properties inherit like other CSS properties.
 
 ```css
 :root {
-  --text-color: black;
+  --text-colour: black;
 }
 
-/* All descendants inherit --text-color */
+/* All descendants inherit --text-colour */
 body {
-  color: var(--text-color);
+  colour: var(--text-colour);
 }
 ```
 
@@ -187,24 +187,24 @@ Custom properties make theming straightforward.
 
 ```css
 :root {
-  --bg-color: white;
-  --text-color: #1a1a1a;
-  --border-color: #e5e5e5;
+  --bg-colour: white;
+  --text-colour: #1a1a1a;
+  --border-colour: #e5e5e5;
 }
 
 [data-theme="dark"] {
-  --bg-color: #1a1a1a;
-  --text-color: #f5f5f5;
-  --border-color: #333;
+  --bg-colour: #1a1a1a;
+  --text-colour: #f5f5f5;
+  --border-colour: #333;
 }
 
 body {
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: var(--bg-colour);
+  colour: var(--text-colour);
 }
 
 .card {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-colour);
 }
 ```
 
@@ -212,14 +212,14 @@ body {
 
 ```css
 :root {
-  --bg-color: white;
-  --text-color: black;
+  --bg-colour: white;
+  --text-colour: black;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-colour-scheme: dark) {
   :root {
-    --bg-color: #1a1a1a;
-    --text-color: white;
+    --bg-colour: #1a1a1a;
+    --text-colour: white;
   }
 }
 ```
@@ -251,13 +251,13 @@ Custom properties bridge CSS and JavaScript.
 
 ```javascript
 const root = document.documentElement;
-const primaryColor = getComputedStyle(root).getPropertyValue("--primary-color");
+const primaryColor = getComputedStyle(root).getPropertyValue("--primary-colour");
 ```
 
 ### Setting Values
 
 ```javascript
-document.documentElement.style.setProperty("--primary-color", "#ff0000");
+document.documentElement.style.setProperty("--primary-colour", "#ff0000");
 ```
 
 ### Theme Switcher
@@ -294,20 +294,20 @@ Organize custom properties as design tokens:
 ```css
 :root {
   /* Primitive tokens */
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-900: #111827;
+  --colour-blue-500: #3b82f6;
+  --colour-blue-600: #2563eb;
+  --colour-neutral-100: #f3f4f6;
+  --colour-neutral-900: #111827;
 
   /* Semantic tokens */
-  --color-primary: var(--color-blue-500);
-  --color-primary-hover: var(--color-blue-600);
-  --color-background: var(--color-neutral-100);
-  --color-text: var(--color-neutral-900);
+  --colour-primary: var(--colour-blue-500);
+  --colour-primary-hover: var(--colour-blue-600);
+  --colour-background: var(--colour-neutral-100);
+  --colour-text: var(--colour-neutral-900);
 
   /* Component tokens */
-  --button-bg: var(--color-primary);
-  --button-bg-hover: var(--color-primary-hover);
+  --button-bg: var(--colour-primary);
+  --button-bg-hover: var(--colour-primary-hover);
 }
 ```
 
@@ -382,7 +382,7 @@ This hierarchy enables:
 Create a custom property system with:
 
 - Colour primitives (grey scale, brand colour)
-- Semantic color tokens
+- Semantic colour tokens
 - Spacing scale
 - Apply to a simple card component
 
@@ -392,13 +392,13 @@ Build a page with:
 
 - Light and dark themes using custom properties
 - A toggle button that switches themes
-- System preference detection with `prefers-color-scheme`
+- System preference detection with `prefers-colour-scheme`
 
 ### Exercise 3: Dynamic Component
 
 Create a component that:
 
-- Has customizable properties (colors, spacing)
+- Has customizable properties (colours, spacing)
 - Can be styled differently by overriding custom properties
 - Works with different themes
 
@@ -446,7 +446,7 @@ Create a component that:
 - Custom properties are defined with `--name` and used with `var(--name)`
 - They inherit like other CSS properties
 - Scope them globally on `:root` or locally on components
-- Provide fallback values: `var(--color, blue)`
+- Provide fallback values: `var(--colour, blue)`
 - They enable easy theming (light/dark mode, brand variants)
 - JavaScript can read and write custom properties
 - Organize as primitive → semantic → component tokens

@@ -1,6 +1,6 @@
 # Collections
 
-> **Quick Summary:** Swift provides Arrays, Dictionaries, and Sets for storing collections of values. Each has specific use cases and behaviors.
+> **Quick Summary:** Swift provides Arrays, Dictionaries, and Sets for storing collections of values. Each has specific use cases and behaviours.
 
 ## What You'll Learn
 

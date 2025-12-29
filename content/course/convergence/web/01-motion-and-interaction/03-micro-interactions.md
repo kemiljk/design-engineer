@@ -54,7 +54,7 @@ Every micro-interaction has four parts:
 ```css
 .button--loading {
   position: relative;
-  color: transparent;
+  colour: transparent;
 }
 
 .button--loading::after {
@@ -63,7 +63,7 @@ Every micro-interaction has four parts:
   width: 16px;
   height: 16px;
   border: 2px solid white;
-  border-top-color: transparent;
+  border-top-colour: transparent;
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
@@ -83,12 +83,12 @@ Every micro-interaction has four parts:
 .input {
   border: 2px solid var(--neutral-200);
   transition:
-    border-color 0.15s,
+    border-colour 0.15s,
     box-shadow 0.15s;
 }
 
 .input:focus {
-  border-color: var(--primary);
+  border-colour: var(--primary);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
   outline: none;
 }
@@ -116,7 +116,7 @@ Every micro-interaction has four parts:
   top: 0;
   transform: translateY(-100%);
   font-size: 0.75rem;
-  color: var(--primary);
+  colour: var(--primary);
 }
 ```
 
@@ -126,7 +126,7 @@ Every micro-interaction has four parts:
 
 ```css
 .input--error {
-  border-color: var(--error);
+  border-colour: var(--error);
   animation: shake 0.3s ease-in-out;
 }
 
@@ -264,7 +264,7 @@ Create a button with:
 Build a like button that:
 
 - Scales up on click
-- Changes color (heart fill)
+- Changes colour (heart fill)
 - Shows a small particle burst
 
 ### Exercise 3: Form Field
@@ -320,7 +320,7 @@ Create an input with:
 - Micro-interactions provide immediate feedback
 - Keep animations brief (100-300ms)
 - Match interaction to expected behaviour
-- Use subtle transforms over color changes alone
+- Use subtle transforms over colour changes alone
 - Test with reduced motion preference
 
 ## Next Steps

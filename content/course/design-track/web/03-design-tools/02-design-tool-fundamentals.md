@@ -136,8 +136,8 @@ Enable snapping for precision; disable for freedom.
 
 ### Shape Properties
 
-**Fill:** The inside color (solid, gradient, or image)
-**Stroke:** The outline (color, weight, style)
+**Fill:** The inside colour (solid, gradient, or image)
+**Stroke:** The outline (colour, weight, style)
 **Corner radius:** For rounded corners
 **Shadow:** Drop shadow, inner shadow
 **Blur:** Gaussian blur, background blur
@@ -183,13 +183,13 @@ Apply styles consistently; update the style to change all instances.
 ### Color Definition
 
 Colors can be:
-- **Solid:** Single color (hex, RGB, HSL)
-- **Gradient:** Transition between colors
+- **Solid:** Single colour (hex, RGB, HSL)
+- **Gradient:** Transition between colours
 - **Image:** Fill with a picture
 
 ### Color Styles
 
-Define named colors for reuse:
+Define named colours for reuse:
 - `Primary/500`
 - `Gray/100`
 - `Error/500`
@@ -297,7 +297,7 @@ Create a simple card component:
 ### Exercise 3: Styles Practice
 
 Create and apply:
-1. Three color styles (Primary, Secondary, Background)
+1. Three colour styles (Primary, Secondary, Background)
 2. Two text styles (Heading, Body)
 3. Apply them to the card from Exercise 2
 
@@ -346,7 +346,7 @@ Create and apply:
 - Frames organise your work and represent screens/components
 - Layer management (order, naming, grouping) is essential
 - Shapes have properties: fill, stroke, corner radius, shadows
-- Create reusable styles for colors, text, and effects
+- Create reusable styles for colours, text, and effects
 - Learn keyboard shortcuts incrementally
 - Organize files with clear naming and page structure
 

@@ -47,7 +47,7 @@ The `-y` flag accepts all defaults. You'll see output like:
 }
 ```
 
-This file tracks your project's metadata and dependencies.
+This tracks your project's metadata and dependencies.
 
 ### Step 3: Create Project Structure
 
@@ -99,7 +99,7 @@ body {
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  colour: white;
 }
 
 main {
@@ -269,7 +269,7 @@ You might explore:
 - **prettier:** Code formatter
 - **eslint:** Code quality tool
 
-Don't install these now. We'll cover them in detail later. Just know they're available.
+Don't install these yet. We'll cover them later.
 
 ## Project Workflow Summary
 
@@ -327,7 +327,7 @@ Vite gives you:
 - Modern JavaScript support
 - Optimised production builds
 
-Open `http://localhost:5173` to see your project. This is how most real projects start.
+Open `http://localhost:5173` to see your project. This is how real projects start.
 
 ## Try It Yourself
 

@@ -61,7 +61,7 @@ Shows *all* files, including hidden ones (files starting with `.`).
 ls -la
 ```
 
-Combine flags! Shows all files with details.
+Combine flags to show all files with details.
 
 ### `cd` - Move Around
 
@@ -263,7 +263,7 @@ Finds all CSS files in the current folder and subfolders.
 Search for text within files:
 
 ```bash
-grep "background-color" styles.css
+grep "background-colour" styles.css
 ```
 
 Search recursively in all files:
@@ -429,7 +429,7 @@ cd "My Documents"
 cd My\ Documents
 ```
 
-**Pro tip:** Avoid spaces in folder/file names for projects. Use hyphens or underscores: `my-documents`.
+**Tip:** Avoid spaces in folder/file names for projects. Use hyphens or underscores: `my-documents`.
 
 ### Case Sensitivity
 

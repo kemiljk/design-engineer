@@ -16,7 +16,7 @@
 ### PATCH (2.1.3 → 2.1.4)
 
 Bug fixes, no API changes:
-- Fixed button hover color
+- Fixed button hover colour
 - Fixed modal focus trap
 - Fixed accessibility issue
 
@@ -47,7 +47,7 @@ Breaking changes:
 - Avatar component
 
 ### Changed
-- Updated primary color to improve contrast
+- Updated primary colour to improve contrast
 
 ### Deprecated
 - `outline` variant (use `ghost` instead)

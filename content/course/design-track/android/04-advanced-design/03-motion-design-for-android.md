@@ -127,7 +127,7 @@ Material Design timing:
 
 **Linear:**
 - Constant speed
-- Use for color/opacity only
+- Use for colour/opacity only
 - Avoid for movement
 
 ### Material Easing Values
@@ -165,7 +165,7 @@ Container transform pattern:
 **Key elements:**
 - Shared image scales
 - Title repositions
-- Background color carries through
+- Background colour carries through
 
 ### Bottom Sheet
 Vertical axis transition:

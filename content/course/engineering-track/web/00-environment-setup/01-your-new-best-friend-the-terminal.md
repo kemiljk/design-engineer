@@ -14,7 +14,7 @@
 
 If you've been using AI tools to generate code—prompting and hoping for the best—you've probably hit a wall. Maybe the code works but you don't understand it. Maybe you can't fix bugs or make changes confidently. Maybe you feel like a fraud.
 
-That's Vibe Coding. And there's nothing wrong with it as a starting point. But to truly own your work—to build with intention and ship with confidence—you need to understand what's happening under the hood.
+That's Vibe Coding. There's nothing wrong with it as a starting point. But to truly own your work—to build with intention and ship with confidence—you need to understand what's happening under the hood.
 
 **This track teaches you real engineering skills.** Not just copying and pasting, but genuinely understanding HTML, CSS, and JavaScript. The terminal is where that journey begins.
 
@@ -55,7 +55,7 @@ The application that displays the text interface. On Mac, it's called Terminal.a
 The actual line where you type commands. When someone says "do this on the command line", they mean "type this in the terminal".
 
 ### Shell
-The programme that interprets your commands and executes them. Different shells have slightly different features. On Mac, the default is called **zsh** (pronounced "zee-shell"). On Windows, it's **PowerShell** or **cmd**.
+The program that interprets your commands and executes them. Different shells have slightly different features. On Mac, the default is called **zsh** (pronounced "zee-shell"). On Windows, it's **PowerShell** or **cmd**.
 
 ### CLI (Command Line Interface)
 A general term for any tool you interact with by typing commands. When a developer says "use the npm CLI", they mean "type npm commands in your terminal".
@@ -207,7 +207,7 @@ The default terminal looks stark. Make it friendlier:
 3. Choose a profile you like (Pro, Ocean, or Homebrew are popular)
 4. Click "Default" to make it your default
 
-**Consider Alternative Apps:**
+**Consider alternative apps:**
 - **iTerm2** (Mac): More customisable, popular with developers
 - **Warp** (Mac): Modern terminal with AI assistance
 - **Windows Terminal**: Microsoft's modern terminal app

@@ -60,7 +60,7 @@ Use `.animation` modifier:
 
 ```swift
 Circle()
-    .fill(isActive ? .blue : .gray)
+    .fill(isActive ? .blue : .grey)
     .scaleEffect(isActive ? 1.2 : 1)
     .animation(.spring(), value: isActive)
 ```
@@ -113,7 +113,7 @@ VStack {
 
 Create a custom toggle that:
 - Slides the knob
-- Changes color
+- Changes colour
 - Has spring animation
 
 ### Exercise 2: Loading Animation

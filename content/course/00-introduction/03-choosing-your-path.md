@@ -85,7 +85,7 @@ Your **engineering score is higher** than your design score, or:
 - You want to ship beautiful, polished interfaces—not just functional code
 - You want to develop real design taste, not just follow templates
 
-**Develop design taste that AI can't replicate.** You already know how to code—now learn to make confident visual decisions. This track gives you fundamentals that compound—skills that make your work beautiful, not just functional.
+**Develop design taste that AI can't replicate.** You already know how to code—now learn to make confident visual decisions. This track gives you fundamentals that compound: skills that make your work beautiful, not just functional.
 
 The Design Track covers:
 - Visual design fundamentals
@@ -104,7 +104,7 @@ Your **design score is higher** than your engineering score, or:
 - You want to ship side projects yourself
 - You're tired of designs getting "lost in translation"
 
-**Go beyond Vibe Coding.** AI can generate code, but it can't teach you to build with intention. This track gives you fundamentals that compound—skills that let you own the entire build process, not just prompt and hope.
+**Go beyond Vibe Coding.** AI can generate code, but it can't teach you to build with intention. This track gives you fundamentals that compound: skills that let you own the entire build process, not just prompt and hope.
 
 The Engineering Track covers:
 - Terminal, environment setup, and tooling
@@ -117,11 +117,11 @@ The Engineering Track covers:
 
 If your scores are similar:
 
-1. **Pick based on interest.** Which excites you more—learning to see like a designer, or learning to build like an engineer?
+1. **Pick based on interest.** Which excites you more: learning to see like a designer or learning to build like an engineer?
 
-2. **Pick based on role.** What does your job (or desired job) require more?
+2. **Pick based on role.** What does your job (or desired job) need more?
 
-3. **Start with Engineering.** If truly undecided, engineering skills are often faster to validate—you either built it or you didn't. Design skills can feel more subjective when learning.
+3. **Start with Engineering.** If truly undecided, engineering skills are faster to validate—you either built it or you didn't. Design skills can feel more subjective when learning.
 
 ## Choosing Your Platform
 
@@ -169,13 +169,13 @@ If your scores are similar:
 
 ### Can I Do Multiple Platforms?
 
-Yes, but I recommend mastering one first. The concepts transfer—learning visual hierarchy helps on any platform, and component thinking works everywhere.
+Yes, but master one first. The concepts transfer—visual hierarchy helps on any platform, and component thinking works everywhere.
 
-Once you're comfortable on one platform, picking up another is much faster. The fundamentals are portable; only the syntax changes.
+Once you're comfortable on one platform, picking up another is faster. The fundamentals are portable; only the syntax changes.
 
 ## The Convergence Track
 
-The Convergence track is where Design Engineering really comes together. It's designed for people who:
+The Convergence track is where Design Engineering comes together. It's for people who:
 
 - Have completed both the Design and Engineering tracks for their platform
 - Already have strong skills in both areas
@@ -188,7 +188,7 @@ The Convergence track is where Design Engineering really comes together. It's de
 - Performance and polish
 - Building a DE portfolio and workflow
 
-You don't have to complete both tracks before starting Convergence—but you should be comfortable with the fundamentals of both design and engineering for your platform.
+You don't have to complete both tracks before starting Convergence, but you should be comfortable with the fundamentals of both design and engineering for your platform.
 
 ## Recommended Paths
 
@@ -227,13 +227,13 @@ Based on common scenarios:
 
 ## Try It Yourself
 
-Based on your self-assessment and the guidance above:
+Based on your self-assessment:
 
 1. **Choose your first track:** Design or Engineering
 2. **Choose your platform:** Web, iOS, or Android
 3. **Write down your goal:** "By completing this track, I'll be able to ___________."
 
-Your choices aren't permanent. You can switch tracks or platforms if you realise another path suits you better. But making a choice and committing to it will help you make progress.
+Your choices aren't permanent. You can switch if another path suits you better. But committing helps you make progress.
 
 ## Test Your Understanding
 

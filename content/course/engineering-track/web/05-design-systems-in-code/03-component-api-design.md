@@ -72,7 +72,7 @@ isLoading / loading
 isDisabled / disabled
 isOpen / open
 
-// Render customization
+// Render customisation
 renderItem
 renderHeader
 leftIcon

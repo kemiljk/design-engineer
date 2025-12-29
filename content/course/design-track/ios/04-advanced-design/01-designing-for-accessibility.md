@@ -100,10 +100,10 @@ WCAG guidelines for text:
 - **3:1** for UI components
 
 ### Don't Rely on Color Alone
-Always pair color with another indicator:
-- Icons alongside colored status
-- Text labels with colored buttons
-- Patterns with colored charts
+Always pair colour with another indicator:
+- Icons alongside coloured status
+- Text labels with coloured buttons
+- Patterns with coloured charts
 
 ## Designing for Dynamic Type
 
@@ -130,14 +130,14 @@ Always preview designs at:
 Take a screen from your current project:
 1. Close your eyes and imagine using VoiceOver
 2. What would be read first? Last?
-3. Are all actions clearly labeled?
+3. Are all actions clearly labelled?
 4. Is the focus order logical?
 
 ### Exercise 2: Contrast Check
 
 Using a contrast checker tool:
-1. Test your primary text color
-2. Test your secondary text color
+1. Test your primary text colour
+2. Test your secondary text colour
 3. Test button text against button background
 4. Ensure all meet minimum ratios
 
@@ -185,7 +185,7 @@ Using a contrast checker tool:
 - Accessibility benefits everyone, not just users with disabilities
 - Design for VoiceOver with clear labels and logical focus order
 - Maintain minimum 44×44pt touch targets
-- Ensure sufficient color contrast (4.5:1 for text)
+- Ensure sufficient colour contrast (4.5:1 for text)
 - Test at all Dynamic Type sizes
 
 ## Next Steps

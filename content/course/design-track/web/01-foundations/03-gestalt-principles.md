@@ -183,7 +183,7 @@ Sometimes principles conflict. When they do, some override others:
 
 **Common region often wins.** If items are in the same box, they're grouped even if they're not close together.
 
-**Similarity can override proximity.** Items of the same color might feel grouped even if physically separated.
+**Similarity can override proximity.** Items of the same colour might feel grouped even if physically separated.
 
 **Strong closure overrides many principles.** A clear boundary creates a powerful grouping.
 

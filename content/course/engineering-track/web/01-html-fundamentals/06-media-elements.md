@@ -124,7 +124,7 @@ Use for images below the fold. Don't use for above-fold images (hero images).
 | WebP | Both | Better compression, good support |
 | AVIF | Both | Best compression, growing support |
 | SVG | Icons, logos | Vector, infinitely scalable |
-| GIF | Simple animations | Limited colors, avoid for photos |
+| GIF | Simple animations | Limited colours, avoid for photos |
 
 ## SVG Images
 
@@ -312,7 +312,7 @@ For embedding external content (YouTube, maps, etc.):
 | `<video>` | Captions track |
 | `<audio>` | Transcript (linked separately) |
 | `<iframe>` | Title attribute |
-| `<svg>` inline | `aria-hidden="true"` if decorative, proper labeling if informative |
+| `<svg>` inline | `aria-hidden="true"` if decorative, proper labelling if informative |
 
 ## Try It Yourself
 

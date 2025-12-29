@@ -110,7 +110,7 @@ For design tokens:
 
 **Value Reference**
 - All token names and values
-- Visual swatches for colors
+- Visual swatches for colours
 - Examples for spacing
 
 **Usage Guidelines**

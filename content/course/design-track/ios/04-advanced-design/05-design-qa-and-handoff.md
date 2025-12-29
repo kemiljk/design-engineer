@@ -105,9 +105,9 @@ For each component, document:
 
 **Visual Properties:**
 - Corner radius
-- Border width and color
-- Shadow (color, offset, blur, spread)
-- Background color/gradient
+- Border width and colour
+- Shadow (colour, offset, blur, spread)
+- Background colour/gradient
 
 **Layout Properties:**
 - Padding (top, bottom, leading, trailing)
@@ -140,7 +140,7 @@ For each screen, include:
 3. **Component List**
    - All components used
    - States for each
-   - Interaction behaviors
+   - Interaction behaviours
 
 4. **Edge Cases**
    - Empty states
@@ -197,7 +197,7 @@ Check implementation against design:
 ### QA Checklist
 
 **Visual Accuracy:**
-- [ ] Colors match design (sample with color picker)
+- [ ] Colors match design (sample with colour picker)
 - [ ] Spacing is correct (measure with ruler)
 - [ ] Typography matches (size, weight, line height)
 - [ ] Icons are correct size and weight

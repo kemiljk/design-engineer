@@ -139,7 +139,7 @@ Some modifiers are environment modifiers, affecting descendants.
 
 Create a button with:
 - Padding
-- Background color
+- Background colour
 - Rounded corners
 - Shadow
 
@@ -147,7 +147,7 @@ Create a button with:
 
 Create a `tagStyle()` modifier that:
 - Adds horizontal padding
-- Has a colored background
+- Has a coloured background
 - Has fully rounded corners
 
 ## Test Your Understanding

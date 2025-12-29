@@ -116,9 +116,9 @@ Before coding, plan:
 
 ### Exercise 1: Component Decomposition
 
-Take a complex UI (Twitter feed, Amazon product page, etc.):
+Take a complex UI (Twitter feed, Amazon product page):
 1. Identify all components
-2. Categorize as atom/molecule/organism
+2. Categorise as atom/molecule/organism
 3. Draw the component tree
 
 ### Exercise 2: Component Planning
@@ -131,7 +131,7 @@ For a "user profile card" component, plan:
 
 ### Exercise 3: Naming
 
-Practice naming components. Names should be:
+Practise naming components. Names should be:
 - Descriptive
 - Consistent
 - Following conventions

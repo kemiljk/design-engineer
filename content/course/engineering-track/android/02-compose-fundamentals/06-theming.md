@@ -1,13 +1,13 @@
 # Theming
 
-> **Quick Summary:** Material 3 theming in Compose provides color schemes, typography, and shapes that adapt to light/dark mode and dynamic color.
+> **Quick Summary:** Material 3 theming in Compose provides colour schemes, typography, and shapes that adapt to light/dark mode and dynamic colour.
 
 ## What You'll Learn
 
 - Material 3 theming
 - Color schemes
 - Typography
-- Dynamic color
+- Dynamic colour
 
 ## MaterialTheme
 
@@ -43,7 +43,7 @@ private val LightColorScheme = lightColorScheme(
 private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFFD0BCFF),
     onPrimary = Color(0xFF381E72),
-    // ... other colors
+    // ... other colours
 )
 ```
 
@@ -51,11 +51,11 @@ private val DarkColorScheme = darkColorScheme(
 ```kotlin
 Text(
     text = "Primary",
-    color = MaterialTheme.colorScheme.primary
+    colour = MaterialTheme.colorScheme.primary
 )
 
 Surface(
-    color = MaterialTheme.colorScheme.surface
+    colour = MaterialTheme.colorScheme.surface
 ) { }
 ```
 
@@ -94,7 +94,7 @@ Text(
 
 ## Dynamic Color
 
-Android 12+ wallpaper-based colors:
+Android 12+ wallpaper-based colours:
 
 ```kotlin
 @Composable
@@ -147,7 +147,7 @@ CompositionLocalProvider(
 
 // Use
 val customColors = LocalCustomColors.current
-Text(color = customColors.success)
+Text(colour = customColors.success)
 ```
 
 ## Try It Yourself
@@ -155,7 +155,7 @@ Text(color = customColors.success)
 ### Exercise 1: Custom Theme
 
 Create a theme with:
-- Brand primary color
+- Brand primary colour
 - Light and dark variants
 - Custom typography
 
@@ -175,19 +175,19 @@ Build a toggle that switches between:
   "title": "Theming in Compose",
   "description": "Test your understanding of Compose theming.",
   "difficulty": "easy",
-  "question": "How do you access theme colors in a composable?",
+  "question": "How do you access theme colours in a composable?",
   "options": [
     {
       "id": "a",
-      "text": "Import colors directly from a colors file",
+      "text": "Import colours directly from a colours file",
       "isCorrect": false,
       "explanation": "Direct imports bypass theming and won't adapt to dark mode."
     },
     {
       "id": "b",
-      "text": "Use MaterialTheme.colorScheme.primary (or other semantic colors)",
+      "text": "Use MaterialTheme.colorScheme.primary (or other semantic colours)",
       "isCorrect": true,
-      "explanation": "Correct! MaterialTheme provides the current theme's colors, typography, and shapes. Using theme values ensures proper dark mode support and consistency."
+      "explanation": "Correct! MaterialTheme provides the current theme's colours, typography, and shapes. Using theme values ensures proper dark mode support and consistency."
     },
     {
       "id": "c",
@@ -207,9 +207,9 @@ Build a toggle that switches between:
 
 ## Key Takeaways
 
-- MaterialTheme provides colors, typography, shapes
-- ColorScheme for light/dark mode colors
-- Dynamic color uses wallpaper (Android 12+)
+- MaterialTheme provides colours, typography, shapes
+- ColorScheme for light/dark mode colours
+- Dynamic colour uses wallpaper (Android 12+)
 - Access theme via `MaterialTheme.colorScheme`
 - CompositionLocal for custom theme values
 

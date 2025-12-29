@@ -126,7 +126,7 @@ Errors happen. Good design handles them gracefully.
 ### Error State Design
 
 Visual treatment matters:
-- Use color thoughtfully (red isn't always necessary)
+- Use colour thoughtfully (red isn't always necessary)
 - Include icons for scanability
 - Don't overuse bold/caps
 - Keep actionable when possible
@@ -385,10 +385,10 @@ Congratulations! You've completed the Design Track for Web.
 
 You now understand:
 - Visual design fundamentals
-- Typography, color, spacing, and layout
+- Typography, colour, spacing, and layout
 - Design tools and workflows
 - Design systems and components
-- UX principles and user-centered thinking
+- UX principles and user-centred thinking
 
 **Where to go next:**
 

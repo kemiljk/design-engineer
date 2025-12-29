@@ -72,12 +72,12 @@ All are optional; cards adapt to their content.
 
 .card__description {
   margin: 0;
-  color: var(--color-neutral-600);
+  colour: var(--colour-neutral-600);
 }
 
 .card__actions {
   padding: 1rem 1.5rem;
-  border-top: 1px solid var(--color-neutral-100);
+  border-top: 1px solid var(--colour-neutral-100);
   display: flex;
   gap: 0.5rem;
 }
@@ -112,7 +112,7 @@ All are optional; cards adapt to their content.
 ```css
 .card--outlined {
   box-shadow: none;
-  border: 1px solid var(--color-neutral-200);
+  border: 1px solid var(--colour-neutral-200);
 }
 ```
 

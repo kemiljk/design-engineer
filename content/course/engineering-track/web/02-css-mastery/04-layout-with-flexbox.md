@@ -13,7 +13,7 @@
 
 Flexbox (Flexible Box Layout) arranges items in a row or column, with powerful alignment and space distribution.
 
-Before flexbox, centering was hard. With flexbox:
+Before flexbox, centring was hard. With flexbox:
 
 ```css
 .container {
@@ -377,7 +377,7 @@ Create a row of 3 equal-width cards that:
 ### Exercise 3: Modal
 
 Create a full-page modal overlay with:
-- Content centered both horizontally and vertically
+- Content centred both horizontally and vertically
 - Modal box that doesn't stretch to fill
 
 ## Test Your Understanding
@@ -395,7 +395,7 @@ Create a full-page modal overlay with:
       "id": "a",
       "text": "justify-content: center and flex-direction: center",
       "isCorrect": false,
-      "explanation": "flex-direction controls the main axis direction (row or column), not centering."
+      "explanation": "flex-direction controls the main axis direction (row or column), not centring."
     },
     {
       "id": "b",

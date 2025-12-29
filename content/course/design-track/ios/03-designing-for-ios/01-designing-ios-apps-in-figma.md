@@ -47,7 +47,7 @@ Apple provides official design resources:
 - Tab bars
 - Lists and cells
 - Buttons and controls
-- System colors
+- System colours
 - Device frames
 
 ### Using UI Kit Components
@@ -93,10 +93,10 @@ Create styles matching iOS text styles:
 
 ## Color Styles
 
-Create semantic color styles:
+Create semantic colour styles:
 - Label, Secondary Label, Tertiary Label
 - System Background, Grouped Background
-- System colors (Blue, Green, Red, etc.)
+- System colours (Blue, Green, Red, etc.)
 - Create light and dark mode versions
 
 ## Device Frames
@@ -126,7 +126,7 @@ Create a new Figma file with:
 Design a simple iOS screen using:
 - UI kit navigation bar
 - SF Symbols for icons
-- System colors
+- System colours
 - Proper text styles
 
 ## Test Your Understanding
@@ -173,7 +173,7 @@ Design a simple iOS screen using:
 - Start with correct device dimensions
 - Use Apple's official UI kit
 - SF Symbols provide consistent iconography
-- Set up semantic text and color styles
+- Set up semantic text and colour styles
 - Device frames are for presentation, not daily design
 
 ## Next Steps

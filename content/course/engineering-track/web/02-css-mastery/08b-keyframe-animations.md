@@ -378,7 +378,7 @@ Create a notification that:
     },
     {
       "id": "d",
-      "text": "background-color and border for visual effects",
+      "text": "background-colour and border for visual effects",
       "isCorrect": false,
       "explanation": "These trigger paint, which is better than layout but still not as smooth as transform/opacity."
     }

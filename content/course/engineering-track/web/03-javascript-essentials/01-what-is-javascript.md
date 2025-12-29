@@ -130,19 +130,19 @@ As a Design Engineer, JavaScript enables you to:
 
 ### Build Interactive Prototypes
 
-Move beyond static mockups. Create prototypes with real interactions.
+Move beyond static mockups and create prototypes with real interactions.
 
 ### Implement Design Details
 
-Animations, micro-interactions, and dynamic behaviors that make designs feel polished.
+Animations, micro-interactions, and dynamic behaviours that make designs feel polished.
 
 ### Work with Real Data
 
-Fetch and display actual data, handle loading states, manage errors.
+Fetch and display actual data. Handle loading states. Manage errors.
 
 ### Bridge Design and Development
 
-Understand implementation constraints. Build components that work.
+Understand implementation constraints and build components that work.
 
 ### Ship Side Projects
 
@@ -162,9 +162,9 @@ JavaScript has a vast ecosystem:
 - TypeScript (typed JavaScript)
 
 **Libraries:**
-- Thousands for any need you can imagine
+- Thousands for any need
 
-You don't need to know everything. Start with fundamentals; learn tools as needed.
+You don't need to know everything. Start with fundamentals, learn tools as needed.
 
 ## Modern JavaScript
 

@@ -9,10 +9,10 @@ Learn to think like a designer. This track covers the principles, patterns, and 
 
 ## What You'll Learn
 
-- **Visual Design Fundamentals** — Typography, color theory, spacing, and layout
+- **Visual Design Fundamentals** — Typography, colour theory, spacing, and layout
 - **Platform Guidelines** — HIG for iOS, Material Design for Android
 - **Design Systems** — Tokens, components, and documentation
-- **UX Principles** — User-centered thinking and interaction design
+- **UX Principles** — User-centred thinking and interaction design
 - **Design-to-Code** — Bridging designs to SwiftUI and Jetpack Compose
 
 ## Choose Your Platform

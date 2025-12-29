@@ -33,7 +33,7 @@ For every design decision, ask: **Why?**
 - "Why did you add that animation?"
 
 Valid answers tie back to purpose:
-- "It's blue to match our primary action color, which users have learned means 'proceed.'"
+- "It's blue to match our primary action colour, which users have learned means 'proceed.'"
 - "The shadow creates elevation, indicating this element is clickable and in the foreground."
 - "It's larger because it's the page title, establishing the content hierarchy."
 - "The animation provides feedback that the action was received and is processing."
@@ -64,7 +64,7 @@ Good design balances both. Aesthetics serve function, and function is presented 
 
 ### Examples of Communication
 
-- **Color coding:** Red for errors, green for success, yellow for warnings. The color communicates status.
+- **Color coding:** Red for errors, green for success, yellow for warnings. The colour communicates status.
 - **Size hierarchy:** Larger elements are more important. Size communicates priority.
 - **Proximity:** Grouped elements are related. Spacing communicates relationship.
 - **Motion:** Animation draws attention to changes. Movement communicates state.
@@ -95,7 +95,7 @@ If you can't identify the problem, you might be decorating rather than designing
 
 Generate multiple solutions before committing:
 - Increase button size
-- Change button color
+- Change button colour
 - Add animation
 - Improve copy
 - Adjust positioning
@@ -106,7 +106,7 @@ Don't default to your first idea. The best solution isn't always the most obviou
 
 Every choice has consequences:
 - Larger button → Might throw off balance
-- Brighter color → Might cause accessibility issues
+- Brighter colour → Might cause accessibility issues
 - Animation → Might slow performance
 - Better position → Might require layout changes
 

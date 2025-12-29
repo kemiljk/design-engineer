@@ -12,7 +12,7 @@
 
 ## The Package Manager Concept
 
-A package manager is like an App Store for developer tools, but accessed through the terminal.
+A package manager is like an App Store for developer tools, accessed through the terminal.
 
 Instead of:
 1. Opening a browser
@@ -22,13 +22,13 @@ Instead of:
 5. Running the installer
 6. Clicking through installation steps
 
-You simply type:
+You type:
 
 ```bash
 brew install node
 ```
 
-Done. The package manager handles everything: downloading, installing, and managing updates.
+The package manager handles everything: downloading, installing, and managing updates.
 
 ### Why This Matters
 
@@ -96,7 +96,7 @@ Node.js is a JavaScript runtime that lets you run JavaScript outside of browsers
 ### Why Designers Need Node.js
 
 - **Build tools:** Bundlers, compilers, and optimisers run on Node
-- **Development servers:** Live preview while you code
+- **Development servers:** Live preview whilst you code
 - **Design tools:** Many design-to-code tools use Node
 - **Frameworks:** React, Vue, Next.js all require Node
 - **Package management:** npm (Node Package Manager) comes with Node
@@ -321,7 +321,7 @@ brew install oven-sh/bun/bun
 powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
-Then use `bun install` instead of `npm install`. Bun is not just a package manager—it's also a fast JavaScript runtime that can replace Node.js for many tasks.
+Then use `bun install` instead of `npm install`. Bun isn't just a package manager—it's also a fast JavaScript runtime that can replace Node.js for many tasks.
 
 ## Try It Yourself
 

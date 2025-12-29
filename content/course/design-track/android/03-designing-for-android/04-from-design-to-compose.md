@@ -41,7 +41,7 @@ Everything is a composable—building blocks that combine.
 ### Design → Compose
 
 ```
-Design: Vertical, 16dp spacing, centered
+Design: Vertical, 16dp spacing, centred
 Compose: Column(
     verticalArrangement = Arrangement.spacedBy(16.dp),
     horizontalAlignment = Alignment.CenterHorizontally
@@ -176,7 +176,7 @@ Prepare a screen for development:
       "id": "b",
       "text": "Material theme tokens, component specifications, and state designs",
       "isCorrect": true,
-      "explanation": "Correct! Using Material theme tokens (colors, typography, shapes) maps directly to Compose themes. Specifying components and all their states enables accurate implementation."
+      "explanation": "Correct! Using Material theme tokens (colours, typography, shapes) maps directly to Compose themes. Specifying components and all their states enables accurate implementation."
     },
     {
       "id": "c",

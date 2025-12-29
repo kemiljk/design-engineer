@@ -115,8 +115,8 @@ For each component, document:
 **Visual Properties:**
 - Shape (corner radius)
 - Elevation (shadow)
-- Border (width, color)
-- Background (color role)
+- Border (width, colour)
+- Background (colour role)
 
 **Sizing:**
 - Width (fixed, fill, wrap)
@@ -147,7 +147,7 @@ Include for each screen:
    - Safe area handling
 
 3. **Interactions**
-   - Touch behaviors
+   - Touch behaviours
    - Navigation actions
    - State changes
 
@@ -228,7 +228,7 @@ Review implementations for:
 **Theme Support:**
 - [ ] Light theme correct
 - [ ] Dark theme correct
-- [ ] Dynamic color adapts
+- [ ] Dynamic colour adapts
 - [ ] High contrast works
 
 **Accessibility:**
@@ -312,19 +312,19 @@ Compare implementation to design:
   "title": "Design QA and Handoff",
   "description": "Test your understanding of Android design handoff.",
   "difficulty": "medium",
-  "question": "When specifying colors for Android handoff, what should you reference to ensure proper theme support?",
+  "question": "When specifying colours for Android handoff, what should you reference to ensure proper theme support?",
   "options": [
     {
       "id": "a",
-      "text": "Hex color values like #6750A4",
+      "text": "Hex colour values like #6750A4",
       "isCorrect": false,
-      "explanation": "Hard-coded hex values don't adapt to dark theme or dynamic color."
+      "explanation": "Hard-coded hex values don't adapt to dark theme or dynamic colour."
     },
     {
       "id": "b",
-      "text": "Material color scheme roles like colorScheme.primary",
+      "text": "Material colour scheme roles like colorScheme.primary",
       "isCorrect": true,
-      "explanation": "Correct! Using Material color roles ensures colors automatically adapt to light/dark themes and support dynamic color from the user's wallpaper."
+      "explanation": "Correct! Using Material colour roles ensures colours automatically adapt to light/dark themes and support dynamic colour from the user's wallpaper."
     },
     {
       "id": "c",
@@ -336,7 +336,7 @@ Compare implementation to design:
       "id": "d",
       "text": "Color names like 'blue' or 'purple'",
       "isCorrect": false,
-      "explanation": "Vague color names don't provide the precision needed for implementation."
+      "explanation": "Vague colour names don't provide the precision needed for implementation."
     }
   ]
 }
@@ -345,7 +345,7 @@ Compare implementation to design:
 ## Key Takeaways
 
 - Organize files with clear naming conventions
-- Use Material spacing, typography, and color tokens
+- Use Material spacing, typography, and colour tokens
 - Document all states, themes, and size classes
 - Establish clear QA checklists
 - Build collaborative processes with developers
@@ -354,7 +354,7 @@ Compare implementation to design:
 
 You've completed the Advanced Design module for Android. You now have skills to:
 - Design accessible Android experiences
-- Create adaptive dark mode and dynamic color designs
+- Create adaptive dark mode and dynamic colour designs
 - Use Material motion effectively
 - Design for phones, tablets, foldables, and watches
 - Collaborate with Compose developers

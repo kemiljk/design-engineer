@@ -58,7 +58,7 @@ fun ContentCard(
                 Text(
                     text = description,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    colour = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -134,7 +134,7 @@ fun CustomCard(
     Surface(
         modifier = modifier,
         shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.surfaceVariant,
+        colour = MaterialTheme.colorScheme.surfaceVariant,
         tonalElevation = 2.dp
     ) {
         Box(modifier = Modifier.padding(16.dp)) {
@@ -181,9 +181,9 @@ Create a profile card:
     },
     {
       "id": "b",
-      "text": "Elevation (tonal or shadow), rounded corners, and proper surface colors",
+      "text": "Elevation (tonal or shadow), rounded corners, and proper surface colours",
       "isCorrect": true,
-      "explanation": "Correct! Card provides Material 3 styling including tonal elevation, corner radius, and color. Different variants (filled, outlined, elevated) are available."
+      "explanation": "Correct! Card provides Material 3 styling including tonal elevation, corner radius, and colour. Different variants (filled, outlined, elevated) are available."
     },
     {
       "id": "c",

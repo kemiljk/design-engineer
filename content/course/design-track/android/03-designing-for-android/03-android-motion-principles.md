@@ -144,9 +144,9 @@ Design and specify a transition:
   "options": [
     {
       "id": "a",
-      "text": "Changing the color of a container",
+      "text": "Changing the colour of a container",
       "isCorrect": false,
-      "explanation": "Container transform is about spatial transformation, not color."
+      "explanation": "Container transform is about spatial transformation, not colour."
     },
     {
       "id": "b",

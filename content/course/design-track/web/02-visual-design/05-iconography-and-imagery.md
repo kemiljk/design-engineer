@@ -185,9 +185,9 @@ Illustrations are custom-drawn graphics, ranging from simple icons to complex sc
 
 ### Illustration Styles
 
-**Line illustrations:** Simple, scalable, often single-color. Good for icons and simple graphics.
+**Line illustrations:** Simple, scalable, often single-colour. Good for icons and simple graphics.
 
-**Flat illustrations:** No gradients or shadows, solid colors. Clean, modern feel.
+**Flat illustrations:** No gradients or shadows, solid colours. Clean, modern feel.
 
 **3D illustrations:** Depth and dimension. Trendy but can feel heavy.
 
@@ -198,7 +198,7 @@ Illustrations are custom-drawn graphics, ranging from simple icons to complex sc
 ### Consistency in Illustrations
 
 Like icons, illustrations should share a visual language:
-- Same color palette
+- Same colour palette
 - Same level of detail
 - Same line weights
 - Same character proportions
@@ -209,7 +209,7 @@ A mismatch in illustration style is jarring. Commission or select illustrations 
 ### Illustration Resources
 
 **Libraries:**
-- unDraw (free, customizable colors)
+- unDraw (free, customizable colours)
 - Humaaans (mix-and-match people)
 - Blush (various styles)
 - DrawKit (various styles)
@@ -237,7 +237,7 @@ A mismatch in illustration style is jarring. Commission or select illustrations 
 
 ### Color Independence
 
-Don't rely on imagery alone to convey critical information. Icons for status should be accompanied by text. Charts should have patterns, not just colors.
+Don't rely on imagery alone to convey critical information. Icons for status should be accompanied by text. Charts should have patterns, not just colours.
 
 ## Try It Yourself
 
@@ -279,7 +279,7 @@ Design an empty state for "no search results":
   "options": [
     {
       "id": "a",
-      "text": "Use a high-contrast color so users can see it clearly",
+      "text": "Use a high-contrast colour so users can see it clearly",
       "isCorrect": false,
       "explanation": "Contrast helps visual users but doesn't help screen reader users who can't see the icon."
     },
@@ -297,7 +297,7 @@ Design an empty state for "no search results":
     },
     {
       "id": "d",
-      "text": "The × symbol is universally understood, so no additional labeling is needed",
+      "text": "The × symbol is universally understood, so no additional labelling is needed",
       "isCorrect": false,
       "explanation": "Screen readers need text labels. They can't interpret visual symbols."
     }

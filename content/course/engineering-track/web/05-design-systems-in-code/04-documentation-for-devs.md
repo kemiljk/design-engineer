@@ -104,7 +104,7 @@ export const AllVariants = () => (
 ### ✅ Do
 - Use primary buttons for main actions
 - Include clear action text
-- Ensure sufficient color contrast
+- Ensure sufficient colour contrast
 
 ### ❌ Don't
 - Use multiple primary buttons together

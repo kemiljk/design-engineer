@@ -108,7 +108,7 @@ Both might look the same with CSS, but semantic HTML:
 - Improves accessibility (screen readers understand the structure)
 - Helps search engines understand content
 - Makes code more readable
-- Provides default behaviors (forms, links)
+- Provides default behaviours (forms, links)
 
 ## Why Semantic HTML Matters for Design Engineers
 
@@ -118,7 +118,7 @@ This works visually, but fails in important ways:
 
 ### Accessibility
 
-Screen readers announce: "Navigation landmark" for `<nav>`, but nothing meaningful for `<div class="nav">`. Users who can't see your design rely on semantic structure.
+Screen readers announce "Navigation landmark" for `<nav>`, but nothing meaningful for `<div class="nav">`. Users who can't see your design rely on semantic structure.
 
 ### SEO
 
@@ -128,9 +128,9 @@ Search engines use semantic HTML to understand content. A `<main>` element tells
 
 Semantic HTML is self-documenting. `<article>` clearly means "this is an article." `<div class="item-thing-wrapper">` doesn't.
 
-### Default Behaviors
+### Default Behaviours
 
-Semantic elements come with built-in behaviors:
+Semantic elements come with built-in behaviours:
 - `<button>` is keyboard accessible by default
 - `<a>` provides navigation
 - `<form>` handles submission
@@ -193,7 +193,7 @@ Understanding HTML helps you design more implementable interfaces and catch issu
 
 ### Exercise 1: View Source
 
-Pick three websites you admire. Right-click and "View Page Source" or use browser dev tools:
+Pick three websites you admire. Right-click and select "View Page Source" or use browser dev tools:
 1. What elements do you see?
 2. Is the HTML semantic or mostly `<div>` soup?
 3. Can you identify the structure?
