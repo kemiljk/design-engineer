@@ -104,7 +104,7 @@ function SwipeCard() {
           >
             {/* Card Content */}
             <div className="h-full overflow-hidden rounded-[20px]">
-              <div className="h-3/5 w-full bg-gradient-to-br from-indigo-500 to-purple-600">
+              <div className="h-3/5 w-full bg-linear-to-br from-indigo-500 to-purple-600">
                 <div className="flex h-full items-center justify-center">
                   <span className="text-6xl">🏔️</span>
                 </div>
