@@ -26,6 +26,9 @@ import {
   Layers,
   Palette,
   Pointer,
+  Tags,
+  SquareStack,
+  Combine,
 } from "lucide-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
@@ -214,6 +217,13 @@ function FAQSection() {
 
 const featuredTools = [
   {
+    icon: Code2,
+    title: "Framework Converter",
+    description: "Convert components between React, Vue, Svelte, Astro & Solid",
+    href: "/tools/framework-converter",
+    category: "Code",
+  },
+  {
     icon: Activity,
     title: "Spring Physics",
     description:
@@ -222,34 +232,12 @@ const featuredTools = [
     category: "Animation",
   },
   {
-    icon: Spline,
-    title: "Easing Generator",
-    description: "Design custom cubic-bezier curves with interactive controls",
-    href: "/tools/easing-generator",
-    category: "Animation",
-  },
-  {
-    icon: Blend,
-    title: "Gradient Generator",
-    description: "Create linear, radial & conic gradients for web and mobile",
-    href: "/tools/gradient-generator",
-    category: "Visual",
-  },
-  {
-    icon: Layers,
-    title: "Shadow Generator",
+    icon: Tags,
+    title: "Token Naming",
     description:
-      "Design shadows with export for CSS, Tailwind, SwiftUI & React Native",
-    href: "/tools/shadow-generator",
-    category: "Visual",
-  },
-  {
-    icon: Palette,
-    title: "Colour Converter",
-    description:
-      "Convert between HEX, RGB, HSL, OKLCH and native mobile formats",
-    href: "/tools/colour-converter",
-    category: "Visual",
+      "Build consistent semantic token names with auto-generated variants",
+    href: "/tools/token-naming",
+    category: "Systems",
   },
   {
     icon: TypeIcon,
@@ -260,19 +248,34 @@ const featuredTools = [
     category: "Systems",
   },
   {
+    icon: SquareStack,
+    title: "Corner Radius Calculator",
+    description:
+      "Calculate harmonious nested corner radii for optically perfect components",
+    href: "/tools/corner-radius",
+    category: "Visual",
+  },
+  {
+    icon: Combine,
+    title: "Blend Mode Explorer",
+    description: "Learn how blend modes work and experiment with stacking effects",
+    href: "/tools/blend-mode-explorer",
+    category: "Visual",
+  },
+  {
+    icon: Spline,
+    title: "Easing Generator",
+    description: "Design custom cubic-bezier curves with interactive controls",
+    href: "/tools/easing-generator",
+    category: "Animation",
+  },
+  {
     icon: Pointer,
     title: "Touch Targets",
     description:
       "Validate accessibility against iOS, Android & WCAG guidelines",
     href: "/tools/touch-target",
     category: "Mobile",
-  },
-  {
-    icon: Code2,
-    title: "Framework Converter",
-    description: "Convert components between React, Vue, Svelte, Astro & Solid",
-    href: "/tools/framework-converter",
-    category: "Code",
   },
 ];
 
