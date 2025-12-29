@@ -42,6 +42,10 @@ Animation directs focus:
 
 <!-- visual-example: motion-attention-demo -->
 
+Subtle, continuous motion can also draw attention to key elements without being disruptive—like an animated border that highlights a call-to-action:
+
+<!-- visual-example: border-beam-demo -->
+
 ### Creating Continuity
 
 Motion smooths jarring changes:
