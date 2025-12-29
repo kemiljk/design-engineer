@@ -99,11 +99,11 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
           if (typeof child.props?.className === "string" && child.props.className.includes("language-")) return true;
           return false;
         }
-      ) as React.ReactElement | undefined;
+      ) as React.ReactElement<{ className?: string; children?: React.ReactNode }> | undefined;
 
       // If not found, check if children itself is a code element
       if (!codeElement && childrenArray.length === 1 && (childrenArray[0] as any)?.type === "code") {
-        codeElement = childrenArray[0] as React.ReactElement;
+        codeElement = childrenArray[0] as React.ReactElement<{ className?: string; children?: React.ReactNode }>;
       }
 
       if (codeElement?.props) {
