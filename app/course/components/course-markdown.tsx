@@ -585,7 +585,7 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
     pre: ({ children }: any) => {
       // react-markdown wraps code blocks in <pre><code>
       // Handle both direct code element and nested structure
-      let codeElement: React.ReactElement | undefined;
+      let codeElement: React.ReactElement<{ className?: string; children?: React.ReactNode }> | undefined;
       
       const childrenArray = React.Children.toArray(children);
       
@@ -599,19 +599,20 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
           if (typeof child.props?.className === "string" && child.props.className.includes("language-")) return true;
           return false;
         }
-      ) as React.ReactElement | undefined;
+      ) as React.ReactElement<{ className?: string; children?: React.ReactNode }> | undefined;
 
       // If not found, check if children itself is a code element
       if (!codeElement && childrenArray.length === 1 && (childrenArray[0] as any)?.type === "code") {
-        codeElement = childrenArray[0] as React.ReactElement;
+        codeElement = childrenArray[0] as React.ReactElement<{ className?: string; children?: React.ReactNode }>;
       }
 
       if (codeElement?.props) {
-        const className = String(codeElement.props.className || "");
+        const props = codeElement.props as { className?: string; children?: React.ReactNode };
+        const className = String(props.className || "");
         const match = /language-(\w+)/.exec(className);
         
         // Extract code content
-        const code = extractCodeContent(codeElement.props.children).replace(/\n$/, "");
+        const code = extractCodeContent(props.children).replace(/\n$/, "");
 
         if (code) {
           return (
