@@ -72,8 +72,8 @@ const SyntaxHighlighter = ({
         </div>
       </ScrollContainer>
       {showCopyButton && (
-        <div className="absolute right-0 top-0 p-2">
-          <CopyButton text={code} />
+        <div className="absolute right-0 top-0">
+          <CopyButton text={code} className="rounded-none" />
         </div>
       )}
     </div>
