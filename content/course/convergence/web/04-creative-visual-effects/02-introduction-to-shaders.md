@@ -20,16 +20,16 @@ Think of it this way:
 
 **Shader approach:** "Here's the formula. All 2 million pixels, calculate your colour *now*."
 
-This parallelism is why shaders can create complex, per-pixel effects at 60 frames per second.
+This parallelism is why shaders create complex, per-pixel effects at 60fps.
 
 ## The Two Types of Shaders
 
 ### Vertex Shaders
 
-Vertex shaders process the *geometry*—the points that define shapes. For UI work, you'll rarely write custom vertex shaders. We usually just need a simple quad (rectangle) that covers our canvas.
+Vertex shaders process the *geometry*—the points that define shapes. For UI work, you'll rarely write custom vertex shaders. We usually need only a simple quad (rectangle) covering our canvas.
 
 ```glsl
-// A minimal vertex shader - you'll often use this exact code
+// A minimal vertex shader—you'll often use this exact code
 attribute vec2 position;
 
 void main() {
@@ -58,8 +58,8 @@ Shaders are written in GLSL (OpenGL Shading Language). It looks similar to C:
 // Variables have types
 float brightness = 0.5;
 vec2 position = vec2(0.5, 0.5);
-vec3 color = vec3(1.0, 0.0, 0.0);  // RGB
-vec4 colorWithAlpha = vec4(1.0, 0.0, 0.0, 1.0);  // RGBA
+vec3 colour = vec3(1.0, 0.0, 0.0);  // RGB
+vec4 colourWithAlpha = vec4(1.0, 0.0, 0.0, 1.0);  // RGBA
 
 // Functions work as expected
 float square(float x) {
@@ -87,16 +87,16 @@ float clamped = clamp(value, 0.0, 1.0);
 GLSL lets you access vector components flexibly:
 
 ```glsl
-vec4 color = vec4(1.0, 0.5, 0.25, 1.0);
+vec4 colour = vec4(1.0, 0.5, 0.25, 1.0);
 
-color.r  // 1.0 (red)
-color.g  // 0.5 (green)
-color.b  // 0.25 (blue)
-color.a  // 1.0 (alpha)
+colour.r  // 1.0 (red)
+colour.g  // 0.5 (green)
+colour.b  // 0.25 (blue)
+colour.a  // 1.0 (alpha)
 
-color.rgb  // vec3(1.0, 0.5, 0.25)
-color.xy   // vec2(1.0, 0.5)
-color.bgr  // vec3(0.25, 0.5, 1.0) - reordered!
+colour.rgb  // vec3(1.0, 0.5, 0.25)
+colour.xy   // vec2(1.0, 0.5)
+colour.bgr  // vec3(0.25, 0.5, 1.0) - reordered!
 ```
 
 ## Communicating with Shaders
@@ -166,7 +166,7 @@ void main() {
 }
 ```
 
-**Key insight:** You don't control *which* pixel you're calculating. You write a formula that works for any pixel, given its coordinates.
+**Key insight:** You don't control *which* pixel you're calculating—you write a formula that works for any pixel, given its coordinates.
 
 ## Your First Shader
 

@@ -48,9 +48,8 @@ But CSS cannot:
   50% { background: linear-gradient(45deg, #4ecdc4, #ff6b6b); }
 }
 
-/* But it can't create organic flowing noise,
-   per-pixel distortion, or mathematically 
-   precise generative patterns */
+/* But it can't create organic flowing noise, per-pixel distortion, 
+   or mathematically precise generative patterns */
 ```
 
 ## The GPU Difference
@@ -86,7 +85,7 @@ The animated backgrounds on Vercel's marketing pages use shaders to create depth
 
 ### Good Use Cases
 
-- **Hero sections** — First impressions matter; a shader background sets a premium tone
+- **Hero sections** — First impressions matter; shader backgrounds set a premium tone
 - **Loading states** — Unique, branded loading animations
 - **Interactive backgrounds** — Mouse-following effects, scroll-reactive visuals
 - **Image effects** — Hover distortions, colour manipulation, blur effects
