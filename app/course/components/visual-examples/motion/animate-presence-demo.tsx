@@ -119,7 +119,7 @@ function TodoList() {
               <button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="absolute top-2 right-2 rounded-[8px] bg-white p-1 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
+                className="absolute top-1/2 right-2 -translate-y-1/2 flex items-center justify-center rounded-[8px] bg-white p-1.5 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
               >
                 <Plus className="size-5" />
               </button>
