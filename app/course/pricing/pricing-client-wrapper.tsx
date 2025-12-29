@@ -1,11 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
 import { Sparkles } from "lucide-react";
-import { CurrencySelector } from "./currency-selector";
-import { PricingCard, PlatformTierCard, BundleCard } from "./pricing-card";
+import { PlatformTierCard, BundleCard } from "./pricing-card";
 import type { ProductWithPrice } from "@/lib/types";
-import type { SupportedCurrency } from "@/lib/currency";
 
 interface PricingClientWrapperProps {
   bundleTiers: ProductWithPrice[];
@@ -17,27 +14,13 @@ interface PricingClientWrapperProps {
   individualTrackTotal: number;
 }
 
-function formatPrice(amount: number, currency: SupportedCurrency): string {
-  const noDecimalCurrencies = ["JPY"];
-  const minimumFractionDigits = noDecimalCurrencies.includes(currency) ? 0 : 0;
-  const maximumFractionDigits = noDecimalCurrencies.includes(currency) ? 0 : 0;
-  
-  // Round to sensible price points
-  let roundedAmount = amount;
-  if (currency === "JPY") {
-    roundedAmount = Math.round(amount / 100) * 100;
-  } else if (currency === "INR") {
-    roundedAmount = Math.round(amount / 10) * 10;
-  } else {
-    roundedAmount = Math.round(amount);
-  }
-  
+function formatGBP(amount: number): string {
   return new Intl.NumberFormat("en-GB", {
     style: "currency",
-    currency,
-    minimumFractionDigits,
-    maximumFractionDigits,
-  }).format(roundedAmount);
+    currency: "GBP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(Math.round(amount));
 }
 
 export function PricingClientWrapper({
@@ -49,38 +32,13 @@ export function PricingClientWrapper({
   convergenceSavingsPercent,
   individualTrackTotal,
 }: PricingClientWrapperProps) {
-  const [selectedCurrency, setSelectedCurrency] = useState<SupportedCurrency>("GBP");
-  const [exchangeRates, setExchangeRates] = useState<Record<string, number>>({ GBP: 1 });
-
-  const handleCurrencyChange = useCallback((currency: SupportedCurrency, rates: Record<string, number>) => {
-    setSelectedCurrency(currency);
-    setExchangeRates(rates);
-  }, []);
-
-  const convertAmount = (gbpAmount: number): number => {
-    const rate = exchangeRates[selectedCurrency] || 1;
-    return gbpAmount * rate;
-  };
-
-  const getConvertedPrice = (gbpAmount: number): string => {
-    return formatPrice(convertAmount(gbpAmount), selectedCurrency);
-  };
-
   const fullProduct = bundleTiers.find(p => p.key === "full");
 
   return (
     <>
-      {/* Currency Selector */}
-      <div className="mb-8 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-sm text-neutral-500">
-          <span>Prices shown in:</span>
-        </div>
-        <CurrencySelector onCurrencyChange={handleCurrencyChange} />
-      </div>
-
       {/* Value Comparison Banner */}
       {convergenceSavings > 0 && fullProduct && (
-        <div className="mb-12 rounded-none border-2 border-swiss-red bg-swiss-red/5 p-8 dark:bg-swiss-red/10">
+        <div className="mb-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 dark:bg-swiss-red/5">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-swiss-red bg-white px-4 py-2 text-sm font-bold text-swiss-red dark:bg-neutral-900">
               <Sparkles className="h-4 w-4" />
@@ -97,7 +55,7 @@ export function PricingClientWrapper({
               <div className="rounded-none border border-neutral-300 bg-white p-6 dark:border-neutral-700 dark:bg-neutral-900">
                 <p className="mb-2 text-sm font-medium text-neutral-500">Individual Tracks Total</p>
                 <p className="mb-1 text-3xl font-bold line-through opacity-50">
-                  {getConvertedPrice(individualTrackTotal)}
+                  {formatGBP(individualTrackTotal)}
                 </p>
                 <p className="text-xs text-neutral-500">
                   Buying all 6 platform tracks separately
@@ -106,10 +64,10 @@ export function PricingClientWrapper({
               <div className="rounded-none border-2 border-swiss-red bg-white p-6 dark:bg-neutral-900">
                 <p className="mb-2 text-sm font-medium text-swiss-red">Convergence All-Access Price</p>
                 <p className="mb-1 text-3xl font-bold text-swiss-red">
-                  {getConvertedPrice(fullProduct.price)}
+                  {fullProduct.formattedPrice}
                 </p>
                 <p className="text-xs font-bold text-green-600 dark:text-green-400">
-                  SAVE {convergenceSavingsPercent}% ({getConvertedPrice(convergenceSavings)})
+                  SAVE {convergenceSavingsPercent}% ({formatGBP(convergenceSavings)})
                 </p>
               </div>
             </div>
@@ -132,8 +90,6 @@ export function PricingClientWrapper({
               product={product}
               currentAccess={currentAccess}
               userId={userId}
-              convertedPrice={getConvertedPrice(product.price)}
-              currency={selectedCurrency}
             />
           ))}
         </div>
@@ -157,8 +113,6 @@ export function PricingClientWrapper({
                 product={product}
                 currentAccess={currentAccess}
                 userId={userId}
-                convertedPrice={getConvertedPrice(product.price)}
-                currency={selectedCurrency}
               />
             ))}
           </div>

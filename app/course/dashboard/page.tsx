@@ -336,7 +336,7 @@ export default async function DashboardPage() {
               {certificates.map((cert) => (
                 <div
                   key={cert.id}
-                  className="flex items-center gap-3 border border-swiss-red/20 bg-swiss-red/5 p-4 dark:border-swiss-red/30 dark:bg-swiss-red/10"
+                  className="flex items-center gap-3 border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5"
                 >
                   <Award className="h-8 w-8 text-swiss-red" />
                   <div>

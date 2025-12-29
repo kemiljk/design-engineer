@@ -158,7 +158,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
 
         {/* CTA for non-enrolled users */}
         {!isEnrolled && (
-          <section className="mt-12 rounded-none border-2 border-swiss-red bg-swiss-red/5 p-8 text-center dark:bg-swiss-red/10">
+          <section className="mt-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 text-center dark:bg-swiss-red/5">
             <Sparkles className="mx-auto h-8 w-8 text-swiss-red" />
             <h2 className="mt-4 text-xl font-bold">Create Your Own Capstone</h2>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">

@@ -473,7 +473,7 @@ fun HarmoniousCard(
               
               {/* Show optical offset details when in optical mode */}
               {mode === "optical" && suggestedOffset > 0 && (
-                <div className="mt-3 rounded-md bg-swiss-red/5 p-3 dark:bg-swiss-red/10">
+                <div className="mt-3 rounded-md bg-swiss-red/[0.025] p-3 dark:bg-swiss-red/5">
                   <p className="text-xs font-medium text-swiss-red">
                     Optical correction: −{suggestedOffset}px
                   </p>
@@ -775,7 +775,7 @@ fun HarmoniousCard(
       </div>
 
       {/* Why Optical Offset */}
-      <div className="rounded-xl border border-swiss-red/20 bg-swiss-red/5 p-4 dark:border-swiss-red/30 dark:bg-swiss-red/10 sm:p-6">
+      <div className="rounded-xl border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5 sm:p-6">
         <div className="flex items-start gap-3">
           <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-swiss-red" />
           <div>

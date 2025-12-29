@@ -4,17 +4,14 @@ import { useState } from "react";
 import { Check, Star, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ProductWithPrice } from "@/lib/types";
-import type { SupportedCurrency } from "@/lib/currency";
 
 interface PricingCardProps {
   product: ProductWithPrice;
   currentAccess: string | null;
   userId: string | null;
-  convertedPrice?: string;
-  currency?: SupportedCurrency;
 }
 
-export function PricingCard({ product, currentAccess, userId, convertedPrice, currency }: PricingCardProps) {
+export function PricingCard({ product, currentAccess, userId }: PricingCardProps) {
   const [isLoading, setIsLoading] = useState(false);
   const isOwned = currentAccess === product.key || currentAccess === "full";
   
@@ -47,9 +44,6 @@ export function PricingCard({ product, currentAccess, userId, convertedPrice, cu
     }
   };
 
-  const displayPrice = convertedPrice || product.formattedPrice;
-  const showOriginalPrice = currency && currency !== "GBP" && convertedPrice;
-
   return (
     <div
       className={cn(
@@ -76,12 +70,7 @@ export function PricingCard({ product, currentAccess, userId, convertedPrice, cu
       </div>
 
       <div className="mb-6">
-        <span className="text-4xl font-bold">{displayPrice}</span>
-        {showOriginalPrice && (
-          <span className="ml-2 text-sm text-neutral-400">
-            ({product.formattedPrice})
-          </span>
-        )}
+        <span className="text-4xl font-bold">{product.formattedPrice}</span>
       </div>
 
       <ul className="mb-6 flex-1 space-y-3">
@@ -125,11 +114,9 @@ interface BundleCardProps {
   product: ProductWithPrice;
   currentAccess: string | null;
   userId: string | null;
-  convertedPrice?: string;
-  currency?: SupportedCurrency;
 }
 
-export function BundleCard({ product, currentAccess, userId, convertedPrice, currency }: BundleCardProps) {
+export function BundleCard({ product, currentAccess, userId }: BundleCardProps) {
   const [isLoading, setIsLoading] = useState(false);
   
   // Check if user has this or higher access
@@ -166,8 +153,6 @@ export function BundleCard({ product, currentAccess, userId, convertedPrice, cur
     }
   };
 
-  const displayPrice = convertedPrice || product.formattedPrice;
-  const showOriginalPrice = currency && currency !== "GBP" && convertedPrice;
   const isConvergence = product.key === "full";
 
   return (
@@ -194,7 +179,7 @@ export function BundleCard({ product, currentAccess, userId, convertedPrice, cur
           {product.description}
         </p>
         {isConvergence && (
-          <div className="mt-3 rounded-none border border-swiss-red/30 bg-swiss-red/5 px-3 py-2 text-xs font-medium text-swiss-red">
+          <div className="mt-3 rounded-none border border-swiss-red/30 bg-swiss-red/[0.025] px-3 py-2 text-xs font-medium text-swiss-red">
             ✨ Includes exclusive Convergence content not available elsewhere
           </div>
         )}
@@ -205,13 +190,8 @@ export function BundleCard({ product, currentAccess, userId, convertedPrice, cur
           "text-4xl font-bold",
           isConvergence && "text-swiss-red"
         )}>
-          {displayPrice}
+          {product.formattedPrice}
         </span>
-        {showOriginalPrice && (
-          <span className="ml-2 text-sm text-neutral-400">
-            ({product.formattedPrice})
-          </span>
-        )}
         <p className="mt-1 text-xs text-neutral-500">One-time payment · Lifetime access</p>
       </div>
 
@@ -259,11 +239,9 @@ interface PlatformTierCardProps {
   product: ProductWithPrice;
   currentAccess: string | null;
   userId: string | null;
-  convertedPrice?: string;
-  currency?: SupportedCurrency;
 }
 
-export function PlatformTierCard({ product, currentAccess, userId, convertedPrice, currency }: PlatformTierCardProps) {
+export function PlatformTierCard({ product, currentAccess, userId }: PlatformTierCardProps) {
   const [isLoading, setIsLoading] = useState(false);
   
   // Check if user owns this specific track or a higher tier that includes it
@@ -301,9 +279,6 @@ export function PlatformTierCard({ product, currentAccess, userId, convertedPric
     }
   };
 
-  const displayPrice = convertedPrice || product.formattedPrice;
-  const showOriginalPrice = currency && currency !== "GBP" && convertedPrice;
-
   // Determine track type for styling
   const isDesign = product.key.startsWith("design_");
   const platform = product.key.includes("web") ? "Web" : product.key.includes("ios") ? "iOS" : "Android";
@@ -324,12 +299,7 @@ export function PlatformTierCard({ product, currentAccess, userId, convertedPric
       <h3 className="mb-1 font-bold">{product.name}</h3>
       <p className="mb-3 text-xs text-neutral-500">{product.description}</p>
       <div className="mb-4">
-        <span className="text-2xl font-bold">{displayPrice}</span>
-        {showOriginalPrice && (
-          <span className="ml-1 text-xs text-neutral-400">
-            ({product.formattedPrice})
-          </span>
-        )}
+        <span className="text-2xl font-bold">{product.formattedPrice}</span>
       </div>
       <button
         onClick={handlePurchase}
