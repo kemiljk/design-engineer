@@ -22,24 +22,24 @@ When stakeholders can interact with an idea, they understand it viscerally.
 ## Know Your Audience
 
 ### Engineers
-**Show:** Technical feasibility, architecture hints
-**Focus:** How it works under the hood
-**Skip:** Visual polish (they'll see past it anyway)
+- **Show:** Technical feasibility, architecture hints
+- **Focus:** How it works under the hood
+- **Skip:** Visual polish (they'll see past it anyway)
 
 ### Designers
-**Show:** Interactions, transitions, feel
-**Focus:** How the experience flows
-**Invite:** Collaboration on refinement
+- **Show:** Interactions, transitions, feel
+- **Focus:** How the experience flows
+- **Invite:** Collaboration on refinement
 
 ### Product Managers
-**Show:** User flows, feature scope
-**Focus:** What problems it solves
-**Highlight:** User research validation
+- **Show:** User flows, feature scope
+- **Focus:** What problems it solves
+- **Highlight:** User research validation
 
 ### Executives
-**Show:** The vision, the impact
-**Focus:** Business value, competitive advantage
-**Keep:** High-level, polished
+- **Show:** The vision, the impact
+- **Focus:** Business value, competitive advantage
+- **Keep:** High-level, polished
 
 ## Presenting Prototypes
 
