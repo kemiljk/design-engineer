@@ -48,7 +48,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
   const platforms = ["web", "ios", "android"] as const;
 
   return (
-    <div className="my-12 flex flex-col gap-4">
+    <div className="not-prose my-12 flex flex-col gap-4">
       {platforms.map((platform) => {
         // @ts-ignore - we know the structure matches
         const platformData = trackData[platform];
@@ -59,7 +59,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
           <Link
             key={platform}
             href={startLink}
-            className="group relative flex items-center gap-6 overflow-hidden border border-neutral-200 bg-white p-5 no-underline transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red"
+            className="group relative flex items-center gap-4 overflow-hidden border border-neutral-200 bg-white p-4 no-underline transition-colors hover:border-swiss-red sm:gap-6 sm:p-5 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red"
           >
             {/* Left accent border on hover - Swiss Red */}
             <div

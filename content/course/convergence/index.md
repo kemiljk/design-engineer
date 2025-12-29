@@ -1,5 +1,5 @@
 ---
-title: Convergence: All-Access Pass
+title: "Convergence: All-Access Pass"
 description: Complete course access - all Design, Engineering, and Convergence content across all platforms. Everything you need to become a Design Engineer.
 ---
 
