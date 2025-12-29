@@ -187,4 +187,4 @@ Add graceful error handling to an API call with retry capability.
 
 You've completed the Performance and Polish module!
 
-Continue to [Workflow and Portfolio: The DE Workflow](../05-workflow-and-portfolio/01-the-de-workflow.md) →
+Continue to [Workflow and Portfolio: The DE Workflow](../06-workflow-and-portfolio/01-the-de-workflow.md) →
