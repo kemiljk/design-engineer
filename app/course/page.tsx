@@ -66,6 +66,9 @@ export default async function CoursePage() {
     }
   }
 
+  // Check if user has any paid access (not free, not null)
+  const hasPaidAccess = accessLevel && accessLevel !== "free";
+
   const tracks = [
     {
       id: "design-track",
@@ -139,10 +142,12 @@ export default async function CoursePage() {
             <Clock className="h-4 w-4" />
             <span>{getEstimatedDuration(course.totalLessons)}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-swiss-red" />
-            <span>Free intro modules</span>
-          </div>
+          {!hasPaidAccess && (
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-swiss-red" />
+              <span>Free intro modules</span>
+            </div>
+          )}
         </div>
         <StudentCompanies />
       </PageHeader>
@@ -191,7 +196,7 @@ export default async function CoursePage() {
                   1
                 </div>
                 <h2 className="heading-subsection">Start Here</h2>
-                <Badge variant="success">Free</Badge>
+                {!hasPaidAccess && <Badge variant="success">Free</Badge>}
               </div>
 
               <Link

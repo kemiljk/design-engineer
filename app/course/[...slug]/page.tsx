@@ -357,7 +357,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
             {backLink.label}
           </Link>
 
-          {isFree && (
+          {isFree && (!enrollment || enrollment.metadata.access_level === "free") && (
             <span className="rounded-none bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
               Free Lesson
             </span>

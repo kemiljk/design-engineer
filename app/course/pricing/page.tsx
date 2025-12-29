@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
-import { ArrowLeft, Check, Sparkles } from "lucide-react";
-import { PricingCard, PlatformTierCard, BundleCard } from "./pricing-card";
+import { ArrowLeft, Check, Sparkles, PartyPopper } from "lucide-react";
 import { StudentDiscountForm } from "./student-discount-form";
 import { PricingClientWrapper } from "./pricing-client-wrapper";
 import { getUserEnrollment } from "@/lib/course";
@@ -27,6 +26,9 @@ export default async function PricingPage() {
     const enrollment = await getUserEnrollment(userId);
     currentAccess = enrollment?.metadata.access_level || null;
   }
+
+  // If user has full access, show a simple thank you page
+  const hasFullAccess = currentAccess === "full";
 
   const allProducts = await getProductsWithPrices();
   
@@ -62,75 +64,113 @@ export default async function PricingPage() {
           Back to Course
         </Link>
 
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
-            Invest in Your Future
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
-            Choose the path that fits your goals. All plans include lifetime access 
-            and a 14-day money-back guarantee.
-          </p>
-        </div>
-
-        {/* Current Access Banner */}
-        {currentAccess && currentAccess !== "free" && (
-          <div className="mb-8 rounded-none border border-green-200 bg-green-50 p-4 text-center dark:border-green-800 dark:bg-green-950/30">
-            <p className="text-green-800 dark:text-green-200">
-              <Check className="mr-2 inline h-4 w-4" />
-              You have <strong>{currentAccess === "full" ? "Convergence All-Access" : currentAccess.replace(/_/g, " ")}</strong>. 
-              Thank you for being a student!
+        {/* Full Access - Show thank you message instead of pricing */}
+        {hasFullAccess ? (
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+              <PartyPopper className="h-10 w-10 text-green-600 dark:text-green-400" />
+            </div>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+              You Have Full Access!
+            </h1>
+            <p className="mb-8 text-lg text-neutral-600 dark:text-neutral-400">
+              Thank you for being a Convergence student. You have access to everything—all 
+              tracks, all platforms, and all exclusive content. There&apos;s nothing more to buy!
             </p>
+            <div className="rounded-none border border-green-200 bg-green-50 p-6 dark:border-green-800 dark:bg-green-950/30">
+              <p className="text-green-800 dark:text-green-200">
+                <Check className="mr-2 inline h-5 w-5" />
+                <strong>Convergence: All-Access</strong> — Lifetime access to all current and future content
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <Link
+                href="/course"
+                className="inline-flex items-center justify-center gap-2 bg-swiss-red px-6 py-3 font-medium text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+              >
+                Continue Learning
+              </Link>
+              <Link
+                href="/course/dashboard"
+                className="inline-flex items-center justify-center gap-2 border border-neutral-300 bg-white px-6 py-3 font-medium transition-colors hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-swiss-red"
+              >
+                View Dashboard
+              </Link>
+            </div>
           </div>
+        ) : (
+          <>
+            {/* Header */}
+            <div className="mb-12 text-center">
+              <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+                Invest in Your Future
+              </h1>
+              <p className="mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
+                Choose the path that fits your goals. All plans include lifetime access 
+                and a 14-day money-back guarantee.
+              </p>
+            </div>
+
+            {/* Current Access Banner - for partial access */}
+            {currentAccess && currentAccess !== "free" && (
+              <div className="mb-8 rounded-none border border-green-200 bg-green-50 p-4 text-center dark:border-green-800 dark:bg-green-950/30">
+                <p className="text-green-800 dark:text-green-200">
+                  <Check className="mr-2 inline h-4 w-4" />
+                  You have <strong>{currentAccess.replace(/_/g, " ")}</strong>. 
+                  Upgrade below to unlock more content!
+                </p>
+              </div>
+            )}
+
+            {/* Client wrapper for pricing cards */}
+            <PricingClientWrapper
+              bundleTiers={bundleTiers}
+              platformTiers={platformTiers}
+              currentAccess={currentAccess}
+              userId={userId}
+              convergenceSavings={convergenceSavings}
+              convergenceSavingsPercent={convergenceSavingsPercent}
+              individualTrackTotal={individualTrackTotal}
+            />
+
+            {/* Student Discount Form */}
+            <div className="mb-8">
+              <StudentDiscountForm />
+            </div>
+
+            {/* Guarantee */}
+            <div className="rounded-none border border-neutral-200 bg-white p-8 text-center dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center bg-swiss-red/10">
+                <Sparkles className="h-6 w-6 text-swiss-red" />
+              </div>
+              <h2 className="mb-2 text-xl font-bold">14-Day Money-Back Guarantee</h2>
+              <p className="mx-auto max-w-xl text-neutral-600 dark:text-neutral-400">
+                Try the course risk-free. If you&apos;re not completely satisfied within 14 days 
+                of purchase, email us and we&apos;ll refund you in full—no questions asked.
+              </p>
+              <Link
+                href="/course/refund-policy"
+                className="mt-4 inline-block text-sm text-swiss-red hover:underline"
+              >
+                Read our refund policy →
+              </Link>
+            </div>
+
+            {/* FAQ Link */}
+            <div className="mt-12 text-center">
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Have questions?{" "}
+                <Link href="/course/faq" className="text-swiss-red hover:underline">
+                  Check our FAQ
+                </Link>{" "}
+                or{" "}
+                <a href="mailto:hello@designengineer.xyz" className="text-swiss-red hover:underline">
+                  contact us
+                </a>.
+              </p>
+            </div>
+          </>
         )}
-
-        {/* Client wrapper for currency selection */}
-        <PricingClientWrapper
-          bundleTiers={bundleTiers}
-          platformTiers={platformTiers}
-          currentAccess={currentAccess}
-          userId={userId}
-          convergenceSavings={convergenceSavings}
-          convergenceSavingsPercent={convergenceSavingsPercent}
-          individualTrackTotal={individualTrackTotal}
-        />
-
-        {/* Student Discount Form */}
-        <div className="mb-8">
-          <StudentDiscountForm />
-        </div>
-
-        {/* Guarantee */}
-        <div className="rounded-none border border-neutral-200 bg-white p-8 text-center dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center bg-swiss-red/10">
-            <Sparkles className="h-6 w-6 text-swiss-red" />
-          </div>
-          <h2 className="mb-2 text-xl font-bold">14-Day Money-Back Guarantee</h2>
-          <p className="mx-auto max-w-xl text-neutral-600 dark:text-neutral-400">
-            Try the course risk-free. If you&apos;re not completely satisfied within 14 days 
-            of purchase, email us and we&apos;ll refund you in full—no questions asked.
-          </p>
-          <Link
-            href="/course/refund-policy"
-            className="mt-4 inline-block text-sm text-swiss-red hover:underline"
-          >
-            Read our refund policy →
-          </Link>
-        </div>
-
-        {/* FAQ Link */}
-        <div className="mt-12 text-center">
-          <p className="text-neutral-600 dark:text-neutral-400">
-            Have questions?{" "}
-            <Link href="/course/faq" className="text-swiss-red hover:underline">
-              Check our FAQ
-            </Link>{" "}
-            or{" "}
-            <a href="mailto:hello@designengineer.xyz" className="text-swiss-red hover:underline">
-              contact us
-            </a>.
-          </p>
-        </div>
       </div>
     </main>
   );

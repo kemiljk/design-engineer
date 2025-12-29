@@ -30,8 +30,8 @@ export default async function CourseLayout({
 
   return (
     <>
-      {children}
       <PreviewModeBanner />
+      {children}
     </>
   );
 }

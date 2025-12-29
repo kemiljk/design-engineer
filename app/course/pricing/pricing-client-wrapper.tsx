@@ -23,6 +23,42 @@ function formatGBP(amount: number): string {
   }).format(Math.round(amount));
 }
 
+// Check if user already owns a specific product based on their access level
+function isProductOwned(productKey: string, currentAccess: string | null): boolean {
+  if (!currentAccess || currentAccess === "free") return false;
+  if (currentAccess === "full") return true;
+  
+  // Direct match
+  if (currentAccess === productKey) return true;
+  
+  // If user has design_full, they own all design_* products
+  if (currentAccess === "design_full" && productKey.startsWith("design_")) return true;
+  
+  // If user has engineering_full, they own all engineering_* products
+  if (currentAccess === "engineering_full" && productKey.startsWith("engineering_")) return true;
+  
+  return false;
+}
+
+// Check if a bundle would be a meaningful upgrade
+function isBundleRelevant(bundleKey: string, currentAccess: string | null): boolean {
+  if (!currentAccess || currentAccess === "free") return true;
+  if (currentAccess === "full") return false;
+  
+  // If user has design_full, don't show design_full again, but show engineering_full and full
+  if (currentAccess === "design_full") {
+    return bundleKey === "engineering_full" || bundleKey === "full";
+  }
+  
+  // If user has engineering_full, don't show engineering_full again, but show design_full and full
+  if (currentAccess === "engineering_full") {
+    return bundleKey === "design_full" || bundleKey === "full";
+  }
+  
+  // If user has a single platform track (e.g., design_web), show all bundles
+  return true;
+}
+
 export function PricingClientWrapper({
   bundleTiers,
   platformTiers,
@@ -33,11 +69,23 @@ export function PricingClientWrapper({
   individualTrackTotal,
 }: PricingClientWrapperProps) {
   const fullProduct = bundleTiers.find(p => p.key === "full");
+  
+  // Filter bundles to only show relevant upsells
+  const relevantBundles = bundleTiers.filter(p => isBundleRelevant(p.key, currentAccess));
+  
+  // Filter platform tiers to only show ones user doesn't own
+  const availablePlatformTiers = platformTiers.filter(p => !isProductOwned(p.key, currentAccess));
+  
+  // Check if user has any paid access (for messaging)
+  const hasPartialAccess = currentAccess && currentAccess !== "free" && currentAccess !== "full";
+  
+  // Don't show value comparison banner if user already has significant access
+  const showValueBanner = convergenceSavings > 0 && fullProduct && !hasPartialAccess;
 
   return (
     <>
-      {/* Value Comparison Banner */}
-      {convergenceSavings > 0 && fullProduct && (
+      {/* Value Comparison Banner - only for new users */}
+      {showValueBanner && (
         <div className="mb-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 dark:bg-swiss-red/5">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-swiss-red bg-white px-4 py-2 text-sm font-bold text-swiss-red dark:bg-neutral-900">
@@ -78,36 +126,41 @@ export function PricingClientWrapper({
         </div>
       )}
 
-      {/* Bundle Pricing Cards (Design Full, Engineering Full, Convergence) */}
-      <div className="mb-8">
-        <h2 className="mb-6 text-center text-xl font-bold">
-          Recommended: Full Track Access
-        </h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {bundleTiers.map((product) => (
-            <BundleCard
-              key={product.key}
-              product={product}
-              currentAccess={currentAccess}
-              userId={userId}
-            />
-          ))}
+      {/* Bundle Pricing Cards - filtered to relevant upsells */}
+      {relevantBundles.length > 0 && (
+        <div className="mb-8">
+          <h2 className="mb-6 text-center text-xl font-bold">
+            {hasPartialAccess ? "Upgrade Your Access" : "Recommended: Full Track Access"}
+          </h2>
+          <div className={`grid gap-8 ${relevantBundles.length === 1 ? "max-w-md mx-auto" : relevantBundles.length === 2 ? "md:grid-cols-2 max-w-3xl mx-auto" : "md:grid-cols-3"}`}>
+            {relevantBundles.map((product) => (
+              <BundleCard
+                key={product.key}
+                product={product}
+                currentAccess={currentAccess}
+                userId={userId}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Individual Platform Tracks */}
-      {platformTiers.length > 0 && (
+      {/* Individual Platform Tracks - only show tracks user doesn't own */}
+      {availablePlatformTiers.length > 0 && (
         <div className="mb-16 mt-16">
           <div className="mb-6 text-center">
             <h2 className="text-xl font-bold">
-              Or choose a single platform
+              {hasPartialAccess ? "Or add individual platforms" : "Or choose a single platform"}
             </h2>
             <p className="mt-2 text-sm text-neutral-500">
-              Focus on one platform if you know exactly what you need
+              {hasPartialAccess 
+                ? "Expand your access with additional platform tracks"
+                : "Focus on one platform if you know exactly what you need"
+              }
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {platformTiers.map((product) => (
+          <div className={`grid gap-4 ${availablePlatformTiers.length <= 2 ? "sm:grid-cols-2 max-w-2xl mx-auto" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
+            {availablePlatformTiers.map((product) => (
               <PlatformTierCard
                 key={product.key}
                 product={product}
