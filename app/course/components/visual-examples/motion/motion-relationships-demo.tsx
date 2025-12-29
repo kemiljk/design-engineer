@@ -88,7 +88,7 @@ function ContextMenu({ isOpen, origin }) {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="flex h-80 items-center justify-center bg-neutral-100 dark:bg-neutral-900/50">
+        <div className="flex h-80 items-start justify-center bg-neutral-100 pt-6 dark:bg-neutral-900/50">
           <div className="relative">
             <button
               onClick={() => setIsOpen(!isOpen)}

@@ -13,3 +13,6 @@ test-results/
 
 # Generated audit files
 audit-results.json
+
+# Debug pages (local development only)
+app/debug-demos/

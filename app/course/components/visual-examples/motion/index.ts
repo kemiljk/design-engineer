@@ -31,6 +31,7 @@ export { MotionAttentionDemo } from "./motion-attention-demo";
 export { MotionContinuityDemo } from "./motion-continuity-demo";
 
 // Lesson 2: Principles of UI Animation
+export { BorderBeamDemo } from "./border-beam-demo";
 export { EasingPlaygroundDemo } from "./easing-playground-demo";
 export { TimingComparisonDemo } from "./timing-comparison-demo";
 export { StaggerChoreographyDemo } from "./stagger-choreography-demo";

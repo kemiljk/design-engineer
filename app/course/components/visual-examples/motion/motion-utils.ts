@@ -1,5 +1,8 @@
 import type { Transition, Variant } from "motion/react";
 
+// Export design tokens for examples
+export * from "./example-design-tokens";
+
 // Common easing presets matching the course content
 export const easings = {
   // CSS standard easings

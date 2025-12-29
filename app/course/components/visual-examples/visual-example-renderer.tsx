@@ -37,6 +37,7 @@ import {
   MotionAttentionDemo,
   MotionContinuityDemo,
   // Lesson 2: Principles of UI Animation
+  BorderBeamDemo,
   EasingPlaygroundDemo,
   TimingComparisonDemo,
   StaggerChoreographyDemo,
@@ -120,6 +121,7 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "motion-continuity-demo": MotionContinuityDemo,
   
   // Motion - Lesson 2: Principles of UI Animation
+  "border-beam-demo": BorderBeamDemo,
   "easing-playground-demo": EasingPlaygroundDemo,
   "timing-comparison-demo": TimingComparisonDemo,
   "stagger-choreography-demo": StaggerChoreographyDemo,
