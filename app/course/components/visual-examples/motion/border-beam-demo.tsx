@@ -8,35 +8,70 @@ import { ExampleWrapper, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
 interface BorderBeamProps {
+  /**
+   * The size of the border beam.
+   */
   size?: number;
+  /**
+   * The duration of the border beam.
+   */
   duration?: number;
+  /**
+   * The delay of the border beam.
+   */
   delay?: number;
+  /**
+   * The color of the border beam from.
+   */
   colorFrom?: string;
+  /**
+   * The color of the border beam to.
+   */
   colorTo?: string;
+  /**
+   * The motion transition of the border beam.
+   */
   transition?: Transition;
+  /**
+   * The class name of the border beam.
+   */
   className?: string;
+  /**
+   * The style of the border beam.
+   */
   style?: React.CSSProperties;
+  /**
+   * Whether to reverse the animation direction.
+   */
   reverse?: boolean;
+  /**
+   * The initial offset position (0-100).
+   */
   initialOffset?: number;
+  /**
+   * The border width of the beam.
+   */
   borderWidth?: number;
 }
 
 function BorderBeam({
   className,
-  size = 200,
+  size = 50,
   delay = 0,
-  duration = 15,
+  duration = 6,
   colorFrom = "#ffaa40",
   colorTo = "#9c40ff",
   transition,
   style,
   reverse = false,
   initialOffset = 0,
-  borderWidth = 1.5,
+  borderWidth = 1,
 }: BorderBeamProps) {
+  const anchorSize = size * 1.5;
+
   return (
     <div
-      className="pointer-events-none absolute inset-0 rounded-[inherit] [border-width:var(--border-beam-width)] border-transparent [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)] [mask-composite:intersect] [mask-clip:padding-box,border-box]"
+      className="pointer-events-none absolute inset-0 rounded-[inherit] border-(length:--border-beam-width) border-transparent mask-[linear-gradient(transparent,transparent),linear-gradient(#000,#000)] mask-intersect [mask-clip:padding-box,border-box]"
       style={
         {
           "--border-beam-width": `${borderWidth}px`,
@@ -44,16 +79,13 @@ function BorderBeam({
       }
     >
       <motion.div
-        className={cn(
-          "absolute aspect-square bg-gradient-to-l from-[var(--color-from)] via-[var(--color-to)] to-transparent",
-          className,
-        )}
+        className={cn("absolute aspect-square", className)}
+        // Gradient fades to transparent on both ends for soft appearance
         style={
           {
-            width: size,
-            offsetPath: `rect(0 auto auto 0 round ${size}px)`,
-            "--color-from": colorFrom,
-            "--color-to": colorTo,
+            width: anchorSize,
+            offsetPath: `rect(0 auto auto 0 round ${anchorSize}px)`,
+            background: `linear-gradient(to left, transparent, ${colorFrom}, ${colorTo}, transparent)`,
             ...style,
           } as MotionStyle
         }
@@ -78,14 +110,18 @@ function BorderBeam({
 function BorderBeamCard({
   duration,
   label,
+  size = 200,
+  borderWidth = 1.5,
 }: {
   duration: number;
   label: string;
+  size?: number;
+  borderWidth?: number;
 }) {
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="relative flex h-[200px] w-[200px] items-center justify-center overflow-hidden rounded-3xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-        <BorderBeam size={200} duration={duration} borderWidth={1.5} />
+        <BorderBeam size={size} duration={duration} borderWidth={borderWidth} />
         <div className="relative z-10 flex flex-col items-center gap-3">
           <div className="rounded-2xl bg-neutral-50 p-4 dark:bg-neutral-800">
             <Zap className="h-8 w-8 text-neutral-400" />
@@ -225,9 +261,14 @@ function BorderBeam({ duration = ${speed} }) {
       <div className="space-y-8">
         {/* Demo cards */}
         <div className="flex flex-wrap items-center justify-center gap-12">
-          <BorderBeamCard duration={30} label="Slow" />
-          <BorderBeamCard duration={speed} label="Custom" />
-          <BorderBeamCard duration={8} label="Fast" />
+          <BorderBeamCard duration={30} label="Slow" size={200} />
+          <BorderBeamCard
+            duration={speed}
+            label="Custom"
+            size={200}
+            borderWidth={borderWidth}
+          />
+          <BorderBeamCard duration={8} label="Fast" size={200} />
         </div>
 
         {/* Info */}

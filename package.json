@@ -18,7 +18,8 @@
     "setup:student-discounts": "tsx scripts/setup-student-discounts.ts",
     "setup:gallery": "tsx scripts/setup-gallery-object-type.ts",
     "generate:og-images": "tsx scripts/generate-og-images.ts",
-    "assign:og-images": "tsx scripts/assign-og-images.ts"
+    "assign:og-images": "tsx scripts/assign-og-images.ts",
+    "capture:gifs": "tsx scripts/capture-example-gifs.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.1",
