@@ -142,13 +142,12 @@ function EmailSignupCard({
           <div className="relative flex-1">
             <Mail className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-neutral-400" />
             <input
-              type="email"
-              placeholder="you@example.com"
-              className="h-10 w-full rounded-lg border border-neutral-200 bg-neutral-50 pr-4 pl-10 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:focus:border-neutral-600"
-              readOnly
-            />
+                type="email"
+                placeholder="you@example.com"
+                className="h-10 w-full rounded-lg border border-neutral-200 bg-neutral-50 pr-4 pl-10 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/20 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:focus:border-amber-400"
+              />
           </div>
-          <button className="flex h-10 items-center gap-1.5 rounded-lg bg-neutral-900 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100">
+          <button className="flex h-10 items-center gap-1.5 rounded-lg bg-neutral-900 px-4 text-sm font-medium text-white transition-all hover:bg-neutral-800 hover:scale-[1.02] active:scale-[0.98] dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100">
             Subscribe
             <ArrowRight className="h-3.5 w-3.5" />
           </button>

@@ -1,10 +1,10 @@
 {
   "border-beam": {
     "url": "/demos/border-beam.mp4",
-    "width": 1600,
-    "height": 1000,
-    "size": "257KB",
-    "duration": "5s",
-    "fps": 60
+    "width": 800,
+    "height": 500,
+    "size": "36KB",
+    "duration": "4s",
+    "fps": 30
   }
 }

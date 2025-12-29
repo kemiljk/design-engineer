@@ -1,20 +1,20 @@
 #!/usr/bin/env tsx
 
 /**
- * Automated Video/GIF Capture for Animation Examples
+ * Automated Video Capture for Animation Examples
  *
- * Captures high-quality MP4 videos of animation examples for social media sharing.
- * Uses Playwright for browser automation and ffmpeg for video conversion.
+ * Uses screenshot-based capture for maximum quality (pixel-perfect).
+ * Takes PNG screenshots at target framerate, then compiles to MP4.
  *
  * Usage:
  *   bun run capture:gifs              # Capture all examples
  *   bun run capture:gifs border-beam  # Capture specific example
  */
 
-import { chromium, type Browser } from '@playwright/test';
+import { chromium, type Browser, type Page } from '@playwright/test';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, readdirSync, rmSync } from 'fs';
 import { join } from 'path';
 
 const execAsync = promisify(exec);
@@ -25,75 +25,79 @@ interface CaptureConfig {
   duration: number; // seconds
   interactions?: Array<{
     selector: string;
-    action: 'click' | 'hover' | 'wait';
+    action: 'click' | 'hover' | 'wait' | 'type';
     delay: number; // ms
+    text?: string; // for type action
   }>;
   viewport: { width: number; height: number };
-  outputWidth?: number; // Final output width (for scaling)
   fps?: number;
+  trimStart?: number; // seconds to skip before recording
 }
 
 // Configuration for each example
-// 1600x1000 (16:10) at 60fps - good for social media
+// Viewport sized with even padding around content
 const examples: CaptureConfig[] = [
   {
     exampleId: 'border-beam',
     route: '/capture/border-beam',
-    duration: 5,
+    duration: 10,
     interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
     ],
-    viewport: { width: 1600, height: 1000 },
-    fps: 60,
+    viewport: { width: 700, height: 450 },
+    fps: 30,
+    trimStart: 0.5,
   },
   {
     exampleId: 'easing-playground',
     route: '/capture/easing-playground',
-    duration: 6,
+    duration: 10,
     interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
-      { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
+      { selector: '[data-demo-trigger]', action: 'click', delay: 300 },
     ],
-    viewport: { width: 1600, height: 1000 },
-    fps: 60,
+    viewport: { width: 900, height: 650 },
+    fps: 30,
+    trimStart: 0.5,
   },
   {
     exampleId: 'timing-comparison',
     route: '/capture/timing-comparison',
-    duration: 5,
+    duration: 10,
     interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
-      { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
+      { selector: '[data-demo-trigger]', action: 'click', delay: 300 },
     ],
-    viewport: { width: 1600, height: 1000 },
-    fps: 60,
+    viewport: { width: 900, height: 650 },
+    fps: 30,
+    trimStart: 0.5,
   },
   {
     exampleId: 'spring-physics',
     route: '/capture/spring-physics',
-    duration: 6,
+    duration: 10,
     interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
-      { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
+      { selector: '[data-demo-trigger]', action: 'click', delay: 300 },
     ],
-    viewport: { width: 1600, height: 1000 },
-    fps: 60,
+    viewport: { width: 900, height: 650 },
+    fps: 30,
+    trimStart: 0.5,
   },
 ];
 
 async function ensureDirectories() {
   const demosDir = join(process.cwd(), 'public', 'demos');
   const tempDir = join(process.cwd(), '.temp-captures');
+  const framesDir = join(tempDir, 'frames');
 
-  if (!existsSync(demosDir)) {
-    mkdirSync(demosDir, { recursive: true });
+  for (const dir of [demosDir, tempDir, framesDir]) {
+    if (!existsSync(dir)) {
+      mkdirSync(dir, { recursive: true });
+    }
   }
 
-  if (!existsSync(tempDir)) {
-    mkdirSync(tempDir, { recursive: true });
-  }
-
-  return { demosDir, tempDir };
+  return { demosDir, tempDir, framesDir };
 }
 
 async function checkServerRunning(url: string): Promise<boolean> {
@@ -105,19 +109,57 @@ async function checkServerRunning(url: string): Promise<boolean> {
   }
 }
 
+async function captureFrames(
+  page: Page,
+  framesDir: string,
+  duration: number,
+  fps: number
+): Promise<number> {
+  const totalFrames = Math.ceil(duration * fps);
+  const frameInterval = 1000 / fps;
+  
+  console.log(`   ➜ Capturing ${totalFrames} frames at ${fps}fps...`);
+  
+  for (let i = 0; i < totalFrames; i++) {
+    const frameNumber = String(i).padStart(6, '0');
+    const framePath = join(framesDir, `frame_${frameNumber}.png`);
+    
+    await page.screenshot({ 
+      path: framePath,
+      type: 'png',
+    });
+    
+    // Wait for next frame
+    if (i < totalFrames - 1) {
+      await page.waitForTimeout(frameInterval);
+    }
+    
+    // Progress indicator
+    if (i % (fps) === 0) {
+      process.stdout.write(`\r   ➜ Frame ${i + 1}/${totalFrames}`);
+    }
+  }
+  
+  console.log(`\r   ✓ Captured ${totalFrames} frames              `);
+  return totalFrames;
+}
+
 async function captureExample(
   browser: Browser,
   config: CaptureConfig,
-  tempDir: string
-): Promise<string> {
+  framesDir: string
+): Promise<void> {
   console.log(`\n📸 Capturing ${config.exampleId}...`);
+  
+  // Clear frames directory
+  const existingFrames = readdirSync(framesDir).filter(f => f.endsWith('.png'));
+  for (const frame of existingFrames) {
+    rmSync(join(framesDir, frame));
+  }
 
   const context = await browser.newContext({
     viewport: config.viewport,
-    recordVideo: {
-      dir: tempDir,
-      size: config.viewport,
-    },
+    deviceScaleFactor: 2, // 2x for retina quality
   });
 
   const page = await context.newPage();
@@ -131,87 +173,54 @@ async function captureExample(
     });
 
     // Wait for page to be fully loaded
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(500);
 
     // Execute interactions
     if (config.interactions) {
       for (const interaction of config.interactions) {
-        console.log(`   ➜ ${interaction.action}: ${interaction.selector}`);
+        console.log(`   ➜ ${interaction.action}: ${interaction.selector}${interaction.text ? ` "${interaction.text}"` : ''}`);
 
         if (interaction.action === 'click') {
           await page.click(interaction.selector);
         } else if (interaction.action === 'hover') {
           await page.hover(interaction.selector);
+        } else if (interaction.action === 'type' && interaction.text) {
+          await page.fill(interaction.selector, '');
+          await page.type(interaction.selector, interaction.text, { delay: 80 });
         }
 
         await page.waitForTimeout(interaction.delay);
       }
     }
 
-    // Record for specified duration
-    console.log(`   ➜ Recording for ${config.duration}s...`);
-    await page.waitForTimeout(config.duration * 1000);
+    // Skip initial frames if trimStart specified
+    if (config.trimStart) {
+      await page.waitForTimeout(config.trimStart * 1000);
+    }
 
-    // Close the page and context to finalize video
+    // Capture frames
+    await captureFrames(page, framesDir, config.duration, config.fps || 30);
+
+  } finally {
     await page.close();
     await context.close();
-
-    // Get the video file path - wait for video to be written
-    const videoPath = await new Promise<string>((resolve, reject) => {
-      let attempts = 0;
-      const maxAttempts = 50; // 5 seconds max wait
-      const checkVideo = setInterval(() => {
-        attempts++;
-        try {
-          if (!existsSync(tempDir)) {
-            clearInterval(checkVideo);
-            reject(new Error('Temp directory was removed'));
-            return;
-          }
-          const files = require('fs').readdirSync(tempDir);
-          const videoFile = files.find((f: string) => f.endsWith('.webm'));
-          if (videoFile) {
-            clearInterval(checkVideo);
-            resolve(join(tempDir, videoFile));
-          } else if (attempts >= maxAttempts) {
-            clearInterval(checkVideo);
-            reject(new Error('Timeout waiting for video file'));
-          }
-        } catch (e) {
-          clearInterval(checkVideo);
-          reject(e);
-        }
-      }, 100);
-    });
-
-    console.log(`   ✓ Video recorded: ${videoPath}`);
-    return videoPath;
-
-  } catch (error) {
-    await page.close();
-    await context.close();
-    throw error;
   }
 }
 
-async function convertToMp4(
-  videoPath: string,
+async function framesToMp4(
+  framesDir: string,
   outputPath: string,
-  fps: number = 60,
-  outputWidth?: number,
-  trimStart: number = 1.5 // seconds to trim from start
+  fps: number,
+  viewport: { width: number; height: number }
 ): Promise<void> {
-  const scaleFilter = outputWidth ? `scale=${outputWidth}:-1:flags=lanczos,` : '';
-  console.log(`   ➜ Converting to MP4 (${fps} fps${outputWidth ? `, scaling to ${outputWidth}px` : ''}, trimming ${trimStart}s)...`);
+  console.log(`   ➜ Compiling to MP4...`);
 
-  // Convert to near-lossless MP4 with H.264 codec
-  // -ss trims from the start to skip loading screen
-  // scale with lanczos for high-quality downscaling (supersampling)
-  // -crf 10 is near-lossless quality
-  // -preset slow for good compression
-  // -pix_fmt yuv420p for compatibility
+  // Output at 2x viewport (retina) but scale down for smaller file
+  // Using high quality settings
   await execAsync(
-    `ffmpeg -ss ${trimStart} -i "${videoPath}" -vf "${scaleFilter}fps=${fps}" -c:v libx264 -crf 10 -preset slow -pix_fmt yuv420p -y "${outputPath}"`
+    `ffmpeg -framerate ${fps} -i "${framesDir}/frame_%06d.png" ` +
+    `-vf "scale=${viewport.width}:-1:flags=lanczos" ` +
+    `-c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -y "${outputPath}"`
   );
 
   console.log(`   ✓ MP4 created: ${outputPath}`);
@@ -227,7 +236,8 @@ async function getFileSize(path: string): Promise<string> {
 }
 
 async function captureAll(specificExample?: string) {
-  console.log('🎬 Starting video capture process...\n');
+  console.log('🎬 Starting high-quality capture process...\n');
+  console.log('Using screenshot-based capture for pixel-perfect quality.\n');
 
   // Check if dev server is running
   const serverRunning = await checkServerRunning('http://localhost:3000');
@@ -240,7 +250,7 @@ async function captureAll(specificExample?: string) {
   console.log('✓ Dev server is running\n');
 
   // Ensure directories exist
-  const { demosDir, tempDir } = await ensureDirectories();
+  const { demosDir, tempDir, framesDir } = await ensureDirectories();
 
   // Filter examples if specific one requested
   const examplesToCapture = specificExample
@@ -261,12 +271,12 @@ async function captureAll(specificExample?: string) {
   try {
     for (const config of examplesToCapture) {
       try {
-        // Capture video
-        const videoPath = await captureExample(browser, config, tempDir);
+        // Capture frames
+        await captureExample(browser, config, framesDir);
 
         // Convert to MP4
         const mp4Path = join(demosDir, `${config.exampleId}.mp4`);
-        await convertToMp4(videoPath, mp4Path, config.fps || 60, config.outputWidth);
+        await framesToMp4(framesDir, mp4Path, config.fps || 30, config.viewport);
 
         // Get file size
         const size = await getFileSize(mp4Path);
@@ -298,7 +308,6 @@ async function captureAll(specificExample?: string) {
 
     // Cleanup temp files
     console.log('\n🧹 Cleaning up temp files...');
-    const { rmSync } = require('fs');
     rmSync(tempDir, { recursive: true, force: true });
   }
 
