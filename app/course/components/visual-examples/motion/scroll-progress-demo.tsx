@@ -99,7 +99,7 @@ function ReadingProgress() {
         <div className="relative mx-auto max-w-sm">
           {/* Device Frame */}
           <div
-            className="relative overflow-hidden bg-white shadow-2xl dark:bg-neutral-900"
+            className="relative overflow-hidden bg-white dark:bg-neutral-950"
             style={{
               borderRadius: 32,
               border: "8px solid #1a1a1a",
@@ -111,13 +111,13 @@ function ReadingProgress() {
 
             {/* Progress indicators */}
             {style === "bar" && (
-              <div className="absolute left-0 right-0 top-0 z-20 h-16 bg-white/90 backdrop-blur-md dark:bg-neutral-900/90">
+              <div className="absolute left-0 right-0 top-0 z-20 h-16 bg-white/90 backdrop-blur-md dark:bg-neutral-950/90">
                 <motion.div
                   style={{ scaleX }}
                   className="absolute bottom-0 left-0 right-0 h-1 origin-left bg-indigo-600 dark:bg-indigo-500"
                 />
-                <div className="flex h-full items-end justify-center pb-3">
-                  <span className="text-sm font-semibold text-neutral-900 dark:text-white">The Art of Motion</span>
+                <div className="flex h-full items-end justify-center pb-2">
+                  <span className="text-xs font-semibold text-neutral-900 dark:text-white">The Art of Motion</span>
                 </div>
               </div>
             )}
@@ -152,7 +152,7 @@ function ReadingProgress() {
             )}
 
             {style === "segments" && (
-              <div className="absolute left-0 right-0 top-0 z-20 flex gap-1 bg-white/90 p-2 pt-12 backdrop-blur-md dark:bg-neutral-900/90">
+              <div className="absolute left-0 right-0 top-0 z-20 flex gap-1 bg-white/90 p-2 pt-12 backdrop-blur-md dark:bg-neutral-950/90">
                 {[0, 0.25, 0.5, 0.75].map((threshold, i) => (
                   <div key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
                     <motion.div
@@ -173,7 +173,7 @@ function ReadingProgress() {
             {/* Scrollable Content */}
             <div
               ref={containerRef}
-              className="h-full overflow-y-auto bg-white dark:bg-neutral-900"
+              className="h-full overflow-y-auto bg-white dark:bg-neutral-950"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -223,7 +223,16 @@ function ReadingProgress() {
                 </div>
               </div>
             </div>
+
           </div>
+
+          {/* Bottom fade overlay - covers entire phone including border */}
+          <div 
+            className="pointer-events-none absolute inset-x-0 -bottom-1 z-50 h-40"
+            style={{
+              background: "linear-gradient(to bottom, transparent 0%, rgb(23 23 23) 70%)",
+            }}
+          />
         </div>
 
         {showCode && (

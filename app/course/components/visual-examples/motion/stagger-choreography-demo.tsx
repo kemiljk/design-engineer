@@ -163,9 +163,24 @@ const item = {
                   }}
                   className="flex items-center gap-4 rounded-[24px] bg-white p-3 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/5"
                 >
-                  <div className={cn("flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm", item.color)}>
+                  <motion.div
+                    variants={{
+                      hidden: { scale: 0, rotate: -180 },
+                      visible: {
+                        scale: 1,
+                        rotate: 0,
+                        transition: {
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 20,
+                          delay: delay + 0.15
+                        }
+                      }
+                    }}
+                    className={cn("flex h-10 w-10 items-center justify-center rounded-full text-white shadow-sm", item.color)}
+                  >
                     <item.icon className="size-5" />
-                  </div>
+                  </motion.div>
                   <div className="min-w-0 flex-1">
                     <h5 className="truncate text-sm font-semibold text-neutral-900 dark:text-white">{item.title}</h5>
                     <p className="truncate text-xs text-neutral-500 dark:text-neutral-400">{item.sub}</p>

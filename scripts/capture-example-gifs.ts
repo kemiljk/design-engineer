@@ -34,55 +34,88 @@ interface CaptureConfig {
   trimStart?: number; // seconds to skip before recording
 }
 
-// Configuration for each example
-// Viewport sized with even padding around content
+// Configuration for each example - all autoplay
 const examples: CaptureConfig[] = [
   {
     exampleId: 'border-beam',
     route: '/capture/border-beam',
     duration: 10,
-    interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
-    ],
-    viewport: { width: 700, height: 450 },
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 560, height: 320 },
     fps: 30,
-    trimStart: 0.5,
+    trimStart: 0.2,
   },
   {
-    exampleId: 'easing-playground',
-    route: '/capture/easing-playground',
-    duration: 10,
-    interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
-      { selector: '[data-demo-trigger]', action: 'click', delay: 300 },
-    ],
-    viewport: { width: 900, height: 650 },
+    exampleId: 'feedback',
+    route: '/capture/feedback',
+    duration: 12,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 320, height: 180 },
     fps: 30,
-    trimStart: 0.5,
+    trimStart: 0.2,
   },
   {
-    exampleId: 'timing-comparison',
-    route: '/capture/timing-comparison',
-    duration: 10,
-    interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
-      { selector: '[data-demo-trigger]', action: 'click', delay: 300 },
-    ],
-    viewport: { width: 900, height: 650 },
+    exampleId: 'relationships',
+    route: '/capture/relationships',
+    duration: 8,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 400, height: 360 },
     fps: 30,
-    trimStart: 0.5,
+    trimStart: 0.2,
   },
   {
-    exampleId: 'spring-physics',
-    route: '/capture/spring-physics',
-    duration: 10,
-    interactions: [
-      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 500 },
-      { selector: '[data-demo-trigger]', action: 'click', delay: 300 },
-    ],
-    viewport: { width: 900, height: 650 },
+    exampleId: 'choreography',
+    route: '/capture/choreography',
+    duration: 8,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 480, height: 380 },
     fps: 30,
-    trimStart: 0.5,
+    trimStart: 0.2,
+  },
+  {
+    exampleId: 'button-states',
+    route: '/capture/button-states',
+    duration: 10,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 360, height: 200 },
+    fps: 30,
+    trimStart: 0.2,
+  },
+  {
+    exampleId: 'toggle-switch',
+    route: '/capture/toggle-switch',
+    duration: 8,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 520, height: 380 },
+    fps: 30,
+    trimStart: 0.2,
+  },
+  {
+    exampleId: 'like-button',
+    route: '/capture/like-button',
+    duration: 10,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 480, height: 480 },
+    fps: 30,
+    trimStart: 0.2,
+  },
+  {
+    exampleId: 'micro-validation',
+    route: '/capture/micro-validation',
+    duration: 12,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 400, height: 200 },
+    fps: 30,
+    trimStart: 0.2,
+  },
+  {
+    exampleId: 'notification-bell',
+    route: '/capture/notification-bell',
+    duration: 12,
+    interactions: [{ selector: '[data-capture-ready="true"]', action: 'wait', delay: 300 }],
+    viewport: { width: 400, height: 340 },
+    fps: 30,
+    trimStart: 0.2,
   },
 ];
 
@@ -215,12 +248,13 @@ async function framesToMp4(
 ): Promise<void> {
   console.log(`   ➜ Compiling to MP4...`);
 
-  // Output at 2x viewport (retina) but scale down for smaller file
-  // Using high quality settings
+  // Output at 2x viewport (retina capture) - keep full resolution
+  // CRF 12 for high quality, veryslow for best compression
+  const outputWidth = viewport.width * 2;
   await execAsync(
     `ffmpeg -framerate ${fps} -i "${framesDir}/frame_%06d.png" ` +
-    `-vf "scale=${viewport.width}:-1:flags=lanczos" ` +
-    `-c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -y "${outputPath}"`
+    `-vf "scale=${outputWidth}:-1:flags=lanczos" ` +
+    `-c:v libx264 -crf 12 -preset slow -pix_fmt yuv420p -y "${outputPath}"`
   );
 
   console.log(`   ✓ MP4 created: ${outputPath}`);

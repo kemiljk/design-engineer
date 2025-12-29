@@ -92,6 +92,14 @@ Related elements move together—expanding dropdown arrows rotate as menus open.
 ### Hierarchy
 More important elements animate first or more prominently.
 
+## Layered Animation
+
+When you combine multiple animation techniques—ripples, particles, badges, and staggered elements—you create rich, app-quality experiences. Each layer is simple on its own, but together they create something that feels polished and delightful.
+
+<!-- visual-example: notification-bell-demo -->
+
+The key is coordinating timing: the bell shake draws immediate attention, ripples add spatial context, particles provide celebration, and the badge delivers actionable information. Time your layers to feel simultaneous but distinct.
+
 ## Spring Physics
 
 Spring animations create natural-feeling motion by simulating physical forces. Adjust stiffness, damping, and mass to achieve different feels.

@@ -43,6 +43,7 @@ import {
   StaggerChoreographyDemo,
   SpringPhysicsDemo,
   DisneyPrinciplesDemo,
+  NotificationBellDemo,
   // Lesson 3: Micro-interactions
   ButtonStatesDemo,
   FloatingLabelDemo,
@@ -127,6 +128,7 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "stagger-choreography-demo": StaggerChoreographyDemo,
   "spring-physics-demo": SpringPhysicsDemo,
   "disney-principles-demo": DisneyPrinciplesDemo,
+  "notification-bell-demo": NotificationBellDemo,
   
   // Motion - Lesson 3: Micro-interactions
   "button-states-demo": ButtonStatesDemo,

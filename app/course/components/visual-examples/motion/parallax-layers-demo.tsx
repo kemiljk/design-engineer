@@ -16,10 +16,11 @@ export function ParallaxLayersDemo() {
     offset: ["start start", "end end"]
   });
 
-  // Layer transforms
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  // Layer transforms - background stays fixed, other layers move at different speeds
   const middleY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const frontY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const frontLeftX = useTransform(scrollYProgress, [0, 1], ["0%", "-150%"]);
+  const frontRightX = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
@@ -81,16 +82,13 @@ function ParallaxScene() {
               {/* Sticky Container */}
               <div className="sticky top-0 h-[400px] overflow-hidden">
                 
-                {/* Background Layer (Slowest) - z-0 */}
-                <motion.div 
-                  style={{ y: backgroundY }}
-                  className="absolute inset-0 z-0 flex items-center justify-center bg-gradient-to-b from-indigo-900 to-black"
-                >
+                {/* Background Layer (Static) - z-0 */}
+                <div className="absolute inset-0 z-0 flex items-center justify-center bg-gradient-to-b from-indigo-900 to-black">
                   <div className="absolute inset-0 opacity-20" 
                     style={{ backgroundImage: "radial-gradient(circle at center, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} 
                   />
                   <div className="h-64 w-64 rounded-full bg-indigo-500/20 blur-[80px]" />
-                </motion.div>
+                </div>
 
                 {/* Middle Layer (Medium Speed) - z-10 */}
                 <motion.div 
@@ -102,13 +100,16 @@ function ParallaxScene() {
                 </motion.div>
 
                 {/* Front Layer (Fastest) - z-20 */}
-                <motion.div 
-                  style={{ y: frontY }}
-                  className="absolute inset-0 z-20 pointer-events-none"
-                >
-                  <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-[32px] bg-gradient-to-br from-neutral-800 to-black shadow-2xl border border-white/5 rotate-12" />
-                  <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-tl from-neutral-800 to-black shadow-2xl border border-white/5" />
-                </motion.div>
+                <div className="absolute inset-0 z-20 pointer-events-none">
+                  <motion.div 
+                    style={{ y: frontY, x: frontLeftX }}
+                    className="absolute -bottom-10 -left-10 h-48 w-48 rounded-[32px] bg-gradient-to-br from-neutral-800 to-black shadow-2xl border border-white/5 rotate-12" 
+                  />
+                  <motion.div 
+                    style={{ y: frontY, x: frontRightX }}
+                    className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-tl from-neutral-800 to-black shadow-2xl border border-white/5" 
+                  />
+                </div>
 
                 {/* Text Layer (Fast fade out) - z-30, highest to be visible on load */}
                 <motion.div 
@@ -128,7 +129,7 @@ function ParallaxScene() {
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-3">
           {[
-            { layer: "Background", speed: "0.2x", desc: "Moves slowly, appearing far away." },
+            { layer: "Background", speed: "Fixed", desc: "Stays static, creating a stable reference point." },
             { layer: "Midground", speed: "0.5x", desc: "Moves at moderate speed, establishing context." },
             { layer: "Foreground", speed: "1.0x", desc: "Moves at scroll speed, appearing closest." },
           ].map((item) => (

@@ -104,16 +104,15 @@ function Input({ label, value, onChange }) {
                   "mr-3 size-5 transition-colors",
                   focusedField === "email" ? "text-indigo-500" : "text-neutral-400"
                 )} />
-                <div className="relative flex-1 py-3">
+                <div className="relative flex-1 py-4">
                   <motion.label
                     initial={false}
                     animate={{
-                      y: focusedField === "email" || email ? -8 : 0,
+                      y: focusedField === "email" || email ? -12 : 0,
                       scale: focusedField === "email" || email ? 0.75 : 1,
-                      x: focusedField === "email" || email ? -4 : 0,
                     }}
                     className={cn(
-                      "absolute left-0 top-3 origin-left text-base font-medium transition-colors pointer-events-none",
+                      "absolute left-0 top-1/2 -translate-y-1/2 origin-left text-base font-medium transition-colors pointer-events-none",
                       focusedField === "email" ? "text-indigo-500" : "text-neutral-500"
                     )}
                   >
@@ -125,7 +124,7 @@ function Input({ label, value, onChange }) {
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
-                    className="relative z-10 w-full bg-transparent pt-4 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
+                    className="relative z-10 w-full bg-transparent pt-3 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
                   />
                 </div>
               </div>
@@ -147,16 +146,15 @@ function Input({ label, value, onChange }) {
                   "mr-3 size-5 transition-colors",
                   focusedField === "password" ? "text-indigo-500" : "text-neutral-400"
                 )} />
-                <div className="relative flex-1 py-3">
+                <div className="relative flex-1 py-4">
                   <motion.label
                     initial={false}
                     animate={{
-                      y: focusedField === "password" || password ? -8 : 0,
+                      y: focusedField === "password" || password ? -12 : 0,
                       scale: focusedField === "password" || password ? 0.75 : 1,
-                      x: focusedField === "password" || password ? -4 : 0,
                     }}
                     className={cn(
-                      "absolute left-0 top-3 origin-left text-base font-medium transition-colors pointer-events-none",
+                      "absolute left-0 top-1/2 -translate-y-1/2 origin-left text-base font-medium transition-colors pointer-events-none",
                       focusedField === "password" ? "text-indigo-500" : "text-neutral-500"
                     )}
                   >
@@ -168,7 +166,7 @@ function Input({ label, value, onChange }) {
                     onChange={(e) => setPassword(e.target.value)}
                     onFocus={() => setFocusedField("password")}
                     onBlur={() => setFocusedField(null)}
-                    className="relative z-10 w-full bg-transparent pt-4 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
+                    className="relative z-10 w-full bg-transparent pt-3 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
                   />
                 </div>
                 <button

@@ -180,7 +180,7 @@ function NotificationSystem() {
 
           {/* Main Area */}
           <div className="flex-1 p-6">
-            <div className="mx-auto max-w-sm space-y-4 text-center">
+            <div className="mx-auto max-w-md space-y-4 text-center">
               <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">
                 Trigger Notification
               </h3>
@@ -189,39 +189,39 @@ function NotificationSystem() {
                 how motion guides your eye.
               </p>
 
-              <div className="flex justify-center gap-3 pt-4">
+              <div className="grid grid-cols-3 gap-3 pt-4">
                 <button
                   onClick={() => addNotification("message")}
-                  className="flex flex-col items-center gap-2 rounded-[24px] bg-white p-4 shadow-sm transition-all hover:shadow-md active:scale-95 dark:bg-neutral-800"
+                  className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
-                    <MessageSquare className="size-5" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-500/20 ring-1 ring-indigo-500/30 transition-colors group-hover:bg-indigo-500/25">
+                    <MessageSquare className="size-5 text-indigo-400" />
                   </div>
-                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                  <span className="text-sm font-medium text-neutral-300">
                     Message
                   </span>
                 </button>
 
                 <button
                   onClick={() => addNotification("mail")}
-                  className="flex flex-col items-center gap-2 rounded-[24px] bg-white p-4 shadow-sm transition-all hover:shadow-md active:scale-95 dark:bg-neutral-800"
+                  className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-                    <Mail className="size-5" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20 ring-1 ring-blue-500/30 transition-colors group-hover:bg-blue-500/25">
+                    <Mail className="size-5 text-blue-400" />
                   </div>
-                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                  <span className="text-sm font-medium text-neutral-300">
                     Email
                   </span>
                 </button>
 
                 <button
                   onClick={() => addNotification("event")}
-                  className="flex flex-col items-center gap-2 rounded-[24px] bg-white p-4 shadow-sm transition-all hover:shadow-md active:scale-95 dark:bg-neutral-800"
+                  className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">
-                    <Calendar className="size-5" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/20 ring-1 ring-amber-500/30 transition-colors group-hover:bg-amber-500/25">
+                    <Calendar className="size-5 text-amber-400" />
                   </div>
-                  <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+                  <span className="text-sm font-medium text-neutral-300">
                     Event
                   </span>
                 </button>

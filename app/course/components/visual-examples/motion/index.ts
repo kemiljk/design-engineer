@@ -37,6 +37,7 @@ export { TimingComparisonDemo } from "./timing-comparison-demo";
 export { StaggerChoreographyDemo } from "./stagger-choreography-demo";
 export { SpringPhysicsDemo } from "./spring-physics-demo";
 export { DisneyPrinciplesDemo } from "./disney-principles-demo";
+export { NotificationBellDemo } from "./notification-bell-demo";
 
 // Lesson 3: Micro-interactions
 export { ButtonStatesDemo } from "./button-states-demo";

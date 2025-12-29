@@ -100,28 +100,32 @@ function SwipeCard() {
             style={{ x: xSpring, y: ySpring, rotate }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 1.05, cursor: "grabbing" }}
-            className="absolute h-[340px] w-[260px] cursor-grab rounded-[20px] bg-white shadow-xl ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10"
+            className="absolute h-[340px] w-[260px] cursor-grab overflow-hidden rounded-[20px] bg-white shadow-xl ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10"
           >
             {/* Card Content */}
             <div className="h-full overflow-hidden rounded-[20px]">
-              <div className="h-3/5 w-full bg-linear-to-br from-indigo-500 to-purple-600">
-                <div className="flex h-full items-center justify-center">
-                  <span className="text-6xl">🏔️</span>
-                </div>
+              <div className="relative h-3/5 w-full overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=520&h=400&fit=crop&auto=format&q=80"
+                  alt="Northern lights over snowy mountains"
+                  className="h-full w-full object-cover"
+                  draggable={false}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
-                  Swiss Alps
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
+                  Northern Lights
                 </h3>
-                <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-                  Zurich, Switzerland
+                <p className="mt-0.5 text-sm text-neutral-500 dark:text-neutral-400">
+                  Tromsø, Norway
                 </p>
-                <div className="mt-4 flex gap-2">
-                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
+                <div className="mt-3 flex gap-2">
+                  <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-medium text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
                     Nature
                   </span>
-                  <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
-                    Hiking
+                  <span className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-[11px] font-medium text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
+                    Adventure
                   </span>
                 </div>
               </div>
