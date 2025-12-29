@@ -12,8 +12,8 @@ export function ObjectivesCard({ objectives }: ObjectivesCardProps) {
       </h3>
       <ul className="space-y-3 pl-0">
         {objectives.map((objective, index) => (
-          <li key={index} className="flex items-start gap-1.5">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border-2 border-neutral-300 dark:border-neutral-600">
+          <li key={index} className="flex items-center gap-3">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center border-2 border-neutral-300 dark:border-neutral-600">
               <span className="h-2 w-2 bg-swiss-red" />
             </span>
             <span className="text-sm text-neutral-700 dark:text-neutral-300 [&_strong]:font-semibold [&_strong]:text-neutral-900 dark:[&_strong]:text-neutral-100 [&_code]:rounded-none [&_code]:border [&_code]:border-neutral-200 [&_code]:bg-neutral-100 [&_code]:px-1 [&_code]:py-px [&_code]:font-mono [&_code]:text-[0.9em] dark:[&_code]:border-neutral-700 dark:[&_code]:bg-neutral-800">
