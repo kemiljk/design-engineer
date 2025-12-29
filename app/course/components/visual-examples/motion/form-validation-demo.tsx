@@ -106,11 +106,11 @@ function ValidationMessage({ status }) {
               onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""))}
               placeholder="username"
               className={cn(
-                "w-full rounded-[12px] border bg-neutral-50 py-3 pl-12 pr-12 text-neutral-900 outline-none transition-all focus:bg-white focus:ring-4 dark:bg-neutral-800 dark:text-white",
-                status === "idle" && "border-neutral-200 focus:border-indigo-500 focus:ring-indigo-500/20 dark:border-neutral-700",
-                status === "checking" && "border-neutral-300 focus:border-neutral-400 focus:ring-neutral-500/20 dark:border-neutral-600",
-                status === "available" && "border-emerald-500 ring-4 ring-emerald-500/20 dark:border-emerald-500",
-                status === "unavailable" && "border-rose-500 ring-4 ring-rose-500/20 dark:border-rose-500"
+                "w-full rounded-[12px] border bg-neutral-50 py-3 pl-12 pr-12 text-neutral-900 outline-none transition-all focus:ring-4 dark:bg-neutral-800 dark:text-white dark:placeholder:text-neutral-500",
+                status === "idle" && "border-neutral-200 focus:border-indigo-500 focus:bg-white focus:ring-indigo-500/20 dark:border-neutral-700 dark:focus:border-indigo-400 dark:focus:bg-neutral-800 dark:focus:ring-indigo-500/30",
+                status === "checking" && "border-neutral-300 focus:border-neutral-400 focus:bg-white focus:ring-neutral-500/20 dark:border-neutral-600 dark:focus:bg-neutral-800 dark:focus:ring-neutral-500/30",
+                status === "available" && "border-emerald-500 ring-4 ring-emerald-500/20 dark:border-emerald-400 dark:ring-emerald-500/30",
+                status === "unavailable" && "border-rose-500 ring-4 ring-rose-500/20 dark:border-rose-400 dark:ring-rose-500/30"
               )}
               animate={status === "unavailable" ? { x: [-2, 2, -2, 2, 0] } : { x: 0 }}
               transition={{ duration: 0.4 }}
