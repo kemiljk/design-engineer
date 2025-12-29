@@ -14,6 +14,7 @@ import {
   isLessonCompleted,
   getEffectiveTestAccessLevel,
   shouldUseRealEnrollment,
+  normalizeAccessLevel,
 } from "@/lib/course";
 import { hasPreviewAccess } from "@/lib/preview-access";
 import { formatTitle } from "@/lib/format";
@@ -196,7 +197,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
     // Bypass user - always load and use their real enrollment
     // This allows them to test notes, progress, etc. even if preview cookie is set
     enrollment = await getUserEnrollment(userId);
-    const accessLevel = enrollment?.metadata.access_level || "free";
+    const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
     hasAccess = canAccessLesson(accessLevel, lessonPath);
   } else if (previewAccess) {
     // Preview token grants full access (for friends/reviewers without real enrollment)
@@ -206,7 +207,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
     hasAccess = canAccessLesson(testAccessLevel as Parameters<typeof canAccessLesson>[0], lessonPath);
   } else if (userId) {
     enrollment = await getUserEnrollment(userId);
-    const accessLevel = enrollment?.metadata.access_level || "free";
+    const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
     hasAccess = canAccessLesson(accessLevel, lessonPath);
   }
 
@@ -357,7 +358,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
             {backLink.label}
           </Link>
 
-          {isFree && (!enrollment || enrollment.metadata.access_level === "free") && (
+          {isFree && (!enrollment || normalizeAccessLevel(enrollment.metadata.access_level) === "free") && (
             <span className="rounded-none bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
               Free Lesson
             </span>

@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { cosmic } from "@/lib/cosmic";
-import { getUserEnrollment, getUserProgress } from "@/lib/course";
+import { getUserEnrollment, getUserProgress, normalizeAccessLevel } from "@/lib/course";
 
 // Only available in development
 const ALLOW_DEBUG = process.env.NODE_ENV === "development";
@@ -60,9 +60,18 @@ export async function GET() {
   // Check user's enrollment
   try {
     const enrollment = await getUserEnrollment(userId);
-    results.enrollment = enrollment 
-      ? { found: true, id: enrollment.id, accessLevel: enrollment.metadata.access_level }
-      : { found: false };
+    if (enrollment) {
+      const rawAccessLevel = enrollment.metadata.access_level;
+      const normalizedAccessLevel = normalizeAccessLevel(rawAccessLevel);
+      results.enrollment = { 
+        found: true, 
+        id: enrollment.id, 
+        accessLevelRaw: rawAccessLevel,
+        accessLevelNormalized: normalizedAccessLevel,
+      };
+    } else {
+      results.enrollment = { found: false };
+    }
   } catch (error) {
     results.enrollment = { error: String(error) };
   }

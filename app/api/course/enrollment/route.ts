@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
-import { getUserEnrollment, canAccessLesson } from "@/lib/course";
+import { getUserEnrollment, canAccessLesson, normalizeAccessLevel } from "@/lib/course";
 import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET() {
@@ -17,7 +17,7 @@ export async function GET() {
 
   return NextResponse.json({
     enrollment,
-    accessLevel: enrollment?.metadata.access_level || "free",
+    accessLevel: normalizeAccessLevel(enrollment?.metadata.access_level) || "free",
   });
 }
 
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
   }
 
   const enrollment = await getUserEnrollment(userId);
-  const accessLevel = enrollment?.metadata.access_level || "free";
+  const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
   
   // Development mode grants full access
   const isDevelopment = process.env.NODE_ENV === "development";

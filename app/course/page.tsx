@@ -4,6 +4,7 @@ import {
   getEstimatedDuration,
   getLastActivity,
   getUserEnrollment,
+  normalizeAccessLevel,
 } from "@/lib/course";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
@@ -55,7 +56,7 @@ export default async function CoursePage() {
 
     progress = progressData;
     lastActivity = lastActivityData;
-    accessLevel = enrollment?.metadata.access_level || null;
+    accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level);
 
     // Check if all intro lessons are completed
     if (progress?.completedLessons) {

@@ -123,6 +123,41 @@ export function isFreeTierLesson(lessonPath: string): boolean {
   return FREE_LESSONS.has(lessonPath);
 }
 
+/**
+ * Normalize access level from Cosmic (handles both string and object formats)
+ * Cosmic select fields return objects with { key, value }, but we need the string key
+ */
+export function normalizeAccessLevel(
+  accessLevel: Type.AccessLevel | { key: string; value: string } | null | undefined
+): Type.AccessLevel | null {
+  if (!accessLevel) return null;
+  
+  // If it's already a string, return it
+  if (typeof accessLevel === "string") {
+    return accessLevel;
+  }
+  
+  // If it's an object, extract the key property
+  if (typeof accessLevel === "object" && accessLevel !== null) {
+    // Check if it has a 'key' property (Cosmic select field format)
+    if ("key" in accessLevel && typeof accessLevel.key === "string") {
+      return accessLevel.key as Type.AccessLevel;
+    }
+  }
+  
+  // If we can't normalize it, log a warning in development
+  if (process.env.NODE_ENV === "development") {
+    console.warn("[normalizeAccessLevel] Unexpected format:", {
+      accessLevel,
+      type: typeof accessLevel,
+      isObject: typeof accessLevel === "object",
+      hasKey: accessLevel && typeof accessLevel === "object" && "key" in accessLevel,
+    });
+  }
+  
+  return null;
+}
+
 export function canAccessLesson(
   accessLevel: Type.AccessLevel | null,
   lessonPath: string
@@ -168,17 +203,41 @@ export async function getUserEnrollment(
   }
 
   try {
+    // Note: We don't filter by status here because Cosmic stores status as an object { key, value }
+    // We'll filter out inactive/refunded enrollments after fetching
     const { objects } = await cosmic.objects
       .find({
         type: "course-enrollments",
         "metadata.user_id": userId,
-        "metadata.status": "active",
       })
       .props("id,slug,title,created_at,metadata")
       .depth(1)
-      .limit(1);
+      .limit(10); // Get multiple in case there are multiple enrollments
 
-    return objects?.[0] || null;
+    if (!objects || objects.length === 0) {
+      return null;
+    }
+
+    // Filter for active enrollments (handle both string and object status formats)
+    const activeEnrollments = objects.filter((obj) => {
+      const status = obj.metadata?.status;
+      if (!status) return false;
+      
+      // If status is a string
+      if (typeof status === "string") {
+        return status === "active";
+      }
+      
+      // If status is an object with key/value (Cosmic select field)
+      if (typeof status === "object" && "key" in status) {
+        return status.key === "active";
+      }
+      
+      return false;
+    });
+
+    // Return the most recent active enrollment (or first one if multiple)
+    return activeEnrollments[0] || null;
   } catch (error: unknown) {
     // Cosmic throws 404 when no objects found
     if (error && typeof error === "object" && "status" in error && error.status === 404) {

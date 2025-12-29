@@ -15,7 +15,7 @@ import {
   ExternalLink,
   User,
 } from "lucide-react";
-import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment } from "@/lib/course";
+import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
 import { getUserCertificates, checkCertificateEligibility } from "@/lib/certificate";
 import { getUserGalleryProjects } from "@/lib/cosmic";
 import { Button } from "@/app/components/ui";
@@ -42,7 +42,7 @@ export default async function DashboardPage() {
     getUserGalleryProjects(userId),
   ]);
 
-  const accessLevel = enrollment?.metadata.access_level || "free";
+  const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
   const stats = getProgressStats(progress, accessLevel);
 
   const [webEligibility, iosEligibility, androidEligibility] = await Promise.all([

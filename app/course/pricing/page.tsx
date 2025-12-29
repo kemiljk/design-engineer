@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { ArrowLeft, Check, Sparkles, PartyPopper } from "lucide-react";
 import { StudentDiscountForm } from "./student-discount-form";
 import { PricingClientWrapper } from "./pricing-client-wrapper";
-import { getUserEnrollment } from "@/lib/course";
+import { getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
 import { getProductsWithPrices } from "@/lib/lemonsqueezy";
 import type { ProductWithPrice } from "@/lib/types";
 
@@ -24,7 +24,7 @@ export default async function PricingPage() {
   
   if (userId) {
     const enrollment = await getUserEnrollment(userId);
-    currentAccess = enrollment?.metadata.access_level || null;
+    currentAccess = normalizeAccessLevel(enrollment?.metadata.access_level);
   }
 
   // If user has full access, show a simple thank you page

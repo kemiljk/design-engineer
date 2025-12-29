@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
-import { getUserProgress, updateProgress, getProgressStats, getUserEnrollment } from "@/lib/course";
+import { getUserProgress, updateProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
 import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET() {
@@ -19,7 +19,7 @@ export async function GET() {
       getUserEnrollment(userId),
     ]);
     
-    const accessLevel = enrollment?.metadata.access_level || "free";
+    const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
     const stats = getProgressStats(progress, accessLevel);
 
     return NextResponse.json({ progress, stats });
