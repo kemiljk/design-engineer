@@ -51,22 +51,22 @@ export function CodePanel({ tabs, className }: CodePanelProps) {
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-lg border border-neutral-200 bg-neutral-950 dark:border-neutral-800",
+        "w-full max-w-full overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900",
         className
       )}
     >
       {/* Tab bar */}
-      <div className="flex items-center justify-between border-b border-neutral-800 bg-neutral-900">
-        <div className="flex">
+      <div className="flex min-w-0 items-center justify-between gap-2 border-b border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
+        <div className="flex min-w-0 flex-1 overflow-x-auto">
           {tabs.map((tab, index) => (
             <button
               key={tab.label}
               onClick={() => setActiveTab(index)}
               className={cn(
-                "relative px-4 py-2.5 text-xs font-medium transition-colors",
+                "relative shrink-0 px-3 py-2.5 text-xs font-medium transition-colors sm:px-4",
                 activeTab === index
-                  ? "text-white"
-                  : "text-neutral-500 hover:text-neutral-300"
+                  ? "text-neutral-900 dark:text-white"
+                  : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
               )}
             >
               {tab.label}
@@ -84,7 +84,7 @@ export function CodePanel({ tabs, className }: CodePanelProps) {
         {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="mr-2 flex items-center gap-1.5 rounded px-2.5 py-1.5 text-xs font-medium text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-white"
+          className="mr-2 flex shrink-0 items-center gap-1.5 rounded px-2 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-200 hover:text-neutral-900 sm:px-2.5 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
           aria-label="Copy code to clipboard"
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -94,10 +94,10 @@ export function CodePanel({ tabs, className }: CodePanelProps) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="flex items-center gap-1.5 text-green-400"
+                className="flex items-center gap-1.5 text-green-600 dark:text-green-400"
               >
                 <Check className="size-3.5" />
-                Copied
+                <span className="hidden sm:inline">Copied</span>
               </motion.span>
             ) : (
               <motion.span
@@ -108,7 +108,7 @@ export function CodePanel({ tabs, className }: CodePanelProps) {
                 className="flex items-center gap-1.5"
               >
                 <Copy className="size-3.5" />
-                Copy
+                <span className="hidden sm:inline">Copy</span>
               </motion.span>
             )}
           </AnimatePresence>
@@ -116,10 +116,13 @@ export function CodePanel({ tabs, className }: CodePanelProps) {
       </div>
 
       {/* Code content */}
-      <div className="scrollbar-hide overflow-x-auto">
-        <pre className="p-4 text-sm leading-relaxed">
+      <div className="overflow-x-auto">
+        <pre className="p-3 text-xs leading-relaxed sm:p-4 sm:text-sm">
           <code
-            className={`language-${currentLanguage}`}
+            className={cn(
+              `language-${currentLanguage}`,
+              "text-neutral-800 dark:text-neutral-200"
+            )}
             dangerouslySetInnerHTML={{
               __html: highlightCode(currentCode, currentLanguage),
             }}
