@@ -12,24 +12,24 @@
 ## Tool Categories
 
 ### Design Tools (Figma, Sketch, etc.)
-**Best for:** Visual exploration, clickable mockups
-**Speed:** Fast for static, medium for interactive
-**Fidelity:** Medium to high visual, low interaction
+- **Best for:** Visual exploration, clickable mockups
+- **Speed:** Fast for static, medium for interactive
+- **Fidelity:** Medium to high visual, low interaction
 
 ### Code Sandboxes (CodePen, CodeSandbox)
-**Best for:** Quick interaction tests, shareable experiments
-**Speed:** Very fast setup
-**Fidelity:** High interaction, variable visual
+- **Best for:** Quick interaction tests, shareable experiments
+- **Speed:** Very fast setup
+- **Fidelity:** High interaction, variable visual
 
 ### Local Development
-**Best for:** Complex interactions, real data
-**Speed:** Slower setup, faster iteration once running
-**Fidelity:** Production-level possible
+- **Best for:** Complex interactions, real data
+- **Speed:** Slower setup, faster iteration once running
+- **Fidelity:** Production-level possible
 
 ### No-Code Tools (Framer, Webflow)
-**Best for:** Marketing pages, quick landing pages
-**Speed:** Fast for certain use cases
-**Fidelity:** High visual, medium interaction
+- **Best for:** Marketing pages, quick landing pages
+- **Speed:** Fast for certain use cases
+- **Fidelity:** High visual, medium interaction
 
 ## Choosing Your Tool
 
