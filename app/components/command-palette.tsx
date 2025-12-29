@@ -14,6 +14,8 @@ import {
   ExternalLink,
   Briefcase,
   Sparkles,
+  Blend,
+  GraduationCap,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
@@ -46,6 +48,18 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
   const pages = [
     { name: "Home", href: "/", icon: Home, keywords: "home main landing" },
     {
+      name: "Design Engineering",
+      href: "/design-engineering",
+      icon: Blend,
+      keywords: "what is design engineer role career",
+    },
+    {
+      name: "Course",
+      href: "/course",
+      icon: GraduationCap,
+      keywords: "learn convergence track lessons",
+    },
+    {
       name: "Posts",
       href: "/posts",
       icon: FileText,
@@ -58,24 +72,24 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
       keywords: "task builder practice",
     },
     {
-      name: "Resources",
-      href: "/resources",
-      icon: BookOpen,
-      keywords: "links learning",
-    },
-    {
-      name: "Stories",
-      href: "/stories",
-      icon: Users,
-      keywords: "interviews people",
-    },
-    { name: "About", href: "/about", icon: Info, keywords: "who what" },
-    {
       name: "Hiring",
       href: "https://designengineer.io",
       icon: Briefcase,
       external: true,
       keywords: "jobs careers work",
+    },
+    {
+      name: "Resources",
+      href: "/resources",
+      icon: BookOpen,
+      keywords: "links learning",
+    },
+    { name: "About", href: "/about", icon: Info, keywords: "who what" },
+    {
+      name: "Stories",
+      href: "/stories",
+      icon: Users,
+      keywords: "interviews people",
     },
   ];
 
