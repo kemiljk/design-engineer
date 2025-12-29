@@ -143,7 +143,7 @@ Include for each screen:
 
 2. **Layout Structure**
    - Component hierarchy
-   - Scroll behavior
+   - Scroll behaviour
    - Safe area handling
 
 3. **Interactions**
@@ -258,7 +258,7 @@ Understanding helps communication:
 **In Reviews:**
 - Be specific about issues
 - Provide visual comparison
-- Prioritize feedback (P1/P2/P3)
+- Prioritise feedback (P1/P2/P3)
 - Acknowledge constraints
 
 ### Regular Touchpoints

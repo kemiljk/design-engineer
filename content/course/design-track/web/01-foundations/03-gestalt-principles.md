@@ -218,7 +218,7 @@ Sketch a settings page with:
 - Notification preferences (email, push, SMS)
 - Privacy settings (profile visibility, data sharing)
 
-Apply Gestalt principles to make the three sections clear without using headers. How can grouping alone communicate organization?
+Apply Gestalt principles to make the three sections clear without using headers. How can grouping alone communicate organisation?
 
 ### Exercise 3: Breaking Principles
 

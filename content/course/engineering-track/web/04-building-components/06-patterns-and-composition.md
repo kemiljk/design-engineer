@@ -11,7 +11,7 @@
 
 ## Composition Over Inheritance
 
-Instead of creating specialized components through inheritance, compose simple components:
+Instead of creating specialised components through inheritance, compose simple components:
 
 ```html
 <!-- Composition -->
@@ -165,7 +165,7 @@ If one component uses `onClick`, all should use `onClick` (not `handleClick`, `o
       "id": "b",
       "text": "Related components that share implicit state through a parent context",
       "isCorrect": true,
-      "explanation": "Correct! Compound components work together (like Select + SelectOption) sharing state through context, allowing flexible composition while maintaining coordinated behavior."
+      "explanation": "Correct! Compound components work together (like Select + SelectOption) sharing state through context, allowing flexible composition while maintaining coordinated behaviour."
     },
     {
       "id": "c",
@@ -185,7 +185,7 @@ If one component uses `onClick`, all should use `onClick` (not `handleClick`, `o
 
 ## Key Takeaways
 
-- Prefer composition over specialized components
+- Prefer composition over specialised components
 - Use slots for flexible content areas
 - Compound components share state
 - Render props give consumers control

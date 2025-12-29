@@ -237,7 +237,7 @@ Implement a loading button that:
       "id": "a",
       "text": "Use <a> for everything since you can style it to look like a button",
       "isCorrect": false,
-      "explanation": "Styling doesn't change semantic behavior—links and buttons work differently for accessibility."
+      "explanation": "Styling doesn't change semantic behaviour—links and buttons work differently for accessibility."
     },
     {
       "id": "b",

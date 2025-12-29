@@ -289,7 +289,7 @@ Each component needs documentation:
 
 ### Accessibility
 
-- Keyboard behavior
+- Keyboard behaviour
 - Screen reader announcements
 - Required ARIA attributes
 - Focus management
@@ -311,7 +311,7 @@ Components will change. Plan for it:
 
 ### Extensibility Points
 
-Build in points where behavior can be extended:
+Build in points where behaviour can be extended:
 - Custom styling hooks
 - Event callbacks
 - Render customization

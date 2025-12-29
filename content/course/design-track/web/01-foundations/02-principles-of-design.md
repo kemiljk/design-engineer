@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - The six fundamental design principles and why they matter
-- How to recognize each principle in existing designs
+- How to recognise each principle in existing designs
 - How to apply these principles to improve interfaces
 - The relationship between principles and usability
 
@@ -168,7 +168,7 @@ In a form:
 - All inputs left-align (and align with labels)
 - The submit button aligns with inputs
 
-This creates invisible lines that guide the eye and make the form feel organized.
+This creates invisible lines that guide the eye and make the form feel organised.
 
 ### The Grid System
 
@@ -294,7 +294,7 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
 - Balance distributes visual weight
 - Contrast creates differentiation and interest
 - Repetition builds consistency and learnability
-- Alignment creates organization through positioning
+- Alignment creates organisation through positioning
 - Proximity groups related elements through spacing
 - These principles work together in every effective design
 

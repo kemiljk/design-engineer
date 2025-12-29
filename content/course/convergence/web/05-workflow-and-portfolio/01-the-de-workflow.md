@@ -37,7 +37,7 @@ You're not just a translator—you're a participant in both worlds.
 - **Value:** Ship design as intended
 
 ### Launch & Iteration
-- **Contribution:** Performance optimization, user feedback response
+- **Contribution:** Performance optimisation, user feedback response
 - **Activities:** Monitor, iterate, polish based on real usage
 - **Value:** Continuous improvement
 

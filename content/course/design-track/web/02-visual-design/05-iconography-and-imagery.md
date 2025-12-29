@@ -35,7 +35,7 @@ Icons are simplified visual symbols representing objects, actions, or concepts.
 - Status indicators (success, warning, error)
 - Object types (file, folder, user, settings)
 - Navigation (arrows, expand/collapse)
-- Platform conventions (share, favorite, download)
+- Platform conventions (share, favourite, download)
 
 **Bad uses:**
 - Abstract concepts (icons for "synergy" or "innovation")
@@ -127,7 +127,7 @@ Images (photographs, graphics, screenshots) play a different role than icons.
 
 **Screenshots:** Demonstrate the product. SaaS, documentation.
 
-**Data visualization:** Graphs, charts, maps. Dashboards, analytics.
+**Data visualisation:** Graphs, charts, maps. Dashboards, analytics.
 
 **Decorative imagery:** Background patterns, abstract graphics. Branding.
 
@@ -180,7 +180,7 @@ Illustrations are custom-drawn graphics, ranging from simple icons to complex sc
 **Empty states:** Make "no data" screens friendlier
 **Onboarding:** Guide users through setup
 **Error pages:** Soften the impact of problems
-**Feature explanations:** Visualize abstract concepts
+**Feature explanations:** Visualise abstract concepts
 **Brand personality:** Add character to the interface
 
 ### Illustration Styles

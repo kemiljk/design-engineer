@@ -327,7 +327,7 @@ Find 5 error messages in products you use. Rewrite each to be:
 
 For a feature you're working on:
 1. List all possible edge cases using the checklist
-2. Prioritize by likelihood and impact
+2. Prioritise by likelihood and impact
 3. Design the top 3 most important edge cases
 
 ## Test Your Understanding

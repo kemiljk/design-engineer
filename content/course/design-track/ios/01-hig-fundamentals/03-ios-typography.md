@@ -156,7 +156,7 @@ If you have an iOS device, change the text size setting. Open several apps and n
 
 ## Key Takeaways
 
-- San Francisco is optimized for Apple devices
+- San Francisco is optimised for Apple devices
 - Use semantic text styles, not fixed sizes
 - Dynamic Type makes apps accessible
 - Test at multiple size categories

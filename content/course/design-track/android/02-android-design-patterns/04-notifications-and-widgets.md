@@ -140,11 +140,11 @@ Design a widget for an app at three sizes:
       "id": "a",
       "text": "Different visual styles for notifications",
       "isCorrect": false,
-      "explanation": "Channels are about categorization and user control, not visual style."
+      "explanation": "Channels are about categorisation and user control, not visual style."
     },
     {
       "id": "b",
-      "text": "Categories that let users control importance and behavior of different notification types",
+      "text": "Categories that let users control importance and behaviour of different notification types",
       "isCorrect": true,
       "explanation": "Correct! Channels group notifications by type (messages, promotions, updates). Users can customize sound, vibration, and importance per channel, or disable specific channels entirely."
     },

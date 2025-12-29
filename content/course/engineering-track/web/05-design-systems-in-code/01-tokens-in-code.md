@@ -6,7 +6,7 @@
 
 - Implementing design tokens with CSS custom properties
 - Token naming conventions
-- Token organization strategies
+- Token organisation strategies
 - Connecting design tokens to design tools
 
 ## CSS Custom Properties as Tokens

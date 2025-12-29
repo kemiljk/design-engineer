@@ -22,7 +22,7 @@ Every website you've ever visited is built on HTML. When you load a page, your b
 HTML stands for **HyperText Markup Language**:
 - **HyperText:** Text with links to other text (the "web" in World Wide Web)
 - **Markup:** Tags that describe content
-- **Language:** A standardized way of writing these tags
+- **Language:** A standardised way of writing these tags
 
 HTML isn't a programming language—it's a markup language. It doesn't perform logic or calculations. It describes content: "this is a heading," "this is a paragraph," "this is a link."
 
@@ -34,7 +34,7 @@ Think of a document like a human body:
 
 - **HTML** is the skeleton: the structure that holds everything together
 - **CSS** is the appearance—skin, clothing, style
-- **JavaScript** is the behavior—movement, actions, responses
+- **JavaScript** is the behaviour—movement, actions, responses
 
 Without HTML, there's nothing to style or animate. It's the foundation.
 

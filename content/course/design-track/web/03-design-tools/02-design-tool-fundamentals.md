@@ -39,7 +39,7 @@ Design tools present an infinite canvas where you place design elements.
 
 ### Working with Frames
 
-Frames are your primary organizing structure:
+Frames are your primary organising structure:
 - One frame per screen/page design
 - Frames for components
 - Frames for sections within pages
@@ -343,7 +343,7 @@ Create and apply:
 ## Key Takeaways
 
 - Design tools share common concepts: canvas, frames, layers, shapes, styles
-- Frames organize your work and represent screens/components
+- Frames organise your work and represent screens/components
 - Layer management (order, naming, grouping) is essential
 - Shapes have properties: fill, stroke, corner radius, shadows
 - Create reusable styles for colors, text, and effects

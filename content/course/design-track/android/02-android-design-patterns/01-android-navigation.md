@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Navigation components
-- Back navigation behavior
+- Back navigation behaviour
 - Navigation patterns
 - Combining navigation types
 
@@ -22,7 +22,7 @@ For top-level destinations:
 For many destinations:
 - Slides from left edge
 - Accessed via hamburger icon
-- Can organize into sections
+- Can organise into sections
 - Often on larger screens
 
 ### Navigation Rail
@@ -111,7 +111,7 @@ Bottom Navigation
 ### Do
 - Keep primary destinations in bottom nav
 - Preserve scroll position per destination
-- Make back behavior predictable
+- Make back behaviour predictable
 - Support gesture navigation
 
 ### Don't
@@ -124,7 +124,7 @@ Bottom Navigation
 
 ### Exercise 1: Navigation Map
 
-Map the navigation structure of your favorite Android app. What patterns does it use?
+Map the navigation structure of your favourite Android app. What patterns does it use?
 
 ### Exercise 2: App Navigation
 

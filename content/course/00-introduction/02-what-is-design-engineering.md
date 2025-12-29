@@ -154,7 +154,7 @@ What does it take to do this work? The specific technologies vary by platform, b
 - Core web technologies (HTML, CSS, JavaScript) or native platforms (Swift, Kotlin)
 - Component architecture
 - State management
-- Performance optimization
+- Performance optimisation
 - Accessibility implementation
 
 ### Bridge Skills
@@ -230,7 +230,7 @@ Write down your answers. We'll use them in the next lesson to help you choose yo
       "id": "d",
       "text": "They always work faster than specialists",
       "isCorrect": false,
-      "explanation": "Speed comes from reducing friction and iteration cycles, not from individuals working faster at specialized tasks."
+      "explanation": "Speed comes from reducing friction and iteration cycles, not from individuals working faster at specialised tasks."
     }
   ]
 }

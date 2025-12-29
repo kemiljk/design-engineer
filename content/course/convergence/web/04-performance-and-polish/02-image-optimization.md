@@ -1,13 +1,13 @@
-# Image Optimization
+# Image Optimisation
 
-> **Quick Summary:** Images are often the heaviest assets on a page. Optimizing them dramatically improves load times and user experience.
+> **Quick Summary:** Images are often the heaviest assets on a page. Optimising them dramatically improves load times and user experience.
 
 ## What You'll Learn
 
 - Modern image formats
 - Responsive images
 - Lazy loading
-- Image CDNs and optimization services
+- Image CDNs and optimisation services
 
 ## Modern Image Formats
 
@@ -96,7 +96,7 @@ Services like Cloudinary, imgix, or Vercel Image Optimization:
 Benefits:
 - Automatic format selection
 - On-the-fly resizing
-- Quality optimization
+- Quality optimisation
 - Global CDN delivery
 
 ## Next.js Image Component
@@ -114,7 +114,7 @@ import Image from 'next/image';
 />
 ```
 
-Automatic optimization, lazy loading, and blur placeholders.
+Automatic optimisation, lazy loading, and blur placeholders.
 
 ## Try It Yourself
 
@@ -130,10 +130,10 @@ Implement responsive images for a hero section with appropriate breakpoints.
 
 <!-- exercise: multiple-choice
 {
-  "id": "image-optimization-quiz",
+  "id": "image-optimisation-quiz",
   "type": "multiple-choice",
-  "title": "Image Optimization",
-  "description": "Test your understanding of web image optimization.",
+  "title": "Image Optimisation",
+  "description": "Test your understanding of web image optimisation.",
   "difficulty": "medium",
   "question": "What is the advantage of using WebP or AVIF formats over JPEG and PNG?",
   "options": [
@@ -171,7 +171,7 @@ Implement responsive images for a hero section with appropriate breakpoints.
 - Serve responsive images with srcset
 - Lazy load below-the-fold images
 - Always specify dimensions
-- Consider image CDNs for automatic optimization
+- Consider image CDNs for automatic optimisation
 
 ## Next Steps
 

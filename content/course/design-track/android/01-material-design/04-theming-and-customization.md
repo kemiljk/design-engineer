@@ -1,42 +1,42 @@
-# Theming and Customization
+# Theming and Customisation
 
-> **Quick Summary:** Material Design is meant to be customized. Theming lets you express your brand while maintaining Material's usability foundations.
+> **Quick Summary:** Material Design is meant to be customised. Theming lets you express your brand whilst maintaining Material's usability foundations.
 
 ## What You'll Learn
 
 - Material Theming concepts
-- Customizing color
-- Customizing typography
-- Customizing shape
+- Customising colour
+- Customising typography
+- Customising shape
 - Balancing brand and usability
 
 ## Material Theming
 
 Material provides building blocks; theming makes them yours:
 
-### What's Customizable
-- Color palette
+### What's Customisable
+- Colour palette
 - Typography
 - Shape (corner radius)
 - Motion (with care)
 
 ### What Stays Consistent
-- Component behavior
+- Component behaviour
 - Accessibility standards
 - Interaction patterns
 - Information architecture
 
-## Color Theming
+## Colour Theming
 
 ### Baseline to Brand
-Start with Material's color roles, apply your brand:
-- Primary → Your brand color
+Start with Material's colour roles, apply your brand:
+- Primary → Your brand colour
 - Secondary → Complementary accent
 - Tertiary → Additional expression
 
 ### Generating Palettes
 Use Material Theme Builder:
-1. Input your brand colors
+1. Input your brand colours
 2. System generates tonal palettes
 3. Ensure accessibility
 4. Export to code/design tools
@@ -124,7 +124,7 @@ Shape communicates personality:
 ### Exercise 1: Theme Creation
 
 Use Material Theme Builder to:
-- Input a brand color
+- Input a brand colour
 - Generate palettes
 - Preview in components
 - Export values
@@ -144,22 +144,22 @@ Which fits your brand?
 {
   "id": "material-theming-quiz",
   "type": "multiple-choice",
-  "title": "Theming and Customization",
+  "title": "Theming and Customisation",
   "description": "Test your understanding of Material theming.",
   "difficulty": "easy",
-  "question": "What are the main customization axes in Material Design theming?",
+  "question": "What are the main customisation axes in Material Design theming?",
   "options": [
     {
       "id": "a",
-      "text": "Only colors can be customized",
+      "text": "Only colours can be customised",
       "isCorrect": false,
       "explanation": "Material theming covers multiple aspects."
     },
     {
       "id": "b",
-      "text": "Color, typography, and shape",
+      "text": "Colour, typography, and shape",
       "isCorrect": true,
-      "explanation": "Correct! Material Design's three theming pillars are color (palette and scheme), typography (type scale and fonts), and shape (corner radii and styles)."
+      "explanation": "Correct! Material Design's three theming pillars are colour (palette and scheme), typography (type scale and fonts), and shape (corner radii and styles)."
     },
     {
       "id": "c",
@@ -179,11 +179,11 @@ Which fits your brand?
 
 ## Key Takeaways
 
-- Theming customizes Material for your brand
-- Color, typography, and shape are customizable
-- Behavior and accessibility stay consistent
+- Theming customises Material for your brand
+- Colour, typography, and shape are customisable
+- Behaviour and accessibility stay consistent
 - Use tools like Material Theme Builder
-- Document and systematize your theme
+- Document and systematise your theme
 
 ## Congratulations!
 

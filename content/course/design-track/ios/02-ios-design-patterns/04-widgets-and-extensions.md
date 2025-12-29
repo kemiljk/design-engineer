@@ -122,7 +122,7 @@ Design a Lock Screen widget. How do you convey value in such limited space?
   "title": "Widgets and Extensions",
   "description": "Test your understanding of iOS widgets.",
   "difficulty": "medium",
-  "question": "What should iOS widgets prioritize in their design?",
+  "question": "What should iOS widgets prioritise in their design?",
   "options": [
     {
       "id": "a",

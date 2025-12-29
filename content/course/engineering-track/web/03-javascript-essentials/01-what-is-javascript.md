@@ -13,7 +13,7 @@
 
 > *"Always bet on JavaScript."* — Brendan Eich
 
-HTML provides structure. CSS provides style. JavaScript provides behavior.
+HTML provides structure. CSS provides style. JavaScript provides behaviour.
 
 When you:
 - Click a button and a menu opens
@@ -225,15 +225,15 @@ Log them all.
     },
     {
       "id": "b",
-      "text": "JavaScript is a programming language that adds interactivity and behavior",
+      "text": "JavaScript is a programming language that adds interactivity and behaviour",
       "isCorrect": true,
-      "explanation": "Correct! HTML provides structure, CSS provides style, and JavaScript adds behavior—responding to events, manipulating content, and creating dynamic experiences."
+      "explanation": "Correct! HTML provides structure, CSS provides style, and JavaScript adds behaviour—responding to events, manipulating content, and creating dynamic experiences."
     },
     {
       "id": "c",
       "text": "JavaScript is only used for animations",
       "isCorrect": false,
-      "explanation": "CSS can handle many animations. JavaScript's scope is much broader—any dynamic behavior."
+      "explanation": "CSS can handle many animations. JavaScript's scope is much broader—any dynamic behaviour."
     },
     {
       "id": "d",

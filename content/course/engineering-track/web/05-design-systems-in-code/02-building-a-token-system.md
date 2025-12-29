@@ -158,7 +158,7 @@
     },
     {
       "id": "d",
-      "text": "Semantic tokens are deprecated in favor of primitives",
+      "text": "Semantic tokens are deprecated in favour of primitives",
       "isCorrect": false,
       "explanation": "Both are essential parts of a well-structured token system."
     }

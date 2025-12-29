@@ -128,8 +128,8 @@ IconButton(
     Icon(
         imageVector = if (isFavorite) Icons.Filled.Favorite 
                       else Icons.Outlined.FavoriteBorder,
-        contentDescription = if (isFavorite) "Remove from favorites" 
-                            else "Add to favorites"
+        contentDescription = if (isFavorite) "Remove from favourites" 
+                            else "Add to favourites"
     )
 }
 ```

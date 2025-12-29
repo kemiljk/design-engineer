@@ -1,6 +1,6 @@
 # CSS Performance
 
-> **Quick Summary:** CSS can cause performance issues through layout thrashing, expensive selectors, and render-blocking behavior. Learn to write performant styles.
+> **Quick Summary:** CSS can cause performance issues through layout thrashing, expensive selectors, and render-blocking behaviour. Learn to write performant styles.
 
 ## What You'll Learn
 

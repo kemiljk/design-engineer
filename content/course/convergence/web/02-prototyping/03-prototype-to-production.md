@@ -4,14 +4,14 @@
 
 ## What You'll Learn
 
-- When to productionize vs. rebuild
+- When to productionise vs. rebuild
 - Structuring prototypes for potential reuse
 - Refactoring prototype code
 - The prototype-production handoff
 
-## When to Productionize
+## When to Productionise
 
-Consider productionizing when:
+Consider productionising when:
 - The prototype solves the problem well
 - Core architecture is sound
 - Time pressure is high
@@ -23,7 +23,7 @@ Rebuild from scratch when:
 - Requirements changed significantly
 - Technical debt is too high
 
-## Writing Productionizable Prototypes
+## Writing Productionisable Prototypes
 
 Even quick prototypes can follow patterns that make production transition easier:
 
@@ -104,7 +104,7 @@ function Modal({ isOpen, onClose, children }) {
 
 ## The Handoff
 
-If someone else will productionize your prototype:
+If someone else will productionise your prototype:
 
 ### Document Decisions
 
@@ -127,7 +127,7 @@ A quick Loom showing the prototype in action is invaluable.
 ### Exercise 1: Prototype Audit
 
 Take an old prototype you built. Assess:
-- Could it be productionized?
+- Could it be productionised?
 - What would need to change?
 - Estimate effort to refactor vs. rebuild
 

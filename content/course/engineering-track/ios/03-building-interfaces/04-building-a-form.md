@@ -1,6 +1,6 @@
 # Building a Form
 
-> **Quick Summary:** Forms collect user input. SwiftUI provides specialized form views that automatically style content appropriately.
+> **Quick Summary:** Forms collect user input. SwiftUI provides specialised form views that automatically style content appropriately.
 
 ## What You'll Learn
 

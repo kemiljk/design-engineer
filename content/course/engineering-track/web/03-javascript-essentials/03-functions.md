@@ -1,6 +1,6 @@
 # Functions
 
-> **Quick Summary:** Functions are reusable blocks of code. They're fundamental to organizing and structuring JavaScript programs.
+> **Quick Summary:** Functions are reusable blocks of code. They're fundamental to organising and structuring JavaScript programs.
 
 ## What You'll Learn
 
