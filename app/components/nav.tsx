@@ -308,6 +308,11 @@ export default function Nav({
   const pathname = usePathname();
   const { isBannerVisible, bannerHeight } = useBanner();
 
+  // Hide navigation on capture routes (used for GIF generation)
+  if (pathname?.startsWith("/capture")) {
+    return null;
+  }
+
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);

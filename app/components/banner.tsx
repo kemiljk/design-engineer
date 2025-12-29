@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
 import Markdown from "react-markdown";
 import { useBanner } from "./banner-context";
@@ -17,10 +18,16 @@ export default function Banner({
   button_label: string;
   modified_at: string;
 }) {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [bannerHidden, setBannerHidden] = useState(true);
   const { setBannerVisible, setBannerHeight } = useBanner();
   const bannerRef = useRef<HTMLDivElement>(null);
+
+  // Hide on capture routes
+  if (pathname?.startsWith("/capture")) {
+    return null;
+  }
 
   const updateBannerHeight = useCallback(() => {
     if (bannerRef.current) {

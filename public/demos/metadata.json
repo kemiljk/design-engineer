@@ -1,0 +1,10 @@
+{
+  "border-beam": {
+    "url": "/demos/border-beam.gif",
+    "width": 1200,
+    "height": 675,
+    "size": "1.97MB",
+    "duration": "5s",
+    "fps": 10
+  }
+}

@@ -85,7 +85,7 @@ function BorderBeam({
           {
             width: anchorSize,
             offsetPath: `rect(0 auto auto 0 round ${anchorSize}px)`,
-            background: `linear-gradient(to left, transparent, ${colorFrom}, ${colorTo}, transparent)`,
+            background: `radial-gradient(ellipse 50% 80% at 50% 50%, ${colorFrom}, ${colorTo} 50%, transparent 80%)`,
             ...style,
           } as MotionStyle
         }
@@ -247,7 +247,7 @@ function BorderBeam({ duration = ${speed} }) {
           <button
             onClick={() => setShowCode(!showCode)}
             className={cn(
-              "rounded-2xl px-4 py-2.5 text-xs font-medium shadow-sm transition-all active:scale-[0.98]",
+              "px-4 py-2.5 text-xs font-medium shadow-sm transition-all active:scale-[0.98]",
               showCode
                 ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
                 : "border border-neutral-200/60 bg-white text-neutral-600 hover:bg-neutral-50 dark:border-neutral-800/60 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800",

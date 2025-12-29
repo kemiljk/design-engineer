@@ -399,6 +399,7 @@ transition: transform 1s ${formatCubicBezier(points)};`;
             {/* Controls at top */}
             <div className="flex flex-wrap gap-2">
               <button
+                data-demo-trigger
                 onClick={playAnimation}
                 disabled={isPlaying}
                 className="flex h-10 items-center gap-2 bg-neutral-900 px-5 text-xs font-medium text-white shadow-sm transition-all hover:bg-neutral-800 active:scale-[0.98] disabled:opacity-50 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"

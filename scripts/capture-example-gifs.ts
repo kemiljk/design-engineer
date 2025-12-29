@@ -36,46 +36,46 @@ interface CaptureConfig {
 const examples: CaptureConfig[] = [
   {
     exampleId: 'border-beam',
-    route: '/debug-demos',
+    route: '/capture/border-beam',
     duration: 5,
     interactions: [
-      { selector: 'text=Border Beam', action: 'wait', delay: 1000 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
     ],
     viewport: { width: 1200, height: 675 },
-    fps: 10,
+    fps: 20,
   },
   {
     exampleId: 'easing-playground',
-    route: '/debug-demos',
+    route: '/capture/easing-playground',
     duration: 6,
     interactions: [
-      { selector: 'text=Easing Playground', action: 'wait', delay: 500 },
-      { selector: 'button:has-text("Play Animation")', action: 'click', delay: 500 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
+      { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
     ],
     viewport: { width: 1200, height: 675 },
-    fps: 10,
+    fps: 20,
   },
   {
     exampleId: 'timing-comparison',
-    route: '/debug-demos',
+    route: '/capture/timing-comparison',
     duration: 5,
     interactions: [
-      { selector: 'text=Timing Functions Race', action: 'wait', delay: 500 },
-      { selector: 'button:has-text("Start Race")', action: 'click', delay: 500 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
+      { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
     ],
     viewport: { width: 1200, height: 675 },
-    fps: 10,
+    fps: 20,
   },
   {
     exampleId: 'spring-physics',
-    route: '/debug-demos',
+    route: '/capture/spring-physics',
     duration: 6,
     interactions: [
-      { selector: 'text=Spring Physics', action: 'wait', delay: 500 },
-      { selector: 'button:has-text("Trigger")', action: 'click', delay: 500 },
+      { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
+      { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
     ],
     viewport: { width: 1200, height: 675 },
-    fps: 10,
+    fps: 20,
   },
 ];
 
@@ -179,20 +179,23 @@ async function captureExample(
 async function convertToGif(
   videoPath: string,
   outputPath: string,
-  fps: number = 10
+  fps: number = 20
 ): Promise<void> {
   console.log(`   ➜ Converting to GIF (${fps} fps)...`);
 
   // Generate a high-quality color palette
+  // stats_mode=full gives better color accuracy for the whole video
   const palettePath = videoPath.replace('.webm', '-palette.png');
 
   await execAsync(
-    `ffmpeg -i "${videoPath}" -vf "fps=${fps},scale=1200:-1:flags=lanczos,palettegen=max_colors=256:stats_mode=diff" -y "${palettePath}"`
+    `ffmpeg -i "${videoPath}" -vf "fps=${fps},scale=1200:-1:flags=lanczos,palettegen=max_colors=256:stats_mode=full" -y "${palettePath}"`
   );
 
   // Convert to GIF using the palette
+  // Using floyd_steinberg dithering for smoother gradients
+  // diff_mode=rectangle optimizes for areas that change
   await execAsync(
-    `ffmpeg -i "${videoPath}" -i "${palettePath}" -filter_complex "fps=${fps},scale=1200:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" -y "${outputPath}"`
+    `ffmpeg -i "${videoPath}" -i "${palettePath}" -filter_complex "fps=${fps},scale=1200:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=sierra2_4a:diff_mode=rectangle" -y "${outputPath}"`
   );
 
   console.log(`   ✓ GIF created: ${outputPath}`);

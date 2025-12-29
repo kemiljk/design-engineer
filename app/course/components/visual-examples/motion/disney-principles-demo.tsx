@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ExampleWrapper, SliderControl, ControlButton } from "../base/example-wrapper";
+import {
+  ExampleWrapper,
+  SliderControl,
+  ControlButton,
+} from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
 export function DisneyPrinciplesDemo() {
@@ -12,11 +16,11 @@ export function DisneyPrinciplesDemo() {
   const [elasticity, setElasticity] = useState(0.5);
   const [key, setKey] = useState(0);
 
-  const reset = () => setKey(k => k + 1);
+  const reset = () => setKey((k) => k + 1);
 
   // Calculate deformation based on elasticity slider
-  const squash = 1 - (0.4 * elasticity); // Max squash 0.6
-  const stretch = 1 + (0.4 * elasticity); // Max stretch 1.4
+  const squash = 1 - 0.4 * elasticity; // Max squash 0.6
+  const stretch = 1 + 0.4 * elasticity; // Max stretch 1.4
 
   const cssCode = `/* 
   Parametric physics simulations are extremely 
@@ -69,12 +73,15 @@ function BouncingBall({ elasticity }) {
           <div className="flex items-center gap-2">
             <button
               onClick={reset}
-              className="flex items-center gap-2 rounded-xl bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
+              className="flex items-center gap-2 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
             >
               <RotateCcw className="size-3.5" />
               Reset
             </button>
-            <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
+            <ControlButton
+              active={showCode}
+              onClick={() => setShowCode(!showCode)}
+            >
               {showCode ? "Hide Code" : "Show Code"}
             </ControlButton>
           </div>
@@ -83,7 +90,7 @@ function BouncingBall({ elasticity }) {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="relative h-[320px] overflow-hidden rounded-[24px] border border-neutral-200 bg-gradient-to-b from-neutral-50 to-neutral-100 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950">
+        <div className="relative h-[320px] overflow-hidden rounded-[24px] border border-neutral-200 bg-linear-to-b from-neutral-50 to-neutral-100 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950">
           <div className="absolute inset-0 flex items-end justify-center pb-12">
             {/* The Ball */}
             <motion.div
@@ -107,15 +114,15 @@ function BouncingBall({ elasticity }) {
                   duration: 1.2,
                   repeat: Infinity,
                   ease: "linear",
-                  times: [0, 0.5, 1] // Sync deformation with jump apex
+                  times: [0, 0.5, 1], // Sync deformation with jump apex
                 }}
-                className="h-16 w-16 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 shadow-[inset_-4px_-4px_10px_rgba(0,0,0,0.2)]"
+                className="h-16 w-16 rounded-full bg-linear-to-br from-indigo-500 to-violet-600 shadow-[inset_-4px_-4px_10px_rgba(0,0,0,0.2)]"
               >
                 {/* Specular Highlight */}
-                <div className="absolute left-3 top-3 h-5 w-5 rounded-full bg-white/30 blur-[2px]" />
+                <div className="absolute top-3 left-3 h-5 w-5 rounded-full bg-white/30 blur-[2px]" />
               </motion.div>
             </motion.div>
-            
+
             {/* Dynamic Shadow */}
             <motion.div
               animate={{
@@ -139,7 +146,9 @@ function BouncingBall({ elasticity }) {
               Anticipation & Follow Through
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              The ball stretches vertically as it accelerates upwards (fighting gravity) and squashes horizontally when it impacts the ground (absorbing energy).
+              The ball stretches vertically as it accelerates upwards (fighting
+              gravity) and squashes horizontally when it impacts the ground
+              (absorbing energy).
             </p>
           </div>
           <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900/50">
@@ -147,13 +156,17 @@ function BouncingBall({ elasticity }) {
               Volume Conservation
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              Critically, volume must be maintained. If an object gets flatter (squash), it must also get wider (stretch).
+              Critically, volume must be maintained. If an object gets flatter
+              (squash), it must also get wider (stretch).
             </p>
           </div>
         </div>
 
         {showCode && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+          >
             <CodePanel tabs={codeTabs} />
           </motion.div>
         )}

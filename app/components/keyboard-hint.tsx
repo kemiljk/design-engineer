@@ -1,11 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Command } from "lucide-react";
 
 export function KeyboardHint() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
+
+  // Hide on capture routes
+  if (pathname?.startsWith("/capture")) {
+    return null;
+  }
 
   useEffect(() => {
     setMounted(true);

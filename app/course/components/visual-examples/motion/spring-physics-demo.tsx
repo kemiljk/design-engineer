@@ -377,6 +377,7 @@ export function SpringPhysicsDemo() {
                 <RotateCcw className="size-4" />
               </button>
               <button
+                data-demo-trigger
                 onClick={trigger}
                 className="flex h-10 items-center gap-2 bg-neutral-900 px-5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-neutral-800 active:scale-[0.98] dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
               >

@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 
 export function EmailSubscriber() {
+  const pathname = usePathname();
   const { user, isLoaded } = useUser();
+
+  // Skip on capture routes
+  if (pathname?.startsWith("/capture")) {
+    return null;
+  }
 
   useEffect(() => {
     if (!isLoaded || !user) return;

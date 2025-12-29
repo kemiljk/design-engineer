@@ -30,9 +30,10 @@ const isPublicRoute = createRouteMatcher([
   "/(.*)/twitter-image", // Nested Twitter images
   "/course",
   "/course/(.*)",
+  "/capture(.*)", // Capture routes for GIF generation
 ]);
 
-export const proxy = clerkMiddleware(async (auth, request) => {
+export default clerkMiddleware(async (auth, request) => {
   if (!isPublicRoute(request)) {
     await auth.protect();
   }

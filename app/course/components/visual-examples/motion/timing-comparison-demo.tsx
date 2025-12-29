@@ -150,6 +150,7 @@ function Race() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex gap-2">
             <button
+              data-demo-trigger
               onClick={togglePlay}
               disabled={isPlaying}
               className="flex items-center gap-2 bg-neutral-900 px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-neutral-800 active:scale-[0.98] disabled:opacity-50 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
