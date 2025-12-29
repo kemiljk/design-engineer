@@ -42,7 +42,7 @@ score = 100;
 
 ### var (Avoid)
 
-The old way. Has quirky scoping behavior:
+The old way. Has quirky scoping behaviour:
 
 ```javascript
 var oldStyle = 'avoid this';

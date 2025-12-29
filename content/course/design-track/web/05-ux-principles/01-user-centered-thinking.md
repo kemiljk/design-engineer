@@ -66,7 +66,7 @@ Watching users interact with products (yours or competitors'):
 - What questions do they have?
 - What workarounds do they create?
 
-Observation reveals behavior that users might not report.
+Observation reveals behaviour that users might not report.
 
 ### Use the Product Yourself
 

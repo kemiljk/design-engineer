@@ -125,7 +125,7 @@ These are minor version bumps.
 
 ### Modifying Existing Behavior
 
-Changes to existing behavior need care:
+Changes to existing behaviour need care:
 - Changing defaults (could break existing usage)
 - Changing appearance (could break layouts/tests)
 - Changing interaction patterns (could confuse users)
@@ -288,7 +288,7 @@ Review the changelog of a public design system (Material, Carbon, etc.):
 
 ### Exercise 2: Deprecation Plan
 
-You need to deprecate an old Modal component in favor of a new Dialog component. Plan:
+You need to deprecate an old Modal component in favour of a new Dialog component. Plan:
 1. Deprecation messaging
 2. Migration documentation outline
 3. Timeline

@@ -105,7 +105,7 @@ struct DetailView: View {
 ```swift
 List {
     Section("Favorites") {
-        ForEach(favorites) { item in
+        ForEach(favourites) { item in
             Text(item.name)
         }
     }

@@ -86,7 +86,7 @@
 ## When to Customize
 
 ### Use Standard When
-- Standard behavior matches your need
+- Standard behaviour matches your need
 - Users expect standard interaction
 - Accessibility is critical
 - Development time is limited

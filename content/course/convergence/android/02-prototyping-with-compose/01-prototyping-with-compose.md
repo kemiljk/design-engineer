@@ -199,7 +199,7 @@ Build a draggable card prototype:
     },
     {
       "id": "b",
-      "text": "Real gestures, physics, and actual device behavior that design tools can't fully replicate",
+      "text": "Real gestures, physics, and actual device behaviour that design tools can't fully replicate",
       "isCorrect": true,
       "explanation": "Correct! Compose prototypes run on real devices with actual touch, scroll physics, and Material motion. You can test with real data, network calls, and sensors."
     },

@@ -134,7 +134,7 @@ For each screen, include:
 
 2. **Layout Specifications**
    - Safe area handling
-   - Scroll behavior
+   - Scroll behaviour
    - Orientation support
 
 3. **Component List**
@@ -146,7 +146,7 @@ For each screen, include:
    - Empty states
    - Loading states
    - Error states
-   - Truncation behavior
+   - Truncation behaviour
 
 ### Example Component Spec
 
@@ -316,7 +316,7 @@ Take an implemented screen:
       "id": "c",
       "text": "Only the pixel size of the text",
       "isCorrect": false,
-      "explanation": "Pixel size alone misses important information like weight, style, and Dynamic Type behavior."
+      "explanation": "Pixel size alone misses important information like weight, style, and Dynamic Type behaviour."
     },
     {
       "id": "d",

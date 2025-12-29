@@ -35,7 +35,7 @@ Icons are simplified visual symbols representing objects, actions, or concepts.
 - Status indicators (success, warning, error)
 - Object types (file, folder, user, settings)
 - Navigation (arrows, expand/collapse)
-- Platform conventions (share, favorite, download)
+- Platform conventions (share, favourite, download)
 
 **Bad uses:**
 - Abstract concepts (icons for "synergy" or "innovation")

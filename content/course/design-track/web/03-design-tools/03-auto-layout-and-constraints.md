@@ -234,7 +234,7 @@ Build a form with:
   "title": "Auto Layout Sizing",
   "description": "Test your understanding of auto layout sizing behaviors.",
   "difficulty": "medium",
-  "question": "In a form row with a label, input field, and submit button, which sizing behavior should the INPUT field use?",
+  "question": "In a form row with a label, input field, and submit button, which sizing behaviour should the INPUT field use?",
   "options": [
     {
       "id": "a",
@@ -258,7 +258,7 @@ Build a form with:
       "id": "d",
       "text": "Any sizing works, it doesn't matter for inputs",
       "isCorrect": false,
-      "explanation": "Sizing behavior significantly affects how forms respond to different screen widths."
+      "explanation": "Sizing behaviour significantly affects how forms respond to different screen widths."
     }
   ]
 }

@@ -143,7 +143,7 @@ Include for each screen:
 
 2. **Layout Structure**
    - Component hierarchy
-   - Scroll behavior
+   - Scroll behaviour
    - Safe area handling
 
 3. **Interactions**

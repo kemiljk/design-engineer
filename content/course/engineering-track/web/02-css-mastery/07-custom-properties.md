@@ -381,7 +381,7 @@ This hierarchy enables:
 
 Create a custom property system with:
 
-- Color primitives (gray scale, brand color)
+- Colour primitives (grey scale, brand colour)
 - Semantic color tokens
 - Spacing scale
 - Apply to a simple card component

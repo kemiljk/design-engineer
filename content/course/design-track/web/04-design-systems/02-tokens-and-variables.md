@@ -387,7 +387,7 @@ For a product you're working on:
 
 Create a token system including:
 
-1. 5-shade gray scale
+1. 5-shade grey scale
 2. Primary and secondary brand colors
 3. Semantic status colors (error, warning, success)
 4. Spacing scale (at least 8 values)

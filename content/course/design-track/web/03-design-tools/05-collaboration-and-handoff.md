@@ -64,7 +64,7 @@ Before handing off, consider what developers need to build accurately:
 - Error states
 - Empty states
 
-### Responsive Behavior
+### Responsive Behaviour
 
 - Breakpoints
 - How layout changes at each breakpoint
@@ -205,7 +205,7 @@ Inspect mode isn't perfect:
 - Generated code is often verbose
 - Missing context (why these values)
 - Doesn't show interactions
-- Can't capture responsive behavior
+- Can't capture responsive behaviour
 
 Inspect mode supplements, but doesn't replace, good documentation and communication.
 
@@ -381,7 +381,7 @@ Create a token mapping document:
     },
     {
       "id": "d",
-      "text": "Responsive behavior and breakpoints",
+      "text": "Responsive behaviour and breakpoints",
       "isCorrect": false,
       "explanation": "Developers need to know how layouts change at different screen sizes."
     }
@@ -392,7 +392,7 @@ Create a token mapping document:
 ## Key Takeaways
 
 - Handoff is where designs become (or fail to become) reality
-- Developers need: measurements, typography, colors, assets, states, responsive behavior
+- Developers need: measurements, typography, colours, assets, states, responsive behaviour
 - Prepare files: clean layers, consistent components, applied tokens
 - Design edge cases: long content, empty states, errors, loading
 - Use design tokens for shared vocabulary between design and code

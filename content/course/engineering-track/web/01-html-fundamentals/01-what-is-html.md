@@ -34,7 +34,7 @@ Think of a document like a human body:
 
 - **HTML** is the skeleton: the structure that holds everything together
 - **CSS** is the appearance—skin, clothing, style
-- **JavaScript** is the behavior—movement, actions, responses
+- **JavaScript** is the behaviour—movement, actions, responses
 
 Without HTML, there's nothing to style or animate. It's the foundation.
 

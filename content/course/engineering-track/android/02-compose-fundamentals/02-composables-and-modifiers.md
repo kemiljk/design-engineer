@@ -1,6 +1,6 @@
 # Composables and Modifiers
 
-> **Quick Summary:** Modifiers decorate composables with layout, behavior, and appearance changes. They chain together and order matters.
+> **Quick Summary:** Modifiers decorate composables with layout, behaviour, and appearance changes. They chain together and order matters.
 
 ## What You'll Learn
 

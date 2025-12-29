@@ -111,7 +111,7 @@ The difference between elements in size, colour, weight, spacing. Contrast creat
 The distribution of visual weight. Balanced designs feel stable and intentional. Unbalanced designs feel chaotic or dynamic (sometimes intentionally).
 
 ### Repetition
-Consistency in visual treatment. Repeating patterns help users learn interfaces and predict behavior.
+Consistency in visual treatment. Repeating patterns help users learn interfaces and predict behaviour.
 
 ### Alignment
 The positioning of elements relative to each other. Aligned elements feel connected and organized. Misaligned elements feel accidental.

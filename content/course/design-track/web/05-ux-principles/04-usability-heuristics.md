@@ -304,7 +304,7 @@ The 10 heuristics:
 6. Recognition rather than recall
 7. Flexibility and efficiency of use
 8. Aesthetic and minimalist design
-9. Help users recognize, diagnose, and recover from errors
+9. Help users recognise, diagnose, and recover from errors
 10. Help and documentation
 
 - Heuristic evaluation is fast and cheap for finding usability issues

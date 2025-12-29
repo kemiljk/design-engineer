@@ -17,7 +17,7 @@ Signs of documentation problems:
 - Repeated questions about basic usage
 - People recreating existing components
 - Inconsistent usage across teams
-- Abandonment in favor of custom solutions
+- Abandonment in favour of custom solutions
 
 Good documentation is a competitive advantage. It's the difference between "we have a design system" and "we use a design system."
 
@@ -95,7 +95,7 @@ Each component needs:
 
 **Accessibility**
 - Keyboard interaction
-- Screen reader behavior
+- Screen reader behaviour
 - ARIA requirements
 - Focus management
 

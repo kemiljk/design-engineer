@@ -42,7 +42,7 @@ Personal tools are highly motivating:
 ### Remake What You Love
 Take something you admire and rebuild it:
 - Recreate an interaction you love
-- Build a feature from your favorite app
+- Build a feature from your favourite app
 - Improve on something that frustrated you
 
 ## Scoping for Completion

@@ -86,7 +86,7 @@ In Material 3, elevation also applies color tint:
 - Higher = more visible tint
 
 ### Dark Theme
-- Base surface is dark gray
+- Base surface is dark grey
 - Tint lightens the surface
 - More pronounced effect
 

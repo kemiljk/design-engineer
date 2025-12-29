@@ -309,9 +309,9 @@ Tables on mobile:
 ### Real Device Testing
 
 Dev tools simulate, but real devices reveal:
-- Touch behavior
+- Touch behaviour
 - Real performance
-- Actual viewport behavior
+- Actual viewport behaviour
 
 ### Common Issues
 

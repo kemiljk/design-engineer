@@ -202,7 +202,7 @@ Fix with padding:
 
 ## Display Property
 
-The `display` property affects box behavior:
+The `display` property affects box behaviour:
 
 ### Block Elements
 
@@ -434,7 +434,7 @@ Create scenarios demonstrating margin collapse:
       "id": "d",
       "text": "It fixes margin collapse issues",
       "isCorrect": false,
-      "explanation": "box-sizing doesn't affect margin behavior—margins are outside the box regardless."
+      "explanation": "box-sizing doesn't affect margin behaviour—margins are outside the box regardless."
     }
   ]
 }

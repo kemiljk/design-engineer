@@ -47,7 +47,7 @@ Modern apps often handle forms with JavaScript:
 
 ## Input Types
 
-The `<input>` element is incredibly versatile—its `type` attribute changes its behavior entirely.
+The `<input>` element is incredibly versatile—its `type` attribute changes its behaviour entirely.
 
 ### Text Inputs
 

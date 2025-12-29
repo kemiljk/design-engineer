@@ -65,7 +65,7 @@ Before choosing a path, honestly assess your current skills. Rate each skill fro
         "Translating designs to code accurately",
         "Implementing animations and transitions",
         "Accessibility implementation",
-        "Performance optimization"
+        "Performance optimisation"
       ],
       "maxScore": 12
     }
@@ -233,7 +233,7 @@ Based on your self-assessment and the guidance above:
 2. **Choose your platform:** Web, iOS, or Android
 3. **Write down your goal:** "By completing this track, I'll be able to ___________."
 
-Your choices aren't permanent. You can switch tracks or platforms if you realize another path suits you better. But making a choice and committing to it will help you make progress.
+Your choices aren't permanent. You can switch tracks or platforms if you realise another path suits you better. But making a choice and committing to it will help you make progress.
 
 ## Test Your Understanding
 

@@ -200,7 +200,7 @@ Enhance a form:
 
 - Compose provides solid accessibility defaults
 - Add contentDescription for icons/images
-- Use semantics for custom behavior
+- Use semantics for custom behaviour
 - Merge descendants for grouped elements
 - Test with TalkBack on device
 

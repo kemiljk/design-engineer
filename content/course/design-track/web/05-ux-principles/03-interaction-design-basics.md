@@ -143,7 +143,7 @@ Error feedback should:
 The fundamental interaction:
 - Clear tap targets (44px minimum for touch)
 - Visual feedback on press
-- Consistent behavior across similar elements
+- Consistent behaviour across similar elements
 
 <!-- illustration: touch-target-sizes -->
 
@@ -283,7 +283,7 @@ Micro-interactions are small, single-purpose interactions:
 1. **Trigger:** User action or system event
 2. **Rules:** What happens in response
 3. **Feedback:** Visual, audio, or haptic response
-4. **Loops/Modes:** Repeated or changing behavior
+4. **Loops/Modes:** Repeated or changing behaviour
 
 ### Why Micro-interactions Matter
 

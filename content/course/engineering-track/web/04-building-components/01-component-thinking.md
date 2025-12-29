@@ -14,7 +14,7 @@
 Modern frontend development is component-based. Instead of building pages, you build components that compose into pages.
 
 A component is:
-- **Self-contained:** Has its own HTML, CSS, and behavior
+- **Self-contained:** Has its own HTML, CSS, and behaviour
 - **Reusable:** Can be used in multiple places
 - **Composable:** Can contain other components
 - **Configurable:** Adapts through properties

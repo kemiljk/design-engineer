@@ -117,7 +117,7 @@ Consider tradeoffs before committing.
 Check consistency:
 - Does this match other similar elements?
 - Does it fit the design system?
-- Will users recognize it?
+- Will users recognise it?
 
 Novel solutions should be rare. Consistency aids understanding.
 

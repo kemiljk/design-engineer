@@ -170,7 +170,7 @@ You now have a comprehensive foundation in:
 - Motion and interaction design
 - Prototyping and iteration
 - Accessibility best practices
-- Performance optimization
+- Performance optimisation
 - Professional workflow and career development
 
 **What's Next?**

@@ -157,7 +157,7 @@ Design a card component thinking about:
       "id": "d",
       "text": "Skeuomorphic textures mimicking real materials",
       "isCorrect": false,
-      "explanation": "Material is more abstract than skeuomorphism—it's about behavior, not texture."
+      "explanation": "Material is more abstract than skeuomorphism—it's about behaviour, not texture."
     }
   ]
 }

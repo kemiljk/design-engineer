@@ -17,7 +17,7 @@
 Users expect apps to:
 - Work on all their Apple devices
 - Share data seamlessly
-- Feel familiar yet optimized
+- Feel familiar yet optimised
 - Take advantage of each form factor
 
 ### Key Devices and Sizes
@@ -243,7 +243,7 @@ Design a content app navigation:
 - iPhone: compact, thumb-friendly, single-column
 - iPad: expanded, pointer-aware, multi-column
 - Watch: glanceable, minimal, instant value
-- Maintain design consistency while optimizing for form factor
+- Maintain design consistency while optimising for form factor
 
 ## Next Steps
 

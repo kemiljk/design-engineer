@@ -6,7 +6,7 @@
 
 - What design systems are (and aren't)
 - The components of a design system
-- Why organizations invest in design systems
+- Why organisations invest in design systems
 - When you need a design system
 
 ## Beyond Component Libraries
@@ -43,7 +43,7 @@ Principles help teams make aligned decisions even when the system doesn't provid
 ### 2. Design Tokens
 
 The primitive values that define visual style:
-- Colors (brand, semantic, neutral)
+- Colours (brand, semantic, neutral)
 - Typography (fonts, sizes, weights)
 - Spacing (margin/padding values)
 - Shadows, borders, radii
@@ -96,7 +96,7 @@ Processes that keep the system healthy:
 
 ## Why Design Systems?
 
-Organizations invest in design systems for concrete benefits:
+Organisations invest in design systems for concrete benefits:
 
 ### Consistency
 
@@ -127,7 +127,7 @@ Teams benefit from collective improvements.
 
 ### Scalability
 
-Organizations grow without chaos:
+Organisations grow without chaos:
 - New teams onboard faster
 - Products maintain coherence
 - Standards evolve centrally
@@ -145,7 +145,7 @@ One authoritative source:
 
 **Not set-and-forget:** Systems require ongoing maintenance, evolution, and governance.
 
-**Not one-size-fits-all:** Different organizations need different systems based on size, needs, and culture.
+**Not one-size-fits-all:** Different organisations need different systems based on size, needs, and culture.
 
 **Not just for design:** Design systems serve designers AND developers. Both perspectives are essential.
 
@@ -175,7 +175,7 @@ A design system pays off when:
 - Quality improvements justify investment
 - Scale amplifies benefits
 
-For small teams or single products, a design system might be overkill. A well-organized component library might suffice.
+For small teams or single products, a design system might be overkill. A well-organised component library might suffice.
 
 ## Famous Design Systems
 
@@ -252,7 +252,7 @@ For a hypothetical product, write 3-5 design principles:
 ### Exercise 3: System Exploration
 
 Explore a public design system (Material, Carbon, Polaris). Note:
-1. How is it organized?
+1. How is it organised?
 2. What documentation is provided?
 3. How are components presented?
 4. What can you apply to your own work?

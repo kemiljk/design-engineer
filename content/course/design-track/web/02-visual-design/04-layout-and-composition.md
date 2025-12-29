@@ -96,7 +96,7 @@ Content split into two areas, often with different purposes.
 
 **Considerations:**
 - Decide which column dominates
-- Consider column behavior on mobile (stack or hide?)
+- Consider column behaviour on mobile (stack or hide?)
 
 ### Multi-Column Grid
 
@@ -341,7 +341,7 @@ Sketch each breakpoint.
     },
     {
       "id": "b",
-      "text": "Top-left area, following the F-pattern reading behavior",
+      "text": "Top-left area, following the F-pattern reading behaviour",
       "isCorrect": true,
       "explanation": "Correct! Eye-tracking shows users scan in an F-pattern: horizontal line at top, down the left side, then another horizontal scan. Important content belongs top-left."
     },

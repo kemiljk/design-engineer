@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - The six fundamental design principles and why they matter
-- How to recognize each principle in existing designs
+- How to recognise each principle in existing designs
 - How to apply these principles to improve interfaces
 - The relationship between principles and usability
 

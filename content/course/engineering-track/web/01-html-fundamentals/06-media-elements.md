@@ -337,7 +337,7 @@ Add a video with:
 
 Take a page with images and:
 - Check image sizes vs. display sizes
-- Identify optimization opportunities
+- Identify optimisation opportunities
 - Implement lazy loading where appropriate
 - Test with throttled network in dev tools
 

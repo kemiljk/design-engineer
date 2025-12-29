@@ -115,8 +115,8 @@ Button {
 } label: {
     Image(systemName: isFavorite ? "heart.fill" : "heart")
 }
-.accessibilityLabel(isFavorite ? "Remove from favorites" : "Add to favorites")
-.accessibilityHint("Double tap to toggle favorite status")
+.accessibilityLabel(isFavorite ? "Remove from favourites" : "Add to favourites")
+.accessibilityHint("Double tap to toggle favourite status")
 ```
 
 ## Try It Yourself
@@ -156,7 +156,7 @@ Build a button that:
       "id": "b",
       "text": "Create a custom ButtonStyle struct and apply it with .buttonStyle()",
       "isCorrect": true,
-      "explanation": "Correct! ButtonStyle encapsulates appearance and behavior, including pressed states. Apply once with .buttonStyle(MyButtonStyle())."
+      "explanation": "Correct! ButtonStyle encapsulates appearance and behaviour, including pressed states. Apply once with .buttonStyle(MyButtonStyle())."
     },
     {
       "id": "c",

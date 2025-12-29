@@ -18,7 +18,7 @@ Every micro-interaction has four parts:
 1. **Trigger** - What initiates it (click, hover, scroll, system event)
 2. **Rules** - What happens when triggered
 3. **Feedback** - The visual/audio response
-4. **Loops & Modes** - Repeating behavior or state changes
+4. **Loops & Modes** - Repeating behaviour or state changes
 
 ## Button Interactions
 
@@ -319,7 +319,7 @@ Create an input with:
 
 - Micro-interactions provide immediate feedback
 - Keep animations brief (100-300ms)
-- Match interaction to expected behavior
+- Match interaction to expected behaviour
 - Use subtle transforms over color changes alone
 - Test with reduced motion preference
 

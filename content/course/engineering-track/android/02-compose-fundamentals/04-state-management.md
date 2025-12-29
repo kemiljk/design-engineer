@@ -86,7 +86,7 @@ fun Counter(
 - Reusable components
 - Easier testing
 - Single source of truth
-- Parent controls behavior
+- Parent controls behaviour
 
 ## rememberSaveable
 

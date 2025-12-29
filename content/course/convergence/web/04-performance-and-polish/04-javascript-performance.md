@@ -170,7 +170,7 @@ Create a scroll listener with throttling and measure the difference without.
   "id": "js-performance-quiz",
   "type": "multiple-choice",
   "title": "JavaScript Performance",
-  "description": "Test your understanding of JS performance optimization.",
+  "description": "Test your understanding of JS performance optimisation.",
   "difficulty": "medium",
   "question": "Why should you debounce or throttle scroll and resize event handlers?",
   "options": [
