@@ -219,7 +219,7 @@ export async function getUserEnrollment(
     }
 
     // Filter for active enrollments (handle both string and object status formats)
-    const activeEnrollments = objects.filter((obj) => {
+    const activeEnrollments = objects.filter((obj: { metadata?: { status?: string | { key: string; value: string } } }) => {
       const status = obj.metadata?.status;
       if (!status) return false;
       
