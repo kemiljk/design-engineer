@@ -229,7 +229,7 @@ How do users request changes?
 - Issue tracker for bugs and requests
 - Discussion forum for exploration
 - Regular office hours or reviews
-- Clear prioritization criteria
+- Clear prioritisation criteria
 
 ## Measuring Success
 

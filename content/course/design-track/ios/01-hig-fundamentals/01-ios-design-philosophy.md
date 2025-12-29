@@ -115,7 +115,7 @@ Open the same app on iOS and Android. What differs? What makes each feel native?
       "id": "b",
       "text": "Clarity, deference, and depth—content should be the focus",
       "isCorrect": true,
-      "explanation": "Correct! iOS design prioritizes clarity (legible, precise), deference (UI supports content, doesn't compete), and depth (visual layers and motion)."
+      "explanation": "Correct! iOS design prioritises clarity (legible, precise), deference (UI supports content, doesn't compete), and depth (visual layers and motion)."
     },
     {
       "id": "c",

@@ -376,7 +376,7 @@ Create a list where clicking a button moves an item up or down. Use event delega
       "id": "a",
       "text": "Passing event handling to a different JavaScript file",
       "isCorrect": false,
-      "explanation": "Event delegation is about DOM event handling, not file organization."
+      "explanation": "Event delegation is about DOM event handling, not file organisation."
     },
     {
       "id": "b",

@@ -203,7 +203,7 @@ Implement swipe actions:
 - Items need Identifiable conformance
 - NavigationStack manages navigation
 - NavigationLink pushes detail views
-- Sections organize list content
+- Sections organise list content
 
 ## Next Steps
 

@@ -286,7 +286,7 @@ Choose a component from your design:
 Take an implemented screen:
 1. Compare side-by-side with design
 2. Note all discrepancies
-3. Prioritize issues (P1, P2, P3)
+3. Prioritise issues (P1, P2, P3)
 4. Document with screenshots
 
 ## Test Your Understanding

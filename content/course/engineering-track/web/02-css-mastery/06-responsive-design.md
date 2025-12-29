@@ -44,7 +44,7 @@ Start with mobile styles, then enhance for larger screens:
 
 ### Why Mobile-First?
 
-1. **Mobile constraints force focus:** Limited space means prioritizing what matters.
+1. **Mobile constraints force focus:** Limited space means prioritising what matters.
 2. **Progressive enhancement:** Add features for capable devices, not remove for limited ones.
 3. **Performance:** Mobile users don't download desktop styles.
 4. **More users:** Mobile traffic often exceeds desktop.

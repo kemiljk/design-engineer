@@ -124,7 +124,7 @@ When you think "users will..." stop and ask:
 - What evidence supports it?
 - What would happen if I'm wrong?
 
-### Prioritize by User Impact
+### Prioritise by User Impact
 
 Features that improve user outcomes should rank higher than:
 - Features you want to build
@@ -179,7 +179,7 @@ Once you know something, it's hard to imagine not knowing it.
 
 Spending disproportionate effort on rare scenarios while neglecting common ones.
 
-**Fix:** Prioritize by user impact and frequency.
+**Fix:** Prioritise by user impact and frequency.
 
 ### Solving Your Problems
 
@@ -242,7 +242,7 @@ Apply user thinking to everyday decisions:
 - What are they trying to accomplish?
 - What will make this easy vs. hard?
 
-**When prioritizing work:**
+**When prioritising work:**
 - What causes the most user pain?
 - What would help the most users?
 - What matches user goals?
@@ -323,7 +323,7 @@ Watch someone use a website or app (not your product):
 - You are not your user—set aside assumptions
 - Develop empathy through conversations, observation, and research
 - Create personas and journey maps to align teams
-- Question assumptions and prioritize by user impact
+- Question assumptions and prioritise by user impact
 - Account for diverse users and contexts
 - Quick research (interviews, usability testing, feedback analysis) is valuable
 

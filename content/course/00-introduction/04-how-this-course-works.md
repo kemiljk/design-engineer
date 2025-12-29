@@ -15,7 +15,7 @@ estimatedTime: 10
 
 ## Course Organization
 
-The course is organized into three main sections, each with platform-specific content:
+The course is organised into three main sections, each with platform-specific content:
 
 ```
 ├── Introduction (you are here)
@@ -36,7 +36,7 @@ The course is organized into three main sections, each with platform-specific co
     └── Android
 ```
 
-Within each track and platform, content is organized into **modules** (major topics) and **lessons** (individual units within a topic).
+Within each track and platform, content is organised into **modules** (major topics) and **lessons** (individual units within a topic).
 
 For example, the Web Engineering Track:
 - **Module 1: HTML Fundamentals** → 6 lessons

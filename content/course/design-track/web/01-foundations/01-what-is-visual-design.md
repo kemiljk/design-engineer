@@ -57,7 +57,7 @@ Before users read a single word, visual design has already communicated:
 
 ### Reducing Cognitive Load
 
-Good visual design reduces the mental effort required to use a product. When elements are logically organized, consistently styled, and clearly differentiated, users don't have to think about where things are or what they do.
+Good visual design reduces the mental effort required to use a product. When elements are logically organised, consistently styled, and clearly differentiated, users don't have to think about where things are or what they do.
 
 ### Guiding Attention
 
@@ -114,7 +114,7 @@ The distribution of visual weight. Balanced designs feel stable and intentional.
 Consistency in visual treatment. Repeating patterns help users learn interfaces and predict behaviour.
 
 ### Alignment
-The positioning of elements relative to each other. Aligned elements feel connected and organized. Misaligned elements feel accidental.
+The positioning of elements relative to each other. Aligned elements feel connected and organised. Misaligned elements feel accidental.
 
 ### Proximity
 How close or far elements are from each other. Proximity signals relationships. Things that are close together are perceived as related.

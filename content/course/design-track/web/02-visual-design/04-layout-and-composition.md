@@ -17,7 +17,7 @@ Layout answers fundamental questions:
 - How does the eye move through the page?
 - How does the layout adapt to different screens?
 
-Without intentional layout, content sprawls chaotically. With it, even complex pages feel organized.
+Without intentional layout, content sprawls chaotically. With it, even complex pages feel organised.
 
 ## Grid Systems
 
@@ -151,7 +151,7 @@ Start with mobile layout, then enhance for larger screens:
 2. **Tablet (640-1024px):** Two columns, condensed grids
 3. **Desktop (1024px+):** Full grid, expanded layout
 
-This approach forces prioritization and ensures mobile experience is solid.
+This approach forces prioritisation and ensures mobile experience is solid.
 
 ### Breakpoints
 
@@ -291,7 +291,7 @@ Small pockets of space trapped between elements that feel awkward.
 
 Too much content competing for attention.
 
-**Fix:** Reduce, prioritize, or paginate content.
+**Fix:** Reduce, prioritise, or paginate content.
 
 ## Try It Yourself
 

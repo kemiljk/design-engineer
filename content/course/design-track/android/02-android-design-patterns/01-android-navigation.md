@@ -22,7 +22,7 @@ For top-level destinations:
 For many destinations:
 - Slides from left edge
 - Accessed via hamburger icon
-- Can organize into sections
+- Can organise into sections
 - Often on larger screens
 
 ### Navigation Rail

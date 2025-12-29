@@ -380,7 +380,7 @@ Individual axes:
 
 ## Try It Yourself
 
-### Exercise 1: Box Model Visualization
+### Exercise 1: Box Model Visualisation
 
 Create a box and use browser dev tools to inspect:
 - Content dimensions

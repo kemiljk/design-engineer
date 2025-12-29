@@ -127,7 +127,7 @@ Images (photographs, graphics, screenshots) play a different role than icons.
 
 **Screenshots:** Demonstrate the product. SaaS, documentation.
 
-**Data visualization:** Graphs, charts, maps. Dashboards, analytics.
+**Data visualisation:** Graphs, charts, maps. Dashboards, analytics.
 
 **Decorative imagery:** Background patterns, abstract graphics. Branding.
 
@@ -180,7 +180,7 @@ Illustrations are custom-drawn graphics, ranging from simple icons to complex sc
 **Empty states:** Make "no data" screens friendlier
 **Onboarding:** Guide users through setup
 **Error pages:** Soften the impact of problems
-**Feature explanations:** Visualize abstract concepts
+**Feature explanations:** Visualise abstract concepts
 **Brand personality:** Add character to the interface
 
 ### Illustration Styles

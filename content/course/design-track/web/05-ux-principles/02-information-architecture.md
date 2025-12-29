@@ -1,11 +1,11 @@
 # Information Architecture
 
-> **Quick Summary:** Information architecture is how content is organized, labeled, and connected—it's the blueprint that makes complex information findable and understandable.
+> **Quick Summary:** Information architecture is how content is organised, labeled, and connected—it's the blueprint that makes complex information findable and understandable.
 
 ## What You'll Learn
 
 - What information architecture is and why it matters
-- Principles of organizing information
+- Principles of organising information
 - Navigation patterns and systems
 - Techniques for planning IA
 
@@ -14,7 +14,7 @@
 > *"Information architecture is the art and science of organising and labelling information to support usability."* — Richard Saul Wurman
 
 Information architecture (IA) is the structural design of information:
-- How content is organized into categories
+- How content is organised into categories
 - How categories relate to each other
 - How users navigate between areas
 - How content is labeled and described
@@ -35,7 +35,7 @@ IA is invisible when it works and painfully obvious when it doesn't.
 
 ## Mental Models
 
-A mental model is how users think information is organized.
+A mental model is how users think information is organised.
 
 Users have expectations based on:
 - Experience with similar products
@@ -48,7 +48,7 @@ Good IA matches user mental models. When the system works like users expect, it 
 **Example:** A shopping site.
 
 Users expect:
-- Products organized by category
+- Products organised by category
 - Filters to narrow results
 - Cart accessible from anywhere
 - Checkout as a linear flow
@@ -61,7 +61,7 @@ How do you group information?
 
 ### Exact Schemes
 
-Clear, objective organization:
+Clear, objective organisation:
 
 **Alphabetical:** A-Z listing
 - Good for: Directories, indexes, known-item search
@@ -97,7 +97,7 @@ Subjective, requires judgment:
 
 Most products use hybrid schemes—topical navigation with task-based sections.
 
-<!-- illustration: organization-schemes -->
+<!-- illustration: organisation-schemes -->
 
 ## Navigation Patterns
 
@@ -238,7 +238,7 @@ Understand how users group content:
 
 ### Site Mapping
 
-Visualize the structure:
+Visualise the structure:
 ```
 Home
 ├── Products
@@ -278,7 +278,7 @@ How are features grouped?
 
 ### Object-Oriented IA
 
-Many apps organize around objects:
+Many apps organise around objects:
 - Projects → Tasks → Comments
 - Contacts → Deals → Activities
 - Courses → Lessons → Exercises
@@ -297,8 +297,8 @@ Most apps have both—dashboard for orientation, task flows for action.
 ### Exercise 1: Mental Model Mapping
 
 For a product you're working on:
-1. How do you think content is organized?
-2. Interview 3 users—how do they think it's organized?
+1. How do you think content is organised?
+2. Interview 3 users—how do they think it's organised?
 3. Where do mental models differ?
 
 ### Exercise 2: Quick Card Sort
@@ -330,13 +330,13 @@ For a website or app:
   "options": [
     {
       "id": "a",
-      "text": "A diagram that designers create showing how the site should be organized",
+      "text": "A diagram that designers create showing how the site should be organised",
       "isCorrect": false,
       "explanation": "That would be a site map. Mental models are about user expectations, not designer plans."
     },
     {
       "id": "b",
-      "text": "How users think information is organized—when IA matches it, interfaces feel intuitive",
+      "text": "How users think information is organised—when IA matches it, interfaces feel intuitive",
       "isCorrect": true,
       "explanation": "Correct! Users have expectations based on experience with similar products and real-world logic. Good IA aligns with these expectations, making navigation feel natural."
     },
@@ -344,7 +344,7 @@ For a website or app:
       "id": "c",
       "text": "A psychological framework for predicting which colors users prefer",
       "isCorrect": false,
-      "explanation": "Mental models are about information organization, not visual preferences."
+      "explanation": "Mental models are about information organisation, not visual preferences."
     },
     {
       "id": "d",
@@ -358,7 +358,7 @@ For a website or app:
 
 ## Key Takeaways
 
-- Information architecture is how content is organized, labeled, and connected
+- Information architecture is how content is organised, labeled, and connected
 - Good IA matches user mental models
 - Organization schemes: alphabetical, chronological, topical, task-based, audience-based
 - Navigation types: global, local, contextual, search, breadcrumbs

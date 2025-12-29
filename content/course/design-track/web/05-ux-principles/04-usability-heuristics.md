@@ -48,7 +48,7 @@ The system should speak the users' language, with words, phrases, and concepts f
 
 **Questions to ask:**
 - Would a non-technical user understand this?
-- Does the organization match user expectations?
+- Does the organisation match user expectations?
 - Are terms familiar to users (not just the team)?
 
 ### 3. User Control and Freedom
@@ -135,7 +135,7 @@ Dialogues should not contain information which is irrelevant or rarely needed. E
 
 **In practice:**
 - Remove unnecessary elements
-- Prioritize important information
+- Prioritise important information
 - Progressive disclosure for complexity
 - Clean, focused interfaces
 
@@ -200,7 +200,7 @@ Heuristic evaluation is a fast, cheap usability inspection method.
 
 5. **Compile findings:** Group by severity or heuristic.
 
-6. **Prioritize fixes:** Address highest severity first.
+6. **Prioritise fixes:** Address highest severity first.
 
 ### Tips for Evaluation
 
@@ -239,7 +239,7 @@ Use judgment. Heuristics are guidelines, not rules. Context determines the right
 Pick a website or app. Spend 15 minutes evaluating against the 10 heuristics:
 1. For each heuristic, note one example of adherence and one violation
 2. Rate the severity of violations
-3. Prioritize the top 3 issues to fix
+3. Prioritise the top 3 issues to fix
 
 ### Exercise 2: Error Message Audit
 
@@ -308,7 +308,7 @@ The 10 heuristics:
 10. Help and documentation
 
 - Heuristic evaluation is fast and cheap for finding usability issues
-- Rate severity to prioritize fixes
+- Rate severity to prioritise fixes
 - Heuristics can conflict. Use judgement.
 - Combine with user testing for complete evaluation
 

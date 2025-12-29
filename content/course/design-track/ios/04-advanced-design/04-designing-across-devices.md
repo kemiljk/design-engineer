@@ -35,7 +35,7 @@ Users expect apps to:
 ## Designing for iPhone
 
 ### Compact Layouts
-iPhone designs prioritize:
+iPhone designs prioritise:
 - **Single-column layouts** in portrait
 - **Thumb-reachable actions** at bottom
 - **Full-width content** usage
@@ -117,7 +117,7 @@ Watch interfaces must be:
 - Complex data entry
 - Long reading content
 - Multi-step workflows
-- Detailed visualizations
+- Detailed visualisations
 
 ## Creating Adaptive Designs
 

@@ -180,7 +180,7 @@ Good: "Users scan forms top-to-bottom, so I placed the most important field firs
 ### Acknowledge Tradeoffs
 
 Bad: "This is the only option."
-Good: "This approach prioritizes scannability over density. If space becomes critical, we could reconsider, but current data shows users struggle to find information."
+Good: "This approach prioritises scannability over density. If space becomes critical, we could reconsider, but current data shows users struggle to find information."
 
 ## Try It Yourself
 

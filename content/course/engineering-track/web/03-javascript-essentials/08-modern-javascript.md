@@ -462,7 +462,7 @@ Create a `TodoList` class with:
 
 - Destructuring extracts values from arrays/objects
 - Spread (`...`) expands; rest (`...`) collects
-- Modules organize code with `import`/`export`
+- Modules organise code with `import`/`export`
 - Classes provide object-oriented patterns
 - Optional chaining (`?.`) safely accesses nested properties
 - Nullish coalescing (`??`) provides defaults for null/undefined only

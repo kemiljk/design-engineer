@@ -258,7 +258,7 @@ Understanding helps communication:
 **In Reviews:**
 - Be specific about issues
 - Provide visual comparison
-- Prioritize feedback (P1/P2/P3)
+- Prioritise feedback (P1/P2/P3)
 - Acknowledge constraints
 
 ### Regular Touchpoints

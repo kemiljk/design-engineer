@@ -269,7 +269,7 @@ Prototypes enable testing before building:
 
 1. Identify patterns across participants
 2. Document issues and insights
-3. Prioritize fixes
+3. Prioritise fixes
 4. Iterate and retest
 
 ## Try It Yourself

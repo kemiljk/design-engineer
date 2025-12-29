@@ -99,7 +99,7 @@ Likely to include:
 
 ### Cultural Fit
 - How do you work with designers?
-- How do you prioritize fidelity vs. speed?
+- How do you prioritise fidelity vs. speed?
 - Tell me about a conflict you resolved
 
 ## Try It Yourself
