@@ -306,6 +306,54 @@ function extractCheckboxItems(content: string): string[] {
   return items;
 }
 
+function normalizeMarkdown(content: string): string {
+  // Remove invisible Unicode characters that can break code fences
+  let normalized = content.replace(/[\u200B\u200C\u200D\u2060\uFEFF\u00AD]/g, "");
+  
+  // Ensure blank line between consecutive code fences
+  // Split by lines and check for closing fence immediately followed by opening fence
+  const lines = normalized.split('\n');
+  const result: string[] = [];
+  
+  for (let i = 0; i < lines.length; i++) {
+    result.push(lines[i]);
+    
+    // Check if current line is a closing code fence (``` with optional language)
+    const isClosingFence = /^```\s*$/.test(lines[i]);
+    
+    // Check if next line is an opening code fence (``` with optional language)
+    if (isClosingFence && i + 1 < lines.length && /^```/.test(lines[i + 1])) {
+      // Insert blank line between them
+      result.push('');
+    }
+  }
+  
+  return result.join('\n');
+}
+
+function extractCodeContent(node: React.ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (node === null || node === undefined) return "";
+
+  if (Array.isArray(node)) {
+    return node.map(extractCodeContent).join("");
+  }
+
+  if (React.isValidElement(node)) {
+    const props = node.props as any;
+    // Check for direct value/data props first
+    if (props.value !== undefined) return String(props.value);
+    if (props.data !== undefined) return String(props.data);
+    // Then check children
+    if (props.children !== undefined) {
+      return extractCodeContent(props.children);
+    }
+  }
+
+  return String(node);
+}
+
 // Helper to find checklist blocks in content
 function findChecklistBlocks(content: string): { start: number; end: number; items: string[] }[] {
   const blocks: { start: number; end: number; items: string[] }[] = [];
@@ -361,6 +409,9 @@ function MarkdownWithIllustrations({
   lessonPath?: string;
   sectionId?: string;
 }) {
+  // Normalize content to fix back-to-back code fences
+  const normalizedContent = normalizeMarkdown(content);
+  
   const illustrationRegex = /<!--\s*illustration:\s*([a-z0-9-]+)\s*-->/g;
   const visualExampleRegex = /<!--\s*visual-example:\s*([a-z0-9-]+)\s*-->/g;
 
@@ -368,7 +419,7 @@ function MarkdownWithIllustrations({
   const blocks: { type: 'text' | 'illustration' | 'visual-example' | 'checklist'; content: string; index: number; length: number; items?: string[] }[] = [];
   let match;
 
-  while ((match = illustrationRegex.exec(content)) !== null) {
+  while ((match = illustrationRegex.exec(normalizedContent)) !== null) {
     blocks.push({
       type: 'illustration',
       content: match[1],
@@ -377,7 +428,7 @@ function MarkdownWithIllustrations({
     });
   }
 
-  while ((match = visualExampleRegex.exec(content)) !== null) {
+  while ((match = visualExampleRegex.exec(normalizedContent)) !== null) {
     blocks.push({
       type: 'visual-example',
       content: match[1],
@@ -387,7 +438,7 @@ function MarkdownWithIllustrations({
   }
 
   // Find checklist blocks
-  const checklistBlocks = findChecklistBlocks(content);
+  const checklistBlocks = findChecklistBlocks(normalizedContent);
   for (const cb of checklistBlocks) {
     blocks.push({
       type: 'checklist',
@@ -402,7 +453,7 @@ function MarkdownWithIllustrations({
   if (blocks.length === 0) {
     return (
       <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
-        {content}
+        {normalizedContent}
       </ReactMarkdown>
     );
   }
@@ -417,7 +468,7 @@ function MarkdownWithIllustrations({
   blocks.forEach((block, i) => {
     // Add text before this block
     if (block.index > lastIndex) {
-      const textBefore = content.slice(lastIndex, block.index).trim();
+      const textBefore = normalizedContent.slice(lastIndex, block.index).trim();
       if (textBefore) {
         parts.push(
           <ReactMarkdown key={`text-${i}`} components={components} remarkPlugins={[remarkGfm]}>
@@ -458,8 +509,8 @@ function MarkdownWithIllustrations({
   });
 
   // Add remaining text after last block
-  if (lastIndex < content.length) {
-    const textAfter = content.slice(lastIndex).trim();
+  if (lastIndex < normalizedContent.length) {
+    const textAfter = normalizedContent.slice(lastIndex).trim();
     if (textAfter) {
       parts.push(
         <ReactMarkdown key="text-end" components={components} remarkPlugins={[remarkGfm]}>
@@ -478,7 +529,9 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
   lessonPath,
   onSectionsDetected,
 }) => {
-  const parsedSections = useMemo(() => parseContent(content), [content]);
+  // Normalize markdown content before parsing (fixes back-to-back code fences)
+  const normalizedContent = useMemo(() => normalizeMarkdown(content), [content]);
+  const parsedSections = useMemo(() => parseContent(normalizedContent), [normalizedContent]);
   const hasCalledCallback = useRef(false);
 
   useEffect(() => {
@@ -530,33 +583,52 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
       );
     },
     pre: ({ children }: any) => {
-      // In react-markdown v9, fenced code blocks are wrapped in <pre><code>
-      // Extract the code element and render with SyntaxHighlighter
-      const codeElement = React.Children.toArray(children).find(
-        (child: any) => child?.type === "code" || child?.props?.node?.tagName === "code"
-      ) as React.ReactElement<{ className?: string; children?: React.ReactNode }> | undefined;
+      // react-markdown wraps code blocks in <pre><code>
+      // Handle both direct code element and nested structure
+      let codeElement: React.ReactElement | undefined;
+      
+      const childrenArray = React.Children.toArray(children);
+      
+      // First, try to find a code element directly
+      codeElement = childrenArray.find(
+        (child: any) => {
+          if (!child || typeof child !== "object") return false;
+          // Check if it's a code element by type
+          if (child.type === "code") return true;
+          // Or by className containing language-
+          if (typeof child.props?.className === "string" && child.props.className.includes("language-")) return true;
+          return false;
+        }
+      ) as React.ReactElement | undefined;
 
-      if (codeElement?.props) {
-        const className = codeElement.props.className;
-        const codeChildren = codeElement.props.children;
-        const match = /language-(\w+)/.exec(className || "");
-        const code = String(codeChildren).replace(/\n$/, "");
-
-        return (
-          <SyntaxHighlighter
-            language={match ? match[1] : "plain"}
-            code={code}
-            showCopyButton
-          />
-        );
+      // If not found, check if children itself is a code element
+      if (!codeElement && childrenArray.length === 1 && (childrenArray[0] as any)?.type === "code") {
+        codeElement = childrenArray[0] as React.ReactElement;
       }
 
-      // Fallback for edge cases
+      if (codeElement?.props) {
+        const className = String(codeElement.props.className || "");
+        const match = /language-(\w+)/.exec(className);
+        
+        // Extract code content
+        const code = extractCodeContent(codeElement.props.children).replace(/\n$/, "");
+
+        if (code) {
+          return (
+            <SyntaxHighlighter
+              language={match ? match[1] : "plain"}
+              code={code}
+              showCopyButton
+            />
+          );
+        }
+      }
+
+      // Fallback: render as-is
       return <pre>{children}</pre>;
     },
     code: ({ className, children, ...props }: any) => {
-      // In react-markdown v9, this component only receives inline code
-      // (fenced code blocks are handled by the pre component above)
+      // Inline code only (fenced blocks handled in pre component)
       return (
         <code
           className={cn(

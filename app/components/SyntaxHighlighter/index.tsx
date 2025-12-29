@@ -43,25 +43,21 @@ const SyntaxHighlighter = ({
   }, [code, language]);
 
   return (
-    <div
-      className={cn(
-        "relative rounded-none",
-        className
-      )}
-    >
-      <ScrollContainer orientation="horizontal" className="bg-neutral-100 dark:bg-neutral-800">
+    <div className={cn("relative mb-6 rounded-none last:mb-0", className)}>
+      <ScrollContainer
+        orientation="horizontal"
+        className="bg-neutral-100 pt-4 dark:bg-neutral-800"
+      >
         <div>
           <pre
-            className={cn(
-              `language-${language}`,
-              "text-neutral-900 dark:text-neutral-100"
-            )}
+            className={`language-${language} text-neutral-900 dark:text-neutral-100`}
             style={{
               borderRadius: "0",
               margin: 0,
               padding: "16px",
               minHeight: "56px",
             }}
+            tabIndex={0}
           >
             <code
               className={cn(`language-${language}`)}
@@ -72,7 +68,7 @@ const SyntaxHighlighter = ({
         </div>
       </ScrollContainer>
       {showCopyButton && (
-        <div className="absolute right-0 top-0">
+        <div className="absolute top-0 right-0">
           <CopyButton text={code} className="rounded-none" />
         </div>
       )}
