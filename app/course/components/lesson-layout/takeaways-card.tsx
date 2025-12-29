@@ -10,7 +10,7 @@ export function TakeawaysCard({ takeaways }: TakeawaysCardProps) {
       <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-neutral-400 dark:text-neutral-400">
         Key Takeaways
       </h3>
-      <ul className="space-y-3">
+      <ul className="space-y-3 pl-0">
         {takeaways.map((takeaway, index) => (
           <li key={index} className="flex items-start gap-1.5">
             <span className="mt-1.5 h-2 w-2 shrink-0 bg-swiss-red" />
