@@ -16,6 +16,20 @@ export const EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "spring-physics": SpringPhysicsDemo,
 };
 
+// Hide Next.js devtools and ensure full viewport capture
+if (typeof window !== "undefined") {
+  const style = document.createElement("style");
+  style.textContent = `
+    html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+    [data-nextjs-dialog-overlay],
+    [data-nextjs-dialog],
+    nextjs-portal,
+    #__next-build-indicator,
+    [data-nextjs-toast] { display: none !important; }
+  `;
+  document.head.appendChild(style);
+}
+
 export function CaptureClient({ exampleId }: { exampleId: string }) {
   const [isReady, setIsReady] = useState(false);
 
@@ -68,7 +82,7 @@ export function CaptureClient({ exampleId }: { exampleId: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 p-8 dark:bg-neutral-950">
+    <div className="flex h-screen w-screen items-center justify-center overflow-hidden bg-neutral-50 p-6 dark:bg-neutral-950">
       {/* Capture metadata (hidden, for debugging) */}
       <div
         className="sr-only"
@@ -76,8 +90,8 @@ export function CaptureClient({ exampleId }: { exampleId: string }) {
         data-example-id={exampleId}
       />
 
-      {/* Example component - centered and optimized for capture */}
-      <div className="mx-auto max-w-5xl">
+      {/* Example component - fills viewport */}
+      <div className="w-full">
         <ExampleComponent />
       </div>
     </div>

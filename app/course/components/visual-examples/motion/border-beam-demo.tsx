@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, type MotionStyle, type Transition } from "motion/react";
-import { Zap } from "lucide-react";
+import { Mail, ArrowRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -107,30 +107,52 @@ function BorderBeam({
   );
 }
 
-function BorderBeamCard({
+function EmailSignupCard({
   duration,
-  label,
-  size = 200,
   borderWidth = 1.5,
+  colorFrom = "#ffaa40",
+  colorTo = "#9c40ff",
 }: {
   duration: number;
-  label: string;
-  size?: number;
   borderWidth?: number;
+  colorFrom?: string;
+  colorTo?: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="relative flex h-[200px] w-[200px] items-center justify-center overflow-hidden rounded-3xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-        <BorderBeam size={size} duration={duration} borderWidth={borderWidth} />
-        <div className="relative z-10 flex flex-col items-center gap-3">
-          <div className="rounded-2xl bg-neutral-50 p-4 dark:bg-neutral-800">
-            <Zap className="h-8 w-8 text-neutral-400" />
-          </div>
-          <span className="text-xs font-medium text-neutral-400">{label}</span>
+    <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+      <BorderBeam
+        size={120}
+        duration={duration}
+        borderWidth={borderWidth}
+        colorFrom={colorFrom}
+        colorTo={colorTo}
+      />
+      <div className="relative z-10 space-y-4">
+        <div className="flex items-center gap-2">
+          <Sparkles className="h-5 w-5 text-amber-500" />
+          <span className="text-sm font-semibold text-neutral-900 dark:text-white">
+            Join the waitlist
+          </span>
         </div>
-      </div>
-      <div className="text-center">
-        <div className="font-mono text-xs text-neutral-400">{duration}s</div>
+        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+          Get early access to our design engineering course and exclusive
+          updates.
+        </p>
+        <div className="flex gap-2">
+          <div className="relative flex-1">
+            <Mail className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-neutral-400" />
+            <input
+              type="email"
+              placeholder="you@example.com"
+              className="h-10 w-full rounded-lg border border-neutral-200 bg-neutral-50 pr-4 pl-10 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:focus:border-neutral-600"
+              readOnly
+            />
+          </div>
+          <button className="flex h-10 items-center gap-1.5 rounded-lg bg-neutral-900 px-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100">
+            Subscribe
+            <ArrowRight className="h-3.5 w-3.5" />
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -259,16 +281,9 @@ function BorderBeam({ duration = ${speed} }) {
       }
     >
       <div className="space-y-8">
-        {/* Demo cards */}
-        <div className="flex flex-wrap items-center justify-center gap-12">
-          <BorderBeamCard duration={30} label="Slow" size={200} />
-          <BorderBeamCard
-            duration={speed}
-            label="Custom"
-            size={200}
-            borderWidth={borderWidth}
-          />
-          <BorderBeamCard duration={8} label="Fast" size={200} />
+        {/* Demo card - realistic email signup */}
+        <div className="flex justify-center">
+          <EmailSignupCard duration={speed} borderWidth={borderWidth} />
         </div>
 
         {/* Info */}
@@ -281,9 +296,8 @@ function BorderBeam({ duration = ${speed} }) {
             <code className="rounded bg-neutral-200 px-1 py-0.5 font-mono text-xs dark:bg-neutral-800">
               offset-path
             </code>{" "}
-            to animate a gradient along the border. The gradient follows a
-            rectangular path with rounded corners, creating a smooth border beam
-            effect.
+            to animate a gradient along the border. Perfect for drawing
+            attention to CTAs, signup forms, and premium features.
           </p>
         </div>
 

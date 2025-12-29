@@ -100,7 +100,7 @@ function TodoList() {
       <div className="space-y-12">
         {/* Interactive Demo */}
         <div className="mx-auto max-w-md overflow-hidden rounded-[24px] bg-white shadow-xl dark:bg-neutral-900">
-          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white">
+          <div className="bg-linear-to-r from-indigo-500 to-purple-600 p-8 text-white">
             <h3 className="text-2xl font-bold">Tasks</h3>
             <p className="text-indigo-100 opacity-80">
               {todos.length} remaining
@@ -119,7 +119,7 @@ function TodoList() {
               <button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="absolute top-1/2 right-2 -translate-y-1/2 flex items-center justify-center rounded-[8px] bg-white p-1.5 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
+                className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center justify-center rounded-[8px] bg-white p-1.5 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
               >
                 <Plus className="size-5" />
               </button>

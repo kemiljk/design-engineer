@@ -1,9 +1,9 @@
 #!/usr/bin/env tsx
 
 /**
- * Automated GIF Capture for Animation Examples
+ * Automated Video/GIF Capture for Animation Examples
  *
- * Captures high-quality GIFs of animation examples for social media sharing.
+ * Captures high-quality MP4 videos of animation examples for social media sharing.
  * Uses Playwright for browser automation and ffmpeg for video conversion.
  *
  * Usage:
@@ -11,10 +11,10 @@
  *   bun run capture:gifs border-beam  # Capture specific example
  */
 
-import { chromium, type Browser, type Page } from '@playwright/test';
+import { chromium, type Browser } from '@playwright/test';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const execAsync = promisify(exec);
@@ -29,10 +29,12 @@ interface CaptureConfig {
     delay: number; // ms
   }>;
   viewport: { width: number; height: number };
+  outputWidth?: number; // Final output width (for scaling)
   fps?: number;
 }
 
 // Configuration for each example
+// 1600x1000 (16:10) at 60fps - good for social media
 const examples: CaptureConfig[] = [
   {
     exampleId: 'border-beam',
@@ -41,8 +43,8 @@ const examples: CaptureConfig[] = [
     interactions: [
       { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
     ],
-    viewport: { width: 1200, height: 675 },
-    fps: 20,
+    viewport: { width: 1600, height: 1000 },
+    fps: 60,
   },
   {
     exampleId: 'easing-playground',
@@ -52,8 +54,8 @@ const examples: CaptureConfig[] = [
       { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
       { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
     ],
-    viewport: { width: 1200, height: 675 },
-    fps: 20,
+    viewport: { width: 1600, height: 1000 },
+    fps: 60,
   },
   {
     exampleId: 'timing-comparison',
@@ -63,8 +65,8 @@ const examples: CaptureConfig[] = [
       { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
       { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
     ],
-    viewport: { width: 1200, height: 675 },
-    fps: 20,
+    viewport: { width: 1600, height: 1000 },
+    fps: 60,
   },
   {
     exampleId: 'spring-physics',
@@ -74,8 +76,8 @@ const examples: CaptureConfig[] = [
       { selector: '[data-capture-ready="true"]', action: 'wait', delay: 1000 },
       { selector: '[data-demo-trigger]', action: 'click', delay: 500 },
     ],
-    viewport: { width: 1200, height: 675 },
-    fps: 20,
+    viewport: { width: 1600, height: 1000 },
+    fps: 60,
   },
 ];
 
@@ -154,14 +156,30 @@ async function captureExample(
     await page.close();
     await context.close();
 
-    // Get the video file path
-    const videoPath = await new Promise<string>((resolve) => {
+    // Get the video file path - wait for video to be written
+    const videoPath = await new Promise<string>((resolve, reject) => {
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds max wait
       const checkVideo = setInterval(() => {
-        const files = require('fs').readdirSync(tempDir);
-        const videoFile = files.find((f: string) => f.endsWith('.webm'));
-        if (videoFile) {
+        attempts++;
+        try {
+          if (!existsSync(tempDir)) {
+            clearInterval(checkVideo);
+            reject(new Error('Temp directory was removed'));
+            return;
+          }
+          const files = require('fs').readdirSync(tempDir);
+          const videoFile = files.find((f: string) => f.endsWith('.webm'));
+          if (videoFile) {
+            clearInterval(checkVideo);
+            resolve(join(tempDir, videoFile));
+          } else if (attempts >= maxAttempts) {
+            clearInterval(checkVideo);
+            reject(new Error('Timeout waiting for video file'));
+          }
+        } catch (e) {
           clearInterval(checkVideo);
-          resolve(join(tempDir, videoFile));
+          reject(e);
         }
       }, 100);
     });
@@ -176,39 +194,40 @@ async function captureExample(
   }
 }
 
-async function convertToGif(
+async function convertToMp4(
   videoPath: string,
   outputPath: string,
-  fps: number = 20
+  fps: number = 60,
+  outputWidth?: number,
+  trimStart: number = 1.5 // seconds to trim from start
 ): Promise<void> {
-  console.log(`   ➜ Converting to GIF (${fps} fps)...`);
+  const scaleFilter = outputWidth ? `scale=${outputWidth}:-1:flags=lanczos,` : '';
+  console.log(`   ➜ Converting to MP4 (${fps} fps${outputWidth ? `, scaling to ${outputWidth}px` : ''}, trimming ${trimStart}s)...`);
 
-  // Generate a high-quality color palette
-  // stats_mode=full gives better color accuracy for the whole video
-  const palettePath = videoPath.replace('.webm', '-palette.png');
-
+  // Convert to near-lossless MP4 with H.264 codec
+  // -ss trims from the start to skip loading screen
+  // scale with lanczos for high-quality downscaling (supersampling)
+  // -crf 10 is near-lossless quality
+  // -preset slow for good compression
+  // -pix_fmt yuv420p for compatibility
   await execAsync(
-    `ffmpeg -i "${videoPath}" -vf "fps=${fps},scale=1200:-1:flags=lanczos,palettegen=max_colors=256:stats_mode=full" -y "${palettePath}"`
+    `ffmpeg -ss ${trimStart} -i "${videoPath}" -vf "${scaleFilter}fps=${fps}" -c:v libx264 -crf 10 -preset slow -pix_fmt yuv420p -y "${outputPath}"`
   );
 
-  // Convert to GIF using the palette
-  // Using floyd_steinberg dithering for smoother gradients
-  // diff_mode=rectangle optimizes for areas that change
-  await execAsync(
-    `ffmpeg -i "${videoPath}" -i "${palettePath}" -filter_complex "fps=${fps},scale=1200:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=sierra2_4a:diff_mode=rectangle" -y "${outputPath}"`
-  );
-
-  console.log(`   ✓ GIF created: ${outputPath}`);
+  console.log(`   ✓ MP4 created: ${outputPath}`);
 }
 
 async function getFileSize(path: string): Promise<string> {
   const stats = require('fs').statSync(path);
   const mb = stats.size / (1024 * 1024);
+  if (mb < 1) {
+    return `${(stats.size / 1024).toFixed(0)}KB`;
+  }
   return `${mb.toFixed(2)}MB`;
 }
 
 async function captureAll(specificExample?: string) {
-  console.log('🎬 Starting GIF capture process...\n');
+  console.log('🎬 Starting video capture process...\n');
 
   // Check if dev server is running
   const serverRunning = await checkServerRunning('http://localhost:3000');
@@ -245,21 +264,21 @@ async function captureAll(specificExample?: string) {
         // Capture video
         const videoPath = await captureExample(browser, config, tempDir);
 
-        // Convert to GIF
-        const gifPath = join(demosDir, `${config.exampleId}.gif`);
-        await convertToGif(videoPath, gifPath, config.fps || 10);
+        // Convert to MP4
+        const mp4Path = join(demosDir, `${config.exampleId}.mp4`);
+        await convertToMp4(videoPath, mp4Path, config.fps || 60, config.outputWidth);
 
         // Get file size
-        const size = await getFileSize(gifPath);
+        const size = await getFileSize(mp4Path);
 
         // Store metadata
         metadata[config.exampleId] = {
-          url: `/demos/${config.exampleId}.gif`,
+          url: `/demos/${config.exampleId}.mp4`,
           width: config.viewport.width,
           height: config.viewport.height,
           size,
           duration: `${config.duration}s`,
-          fps: config.fps || 10,
+          fps: config.fps || 30,
         };
 
         console.log(`   ✓ ${config.exampleId}: ${size}\n`);
@@ -283,7 +302,7 @@ async function captureAll(specificExample?: string) {
     rmSync(tempDir, { recursive: true, force: true });
   }
 
-  console.log('\n✅ All GIFs captured successfully!');
+  console.log('\n✅ All videos captured successfully!');
   console.log(`\nOutput directory: ${demosDir}`);
 }
 
