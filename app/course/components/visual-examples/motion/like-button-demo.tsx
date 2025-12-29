@@ -12,45 +12,164 @@ import {
 } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-// Reusable Platform Button
-function PlatformLikeButton({
-  name,
-  icon: Icon,
-  bg,
-  color = "text-white",
-}: {
-  name: string;
-  icon: any;
-  bg: string;
-  color?: string;
-}) {
+// Instagram-style like button with gradient heart
+function InstagramLikeButton() {
   const [liked, setLiked] = useState(false);
+  const [particles, setParticles] = useState<number[]>([]);
+
+  const handleLike = () => {
+    if (!liked) {
+      const newParticles = Array.from({ length: 6 }, (_, i) => Date.now() + i);
+      setParticles(newParticles);
+      setTimeout(() => setParticles([]), 600);
+    }
+    setLiked(!liked);
+  };
 
   return (
     <button
-      onClick={() => setLiked(!liked)}
-      className="flex flex-col items-center gap-3 rounded-[24px] p-6 shadow-md transition-transform active:scale-95"
-      style={{ background: bg }}
+      onClick={handleLike}
+      className="relative flex flex-col items-center gap-3 rounded-[24px] p-6 shadow-md transition-transform active:scale-95"
+      style={{ background: "linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)" }}
     >
+      {/* Burst particles */}
+      <AnimatePresence>
+        {particles.map((id, i) => (
+          <motion.div
+            key={id}
+            initial={{ scale: 0, opacity: 1 }}
+            animate={{
+              scale: 1.5,
+              opacity: 0,
+              x: Math.cos((i / 6) * Math.PI * 2) * 25,
+              y: Math.sin((i / 6) * Math.PI * 2) * 25,
+            }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: 4,
+              background: "#fff",
+            }}
+          />
+        ))}
+      </AnimatePresence>
+
       <motion.div
-        animate={liked ? { scale: [1, 1.4, 0.9, 1.1, 1] } : { scale: 1 }}
-        transition={{ duration: 0.4 }}
+        animate={liked ? { scale: [1, 1.3, 0.9, 1.15, 1] } : { scale: 1 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        <Icon
-          className={cn("size-8 transition-colors", color)}
+        <Heart
+          className="size-8 text-white transition-colors"
+          style={{
+            fill: liked ? "#fff" : "transparent",
+            strokeWidth: 2,
+          }}
+        />
+      </motion.div>
+      <span className="text-xs font-bold tracking-wider uppercase text-white opacity-90">
+        Instagram
+      </span>
+    </button>
+  );
+}
+
+// X (Twitter) style like button - red heart with ripple effect
+function XLikeButton() {
+  const [liked, setLiked] = useState(false);
+  const [showRipple, setShowRipple] = useState(false);
+
+  const handleLike = () => {
+    if (!liked) {
+      setShowRipple(true);
+      setTimeout(() => setShowRipple(false), 500);
+    }
+    setLiked(!liked);
+  };
+
+  return (
+    <button
+      onClick={handleLike}
+      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-black p-6 shadow-md transition-transform active:scale-95"
+    >
+      {/* Ripple effect */}
+      <AnimatePresence>
+        {showRipple && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0.6 }}
+            animate={{ scale: 2.5, opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-500"
+            style={{ width: 32, height: 32 }}
+          />
+        )}
+      </AnimatePresence>
+
+      <motion.div
+        animate={liked 
+          ? { scale: [1, 0, 1.3, 1], rotate: [0, -15, 15, 0] } 
+          : { scale: 1, rotate: 0 }
+        }
+        transition={{ 
+          duration: 0.4, 
+          times: [0, 0.2, 0.6, 1],
+          ease: "easeOut" 
+        }}
+      >
+        <Heart
+          className={cn(
+            "size-8 transition-colors",
+            liked ? "text-rose-500" : "text-neutral-400"
+          )}
           style={{
             fill: liked ? "currentColor" : "transparent",
             strokeWidth: 2,
           }}
         />
       </motion.div>
-      <span
-        className={cn(
-          "text-xs font-bold tracking-wider uppercase opacity-90",
-          color,
-        )}
+      <span className="text-xs font-bold tracking-wider uppercase text-white opacity-90">
+        X
+      </span>
+    </button>
+  );
+}
+
+// YouTube style thumbs up - fills with white, outline stays
+function YouTubeLikeButton() {
+  const [liked, setLiked] = useState(false);
+
+  return (
+    <button
+      onClick={() => setLiked(!liked)}
+      className="flex flex-col items-center gap-3 rounded-[24px] p-6 shadow-md transition-transform active:scale-95"
+      style={{ background: "linear-gradient(135deg, #FF0000 0%, #cc0000 100%)" }}
+    >
+      <motion.div
+        animate={liked 
+          ? { y: [0, -8, 0], scale: [1, 1.1, 1] } 
+          : { y: 0, scale: 1 }
+        }
+        transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        {name}
+        <svg 
+          className="size-8 text-white" 
+          viewBox="0 0 24 24"
+          style={{
+            fill: liked ? "currentColor" : "transparent",
+            stroke: "currentColor",
+            strokeWidth: 2,
+            strokeLinecap: "round" as const,
+            strokeLinejoin: "round" as const,
+          }}
+        >
+          <path d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+        </svg>
+      </motion.div>
+      <span className="text-xs font-bold tracking-wider uppercase text-white opacity-90">
+        YouTube
       </span>
     </button>
   );
@@ -365,24 +484,9 @@ function LikeButton() {
 
         {/* Platform variants - Interactive */}
         <div className="grid gap-4 sm:grid-cols-3">
-          <PlatformLikeButton
-            name="Instagram"
-            icon={Heart}
-            bg="linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)"
-          />
-          <PlatformLikeButton name="X" icon={Heart} bg="#000000" />
-          <PlatformLikeButton
-            name="YouTube"
-            icon={({ className, style }: any) => (
-              <svg className={className} style={style} viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                />
-              </svg>
-            )}
-            bg="linear-gradient(135deg, #FF0000 0%, #cc0000 100%)"
-          />
+          <InstagramLikeButton />
+          <XLikeButton />
+          <YouTubeLikeButton />
         </div>
 
         {/* Code panel */}

@@ -81,10 +81,10 @@ function ParallaxScene() {
               {/* Sticky Container */}
               <div className="sticky top-0 h-[400px] overflow-hidden">
                 
-                {/* Background Layer (Slowest) */}
+                {/* Background Layer (Slowest) - z-0 */}
                 <motion.div 
                   style={{ y: backgroundY }}
-                  className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-indigo-900 to-black"
+                  className="absolute inset-0 z-0 flex items-center justify-center bg-gradient-to-b from-indigo-900 to-black"
                 >
                   <div className="absolute inset-0 opacity-20" 
                     style={{ backgroundImage: "radial-gradient(circle at center, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} 
@@ -92,32 +92,32 @@ function ParallaxScene() {
                   <div className="h-64 w-64 rounded-full bg-indigo-500/20 blur-[80px]" />
                 </motion.div>
 
-                {/* Text Layer (Fast fade out) */}
-                <motion.div 
-                  style={{ y: textY, opacity: textOpacity }}
-                  className="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
-                >
-                  <h3 className="text-4xl font-bold tracking-tight">Depth</h3>
-                  <p className="mt-2 text-indigo-200">Scroll to explore</p>
-                  <MousePointer2 className="mt-8 animate-bounce text-white/50" />
-                </motion.div>
-
-                {/* Middle Layer (Medium Speed) */}
+                {/* Middle Layer (Medium Speed) - z-10 */}
                 <motion.div 
                   style={{ y: middleY }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
                 >
                   <div className="absolute left-10 top-20 h-24 w-24 rounded-[24px] bg-gradient-to-br from-purple-500/30 to-purple-600/30 backdrop-blur-sm border border-white/10" />
                   <div className="absolute right-20 bottom-40 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500/20 to-rose-600/20 backdrop-blur-sm border border-white/10" />
                 </motion.div>
 
-                {/* Front Layer (Fastest) */}
+                {/* Front Layer (Fastest) - z-20 */}
                 <motion.div 
                   style={{ y: frontY }}
-                  className="absolute inset-0 pointer-events-none"
+                  className="absolute inset-0 z-20 pointer-events-none"
                 >
                   <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-[32px] bg-gradient-to-br from-neutral-800 to-black shadow-2xl border border-white/5 rotate-12" />
                   <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-tl from-neutral-800 to-black shadow-2xl border border-white/5" />
+                </motion.div>
+
+                {/* Text Layer (Fast fade out) - z-30, highest to be visible on load */}
+                <motion.div 
+                  style={{ y: textY, opacity: textOpacity }}
+                  className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center text-white"
+                >
+                  <h3 className="text-4xl font-bold tracking-tight">Depth</h3>
+                  <p className="mt-2 text-indigo-200">Scroll to explore</p>
+                  <MousePointer2 className="mt-8 animate-bounce text-white/50" />
                 </motion.div>
 
               </div>
