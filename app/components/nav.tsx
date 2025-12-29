@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "./logo";
-import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban } from "lucide-react";
+import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -109,9 +109,10 @@ function DesktopOverflowMenu({
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: duration.fast, delay: index * 0.03 }}
-                  className="focus-ring block px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
+                  className="focus-ring flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
                 >
                   {item.title}
+                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
                 </motion.a>
               ) : (
                 <motion.div
@@ -238,9 +239,10 @@ function DesktopNavLinks({
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="focus-ring relative text-sm font-medium tracking-widest whitespace-nowrap text-neutral-500 uppercase transition-[color,transform] duration-150 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-black hover:after:scale-x-100 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none motion-reduce:after:transition-none dark:text-neutral-400 dark:hover:text-white"
+              className="focus-ring relative flex items-center gap-1.5 text-sm font-medium tracking-widest whitespace-nowrap text-neutral-500 uppercase transition-[color,transform] duration-150 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-black hover:after:scale-x-100 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none motion-reduce:after:transition-none dark:text-neutral-400 dark:hover:text-white"
             >
               {item.title}
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </a>
           ) : (
             <NextLink
@@ -446,9 +448,10 @@ export default function Nav({
                     onClick={() => setIsMenuOpen(false)}
                     variants={menuItemVariants}
                     transition={{ duration: duration.normal, ease: ease.outQuint }}
-                    className="focus-ring text-foreground w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
+                    className="focus-ring text-foreground flex items-center gap-2 w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
                   >
                     {item.title}
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </motion.a>
                 ) : (
                   <motion.div

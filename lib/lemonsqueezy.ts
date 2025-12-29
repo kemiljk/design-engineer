@@ -284,6 +284,18 @@ function formatPrice(priceInCents: number): string {
   }).format(price);
 }
 
+const FALLBACK_PRICES: Record<ProductKey, { price: number; formattedPrice: string }> = {
+  design_web: { price: 129, formattedPrice: "£129.00" },
+  design_ios: { price: 99, formattedPrice: "£99.00" },
+  design_android: { price: 99, formattedPrice: "£99.00" },
+  engineering_web: { price: 149, formattedPrice: "£149.00" },
+  engineering_ios: { price: 129, formattedPrice: "£129.00" },
+  engineering_android: { price: 129, formattedPrice: "£129.00" },
+  design_full: { price: 299, formattedPrice: "£299.00" },
+  engineering_full: { price: 349, formattedPrice: "£349.00" },
+  full: { price: 599, formattedPrice: "£599.00" },
+};
+
 export async function getVariantPrice(variantId: string): Promise<{ price: number; formattedPrice: string } | null> {
   if (!LEMONSQUEEZY_API_KEY) {
     console.error("Missing LEMONSQUEEZY_API_KEY environment variable");
@@ -317,15 +329,17 @@ export async function getProductsWithPrices(): Promise<ProductWithPrice[]> {
     }
     
     const priceData = await getVariantPrice(config.variantId);
+    const productKey = key as ProductKey;
+    const fallbackPrice = FALLBACK_PRICES[productKey];
     
     products.push({
-      key: key as ProductKey,
+      key: productKey,
       name: config.name,
       description: config.description,
       features: config.features,
       variantId: config.variantId,
-      price: priceData?.price ?? 0,
-      formattedPrice: priceData?.formattedPrice ?? "N/A",
+      price: priceData?.price ?? fallbackPrice.price,
+      formattedPrice: priceData?.formattedPrice ?? fallbackPrice.formattedPrice,
       popular: "popular" in config ? config.popular : false,
     });
   }
@@ -341,6 +355,7 @@ export async function getProductWithPrice(productKey: ProductKey): Promise<Produ
   }
   
   const priceData = await getVariantPrice(config.variantId);
+  const fallbackPrice = FALLBACK_PRICES[productKey];
   
   return {
     key: productKey,
@@ -348,8 +363,8 @@ export async function getProductWithPrice(productKey: ProductKey): Promise<Produ
     description: config.description,
     features: config.features,
     variantId: config.variantId,
-    price: priceData?.price ?? 0,
-    formattedPrice: priceData?.formattedPrice ?? "N/A",
+    price: priceData?.price ?? fallbackPrice.price,
+    formattedPrice: priceData?.formattedPrice ?? fallbackPrice.formattedPrice,
     popular: "popular" in config ? config.popular : false,
   };
 }
