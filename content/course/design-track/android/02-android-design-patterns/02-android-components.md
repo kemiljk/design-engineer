@@ -137,7 +137,7 @@ Design a custom card with all interactive states.
       "id": "a",
       "text": "Color change only",
       "isCorrect": false,
-      "explanation": "Material uses a distinctive feedback mechanism beyond simple color change."
+      "explanation": "Material uses a distinctive feedback mechanism beyond simple colour change."
     },
     {
       "id": "b",

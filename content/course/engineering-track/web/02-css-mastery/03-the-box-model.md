@@ -61,7 +61,7 @@ The visible edge of the element:
   
   border-width: 1px;
   border-style: solid;      /* solid, dashed, dotted, double, none */
-  border-color: black;
+  border-colour: black;
 }
 ```
 
@@ -334,7 +334,7 @@ Individual axes:
 ### Centering Horizontally
 
 ```css
-.centered {
+.centred {
   width: 800px;
   max-width: 100%;
   margin-left: auto;

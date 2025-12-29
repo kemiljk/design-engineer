@@ -90,7 +90,7 @@ fun MessageItem(
                 Text(
                     text = message.time,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    colour = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
             Text(
@@ -98,7 +98,7 @@ fun MessageItem(
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                colour = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
         if (message.unread) {

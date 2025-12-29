@@ -90,7 +90,7 @@ n += snoise(uv * 8.0) * 0.25;
 n += snoise(uv * 16.0) * 0.125;
 ```
 
-**After:** Fewer octaves, still looks good
+**After:** Fewer octaves, still effective
 ```glsl
 float n = snoise(uv * 3.0);
 n += snoise(uv * 6.0) * 0.4;
@@ -148,7 +148,7 @@ color = mix(vec3(1.0, 0.0, 0.0), vec3(0.0, 0.0, 1.0), blend);
 
 ### 5. Pre-calculate Where Possible
 
-Move calculations out of the shader when you can:
+Move calculations out of the shader where you can:
 
 ```javascript
 // Calculate once in JavaScript
@@ -225,10 +225,10 @@ Start with CSS, enhance with shaders:
 function HeroBackground() {
   return (
     <div className="relative">
-      {/* CSS base layer - always works */}
+      {/* CSS base layer—always works */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 to-purple-900" />
       
-      {/* Shader enhancement - loaded conditionally */}
+      {/* Shader enhancement—loaded conditionally */}
       <ShaderOverlay />
     </div>
   );
@@ -414,8 +414,8 @@ Create two versions of a shader effect:
 - Respect `prefers-reduced-motion`—it's about user wellbeing
 - Test on real devices, especially mobile
 
-## Congratulations!
+## Congratulations
 
-You've completed the Creative Visual Effects module! You now have a powerful new tool in your Design Engineering toolkit—the ability to create GPU-powered visual effects that set your work apart.
+You've completed the Creative Visual Effects module. You now have a powerful tool in your Design Engineering toolkit: the ability to create GPU-powered visual effects that set your work apart.
 
 Continue to [Performance and Polish: Perceived Performance](../05-performance-and-polish/01-perceived-performance.md) →

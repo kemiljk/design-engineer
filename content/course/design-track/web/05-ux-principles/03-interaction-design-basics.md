@@ -69,7 +69,7 @@ Signifiers indicate how to interact with affordances.
 ### Common Signifiers
 
 - **Cursor changes:** Pointer for clickable, text cursor for editable
-- **Visual treatment:** Underlines, colors, shadows
+- **Visual treatment:** Underlines, colours, shadows
 - **Icons:** Hamburger menu, chevrons, plus signs
 - **Labels:** "Click here," "Tap to edit"
 - **Animations:** Pulse to draw attention
@@ -77,7 +77,7 @@ Signifiers indicate how to interact with affordances.
 ### Signifier Strength
 
 Match signifier strength to importance:
-- Primary action: Strong signifiers (color, size, position)
+- Primary action: Strong signifiers (colour, size, position)
 - Secondary action: Moderate signifiers
 - Tertiary action: Subtle signifiers
 
@@ -345,9 +345,9 @@ Take a common flow (checkout, signup, settings change):
     },
     {
       "id": "c",
-      "text": "Affordances are visual, signifiers are behavioral",
+      "text": "Affordances are visual, signifiers are behavioural",
       "isCorrect": false,
-      "explanation": "Actually, it's somewhat the opposite—signifiers are the visual/behavioral cues that indicate affordances."
+      "explanation": "Actually, it's somewhat the opposite—signifiers are the visual/behavioural cues that indicate affordances."
     },
     {
       "id": "d",

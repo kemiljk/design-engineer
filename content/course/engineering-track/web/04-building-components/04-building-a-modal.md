@@ -71,7 +71,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--color-neutral-200);
+  border-bottom: 1px solid var(--colour-neutral-200);
 }
 
 .modal__title {
@@ -88,7 +88,7 @@
   justify-content: flex-end;
   gap: 0.5rem;
   padding: 1rem 1.5rem;
-  border-top: 1px solid var(--color-neutral-200);
+  border-top: 1px solid var(--colour-neutral-200);
 }
 ```
 

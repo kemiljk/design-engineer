@@ -68,12 +68,12 @@ estimatedTime: 20
 /* Design Tokens */
 :root {
     /* Colours */
-    --color-primary: #2563eb;
-    --color-primary-hover: #1d4ed8;
-    --color-text: #1f2937;
-    --color-text-muted: #6b7280;
-    --color-background: #ffffff;
-    --color-surface: #f9fafb;
+    --colour-primary: #2563eb;
+    --colour-primary-hover: #1d4ed8;
+    --colour-text: #1f2937;
+    --colour-text-muted: #6b7280;
+    --colour-background: #ffffff;
+    --colour-surface: #f9fafb;
     
     /* Typography */
     --font-sans: system-ui, -apple-system, sans-serif;
@@ -110,7 +110,7 @@ estimatedTime: 20
 
 /* Focus Styles */
 :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--colour-primary);
     outline-offset: 2px;
 }
 
@@ -121,8 +121,8 @@ estimatedTime: 20
     left: 50%;
     transform: translateX(-50%);
     padding: var(--space-sm) var(--space-md);
-    background: var(--color-primary);
-    color: white;
+    background: var(--colour-primary);
+    colour: white;
     text-decoration: none;
     border-radius: 0 0 4px 4px;
     z-index: 1000;

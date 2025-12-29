@@ -176,15 +176,15 @@ for (let i = 0; i < 5; i++) {
 Iterate over iterable values:
 
 ```javascript
-const colors = ['red', 'green', 'blue'];
+const colours = ['red', 'green', 'blue'];
 
-for (const color of colors) {
-  console.log(color);
+for (const colour of colours) {
+  console.log(colour);
 }
 
 // With index
-for (const [index, color] of colors.entries()) {
-  console.log(`${index}: ${color}`);
+for (const [index, colour] of colours.entries()) {
+  console.log(`${index}: ${colour}`);
 }
 ```
 

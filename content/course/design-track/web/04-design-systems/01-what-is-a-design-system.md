@@ -19,7 +19,7 @@ Many people confuse design systems with component libraries. They're related but
 
 **Design System:** A comprehensive system including:
 - Design principles and guidelines
-- Design tokens (colors, spacing, typography)
+- Design tokens (colours, spacing, typography)
 - Component library
 - Patterns and templates
 - Documentation
@@ -237,7 +237,7 @@ If design systems interest you, it's a natural career path for Design Engineers.
 ### Exercise 1: System Audit
 
 Pick a product you use regularly. Identify:
-1. What design tokens might they use? (colors, spacing, typography)
+1. What design tokens might they use? (colours, spacing, typography)
 2. What components do you see repeated?
 3. What patterns appear across screens?
 4. Where do you notice inconsistency?

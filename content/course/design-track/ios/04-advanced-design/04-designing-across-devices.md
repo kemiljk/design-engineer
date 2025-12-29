@@ -123,7 +123,7 @@ Watch interfaces must be:
 
 ### Shared Design Language
 Across all devices, maintain:
-- Consistent brand colors
+- Consistent brand colours
 - Same typography scale (adjusted)
 - Familiar iconography
 - Unified navigation concepts

@@ -160,7 +160,7 @@ Build a like button with optimistic updates and error rollback.
   "options": [
     {
       "id": "a",
-      "text": "Making UI colors brighter to seem faster",
+      "text": "Making UI colours brighter to seem faster",
       "isCorrect": false,
       "explanation": "Optimistic UI is about interaction behaviour, not visual design."
     },

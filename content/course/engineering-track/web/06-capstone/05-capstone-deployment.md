@@ -124,7 +124,7 @@ Override CSS custom properties to customise:
 
 ```css
 :root {
-  --color-primary-500: #your-brand-colour;
+  --colour-primary-500: #your-brand-colour;
   --font-sans: 'Your Font', sans-serif;
 }
 ```

@@ -37,7 +37,7 @@ struct RatingView: View {
         HStack(spacing: 4) {
             ForEach(1...maxRating, id: \.self) { index in
                 Image(systemName: index <= Int(rating) ? "star.fill" : "star")
-                    .foregroundStyle(index <= Int(rating) ? .yellow : .gray)
+                    .foregroundStyle(index <= Int(rating) ? .yellow : .grey)
             }
             Text(String(format: "%.1f", rating))
                 .font(.subheadline)
@@ -77,11 +77,11 @@ LoadingView(isLoading: viewModel.isLoading) {
 ```swift
 struct Badge: View {
     let text: String
-    let color: Color
+    let colour: Color
     
-    init(_ text: String, color: Color = .blue) {
+    init(_ text: String, colour: Color = .blue) {
         self.text = text
-        self.color = color
+        self.colour = colour
     }
     
     var body: some View {
@@ -89,13 +89,13 @@ struct Badge: View {
             .font(.caption)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
-            .background(color, in: Capsule())
+            .background(colour, in: Capsule())
             .foregroundStyle(.white)
     }
 }
 
 Badge("New")
-Badge("Sale", color: .red)
+Badge("Sale", colour: .red)
 ```
 
 ### Via Environment
@@ -198,9 +198,9 @@ Create an EmptyState component:
     },
     {
       "id": "b",
-      "text": "Clear inputs (parameters), focused responsibility, and sensible defaults with customization options",
+      "text": "Clear inputs (parameters), focused responsibility, and sensible defaults with customisation options",
       "isCorrect": true,
-      "explanation": "Correct! Good components have clear APIs, do one thing well, work out of the box with defaults, and allow customization where needed."
+      "explanation": "Correct! Good components have clear APIs, do one thing well, work out of the box with defaults, and allow customisation where needed."
     },
     {
       "id": "c",

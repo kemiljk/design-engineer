@@ -63,7 +63,7 @@ The core teaching, broken into digestible sections. This includes:
 - Real-world context and applications
 
 ### Try It Yourself
-Hands-on exercises. This is where learning actually happens. Reading about design won't make you a designer; designing will. Reading about code won't make you an engineer; coding will.
+Hands-on exercises. This is where learning happens. Reading about design won't make you a designer; designing will. Reading about code won't make you an engineer; coding will.
 
 Don't skip these.
 
@@ -79,22 +79,22 @@ There are two main ways to move through the course:
 
 ### Linear Progression (Recommended for Beginners)
 
-Go through lessons in order within your chosen track:
+Work through lessons in order within your chosen track:
 1. Complete all lessons in Module 1
 2. Move to Module 2
 3. Continue through all modules
 4. Proceed to the next track
 
-This approach ensures you build foundational knowledge before advanced topics.
+This ensures you build foundational knowledge before tackling advanced topics.
 
 ### Topic-Based Exploration (For Experienced Learners)
 
 If you already have skills in some areas, jump to what you need:
 - Skip lessons covering concepts you know
-- Jump into specific topics that interest you
+- Jump into specific topics
 - Cross-reference between tracks when relevant
 
-Be honest with yourself. If a lesson's "What You'll Learn" section includes things you can't confidently do, work through the lesson.
+Be honest with yourself. If a lesson's "What You'll Learn" includes things you can't confidently do, work through it.
 
 ## Cross-Track Learning
 
@@ -104,11 +104,11 @@ Many concepts appear in both the Design and Engineering tracks, approached from 
 |---------|--------------|-------------------|
 | Components | Designing reusable UI elements | Building reusable UI elements |
 | Typography | Choosing and pairing fonts | Implementing type systems in code |
-| Color | Building palettes and systems | Implementing theming |
+| Colour | Building palettes and systems | Implementing theming |
 | Layout | Grid systems and composition | Flexbox, Grid, and layout code |
 | Motion | Animation principles | Animation implementation |
 
-When you encounter a concept in one track, consider exploring the same concept in the other track. Understanding both perspectives is what makes a Design Engineer.
+When you encounter a concept in one track, consider exploring it in the other. Understanding both perspectives is what makes a Design Engineer.
 
 ## Progress Tracking
 
@@ -123,23 +123,23 @@ Use this as your roadmap. Mark lessons complete as you finish them.
 
 ### Self-Assessment
 
-At the start of each module, assess what you already know. At the end of each module, assess what you've learned. The gap between these two tells you how much value you're getting.
+At the start of each module, assess what you already know. At the end, assess what you've learned. The gap between these tells you the value you're getting.
 
 ### Building Evidence
 
-The best way to track progress is to build things. As you complete exercises:
+The best way to track progress is to build. As you complete exercises:
 - Save your work in a dedicated folder
 - Screenshot design exercises
 - Commit code exercises to a repository
 - Note insights and questions
 
-By the end of the course, you'll have a collection of work that demonstrates your skills—useful for portfolios and job applications.
+By the end, you'll have a collection of work that demonstrates your skills—useful for portfolios and job applications.
 
 ## Tips for Effective Learning
 
 ### Space Your Learning
 
-Research shows spaced repetition beats cramming. Instead of marathon sessions:
+Spaced repetition beats cramming. Instead of marathon sessions:
 - Study for 30-60 minutes at a time
 - Take breaks between lessons
 - Review previous lessons before starting new ones
@@ -148,7 +148,7 @@ Research shows spaced repetition beats cramming. Instead of marathon sessions:
 ### Teach What You Learn
 
 The best way to solidify understanding is to explain it to someone else. After each lesson:
-- Summarize the main points in your own words
+- Summarise the main points in your own words
 - Explain a concept to a friend or colleague
 - Write a blog post or tweet about what you learned
 
@@ -168,16 +168,16 @@ Don't expect everything to click immediately. Learning is non-linear.
 
 Design Engineering is about seeing connections. As you learn:
 - Note when concepts from different lessons relate
-- Consider how design principles show up in code
+- Consider how design principles appear in code
 - Think about how engineering constraints influence design
 
-The "aha" moments often come when you connect ideas across disciplines.
+The "aha" moments come when you connect ideas across disciplines.
 
 ### Build, Build, Build
 
-Reading is not learning. Doing is learning.
+Reading isn't learning. Doing is learning.
 
-Every exercise in this course exists for a reason. Even if an exercise feels simple, do it. The act of building creates understanding that reading cannot.
+Every exercise exists for a reason. Even if an exercise feels simple, do it. Building creates understanding that reading cannot.
 
 After completing each module, build something on your own that uses what you learned. This is how you move from "I've seen this" to "I can do this."
 
@@ -185,9 +185,9 @@ After completing each module, build something on your own that uses what you lea
 
 ### When You're Stuck
 
-1. **Re-read the lesson.** Often the answer is there, you just missed it.
-2. **Check the exercises.** Working through exercises often clarifies concepts.
-3. **Look at related lessons.** The Design and Engineering tracks often explain the same concept differently.
+1. **Re-read the lesson.** The answer is often there.
+2. **Check the exercises.** Working through exercises clarifies concepts.
+3. **Look at related lessons.** The Design and Engineering tracks often explain concepts differently.
 4. **Search for the concept.** Sometimes a different explanation helps.
 5. **Take a break.** Fresh eyes solve problems.
 
@@ -214,7 +214,7 @@ These estimates assume:
 - You complete all exercises
 - You build additional projects to practice
 
-Experienced learners will move faster. Complete beginners may need more time. Both are fine.
+Experienced students move faster. Complete beginners may need more time. Both are fine.
 
 ## Try It Yourself
 
@@ -227,7 +227,7 @@ Before diving into your chosen track:
 
 2. **Create a learning folder.** A place to save exercises and projects.
 
-3. **Review the Course Plan.** Open `/content/course/_meta/COURSE-PLAN.md` and familiarize yourself with the structure.
+3. **Review the Course Plan.** Open `/content/course/_meta/COURSE-PLAN.md` and familiarise yourself with the structure.
 
 4. **Set a schedule.** Decide when you'll study and how much time you'll commit each week.
 

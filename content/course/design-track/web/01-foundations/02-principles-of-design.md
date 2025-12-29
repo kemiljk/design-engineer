@@ -28,7 +28,7 @@ Hierarchy establishes the order of importance in a design. It answers: "What sho
 Your eyes are drawn to certain elements before others based on:
 - **Size**: Larger elements attract attention first
 - **Weight**: Bold elements stand out from regular weight
-- **Color**: Brighter or more saturated colors pop forward
+- **Color**: Brighter or more saturated colours pop forward
 - **Position**: Top and left elements (in left-to-right languages) are scanned first
 - **Space**: Elements with more surrounding whitespace feel important
 
@@ -63,7 +63,7 @@ Balance is the distribution of visual weight across a design. Balanced designs f
 
 **Symmetrical Balance**: Elements are mirrored across an axis. Feels formal, stable, traditional.
 
-**Asymmetrical Balance**: Different elements balance each other through size, color, or position. Feels dynamic, modern, interesting.
+**Asymmetrical Balance**: Different elements balance each other through size, colour, or position. Feels dynamic, modern, interesting.
 
 **Radial Balance**: Elements radiate from a central point. Less common in UI, more common in logos and graphics.
 
@@ -90,7 +90,7 @@ Contrast is the difference between elements. It creates visual interest, establi
 ### Types of Contrast
 
 - **Size contrast**: Large vs. small
-- **Color contrast**: Dark vs. light, complementary colors
+- **Color contrast**: Dark vs. light, complementary colours
 - **Weight contrast**: Bold vs. regular, thick vs. thin
 - **Shape contrast**: Rounded vs. angular, organic vs. geometric
 - **Texture contrast**: Smooth vs. rough (less common in UI)
@@ -106,10 +106,10 @@ Without contrast, the button blends in and users miss it.
 
 ### The 60-30-10 Rule
 
-A helpful guideline for color contrast:
-- **60%**: Dominant color (usually background/neutral)
-- **30%**: Secondary color (supporting elements)
-- **10%**: Accent color (calls to action, key highlights)
+A helpful guideline for colour contrast:
+- **60%**: Dominant colour (usually background/neutral)
+- **30%**: Secondary colour (supporting elements)
+- **10%**: Accent colour (calls to action, key highlights)
 
 ### Common Contrast Mistakes
 
@@ -179,7 +179,7 @@ We'll cover grids in depth in later lessons.
 ### Common Alignment Mistakes
 
 - **Arbitrary positioning**: Elements placed "wherever"
-- **Mixing alignments**: Some left-aligned, some centered, without reason
+- **Mixing alignments**: Some left-aligned, some centred, without reason
 - **Near-alignment**: Almost aligned is worse than obviously different
 
 ## Proximity
@@ -263,7 +263,7 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
       "id": "a",
       "text": "Contrast",
       "isCorrect": false,
-      "explanation": "Contrast creates differentiation through visual differences like size or color, not through spacing."
+      "explanation": "Contrast creates differentiation through visual differences like size or colour, not through spacing."
     },
     {
       "id": "b",

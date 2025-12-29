@@ -360,4 +360,4 @@ You've completed the Design Systems module! You now understand:
 - Writing effective documentation
 - Maintenance, versioning, and governance
 
-Continue to [UX Principles: User-Centered Thinking](../05-ux-principles/01-user-centered-thinking.md) →
+Continue to [UX Principles: User-Centered Thinking](../05-ux-principles/01-user-centred-thinking.md) →

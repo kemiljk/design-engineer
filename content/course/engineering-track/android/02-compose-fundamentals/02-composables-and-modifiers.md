@@ -172,7 +172,7 @@ Create a `badge()` modifier that adds:
   "options": [
     {
       "id": "a",
-      "text": "It doesn't—Compose optimizes the order automatically",
+      "text": "It doesn't—Compose optimises the order automatically",
       "isCorrect": false,
       "explanation": "Order definitely matters and affects the visual result."
     },
@@ -180,7 +180,7 @@ Create a `badge()` modifier that adds:
       "id": "b",
       "text": "Modifiers are applied sequentially—earlier modifiers wrap later ones, affecting layout and appearance",
       "isCorrect": true,
-      "explanation": "Correct! Modifier.padding(16.dp).background(Color.Red) pads then colors (background includes padding). Modifier.background(Color.Red).padding(16.dp) colors then pads (background doesn't extend into padding)."
+      "explanation": "Correct! Modifier.padding(16.dp).background(Color.Red) pads then colours (background includes padding). Modifier.background(Color.Red).padding(16.dp) colours then pads (background doesn't extend into padding)."
     },
     {
       "id": "c",

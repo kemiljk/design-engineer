@@ -15,10 +15,10 @@ Unlike game development shaders (explosions, water, realistic lighting), UI shad
 
 - **Subtlety** — Enhancing, not overwhelming
 - **Performance** — Running smoothly on all devices
-- **Integration** — Working with your existing design system
+- **Integration** — Working with your design system
 - **Accessibility** — Respecting user preferences
 
-Let's build practical effects you can use in real projects.
+Let's build practical effects for real projects.
 
 ## Smooth Gradient Animations
 
@@ -100,7 +100,7 @@ float snoise(vec2 v) {
 }
 ```
 
-Don't worry about understanding every line—this is a utility function you can copy and use.
+Don't worry about understanding every line. This is a utility function you can copy and use.
 
 ### Using Noise for Organic Movement
 

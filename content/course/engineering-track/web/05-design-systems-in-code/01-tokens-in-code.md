@@ -14,10 +14,10 @@
 ```css
 :root {
   /* Color tokens */
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-900: #111827;
+  --colour-primary-500: #3b82f6;
+  --colour-primary-600: #2563eb;
+  --colour-neutral-100: #f3f4f6;
+  --colour-neutral-900: #111827;
 
   /* Spacing tokens */
   --space-1: 0.25rem;
@@ -54,12 +54,12 @@ Layer meaning on top of primitives:
   --neutral-900: #111827;
 
   /* Semantic tokens */
-  --color-primary: var(--blue-500);
-  --color-background: var(--neutral-100);
-  --color-text: var(--neutral-900);
+  --colour-primary: var(--blue-500);
+  --colour-background: var(--neutral-100);
+  --colour-text: var(--neutral-900);
 
   /* Component tokens */
-  --button-bg: var(--color-primary);
+  --button-bg: var(--colour-primary);
   --card-bg: white;
 }
 ```
@@ -87,16 +87,16 @@ Layer meaning on top of primitives:
 ```css
 /* Light theme (default) */
 :root {
-  --color-background: var(--neutral-100);
-  --color-text: var(--neutral-900);
-  --color-surface: white;
+  --colour-background: var(--neutral-100);
+  --colour-text: var(--neutral-900);
+  --colour-surface: white;
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: var(--neutral-900);
-  --color-text: var(--neutral-100);
-  --color-surface: var(--neutral-800);
+  --colour-background: var(--neutral-900);
+  --colour-text: var(--neutral-100);
+  --colour-surface: var(--neutral-800);
 }
 ```
 

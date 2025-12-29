@@ -53,7 +53,7 @@ IconButton(onClick = { }) {
 ```kotlin
 Button(
     onClick = { },
-    colors = ButtonDefaults.buttonColors(
+    colours = ButtonDefaults.buttonColors(
         containerColor = Color(0xFF6200EE),
         contentColor = Color.White
     ),
@@ -85,7 +85,7 @@ fun CustomButton(
     ) {
         Text(
             text = text,
-            color = if (enabled) MaterialTheme.colorScheme.onPrimary
+            colour = if (enabled) MaterialTheme.colorScheme.onPrimary
                    else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
             style = MaterialTheme.typography.labelLarge
         )
@@ -109,7 +109,7 @@ fun LoadingButton(
         if (isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.size(20.dp),
-                color = MaterialTheme.colorScheme.onPrimary,
+                colour = MaterialTheme.colorScheme.onPrimary,
                 strokeWidth = 2.dp
             )
             Spacer(Modifier.width(8.dp))
@@ -192,7 +192,7 @@ Build a button that:
 ## Key Takeaways
 
 - Use appropriate button type for emphasis
-- ButtonDefaults for customizing colors
+- ButtonDefaults for customising colours
 - Handle loading and disabled states
 - Always provide content descriptions for icon buttons
 

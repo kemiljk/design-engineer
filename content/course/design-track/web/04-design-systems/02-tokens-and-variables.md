@@ -1,6 +1,6 @@
 # Tokens and Variables
 
-> **Quick Summary:** Design tokens are named values that store design decisions—colors, spacing, typography—creating a shared vocabulary between design and code.
+> **Quick Summary:** Design tokens are named values that store design decisions—colours, spacing, typography—creating a shared vocabulary between design and code.
 
 ## What You'll Learn
 
@@ -148,7 +148,7 @@ Raw values with descriptive names:
 
 ```
 blue-500: #3B82F6
-gray-100: #F3F4F6
+grey-100: #F3F4F6
 space-4: 16px
 ```
 
@@ -159,8 +159,8 @@ Primitive tokens describe _what_ the value is.
 Values with contextual meaning:
 
 ```
-color-primary: {blue-500}
-color-background: {gray-100}
+colour-primary: {blue-500}
+colour-background: {grey-100}
 space-component-padding: {space-4}
 ```
 
@@ -175,8 +175,8 @@ This separation enables theming:
 
 | Token | Light Theme | Dark Theme |
 |-------|-------------|------------|
-| color-background | gray-100 → #F3F4F6 | gray-900 → #111827 |
-| color-text | gray-900 → #111827 | gray-100 → #F3F4F6 |
+| colour-background | grey-100 → #F3F4F6 | grey-900 → #111827 |
+| colour-text | grey-900 → #111827 | grey-100 → #F3F4F6 |
 
 Same semantic tokens, different values.
 
@@ -189,8 +189,8 @@ Consistent naming makes tokens discoverable and intuitive.
 **Category-Property-Variant:**
 
 ```
-color-background-primary
-color-text-secondary
+colour-background-primary
+colour-text-secondary
 space-padding-large
 ```
 
@@ -214,7 +214,7 @@ button-background-disabled
 
 **Be consistent:** Once you establish a pattern, follow it everywhere.
 
-**Be specific:** `text-color-primary` is clearer than `color-1`.
+**Be specific:** `text-colour-primary` is clearer than `colour-1`.
 
 **Be predictable:** Users should guess token names correctly.
 
@@ -232,7 +232,7 @@ Modern design tools support token concepts through styles and variables:
 
 ### Color Styles
 
-Define named colors:
+Define named colours:
 
 - `Primary/500`
 - `Gray/100`
@@ -267,14 +267,14 @@ The web-native approach:
 ```css
 :root {
   /* Primitives */
-  --color-blue-500: #3b82f6;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-900: #111827;
+  --colour-blue-500: #3b82f6;
+  --colour-neutral-100: #f3f4f6;
+  --colour-neutral-900: #111827;
 
   /* Semantics */
-  --color-primary: var(--color-blue-500);
-  --color-background: var(--color-neutral-100);
-  --color-text: var(--color-neutral-900);
+  --colour-primary: var(--colour-blue-500);
+  --colour-background: var(--colour-neutral-100);
+  --colour-text: var(--colour-neutral-900);
 
   /* Spacing */
   --space-4: 16px;
@@ -282,7 +282,7 @@ The web-native approach:
 }
 
 .button {
-  background: var(--color-primary);
+  background: var(--colour-primary);
   padding: var(--space-4);
 }
 ```
@@ -293,8 +293,8 @@ CSS custom properties enable runtime theming:
 
 ```css
 [data-theme="dark"] {
-  --color-background: var(--color-neutral-900);
-  --color-text: var(--color-neutral-100);
+  --colour-background: var(--colour-neutral-900);
+  --colour-text: var(--colour-neutral-100);
 }
 ```
 
@@ -306,9 +306,9 @@ Many frameworks have token systems:
 // Tailwind config
 module.exports = {
   theme: {
-    colors: {
+    colours: {
       primary: "#3B82F6",
-      gray: {
+      grey: {
         100: "#F3F4F6",
         900: "#111827",
       },
@@ -378,7 +378,7 @@ Tokens require maintenance:
 
 For a product you're working on:
 
-1. List all unique colors used
+1. List all unique colours used
 2. List all unique spacing values
 3. List all font sizes
 4. Identify inconsistencies
@@ -388,8 +388,8 @@ For a product you're working on:
 Create a token system including:
 
 1. 5-shade grey scale
-2. Primary and secondary brand colors
-3. Semantic status colors (error, warning, success)
+2. Primary and secondary brand colours
+3. Semantic status colours (error, warning, success)
 4. Spacing scale (at least 8 values)
 5. Type scale (at least 5 sizes)
 
@@ -406,7 +406,7 @@ Take your token system and implement it as CSS custom properties. Create a sampl
   "title": "Token Hierarchy",
   "description": "Test your understanding of primitive vs semantic tokens.",
   "difficulty": "medium",
-  "question": "Why do design systems use BOTH primitive tokens (like 'blue-500') AND semantic tokens (like 'color-primary')?",
+  "question": "Why do design systems use BOTH primitive tokens (like 'blue-500') AND semantic tokens (like 'colour-primary')?",
   "options": [
     {
       "id": "a",
@@ -416,9 +416,9 @@ Take your token system and implement it as CSS custom properties. Create a sampl
     },
     {
       "id": "b",
-      "text": "Semantic tokens enable theming—you can change 'color-primary' to point to a different primitive for dark mode",
+      "text": "Semantic tokens enable theming—you can change 'colour-primary' to point to a different primitive for dark mode",
       "isCorrect": true,
-      "explanation": "Correct! Primitives provide the palette, semantics apply the palette to purposes. For dark mode, 'color-background' can reference gray-900 instead of gray-100 without changing component code."
+      "explanation": "Correct! Primitives provide the palette, semantics apply the palette to purposes. For dark mode, 'colour-background' can reference grey-900 instead of grey-100 without changing component code."
     },
     {
       "id": "c",
@@ -439,7 +439,7 @@ Take your token system and implement it as CSS custom properties. Create a sampl
 ## Key Takeaways
 
 - Design tokens are named values that store design decisions
-- Categories: color, spacing, typography, effects
+- Categories: colour, spacing, typography, effects
 - Primitive tokens describe values; semantic tokens describe usage
 - Good naming is consistent, specific, and predictable
 - Tokens exist in design tools (styles, variables) and code (CSS properties)

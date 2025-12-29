@@ -36,7 +36,7 @@ Everything is a View—text, images, buttons, containers.
 ### Auto Layout → SwiftUI
 
 ```
-Design: Horizontal, centered, 16pt spacing
+Design: Horizontal, centred, 16pt spacing
 SwiftUI: HStack(spacing: 16) { ... }
 
 Design: Vertical, leading-aligned
@@ -77,12 +77,12 @@ Group related elements:
 - Groups have consistent internal spacing
 
 ### Named Colors
-Use semantic color names:
+Use semantic colour names:
 - `primary`, `secondary`
 - `background`, `surface`
 - `accent`, `destructive`
 
-Map to asset catalog colors in Xcode.
+Map to asset catalog colours in Xcode.
 
 ### Text Styles
 Use iOS text styles:
@@ -122,7 +122,7 @@ Organize frames to match component structure developers will build.
 ### Document Interactions
 - All states (default, pressed, disabled)
 - Transitions between states
-- Gesture behaviors
+- Gesture behaviours
 
 ### Provide Assets
 - Export icons at correct scales
@@ -142,7 +142,7 @@ Take a design screen and write pseudo-SwiftUI:
 
 Prepare a screen for handoff:
 - Annotate all spacing
-- Document colors and typography
+- Document colours and typography
 - Note interactions and states
 
 ## Test Your Understanding

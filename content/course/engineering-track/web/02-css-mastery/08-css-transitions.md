@@ -134,7 +134,7 @@ For frame-by-frame animation (sprite sheets, typewriter effects):
 Most properties with numeric or colour values:
 
 **Can transition:**
-- Colours (`color`, `background-color`, `border-color`)
+- Colours (`colour`, `background-colour`, `border-colour`)
 - Dimensions (`width`, `height`, `padding`, `margin`)
 - Position (`top`, `left`, with `position: relative/absolute`)
 - Transforms (`transform`)
@@ -182,7 +182,7 @@ Most properties with numeric or colour values:
 ```css
 .button {
   background: #3b82f6;
-  color: white;
+  colour: white;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 0.5rem;

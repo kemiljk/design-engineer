@@ -14,7 +14,7 @@
 > *"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."* — Tim Berners-Lee
 
 Web accessibility (a11y) means designing and building interfaces that work for everyone, including people with:
-- **Visual impairments:** Blindness, low vision, color blindness
+- **Visual impairments:** Blindness, low vision, colour blindness
 - **Motor impairments:** Limited fine motor control, inability to use mouse
 - **Hearing impairments:** Deafness, hard of hearing
 - **Cognitive differences:** ADHD, dyslexia, autism

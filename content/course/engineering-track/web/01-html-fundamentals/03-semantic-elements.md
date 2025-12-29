@@ -23,7 +23,7 @@ In HTML4, we built layouts with `<div>` and `<span>`:
 <div class="footer">...</div>
 ```
 
-This works visually but tells browsers nothing about content meaning.
+This works visually but tells browsers nothing about what the content means.
 
 HTML5 introduced semantic elements:
 
@@ -37,7 +37,7 @@ HTML5 introduced semantic elements:
 <footer>...</footer>
 ```
 
-Same visual result, but now browsers (and assistive technologies) understand the structure.
+Same visual result, but browsers (and assistive technologies) now understand the structure.
 
 ## Page Structure Elements
 
@@ -115,7 +115,7 @@ Use `<article>` for:
 - Product cards
 - Social media posts
 
-Test: Would this make sense syndicated on its own? If yes, use `<article>`.
+Test: Would this make sense syndicated on its own? If yes, it's an `<article>`.
 
 ### section
 
@@ -296,7 +296,7 @@ Screen readers announce semantic elements:
 
 Users can jump between landmarks, making navigation faster.
 
-Without semantic elements, screen reader users navigate linearly through all content—slow and frustrating.
+Without semantic elements, screen reader users must navigate linearly through all content—slow and frustrating.
 
 ## Common Mistakes
 
@@ -315,7 +315,7 @@ If it doesn't represent a thematic grouping, use `<div>`.
 
 ### Using article for Everything
 
-`<article>` is for self-contained, syndicatable content, not every card or component.
+`<article>` is for self-contained, syndicatable content—not every card or component.
 
 ### Skipping main
 

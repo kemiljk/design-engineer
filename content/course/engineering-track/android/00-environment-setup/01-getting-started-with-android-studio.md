@@ -217,7 +217,7 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    colour = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
                 }

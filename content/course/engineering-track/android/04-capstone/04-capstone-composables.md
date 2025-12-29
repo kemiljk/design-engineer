@@ -68,7 +68,7 @@ fun TaskCard(
                     textDecoration = if (task.isComplete) {
                         TextDecoration.LineThrough
                     } else null,
-                    color = if (task.isComplete) {
+                    colour = if (task.isComplete) {
                         MaterialTheme.colorScheme.outline
                     } else {
                         MaterialTheme.colorScheme.onSurface
@@ -79,7 +79,7 @@ fun TaskCard(
                     Text(
                         text = formatDate(dueDate),
                         style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        colour = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -99,14 +99,14 @@ fun PriorityBadge(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        color = priority.color.copy(alpha = 0.15f),
+        colour = priority.colour.copy(alpha = 0.15f),
         shape = MaterialTheme.shapes.small,
         modifier = modifier
     ) {
         Text(
             text = priority.label,
             style = MaterialTheme.typography.labelSmall,
-            color = priority.color,
+            colour = priority.colour,
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
         )
     }
@@ -148,7 +148,7 @@ fun EmptyState(
         Text(
             text = message,
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            colour = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
         )
         
@@ -177,7 +177,7 @@ fun Modifier.shimmer(): Modifier = composed {
     
     background(
         brush = Brush.linearGradient(
-            colors = listOf(
+            colours = listOf(
                 Color.LightGray.copy(alpha = 0.6f),
                 Color.LightGray.copy(alpha = 0.2f),
                 Color.LightGray.copy(alpha = 0.6f),

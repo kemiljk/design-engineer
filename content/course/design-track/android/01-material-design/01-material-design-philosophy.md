@@ -21,7 +21,7 @@ Inspired by paper and ink:
 
 ### Bold, Graphic, Intentional
 - Large-scale typography
-- Deliberate color choices
+- Deliberate colour choices
 - Meaningful imagery
 - Iconography grounded in symbols
 
@@ -115,7 +115,7 @@ Open Google apps (Gmail, Maps, Photos). Identify:
 - Surface elevation
 - Shadow usage
 - Motion patterns
-- Dynamic color application
+- Dynamic colour application
 
 ### Exercise 2: Metaphor Application
 

@@ -459,7 +459,7 @@ fun ProfileCard(
         
         Text(
             text = role,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            colour = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }

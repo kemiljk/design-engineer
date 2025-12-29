@@ -1,15 +1,15 @@
 # Dark Mode and Dynamic Color for Android
 
-> **Quick Summary:** Material You brings personalization to Android. Learn how to design for dark theme and dynamic color while maintaining brand identity.
+> **Quick Summary:** Material You brings personalization to Android. Learn how to design for dark theme and dynamic colour while maintaining brand identity.
 
 ## What You'll Learn
 
 - Android's day/night theming system
-- Material You and dynamic color
-- Designing adaptive color schemes
+- Material You and dynamic colour
+- Designing adaptive colour schemes
 - Maintaining brand identity
 
-<!-- illustration: material-dynamic-color -->
+<!-- illustration: material-dynamic-colour -->
 
 ## The Android Theming System
 
@@ -37,17 +37,17 @@ Material 3 uses tonal surfaces:
 | Surface Container | #F3EDF7 | #211F26 |
 
 ### Color Roles
-Semantic colors that adapt:
+Semantic colours that adapt:
 
-- **Primary:** Main brand color
+- **Primary:** Main brand colour
 - **On Primary:** Text/icons on primary
-- **Secondary:** Complementary color
+- **Secondary:** Complementary colour
 - **Tertiary:** Accent for variety
 - **Error:** Error states
 - **Surface:** Backgrounds
 
 ### Tonal Palettes
-Each color has 13 tones (0-100):
+Each colour has 13 tones (0-100):
 - Tone 0: Black
 - Tone 10-30: Dark shades
 - Tone 40-60: Middle tones
@@ -58,16 +58,16 @@ Each color has 13 tones (0-100):
 
 ### What is Dynamic Color?
 Introduced in Android 12:
-- Extracts colors from wallpaper
-- Creates personalized color scheme
+- Extracts colours from wallpaper
+- Creates personalized colour scheme
 - Applies across system and apps
 - User's wallpaper = their palette
 
 ### How It Works
 1. User sets a wallpaper
-2. System extracts key colors
+2. System extracts key colours
 3. Algorithm generates full palette
-4. Apps use dynamic color tokens
+4. Apps use dynamic colour tokens
 
 ### Supporting Dynamic Color
 In Compose:
@@ -78,15 +78,15 @@ MaterialTheme(
 ```
 
 Your designs should:
-- Use color roles, not hard-coded values
+- Use colour roles, not hard-coded values
 - Test with various wallpapers
 - Maintain contrast requirements
-- Have fallback static colors
+- Have fallback static colours
 
 ## Designing Adaptive Schemes
 
 ### Start with Brand Colors
-1. Define your primary brand color
+1. Define your primary brand colour
 2. Generate tonal palette (use Material Theme Builder)
 3. Create complementary secondary
 4. Add accent tertiary
@@ -113,15 +113,15 @@ Unlike light theme's shadows:
 ## Maintaining Brand Identity
 
 ### The Challenge
-Dynamic color can overwhelm brand:
-- User's wallpaper dictates colors
+Dynamic colour can overwhelm brand:
+- User's wallpaper dictates colours
 - Your brand may disappear
 - Need strategic approach
 
 ### Strategies
 
 **Full Dynamic:**
-- Embrace dynamic color everywhere
+- Embrace dynamic colour everywhere
 - Brand expressed through shape, typography
 - Works for utility apps
 
@@ -131,7 +131,7 @@ Dynamic color can overwhelm brand:
 - Good balance approach
 
 **Static with Dynamic Accents:**
-- Keep brand colors throughout
+- Keep brand colours throughout
 - Use dynamic for subtle accents
 - Best for strong brands
 
@@ -147,14 +147,14 @@ Keep these consistent:
 ### What to Test
 1. **Light theme:** Daytime visibility
 2. **Dark theme:** Night readability
-3. **Dynamic colors:** Various wallpapers
+3. **Dynamic colours:** Various wallpapers
 4. **High contrast:** Accessibility mode
 
 ### Wallpaper Testing
 Test with different wallpaper types:
-- Vibrant colors (red, blue, green)
-- Muted colors (gray, beige)
-- Photos (mixed colors)
+- Vibrant colours (red, blue, green)
+- Muted colours (grey, beige)
+- Photos (mixed colours)
 - Dark wallpapers
 - Light wallpapers
 
@@ -169,14 +169,14 @@ For each theme variation:
 
 ### Material Theme Builder
 Google's official tool:
-1. Set primary color
+1. Set primary colour
 2. Generate full palette
 3. Preview in both themes
 4. Export for implementation
 
 ### Figma Workflow
 - Use Material Design 3 kit
-- Create color styles for roles
+- Create colour styles for roles
 - Set up light/dark variants
 - Test with theme switching
 
@@ -200,7 +200,7 @@ Export as tokens:
 ### Exercise 1: Palette Generation
 
 Using Material Theme Builder:
-1. Input your brand's primary color
+1. Input your brand's primary colour
 2. Generate full palette
 3. Review light and dark schemes
 4. Check contrast ratios
@@ -210,17 +210,17 @@ Using Material Theme Builder:
 On an Android 12+ device:
 1. Change wallpaper to red image
 2. Open Material You-enabled apps
-3. Note how colors adapt
+3. Note how colours adapt
 4. Repeat with blue, green wallpapers
 
 ## Test Your Understanding
 
 <!-- exercise: multiple-choice
 {
-  "id": "android-color-quiz",
+  "id": "android-colour-quiz",
   "type": "multiple-choice",
   "title": "Dark Mode and Dynamic Color",
-  "description": "Test your understanding of Android color systems.",
+  "description": "Test your understanding of Android colour systems.",
   "difficulty": "medium",
   "question": "How is elevation typically shown in Android's dark theme?",
   "options": [
@@ -232,7 +232,7 @@ On an Android 12+ device:
     },
     {
       "id": "b",
-      "text": "Progressively lighter surface colors for higher elevations",
+      "text": "Progressively lighter surface colours for higher elevations",
       "isCorrect": true,
       "explanation": "Correct! In Material dark theme, elevated surfaces use progressively lighter tones to show depth, opposite to light theme's shadow approach."
     },
@@ -254,8 +254,8 @@ On an Android 12+ device:
 
 ## Key Takeaways
 
-- Use Material color roles, not hard-coded values
-- Support dynamic color for personalization
+- Use Material colour roles, not hard-coded values
+- Support dynamic colour for personalization
 - Higher elevations = lighter surfaces in dark theme
 - Maintain strategic brand touchpoints
 - Test with various wallpapers and themes

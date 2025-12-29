@@ -72,8 +72,8 @@ struct PriorityBadge: View {
             .fontWeight(.medium)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
-            .background(priority.color.opacity(0.15))
-            .foregroundStyle(priority.color)
+            .background(priority.colour.opacity(0.15))
+            .foregroundStyle(priority.colour)
             .clipShape(Capsule())
     }
 }
@@ -88,7 +88,7 @@ struct CardStyle: ViewModifier {
             .padding()
             .background(.background)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .black.opacity(0.1), radius: 4, y: 2)
+            .shadow(colour: .black.opacity(0.1), radius: 4, y: 2)
     }
 }
 

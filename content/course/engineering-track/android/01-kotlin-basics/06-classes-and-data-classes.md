@@ -30,7 +30,7 @@ class Rectangle(val width: Int, val height: Int) {
         get() = width * height
     
     // Property with backing field
-    var color: String = "white"
+    var colour: String = "white"
         set(value) {
             field = value.lowercase()
         }

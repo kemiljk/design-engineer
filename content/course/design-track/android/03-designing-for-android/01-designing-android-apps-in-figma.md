@@ -75,7 +75,7 @@ Create styles matching Material type scale:
 ## Color Setup
 
 ### Using Material Theme Builder
-1. Input brand colors
+1. Input brand colours
 2. Generate tonal palettes
 3. Export to Figma
 4. Apply as styles
@@ -89,9 +89,9 @@ Create styles matching Material type scale:
 
 ### Dark Theme
 Create parallel dark theme styles:
-- Surface colors adjusted
-- Text colors inverted
-- Primary colors adapted
+- Surface colours adjusted
+- Text colours inverted
+- Primary colours adapted
 
 ## Icon Resources
 
@@ -169,7 +169,7 @@ Design a simple screen using:
 
 - Start with correct device dimensions in dp
 - Use official Material Design kit
-- Set up semantic color styles
+- Set up semantic colour styles
 - Create type styles matching Material scale
 - Include both light and dark themes
 

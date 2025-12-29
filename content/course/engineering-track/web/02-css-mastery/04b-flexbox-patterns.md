@@ -26,7 +26,7 @@ The most famous flexbox pattern:
 }
 ```
 
-For full-page centering (modals, splash screens):
+For full-page centring (modals, splash screens):
 
 ```css
 .fullscreen-center {

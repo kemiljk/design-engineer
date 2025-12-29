@@ -166,11 +166,11 @@ Don't worry about using technical terms. Just observe and describe what you see.
       "id": "b",
       "text": "Strategic communication through visual elements",
       "isCorrect": true,
-      "explanation": "Correct! Visual design uses imagery, color, typography, and space to guide users and communicate meaning."
+      "explanation": "Correct! Visual design uses imagery, colour, typography, and space to guide users and communicate meaning."
     },
     {
       "id": "c",
-      "text": "Choosing brand colors and fonts",
+      "text": "Choosing brand colours and fonts",
       "isCorrect": false,
       "explanation": "Brand elements are part of visual design, but not its primary purpose."
     },

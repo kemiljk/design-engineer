@@ -103,7 +103,7 @@ Choose breakpoints based on your content, not devices.
 @media (hover: hover) { }
 
 /* Color scheme preference */
-@media (prefers-color-scheme: dark) { }
+@media (prefers-colour-scheme: dark) { }
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) { }

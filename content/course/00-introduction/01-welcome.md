@@ -15,21 +15,19 @@ estimatedTime: 8
 
 ## Welcome, Future Design Engineer
 
-If you've ever felt stuck between two worlds, loving the craft of design but wanting to build, or writing code while wishing you had a better eye for aesthetics, you're in the right place.
+If you've ever felt caught between two worlds—loving design but wanting to build, or writing code whilst wishing you had a better eye for aesthetics—you're in the right place.
 
-This course exists because the gap between design and engineering isn't a problem to solve. It's an opportunity to own.
+The gap between design and engineering isn't a problem to solve. It's an opportunity to own.
 
-Design Engineers are the people who refuse to hand off their work and hope for the best. They prototype their ideas. They understand constraints. They speak both languages fluently enough to translate between teams, catch issues early, and ship work that's both beautiful and functional.
-
-That's what we're building toward.
+Design Engineers refuse to hand off their work and hope for the best. They prototype ideas, understand constraints, and speak both languages fluently enough to translate between teams, catch issues early, and ship work that's both beautiful and functional.
 
 ## Who This Course Is For
 
-This course welcomes two types of learners:
+This course welcomes two types of students:
 
 ### Designers Learning to Build
 
-You've got the eye. You understand hierarchy, spacing, color, and composition. But when it comes to implementation, you're dependent on someone else. You want to:
+You've got the eye. You understand hierarchy, spacing, colour, and composition. But when it comes to implementation, you're dependent on someone else. You want to:
 
 - Prototype your ideas in code, not just in Figma
 - Understand what's possible (and what's expensive) before you design it
@@ -49,23 +47,23 @@ If you're somewhere in between, even better. This course meets you where you are
 
 ## The Design Engineer Mindset
 
-Before we get into skills, let's talk about mindset. The most effective Design Engineers share a few traits:
+Before skills, let's talk about mindset. The most effective Design Engineers share a few traits:
 
 ### Curiosity Over Territory
 
-They don't think "that's not my job." When something breaks at the seam between design and engineering, they fix it. Or at least understand it well enough to help.
+They don't think "that's not my job." When something breaks at the seam between design and engineering, they fix it—or understand it well enough to help.
 
 ### Iteration Over Perfection
 
-They prototype, test, and refine. They know that a rough version in code teaches more than a polished mockup that never ships.
+They prototype, test, and refine. A rough version in code teaches more than a polished mockup that never ships.
 
 ### Empathy in Both Directions
 
-They understand why designers obsess over 2px of spacing and why engineers worry about performance implications. They translate, mediate, and advocate.
+They understand why designers obsess over 2px of spacing and why engineers worry about performance. They translate, mediate, and advocate.
 
 ### Craftsmanship
 
-They care about the details that most people won't notice, but that everyone feels. The animation that's just right. The interaction that feels natural. The edge case that's handled gracefully.
+They care about the details most people won't notice but everyone feels. The animation that's just right. The interaction that feels natural. The edge case that's handled gracefully.
 
 ## What You'll Build
 
@@ -79,15 +77,15 @@ You won't just learn theory. Every module includes hands-on exercises, real exam
 
 ## How to Approach This Course
 
-This isn't a passive course. You'll get out what you put in.
+This isn't a passive course. You get out what you put in.
 
-**Go at your own pace.** There's no deadline. Some lessons will click immediately; others will require practice. Both are fine.
+**Go at your own pace.** There's no deadline. Some lessons click immediately; others need practice. Both are fine.
 
-**Build as you learn.** Each lesson has exercises. Do them. The gap between "understanding" and "knowing" is crossed by building.
+**Build as you learn.** Each lesson has exercises. Do them. The gap between understanding and knowing is crossed by building.
 
-**Be patient with yourself.** If you're a designer learning to code, your first attempts will feel clumsy. If you're an engineer learning design, your early work won't look like Dribbble shots. That's part of the process.
+**Be patient with yourself.** If you're a designer learning to code, your first attempts will feel clumsy. If you're an engineer learning design, your early work won't look like Dribbble shots. That's normal.
 
-**Connect concepts across tracks.** The best learning happens when you see how typography principles show up in CSS, or how component architecture in Figma mirrors component architecture in code.
+**Connect concepts across tracks.** The best learning happens when you see how typography principles appear in CSS, or how component architecture in Figma mirrors component architecture in code.
 
 ## Test Your Understanding
 

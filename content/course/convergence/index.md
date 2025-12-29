@@ -18,7 +18,7 @@ This is where it all comes together. For designers ready to go beyond Vibe Codin
 ## What's Included in Convergence
 
 ### Complete Foundation Access
-- **All Design Track Content** — Go beyond Vibe Coding with visual design fundamentals, typography, color, layout, and design systems. Develop taste that AI can't replicate.
+- **All Design Track Content** — Go beyond Vibe Coding with visual design fundamentals, typography, colour, layout, and design systems. Develop taste that AI can't replicate.
 - **All Engineering Track Content** — Ship polished interfaces with HTML, CSS, JavaScript, Swift, Kotlin, and component architecture. Build UIs users actually love.
 
 ### Advanced Convergence Topics

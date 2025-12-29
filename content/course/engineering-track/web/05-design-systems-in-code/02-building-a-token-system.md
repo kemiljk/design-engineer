@@ -1,10 +1,10 @@
 # Building a Token System
 
-> **Quick Summary:** A complete token system covers colors, typography, spacing, and effects—providing everything needed to build consistent interfaces.
+> **Quick Summary:** A complete token system covers colours, typography, spacing, and effects—providing everything needed to build consistent interfaces.
 
 ## What You'll Learn
 
-- Creating comprehensive color scales
+- Creating comprehensive colour scales
 - Building typography systems
 - Defining spacing scales
 - Effect tokens (shadows, radius)
@@ -49,10 +49,10 @@
 
 ```css
 :root {
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #3b82f6;
+  --colour-success: #10b981;
+  --colour-warning: #f59e0b;
+  --colour-error: #ef4444;
+  --colour-info: #3b82f6;
 }
 ```
 
@@ -146,9 +146,9 @@
     },
     {
       "id": "b",
-      "text": "Semantic tokens reference primitive tokens, adding meaning like 'color-primary' → 'blue-500'",
+      "text": "Semantic tokens reference primitive tokens, adding meaning like 'colour-primary' → 'blue-500'",
       "isCorrect": true,
-      "explanation": "Correct! Primitives define raw values (blue-500: #3B82F6), semantics add meaning (color-primary: var(--blue-500)). This allows theming by changing what semantic tokens reference."
+      "explanation": "Correct! Primitives define raw values (blue-500: #3B82F6), semantics add meaning (colour-primary: var(--blue-500)). This allows theming by changing what semantic tokens reference."
     },
     {
       "id": "c",
@@ -169,7 +169,7 @@
 ## Key Takeaways
 
 - Build comprehensive scales for each category
-- 50-900 scale works well for colors
+- 50-900 scale works well for colours
 - Spacing follows 4px/8px grid
 - Type scales use consistent ratios
 - Document when to use each token

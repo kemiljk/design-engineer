@@ -204,3 +204,94 @@ Follow the existing code style preferences from the user's rules, with emphasis 
 - Maintain consistent terminology across all pages
 - Keep code examples separate from prose
 - Use clear visual separation between British prose and American code
+
+---
+
+## Editorial Standards for Course Content
+
+### Voice and Authenticity
+
+**Write as an experienced practitioner teaching a colleague—not generic AI.**
+
+**Characteristics:**
+- Confident but not arrogant
+- Concrete over abstract
+- Direct and concise
+- Natural rhythm and varied sentence structure
+
+**AI Tells to Avoid:**
+- "It is important to note that..." → Use "Note that..." or just state it
+- "In conclusion," → Remove entirely
+- "Overall," → Remove or be specific
+- "On the other hand," → Use "However,"
+- "Additionally," → Use "Also," or just continue
+- "Furthermore," → Remove or restructure
+- "utilize" → Use "use"
+- Excessive qualifiers: "just", "simply", "basically", "really", "very"
+
+### Technical Writing
+
+**Pattern: Why → What → How**
+1. Why does this matter?
+2. What is the concept?
+3. How do you use it?
+
+**Code Comments:**
+- Use sparingly
+- Explain "why", not "what"
+- Never state the obvious
+- Use British English when explaining to users
+
+**Examples:**
+```javascript
+// Good: Explains why
+// Reset to 1 for accessibility - screen readers announce count
+counter = counter + 1;
+
+// Bad: States obvious
+// Add 1 to counter
+counter = counter + 1;
+```
+
+### Lesson Structure
+
+Every lesson should have:
+1. **Quick Summary** - One sentence takeaway
+2. **What You'll Learn** - Bullet points of outcomes
+3. **Main Content** - Teaching sections with clear headers
+4. **Try It Yourself** - Practical exercises
+5. **Test Your Understanding** - Quiz
+6. **Key Takeaways** - Summary bullets
+7. **Next Steps** - Link to next lesson
+
+### Headers and Lists
+
+**Headers:**
+- Use sentence case, not Title Case
+- Be specific: "Building a button" not "Buttons"
+- Keep concise: 2-7 words ideal
+
+**Lists:**
+- Use parallel structure
+- Keep items roughly equal length
+- Aim for 3-7 items (cognitive limit)
+
+### Accessibility
+
+- Define jargon on first use
+- Include fallbacks for visual content
+- Always mention reduced motion preferences
+- Consider performance on low-end devices
+
+### Content Quality Checklist
+
+Before completing:
+- [ ] All prose in British English
+- [ ] All code in American English (properties, keywords)
+- [ ] No AI tells or formulaic transitions
+- [ ] Voice is confident and authentic
+- [ ] Examples are concrete and realistic
+- [ ] Technical information is accurate
+- [ ] Accessibility considerations included
+
+**For complete editorial standards, see:** `/docs/editorial-standards.md`

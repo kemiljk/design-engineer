@@ -49,11 +49,11 @@ San Francisco font family:
 - Dynamic Type for accessibility
 
 ### Color
-System colors that adapt:
+System colours that adapt:
 - Light and dark mode support
 - Automatic accessibility adjustments
-- Vibrant colors for actions
-- Semantic colors (primary, secondary)
+- Vibrant colours for actions
+- Semantic colours (primary, secondary)
 
 ### Icons
 SF Symbols system:
@@ -107,9 +107,9 @@ Open the same app on iOS and Android. What differs? What makes each feel native?
   "options": [
     {
       "id": "a",
-      "text": "Maximum customization to let apps stand out",
+      "text": "Maximum customisation to let apps stand out",
       "isCorrect": false,
-      "explanation": "iOS emphasizes consistency and clarity over extensive customization."
+      "explanation": "iOS emphasizes consistency and clarity over extensive customisation."
     },
     {
       "id": "b",
@@ -119,9 +119,9 @@ Open the same app on iOS and Android. What differs? What makes each feel native?
     },
     {
       "id": "c",
-      "text": "Bold colors and always-visible navigation",
+      "text": "Bold colours and always-visible navigation",
       "isCorrect": false,
-      "explanation": "iOS often uses subtle colors and contextual navigation."
+      "explanation": "iOS often uses subtle colours and contextual navigation."
     },
     {
       "id": "d",

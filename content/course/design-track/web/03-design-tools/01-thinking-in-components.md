@@ -123,7 +123,7 @@ Predefined variations with meaningful differences:
 - Input: Default, Error, Disabled
 - Card: Default, Elevated, Outlined
 
-Variants are finite options, not infinite customization.
+Variants are finite options, not infinite customisation.
 
 ### States
 

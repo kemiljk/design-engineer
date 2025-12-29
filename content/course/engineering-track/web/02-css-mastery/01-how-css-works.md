@@ -21,7 +21,7 @@ CSS (Cascading Style Sheets) controls how HTML elements look:
 
 ```css
 h1 {
-  color: navy;
+  colour: navy;
   font-size: 2rem;
 }
 ```
@@ -53,13 +53,13 @@ selector {
 **Internal styles:**
 ```html
 <style>
-  h1 { color: navy; }
+  h1 { colour: navy; }
 </style>
 ```
 
 **Inline styles (avoid for styling):**
 ```html
-<h1 style="color: navy;">Title</h1>
+<h1 style="colour: navy;">Title</h1>
 ```
 
 ## The Cascade
@@ -81,17 +81,17 @@ When styles conflict, these factors determine the winner (in order):
 
 ```css
 /* Rule 1 - less specific */
-p { color: black; }
+p { colour: black; }
 
 /* Rule 2 - more specific */
-.intro { color: blue; }
+.intro { colour: blue; }
 
 /* Rule 3 - same specificity as Rule 2, but later */
-.highlight { color: red; }
+.highlight { colour: red; }
 ```
 
 ```html
-<p class="intro highlight">What color am I?</p>
+<p class="intro highlight">What colour am I?</p>
 ```
 
 The text is **red**. Rules 2 and 3 have equal specificity, but Rule 3 comes later.
@@ -126,16 +126,16 @@ Count the IDs, classes, and elements:
 
 ```css
 /* Specificity: 0,0,1 */
-p { color: black; }
+p { colour: black; }
 
 /* Specificity: 0,1,0 — wins over above */
-.text { color: blue; }
+.text { colour: blue; }
 
 /* Specificity: 0,1,1 */
-p.text { color: green; }
+p.text { colour: green; }
 
 /* Specificity: 1,0,0 — wins over all above */
-#intro { color: red; }
+#intro { colour: red; }
 ```
 
 ### !important
@@ -143,12 +143,12 @@ p.text { color: green; }
 The nuclear option:
 
 ```css
-p { color: red !important; }
+p { colour: red !important; }
 ```
 
 This overrides everything except other `!important` rules with higher specificity.
 
-**Avoid `!important`:** It makes debugging difficult and indicates specificity problems in your CSS architecture.
+**Avoid `!important`:** It makes debugging difficult and indicates specificity problems in your architecture.
 
 ## Inheritance
 
@@ -157,7 +157,7 @@ Some CSS properties pass from parent to child elements.
 ### Inherited Properties
 
 Text-related properties typically inherit:
-- `color`
+- `colour`
 - `font-family`
 - `font-size`
 - `line-height`
@@ -166,7 +166,7 @@ Text-related properties typically inherit:
 ```css
 body {
   font-family: Arial, sans-serif;
-  color: #333;
+  colour: #333;
 }
 ```
 
@@ -202,9 +202,9 @@ Children of `.container` don't automatically have borders.
 
 ```css
 .element {
-  color: inherit;  /* Use parent's value */
-  color: initial;  /* Use browser default */
-  color: unset;    /* inherit if inherited property, initial otherwise */
+  colour: inherit;  /* Use parent's value */
+  colour: initial;  /* Use browser default */
+  colour: unset;    /* inherit if inherited property, initial otherwise */
 }
 ```
 
@@ -288,18 +288,18 @@ Organize CSS predictably:
 
 ### Exercise 1: Specificity Practice
 
-Without running the code, predict the color:
+Without running the code, predict the colour:
 
 ```css
-p { color: black; }
-.text { color: blue; }
-p.text { color: green; }
-#intro { color: red; }
-p#intro.text { color: purple; }
+p { colour: black; }
+.text { colour: blue; }
+p.text { colour: green; }
+#intro { colour: red; }
+p#intro.text { colour: purple; }
 ```
 
 ```html
-<p id="intro" class="text">What color am I?</p>
+<p id="intro" class="text">What colour am I?</p>
 ```
 
 ### Exercise 2: Cascade Debugging
@@ -315,7 +315,7 @@ Create a nested structure:
 </div>
 ```
 
-Test which properties inherit (color, border, margin) and which don't.
+Test which properties inherit (colour, border, margin) and which don't.
 
 ## Test Your Understanding
 
@@ -326,7 +326,7 @@ Test which properties inherit (color, border, margin) and which don't.
   "title": "CSS Specificity",
   "description": "Test your understanding of CSS cascade and specificity.",
   "difficulty": "medium",
-  "question": "If an element has both a class (.button) and an ID (#submit), and both have conflicting background-color rules, which wins?",
+  "question": "If an element has both a class (.button) and an ID (#submit), and both have conflicting background-colour rules, which wins?",
   "options": [
     {
       "id": "a",

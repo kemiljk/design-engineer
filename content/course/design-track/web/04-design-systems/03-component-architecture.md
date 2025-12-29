@@ -203,7 +203,7 @@ Layout components separate structure from content.
 
 ### Render Props / Slots
 
-Let consumers customize rendering:
+Let consumers customise rendering:
 
 ```tsx
 <DataTable
@@ -225,7 +225,7 @@ The "API" is how consumers interact with your component.
 
 ### Props (Design Side: Properties)
 
-**What can be customized?**
+**What can be customised?**
 - Variants
 - Sizes
 - States
@@ -314,7 +314,7 @@ Components will change. Plan for it:
 Build in points where behaviour can be extended:
 - Custom styling hooks
 - Event callbacks
-- Render customization
+- Render customisation
 
 ## Try It Yourself
 
@@ -325,7 +325,7 @@ For a notification/toast component, specify:
 2. All possible states
 3. Required properties
 4. Optional properties
-5. Slots or customization points
+5. Slots or customisation points
 
 ### Exercise 2: Composition Design
 

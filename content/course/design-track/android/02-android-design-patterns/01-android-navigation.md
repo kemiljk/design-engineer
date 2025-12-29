@@ -148,7 +148,7 @@ Design navigation for an app idea:
       "id": "a",
       "text": "They're the same—both go to the previous screen",
       "isCorrect": false,
-      "explanation": "They have different behaviors depending on context."
+      "explanation": "They have different behaviours depending on context."
     },
     {
       "id": "b",

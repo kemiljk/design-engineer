@@ -12,7 +12,7 @@
 
 ## Mouse-Following Effects
 
-One of the most impactful shader effects is responding to the mouse cursor. It creates a sense of depth and interactivity that feels magical.
+One of the most impactful shader effects is responding to the mouse cursor. It creates depth and interactivity that feels magical.
 
 ### Spotlight Effect
 
@@ -57,7 +57,7 @@ function ShaderPlane() {
   const mesh = useRef();
   
   useFrame(({ mouse, size }) => {
-    // mouse is normalised -1 to 1, convert to pixels
+    // Mouse is normalised -1 to 1, convert to pixels
     const x = (mouse.x + 1) * size.width * 0.5;
     const y = (mouse.y + 1) * size.height * 0.5;
     mesh.current.material.uniforms.u_mouse.value.set(x, y);
@@ -261,7 +261,7 @@ void main() {
 
 ## Combining Effects
 
-The real power comes from layering multiple techniques:
+Real power comes from layering multiple techniques:
 
 ### Premium Hero Background
 

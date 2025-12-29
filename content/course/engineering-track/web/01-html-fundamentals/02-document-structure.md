@@ -107,7 +107,7 @@ The page title appears in:
 - Screen reader announcements
 
 Make titles:
-- Descriptive ("Home | My Website" not just "Home")
+- Descriptive ("Home | My Website" rather than just "Home")
 - Unique per page
 - Front-loaded with important words
 
@@ -117,7 +117,7 @@ Make titles:
 <meta name="description" content="A brief description of the page content.">
 ```
 
-Displayed in search results. Keep to ~155 characters. Should be unique per page and accurately describe content.
+Displayed in search results. Keep to ~155 characters. Should be unique per page and accurately describe the content.
 
 ### Linking Resources
 
@@ -291,7 +291,7 @@ Makes responsive designs fail on mobile.
 
 Traditionally, one `<h1>` per page. Modern usage allows multiple, but maintain clear hierarchy.
 
-### Empty head
+### Empty Head
 
 Always include charset, viewport, and title at minimum.
 

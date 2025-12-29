@@ -100,7 +100,7 @@ Each level has its own direction, gap, and padding.
 
 Children can behave differently when the container resizes. The interactive demo below lets you experiment with each sizing mode.
 
-<!-- visual-example: sizing-behaviors-demo -->
+<!-- visual-example: sizing-behaviours-demo -->
 
 ### Fixed Size
 
@@ -232,7 +232,7 @@ Build a form with:
   "id": "auto-layout-quiz",
   "type": "multiple-choice",
   "title": "Auto Layout Sizing",
-  "description": "Test your understanding of auto layout sizing behaviors.",
+  "description": "Test your understanding of auto layout sizing behaviours.",
   "difficulty": "medium",
   "question": "In a form row with a label, input field, and submit button, which sizing behaviour should the INPUT field use?",
   "options": [

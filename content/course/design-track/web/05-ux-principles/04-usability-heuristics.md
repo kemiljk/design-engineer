@@ -78,7 +78,7 @@ Users should not have to wonder whether different words, situations, or actions 
 - Consistent visual treatment for similar elements
 
 **Questions to ask:**
-- Are similar things styled and labeled consistently?
+- Are similar things styled and labelled consistently?
 - Does it follow platform conventions?
 - Would this surprise users based on expectations?
 
@@ -269,7 +269,7 @@ For a product you use regularly:
       "id": "a",
       "text": "Visibility of system status",
       "isCorrect": false,
-      "explanation": "Visibility of system status is about keeping users informed about what's happening, not about labeling consistency."
+      "explanation": "Visibility of system status is about keeping users informed about what's happening, not about labelling consistency."
     },
     {
       "id": "b",

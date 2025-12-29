@@ -1,6 +1,6 @@
 # Information Architecture
 
-> **Quick Summary:** Information architecture is how content is organised, labeled, and connected—it's the blueprint that makes complex information findable and understandable.
+> **Quick Summary:** Information architecture is how content is organised, labelled, and connected—it's the blueprint that makes complex information findable and understandable.
 
 ## What You'll Learn
 
@@ -17,7 +17,7 @@ Information architecture (IA) is the structural design of information:
 - How content is organised into categories
 - How categories relate to each other
 - How users navigate between areas
-- How content is labeled and described
+- How content is labelled and described
 
 Good IA makes products intuitive. Users find what they need without thinking about where it might be.
 
@@ -53,7 +53,7 @@ Users expect:
 - Cart accessible from anywhere
 - Checkout as a linear flow
 
-If the site organizes by brand instead of category, users struggle—even if it makes sense to the business.
+If the site organises by brand instead of category, users struggle—even if it makes sense to the business.
 
 ## Organization Schemes
 
@@ -196,7 +196,7 @@ Labels are how you name things. Clear labels make IA work.
 - ✗ "Resources" (what kind?) → ✓ "Help Articles"
 - ✗ "Tools" (which tools?) → ✓ "Writing Tools"
 
-**Consistent:** Similar things labeled similarly.
+**Consistent:** Similar things labelled similarly.
 - If "Settings" is here, don't call it "Preferences" there
 
 **Scannable:** Short enough to scan quickly.
@@ -342,7 +342,7 @@ For a website or app:
     },
     {
       "id": "c",
-      "text": "A psychological framework for predicting which colors users prefer",
+      "text": "A psychological framework for predicting which colours users prefer",
       "isCorrect": false,
       "explanation": "Mental models are about information organisation, not visual preferences."
     },
@@ -358,7 +358,7 @@ For a website or app:
 
 ## Key Takeaways
 
-- Information architecture is how content is organised, labeled, and connected
+- Information architecture is how content is organised, labelled, and connected
 - Good IA matches user mental models
 - Organization schemes: alphabetical, chronological, topical, task-based, audience-based
 - Navigation types: global, local, contextual, search, breadcrumbs

@@ -56,13 +56,13 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
   border-radius: 0.5rem;
   font-weight: 500;
 
-  /* Default colors */
-  background-color: var(--color-primary);
-  color: white;
+  /* Default colours */
+  background-colour: var(--colour-primary);
+  colour: white;
 
   /* Transition for states */
   transition:
-    background-color 0.15s ease,
+    background-colour 0.15s ease,
     transform 0.1s ease;
 }
 ```
@@ -72,12 +72,12 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
 ```css
 /* Hover */
 .button:hover {
-  background-color: var(--color-primary-dark);
+  background-colour: var(--colour-primary-dark);
 }
 
 /* Focus (keyboard navigation) */
 .button:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--colour-primary);
   outline-offset: 2px;
 }
 
@@ -98,27 +98,27 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
 ```css
 /* Primary (default) */
 .button--primary {
-  background-color: var(--color-primary);
-  color: white;
+  background-colour: var(--colour-primary);
+  colour: white;
 }
 
 /* Secondary */
 .button--secondary {
-  background-color: var(--color-neutral-100);
-  color: var(--color-neutral-900);
+  background-colour: var(--colour-neutral-100);
+  colour: var(--colour-neutral-900);
 }
 
 /* Ghost/Outline */
 .button--ghost {
-  background-color: transparent;
+  background-colour: transparent;
   border: 1px solid currentColor;
-  color: var(--color-primary);
+  colour: var(--colour-primary);
 }
 
 /* Danger */
 .button--danger {
-  background-color: var(--color-error);
-  color: white;
+  background-colour: var(--colour-error);
+  colour: white;
 }
 ```
 
@@ -243,7 +243,7 @@ Implement a loading button that:
       "id": "b",
       "text": "<button> for actions (submit, toggle), <a> for navigation to a new page/section",
       "isCorrect": true,
-      "explanation": "Correct! Buttons perform actions, links navigate. Screen readers announce them differently, and they have different keyboard behaviors (Enter vs Enter/Space)."
+      "explanation": "Correct! Buttons perform actions, links navigate. Screen readers announce them differently, and they have different keyboard behaviours (Enter vs Enter/Space)."
     },
     {
       "id": "c",

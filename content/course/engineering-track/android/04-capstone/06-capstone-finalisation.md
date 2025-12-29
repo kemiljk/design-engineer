@@ -27,7 +27,7 @@ Configure splash screen in `themes.xml`:
 
 ```xml
 <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-    <item name="windowSplashScreenBackground">@color/splash_background</item>
+    <item name="windowSplashScreenBackground">@colour/splash_background</item>
     <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
     <item name="postSplashScreenTheme">@style/Theme.App</item>
 </style>

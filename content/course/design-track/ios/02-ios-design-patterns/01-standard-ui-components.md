@@ -7,7 +7,7 @@
 - Buttons and controls
 - Lists and tables
 - Forms and input
-- When to customize vs. use standard
+- When to customise vs. use standard
 
 ## Buttons
 
@@ -95,13 +95,13 @@
 - Standard doesn't fit your brand
 - Unique interaction is needed
 - You can maintain accessibility
-- The customization adds value
+- The customisation adds value
 
 ## Try It Yourself
 
 ### Exercise 1: Component Inventory
 
-List all components needed for an app idea. Which are standard? Which need customization?
+List all components needed for an app idea. Which are standard? Which need customisation?
 
 ### Exercise 2: List Design
 

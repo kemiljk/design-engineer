@@ -136,29 +136,29 @@ const big = 9007199254740991n;  // BigInt for huge numbers
 Ordered lists of values:
 
 ```javascript
-const colors = ['red', 'green', 'blue'];
+const colours = ['red', 'green', 'blue'];
 
 // Access by index (0-based)
-colors[0];  // "red"
-colors[2];  // "blue"
+colours[0];  // "red"
+colours[2];  // "blue"
 
 // Array methods
-colors.length;           // 3
-colors.push('yellow');   // Add to end
-colors.pop();            // Remove from end
-colors.includes('red');  // true
-colors.indexOf('green'); // 1
+colours.length;           // 3
+colours.push('yellow');   // Add to end
+colours.pop();            // Remove from end
+colours.includes('red');  // true
+colours.indexOf('green'); // 1
 
 // Iteration
-colors.forEach(color => console.log(color));
-colors.map(color => color.toUpperCase());
-colors.filter(color => color.length > 3);
+colours.forEach(colour => console.log(colour));
+colours.map(colour => colour.toUpperCase());
+colours.filter(colour => colour.length > 3);
 ```
 
 ### Destructuring Arrays
 
 ```javascript
-const [first, second, ...rest] = colors;
+const [first, second, ...rest] = colours;
 // first = "red", second = "green", rest = ["blue"]
 ```
 

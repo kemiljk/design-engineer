@@ -1,17 +1,17 @@
 # iOS Color and Materials
 
-> **Quick Summary:** iOS uses system colors that adapt to appearance modes and accessibility settings, plus translucent materials that create depth.
+> **Quick Summary:** iOS uses system colours that adapt to appearance modes and accessibility settings, plus translucent materials that create depth.
 
 ## What You'll Learn
 
-- System colors and semantic colors
+- System colours and semantic colours
 - Dark mode considerations
 - Materials and blur effects
 - Designing for accessibility
 
 ## System Colors
 
-Apple provides semantic colors that adapt automatically:
+Apple provides semantic colours that adapt automatically:
 
 ### UI Element Colors
 - **Label:** Primary text
@@ -39,13 +39,13 @@ Apple provides semantic colors that adapt automatically:
 iOS apps should support both light and dark appearance:
 
 ### What Changes
-- Background colors invert
-- Text colors adjust
-- System colors adapt
+- Background colours invert
+- Text colours adjust
+- System colours adapt
 - Elevation changes meaning
 
 ### Design Considerations
-- Don't just invert colors
+- Don't just invert colours
 - Reduce contrast slightly in dark mode
 - Elevated surfaces get lighter (not darker)
 - Test both modes throughout design
@@ -94,18 +94,18 @@ Vibrant content appears to be part of the underlying material.
 ## Accessibility
 
 ### Color Contrast
-System colors maintain accessible contrast.
-Custom colors must meet:
+System colours maintain accessible contrast.
+Custom colours must meet:
 - 4.5:1 for normal text
 - 3:1 for large text
 
 ### Increase Contrast
 iOS has an "Increase Contrast" setting:
-- System colors respond automatically
+- System colours respond automatically
 - Test your app with this enabled
 
 ### Don't Rely on Color Alone
-Pair color with:
+Pair colour with:
 - Icons
 - Text labels
 - Patterns or shapes
@@ -114,10 +114,10 @@ Pair color with:
 
 ### Exercise 1: Color Palette
 
-Create a color palette using system colors:
-- Background colors
-- Text colors
-- Accent colors
+Create a colour palette using system colours:
+- Background colours
+- Text colours
+- Accent colours
 - Ensure both modes work
 
 ### Exercise 2: Material Exploration
@@ -137,9 +137,9 @@ In Figma or Sketch, experiment with material effects over different background i
   "options": [
     {
       "id": "a",
-      "text": "Solid background colors for containers",
+      "text": "Solid background colours for containers",
       "isCorrect": false,
-      "explanation": "Materials are more sophisticated than simple solid colors."
+      "explanation": "Materials are more sophisticated than simple solid colours."
     },
     {
       "id": "b",
@@ -155,9 +155,9 @@ In Figma or Sketch, experiment with material effects over different background i
     },
     {
       "id": "d",
-      "text": "The color palette used for icons",
+      "text": "The colour palette used for icons",
       "isCorrect": false,
-      "explanation": "Materials are about surface treatments, not icon colors."
+      "explanation": "Materials are about surface treatments, not icon colours."
     }
   ]
 }
@@ -165,7 +165,7 @@ In Figma or Sketch, experiment with material effects over different background i
 
 ## Key Takeaways
 
-- Use semantic system colors for automatic adaptation
+- Use semantic system colours for automatic adaptation
 - Design for both light and dark modes
 - Materials create depth through translucency
 - Elevated surfaces behave differently in each mode

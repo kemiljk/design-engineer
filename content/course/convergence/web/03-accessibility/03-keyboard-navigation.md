@@ -76,7 +76,7 @@ Never remove focus styles without replacement:
 
 /* Good */
 :focus-visible {
-  outline: 2px solid var(--focus-color);
+  outline: 2px solid var(--focus-colour);
   outline-offset: 2px;
 }
 ```

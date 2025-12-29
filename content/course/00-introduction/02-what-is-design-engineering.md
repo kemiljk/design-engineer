@@ -19,14 +19,14 @@ estimatedTime: 12
 
 Design Engineering sits at the intersection of two traditionally separate disciplines. But calling it a "hybrid role" undersells what makes it valuable.
 
-A Design Engineer isn't half designer, half engineer. They're someone who understands both disciplines deeply enough to:
+A Design Engineer isn't half designer, half engineer. They understand both disciplines deeply enough to:
 
 - See problems that specialists on either side might miss
 - Prototype solutions that are both beautiful and buildable
 - Own work from concept through implementation
 - Translate between teams and reduce friction
 
-The role goes by different names: Design Technologist, Creative Engineer, UI Engineer, Design Developer, Front-of-the-Front-End Developer. The title matters less than the work.
+The role has different names: Design Technologist, Creative Engineer, UI Engineer, Design Developer, Front-of-the-Front-End Developer. The title matters less than the work.
 
 ## The Design Engineer Spectrum
 
@@ -42,36 +42,36 @@ who codes  Engineer  Hybrid     Engineer  with taste
 
 ### Design-Heavy Design Engineers
 
-These folks came from design. They might have started in graphic design, UX, or visual design, then learned enough code to prototype their ideas. They typically:
+These people came from design. They started in graphic design, UX, or visual design, then learned enough code to prototype their ideas. They typically:
 
 - Spend more time in design tools than code editors
-- Prototype in code to sell ideas or test interactions
-- Hand off to engineering, but can speak their language
+- Prototype in code to test interactions or sell ideas
+- Hand off to engineering but speak their language
 - Focus on design systems, motion design, and tooling
 
 ### Balanced Hybrids
 
-True generalists who move fluidly between design and code. On any given day, they might be pushing pixels in Figma, writing React components, or reviewing pull requests for visual polish. They:
+True generalists who move fluidly between design and code. On any given day, they might push pixels in Figma, write React components, or review pull requests for visual polish. They:
 
 - Own features end-to-end
 - Prototype and ship
-- Often work on design systems, building both the design and code artifacts
-- Can fill gaps on either design or engineering teams
+- Often work on design systems, building both design and code artefacts
+- Fill gaps on either design or engineering teams
 
 ### Engineering-Heavy Design Engineers
 
-These folks came from engineering. They write production code daily but have developed strong aesthetic sensibilities. They:
+These people came from engineering. They write production code daily but have developed strong aesthetic sensibilities. They:
 
-- Live mostly in code, but create their own designs
+- Live mostly in code but create their own designs
 - Implement complex animations and interactions
 - Focus on performance, accessibility, and implementation details
 - Often build the infrastructure for design systems
 
-None of these positions is better than the others. The best fit depends on your background, interests, and the needs of your team.
+None of these is better than the others. The best fit depends on your background, interests, and your team's needs.
 
 ## Why Design Engineering Matters
 
-The traditional handoff between design and engineering is where quality goes to die.
+The traditional handoff between design and engineering is where quality dies.
 
 In the classic workflow:
 1. Designers create mockups
@@ -81,7 +81,7 @@ In the classic workflow:
 5. Engineers complain about unrealistic designs
 6. Everyone's frustrated
 
-Design Engineers break this cycle. They understand both the design intent and the implementation constraints. They catch issues early—either adjusting designs to be more buildable, or pushing engineering to match the design more faithfully.
+Design Engineers break this cycle. They understand both design intent and implementation constraints. They catch issues early—either adjusting designs to be more buildable or pushing engineering to match the design more faithfully.
 
 ### The Business Case
 
@@ -101,7 +101,7 @@ Let's make this concrete. Here's what Design Engineering work looks like in prac
 
 ### Prototyping
 
-Before a feature is fully designed or engineered, a Design Engineer might build a quick prototype. Not a Figma prototype—a real one, in code. This prototype:
+Before a feature is fully designed or engineered, a Design Engineer might build a quick prototype. Not a Figma prototype—a real one, in code. This:
 
 - Tests whether an interaction feels right
 - Uncovers technical constraints early
@@ -119,12 +119,12 @@ Design systems are natural territory for Design Engineers. They:
 
 ### Implementation Polish
 
-When a feature ships, Design Engineers often focus on the details that make it feel polished:
+When a feature ships, Design Engineers focus on the details that make it feel polished:
 
 - Implementing animations and micro-interactions
 - Handling edge cases (empty states, error states, loading states)
 - Ensuring accessibility
-- Optimizing perceived performance
+- Optimising perceived performance
 
 ### Tooling and Infrastructure
 
@@ -144,7 +144,7 @@ Some Design Engineers focus on marketing and brand work—building landing pages
 What does it take to do this work? The specific technologies vary by platform, but the core skills include:
 
 ### Design Skills
-- Visual design principles (hierarchy, typography, color, spacing)
+- Visual design principles (hierarchy, typography, colour, spacing)
 - Design tools proficiency (Figma, Sketch, etc.)
 - Design systems thinking
 - UX fundamentals
@@ -171,7 +171,7 @@ Design Engineers exist across industries and company sizes:
 
 ### Big Tech
 
-Companies like Apple, Google, Meta, and Airbnb have design engineering roles (though titles vary). They often focus on design systems, prototyping tools, and high-visibility features.
+Companies like Apple, Google, Meta, and Airbnb have design engineering roles (though titles vary). They focus on design systems, prototyping tools, and high-visibility features.
 
 ### Startups
 
@@ -179,7 +179,7 @@ In smaller companies, Design Engineers often own entire features. They're valued
 
 ### Agencies
 
-Creative agencies hire Design Engineers for campaign work, interactive experiences, and client projects that require both design and technical execution.
+Creative agencies hire Design Engineers for campaign work, interactive experiences, and client projects that need both design and technical execution.
 
 ### Freelance/Independent
 

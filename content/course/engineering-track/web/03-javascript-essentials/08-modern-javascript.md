@@ -17,23 +17,23 @@ Extract values from arrays and objects into variables.
 ### Array Destructuring
 
 ```javascript
-const colors = ['red', 'green', 'blue'];
+const colours = ['red', 'green', 'blue'];
 
 // Traditional
-const first = colors[0];
-const second = colors[1];
+const first = colours[0];
+const second = colours[1];
 
 // Destructuring
-const [first, second, third] = colors;
+const [first, second, third] = colours;
 
 // Skip values
-const [, , third] = colors;
+const [, , third] = colours;
 
 // Default values
 const [a, b, c = 'default'] = ['x', 'y'];
 
 // Rest
-const [head, ...tail] = colors;
+const [head, ...tail] = colours;
 // head = 'red', tail = ['green', 'blue']
 ```
 
