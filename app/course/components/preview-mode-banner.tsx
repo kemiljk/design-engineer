@@ -3,11 +3,16 @@
 import { useEffect, useState } from "react";
 import { Eye, X } from "lucide-react";
 
+const STORAGE_KEY = "previewBannerDismissed";
+
 export function PreviewModeBanner() {
   const [hasPreview, setHasPreview] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(true);
 
   useEffect(() => {
+    const wasDismissed = localStorage.getItem(STORAGE_KEY) === "true";
+    setDismissed(wasDismissed);
+
     async function checkPreview() {
       try {
         const response = await fetch("/api/course/preview");
@@ -20,6 +25,11 @@ export function PreviewModeBanner() {
     checkPreview();
   }, []);
 
+  const handleDismiss = () => {
+    setDismissed(true);
+    localStorage.setItem(STORAGE_KEY, "true");
+  };
+
   if (!hasPreview || dismissed) return null;
 
   return (
@@ -27,7 +37,7 @@ export function PreviewModeBanner() {
       <Eye className="h-4 w-4" />
       <span>Preview Mode Active</span>
       <button
-        onClick={() => setDismissed(true)}
+        onClick={handleDismiss}
         className="ml-2 rounded-sm p-0.5 hover:bg-amber-200/50 dark:hover:bg-amber-800/50"
         aria-label="Dismiss"
       >
