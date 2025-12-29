@@ -67,6 +67,15 @@ import {
   ReducedMotionDemo,
 } from "./motion";
 
+// Shaders (Creative Visual Effects)
+import {
+  ShaderGradientDemo,
+  ShaderNoiseDemo,
+  ShaderGrainDemo,
+  ShaderMeshGradientDemo,
+  ShaderSpotlightDemo,
+} from "./shaders";
+
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   // Design Principles
   "hierarchy-demo": HierarchyDemo,
@@ -154,6 +163,16 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "animate-presence-demo": AnimatePresenceDemo,
   "gesture-animation-demo": GestureAnimationDemo,
   "reduced-motion-demo": ReducedMotionDemo,
+  
+  // Shaders - Creative Visual Effects
+  "shader-gradient-demo": ShaderGradientDemo,
+  "shader-noise-demo": ShaderNoiseDemo,
+  "shader-noise-types-demo": ShaderNoiseDemo, // Alias for lesson reference
+  "shader-grain-demo": ShaderGrainDemo,
+  "shader-mesh-gradient-demo": ShaderMeshGradientDemo,
+  "shader-flowing-gradient-demo": ShaderGradientDemo, // Alias for lesson reference
+  "shader-spotlight-demo": ShaderSpotlightDemo,
+  "shader-glow-demo": ShaderSpotlightDemo, // Similar effect, reuse
 };
 
 interface VisualExampleRendererProps {

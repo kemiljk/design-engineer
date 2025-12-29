@@ -238,4 +238,4 @@ Add reduced motion support to:
 
 You've completed the Accessibility module!
 
-Continue to [Performance and Polish: Perceived Performance](../04-performance-and-polish/01-perceived-performance.md) →
+Continue to [Creative Visual Effects: Beyond CSS Animations](../04-creative-visual-effects/01-beyond-css-animations.md) →
