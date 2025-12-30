@@ -825,3 +825,51 @@ export async function getLessonProgress(
   const lessons = progress.metadata.lessons || {};
   return lessons[lessonPath] || null;
 }
+
+// Get all modules for a track/platform with their first lesson paths
+export async function getModulesForTrack(
+  track: string,
+  platform: string
+): Promise<{
+  slug: string;
+  title: string;
+  lessonCount: number;
+  firstLessonPath: string;
+}[]> {
+  const basePath = path.join(process.cwd(), "content/course", track, platform);
+  
+  try {
+    const entries = await fs.readdir(basePath, { withFileTypes: true });
+    const sortedModules = entries
+      .filter(e => e.isDirectory() && !e.name.startsWith('.'))
+      .map(e => e.name)
+      .sort();
+    
+    const modules: {
+      slug: string;
+      title: string;
+      lessonCount: number;
+      firstLessonPath: string;
+    }[] = [];
+    
+    for (const moduleDir of sortedModules) {
+      const modulePath = path.join(basePath, moduleDir);
+      const files = await fs.readdir(modulePath);
+      const mdFiles = files.filter(f => f.endsWith('.md') && f !== 'index.md').sort();
+      
+      if (mdFiles.length > 0) {
+        const firstLesson = mdFiles[0].replace('.md', '');
+        modules.push({
+          slug: moduleDir,
+          title: formatModuleName(moduleDir),
+          lessonCount: mdFiles.length,
+          firstLessonPath: `${track}/${platform}/${moduleDir}/${firstLesson}`,
+        });
+      }
+    }
+    
+    return modules;
+  } catch {
+    return [];
+  }
+}

@@ -5,6 +5,7 @@ export { LessonTracker } from "./lesson-tracker";
 export { MarkCompleteButton } from "./mark-complete-button";
 export { ContinueLearning } from "./continue-learning";
 export { ModuleProgress } from "./module-progress";
+export { ModuleJumper } from "./module-jumper";
 export { TestModePanel } from "./test-mode-panel";
 export { StudentCompanies, StudentCompaniesStatic } from "./student-companies";
 export { TrackCard } from "./track-card";

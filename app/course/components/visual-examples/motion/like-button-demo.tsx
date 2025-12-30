@@ -12,16 +12,16 @@ import {
 } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
-// Instagram-style like button with gradient heart
-function InstagramLikeButton() {
+// Style 1: Bounce & Rotate - Heart pops with slight rotation and particle burst
+function BounceRotateLike() {
   const [liked, setLiked] = useState(false);
   const [particles, setParticles] = useState<number[]>([]);
 
   const handleLike = () => {
     if (!liked) {
-      const newParticles = Array.from({ length: 6 }, (_, i) => Date.now() + i);
+      const newParticles = Array.from({ length: 8 }, (_, i) => Date.now() + i);
       setParticles(newParticles);
-      setTimeout(() => setParticles([]), 600);
+      setTimeout(() => setParticles([]), 700);
     }
     setLiked(!liked);
   };
@@ -29,8 +29,7 @@ function InstagramLikeButton() {
   return (
     <button
       onClick={handleLike}
-      className="relative flex flex-col items-center gap-3 rounded-[24px] p-6 shadow-md transition-transform active:scale-95"
-      style={{ background: "linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)" }}
+      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-gradient-to-br from-rose-500 to-pink-600 p-6 shadow-md transition-transform active:scale-95"
     >
       {/* Burst particles */}
       <AnimatePresence>
@@ -39,18 +38,18 @@ function InstagramLikeButton() {
             key={id}
             initial={{ scale: 0, opacity: 1 }}
             animate={{
-              scale: 1.5,
-              opacity: 0,
-              x: Math.cos((i / 6) * Math.PI * 2) * 25,
-              y: Math.sin((i / 6) * Math.PI * 2) * 25,
+              scale: [0, 1.2, 0.8],
+              opacity: [1, 0.8, 0],
+              x: Math.cos((i / 8) * Math.PI * 2) * 28,
+              y: Math.sin((i / 8) * Math.PI * 2) * 28,
             }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{
-              width: 8,
-              height: 8,
-              borderRadius: 4,
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
               background: "#fff",
             }}
           />
@@ -58,8 +57,18 @@ function InstagramLikeButton() {
       </AnimatePresence>
 
       <motion.div
-        animate={liked ? { scale: [1, 1.3, 0.9, 1.15, 1] } : { scale: 1 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        animate={liked 
+          ? { 
+              scale: [1, 0.8, 1.35, 0.95, 1.1, 1], 
+              rotate: [0, -8, 8, -4, 0] 
+            } 
+          : { scale: 1, rotate: 0 }
+        }
+        transition={{ 
+          duration: 0.5, 
+          ease: [0.175, 0.885, 0.32, 1.275],
+          times: [0, 0.15, 0.35, 0.55, 0.75, 1]
+        }}
       >
         <Heart
           className="size-8 text-white transition-colors"
@@ -69,60 +78,95 @@ function InstagramLikeButton() {
           }}
         />
       </motion.div>
-      <span className="text-xs font-bold tracking-wider uppercase text-white opacity-90">
-        Instagram
+      <span className="text-xs font-semibold tracking-wide text-white/90">
+        Bounce & Rotate
       </span>
     </button>
   );
 }
 
-// X (Twitter) style like button - red heart with ripple effect
-function XLikeButton() {
+// Style 2: Scale & Splat - Heart scales from center with expanding ring and splats
+function ScaleSplatLike() {
   const [liked, setLiked] = useState(false);
-  const [showRipple, setShowRipple] = useState(false);
+  const [showEffects, setShowEffects] = useState(false);
 
   const handleLike = () => {
     if (!liked) {
-      setShowRipple(true);
-      setTimeout(() => setShowRipple(false), 500);
+      setShowEffects(true);
+      setTimeout(() => setShowEffects(false), 600);
     }
     setLiked(!liked);
   };
 
+  // Generate splat positions
+  const splats = [
+    { x: -20, y: -18, delay: 0, size: 10 },
+    { x: 22, y: -14, delay: 0.02, size: 8 },
+    { x: -16, y: 20, delay: 0.04, size: 7 },
+    { x: 18, y: 16, delay: 0.03, size: 9 },
+    { x: 0, y: -24, delay: 0.01, size: 6 },
+    { x: -24, y: 2, delay: 0.05, size: 5 },
+    { x: 24, y: -2, delay: 0.02, size: 6 },
+  ];
+
   return (
     <button
       onClick={handleLike}
-      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-black p-6 shadow-md transition-transform active:scale-95"
+      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-neutral-900 p-6 shadow-md transition-transform active:scale-95"
     >
-      {/* Ripple effect */}
+      {/* Expanding ring */}
       <AnimatePresence>
-        {showRipple && (
+        {showEffects && (
           <motion.div
-            initial={{ scale: 0, opacity: 0.6 }}
-            animate={{ scale: 2.5, opacity: 0 }}
+            initial={{ scale: 0.3, opacity: 0.8 }}
+            animate={{ scale: 2.2, opacity: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-500"
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-rose-500"
             style={{ width: 32, height: 32 }}
           />
         )}
       </AnimatePresence>
 
+      {/* Splat particles */}
+      <AnimatePresence>
+        {showEffects && splats.map((splat, i) => (
+          <motion.div
+            key={i}
+            initial={{ scale: 0, opacity: 1, x: 0, y: 0 }}
+            animate={{ 
+              scale: [0, 1.2, 0.6],
+              opacity: [1, 1, 0],
+              x: splat.x,
+              y: splat.y,
+            }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 0.4, 
+              delay: splat.delay,
+              ease: "easeOut" 
+            }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-500"
+            style={{ width: splat.size, height: splat.size }}
+          />
+        ))}
+      </AnimatePresence>
+
       <motion.div
         animate={liked 
-          ? { scale: [1, 0, 1.3, 1], rotate: [0, -15, 15, 0] } 
-          : { scale: 1, rotate: 0 }
+          ? { scale: [1, 0, 1.25, 0.95, 1] } 
+          : { scale: 1 }
         }
         transition={{ 
           duration: 0.4, 
-          times: [0, 0.2, 0.6, 1],
-          ease: "easeOut" 
+          times: [0, 0.2, 0.5, 0.75, 1],
+          ease: [0.175, 0.885, 0.32, 1.275]
         }}
       >
         <Heart
           className={cn(
-            "size-8 transition-colors",
-            liked ? "text-rose-500" : "text-neutral-400"
+            "size-8 transition-colors duration-100",
+            liked ? "text-rose-500" : "text-neutral-500"
           )}
           style={{
             fill: liked ? "currentColor" : "transparent",
@@ -130,46 +174,70 @@ function XLikeButton() {
           }}
         />
       </motion.div>
-      <span className="text-xs font-bold tracking-wider uppercase text-white opacity-90">
-        X
+      <span className="text-xs font-semibold tracking-wide text-white/90">
+        Scale & Splat
       </span>
     </button>
   );
 }
 
-// YouTube style thumbs up - fills with white, outline stays
-function YouTubeLikeButton() {
+// Style 3: Spring Physics - Bouncy spring-based animation with overshoot
+function SpringBounceLike() {
   const [liked, setLiked] = useState(false);
 
   return (
     <button
       onClick={() => setLiked(!liked)}
-      className="flex flex-col items-center gap-3 rounded-[24px] p-6 shadow-md transition-transform active:scale-95"
-      style={{ background: "linear-gradient(135deg, #FF0000 0%, #cc0000 100%)" }}
+      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-gradient-to-br from-violet-500 to-indigo-600 p-6 shadow-md transition-transform active:scale-95"
     >
+      {/* Glow effect */}
+      <AnimatePresence>
+        {liked && (
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1.5, opacity: [0, 0.4, 0] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-md"
+            style={{ width: 40, height: 40 }}
+          />
+        )}
+      </AnimatePresence>
+
       <motion.div
         animate={liked 
-          ? { y: [0, -8, 0], scale: [1, 1.1, 1] } 
-          : { y: 0, scale: 1 }
+          ? { 
+              scale: 1,
+              y: [0, -6, 2, -2, 0]
+            } 
+          : { scale: 1, y: 0 }
         }
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={liked ? { 
+          type: "spring",
+          stiffness: 400,
+          damping: 10,
+          mass: 0.8
+        } : { duration: 0.2 }}
+        style={{ originY: 1 }}
       >
-        <svg 
-          className="size-8 text-white" 
-          viewBox="0 0 24 24"
-          style={{
-            fill: liked ? "currentColor" : "transparent",
-            stroke: "currentColor",
-            strokeWidth: 2,
-            strokeLinecap: "round" as const,
-            strokeLinejoin: "round" as const,
+        <motion.div
+          animate={liked ? { scale: [1, 1.3, 0.9, 1.05, 1] } : { scale: 1 }}
+          transition={{ 
+            duration: 0.45, 
+            ease: [0.175, 0.885, 0.32, 1.275]
           }}
         >
-          <path d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-        </svg>
+          <Heart
+            className="size-8 text-white transition-colors"
+            style={{
+              fill: liked ? "#fff" : "transparent",
+              strokeWidth: 2,
+              filter: liked ? "drop-shadow(0 0 8px rgba(255,255,255,0.5))" : "none"
+            }}
+          />
+        </motion.div>
       </motion.div>
-      <span className="text-xs font-bold tracking-wider uppercase text-white opacity-90">
-        YouTube
+      <span className="text-xs font-semibold tracking-wide text-white/90">
+        Spring Physics
       </span>
     </button>
   );
@@ -482,11 +550,11 @@ function LikeButton() {
           </div>
         </div>
 
-        {/* Platform variants - Interactive */}
+        {/* Animation style variants */}
         <div className="grid gap-4 sm:grid-cols-3">
-          <InstagramLikeButton />
-          <XLikeButton />
-          <YouTubeLikeButton />
+          <BounceRotateLike />
+          <ScaleSplatLike />
+          <SpringBounceLike />
         </div>
 
         {/* Code panel */}

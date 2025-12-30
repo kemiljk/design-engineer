@@ -15,6 +15,7 @@ import {
   getEffectiveTestAccessLevel,
   shouldUseRealEnrollment,
   normalizeAccessLevel,
+  getModulesForTrack,
 } from "@/lib/course";
 import { hasPreviewAccess } from "@/lib/preview-access";
 import { formatTitle } from "@/lib/format";
@@ -24,6 +25,7 @@ import { FloatingNotesPanel } from "../components/floating-notes-panel";
 import { LessonTracker } from "../components/lesson-tracker";
 import { MarkCompleteButton } from "../components/mark-complete-button";
 import { TrackCompletionCTA } from "../components/track-completion-cta";
+import { ModuleJumper } from "../components/module-jumper";
 import { getProductWithPrice } from "@/lib/lemonsqueezy";
 import type { ProductKey } from "@/lib/types";
 import { TrackPlatformSelector } from "../components/track-platform-selector";
@@ -327,9 +329,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
     }
   }
 
-  const [adjacentLessons, lessonCompleted] = await Promise.all([
+  // Determine if we're in a track/platform path for module navigation
+  const isTrackPlatformPath = slug.length >= 3 && 
+    ["design-track", "engineering-track", "convergence"].includes(slug[0]);
+  const trackSlug = isTrackPlatformPath ? slug[0] : "";
+  const platformSlug = isTrackPlatformPath ? slug[1] : "";
+
+  const [adjacentLessons, lessonCompleted, modules] = await Promise.all([
     getAdjacentLessonsAcrossModules(lessonPath),
     userId ? isLessonCompleted(userId, lessonPath) : Promise.resolve(false),
+    isTrackPlatformPath ? getModulesForTrack(trackSlug, platformSlug) : Promise.resolve([]),
   ]);
   const { prev, next, currentModule, totalInModule, currentInModule } = adjacentLessons;
 
@@ -367,7 +376,17 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         <article>
           <div className="mb-8">
-            <BreadcrumbNav slug={slug} />
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <BreadcrumbNav slug={slug} />
+              {modules.length > 0 && currentModule && (
+                <ModuleJumper
+                  modules={modules}
+                  currentModule={currentModule}
+                  trackSlug={trackSlug}
+                  platformSlug={platformSlug}
+                />
+              )}
+            </div>
             <h1 className="mt-4 text-3xl font-bold">{title}</h1>
           </div>
 
