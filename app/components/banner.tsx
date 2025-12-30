@@ -23,11 +23,7 @@ export default function Banner({
   const [bannerHidden, setBannerHidden] = useState(true);
   const { setBannerVisible, setBannerHeight } = useBanner();
   const bannerRef = useRef<HTMLDivElement>(null);
-
-  // Hide on capture routes
-  if (pathname?.startsWith("/capture")) {
-    return null;
-  }
+  const isCapturePage = pathname?.startsWith("/capture");
 
   const updateBannerHeight = useCallback(() => {
     if (bannerRef.current) {
@@ -44,16 +40,16 @@ export default function Banner({
   }, [modified_at]);
 
   useEffect(() => {
-    const isVisible = mounted && !bannerHidden;
+    const isVisible = mounted && !bannerHidden && !isCapturePage;
     setBannerVisible(isVisible);
     return () => {
       setBannerVisible(false);
       setBannerHeight(0);
     };
-  }, [mounted, bannerHidden, setBannerVisible, setBannerHeight]);
+  }, [mounted, bannerHidden, isCapturePage, setBannerVisible, setBannerHeight]);
 
   useEffect(() => {
-    if (!bannerRef.current || bannerHidden) return;
+    if (!bannerRef.current || bannerHidden || isCapturePage) return;
 
     updateBannerHeight();
 
@@ -66,7 +62,7 @@ export default function Banner({
     return () => {
       resizeObserver.disconnect();
     };
-  }, [bannerHidden, updateBannerHeight]);
+  }, [bannerHidden, isCapturePage, updateBannerHeight]);
 
   const handleDismiss = () => {
     setBannerHidden(true);
@@ -74,7 +70,8 @@ export default function Banner({
     localStorage.setItem("bannerModifiedAt", modified_at);
   };
 
-  if (!mounted || bannerHidden) return null;
+  // Hide on capture routes or when not mounted/hidden
+  if (isCapturePage || !mounted || bannerHidden) return null;
 
   return (
     <div

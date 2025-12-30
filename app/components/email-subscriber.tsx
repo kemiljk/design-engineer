@@ -7,13 +7,11 @@ import { useUser } from "@clerk/nextjs";
 export function EmailSubscriber() {
   const pathname = usePathname();
   const { user, isLoaded } = useUser();
-
-  // Skip on capture routes
-  if (pathname?.startsWith("/capture")) {
-    return null;
-  }
+  const isCapturePage = pathname?.startsWith("/capture");
 
   useEffect(() => {
+    // Skip on capture routes
+    if (isCapturePage) return;
     if (!isLoaded || !user) return;
 
     const email = user.emailAddresses[0]?.emailAddress;
@@ -26,7 +24,7 @@ export function EmailSubscriber() {
     }).catch(() => {
       // Silently fail - this is a background operation
     });
-  }, [user, isLoaded]);
+  }, [user, isLoaded, isCapturePage]);
 
   return null;
 }

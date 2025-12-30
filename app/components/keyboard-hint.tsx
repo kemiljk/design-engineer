@@ -8,13 +8,12 @@ export function KeyboardHint() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
-
-  // Hide on capture routes
-  if (pathname?.startsWith("/capture")) {
-    return null;
-  }
+  const isCapturePage = pathname?.startsWith("/capture");
 
   useEffect(() => {
+    // Skip on capture routes
+    if (isCapturePage) return;
+
     setMounted(true);
     const hasSeenHint = localStorage.getItem("keyboard-hint-seen");
     if (hasSeenHint) return;
@@ -29,14 +28,15 @@ export function KeyboardHint() {
       clearTimeout(showTimer);
       clearTimeout(hideTimer);
     };
-  }, []);
+  }, [isCapturePage]);
 
   const dismiss = () => {
     setShow(false);
     localStorage.setItem("keyboard-hint-seen", "true");
   };
 
-  if (!mounted || !show) return null;
+  // Hide on capture routes or when not mounted/shown
+  if (isCapturePage || !mounted || !show) return null;
 
   return (
     <div
