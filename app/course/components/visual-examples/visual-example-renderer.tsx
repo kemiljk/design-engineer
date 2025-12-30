@@ -71,9 +71,12 @@ import {
 import {
   ShaderGradientDemo,
   ShaderNoiseDemo,
+  ShaderNoiseTypesDemo,
   ShaderGrainDemo,
   ShaderMeshGradientDemo,
+  ShaderFlowingGradientDemo,
   ShaderSpotlightDemo,
+  ShaderGlowDemo,
 } from "./shaders";
 
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
@@ -167,12 +170,12 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   // Shaders - Creative Visual Effects
   "shader-gradient-demo": ShaderGradientDemo,
   "shader-noise-demo": ShaderNoiseDemo,
-  "shader-noise-types-demo": ShaderNoiseDemo, // Alias for lesson reference
+  "shader-noise-types-demo": ShaderNoiseTypesDemo,
   "shader-grain-demo": ShaderGrainDemo,
   "shader-mesh-gradient-demo": ShaderMeshGradientDemo,
-  "shader-flowing-gradient-demo": ShaderGradientDemo, // Alias for lesson reference
+  "shader-flowing-gradient-demo": ShaderFlowingGradientDemo,
   "shader-spotlight-demo": ShaderSpotlightDemo,
-  "shader-glow-demo": ShaderSpotlightDemo, // Similar effect, reuse
+  "shader-glow-demo": ShaderGlowDemo,
 };
 
 interface VisualExampleRendererProps {
