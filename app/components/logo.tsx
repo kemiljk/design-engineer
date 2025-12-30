@@ -27,7 +27,7 @@ export const Logo = ({ className, size = 32 }: Props) => {
       <rect x="12" y="20" width="8" height="12" fill="currentColor" transform="rotate(45 16 16)" />
       
       {/* Center intersection - Swiss red diamond */}
-      <rect x="10" y="10" width="12" height="12" fill="#FF0000" className="fill-swiss-red" transform="rotate(45 16 16)" />
+      <rect x="10" y="10" width="12" height="12" className="fill-swiss-red" transform="rotate(45 16 16)" />
     </svg>
   );
 };

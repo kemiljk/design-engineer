@@ -6,6 +6,7 @@ import { COURSE_STRUCTURE } from "@/lib/course-shared";
 import type { CertificatePlatform, CertificateTrack } from "@/lib/types";
 import { CertificateActions } from "./certificate-actions";
 import { Logo } from "@/app/components/logo";
+import { TrackLogo } from "@/app/components/track-logo";
 
 interface VerifyPageProps {
   params: Promise<{ slug: string }>;
@@ -177,9 +178,18 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
                   </p>
                 </div>
                 
-                {/* Logo */}
+                {/* Logo - Track-specific for track certs, main logo for master cert */}
                 <div className="shrink-0">
-                  <Logo size={48} className="text-neutral-900 dark:text-white print:text-neutral-900" />
+                  {isTrackCert && track ? (
+                    <TrackLogo 
+                      track={track} 
+                      platform={metadata.platform} 
+                      size={56} 
+                      className="text-neutral-900 dark:text-white print:text-neutral-900" 
+                    />
+                  ) : (
+                    <Logo size={48} className="text-neutral-900 dark:text-white print:text-neutral-900" />
+                  )}
                 </div>
               </div>
             </div>

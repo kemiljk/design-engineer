@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Monitor, Smartphone, BookOpen, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, CheckCircle2 } from "lucide-react";
 import { COURSE_STRUCTURE, getEstimatedDuration } from "@/lib/course-shared";
 import { cn } from "@/lib/utils";
+import { TrackLogo, type Track, type Platform } from "@/app/components/track-logo";
 
 type TrackKey = keyof typeof COURSE_STRUCTURE;
 // Exclude 'introduction' as it doesn't have platforms in the same way
@@ -37,10 +38,11 @@ const START_LINKS: Record<PlatformTrackKey, Record<string, string>> = {
   },
 };
 
-const PLATFORM_ICONS = {
-  web: Monitor,
-  ios: Smartphone,
-  android: Smartphone,
+// Map track slugs to TrackLogo track types
+const TRACK_MAP: Record<PlatformTrackKey, Track> = {
+  design: "design",
+  engineering: "engineering",
+  convergence: "convergence",
 };
 
 export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps) {
@@ -106,7 +108,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
         // @ts-ignore - we know the structure matches
         const platformData = trackData[platform];
         const startLink = START_LINKS[trackKey][platform];
-        const Icon = PLATFORM_ICONS[platform];
+        const track = TRACK_MAP[trackKey];
         
         // Only use progress data after client mount to avoid hydration mismatch
         const platformProgress = hasMounted ? progress[platform] : undefined;
@@ -141,7 +143,12 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
               {isCompleted ? (
                 <CheckCircle2 className="h-6 w-6 text-swiss-red" />
               ) : (
-                <Icon className="h-6 w-6 text-neutral-900 dark:text-white" />
+                <TrackLogo 
+                  track={track} 
+                  platform={platform as Platform} 
+                  size={28} 
+                  className="text-neutral-900 dark:text-white" 
+                />
               )}
             </div>
             

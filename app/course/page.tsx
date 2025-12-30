@@ -11,12 +11,9 @@ import Link from "next/link";
 import {
   BookOpen,
   Clock,
-  Code2,
-  Layout,
   Trophy,
   ArrowRight,
   Sparkles,
-  Zap,
 } from "lucide-react";
 import { Badge, Button } from "@/app/components/ui";
 import { PageHeader } from "@/app/components/page-header";
@@ -24,6 +21,7 @@ import { ProgressTracker } from "./components/progress-tracker";
 import { ContinueLearning } from "./components/continue-learning";
 import { StudentCompanies } from "./components/student-companies";
 import { TrackCard } from "./components/track-card";
+import { TrackLogo } from "@/app/components/track-logo";
 
 export const metadata = {
   title: "Design Engineer Course",
@@ -76,7 +74,7 @@ export default async function CoursePage() {
       title: "Design Track",
       description:
         "Develop real design taste. Learn visual design fundamentals that make your work beautiful—typography, colour, layout, and the principles behind great interfaces.",
-      icon: Layout,
+      icon: <TrackLogo track="design" platform="web" size={28} className="text-neutral-900 dark:text-white" />,
       color: "bg-swiss-red",
       stats: {
         lessons: course.tracks.design.totalLessons,
@@ -90,7 +88,7 @@ export default async function CoursePage() {
       title: "Engineering Track",
       description:
         "Go beyond Vibe Coding. Learn to build interfaces properly—not just prompting AI, but understanding HTML, CSS, and JavaScript from the ground up.",
-      icon: Code2,
+      icon: <TrackLogo track="engineering" platform="web" size={28} className="text-neutral-900 dark:text-white" />,
       color: "bg-neutral-900 dark:bg-neutral-100",
       stats: {
         lessons: course.tracks.engineering.totalLessons,
@@ -104,7 +102,7 @@ export default async function CoursePage() {
       title: "Convergence: All-Access",
       description:
         "EVERYTHING INCLUDED: All Design + Engineering tracks across all platforms, PLUS exclusive advanced content on motion, prototyping, accessibility, and workflow.",
-      icon: Zap,
+      icon: <TrackLogo track="convergence" platform="web" size={28} className="text-neutral-900 dark:text-white" />,
       color: "bg-neutral-500",
       stats: {
         lessons: course.totalLessons,
@@ -259,9 +257,7 @@ export default async function CoursePage() {
               id={track.id}
               title={track.title}
               description={track.description}
-              icon={
-                <track.icon className="h-6 w-6 text-neutral-900 dark:text-white" />
-              }
+              icon={track.icon}
               color={track.color}
               stats={track.stats}
               accessLevel={accessLevel}
@@ -304,7 +300,7 @@ export default async function CoursePage() {
                 <Button
                   href="/course/design-track/web/01-foundations/01-what-is-visual-design"
                   variant="outline"
-                  startContent={<Layout className="h-4 w-4" />}
+                  startContent={<TrackLogo track="design" platform="web" size={16} />}
                   className="px-4 py-2 text-sm font-medium"
                 >
                   Start Design (Web)
@@ -312,7 +308,7 @@ export default async function CoursePage() {
                 <Button
                   href="/course/engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal"
                   variant="outline"
-                  startContent={<Code2 className="h-4 w-4" />}
+                  startContent={<TrackLogo track="engineering" platform="web" size={16} />}
                   className="px-4 py-2 text-sm font-medium"
                 >
                   Start Engineering (Web)
