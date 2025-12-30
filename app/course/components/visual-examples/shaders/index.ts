@@ -25,3 +25,4 @@ export { ShaderFlowingGradientDemo } from "./shader-flowing-gradient-demo";
 // Lesson 4: Practical Shader Patterns
 export { ShaderSpotlightDemo } from "./shader-spotlight-demo";
 export { ShaderGlowDemo } from "./shader-glow-demo";
+export { ShaderProgressiveBlurDemo } from "./shader-progressive-blur-demo";

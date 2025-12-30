@@ -77,6 +77,7 @@ import {
   ShaderFlowingGradientDemo,
   ShaderSpotlightDemo,
   ShaderGlowDemo,
+  ShaderProgressiveBlurDemo,
 } from "./shaders";
 
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
@@ -176,6 +177,7 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "shader-flowing-gradient-demo": ShaderFlowingGradientDemo,
   "shader-spotlight-demo": ShaderSpotlightDemo,
   "shader-glow-demo": ShaderGlowDemo,
+  "shader-progressive-blur-demo": ShaderProgressiveBlurDemo,
 };
 
 interface VisualExampleRendererProps {
