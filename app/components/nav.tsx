@@ -15,6 +15,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "@/app/components/logo";
+import { LogoContextMenu } from "@/app/components/logo-context-menu";
 import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
@@ -309,6 +310,7 @@ export default function Nav({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const { isBannerVisible, bannerHeight } = useBanner();
+  const navLogoRef = useRef<HTMLDivElement>(null);
 
   // Hide navigation on capture routes (used for GIF generation)
   if (pathname?.startsWith("/capture")) {
@@ -332,16 +334,23 @@ export default function Nav({
       <nav className="flex h-16 items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <div className="flex shrink-0 items-center">
-          <NextLink
-            href="/"
-            prefetch={true}
-            className="focus-ring text-foreground group"
+          <LogoContextMenu
+            logoName="d×e Logo"
+            getSvgElement={() => navLogoRef.current?.querySelector("svg") as SVGElement | null}
           >
-            <Logo 
-              size={32} 
-              className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105" 
-            />
-          </NextLink>
+            <NextLink
+              href="/"
+              prefetch={true}
+              className="focus-ring text-foreground group"
+            >
+              <div ref={navLogoRef}>
+                <Logo 
+                  size={32} 
+                  className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105" 
+                />
+              </div>
+            </NextLink>
+          </LogoContextMenu>
         </div>
 
         {/* Desktop Navigation */}

@@ -53,9 +53,9 @@ export function ContentCard({
           <div className="flex flex-1 flex-col justify-between p-6">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
-                <span>
+                <span suppressHydrationWarning>
                   {new Date(post.metadata.published_date).toLocaleDateString(
-                    "en-gb",
+                    "en-GB",
                     {
                       year: "numeric",
                       month: "short",

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback, Fragment } from "react";
 import { motion } from "motion/react";
 import { Logo } from "@/app/components/logo";
 import { TrackLogo, type Track, type Platform } from "@/app/components/track-logo";
 import { PlatformIcon } from "@/app/components/platform-icon";
+import { LogoContextMenu } from "@/app/components/logo-context-menu";
 import { cn } from "@/lib/utils";
 import { ease, duration } from "@/lib/motion";
 
@@ -91,6 +92,24 @@ export default function BrandPage() {
   const [selectedTrack, setSelectedTrack] = useState<Track | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
   const [invertTheme, setInvertTheme] = useState(false);
+  
+  // Refs for logo context menus
+  const mainLogoRef = useRef<HTMLDivElement>(null);
+  const trackLogoRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  
+  // Helper to get SVG element from a container ref
+  const getSvgFromRef = useCallback((ref: HTMLDivElement | null) => {
+    return ref?.querySelector("svg") as SVGElement | null;
+  }, []);
+  
+  // Set track logo ref
+  const setTrackLogoRef = useCallback((key: string, el: HTMLDivElement | null) => {
+    if (el) {
+      trackLogoRefs.current.set(key, el);
+    } else {
+      trackLogoRefs.current.delete(key);
+    }
+  }, []);
 
   return (
     <main className={cn(
@@ -342,15 +361,22 @@ export default function BrandPage() {
                 ? "bg-neutral-900 dark:bg-neutral-100" 
                 : "bg-neutral-100 dark:bg-neutral-900"
             )}>
-              <Logo 
-                size={160} 
-                className={cn(
-                  "transition-colors duration-300",
-                  invertTheme 
-                    ? "text-white dark:text-neutral-900" 
-                    : "text-neutral-900 dark:text-white"
-                )} 
-              />
+              <LogoContextMenu
+                logoName="d×e Logo"
+                getSvgElement={() => getSvgFromRef(mainLogoRef.current)}
+              >
+                <div ref={mainLogoRef}>
+                  <Logo 
+                    size={160} 
+                    className={cn(
+                      "transition-colors duration-300",
+                      invertTheme 
+                        ? "text-white dark:text-neutral-900" 
+                        : "text-neutral-900 dark:text-white"
+                    )} 
+                  />
+                </div>
+              </LogoContextMenu>
             </div>
           </div>
         </div>
@@ -635,17 +661,24 @@ export default function BrandPage() {
                   : "bg-neutral-100 dark:bg-neutral-900"
               )}
             >
-              <TrackLogo
-                track={selectedTrack}
-                platform={selectedPlatform}
-                size={120}
-                className={cn(
-                  "transition-colors duration-300",
-                  invertTheme 
-                    ? "text-white dark:text-neutral-900" 
-                    : "text-neutral-900 dark:text-white"
-                )}
-              />
+              <LogoContextMenu
+                logoName={`${trackDescriptions[selectedTrack].name} ${platformDescriptions[selectedPlatform].name}`}
+                getSvgElement={() => getSvgFromRef(trackLogoRefs.current.get("preview") || null)}
+              >
+                <div ref={(el) => setTrackLogoRef("preview", el)}>
+                  <TrackLogo
+                    track={selectedTrack}
+                    platform={selectedPlatform}
+                    size={120}
+                    className={cn(
+                      "transition-colors duration-300",
+                      invertTheme 
+                        ? "text-white dark:text-neutral-900" 
+                        : "text-neutral-900 dark:text-white"
+                    )}
+                  />
+                </div>
+              </LogoContextMenu>
               <p className={cn(
                 "mt-6 font-semibold transition-colors duration-300",
                 invertTheme 
@@ -710,8 +743,8 @@ export default function BrandPage() {
 
             {/* Logo rows */}
             {tracks.map((track) => (
-              <>
-                <div key={`label-${track}`} className="flex items-center">
+              <Fragment key={track}>
+                <div className="flex items-center">
                   <p className={cn(
                     "text-xs font-bold uppercase tracking-[0.1em] transition-colors duration-300",
                     invertTheme 
@@ -721,34 +754,43 @@ export default function BrandPage() {
                     {trackDescriptions[track].name}
                   </p>
                 </div>
-                {platforms.map((platform) => (
-                  <div
-                    key={`${track}-${platform}`}
-                    className={cn(
-                      "aspect-square flex items-center justify-center transition-all hover:scale-105 cursor-pointer",
-                      invertTheme 
-                        ? "bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200" 
-                        : "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-                    )}
-                    onClick={() => {
-                      setSelectedTrack(track);
-                      setSelectedPlatform(platform);
-                    }}
-                  >
-                    <TrackLogo
-                      track={track}
-                      platform={platform}
-                      size={48}
-                      className={cn(
-                        "transition-colors duration-300",
-                        invertTheme 
-                          ? "text-white dark:text-neutral-900" 
-                          : "text-neutral-900 dark:text-white"
-                      )}
-                    />
-                  </div>
-                ))}
-              </>
+                {platforms.map((platform) => {
+                  const logoKey = `${track}-${platform}`;
+                  return (
+                    <LogoContextMenu
+                      key={logoKey}
+                      logoName={`${trackDescriptions[track].name} ${platformDescriptions[platform].name}`}
+                      getSvgElement={() => getSvgFromRef(trackLogoRefs.current.get(logoKey) || null)}
+                    >
+                      <div
+                        ref={(el) => setTrackLogoRef(logoKey, el)}
+                        className={cn(
+                          "aspect-square flex items-center justify-center transition-all hover:scale-105 cursor-pointer",
+                          invertTheme 
+                            ? "bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200" 
+                            : "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                        )}
+                        onClick={() => {
+                          setSelectedTrack(track);
+                          setSelectedPlatform(platform);
+                        }}
+                      >
+                        <TrackLogo
+                          track={track}
+                          platform={platform}
+                          size={48}
+                          className={cn(
+                            "transition-colors duration-300",
+                            invertTheme 
+                              ? "text-white dark:text-neutral-900" 
+                              : "text-neutral-900 dark:text-white"
+                          )}
+                        />
+                      </div>
+                    </LogoContextMenu>
+                  );
+                })}
+              </Fragment>
             ))}
           </div>
         </div>
@@ -781,17 +823,24 @@ export default function BrandPage() {
           <div className="flex flex-wrap items-end justify-center gap-8 md:gap-12">
             {[16, 24, 32, 48, 64, 96, 128].map((size) => (
               <div key={size} className="flex flex-col items-center gap-3">
-                <TrackLogo
-                  track="convergence"
-                  platform="web"
-                  size={size}
-                  className={cn(
-                    "transition-colors duration-300",
-                    invertTheme 
-                      ? "text-white dark:text-neutral-900" 
-                      : "text-neutral-900 dark:text-white"
-                  )}
-                />
+                <LogoContextMenu
+                  logoName={`Convergence Web ${size}px`}
+                  getSvgElement={() => getSvgFromRef(trackLogoRefs.current.get(`scale-${size}`) || null)}
+                >
+                  <div ref={(el) => setTrackLogoRef(`scale-${size}`, el)}>
+                    <TrackLogo
+                      track="convergence"
+                      platform="web"
+                      size={size}
+                      className={cn(
+                        "transition-colors duration-300",
+                        invertTheme 
+                          ? "text-white dark:text-neutral-900" 
+                          : "text-neutral-900 dark:text-white"
+                      )}
+                    />
+                  </div>
+                </LogoContextMenu>
                 <span className={cn(
                   "text-xs font-mono transition-colors duration-300",
                   invertTheme 
