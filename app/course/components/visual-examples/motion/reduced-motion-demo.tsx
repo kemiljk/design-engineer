@@ -87,7 +87,7 @@ function Modal() {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="relative flex h-80 items-center justify-center rounded-[24px] border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="relative flex h-[420px] items-center justify-center overflow-hidden rounded-[24px] border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
           <button
             onClick={() => setIsOpen(true)}
             className="flex items-center gap-2 rounded-[12px] bg-white px-6 py-3 font-semibold text-neutral-900 shadow-sm transition-all hover:bg-neutral-50 hover:shadow-md dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"

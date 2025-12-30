@@ -111,62 +111,62 @@ function Navigation() {
         {/* Interactive Demo */}
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Hierarchy Visualization */}
-          <div className="flex flex-col justify-center rounded-[12px] border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-800 dark:bg-neutral-900/50">
-            <h4 className="mb-6 text-sm font-semibold text-neutral-900 dark:text-white">
+          <div className="flex flex-col justify-center rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h4 className="mb-3 text-xs font-semibold text-neutral-900 dark:text-white">
               Information Architecture
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-2">
               <button 
                 onClick={() => navigate(0)}
                 className={cn(
-                  "flex w-full items-center gap-3 rounded-[8px] border p-3 transition-all",
+                  "flex w-full items-center gap-2 rounded-[6px] border px-2.5 py-2 text-xs transition-all",
                   level === 0 
                     ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
                     : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                 )}
               >
-                <Layout className={cn("size-5", level === 0 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                <Layout className={cn("size-4", level === 0 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
                 <span className={cn("font-medium", level === 0 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                   Level 1: Dashboard
                 </span>
-                {level === 0 && <span className="ml-auto flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse" />}
+                {level === 0 && <span className="ml-auto flex size-1.5 rounded-full bg-indigo-500 animate-pulse" />}
               </button>
 
-              <div className="ml-3 flex items-start gap-2 sm:ml-6 sm:gap-4">
-                <CornerDownRight className="mt-4 hidden size-5 text-neutral-300 sm:block" />
+              <div className="ml-3 flex items-start gap-2 sm:ml-4">
+                <CornerDownRight className="mt-2.5 hidden size-4 text-neutral-300 sm:block" />
                 <button 
                   onClick={() => navigate(1)}
                   className={cn(
-                    "flex flex-1 items-center gap-3 rounded-[8px] border p-3 transition-all",
+                    "flex flex-1 items-center gap-2 rounded-[6px] border px-2.5 py-2 text-xs transition-all",
                     level === 1
                       ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <Layers className={cn("size-5 shrink-0", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <Layers className={cn("size-4 shrink-0", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
                   <span className={cn("truncate font-medium", level === 1 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                     Level 2: Projects
                   </span>
-                  {level === 1 && <span className="ml-auto flex h-2 w-2 shrink-0 rounded-full bg-indigo-500 animate-pulse" />}
+                  {level === 1 && <span className="ml-auto flex size-1.5 shrink-0 rounded-full bg-indigo-500 animate-pulse" />}
                 </button>
               </div>
 
-              <div className="ml-6 flex items-start gap-2 sm:ml-12 sm:gap-4">
-                <CornerDownRight className="mt-4 hidden size-5 text-neutral-300 sm:block" />
+              <div className="ml-6 flex items-start gap-2 sm:ml-8">
+                <CornerDownRight className="mt-2.5 hidden size-4 text-neutral-300 sm:block" />
                 <button 
                   onClick={() => navigate(2)}
                   className={cn(
-                    "flex flex-1 items-center gap-3 rounded-[8px] border p-3 transition-all",
+                    "flex flex-1 items-center gap-2 rounded-[6px] border px-2.5 py-2 text-xs transition-all",
                     level === 2
                       ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <FileText className={cn("size-5 shrink-0", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <FileText className={cn("size-4 shrink-0", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
                   <span className={cn("truncate font-medium", level === 2 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                     Level 3: Details
                   </span>
-                  {level === 2 && <span className="ml-auto flex h-2 w-2 shrink-0 rounded-full bg-indigo-500 animate-pulse" />}
+                  {level === 2 && <span className="ml-auto flex size-1.5 shrink-0 rounded-full bg-indigo-500 animate-pulse" />}
                 </button>
               </div>
             </div>

@@ -96,7 +96,7 @@ function ValidationMessage({ status }) {
           </label>
           
           <div className="relative">
-            <div className="absolute left-4 top-3.5 text-neutral-400">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400">
               <AtSign className="size-5" />
             </div>
             
@@ -116,7 +116,7 @@ function ValidationMessage({ status }) {
               transition={{ duration: 0.4 }}
             />
 
-            <div className="absolute right-4 top-3.5">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2">
               <AnimatePresence mode="wait">
                 {status === "checking" && (
                   <motion.div

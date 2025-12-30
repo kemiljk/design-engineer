@@ -85,7 +85,82 @@ export default function EasingGenerator() {
   };
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
+    <div className="space-y-8">
+      {/* Graph Visualizer */}
+      <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
+        <svg
+          ref={svgRef}
+          viewBox={`0 0 ${size} ${size}`}
+          className="aspect-square w-full max-w-[400px] touch-none select-none overflow-visible"
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+        >
+          {/* Grid/Axes */}
+          <line x1={padding} y1={size - padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
+          <line x1={padding} y1={padding} x2={padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
+          <line x1={size - padding} y1={padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1={padding} y1={padding} x2={size - padding} y2={padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />
+
+          {/* Linear Reference */}
+          <line
+            x1={padding}
+            y1={size - padding}
+            x2={size - padding}
+            y2={padding}
+            stroke="#e5e5e5"
+            strokeWidth="2"
+            strokeDasharray="4 4"
+          />
+
+          {/* Bezier Curve */}
+          <path
+            d={`M ${padding} ${size - padding} C ${toGraph(p1.x)} ${toGraph(p1.y, true)}, ${toGraph(p2.x)} ${toGraph(p2.y, true)}, ${size - padding} ${padding}`}
+            fill="none"
+            stroke="#FF3333"
+            strokeWidth="4"
+          />
+
+          {/* Control Lines */}
+          <line
+            x1={padding}
+            y1={size - padding}
+            x2={toGraph(p1.x)}
+            y2={toGraph(p1.y, true)}
+            stroke="#FF3333"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+          <line
+            x1={size - padding}
+            y1={padding}
+            x2={toGraph(p2.x)}
+            y2={toGraph(p2.y, true)}
+            stroke="#FF3333"
+            strokeWidth="1"
+            className="opacity-50"
+          />
+
+          {/* Handles */}
+          <circle
+            cx={toGraph(p1.x)}
+            cy={toGraph(p1.y, true)}
+            r="8"
+            fill="#FF3333"
+            className="cursor-pointer transition-transform hover:scale-125"
+            onPointerDown={handlePointerDown("p1")}
+          />
+          <circle
+            cx={toGraph(p2.x)}
+            cy={toGraph(p2.y, true)}
+            r="8"
+            fill="#FF3333"
+            className="cursor-pointer transition-transform hover:scale-125"
+            onPointerDown={handlePointerDown("p2")}
+          />
+        </svg>
+      </div>
+
       {/* Controls */}
       <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         <div>
@@ -139,81 +214,6 @@ export default function EasingGenerator() {
               />
            </div>
         </div>
-      </div>
-
-      {/* Graph Visualizer */}
-      <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${size} ${size}`}
-          className="aspect-square w-full max-w-[300px] touch-none select-none overflow-visible"
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerLeave={handlePointerUp}
-        >
-          {/* Grid/Axes */}
-          <line x1={padding} y1={size - padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
-          <line x1={padding} y1={padding} x2={padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
-          <line x1={size - padding} y1={padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />
-          <line x1={padding} y1={padding} x2={size - padding} y2={padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />
-
-          {/* Linear Reference */}
-          <line
-            x1={padding}
-            y1={size - padding}
-            x2={size - padding}
-            y2={padding}
-            stroke="#e5e5e5"
-            strokeWidth="2"
-            strokeDasharray="4 4"
-          />
-
-          {/* Bezier Curve */}
-          <path
-            d={`M ${padding} ${size - padding} C ${toGraph(p1.x)} ${toGraph(p1.y, true)}, ${toGraph(p2.x)} ${toGraph(p2.y, true)}, ${size - padding} ${padding}`}
-            fill="none"
-            stroke="#FF3333" // Swiss Red
-            strokeWidth="4"
-          />
-
-          {/* Control Lines */}
-          <line
-            x1={padding}
-            y1={size - padding}
-            x2={toGraph(p1.x)}
-            y2={toGraph(p1.y, true)}
-            stroke="#FF3333"
-            strokeWidth="1"
-            className="opacity-50"
-          />
-          <line
-            x1={size - padding}
-            y1={padding}
-            x2={toGraph(p2.x)}
-            y2={toGraph(p2.y, true)}
-            stroke="#FF3333"
-            strokeWidth="1"
-            className="opacity-50"
-          />
-
-          {/* Handles */}
-          <circle
-            cx={toGraph(p1.x)}
-            cy={toGraph(p1.y, true)}
-            r="8"
-            fill="#FF3333"
-            className="cursor-pointer transition-transform hover:scale-125"
-            onPointerDown={handlePointerDown("p1")}
-          />
-          <circle
-            cx={toGraph(p2.x)}
-            cy={toGraph(p2.y, true)}
-            r="8"
-            fill="#FF3333"
-            className="cursor-pointer transition-transform hover:scale-125"
-            onPointerDown={handlePointerDown("p2")}
-          />
-        </svg>
       </div>
     </div>
   );

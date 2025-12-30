@@ -46,12 +46,11 @@ function ToggleVariant({
           onClick={() => setIsOn(!isOn)}
           className="relative p-0.5 transition-all duration-300 focus:outline-none"
           style={{
-            width: 56,
-            height: 32,
-            borderRadius: 16,
+            width: type === "ios" ? 51 : 56,
+            height: type === "ios" ? 31 : 32,
+            borderRadius: type === "ios" ? 100 : 16,
             ...(type === "ios" && {
-              background: isOn ? "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)" : "#3f3f46",
-              boxShadow: isOn ? "0 0 12px rgba(34, 197, 94, 0.3)" : "none",
+              background: isOn ? "#34c759" : "#39393d",
             }),
             ...(type === "neon" && {
               background: isOn ? "rgba(34, 211, 238, 0.15)" : "rgba(255, 255, 255, 0.05)",
@@ -68,17 +67,17 @@ function ToggleVariant({
         >
           <motion.div
             style={{
-              width: type === "neon" ? 20 : 28,
-              height: type === "neon" ? 20 : 28,
-              borderRadius: type === "neon" ? 10 : 14,
+              width: type === "ios" ? 27 : type === "neon" ? 20 : 28,
+              height: type === "ios" ? 27 : type === "neon" ? 20 : 28,
+              borderRadius: 100,
               background: type === "neon" ? "#22d3ee" : "white",
               boxShadow: type === "neon" 
                 ? "0 0 12px rgba(34, 211, 238, 0.8)" 
-                : "0 2px 6px rgba(0, 0, 0, 0.15)",
+                : "0 1px 3px rgba(0, 0, 0, 0.2)",
               marginTop: type === "neon" ? 2 : 0,
               marginLeft: type === "neon" ? 2 : 0,
             }}
-            animate={{ x: isOn ? (type === "neon" ? 24 : 24) : 0 }}
+            animate={{ x: isOn ? (type === "ios" ? 20 : type === "neon" ? 24 : 24) : 0 }}
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
           />
         </button>
