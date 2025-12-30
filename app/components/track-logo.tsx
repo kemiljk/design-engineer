@@ -277,16 +277,22 @@ function PlatformTreatment({
 
     case "android":
       // Filled Triangle - "Angular cuts"
-      // All tracks use identical triangle dimensions for consistency
-      // Scale factor: 32/42 = 0.762 (from 42px to 32px viewBox)
-      const androidScale = 32 / 42;
-
-      // All tracks use the same triangle size and position (from Convergence)
-      // Perfect right triangle, 8x8 units in 42px coordinates
-      // Points: bottom-right (19, 31), top (11, 23), bottom-left (11, 31)
+      // Mathematically perfect isoceles right triangle with grid-aligned coordinates
+      //
+      // Triangle specification (32px viewBox):
+      //   - Size: 6×6 units (equal legs)
+      //   - Bottom-left corner: (8, 24)
+      //   - Top vertex: (8, 18)
+      //   - Bottom-right corner: (14, 24)
+      //
+      // Geometry:
+      //   - Left leg: 6 units vertical (24 - 18 = 6)
+      //   - Bottom leg: 6 units horizontal (14 - 8 = 6)
+      //   - Hypotenuse: √72 ≈ 8.49 units at 45°
+      //   - All vertices on integer grid coordinates
       return (
         <path
-          d={`M ${19 * androidScale} ${31 * androidScale} L ${11 * androidScale} ${23 * androidScale} L ${11 * androidScale} ${31 * androidScale} Z`}
+          d="M 14 24 L 8 18 L 8 24 Z"
           fill="currentColor"
           stroke="none"
         />
