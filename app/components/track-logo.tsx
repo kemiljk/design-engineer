@@ -24,13 +24,21 @@ import { cn } from "@/lib/utils";
 
 type Track = "design" | "engineering" | "convergence";
 type Platform = "web" | "ios" | "android";
-type LogoLayer = "all" | "shape" | "platform" | "core";
+type LogoLayer = "all" | "shape" | "platform" | "core" | "track";
 
 interface TrackLogoProps {
   track: Track;
-  platform: Platform;
+  platform?: Platform;
   size?: number;
   className?: string;
+  /** 
+   * Which layers to show:
+   * - "all": shape + platform + core
+   * - "track": shape + core only (no platform treatment)
+   * - "shape": outer shape only
+   * - "platform": platform treatment only
+   * - "core": red diamond only
+   */
   showLayer?: LogoLayer;
 }
 
@@ -50,7 +58,7 @@ const LARGE_THRESHOLD = 96; // Above this, refine stroke weights
 
 export function TrackLogo({
   track,
-  platform,
+  platform = "web",
   size = 32,
   className,
   showLayer = "all",
@@ -64,10 +72,11 @@ export function TrackLogo({
   const outerStroke = isLarge ? 1.5 : BASE_STROKE_WIDTH;
   const innerStroke = isLarge ? 1.0 : BASE_INNER_STROKE;
 
-  const showShape = showLayer === "all" || showLayer === "shape";
+  // "track" mode shows shape + core only (no platform treatment)
+  const showShape = showLayer === "all" || showLayer === "shape" || showLayer === "track";
   const showPlatform =
-    (showLayer === "all" || showLayer === "platform") && !isSmall;
-  const showCore = showLayer === "all" || showLayer === "core";
+    (showLayer === "all" || showLayer === "platform") && !isSmall && showLayer !== "track";
+  const showCore = showLayer === "all" || showLayer === "core" || showLayer === "track";
 
   // Generate unique mask ID for each logo instance
   const maskId = `ios-mask-${track}-${platform}-${size}`;

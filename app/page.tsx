@@ -11,12 +11,12 @@ import { RandomisedPosts } from "@/app/components/randomised-posts";
 import { cn } from "@/lib/utils";
 import SectionTitle from "./components/section-title";
 import { Button } from "@/app/components/ui";
+import { TrackLogo } from "@/app/components/track-logo";
 import NextLink from "next/link";
 import {
   ArrowRight,
   BookOpen,
   Code2,
-  Layout,
   Sparkles,
   Activity,
   Spline,
@@ -346,21 +346,21 @@ async function CourseSection() {
 
   const tracks = [
     {
-      icon: Layout,
+      track: "design" as const,
       title: "Design Track",
       description:
         "Develop real design taste—visual fundamentals that AI can't teach",
       color: "bg-swiss-red",
     },
     {
-      icon: Code2,
+      track: "engineering" as const,
       title: "Engineering Track",
       description:
         "Go beyond Vibe Coding—build with real understanding, not just AI prompts",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
-      icon: Sparkles,
+      track: "convergence" as const,
       title: "Convergence: All-Access",
       description:
         "Complete access - all tracks, all platforms, plus advanced topics like motion, prototyping, and workflow",
@@ -399,10 +399,11 @@ async function CourseSection() {
               />
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 transition-colors group-hover:bg-neutral-100 dark:bg-neutral-800 dark:group-hover:bg-neutral-700">
-                  <track.icon
-                    className={cn(
-                      "h-6 w-6 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none dark:text-white",
-                    )}
+                  <TrackLogo
+                    track={track.track}
+                    showLayer="track"
+                    size={28}
+                    className="transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none text-neutral-900 dark:text-white"
                   />
                 </div>
                 <h3 className="heading-card mb-2">{track.title}</h3>

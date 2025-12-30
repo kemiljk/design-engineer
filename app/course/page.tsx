@@ -74,7 +74,7 @@ export default async function CoursePage() {
       title: "Design Track",
       description:
         "Develop real design taste. Learn visual design fundamentals that make your work beautiful—typography, colour, layout, and the principles behind great interfaces.",
-      icon: <TrackLogo track="design" platform="web" size={28} className="text-neutral-900 dark:text-white" />,
+      icon: <TrackLogo track="design" showLayer="track" size={28} className="text-neutral-900 dark:text-white" />,
       color: "bg-swiss-red",
       stats: {
         lessons: course.tracks.design.totalLessons,
@@ -88,7 +88,7 @@ export default async function CoursePage() {
       title: "Engineering Track",
       description:
         "Go beyond Vibe Coding. Learn to build interfaces properly—not just prompting AI, but understanding HTML, CSS, and JavaScript from the ground up.",
-      icon: <TrackLogo track="engineering" platform="web" size={28} className="text-neutral-900 dark:text-white" />,
+      icon: <TrackLogo track="engineering" showLayer="track" size={28} className="text-neutral-900 dark:text-white" />,
       color: "bg-neutral-900 dark:bg-neutral-100",
       stats: {
         lessons: course.tracks.engineering.totalLessons,
@@ -102,7 +102,7 @@ export default async function CoursePage() {
       title: "Convergence: All-Access",
       description:
         "EVERYTHING INCLUDED: All Design + Engineering tracks across all platforms, PLUS exclusive advanced content on motion, prototyping, accessibility, and workflow.",
-      icon: <TrackLogo track="convergence" platform="web" size={28} className="text-neutral-900 dark:text-white" />,
+      icon: <TrackLogo track="convergence" showLayer="track" size={28} className="text-neutral-900 dark:text-white" />,
       color: "bg-neutral-500",
       stats: {
         lessons: course.totalLessons,
