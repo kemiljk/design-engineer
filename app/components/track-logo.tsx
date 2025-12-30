@@ -17,7 +17,7 @@
  * Platform Treatment (inner detail):
  *   - Web: Horizontal lines (layers, responsive)
  *   - iOS: Curved arc using mask technique (Apple's rounded aesthetic)
- *   - Android: Triangle cut (Angular cuts)
+ *   - Android: Corner arc (Material Design's rounded corners)
  */
 
 import { cn } from "@/lib/utils";
@@ -276,25 +276,22 @@ function PlatformTreatment({
       );
 
     case "android":
-      // Filled Triangle - "Angular cuts"
-      // Mathematically perfect isoceles right triangle with grid-aligned coordinates
+      // Corner Arc - Material Design 3's signature rounded corner
+      // A quarter-circle stroke representing the rounded corner that defines every Material surface
       //
-      // Triangle specification (32px viewBox):
-      //   - Size: 6×6 units (equal legs)
-      //   - Bottom-left corner: (8, 24)
-      //   - Top vertex: (8, 18)
-      //   - Bottom-right corner: (14, 24)
-      //
-      // Geometry:
-      //   - Left leg: 6 units vertical (24 - 18 = 6)
-      //   - Bottom leg: 6 units horizontal (14 - 8 = 6)
-      //   - Hypotenuse: √72 ≈ 8.49 units at 45°
-      //   - All vertices on integer grid coordinates
+      // Arc specification (32px viewBox):
+      //   - Radius: 6 units
+      //   - Centre: (8, 24) - bottom-left corner point
+      //   - Start: (8, 18) - top of arc
+      //   - End: (14, 24) - right of arc
+      //   - Creates a 90° arc resembling a rounded corner
       return (
         <path
-          d="M 14 24 L 8 18 L 8 24 Z"
-          fill="currentColor"
-          stroke="none"
+          d="M 8 18 A 6 6 0 0 1 14 24"
+          stroke="currentColor"
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          fill="none"
         />
       );
   }
