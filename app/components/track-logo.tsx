@@ -75,7 +75,7 @@ export function TrackLogo({
   // "track" mode shows shape + core only (no platform treatment)
   const showShape = showLayer === "all" || showLayer === "shape" || showLayer === "track";
   const showPlatform =
-    (showLayer === "all" || showLayer === "platform") && !isSmall && showLayer !== "track";
+    (showLayer === "all" || showLayer === "platform") && !isSmall;
   const showCore = showLayer === "all" || showLayer === "core" || showLayer === "track";
 
   // Generate unique mask ID for each logo instance
