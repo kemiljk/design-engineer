@@ -42,9 +42,13 @@ estimatedTime: 20
     </header>
     
     <main id="main" role="main">
-        <section aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Main Heading</h1>
-            <!-- Hero content -->
+        <section aria-labelledby="hero-heading" class="hero">
+            <!-- Shader gradient canvas for hero background -->
+            <canvas id="hero-shader" aria-hidden="true"></canvas>
+            <div class="hero-content">
+                <h1 id="hero-heading">Main Heading</h1>
+                <!-- Hero content -->
+            </div>
         </section>
         
         <section aria-labelledby="features-heading">
@@ -131,6 +135,26 @@ estimatedTime: 20
 .skip-link:focus {
     top: 0;
 }
+
+/* Hero with Shader Gradient */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#hero-shader {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
 ```
 
 ## Step 3: JavaScript Foundation
@@ -193,6 +217,83 @@ function announce(message, priority = 'polite') {
 }
 ```
 
+## Step 4: Hero Shader Gradient
+
+Add a WebGL shader gradient for your hero section background. This creates a premium, dynamic feel that pure CSS cannot achieve.
+
+```javascript
+// Hero shader gradient setup
+const vertexShader = `
+    attribute vec2 a_position;
+    varying vec2 v_uv;
+    void main() {
+        v_uv = a_position * 0.5 + 0.5;
+        gl_Position = vec4(a_position, 0.0, 1.0);
+    }
+`;
+
+const fragmentShader = `
+    precision mediump float;
+    uniform vec2 u_resolution;
+    uniform float u_time;
+    varying vec2 v_uv;
+    
+    void main() {
+        // Create flowing gradient
+        float gradient = (v_uv.x + v_uv.y) / 2.0;
+        gradient += sin(v_uv.x * 3.0 + u_time) * 0.1;
+        gradient += sin(v_uv.y * 2.0 - u_time * 0.7) * 0.08;
+        
+        // Your brand colours
+        vec3 color1 = vec3(0.15, 0.1, 0.25);  // Deep purple
+        vec3 color2 = vec3(0.2, 0.15, 0.35);  // Lighter purple
+        
+        vec3 color = mix(color1, color2, clamp(gradient, 0.0, 1.0));
+        gl_FragColor = vec4(color, 1.0);
+    }
+`;
+
+function initHeroShader() {
+    const canvas = document.getElementById('hero-shader');
+    if (!canvas) return;
+    
+    const gl = canvas.getContext('webgl');
+    if (!gl) {
+        // Fallback to CSS gradient
+        canvas.style.background = 'linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 100%)';
+        return;
+    }
+    
+    // Compile shaders and create program
+    // ... (full implementation in Creative Visual Effects module)
+    
+    // Animation loop
+    function render(time) {
+        // Update uniforms and draw
+        if (!prefersReducedMotion) {
+            requestAnimationFrame(render);
+        }
+    }
+    
+    // Handle resize
+    function resize() {
+        const dpr = Math.min(window.devicePixelRatio, 2);
+        canvas.width = canvas.clientWidth * dpr;
+        canvas.height = canvas.clientHeight * dpr;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    
+    window.addEventListener('resize', debounce(resize, 100));
+    resize();
+    requestAnimationFrame(render);
+}
+
+// Initialise on load
+document.addEventListener('DOMContentLoaded', initHeroShader);
+```
+
+Refer to the [Creative Visual Effects module](../04-creative-visual-effects/02-introduction-to-shaders.md) for the complete shader implementation.
+
 ## Checkpoint
 
 Before moving on, verify:
@@ -203,13 +304,15 @@ Before moving on, verify:
 - [ ] Focus styles defined
 - [ ] Skip link implemented
 - [ ] JavaScript utilities ready
+- [ ] Hero shader gradient implemented with CSS fallback
 
 ## Try It Yourself
 
 1. Build out your full HTML structure
 2. Implement all CSS tokens
-3. Test keyboard navigation
-4. Verify skip link works
+3. Add the hero shader gradient with CSS fallback
+4. Test keyboard navigation
+5. Verify skip link works
 
 ## Next Steps
 

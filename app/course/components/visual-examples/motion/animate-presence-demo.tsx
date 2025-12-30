@@ -125,7 +125,7 @@ function TodoList() {
               </button>
             </form>
 
-            <ul className="space-y-3">
+            <ul className="m-0 w-full list-none space-y-3 p-0">
               <AnimatePresence initial={false} mode="popLayout">
                 {todos.map((todo) => (
                   <motion.li

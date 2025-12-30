@@ -17,76 +17,63 @@ estimatedTime: 20
 
 ## Step 1: Case Study Document
 
-```markdown
-# Project Case Study
+Create a case study document with these sections:
 
-## Overview
-- **Project:** [Name]
+### Overview
+- **Project:** Your project name
 - **Role:** Design Engineer
-- **Timeline:** [Duration]
-- **Live URL:** [Link]
+- **Timeline:** How long it took
+- **Live URL:** Link to deployed site
 
-## The Challenge
+### The Challenge
 What problem were you solving? What constraints did you face?
 
-## Process
+### Process
 
-### Research & Planning
+**Research & Planning**
 - What did you learn?
 - How did you approach the problem?
 
-### Design Decisions
+**Design Decisions**
 - Motion design rationale
 - Accessibility considerations
 - Performance trade-offs
 
-### Technical Implementation
+**Technical Implementation**
 - Architecture choices
 - Interesting solutions
 - Challenges overcome
 
-## Results
+### Results
 - Performance metrics achieved
 - Accessibility compliance
 - User feedback (if any)
 
-## Learnings
+### Learnings
 - What would you do differently?
 - What are you proud of?
 - What did you learn?
 
-## Screenshots & Videos
-[Include visual documentation]
-```
+### Screenshots & Videos
+Include visual documentation of your project in action.
 
 ## Step 2: README Documentation
 
-```markdown
-# Project Name
+Your README should include:
 
-A [brief description] built with HTML, CSS, and vanilla JavaScript.
+### Project header
+- Project name and brief description
+- Feature highlights with emojis
+- Link to live demo
 
-## Features
-- ✨ Feature 1
-- 🎯 Feature 2
-- ♿ Fully accessible
-- 🚀 Performance optimised
+### Technical details
+- Performance metrics (LCP, FID, CLS scores)
+- Accessibility compliance (WCAG 2.1 AA, keyboard nav, screen reader tested)
+- Built with (HTML5, CSS Custom Properties, Vanilla JS)
 
-## Live Demo
-[Link to deployed site]
+### Local development instructions
 
-## Performance
-- LCP: X.Xs
-- FID: Xms
-- CLS: X.XX
-
-## Accessibility
-- WCAG 2.1 AA compliant
-- Keyboard navigable
-- Screen reader tested
-
-## Local Development
-\`\`\`bash
+```bash
 # Clone the repository
 git clone https://github.com/username/project.git
 
@@ -95,16 +82,10 @@ cd project
 
 # Start local server
 npx serve
-\`\`\`
-
-## Built With
-- Semantic HTML5
-- CSS Custom Properties
-- Vanilla JavaScript
-
-## Author
-[Your name and links]
 ```
+
+### Author section
+- Your name and relevant links (GitHub, portfolio, social)
 
 ## Step 3: Deploy
 

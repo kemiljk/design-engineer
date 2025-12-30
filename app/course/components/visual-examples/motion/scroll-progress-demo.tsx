@@ -226,9 +226,9 @@ function ReadingProgress() {
 
           </div>
 
-          {/* Bottom fade overlay - covers entire phone including border */}
+          {/* Bottom fade overlay - fades to match container background */}
           <div 
-            className="pointer-events-none absolute inset-x-0 -bottom-1 z-50 h-40 bg-gradient-to-b from-transparent via-white/70 to-white dark:via-neutral-900/70 dark:to-neutral-900"
+            className="pointer-events-none absolute inset-x-0 -bottom-1 z-50 h-40 bg-gradient-to-b from-transparent via-neutral-50/80 to-neutral-50 dark:via-neutral-900/80 dark:to-neutral-900"
           />
         </div>
 

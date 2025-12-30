@@ -204,7 +204,7 @@ transition: transform 1s ${formatCubicBezier(points)};`;
         </div>
       }
     >
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
+      <div className="flex flex-col gap-8">
         {/* SVG Curve Editor */}
         <div className="flex flex-col items-center gap-4">
           <div className="relative w-full max-w-[400px] overflow-hidden rounded-3xl border border-neutral-200/60 bg-white shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900">

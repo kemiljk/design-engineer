@@ -32,9 +32,9 @@ Document your concept:
 - Any accessibility considerations?
 
 ### Success Metrics
-- [ ] Metric 1
-- [ ] Metric 2
-- [ ] Metric 3
+- Metric 1
+- Metric 2
+- Metric 3
 
 ### Constraints
 - Timeline: X hours

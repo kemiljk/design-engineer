@@ -175,7 +175,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
             >
               <div
                 className={cn(
-                  "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 transition-all",
+                  "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border-2 transition-all",
                   item.checked
                     ? "border-swiss-red bg-swiss-red"
                     : "border-neutral-300 bg-white group-hover:border-neutral-400 dark:border-neutral-600 dark:bg-neutral-800 dark:group-hover:border-neutral-500"

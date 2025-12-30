@@ -120,8 +120,8 @@ const item = {
     >
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Interactive List */}
-        <div className="relative min-h-[400px] overflow-hidden border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="mb-4 flex items-center justify-between">
+        <div className="relative min-h-[400px] overflow-hidden border border-neutral-200 bg-neutral-50 px-4 py-3 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="mb-3 flex items-center justify-between">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">Notifications</h4>
             <button
               onClick={replay}

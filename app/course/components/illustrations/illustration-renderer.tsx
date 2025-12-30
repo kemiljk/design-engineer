@@ -62,6 +62,7 @@ import { HierarchyDepth } from "./concepts/hierarchy-depth";
 import { OrganizationSchemes } from "./concepts/organization-schemes";
 import { UserJourneyMap } from "./concepts/user-journey-map";
 import { UxTraps } from "./concepts/ux-traps";
+import { DeIntersection } from "./concepts/de-intersection";
 import { DesignTrackHero } from "./heroes/design-track-hero";
 import { EngineeringTrackHero } from "./heroes/engineering-track-hero";
 import { ConvergenceTrackHero } from "./heroes/convergence-track-hero";
@@ -131,6 +132,7 @@ export const ILLUSTRATION_MAP: Record<string, React.ComponentType> = {
   "organization-schemes": OrganizationSchemes,
   "user-journey-map": UserJourneyMap,
   "ux-traps": UxTraps,
+  "de-intersection": DeIntersection,
   "design-track-hero": DesignTrackHero,
   "engineering-track-hero": EngineeringTrackHero,
   "convergence-track-hero": ConvergenceTrackHero,

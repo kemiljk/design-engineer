@@ -11,6 +11,8 @@
 
 ## Where DE Roles Exist
 
+Check out [designengineer.io](https://designengineer.io/) for a curated job board dedicated to Design Engineer roles.
+
 ### Companies with DE Roles
 - Product companies with design systems
 - Design-forward startups

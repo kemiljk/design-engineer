@@ -215,7 +215,7 @@ export async function issueCertificate(
   const eligibility = await checkCertificateEligibility(userId, platform);
   
   if (!eligibility.eligible) {
-    throw new Error(`User is not eligible for ${platform} certificate`);
+    throw new Error(`Complete all three tracks (Design, Engineering, and Convergence) to earn your ${platform} Design Engineer certificate.`);
   }
   
   if (eligibility.certificate) {
@@ -318,7 +318,8 @@ export async function issueTrackCertificate(
   const eligibility = await checkTrackCertificateEligibility(userId, platform, track);
   
   if (!eligibility.eligible) {
-    throw new Error(`User is not eligible for ${platform} ${track} certificate`);
+    const trackNames = { design: 'Design Track', engineering: 'Engineering Track', convergence: 'Convergence' };
+    throw new Error(`Complete all lessons in the ${trackNames[track]} to earn your certificate. Progress: ${eligibility.progress.completed}/${eligibility.progress.total} lessons.`);
   }
   
   if (eligibility.certificate) {

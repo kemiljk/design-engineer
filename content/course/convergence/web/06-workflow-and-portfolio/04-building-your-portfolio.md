@@ -93,7 +93,7 @@ Easy deployment options:
 - Custom domains
 - Automatic deploys
 
-### Read.cv / Layers / Notion
+### Figma Sites / Layers / Notion
 Lower friction options:
 - Quick to set up
 - Professional appearance

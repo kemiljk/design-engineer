@@ -13,9 +13,7 @@
 
 Design Engineers sit at the intersection:
 
-```
-Design ←→ Design Engineer ←→ Engineering
-```
+<!-- illustration: de-intersection -->
 
 You're not just a translator—you're a participant in both worlds.
 
