@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Logo } from "@/app/components/logo";
 import { TrackLogo, type Track, type Platform } from "@/app/components/track-logo";
+import { PlatformIcon } from "@/app/components/platform-icon";
 import { cn } from "@/lib/utils";
 import { ease, duration } from "@/lib/motion";
 
@@ -23,8 +24,8 @@ const trackDescriptions: Record<Track, { name: string; shape: string; meaning: s
   },
   convergence: {
     name: "Convergence",
-    shape: "Cross",
-    meaning: "The intersection of both worlds",
+    shape: "Rounded Square",
+    meaning: "The geometric blend of both",
   },
 };
 
@@ -355,6 +356,121 @@ export default function BrandPage() {
         </div>
       </section>
 
+      {/* The Construction Section (New) */}
+      <section className={cn(
+        "border-b transition-colors duration-300",
+        invertTheme 
+          ? "border-neutral-800 dark:border-neutral-200" 
+          : "border-neutral-200 dark:border-neutral-800"
+      )}>
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-8 mb-12">
+            <div className="col-span-4 md:col-span-4 lg:col-span-6">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-swiss-red mb-4">
+                Construction
+              </p>
+              <h2 className={cn(
+                "text-3xl md:text-4xl font-bold tracking-tight mb-4 transition-colors duration-300",
+                invertTheme 
+                  ? "text-white dark:text-neutral-900" 
+                  : "text-neutral-900 dark:text-white"
+              )}>
+                Anatomy of a Logo
+              </h2>
+              <p className={cn(
+                "text-lg leading-relaxed transition-colors duration-300",
+                invertTheme 
+                  ? "text-neutral-400 dark:text-neutral-600" 
+                  : "text-neutral-600 dark:text-neutral-400"
+              )}>
+                Every symbol is built from three distinct layers, unified by the central core.
+              </p>
+            </div>
+          </div>
+
+          <div className={cn(
+            "grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-4 md:gap-8 p-6 md:p-12 transition-colors duration-300",
+            invertTheme 
+              ? "bg-neutral-900 dark:bg-neutral-100" 
+              : "bg-neutral-100 dark:bg-neutral-900"
+          )}>
+            {/* Layer 1: Shape */}
+            <div className="col-span-4 md:col-span-2 lg:col-span-3 flex flex-col items-center">
+              <div className="relative mb-4 h-32 w-32 flex items-center justify-center">
+                <TrackLogo 
+                  track="engineering" 
+                  platform="android" 
+                  size={96} 
+                  showLayer="shape"
+                  className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
+                />
+                <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">01</span>
+              </div>
+              <p className="font-bold text-sm uppercase tracking-wider">The Shape</p>
+              <p className="text-xs opacity-60 mt-1">Defines the Track</p>
+            </div>
+
+            {/* Plus */}
+            <div className="hidden lg:flex col-span-1 items-center justify-center opacity-30 text-2xl font-light">+</div>
+
+            {/* Layer 2: Platform */}
+            <div className="col-span-4 md:col-span-2 lg:col-span-3 flex flex-col items-center">
+              <div className="relative mb-4 h-32 w-32 flex items-center justify-center">
+                <TrackLogo 
+                  track="engineering" 
+                  platform="android" 
+                  size={96} 
+                  showLayer="platform"
+                  className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
+                />
+                <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">02</span>
+              </div>
+              <p className="font-bold text-sm uppercase tracking-wider">The Texture</p>
+              <p className="text-xs opacity-60 mt-1">Defines the Platform</p>
+            </div>
+
+            {/* Plus */}
+            <div className="hidden lg:flex col-span-1 items-center justify-center opacity-30 text-2xl font-light">+</div>
+
+            {/* Layer 3: Core */}
+            <div className="col-span-4 md:col-span-2 lg:col-span-3 flex flex-col items-center">
+              <div className="relative mb-4 h-32 w-32 flex items-center justify-center">
+                <TrackLogo 
+                  track="engineering" 
+                  platform="android" 
+                  size={96} 
+                  showLayer="core"
+                  className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
+                />
+                <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">03</span>
+              </div>
+              <p className="font-bold text-sm uppercase tracking-wider">The Core</p>
+              <p className="text-xs opacity-60 mt-1">Defines the Brand</p>
+            </div>
+
+            {/* Equals / Result */}
+            <div className="col-span-full pt-8 flex flex-col items-center border-t border-neutral-200 dark:border-neutral-800 mt-4">
+              <div className="relative h-48 w-48 flex items-center justify-center">
+                 {/* Grid Overlay */}
+                 <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-10 pointer-events-none">
+                    {[...Array(16)].map((_, i) => (
+                      <div key={i} className="border border-current" />
+                    ))}
+                 </div>
+                 
+                <TrackLogo 
+                  track="engineering" 
+                  platform="android" 
+                  size={128} 
+                  className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
+                />
+              </div>
+              <p className="font-bold text-sm uppercase tracking-wider mt-4">Engineering × Android</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The System Section */}
       <section className={cn(
         "border-b transition-colors duration-300",
@@ -418,8 +534,20 @@ export default function BrandPage() {
                           : "bg-white text-neutral-900 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
                     )}
                   >
-                    <span className="text-lg">
-                      {track === "design" ? "◯" : track === "engineering" ? "▢" : "✕"}
+                    <span className="text-lg flex items-center justify-center w-5 h-5">
+                      {track === "design" ? (
+                        <svg viewBox="0 0 20 20" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="10" cy="10" r="8" />
+                        </svg>
+                      ) : track === "engineering" ? (
+                        <svg viewBox="0 0 20 20" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="2" y="2" width="16" height="16" />
+                        </svg>
+                      ) : (
+                        <svg viewBox="0 0 20 20" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="2" y="2" width="16" height="16" rx="5" ry="5" />
+                        </svg>
+                      )}
                     </span>
                     <div>
                       <p className="font-semibold text-sm">{trackDescriptions[track].name}</p>
@@ -475,9 +603,7 @@ export default function BrandPage() {
                           : "bg-white text-neutral-900 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
                     )}
                   >
-                    <span className="text-lg">
-                      {platform === "web" ? "≡" : platform === "ios" ? "⌢" : "◢"}
-                    </span>
+                    <PlatformIcon platform={platform} size={20} className="shrink-0" />
                     <div>
                       <p className="font-semibold text-sm">{platformDescriptions[platform].name}</p>
                       <p className={cn(

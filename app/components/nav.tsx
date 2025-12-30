@@ -14,7 +14,7 @@ import { Button } from "@/app/components/ui";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
-import { Logo } from "./logo";
+import { Logo } from "@/app/components/logo";
 import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
@@ -335,9 +335,12 @@ export default function Nav({
           <NextLink
             href="/"
             prefetch={true}
-            className="focus-ring text-foreground"
+            className="focus-ring text-foreground group"
           >
-            <Logo className="text-foreground size-8" />
+            <Logo 
+              size={32} 
+              className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105" 
+            />
           </NextLink>
         </div>
 
