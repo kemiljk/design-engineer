@@ -376,17 +376,17 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         <article>
           <div className="mb-8">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <BreadcrumbNav slug={slug} />
-              {modules.length > 0 && currentModule && (
+            <BreadcrumbNav slug={slug} />
+            {modules.length > 0 && currentModule && (
+              <div className="mt-3">
                 <ModuleJumper
                   modules={modules}
                   currentModule={currentModule}
                   trackSlug={trackSlug}
                   platformSlug={platformSlug}
                 />
-              )}
-            </div>
+              </div>
+            )}
             <h1 className="mt-4 text-3xl font-bold">{title}</h1>
           </div>
 
