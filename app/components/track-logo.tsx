@@ -277,43 +277,20 @@ function PlatformTreatment({
 
     case "android":
       // Filled Triangle - "Angular cuts"
-      // EXACT coordinates from user's SVGs, scaled from 42px to 32px
-      // Scale factor: 32/42 = 0.762
+      // All tracks use identical triangle dimensions for consistency
+      // Scale factor: 32/42 = 0.762 (from 42px to 32px viewBox)
       const androidScale = 32 / 42;
 
-      if (track === "design") {
-        // Design Android: triangle in bottom-left corner
-        // Original SVG path: M12.5 40L1.5 29V40H12.5Z (42px viewBox)
-        // Triangle creates a "cut" effect without touching the circle
-        return (
-          <path
-            d={`M ${12.5 * androidScale} ${40 * androidScale} L ${1.5 * androidScale} ${29 * androidScale} L ${1.5 * androidScale} ${40 * androidScale} Z`}
-            fill="currentColor"
-            stroke="none"
-          />
-        );
-      } else if (track === "engineering") {
-        // Engineering Android: triangle in bottom-left corner
-        // Original SVG path: M17 36L6 25V36H17Z (42px viewBox)
-        return (
-          <path
-            d={`M ${17 * androidScale} ${36 * androidScale} L ${6 * androidScale} ${25 * androidScale} L ${6 * androidScale} ${36 * androidScale} Z`}
-            fill="currentColor"
-            stroke="none"
-          />
-        );
-      } else {
-        // Convergence: perfect right triangle, nudged inward to clear rounded corner
-        // Equal legs of 8 units each (isoceles right triangle)
-        // Triangle in 42px coords: tip at (11, 23), base at y=31, 8x8 triangle
-        return (
-          <path
-            d={`M ${19 * androidScale} ${31 * androidScale} L ${11 * androidScale} ${23 * androidScale} L ${11 * androidScale} ${31 * androidScale} Z`}
-            fill="currentColor"
-            stroke="none"
-          />
-        );
-      }
+      // All tracks use the same triangle size and position (from Convergence)
+      // Perfect right triangle, 8x8 units in 42px coordinates
+      // Points: bottom-right (19, 31), top (11, 23), bottom-left (11, 31)
+      return (
+        <path
+          d={`M ${19 * androidScale} ${31 * androidScale} L ${11 * androidScale} ${23 * androidScale} L ${11 * androidScale} ${31 * androidScale} Z`}
+          fill="currentColor"
+          stroke="none"
+        />
+      );
   }
 }
 
