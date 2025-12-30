@@ -47,14 +47,16 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
         body: JSON.stringify({ platform }),
       });
       
-      if (response.ok) {
-        router.refresh();
-      } else {
+      // Always refresh to resync UI with server state
+      router.refresh();
+      
+      if (!response.ok) {
         const data = await response.json();
         console.error("Certificate claim failed:", data.error);
       }
     } catch (error) {
       console.error("Error claiming certificate:", error);
+      router.refresh(); // Refresh on error too
     } finally {
       setIsLoading(false);
     }
@@ -70,14 +72,16 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
         body: JSON.stringify({ platform, track }),
       });
       
-      if (response.ok) {
-        router.refresh();
-      } else {
+      // Always refresh to resync UI with server state
+      router.refresh();
+      
+      if (!response.ok) {
         const data = await response.json();
         console.error("Track certificate claim failed:", data.error);
       }
     } catch (error) {
       console.error("Error claiming track certificate:", error);
+      router.refresh(); // Refresh on error too
     } finally {
       setClaimingTrack(null);
     }

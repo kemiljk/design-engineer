@@ -45,19 +45,18 @@ const PLATFORM_ICONS = {
 
 export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps) {
   const [progress, setProgress] = useState<Record<string, PlatformProgress>>({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
   
   // Map slug to structure key
   const trackKey = trackSlug.replace("-track", "") as PlatformTrackKey;
   
   useEffect(() => {
+    setHasMounted(true);
+    
     async function fetchProgress() {
       try {
         const response = await fetch("/api/course/progress");
-        if (!response.ok) {
-          setIsLoading(false);
-          return;
-        }
+        if (!response.ok) return;
         
         const data = await response.json();
         const lessons = data.progress?.metadata?.lessons || {};
@@ -89,8 +88,6 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
         setProgress(platformProgress);
       } catch {
         // User not logged in or error - just show cards without progress
-      } finally {
-        setIsLoading(false);
       }
     }
     
@@ -110,7 +107,9 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
         const platformData = trackData[platform];
         const startLink = START_LINKS[trackKey][platform];
         const Icon = PLATFORM_ICONS[platform];
-        const platformProgress = progress[platform];
+        
+        // Only use progress data after client mount to avoid hydration mismatch
+        const platformProgress = hasMounted ? progress[platform] : undefined;
         const isCompleted = platformProgress && platformProgress.completed === platformProgress.total && platformProgress.total > 0;
         const hasStarted = platformProgress && platformProgress.completed > 0;
 
@@ -162,7 +161,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
                   <Clock className="h-3.5 w-3.5 shrink-0" />
                   {getEstimatedDuration(platformData.lessons)}
                 </span>
-                {!isLoading && hasStarted && !isCompleted && (
+                {hasMounted && hasStarted && !isCompleted && platformProgress && (
                   <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-swiss-red">
                     <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
                     {platformProgress.completed}/{platformProgress.total} done
