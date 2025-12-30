@@ -277,43 +277,26 @@ function PlatformTreatment({
 
     case "android":
       // Filled Triangle - "Angular cuts"
-      // EXACT coordinates from user's SVGs, scaled from 42px to 32px
-      // Scale factor: 32/42 = 0.762
-      const androidScale = 32 / 42;
-
-      if (track === "design") {
-        // Design Android: triangle in bottom-left corner
-        // Original SVG path: M12.5 40L1.5 29V40H12.5Z (42px viewBox)
-        // Triangle creates a "cut" effect without touching the circle
-        return (
-          <path
-            d={`M ${12.5 * androidScale} ${40 * androidScale} L ${1.5 * androidScale} ${29 * androidScale} L ${1.5 * androidScale} ${40 * androidScale} Z`}
-            fill="currentColor"
-            stroke="none"
-          />
-        );
-      } else if (track === "engineering") {
-        // Engineering Android: triangle in bottom-left corner
-        // Original SVG path: M17 36L6 25V36H17Z (42px viewBox)
-        return (
-          <path
-            d={`M ${17 * androidScale} ${36 * androidScale} L ${6 * androidScale} ${25 * androidScale} L ${6 * androidScale} ${36 * androidScale} Z`}
-            fill="currentColor"
-            stroke="none"
-          />
-        );
-      } else {
-        // Convergence: perfect right triangle, nudged inward to clear rounded corner
-        // Equal legs of 8 units each (isoceles right triangle)
-        // Triangle in 42px coords: tip at (11, 23), base at y=31, 8x8 triangle
-        return (
-          <path
-            d={`M ${19 * androidScale} ${31 * androidScale} L ${11 * androidScale} ${23 * androidScale} L ${11 * androidScale} ${31 * androidScale} Z`}
-            fill="currentColor"
-            stroke="none"
-          />
-        );
-      }
+      // Mathematically perfect isoceles right triangle with grid-aligned coordinates
+      //
+      // Triangle specification (32px viewBox):
+      //   - Size: 6×6 units (equal legs)
+      //   - Bottom-left corner: (8, 24)
+      //   - Top vertex: (8, 18)
+      //   - Bottom-right corner: (14, 24)
+      //
+      // Geometry:
+      //   - Left leg: 6 units vertical (24 - 18 = 6)
+      //   - Bottom leg: 6 units horizontal (14 - 8 = 6)
+      //   - Hypotenuse: √72 ≈ 8.49 units at 45°
+      //   - All vertices on integer grid coordinates
+      return (
+        <path
+          d="M 14 24 L 8 18 L 8 24 Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      );
   }
 }
 
