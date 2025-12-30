@@ -19,7 +19,9 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhooks/lemonsqueezy(.*)",
   "/api/course/test-access(.*)", // E2E test access control
   "/api/course/preview(.*)", // Preview access for reviewers
+  "/api/course/debug-complete(.*)", // Debug endpoint for testing certificates (dev only)
   "/api/course/admin/setup-gallery(.*)", // Gallery object type setup
+  "/api/course/admin/setup-certificates(.*)", // Certificate object type setup (dev only)
   "/course/preview(.*)", // Preview activation page
   "/api/og(.*)", // OG image generation
   "/icon", // Favicon
