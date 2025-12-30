@@ -223,6 +223,49 @@ void main() {
 }
 ```
 
+### Progressive Blur
+
+One of the most popular shader techniques in modern UI is *progressive blur*—where blur intensity varies smoothly across the image. You've seen this in iOS/macOS interfaces: navigation bars that blur content beneath them, with the blur intensifying towards the top.
+
+<!-- visual-example: shader-progressive-blur-demo -->
+
+The key is calculating a blur factor based on position, then varying the sample radius:
+
+```glsl
+uniform sampler2D u_texture;
+uniform vec2 u_resolution;
+uniform float u_blurStrength;
+uniform int u_direction;  // 0 = top→bottom, 1 = bottom→top, 2 = radial
+uniform float u_falloff;
+
+void main() {
+  vec2 uv = gl_FragCoord.xy / u_resolution;
+  
+  // Calculate blur factor based on direction
+  float blurFactor = 0.0;
+  
+  if (u_direction == 0) {
+    // Sharp at top, blurry at bottom
+    blurFactor = pow(uv.y, u_falloff);
+  } else if (u_direction == 1) {
+    // Sharp at bottom, blurry at top
+    blurFactor = pow(1.0 - uv.y, u_falloff);
+  } else {
+    // Sharp at centre, blurry at edges (radial)
+    float dist = distance(uv, vec2(0.5)) * 2.0;
+    blurFactor = pow(dist, u_falloff);
+  }
+  
+  blurFactor = clamp(blurFactor, 0.0, 1.0) * u_blurStrength;
+  
+  // Variable blur based on calculated factor
+  vec4 color = variableBlur(u_texture, uv, u_resolution, blurFactor);
+  gl_FragColor = color;
+}
+```
+
+The `u_falloff` uniform controls how sharply the blur transitions—lower values create a more gradual fade, higher values snap more quickly to maximum blur.
+
 ## Scroll-Driven Effects
 
 Connect your shader to scroll position for parallax and reveal effects.
