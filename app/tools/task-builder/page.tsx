@@ -2,7 +2,7 @@ import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import TaskBuilder from "./builder";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { ArrowRight, Sparkles, Target, Layers, Zap, CheckCircle2 } from "lucide-react";
+import { NavArrowRight as ArrowRight, Sparks as Sparkles, Compass as Target, Combine as Layers, Flash as Zap, CheckCircle as CheckCircle2 } from "iconoir-react";
 import { Button } from "@/app/components/ui";
 import { getTaskBuilderSuggestions } from "@/lib/cosmic";
 

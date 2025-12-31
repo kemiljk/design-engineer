@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getUserNotes } from "@/lib/course";
-import { StickyNote, ArrowLeft, Pin, ExternalLink } from "lucide-react";
+import { Notes as StickyNote, NavArrowLeft as ArrowLeft, Pin, OpenNewWindow as ExternalLink } from "iconoir-react";
 import type { CourseNote } from "@/lib/types";
 
 export const metadata = {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { MousePointer2 } from "lucide-react";
+import { CursorPointer as MousePointer2 } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,

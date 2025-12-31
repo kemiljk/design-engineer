@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CheckCircle, Calendar, Clock, ExternalLink, ArrowLeft, Award } from "lucide-react";
+import { CheckCircle, Calendar, Clock, OpenNewWindow as ExternalLink, NavArrowLeft as ArrowLeft, Medal as Award } from "iconoir-react";
 import { getCertificateBySlug, getTotalLessonsForPlatform } from "@/lib/certificate";
 import { COURSE_STRUCTURE } from "@/lib/course-shared";
 import type { CertificatePlatform, CertificateTrack } from "@/lib/types";

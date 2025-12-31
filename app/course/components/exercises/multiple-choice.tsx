@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle as CheckCircle2, XmarkCircle as XCircle } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { fireSuccessConfetti } from "@/lib/confetti";
 import { ExerciseWrapper } from "./exercise-wrapper";

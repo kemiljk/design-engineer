@@ -6,11 +6,11 @@ import { Button } from "@/app/components/ui";
 import {
   Copy,
   Check,
-  Trash2,
-  Sparkles,
-  MessageSquare,
+  Trash,
+  Sparks as Sparkles,
+  MessageText as MessageSquare,
   ArrowUp,
-} from "lucide-react";
+} from "iconoir-react";
 import { ConversationMessage, continueConversation } from "../actions";
 import { readStreamableValue } from '@ai-sdk/rsc';
 import { TaskBuilderSuggestion } from "@/lib/types";
@@ -101,7 +101,7 @@ function TaskBuilder({
             variant="ghost"
             size="sm"
             onClick={clearConversation}
-            startContent={<Trash2 className="h-4 w-4" />}
+            startContent={<Trash className="h-4 w-4" />}
             className="text-neutral-500 hover:text-red-500"
           >
             Clear

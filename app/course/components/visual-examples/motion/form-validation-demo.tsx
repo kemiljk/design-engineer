@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, X, Loader2, AtSign } from "lucide-react";
+import { Check, Xmark as X, RefreshDouble as Loader2, AtSign } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

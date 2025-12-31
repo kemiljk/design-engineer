@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Target, Frown, Monitor, Gauge } from "lucide-react";
+import { Compass as Target, EmojiSad as Frown, Computer as Monitor, Dashboard as Gauge } from "iconoir-react";
 
 interface Persona {
   name: string;

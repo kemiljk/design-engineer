@@ -4,13 +4,13 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Bell,
-  MessageSquare,
+  ChatBubble as MessageSquare,
   Mail,
   Calendar,
-  X,
-  CheckCircle2,
-  AlertCircle,
-} from "lucide-react";
+  Xmark as X,
+  CheckCircle as CheckCircle2,
+  WarningCircle as AlertCircle,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

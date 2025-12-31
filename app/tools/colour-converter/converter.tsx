@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Copy, Check, Pipette } from "lucide-react";
+import { Copy, Check, ColorPicker as Pipette } from "iconoir-react";
 import { clsx } from "clsx";
 
 type ColorFormat = "hex" | "rgb" | "hsl" | "oklch" | "swift" | "android" | "tailwind";

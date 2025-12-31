@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { RotateCcw } from "lucide-react";
+import { Undo as RotateCcw } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

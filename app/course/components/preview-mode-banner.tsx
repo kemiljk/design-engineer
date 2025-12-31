@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Eye, X } from "lucide-react";
+import { Eye, Xmark as X } from "iconoir-react";
 
 const STORAGE_KEY = "previewBannerDismissed";
 

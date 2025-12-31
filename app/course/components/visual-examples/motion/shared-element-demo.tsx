@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, MotionConfig } from "motion/react";
-import { X } from "lucide-react";
+import { Xmark as X } from "iconoir-react";
 import { ExampleWrapper, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 

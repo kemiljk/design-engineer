@@ -2,15 +2,15 @@
 
 import React from "react";
 import { 
-  ArrowRight, 
-  ArrowDown,
-  AlignStartVertical,
-  AlignCenterVertical,
-  AlignEndVertical,
-  AlignStartHorizontal,
-  AlignCenterHorizontal,
-  AlignEndHorizontal,
-} from "lucide-react";
+  NavArrowRight as ArrowRight, 
+  NavArrowDown as ArrowDown,
+  AlignTopBox as AlignStartVertical,
+  AlignVerticalCenters as AlignCenterVertical,
+  AlignBottomBox as AlignEndVertical,
+  AlignLeftBox as AlignStartHorizontal,
+  AlignHorizontalCenters as AlignCenterHorizontal,
+  AlignRightBox as AlignEndHorizontal,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface AutoLayoutPanelProps {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "iconoir-react";
 
 export function TypographicShowcaseDemo() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { ArrowRight, Copy, Check, AlertCircle } from "lucide-react";
+import { NavArrowRight as ArrowRight, Copy, Check, WarningCircle as AlertCircle } from "iconoir-react";
 import { clsx } from "clsx";
 
 type Framework = "react" | "vue" | "svelte" | "astro" | "solid";

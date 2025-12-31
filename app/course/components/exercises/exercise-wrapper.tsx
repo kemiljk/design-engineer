@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, XCircle, RotateCcw, Target } from "lucide-react";
+import { CheckCircle as CheckCircle2, XmarkCircle as XCircle, Undo as RotateCcw, Compass as Target } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import type { ExerciseDifficulty } from "@/lib/exercise-types";
 

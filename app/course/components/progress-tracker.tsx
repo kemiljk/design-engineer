@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { CheckCircle2, Circle, Clock, Trophy } from "lucide-react";
+import { CheckCircle as CheckCircle2, Circle, Clock, Trophy } from "iconoir-react";
 
 interface ProgressStats {
   totalLessons: number;

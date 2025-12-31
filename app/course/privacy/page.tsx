@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Shield } from "lucide-react";
+import { NavArrowLeft as ArrowLeft, Shield } from "iconoir-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Design Engineer Course",

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeClosed as EyeOff } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

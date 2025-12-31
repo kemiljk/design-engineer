@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {
     optimizePackageImports: [
-      "lucide-react",
+      "iconoir-react",
       "date-fns",
     ],
   },

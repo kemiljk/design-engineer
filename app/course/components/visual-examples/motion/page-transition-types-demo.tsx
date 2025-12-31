@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, ArrowRight, Smartphone, Settings, User, Home } from "lucide-react";
+import { NavArrowLeft as ArrowLeft, NavArrowRight as ArrowRight, SmartphoneDevice as Smartphone, Settings, User, Home } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

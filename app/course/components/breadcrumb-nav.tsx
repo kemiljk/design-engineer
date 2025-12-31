@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { Book as BookOpen } from "iconoir-react";
 import { formatBreadcrumb } from "@/lib/format";
 
 interface BreadcrumbNavProps {

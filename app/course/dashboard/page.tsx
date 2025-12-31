@@ -2,19 +2,19 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import {
-  ArrowLeft,
-  ArrowRight,
-  StickyNote,
-  Award,
-  FolderKanban,
+  NavArrowLeft as ArrowLeft,
+  NavArrowRight as ArrowRight,
+  Notes as StickyNote,
+  Medal as Award,
+  Folder as FolderKanban,
   Clock,
   Trophy,
-  BookOpen,
+  Book as BookOpen,
   Send,
   PlusCircle,
-  ExternalLink,
+  OpenNewWindow as ExternalLink,
   User,
-} from "lucide-react";
+} from "iconoir-react";
 import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
 import { getUserCertificates, checkCertificateEligibility } from "@/lib/certificate";
 import { getUserGalleryProjects } from "@/lib/cosmic";

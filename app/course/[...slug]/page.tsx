@@ -4,7 +4,7 @@ import Link from "next/link";
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { ArrowLeft, ArrowRight, Lock, Clock } from "lucide-react";
+import { NavArrowLeft as ArrowLeft, NavArrowRight as ArrowRight, Lock, Clock } from "iconoir-react";
 import { 
   getUserEnrollment, 
   canAccessLesson, 

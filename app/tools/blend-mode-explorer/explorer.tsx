@@ -19,7 +19,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, Heart, MessageCircle, Share2, Bookmark, ImagePlus, X } from "lucide-react";
+import { Plus, Trash, InfoCircle as Info, NavArrowDown as ChevronDown, NavArrowUp as ChevronUp, Drag as GripVertical, Copy, Check, Heart, MessageText as MessageCircle, ShareIos as Share2, Bookmark, MediaImagePlus as ImagePlus, Xmark as X } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -389,7 +389,7 @@ function SortableLayer({
           disabled={!canRemove}
           className="p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30"
         >
-          <Trash2 className="h-4 w-4" />
+          <Trash className="h-4 w-4" />
         </button>
       </div>
 

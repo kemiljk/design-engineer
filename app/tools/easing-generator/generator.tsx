@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import { Copy, Check, RefreshCw } from "lucide-react";
+import { Copy, Check, RefreshDouble as RefreshCw } from "iconoir-react";
 
 type Point = { x: number; y: number };
 

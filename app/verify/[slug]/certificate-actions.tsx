@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Share2, Printer, Copy, Check, Linkedin } from "lucide-react";
+import { ShareIos as Share2, Printer, Copy, Check, Linkedin } from "iconoir-react";
 
 function XLogo({ className }: { className?: string }) {
   return (

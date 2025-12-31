@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { RefreshCw } from "lucide-react";
+import { RefreshDouble as RefreshCw } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 

@@ -1,4 +1,4 @@
-import { Clock } from "lucide-react";
+import { Clock } from "iconoir-react";
 import Markdown from "@/app/components/Markdown";
 import CopyButton from "@/app/components/copy-button";
 import { RelativeDate } from "@/app/components/relative-date";

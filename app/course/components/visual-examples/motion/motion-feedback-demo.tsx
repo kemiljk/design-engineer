@@ -4,13 +4,13 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Check,
-  X,
-  Loader2,
-  RefreshCw,
-  Trash2,
-  Save,
-  ArrowRight,
-} from "lucide-react";
+  Xmark as X,
+  RefreshDouble as Loader2,
+  Refresh as RefreshCw,
+  Trash,
+  FloppyDisk as Save,
+  NavArrowRight as ArrowRight,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -228,7 +228,7 @@ function FeedbackButton() {
                     exit={{ opacity: 0, y: -5 }}
                     className="flex items-center gap-2"
                   >
-                    <Trash2 className="size-3.5" />
+                    <Trash className="size-3.5" />
                     <span>Delete</span>
                   </motion.div>
                 )}

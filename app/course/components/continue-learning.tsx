@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { NavArrowRight as ArrowRight, PlaySolid as PlayCircle } from "iconoir-react";
 import { formatTitle, formatBreadcrumb } from "@/lib/format";
 
 interface ContinueLearningProps {

@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Github, Video, Clock, CheckCircle, Star } from "lucide-react";
+import { OpenNewWindow as ExternalLink, Github, VideoCamera as Video, Clock, CheckCircle, StarSolid as Star } from "iconoir-react";
 import type { GalleryProject } from "@/lib/types";
 import Image from "next/image";
 

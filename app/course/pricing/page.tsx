@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
-import { ArrowLeft, Check, ShieldCheck, PartyPopper } from "lucide-react";
+import { NavArrowLeft as ArrowLeft, Check, ShieldCheck, Gift as PartyPopper } from "iconoir-react";
 import { StudentDiscountForm } from "./student-discount-form";
 import { PricingClientWrapper } from "./pricing-client-wrapper";
 import { getUserEnrollment, normalizeAccessLevel } from "@/lib/course";

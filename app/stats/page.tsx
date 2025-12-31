@@ -3,7 +3,7 @@ import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
 import { Chip } from "@/app/components/ui";
-import { CalendarCheck, Clipboard } from "lucide-react";
+import { Calendar as CalendarCheck, ClipboardCheck as Clipboard } from "iconoir-react";
 
 
 export default async function Stats() {

@@ -5,7 +5,7 @@ import { getPosts, getResources } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ResourceIcon } from "../components/resource-icon";
 import { PageHeader } from "../components/page-header";
-import { ExternalLink } from "lucide-react";
+import { OpenNewWindow as ExternalLink } from "iconoir-react";
 
 const ResourcesPage: React.FC = async () => {
   const [resources, fetchPosts] = await Promise.all([

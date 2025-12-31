@@ -2,14 +2,14 @@ import { Metadata } from "next";
 import { PageHeader } from "../components/page-header";
 import { Callout } from "@/app/components/ui";
 import {
-  ArrowRight,
-  Code2,
-  Layout,
-  ArrowLeftRight,
-  Target,
-  Zap,
-  CheckCircle2,
-} from "lucide-react";
+  NavArrowRight as ArrowRight,
+  Code as Code2,
+  LayoutLeft as Layout,
+  DoubleCheck as ArrowLeftRight,
+  Compass as Target,
+  Flash as Zap,
+  CheckCircle as CheckCircle2,
+} from "iconoir-react";
 import NextLink from "next/link";
 
 export const metadata: Metadata = {

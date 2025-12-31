@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardBody, CardFooter, Button } from "@/app/components/ui";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "iconoir-react";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";
 import Image from "next/image";

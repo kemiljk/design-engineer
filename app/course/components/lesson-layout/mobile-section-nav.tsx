@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "motion/react";
-import { ChevronUp, X } from "lucide-react";
+import { NavArrowUp as ChevronUp, Xmark as X } from "iconoir-react";
 
 interface Section {
   id: string;

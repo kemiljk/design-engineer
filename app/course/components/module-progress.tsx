@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Circle } from "lucide-react";
+import { CheckCircle as CheckCircle2, Circle } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface ModuleProgressProps {

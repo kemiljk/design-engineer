@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Plus, Trash2, GripVertical } from "lucide-react";
+import { Plus, Trash, Drag as GripVertical } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -350,7 +350,7 @@ Brush.radialGradient(
                   disabled={stops.length <= 2}
                   className="ml-auto p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30 sm:ml-0"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Trash className="h-4 w-4" />
                 </button>
               </div>
             ))}

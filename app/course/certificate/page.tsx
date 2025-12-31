@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Award } from "lucide-react";
+import { NavArrowLeft as ArrowLeft, Medal as Award } from "iconoir-react";
 import { getUserCertificates, getUserTrackCertificates, checkCertificateEligibility } from "@/lib/certificate";
 import { CertificateCard } from "./certificate-card";
 import { TrackCertificateCard } from "./track-certificate-card";

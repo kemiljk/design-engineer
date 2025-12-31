@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Lightbulb, Eye, EyeOff } from "lucide-react";
+import { LightBulb as Lightbulb, Eye, EyeClosed as EyeOff } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { fireSuccessConfetti } from "@/lib/confetti";
 import { ExerciseWrapper } from "./exercise-wrapper";

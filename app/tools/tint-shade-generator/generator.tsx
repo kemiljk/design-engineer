@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { Copy, Check, Pipette } from "lucide-react";
+import { Copy, Check, ColorPicker as Pipette } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 

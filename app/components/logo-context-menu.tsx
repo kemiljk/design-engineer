@@ -4,11 +4,11 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Download, 
-  FileCode, 
-  Image as ImageIcon, 
+  Code as FileCode, 
+  MediaImage as ImageIcon, 
   Check,
-  ExternalLink
-} from "lucide-react";
+  OpenNewWindow as ExternalLink
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ease, duration } from "@/lib/motion";
 

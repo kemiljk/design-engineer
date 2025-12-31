@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Check, Download, Copy, RotateCcw } from "lucide-react";
+import { Check, Download, Copy, Undo as RotateCcw } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 

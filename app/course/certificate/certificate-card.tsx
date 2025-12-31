@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, Share2, ExternalLink, Award } from "lucide-react";
+import { Download, ShareIos as Share2, OpenNewWindow as ExternalLink, Medal as Award } from "iconoir-react";
 import { pdf } from "@react-pdf/renderer";
 import { CertificatePDF } from "./certificate-pdf";
 import type { Certificate } from "@/lib/types";

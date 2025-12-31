@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, type MotionStyle, type Transition } from "motion/react";
-import { Mail, ArrowRight, Zap } from "lucide-react";
+import { Mail, NavArrowRight as ArrowRight, Flash as Zap } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

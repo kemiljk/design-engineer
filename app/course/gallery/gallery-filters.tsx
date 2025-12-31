@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { X } from "lucide-react";
+import { Xmark as X } from "iconoir-react";
 
 interface GalleryFiltersProps {
   currentPlatform?: string;

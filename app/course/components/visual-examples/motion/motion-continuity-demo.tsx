@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { LayoutGrid, List } from "lucide-react";
+import { ViewGrid as LayoutGrid, List } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

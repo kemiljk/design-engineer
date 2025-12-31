@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Settings, User, LogOut, HelpCircle, Bell, Plus } from "lucide-react";
+import { NavArrowRight as ChevronRight, Settings, User, LogOut, HelpCircle, Bell, Plus } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

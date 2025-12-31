@@ -2,27 +2,28 @@ import React from "react";
 import Link from "next/link";
 import { PageHeader } from "@/app/components/page-header";
 import { 
-  Sparkles, 
+  Sparks as Sparkles, 
   Activity, 
   Eye, 
-  Type, 
-  ArrowRight,
+  Text as Type, 
+  NavArrowRight as ArrowRight,
   Lock,
-  Spline,
-  Ratio,
-  Layers,
+  CurveArray as Spline,
+  Frame as Ratio,
+  Combine as Layers,
   Palette,
-  Code2,
-  Blend,
-  Pointer,
+  Code as Code2,
+  Intersect as Blend,
+  CursorPointer as Pointer,
   AppWindow,
   Square,
-  SunMoon,
-  Combine,
-  Tags,
-  SquareStack,
-  LucideIcon
-} from "lucide-react";
+  SunLight as SunMoon,
+  Union as Combine,
+  Label as Tags,
+  Square3dCornerToCorner as SquareStack,
+} from "iconoir-react";
+import type { ComponentType, SVGProps } from "react";
+type IconType = ComponentType<SVGProps<SVGSVGElement>>;
 import { SignedOut } from "@clerk/nextjs";
 
 export const metadata = {
@@ -34,7 +35,7 @@ type Tool = {
   title: string;
   description: string;
   href: string;
-  icon: LucideIcon;
+  icon: IconType;
   isGated: boolean;
 };
 

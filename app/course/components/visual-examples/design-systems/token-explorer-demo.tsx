@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copy, Check, Sun, Moon } from "lucide-react";
+import { Copy, Check, SunLight as Sun, HalfMoon as Moon } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 

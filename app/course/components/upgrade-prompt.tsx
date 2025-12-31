@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 import { motion } from "motion/react";
-import { Lock, Crown, Check, ArrowRight } from "lucide-react";
+import { Lock, Crown, Check, NavArrowRight as ArrowRight } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import type { ProductKey, ProductWithPrice } from "@/lib/types";
 

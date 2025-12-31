@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Play, Activity, FlagTriangleRight } from "lucide-react";
+import { Play, Activity, TriangleFlag as FlagTriangleRight } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

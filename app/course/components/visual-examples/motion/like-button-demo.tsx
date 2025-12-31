@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
+import { Heart, MessageText as MessageCircle, ShareIos as Share2, Bookmark } from "iconoir-react";
 import confetti from "canvas-confetti";
 import { cn } from "@/lib/utils";
 import {
@@ -306,7 +306,7 @@ export function LikeButtonDemo() {
 }`;
 
   const motionCode = `import { motion, AnimatePresence } from "motion/react";
-import { Heart } from "lucide-react";
+import { Heart } from "iconoir-react";
 import confetti from "canvas-confetti";
 
 function LikeButton() {

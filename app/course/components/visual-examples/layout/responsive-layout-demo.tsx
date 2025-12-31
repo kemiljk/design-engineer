@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
-import { Monitor, Tablet, Smartphone } from "lucide-react";
+import { Computer as Monitor, MacOsWindow as Tablet, SmartphoneDevice as Smartphone } from "iconoir-react";
 
 type Viewport = "mobile" | "tablet" | "desktop";
 

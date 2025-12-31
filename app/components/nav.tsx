@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "@/app/components/logo";
 import { LogoContextMenu } from "@/app/components/logo-context-menu";
-import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban, ExternalLink } from "lucide-react";
+import { Menu, MoreHoriz as MoreHorizontal, Xmark, ViewGrid as LayoutDashboard, Notes as StickyNote, Medal as Award, Folder as FolderKanban, OpenNewWindow as ExternalLink } from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -415,7 +415,7 @@ export default function Nav({
             className="focus-ring p-2 transition-transform duration-150 ease-out active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none sm:hidden"
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <Xmark className="h-6 w-6" />
             ) : (
               <Menu className="h-6 w-6" />
             )}

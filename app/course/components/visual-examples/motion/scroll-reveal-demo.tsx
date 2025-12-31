@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Zap, Shield, Globe, Cpu } from "lucide-react";
+import { Flash as Zap, ShieldCheck as Shield, Globe, Cpu } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

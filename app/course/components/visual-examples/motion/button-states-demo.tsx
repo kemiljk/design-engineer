@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Loader2, Send, MousePointer2, Hand, RefreshCw } from "lucide-react";
+import { Check, RefreshDouble as Loader2, Send, CursorPointer as MousePointer2, HandCard as Hand, Refresh as RefreshCw } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

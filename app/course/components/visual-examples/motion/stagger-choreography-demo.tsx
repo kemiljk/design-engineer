@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { RotateCcw, Mail, MessageSquare, Calendar, Bell, CheckCircle2 } from "lucide-react";
+import { Undo as RotateCcw, Mail, ChatBubble as MessageSquare, Calendar, Bell, CheckCircle as CheckCircle2 } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

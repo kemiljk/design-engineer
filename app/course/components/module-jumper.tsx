@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Check, Layers } from "lucide-react";
+import { NavArrowDown as ChevronDown, Check, Combine as Layers } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { formatBreadcrumb } from "@/lib/format";
 

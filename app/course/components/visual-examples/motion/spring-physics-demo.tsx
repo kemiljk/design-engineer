@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useSpring, useTransform } from "motion/react";
-import { Play, RotateCcw, Activity, Settings2 } from "lucide-react";
+import { Play, Undo as RotateCcw, Activity, Settings } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -281,7 +281,7 @@ export function SpringPhysicsDemo() {
         <div className="flex shrink-0 flex-col gap-6 lg:w-64">
           <div className="rounded-3xl border border-neutral-200/60 bg-neutral-50 p-5 shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900/50">
             <div className="mb-4 flex items-center gap-2 text-neutral-900 dark:text-white">
-              <Settings2 className="size-4" />
+              <Settings className="size-4" />
               <h4 className="text-sm font-bold">Parameters</h4>
             </div>
 

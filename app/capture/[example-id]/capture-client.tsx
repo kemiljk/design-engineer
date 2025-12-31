@@ -10,28 +10,28 @@ import {
 } from "motion/react";
 import {
   Mail,
-  ArrowRight,
-  Zap,
+  NavArrowRight as ArrowRight,
+  Flash as Zap,
   Activity,
   Heart,
   Check,
-  Loader2,
+  RefreshDouble as Loader2,
   Send,
-  X,
+  Xmark as X,
   AtSign,
-  MessageSquare,
+  ChatBubble as MessageSquare,
   Calendar,
   Bell,
-  CheckCircle2,
+  CheckCircle as CheckCircle2,
   Settings,
   User,
   HelpCircle,
-  MessageCircle,
-  Repeat2,
-  Share,
-  Sun,
-  Moon,
-} from "lucide-react";
+  MessageText as MessageCircle,
+  Repeat as Repeat2,
+  ShareIos as Share,
+  SunLight as Sun,
+  HalfMoon as Moon,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 // Hide Next.js devtools

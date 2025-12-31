@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, X, Plus, AlertCircle, CheckCircle } from "lucide-react";
+import { RefreshDouble as Loader2, Xmark as X, Plus, WarningCircle as AlertCircle, CheckCircle } from "iconoir-react";
 
 const platforms = [
   { value: "web", label: "Web" },

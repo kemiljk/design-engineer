@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Play, Shuffle } from "lucide-react";
+import { Play, Shuffle } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Plus, X, Check, Trash2 } from "lucide-react";
+import { Plus, Xmark as X, Check, Trash } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -161,7 +161,7 @@ function TodoList() {
                       onClick={() => removeTodo(todo.id)}
                       className="text-neutral-400 opacity-0 transition-opacity group-hover:opacity-100 hover:text-rose-500"
                     >
-                      <Trash2 className="size-4" />
+                      <Trash className="size-4" />
                     </button>
                   </motion.li>
                 ))}

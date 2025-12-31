@@ -5,18 +5,18 @@ import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
 import {
   Home,
-  FileText,
+  Page as FileText,
   Wrench,
-  BookOpen,
-  Users,
-  Info,
+  Book as BookOpen,
+  Group as Users,
+  InfoCircle as Info,
   Search,
-  ExternalLink,
-  Briefcase,
+  OpenNewWindow as ExternalLink,
+  Suitcase as Briefcase,
   UserPlus,
-  Blend,
+  Intersect as Blend,
   GraduationCap,
-} from "lucide-react";
+} from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 

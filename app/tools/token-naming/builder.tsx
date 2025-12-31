@@ -4,24 +4,24 @@ import React, { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Palette,
-  Type,
-  Space,
-  Blend,
-  ChevronRight,
+  Text as Type,
+  Ruler as Space,
+  Intersect as Blend,
+  NavArrowRight as ChevronRight,
   Copy,
   Check,
   Plus,
-  RotateCcw,
-  Layers,
-  Zap,
-  X,
+  Undo as RotateCcw,
+  Combine as Layers,
+  Flash as Zap,
+  Xmark as X,
   Download,
   GraduationCap,
   Wrench,
-  GitBranch,
+  GitFork as GitBranch,
   CheckSquare,
   Square,
-} from "lucide-react";
+} from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 

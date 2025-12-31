@@ -14,22 +14,22 @@ import { Button } from "@/app/components/ui";
 import { TrackLogo } from "@/app/components/track-logo";
 import NextLink from "next/link";
 import {
-  ArrowRight,
-  BookOpen,
-  Code2,
+  NavArrowRight as ArrowRight,
+  Book as BookOpen,
+  Code as Code2,
   Gift,
   Activity,
-  Spline,
-  Type as TypeIcon,
+  CurveArray as Spline,
+  Text as TypeIcon,
   Wrench,
-  Blend,
-  Layers,
+  Intersect as Blend,
+  Combine as Layers,
   Palette,
-  Pointer,
-  Tags,
-  SquareStack,
-  Combine,
-} from "lucide-react";
+  CursorPointer as Pointer,
+  Label as Tags,
+  Square3dCornerToCorner as SquareStack,
+  Union as Combine,
+} from "iconoir-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";

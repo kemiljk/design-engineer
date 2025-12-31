@@ -1,13 +1,13 @@
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import {
-  ArrowLeft,
-  FolderKanban,
-  Star,
+  NavArrowLeft as ArrowLeft,
+  Folder as FolderKanban,
+  StarSolid as Star,
   Send,
   PlusCircle,
-  Filter,
-} from "lucide-react";
+  Filter as FilterIcon,
+} from "iconoir-react";
 import { getGalleryProjects, getFeaturedGalleryProjects } from "@/lib/cosmic";
 import { getUserEnrollment } from "@/lib/course";
 import { Button } from "@/app/components/ui";
@@ -109,7 +109,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         {/* Filters */}
         <div className="mb-6 flex items-center gap-4 border-b border-neutral-200 pb-4 dark:border-neutral-800">
           <div className="flex items-center gap-2 text-sm text-neutral-500">
-            <Filter className="h-4 w-4" />
+            <FilterIcon className="h-4 w-4" />
             Filter:
           </div>
           <GalleryFilters

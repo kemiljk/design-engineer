@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, FileText } from "lucide-react";
+import { NavArrowLeft as ArrowLeft, Page as FileText } from "iconoir-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Design Engineer Course",

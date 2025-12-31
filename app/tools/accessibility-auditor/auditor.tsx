@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { readStreamableValue } from '@ai-sdk/rsc';
 import { auditAccessibility } from "./actions";
-import { Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
+import { RefreshDouble as Loader2, WarningCircle as AlertCircle, CheckCircle as CheckCircle2 } from "iconoir-react";
 import ReactMarkdown from "react-markdown";
 
 export default function AccessibilityAuditor() {

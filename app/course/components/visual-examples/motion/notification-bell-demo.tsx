@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Bell, RotateCcw, Flame } from "lucide-react";
+import { Bell, Undo as RotateCcw, FireFlame as Flame } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

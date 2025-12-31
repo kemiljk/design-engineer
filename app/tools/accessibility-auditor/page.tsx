@@ -2,7 +2,7 @@ import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import AccessibilityAuditor from "./auditor";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { ArrowRight, Lock } from "lucide-react";
+import { NavArrowRight as ArrowRight, Lock } from "iconoir-react";
 import { Button } from "@/app/components/ui";
 
 export const metadata = {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Settings2 } from "lucide-react";
+import { Settings } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -198,7 +198,7 @@ ${spacingVars}
       <div className="lg:col-span-4 space-y-6">
         <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="flex items-center gap-2 mb-4">
-            <Settings2 className="h-5 w-5 text-swiss-red" />
+            <Settings className="h-5 w-5 text-swiss-red" />
             <h2 className="text-lg font-bold">Configuration</h2>
           </div>
           

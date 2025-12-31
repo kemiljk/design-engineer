@@ -13,7 +13,7 @@ import { StoryTitle } from "@/app/components/story-title";
 import { QnABlock } from "@/app/stories/[slug]/qna-block";
 import CopyButton from "@/app/components/copy-button";
 import Markdown from "react-markdown";
-import { InfoIcon } from "lucide-react";
+import { InfoCircle as InfoIcon } from "iconoir-react";
 
 const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params;

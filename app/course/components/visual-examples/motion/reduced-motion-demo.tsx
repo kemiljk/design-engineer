@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Settings, Check } from "lucide-react";
+import { Settings, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

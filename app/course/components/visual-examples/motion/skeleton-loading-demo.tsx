@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { RefreshCw, Image as ImageIcon } from "lucide-react";
+import { Refresh as RefreshCw, MediaImage as ImageIcon } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,

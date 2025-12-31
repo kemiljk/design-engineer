@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Circle, Award, Loader2 } from "lucide-react";
+import { CheckCircle, Circle, Medal as Award, RefreshDouble as Loader2 } from "iconoir-react";
 import type { CertificateEligibility, CertificateTrack } from "@/lib/types";
 import { useRouter } from "next/navigation";
 

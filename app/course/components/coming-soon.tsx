@@ -1,13 +1,13 @@
 import { PageHeader } from "@/app/components/page-header";
 import {
-  BookOpen,
-  Code2,
-  Layout,
-  Zap,
+  Book as BookOpen,
+  Code as Code2,
+  LayoutLeft as Layout,
+  Flash as Zap,
   Bell,
-  CheckCircle2,
+  CheckCircle as CheckCircle2,
   Crown,
-} from "lucide-react";
+} from "iconoir-react";
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
 import { FAQAccordion } from "../faq/faq-accordion";

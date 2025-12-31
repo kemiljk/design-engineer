@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, CheckCircle2 } from "lucide-react";
+import { NavArrowRight as ArrowRight, Book as BookOpen, Clock, CheckCircle as CheckCircle2 } from "iconoir-react";
 import { COURSE_STRUCTURE, getEstimatedDuration } from "@/lib/course-shared";
 import { cn } from "@/lib/utils";
 import { TrackLogo, type Track, type Platform } from "@/app/components/track-logo";

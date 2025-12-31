@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { Check, RotateCcw, CheckCircle2 } from "lucide-react";
+import { Check, Undo as RotateCcw, CheckCircle as CheckCircle2 } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface CheckpointItem {

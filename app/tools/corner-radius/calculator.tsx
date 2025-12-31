@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
-import { Info, AlertCircle } from "lucide-react";
+import { InfoCircle as Info, WarningCircle as AlertCircle } from "iconoir-react";
 
 type Platform = "css" | "tailwind" | "swift" | "android";
 

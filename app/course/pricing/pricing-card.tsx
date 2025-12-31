@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Star, Crown } from "lucide-react";
+import { Check, StarSolid as Star, Crown } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import type { ProductWithPrice } from "@/lib/types";
 

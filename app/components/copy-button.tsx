@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Toaster, toast } from "sonner";
-import { Check, LinkIcon } from "lucide-react";
+import { Check, Link as LinkIcon } from "iconoir-react";
 import { Button } from "@/app/components/ui";
 import { usePathname } from "next/navigation";
 

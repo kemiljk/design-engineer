@@ -9,13 +9,13 @@ import {
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import {
-  BookOpen,
+  Book as BookOpen,
   Clock,
   Trophy,
-  ArrowRight,
+  NavArrowRight as ArrowRight,
   Gift,
   Crown,
-} from "lucide-react";
+} from "iconoir-react";
 import { Badge, Button } from "@/app/components/ui";
 import { DiamondIcon } from "@/app/components/diamond-icon";
 import { PageHeader } from "@/app/components/page-header";

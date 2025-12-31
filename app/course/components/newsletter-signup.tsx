@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/app/components/ui";
-import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { NavArrowRight as ArrowRight, Check, RefreshDouble as Loader2 } from "iconoir-react";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");

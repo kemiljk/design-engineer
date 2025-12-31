@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { CheckCircle, XmarkCircle as XCircle, RefreshDouble as Loader2 } from "iconoir-react";
 import Link from "next/link";
 
 export default function PreviewPage() {

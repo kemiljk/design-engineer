@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BookOpen, Clock, CheckCircle, Star } from "lucide-react";
+import { Book as BookOpen, Clock, CheckCircle, StarSolid as Star } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface TrackCardProps {

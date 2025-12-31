@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
-import { Check, CheckCircle2, AlertCircle } from "lucide-react";
+import { Check, CheckCircle as CheckCircle2, WarningCircle as AlertCircle } from "iconoir-react";
 
 interface MarkCompleteButtonProps {
   lessonPath: string;

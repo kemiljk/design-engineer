@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight, Layers, Layout, FileText, CornerDownRight } from "lucide-react";
+import { NavArrowLeft as ChevronLeft, NavArrowRight as ChevronRight, Combine as Layers, LayoutLeft as Layout, Page as FileText, CornerBottomRight as CornerDownRight } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

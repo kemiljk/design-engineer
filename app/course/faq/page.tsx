@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { NavArrowLeft as ArrowLeft } from "iconoir-react";
 import { FAQAccordion } from "./faq-accordion";
 
 export const metadata: Metadata = {

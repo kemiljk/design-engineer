@@ -4,14 +4,14 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import Link from "next/link";
 import {
-  StickyNote,
-  X,
+  Notes as StickyNote,
+  Xmark as X,
   Plus,
   Pin,
-  Trash2,
-  ExternalLink,
-  ChevronUp,
-} from "lucide-react";
+  Trash,
+  OpenNewWindow as ExternalLink,
+  NavArrowUp as ChevronUp,
+} from "iconoir-react";
 import { useDebounceValue } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 import type { CourseNote } from "@/lib/types";
@@ -447,7 +447,7 @@ export function FloatingNotesPanel({
                             className="rounded-full p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
                             title="Delete note"
                           >
-                            <Trash2 className="h-3 w-3" />
+                            <Trash className="h-3 w-3" />
                           </button>
                         </div>
                         <textarea

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Award, ArrowRight, CheckCircle, Loader2, PartyPopper } from "lucide-react";
+import { Medal as Award, NavArrowRight as ArrowRight, CheckCircle, RefreshDouble as Loader2, Gift as PartyPopper } from "iconoir-react";
 import { motion } from "motion/react";
 import type { CertificatePlatform, CertificateEligibility, CertificateTrack } from "@/lib/types";
 

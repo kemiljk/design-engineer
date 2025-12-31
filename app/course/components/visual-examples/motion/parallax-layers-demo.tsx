@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { MousePointer2 } from "lucide-react";
+import { CursorPointer as MousePointer2 } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";

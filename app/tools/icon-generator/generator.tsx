@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copy, Check, Download } from "lucide-react";
+import { Copy, Check, Download } from "iconoir-react";
 import { clsx } from "clsx";
 
 type Platform = "ios" | "android" | "web" | "macos";

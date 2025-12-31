@@ -3,15 +3,15 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
-  Layout, 
-  Code2, 
-  Infinity, 
-  ArrowRight,
-  RotateCcw,
-  CheckCircle2,
-  ClipboardList,
-  Scale
-} from "lucide-react";
+  LayoutLeft as Layout, 
+  Code as Code2, 
+  Infinite as Infinity, 
+  NavArrowRight as ArrowRight,
+  Undo as RotateCcw,
+  CheckCircle as CheckCircle2,
+  ClipboardCheck as ClipboardList,
+  ScaleFrameEnlarge as Scale
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, X, AlertTriangle } from "lucide-react";
+import { Check, Xmark as X, WarningTriangle as AlertTriangle } from "iconoir-react";
 import { clsx } from "clsx";
 
 type Platform = "ios" | "android" | "web";

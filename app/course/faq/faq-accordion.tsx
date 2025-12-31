@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown } from "lucide-react";
+import { NavArrowDown as ChevronDown } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface Question {

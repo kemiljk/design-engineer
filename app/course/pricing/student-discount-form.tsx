@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, AlertCircle, Loader2, GraduationCap } from "lucide-react";
+import { CheckCircle, WarningCircle as AlertCircle, RefreshDouble as Loader2, GraduationCap } from "iconoir-react";
 
 export function StudentDiscountForm() {
   const [email, setEmail] = useState("");

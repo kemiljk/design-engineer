@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, ArrowDown, ImageIcon, Star } from "lucide-react";
+import { NavArrowRight as ArrowRight, NavArrowDown as ArrowDown, MediaImage as ImageIcon, StarSolid as Star } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 type Direction = "horizontal" | "vertical";
