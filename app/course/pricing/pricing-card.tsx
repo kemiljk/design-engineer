@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Star, Crown } from "lucide-react";
+import { Check, StarSolid, Crown } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import type { ProductWithPrice } from "@/lib/types";
 
@@ -56,7 +56,7 @@ export function PricingCard({ product, currentAccess, userId }: PricingCardProps
       {product.popular && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <span className="inline-flex items-center gap-1 bg-swiss-red px-3 py-1 text-xs font-medium text-white">
-            <Star className="h-3 w-3 fill-current" />
+            <StarSolid className="h-3 w-3 fill-current" />
             Best Value
           </span>
         </div>

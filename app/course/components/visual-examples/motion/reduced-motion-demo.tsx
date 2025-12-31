@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { Settings, Check } from "lucide-react";
+import { Settings, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -184,7 +184,7 @@ function Modal() {
                     onClick={() => setIsOpen(false)}
                     className="rounded-[8px] bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
                   >
-                    Save Changes
+                    FloppyDisk Changes
                   </button>
                 </div>
               </motion.div>

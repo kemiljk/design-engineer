@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { RotateCcw, Mail, MessageSquare, Calendar, Bell, CheckCircle2 } from "lucide-react";
+import { Refresh, Mail, Message, Calendar, Bell, CheckCircle } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -10,10 +10,10 @@ import { CodePanel, type CodeTab } from "./code-panel";
 type Direction = "forward" | "reverse" | "center";
 
 const items = [
-  { id: 1, title: "New Message", sub: "Sarah sent you a photo", time: "2m", icon: MessageSquare, color: "bg-indigo-500" },
+  { id: 1, title: "New Message", sub: "Sarah sent you a photo", time: "2m", icon: Message, color: "bg-indigo-500" },
   { id: 2, title: "Meeting Reminder", sub: "Team Standup in 15m", time: "15m", icon: Calendar, color: "bg-emerald-500" },
   { id: 3, title: "Email Received", sub: "Project Update: Q4 Goals", time: "1h", icon: Mail, color: "bg-blue-500" },
-  { id: 4, title: "System Alert", sub: "Backup completed successfully", time: "2h", icon: CheckCircle2, color: "bg-amber-500" },
+  { id: 4, title: "System Alert", sub: "Backup completed successfully", time: "2h", icon: CheckCircle, color: "bg-amber-500" },
   { id: 5, title: "New Follower", sub: "Alex started following you", time: "3h", icon: Bell, color: "bg-rose-500" },
 ];
 
@@ -127,7 +127,7 @@ const item = {
               onClick={replay}
               className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-medium text-neutral-600 shadow-sm transition-colors hover:bg-neutral-50 hover:text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white"
             >
-              <RotateCcw className="size-3" />
+              <Refresh className="size-3" />
               Replay
             </button>
           </div>
@@ -206,7 +206,7 @@ const item = {
                   <div key={item.id} className="group flex items-center gap-3">
                     <span className="w-6 text-xs font-medium text-neutral-400">#{index + 1}</span>
                     <div className="relative flex-1">
-                      {/* Grid line */}
+                      {/* ViewGrid line */}
                       <div className="absolute inset-0 flex items-center">
                         <div className="h-px w-full bg-neutral-100 dark:bg-neutral-800" />
                       </div>

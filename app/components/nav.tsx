@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "@/app/components/logo";
 import { LogoContextMenu } from "@/app/components/logo-context-menu";
-import { Menu, MoreHorizontal, X, LayoutDashboard, StickyNote, Award, FolderKanban, ExternalLink } from "lucide-react";
+import { Menu, MoreHoriz, Xmark, ViewGrid, Notes, Medal, Folder, OpenNewWindow } from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -85,7 +85,7 @@ function DesktopOverflowMenu({
         onClick={() => setOpen((v) => !v)}
         className="focus-ring flex h-9 w-9 items-center justify-center text-neutral-500 transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-white"
       >
-        <MoreHorizontal className="h-5 w-5" />
+        <MoreHoriz className="h-5 w-5" />
       </button>
 
       <AnimatePresence>
@@ -113,7 +113,7 @@ function DesktopOverflowMenu({
                   className="focus-ring flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
                 >
                   {item.title}
-                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                  <OpenNewWindow className="h-3 w-3" aria-hidden="true" />
                 </motion.a>
               ) : (
                 <motion.div
@@ -243,7 +243,7 @@ function DesktopNavLinks({
               className="focus-ring relative flex items-center gap-1.5 text-sm font-medium tracking-widest whitespace-nowrap text-neutral-500 uppercase transition-[color,transform] duration-150 ease-out after:absolute after:-bottom-2 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:text-black hover:after:scale-x-100 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none motion-reduce:after:transition-none dark:text-neutral-400 dark:hover:text-white"
             >
               {item.title}
-              <ExternalLink className="h-3 w-3" aria-hidden="true" />
+              <OpenNewWindow className="h-3 w-3" aria-hidden="true" />
             </a>
           ) : (
             <NextLink
@@ -286,7 +286,7 @@ function DesktopNavLinks({
             tabIndex={-1}
             className="flex h-9 w-9 items-center justify-center"
           >
-            <MoreHorizontal className="h-5 w-5" />
+            <MoreHoriz className="h-5 w-5" />
           </button>
         </div>
       </div>
@@ -385,22 +385,22 @@ export default function Nav({
               <UserButton.MenuItems>
                 <UserButton.Link
                   label="My Dashboard"
-                  labelIcon={<LayoutDashboard className="h-4 w-4" />}
+                  labelIcon={<ViewGrid className="h-4 w-4" />}
                   href="/course/dashboard"
                 />
                 <UserButton.Link
                   label="My Notes"
-                  labelIcon={<StickyNote className="h-4 w-4" />}
+                  labelIcon={<Notes className="h-4 w-4" />}
                   href="/course/notes"
                 />
                 <UserButton.Link
                   label="Certificates"
-                  labelIcon={<Award className="h-4 w-4" />}
+                  labelIcon={<Medal className="h-4 w-4" />}
                   href="/course/certificate"
                 />
                 <UserButton.Link
                   label="Project Gallery"
-                  labelIcon={<FolderKanban className="h-4 w-4" />}
+                  labelIcon={<Folder className="h-4 w-4" />}
                   href="/course/gallery"
                 />
               </UserButton.MenuItems>
@@ -415,7 +415,7 @@ export default function Nav({
             className="focus-ring p-2 transition-transform duration-150 ease-out active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none sm:hidden"
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <Xmark className="h-6 w-6" />
             ) : (
               <Menu className="h-6 w-6" />
             )}
@@ -463,7 +463,7 @@ export default function Nav({
                     className="focus-ring text-foreground flex items-center gap-2 w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
                   >
                     {item.title}
-                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    <OpenNewWindow className="h-4 w-4" aria-hidden="true" />
                   </motion.a>
                 ) : (
                   <motion.div

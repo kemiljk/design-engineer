@@ -1,13 +1,13 @@
 import { PageHeader } from "@/app/components/page-header";
 import {
-  BookOpen,
-  Code2,
-  Layout,
-  Zap,
+  Book,
+  Code,
+  LayoutLeft,
+  Flash,
   Bell,
-  CheckCircle2,
+  CheckCircle,
   Crown,
-} from "lucide-react";
+} from "iconoir-react";
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
 import { FAQAccordion } from "../faq/faq-accordion";
@@ -50,21 +50,21 @@ const faqs = [
 export function ComingSoon() {
   const tracks = [
     {
-      icon: Layout,
+      icon: LayoutLeft,
       title: "Design Track",
       description:
         "Develop real design taste—visual fundamentals that AI can't teach.",
       color: "bg-swiss-red",
     },
     {
-      icon: Code2,
+      icon: Code,
       title: "Engineering Track",
       description:
         "Go beyond Vibe Coding—build with real understanding, not just AI prompts.",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
-      icon: Zap,
+      icon: Flash,
       title: "Convergence",
       description:
         "Where design meets code. Motion, prototyping, accessibility, and polish.",
@@ -92,15 +92,15 @@ export function ComingSoon() {
       >
         <div className="mt-8 flex items-center justify-center gap-6 text-sm text-neutral-500">
           <div className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4" />
+            <Book className="h-4 w-4" />
             <span>50+ lessons</span>
           </div>
           <div className="flex items-center gap-2">
-            <Layout className="h-4 w-4" />
+            <LayoutLeft className="h-4 w-4" />
             <span>3 tracks</span>
           </div>
           <div className="flex items-center gap-2">
-            <Code2 className="h-4 w-4" />
+            <Code className="h-4 w-4" />
             <span>Web, iOS, Android</span>
           </div>
         </div>
@@ -141,7 +141,7 @@ export function ComingSoon() {
             <div className="grid gap-4 sm:grid-cols-2">
               {highlights.map((highlight) => (
                 <div key={highlight} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-swiss-red" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-swiss-red" />
                   <span className="text-neutral-600 dark:text-neutral-400">
                     {highlight}
                   </span>
@@ -174,15 +174,15 @@ export function ComingSoon() {
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     48+ design lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     All 3 platforms
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     Lifetime access
                   </li>
                 </ul>
@@ -202,15 +202,15 @@ export function ComingSoon() {
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     67+ engineering lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     All 3 platforms
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     Lifetime access
                   </li>
                 </ul>
@@ -233,15 +233,15 @@ export function ComingSoon() {
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     ALL 156+ lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     Exclusive advanced content
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle className="h-4 w-4 text-swiss-red" />
                     Lifetime access + updates
                   </li>
                 </ul>

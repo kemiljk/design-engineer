@@ -11,27 +11,27 @@ import {
 import {
   Mail,
   ArrowRight,
-  Zap,
+  Flash,
   Activity,
   Heart,
   Check,
-  Loader2,
+  RefreshDouble,
   Send,
-  X,
+  Xmark,
   AtSign,
-  MessageSquare,
+  Message,
   Calendar,
   Bell,
-  CheckCircle2,
+  CheckCircle,
   Settings,
   User,
   HelpCircle,
-  MessageCircle,
-  Repeat2,
-  Share,
-  Sun,
-  Moon,
-} from "lucide-react";
+  ChatBubble,
+  Repeat,
+  ShareIos,
+  SunLight,
+  HalfMoon,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 // Hide Next.js devtools
@@ -85,7 +85,7 @@ function BorderBeamCaptureDemo() {
       <BorderBeam size={120} duration={12} borderWidth={1.5} />
       <div className="relative z-10 space-y-4">
         <div className="flex items-center gap-2">
-          <Zap className="h-5 w-5 text-amber-500" />
+          <Flash className="h-5 w-5 text-amber-500" />
           <span className="text-base font-semibold text-neutral-900">
             Join the waitlist
           </span>
@@ -173,7 +173,7 @@ function FeedbackCaptureDemo() {
             exit={{ opacity: 0, y: -10 }}
             className="flex items-center gap-2"
           >
-            <Send className="h-4 w-4" /> Save Changes
+            <Send className="h-4 w-4" /> FloppyDisk Changes
           </motion.span>
         )}
         {state === "loading" && (
@@ -183,7 +183,7 @@ function FeedbackCaptureDemo() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <Loader2 className="h-5 w-5 animate-spin" />
+            <RefreshDouble className="h-5 w-5 animate-spin" />
           </motion.span>
         )}
         {state === "success" && (
@@ -205,7 +205,7 @@ function FeedbackCaptureDemo() {
             exit={{ opacity: 0, scale: 0.8 }}
             className="flex items-center gap-2"
           >
-            <X className="h-5 w-5" /> Failed
+            <Xmark className="h-5 w-5" /> Failed
           </motion.span>
         )}
       </AnimatePresence>
@@ -297,7 +297,7 @@ const notifications = [
   {
     title: "New Message",
     sub: "Sarah sent you a photo",
-    icon: MessageSquare,
+    icon: Message,
     color: "bg-indigo-500",
   },
   {
@@ -315,7 +315,7 @@ const notifications = [
   {
     title: "System Alert",
     sub: "Backup completed",
-    icon: CheckCircle2,
+    icon: CheckCircle,
     color: "bg-amber-500",
   },
 ];
@@ -439,7 +439,7 @@ function ButtonStatesCaptureDemo() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <Loader2 className="h-6 w-6 animate-spin" />
+            <RefreshDouble className="h-6 w-6 animate-spin" />
           </motion.span>
         )}
         {state === "success" && (
@@ -579,9 +579,9 @@ function ToggleSwitchCaptureDemo() {
               transition={{ duration: 0.5 }}
             >
               {isOn ? (
-                <Moon className="size-4 text-indigo-600" />
+                <HalfMoon className="size-4 text-indigo-600" />
               ) : (
-                <Sun className="size-4 text-amber-500" />
+                <SunLight className="size-4 text-amber-500" />
               )}
             </motion.div>
           </motion.div>
@@ -717,17 +717,17 @@ function LikeButtonCaptureDemo() {
 
         {/* Other actions */}
         <button className="flex items-center gap-2 rounded-3xl px-3 py-2 text-neutral-400 transition-colors hover:bg-blue-50 hover:text-blue-500">
-          <MessageCircle className="size-[18px]" />
+          <ChatBubble className="size-[18px]" />
           <span className="text-sm font-medium">24</span>
         </button>
 
         <button className="flex items-center gap-2 rounded-3xl px-3 py-2 text-neutral-400 transition-colors hover:bg-emerald-50 hover:text-emerald-500">
-          <Repeat2 className="size-[18px]" />
+          <Repeat className="size-[18px]" />
           <span className="text-sm font-medium">8</span>
         </button>
 
         <button className="rounded-3xl px-3 py-2 text-neutral-400 transition-colors hover:bg-blue-50 hover:text-blue-500">
-          <Share className="size-[18px]" />
+          <ShareIos className="size-[18px]" />
         </button>
       </div>
     </div>
@@ -816,7 +816,7 @@ function MicroValidationCaptureDemo() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <Loader2 className="h-5 w-5 animate-spin text-neutral-400" />
+                <RefreshDouble className="h-5 w-5 animate-spin text-neutral-400" />
               </motion.div>
             )}
             {status === "available" && (
@@ -836,7 +836,7 @@ function MicroValidationCaptureDemo() {
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
               >
-                <X className="h-5 w-5 text-red-500" />
+                <Xmark className="h-5 w-5 text-red-500" />
               </motion.div>
             )}
           </AnimatePresence>

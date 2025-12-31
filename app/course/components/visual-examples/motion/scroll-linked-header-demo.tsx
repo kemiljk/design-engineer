@@ -7,7 +7,7 @@ import {
   useTransform,
   useMotionTemplate,
 } from "motion/react";
-import { Menu, Search, User } from "lucide-react";
+import { Menu, Search, User } from "iconoir-react";
 import { ExampleWrapper, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 

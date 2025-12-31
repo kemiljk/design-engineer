@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Zap, Shield, Globe, Cpu } from "lucide-react";
+import { Flash, Shield, Globe, Cpu } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -15,7 +15,7 @@ export function ScrollRevealDemo() {
   const [replayKey, setReplayKey] = useState(0);
 
   const features = [
-    { title: "Fast", desc: "Optimized for speed", icon: Zap, color: "bg-amber-500" },
+    { title: "Fast", desc: "Optimized for speed", icon: Flash, color: "bg-amber-500" },
     { title: "Secure", desc: "Bank-grade security", icon: Shield, color: "bg-emerald-500" },
     { title: "Global", desc: "CDN edge network", icon: Globe, color: "bg-blue-500" },
     { title: "Smart", desc: "AI-powered automation", icon: Cpu, color: "bg-purple-500" },

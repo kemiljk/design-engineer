@@ -4,14 +4,14 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "motion/react";
 import Link from "next/link";
 import {
-  StickyNote,
-  X,
+  Notes,
+  Xmark,
   Plus,
   Pin,
-  Trash2,
-  ExternalLink,
-  ChevronUp,
-} from "lucide-react";
+  Trash,
+  OpenNewWindow,
+  NavArrowUp,
+} from "iconoir-react";
 import { useDebounceValue } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 import type { CourseNote } from "@/lib/types";
@@ -315,7 +315,7 @@ export function FloatingNotesPanel({
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-neutral-100 px-4 py-3 dark:border-neutral-800">
                   <div className="flex items-center gap-2">
-                    <StickyNote className="h-4 w-4 text-swiss-red" />
+                    <Notes className="h-4 w-4 text-swiss-red" />
                     <span className="text-sm font-semibold text-neutral-900 dark:text-white">
                       Notes
                     </span>
@@ -329,14 +329,14 @@ export function FloatingNotesPanel({
                       className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                       title="Full view"
                     >
-                      <ExternalLink className="h-3.5 w-3.5" />
+                      <OpenNewWindow className="h-3.5 w-3.5" />
                     </Link>
                     <button
                       onClick={() => setIsOpen(false)}
                       className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                       aria-label="Close notes"
                     >
-                      <X className="h-4 w-4" />
+                      <Xmark className="h-4 w-4" />
                     </button>
                   </div>
                 </div>
@@ -447,7 +447,7 @@ export function FloatingNotesPanel({
                             className="rounded-full p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
                             title="Delete note"
                           >
-                            <Trash2 className="h-3 w-3" />
+                            <Trash className="h-3 w-3" />
                           </button>
                         </div>
                         <textarea
@@ -461,7 +461,7 @@ export function FloatingNotesPanel({
                       </>
                     ) : (
                       <div className="flex flex-1 flex-col items-center justify-center gap-2 p-4 text-center text-neutral-400">
-                        <StickyNote className="h-6 w-6" />
+                        <Notes className="h-6 w-6" />
                         <p className="text-xs">Select or create a note</p>
                       </div>
                     )}
@@ -480,7 +480,7 @@ export function FloatingNotesPanel({
                 aria-label="Open notes"
                 aria-expanded={isOpen}
               >
-                <StickyNote className="h-4 w-4 text-swiss-red" />
+                <Notes className="h-4 w-4 text-swiss-red" />
                 <span className="hidden text-sm font-medium text-neutral-900 sm:block dark:text-white">
                   Notes
                 </span>
@@ -489,7 +489,7 @@ export function FloatingNotesPanel({
                     {notes.length}
                   </span>
                 )}
-                <ChevronUp className="h-4 w-4 shrink-0 text-neutral-400" />
+                <NavArrowUp className="h-4 w-4 shrink-0 text-neutral-400" />
               </motion.button>
             )}
           </AnimatePresence>

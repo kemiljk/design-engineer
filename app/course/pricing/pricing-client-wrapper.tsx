@@ -1,6 +1,6 @@
 "use client";
 
-import { Crown } from "lucide-react";
+import { Crown } from "iconoir-react";
 import { PlatformTierCard, BundleCard } from "./pricing-card";
 import type { ProductWithPrice } from "@/lib/types";
 

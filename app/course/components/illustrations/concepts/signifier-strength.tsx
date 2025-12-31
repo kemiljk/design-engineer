@@ -115,7 +115,7 @@ export function SignifierStrength() {
           fontFamily="system-ui, -apple-system, sans-serif"
           fontWeight="500"
         >
-          Save Draft
+          FloppyDisk Draft
         </text>
 
         <text

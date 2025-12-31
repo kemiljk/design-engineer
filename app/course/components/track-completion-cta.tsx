@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Award, ArrowRight, CheckCircle, Loader2, PartyPopper } from "lucide-react";
+import { Medal, ArrowRight, CheckCircle, RefreshDouble, Sparks } from "iconoir-react";
 import { motion } from "motion/react";
 import type { CertificatePlatform, CertificateEligibility, CertificateTrack } from "@/lib/types";
 
@@ -145,7 +145,7 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
       >
         <div className="flex items-center justify-end gap-2 text-xs text-swiss-red group-hover:text-white mb-1">
           <span>Track Complete!</span>
-          <Award className="h-3 w-3" />
+          <Medal className="h-3 w-3" />
         </div>
         <p className="text-sm font-medium text-right">
           Sign In for Certificate
@@ -159,7 +159,7 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
     return (
       <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
         <div className="flex items-center justify-center gap-2">
-          <Loader2 className="h-4 w-4 animate-spin text-neutral-400" />
+          <RefreshDouble className="h-4 w-4 animate-spin text-neutral-400" />
           <span className="text-sm text-neutral-500">Checking progress...</span>
         </div>
       </div>
@@ -238,18 +238,18 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
           className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red p-4 text-white transition-all hover:bg-neutral-900 disabled:opacity-70"
         >
           <div className="flex items-center justify-end gap-2 text-xs opacity-90 mb-1">
-            <PartyPopper className="h-3 w-3" />
+            <Sparks className="h-3 w-3" />
             <span>All Tracks Complete!</span>
           </div>
           <p className="text-sm font-medium text-right flex items-center justify-end gap-2">
             {isClaiming ? (
               <>
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <RefreshDouble className="h-4 w-4 animate-spin" />
                 Claiming...
               </>
             ) : (
               <>
-                <Award className="h-4 w-4" />
+                <Medal className="h-4 w-4" />
                 Get Design Engineer Certificate
               </>
             )}
@@ -269,18 +269,18 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
         className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red p-4 text-white transition-all hover:bg-neutral-900 disabled:opacity-70"
       >
         <div className="flex items-center justify-end gap-2 text-xs opacity-90 mb-1">
-          <PartyPopper className="h-3 w-3" />
+          <Sparks className="h-3 w-3" />
           <span>Congratulations!</span>
         </div>
         <p className="text-sm font-medium text-right flex items-center justify-end gap-2">
           {isClaiming ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <RefreshDouble className="h-4 w-4 animate-spin" />
               Claiming...
             </>
           ) : (
             <>
-              <Award className="h-4 w-4" />
+              <Medal className="h-4 w-4" />
               Get Design Engineer Certificate
             </>
           )}
@@ -301,18 +301,18 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
         className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red p-4 text-white transition-all hover:bg-neutral-900 disabled:opacity-70"
       >
         <div className="flex items-center justify-end gap-2 text-xs opacity-90 mb-1">
-          <PartyPopper className="h-3 w-3" />
+          <Sparks className="h-3 w-3" />
           <span>{trackTitles[certificateTrack]} Complete!</span>
         </div>
         <p className="text-sm font-medium text-right flex items-center justify-end gap-2">
           {isClaiming ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <RefreshDouble className="h-4 w-4 animate-spin" />
               Claiming...
             </>
           ) : (
             <>
-              <Award className="h-4 w-4" />
+              <Medal className="h-4 w-4" />
               Get Track Certificate
             </>
           )}
@@ -428,7 +428,7 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
     >
       <div className="flex items-center justify-end gap-2 text-xs text-neutral-500 group-hover:text-swiss-red mb-1">
         <span>Track Complete!</span>
-        <Award className="h-3 w-3" />
+        <Medal className="h-3 w-3" />
       </div>
       <p className="text-sm font-medium text-right">
         View Certificate Progress

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Settings2 } from "lucide-react";
+import { Settings } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -36,7 +36,7 @@ export default function TokenCalculator() {
   const [spacingBase, setSpacingBase] = useState(4);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("tailwind-v4");
 
-  // Generate Type Scale
+  // Generate Type MenuScale
   const typeSteps = [-2, -1, 0, 1, 2, 3, 4, 5, 6];
   const typeScale = typeSteps.map((step) => {
     const value = baseSize * Math.pow(scaleRatio, step);
@@ -61,7 +61,7 @@ export default function TokenCalculator() {
     return `${step}`;
   };
 
-  // Generate Spacing Scale
+  // Generate Spacing MenuScale
   const spacingSteps = [0.5, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
   const spacingScale = spacingSteps.map((step) => {
     const px = spacingBase * step;
@@ -87,10 +87,10 @@ export default function TokenCalculator() {
     return `@import "tailwindcss";
 
 @theme {
-  /* Typography Scale */
+  /* Typography MenuScale */
 ${typeVars}
 
-  /* Spacing Scale */
+  /* Spacing MenuScale */
 ${spacingVars}
 }
 
@@ -152,12 +152,12 @@ ${spacingVars}
       (s) => `  "${s.step}": ${s.rem}rem`
     ).join(",\n");
 
-    return `// Typography Scale
+    return `// Typography MenuScale
 $font-sizes: (
 ${typeVars}
 );
 
-// Spacing Scale
+// Spacing MenuScale
 $spacing: (
 ${spacingVars}
 );
@@ -198,7 +198,7 @@ ${spacingVars}
       <div className="lg:col-span-4 space-y-6">
         <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="flex items-center gap-2 mb-4">
-            <Settings2 className="h-5 w-5 text-swiss-red" />
+            <Settings className="h-5 w-5 text-swiss-red" />
             <h2 className="text-lg font-bold">Configuration</h2>
           </div>
           
@@ -217,7 +217,7 @@ ${spacingVars}
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                Scale Ratio
+                MenuScale Ratio
               </label>
               <select
                 value={scaleRatio}
@@ -275,7 +275,7 @@ ${spacingVars}
       <div className="lg:col-span-8 space-y-8">
         {/* Typography Visualiser */}
         <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-          <h2 className="mb-6 text-lg font-bold">Typography Scale</h2>
+          <h2 className="mb-6 text-lg font-bold">Typography MenuScale</h2>
           <div className="space-y-8">
             {typeScale.slice().reverse().map((t) => (
               <div key={t.step} className="flex flex-col gap-2 border-b border-neutral-100 pb-8 last:border-0 last:pb-0 dark:border-neutral-800 sm:flex-row sm:items-baseline sm:gap-8">
@@ -296,7 +296,7 @@ ${spacingVars}
 
         {/* Spacing Visualiser */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
-          <h2 className="mb-6 text-lg font-bold">Spacing Scale</h2>
+          <h2 className="mb-6 text-lg font-bold">Spacing MenuScale</h2>
           <div className="flex flex-wrap gap-2 items-end sm:gap-4">
             {spacingScale.slice(0, 10).map((s) => (
               <div key={s.step} className="group relative flex flex-col items-center gap-2">

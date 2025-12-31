@@ -4,24 +4,24 @@ import React, { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Palette,
-  Type,
-  Space,
-  Blend,
-  ChevronRight,
+  Text,
+  ExpandLines,
+  HalfMoon,
+  NavArrowRight,
   Copy,
   Check,
   Plus,
-  RotateCcw,
-  Layers,
-  Zap,
-  X,
+  Refresh,
+  ViewColumns2,
+  Flash,
+  Xmark,
   Download,
   GraduationCap,
-  Wrench,
+  Tools,
   GitBranch,
   CheckSquare,
   Square,
-} from "lucide-react";
+} from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -79,9 +79,9 @@ type BuilderToken = {
 // Configuration data
 const CATEGORIES: { id: Category; label: string; icon: React.ElementType; description: string }[] = [
   { id: "color", label: "Colour", icon: Palette, description: "Background, text, border, and icon colours" },
-  { id: "typography", label: "Typography", icon: Type, description: "Font sizes, weights, and line heights" },
-  { id: "spacing", label: "Spacing", icon: Space, description: "Padding, margin, and gap values" },
-  { id: "effects", label: "Effects", icon: Blend, description: "Shadows, borders, and radii" },
+  { id: "typography", label: "Typography", icon: Text, description: "Font sizes, weights, and line heights" },
+  { id: "spacing", label: "Spacing", icon: ExpandLines, description: "Padding, margin, and gap values" },
+  { id: "effects", label: "Effects", icon: HalfMoon, description: "Shadows, borders, and radii" },
 ];
 
 const PROPERTIES: Record<Category, PropertyOption[]> = {
@@ -124,7 +124,7 @@ const CONTEXTS: Record<Category, ContextOption[]> = {
   ],
   spacing: [
     { id: "component", label: "Component", description: "Internal component spacing", suggestedElements: ["button", "card", "input", "badge"] },
-    { id: "layout", label: "Layout", description: "Page and section spacing", suggestedElements: ["section", "container", "stack"] },
+    { id: "layout", label: "LayoutLeft", description: "Page and section spacing", suggestedElements: ["section", "container", "stack"] },
     { id: "inline", label: "Inline", description: "Spacing between inline elements", suggestedElements: ["icon", "text", "badge"] },
   ],
   effects: [
@@ -257,7 +257,7 @@ const DEFAULT_COMPONENTS: ComponentConfig[] = [
   { id: "success", label: "Success", categories: ["color"], hasStates: false },
   { id: "warning", label: "Warning", categories: ["color"], hasStates: false },
   { id: "error", label: "Error", categories: ["color"], hasStates: false },
-  { id: "info", label: "Info", categories: ["color"], hasStates: false },
+  { id: "info", label: "InfoCircle", categories: ["color"], hasStates: false },
 ];
 
 // Default properties to include in builder mode
@@ -274,7 +274,7 @@ const INTERACTIVE_STATES = ["hover", "active", "focus", "disabled"];
 // Default variants
 const DEFAULT_VARIANTS = ["default", "subtle", "emphasis"];
 
-// Scale tokens (global/primitive tokens not tied to components)
+// MenuScale tokens (global/primitive tokens not tied to components)
 const RADIUS_SCALE = [
   { id: "none", label: "None" },
   { id: "xs", label: "XS" },
@@ -746,7 +746,7 @@ export default function TokenNamingBuilder() {
       case "css": {
         const sections: string[] = [];
         if (scaleTokens.length > 0) {
-          sections.push(`  /* Radius Scale */\n${scaleTokens.map(t => `  ${t}: /* value */;`).join("\n")}`);
+          sections.push(`  /* Radius MenuScale */\n${scaleTokens.map(t => `  ${t}: /* value */;`).join("\n")}`);
         }
         if (componentTokens.length > 0) {
           sections.push(`  /* Component Tokens */\n${componentTokens.map(t => `  ${t}: /* value */;`).join("\n")}`);
@@ -757,7 +757,7 @@ export default function TokenNamingBuilder() {
       case "camelCase": {
         const sections: string[] = [];
         if (scaleTokens.length > 0) {
-          sections.push(`  // Radius Scale\n${scaleTokens.map(t => `  ${t}: '/* value */',`).join("\n")}`);
+          sections.push(`  // Radius MenuScale\n${scaleTokens.map(t => `  ${t}: '/* value */',`).join("\n")}`);
         }
         if (componentTokens.length > 0) {
           sections.push(`  // Component Tokens\n${componentTokens.map(t => `  ${t}: '/* value */',`).join("\n")}`);
@@ -912,7 +912,7 @@ export default function TokenNamingBuilder() {
               "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
               mode === "builder" ? "bg-swiss-red text-white" : "bg-neutral-100 text-neutral-500 dark:bg-neutral-800"
             )}>
-              <Wrench className="h-5 w-5" />
+              <Tools className="h-5 w-5" />
             </div>
             <div>
               <div className="font-medium">Builder</div>
@@ -932,7 +932,7 @@ export default function TokenNamingBuilder() {
             onClick={mode === "builder" ? handleResetBuilder : handleReset}
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
           >
-            <RotateCcw className="h-4 w-4" />
+            <Refresh className="h-4 w-4" />
             Reset
           </button>
         </div>
@@ -1071,7 +1071,7 @@ export default function TokenNamingBuilder() {
                         <div className="text-sm font-medium">{prop.label}</div>
                         <div className="text-xs text-neutral-500">{prop.description}</div>
                       </div>
-                      <ChevronRight className={clsx(
+                      <NavArrowRight className={clsx(
                         "h-4 w-4 transition-transform",
                         property === prop.id ? "rotate-90 text-swiss-red" : "text-neutral-400"
                       )} />
@@ -1117,7 +1117,7 @@ export default function TokenNamingBuilder() {
                         <div className="text-sm font-medium">{ctx.label}</div>
                         <div className="text-xs text-neutral-500">{ctx.description}</div>
                       </div>
-                      <ChevronRight className={clsx(
+                      <NavArrowRight className={clsx(
                         "h-4 w-4 transition-transform",
                         context === ctx.id ? "rotate-90 text-swiss-red" : "text-neutral-400"
                       )} />
@@ -1219,7 +1219,7 @@ export default function TokenNamingBuilder() {
                       onClick={handleAddAllInteractiveStates}
                       className="flex items-center gap-1 text-xs text-swiss-red hover:underline"
                     >
-                      <Zap className="h-3 w-3" />
+                      <Flash className="h-3 w-3" />
                       Add all interactive states
                     </button>
                   </div>
@@ -1290,7 +1290,7 @@ export default function TokenNamingBuilder() {
           {/* Generated Tokens */}
           <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
-              <Layers className="h-5 w-5 text-swiss-red" />
+              <ViewColumns2 className="h-5 w-5 text-swiss-red" />
               <h2 className="text-lg font-bold">Generated Tokens</h2>
             </div>
 
@@ -1353,7 +1353,7 @@ export default function TokenNamingBuilder() {
                 className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-swiss-red" />
+                  <Flash className="h-5 w-5 text-swiss-red" />
                   <h2 className="text-lg font-bold">Related Tokens</h2>
                   <span className="text-xs text-neutral-500">Same convention, other properties</span>
                 </div>
@@ -1403,7 +1403,7 @@ export default function TokenNamingBuilder() {
                 className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-swiss-red" />
+                  <Flash className="h-5 w-5 text-swiss-red" />
                   <h2 className="text-lg font-bold">Complete {element.charAt(0).toUpperCase() + element.slice(1)} Token Set</h2>
                 </div>
 
@@ -1532,7 +1532,7 @@ function BuilderModeUI({
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Layers className="h-5 w-5 text-swiss-red" />
+              <ViewColumns2 className="h-5 w-5 text-swiss-red" />
               <h3 className="font-bold">Components</h3>
               <span className="rounded-full bg-swiss-red/10 px-2 py-0.5 text-xs font-medium text-swiss-red">
                 {builderComponents.length}
@@ -1574,7 +1574,7 @@ function BuilderModeUI({
                   )}
                 >
                   {comp.label}
-                  <X className="h-3 w-3 opacity-50 group-hover:opacity-100" />
+                  <Xmark className="h-3 w-3 opacity-50 group-hover:opacity-100" />
                 </motion.button>
               ))}
             </AnimatePresence>
@@ -1751,7 +1751,7 @@ function BuilderModeUI({
                         {comp.hasStates && " + states"}
                       </span>
                     </div>
-                    <ChevronRight className={clsx(
+                    <NavArrowRight className={clsx(
                       "h-4 w-4 text-neutral-400 transition-transform",
                       isExpanded && "rotate-90"
                     )} />
@@ -1852,7 +1852,7 @@ function BuilderModeUI({
         {/* States Selection */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center gap-2">
-            <Zap className="h-5 w-5 text-swiss-red" />
+            <Flash className="h-5 w-5 text-swiss-red" />
             <h3 className="font-bold">States</h3>
           </div>
 
@@ -1880,12 +1880,12 @@ function BuilderModeUI({
           </div>
         </div>
 
-        {/* Scale Tokens */}
+        {/* MenuScale Tokens */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Space className="h-5 w-5 text-swiss-red" />
-              <h3 className="font-bold">Scale Tokens</h3>
+              <ExpandLines className="h-5 w-5 text-swiss-red" />
+              <h3 className="font-bold">MenuScale Tokens</h3>
             </div>
           </div>
 
@@ -1893,10 +1893,10 @@ function BuilderModeUI({
             Global primitive tokens for consistent scales across your design system.
           </p>
 
-          {/* Radius Scale Toggle */}
+          {/* Radius MenuScale Toggle */}
           <div className="flex items-center justify-between rounded-lg border border-neutral-200 p-3 dark:border-neutral-700">
             <div>
-              <div className="font-medium text-sm">Border Radius Scale</div>
+              <div className="font-medium text-sm">Border Radius MenuScale</div>
               <div className="text-xs text-neutral-500">
                 {RADIUS_SCALE.map(s => s.id).join(", ")}
               </div>
@@ -1973,7 +1973,7 @@ function BuilderModeUI({
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{radiusScaleTokens.length}</div>
-            <div className="text-xs text-neutral-500">Scale Tokens</div>
+            <div className="text-xs text-neutral-500">MenuScale Tokens</div>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{builderTokens.length + radiusScaleTokens.length}</div>
@@ -1985,7 +1985,7 @@ function BuilderModeUI({
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Layers className="h-5 w-5 text-swiss-red" />
+              <ViewColumns2 className="h-5 w-5 text-swiss-red" />
               <h2 className="text-lg font-bold">Token Preview</h2>
             </div>
             <button
@@ -2008,12 +2008,12 @@ function BuilderModeUI({
 
           {builderTokens.length === 0 && radiusScaleTokens.length === 0 ? (
             <div className="py-12 text-center text-neutral-500">
-              <Layers className="mx-auto mb-3 h-12 w-12 text-neutral-300 dark:text-neutral-700" />
+              <ViewColumns2 className="mx-auto mb-3 h-12 w-12 text-neutral-300 dark:text-neutral-700" />
               <p>Add components to start generating tokens</p>
             </div>
           ) : (
             <div className="space-y-4">
-              {/* Radius Scale Tokens */}
+              {/* Radius MenuScale Tokens */}
               {radiusScaleTokens.length > 0 && (
                 <div className="rounded-lg border border-neutral-200 dark:border-neutral-700">
                   <button
@@ -2021,13 +2021,13 @@ function BuilderModeUI({
                     className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
                   >
                     <div className="flex items-center gap-2">
-                      <Space className="h-4 w-4 text-swiss-red" />
-                      <span className="font-medium">Radius Scale</span>
+                      <ExpandLines className="h-4 w-4 text-swiss-red" />
+                      <span className="font-medium">Radius MenuScale</span>
                       <span className="rounded-full bg-swiss-red/10 px-2 py-0.5 text-xs text-swiss-red">
                         {radiusScaleTokens.length} tokens
                       </span>
                     </div>
-                    <ChevronRight className={clsx(
+                    <NavArrowRight className={clsx(
                       "h-4 w-4 text-neutral-400 transition-transform",
                       expandedCategory === "radius-scale" && "rotate-90"
                     )} />
@@ -2087,7 +2087,7 @@ function BuilderModeUI({
                       className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
                     >
                       <div className="flex items-center gap-2">
-                        <Layers className={clsx("h-4 w-4", comp.isCustom ? "text-purple-500" : "text-swiss-red")} />
+                        <ViewColumns2 className={clsx("h-4 w-4", comp.isCustom ? "text-purple-500" : "text-swiss-red")} />
                         <span className="font-medium">{comp.label}</span>
                         <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800">
                           {componentTokens.length} tokens
@@ -2098,7 +2098,7 @@ function BuilderModeUI({
                           </span>
                         )}
                       </div>
-                      <ChevronRight className={clsx(
+                      <NavArrowRight className={clsx(
                         "h-4 w-4 text-neutral-400 transition-transform",
                         isExpanded && "rotate-90"
                       )} />

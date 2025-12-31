@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copy, Check, Download } from "lucide-react";
+import { Copy, Check, Download } from "iconoir-react";
 import { clsx } from "clsx";
 
 type Platform = "ios" | "android" | "web" | "macos";
@@ -33,7 +33,7 @@ const ICON_SIZES: Record<Platform, IconSize[]> = {
     { name: "XHDPI", size: 96, use: "~320dpi devices" },
     { name: "XXHDPI", size: 144, use: "~480dpi devices" },
     { name: "XXXHDPI", size: 192, use: "~640dpi devices" },
-    { name: "Play Store", size: 512, use: "Play Store listing" },
+    { name: "PlaySolid Store", size: 512, use: "PlaySolid Store listing" },
     { name: "Adaptive Icon", size: 108, use: "Foreground (with safe zone)" },
   ],
   web: [
@@ -150,7 +150,7 @@ export default function IconGenerator() {
           ))}
         </div>
 
-        {/* Platform Info */}
+        {/* Platform InfoCircle */}
         <div className="mt-4 rounded-lg bg-neutral-50 p-4 dark:bg-neutral-800">
           <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
             <div>
@@ -186,7 +186,7 @@ export default function IconGenerator() {
                 </th>
                 {platform === "ios" || platform === "macos" ? (
                   <th className="px-4 py-3 text-left font-medium text-neutral-600 dark:text-neutral-400">
-                    Scale
+                    MenuScale
                   </th>
                 ) : null}
                 <th className="px-4 py-3 text-left font-medium text-neutral-600 dark:text-neutral-400">

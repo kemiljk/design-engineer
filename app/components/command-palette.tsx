@@ -5,18 +5,18 @@ import { Command } from "cmdk";
 import { useRouter } from "next/navigation";
 import {
   Home,
-  FileText,
-  Wrench,
-  BookOpen,
-  Users,
-  Info,
+  Page,
+  Tools,
+  Book,
+  Group,
+  InfoCircle,
   Search,
-  ExternalLink,
-  Briefcase,
+  OpenNewWindow,
+  Suitcase,
   UserPlus,
-  Blend,
+  HalfMoon,
   GraduationCap,
-} from "lucide-react";
+} from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -50,7 +50,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
     {
       name: "Design Engineering",
       href: "/design-engineering",
-      icon: Blend,
+      icon: HalfMoon,
       keywords: "what is design engineer role career",
     },
     {
@@ -62,33 +62,33 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
     {
       name: "Posts",
       href: "/posts",
-      icon: FileText,
+      icon: Page,
       keywords: "articles blog content read",
     },
     {
       name: "Tools",
       href: "/tools",
-      icon: Wrench,
+      icon: Tools,
       keywords: "task builder practice",
     },
     {
       name: "Hiring",
       href: "https://designengineer.io",
-      icon: Briefcase,
+      icon: Suitcase,
       external: true,
       keywords: "jobs careers work",
     },
     {
       name: "Resources",
       href: "/resources",
-      icon: BookOpen,
+      icon: Book,
       keywords: "links learning",
     },
-    { name: "About", href: "/about", icon: Info, keywords: "who what" },
+    { name: "About", href: "/about", icon: InfoCircle, keywords: "who what" },
     {
       name: "Stories",
       href: "/stories",
-      icon: Users,
+      icon: Group,
       keywords: "interviews people",
     },
   ];
@@ -172,7 +172,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                       <page.icon className="h-4 w-4 text-neutral-400" />
                       <span>{page.name}</span>
                       {page.external && (
-                        <ExternalLink className="ml-auto h-3 w-3 text-neutral-400" />
+                        <OpenNewWindow className="ml-auto h-3 w-3 text-neutral-400" />
                       )}
                     </Command.Item>
                   ))}
@@ -192,7 +192,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                         }
                         className="focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
                       >
-                        <FileText className="h-4 w-4 text-neutral-400" />
+                        <Page className="h-4 w-4 text-neutral-400" />
                         <span className="line-clamp-1">{post.title}</span>
                       </Command.Item>
                     ))}

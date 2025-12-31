@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Command } from "lucide-react";
+import { Apple } from "iconoir-react";
 
 export function KeyboardHint() {
   const pathname = usePathname();
@@ -45,7 +45,7 @@ export function KeyboardHint() {
     >
       <div className="flex items-center gap-3 rounded-none border border-neutral-200 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/90">
         <div className="flex h-8 w-8 items-center justify-center rounded-none bg-gradient-to-br from-primary-400 to-primary-600 text-white">
-          <Command className="h-4 w-4" />
+          <Apple className="h-4 w-4" />
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-medium text-neutral-700 dark:text-neutral-200">

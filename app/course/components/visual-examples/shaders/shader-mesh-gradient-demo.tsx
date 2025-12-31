@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Play, Shuffle } from "lucide-react";
+import { PlaySolid, Shuffle } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,
@@ -234,7 +234,7 @@ export function ShaderMeshGradientDemo() {
               <Shuffle className="size-4" />
             </ControlButton>
             <ControlButton active={isPlaying} onClick={() => setIsPlaying(!isPlaying)}>
-              <Play className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
+              <PlaySolid className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
             </ControlButton>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Eye, X } from "lucide-react";
+import { Eye, Xmark } from "iconoir-react";
 
 const STORAGE_KEY = "previewBannerDismissed";
 
@@ -45,7 +45,7 @@ export function PreviewModeBanner() {
           className="ml-2 rounded-sm p-1 hover:bg-amber-200/50 dark:hover:bg-amber-800/50"
           aria-label="Dismiss banner"
         >
-          <X className="h-4 w-4" />
+          <Xmark className="h-4 w-4" />
         </button>
       </div>
     </div>

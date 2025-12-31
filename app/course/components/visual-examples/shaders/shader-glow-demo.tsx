@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Play } from "lucide-react";
+import { PlaySolid } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,
@@ -230,7 +230,7 @@ export function ShaderGlowDemo() {
               ))}
             </ControlGroup>
             <ControlButton active={isPlaying} onClick={() => setIsPlaying(!isPlaying)}>
-              <Play className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
+              <PlaySolid className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
             </ControlButton>
           </div>
           <div className="flex flex-wrap gap-6">

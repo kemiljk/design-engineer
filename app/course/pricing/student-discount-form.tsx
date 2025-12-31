@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, AlertCircle, Loader2, GraduationCap } from "lucide-react";
+import { CheckCircle, WarningCircle, RefreshDouble, GraduationCap } from "iconoir-react";
 
 export function StudentDiscountForm() {
   const [email, setEmail] = useState("");
@@ -85,7 +85,7 @@ export function StudentDiscountForm() {
           >
             {status === "loading" ? (
               <>
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <RefreshDouble className="h-4 w-4 animate-spin" />
                 Verifying...
               </>
             ) : status === "success" ? (
@@ -113,7 +113,7 @@ export function StudentDiscountForm() {
             {status === "success" ? (
               <CheckCircle className="h-5 w-5 shrink-0" />
             ) : (
-              <AlertCircle className="h-5 w-5 shrink-0" />
+              <WarningCircle className="h-5 w-5 shrink-0" />
             )}
             <div className="flex-1">
               <p className="text-sm font-medium">{message}</p>

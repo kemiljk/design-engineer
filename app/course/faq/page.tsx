@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "iconoir-react";
 import { FAQAccordion } from "./faq-accordion";
 
 export const metadata: Metadata = {
@@ -101,7 +101,7 @@ const faqs = [
       },
       {
         q: "Do I need to buy any software?",
-        a: "Most tools we use are free: VS Code, Android Studio, and Figma (free tier). For iOS development, Xcode is free but requires a Mac. If you want to publish apps to the App Store or Play Store, you'll need developer accounts ($99/year for Apple, $25 one-time for Google), but these aren't required for learning.",
+        a: "Most tools we use are free: VS Code, Android Studio, and Figma (free tier). For iOS development, Xcode is free but requires a Mac. If you want to publish apps to the App Store or PlaySolid Store, you'll need developer accounts ($99/year for Apple, $25 one-time for Google), but these aren't required for learning.",
       },
       {
         q: "Can I take the course on mobile?",
@@ -118,7 +118,7 @@ const faqs = [
       },
       {
         q: "Is there a community or forum?",
-        a: "We're building a community for Design Engineer students. Sign up for our newsletter to be notified when it launches. In the meantime, you can connect with other Design Engineers on Twitter/X using #DesignEngineer.",
+        a: "We're building a community for Design Engineer students. Sign up for our newsletter to be notified when it launches. In the meantime, you can connect with other Design Engineers on Twitter/Xmark using #DesignEngineer.",
       },
       {
         q: "Do you offer certificates?",

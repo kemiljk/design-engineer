@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { X } from "lucide-react";
+import { Xmark } from "iconoir-react";
 
 interface GalleryFiltersProps {
   currentPlatform?: string;
@@ -76,7 +76,7 @@ export function GalleryFilters({ currentPlatform, currentTrack }: GalleryFilters
           onClick={clearFilters}
           className="flex items-center gap-1 px-2 py-1.5 text-sm text-neutral-500 hover:text-swiss-red"
         >
-          <X className="h-3 w-3" />
+          <Xmark className="h-3 w-3" />
           Clear
         </button>
       )}

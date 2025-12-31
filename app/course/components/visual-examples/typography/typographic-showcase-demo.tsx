@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "iconoir-react";
 
 export function TypographicShowcaseDemo() {
   return (
@@ -37,7 +37,7 @@ export function TypographicShowcaseDemo() {
           </span>
         </div>
 
-        {/* Main Content Grid */}
+        {/* Main Content ViewGrid */}
         <div className="relative grid gap-6 md:grid-cols-12 md:gap-8">
           {/* Left Column */}
           <div className="space-y-6 md:col-span-7">

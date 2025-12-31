@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { readStreamableValue } from '@ai-sdk/rsc';
 import { auditAccessibility } from "./actions";
-import { Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
+import { RefreshDouble, WarningCircle, CheckCircle } from "iconoir-react";
 import ReactMarkdown from "react-markdown";
 
 export default function AccessibilityAuditor() {
@@ -54,12 +54,12 @@ export default function AccessibilityAuditor() {
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <RefreshDouble className="h-4 w-4 animate-spin" />
                   Analyzing...
                 </>
               ) : (
                 <>
-                  <CheckCircle2 className="h-4 w-4" />
+                  <CheckCircle className="h-4 w-4" />
                   Audit Accessibility
                 </>
               )}
@@ -78,7 +78,7 @@ export default function AccessibilityAuditor() {
             </div>
           ) : (
             <div className="flex h-full flex-col items-center justify-center text-center text-neutral-500">
-              <AlertCircle className="mb-2 h-8 w-8 opacity-20" />
+              <WarningCircle className="mb-2 h-8 w-8 opacity-20" />
               <p>Paste your code and run the audit to see the results.</p>
             </div>
           )}

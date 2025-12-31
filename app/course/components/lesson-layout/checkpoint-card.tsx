@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { Check, RotateCcw, CheckCircle2 } from "lucide-react";
+import { Check, Refresh, CheckCircle } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface CheckpointItem {
@@ -45,7 +45,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
     setIsHydrated(true);
   }, [storageKey]);
 
-  // Save to localStorage on change
+  // FloppyDisk to localStorage on change
   useEffect(() => {
     if (isHydrated) {
       const state = checklistItems.reduce(
@@ -112,7 +112,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
               )}
             >
               {isComplete ? (
-                <CheckCircle2 className="h-4 w-4" />
+                <CheckCircle className="h-4 w-4" />
               ) : (
                 <Check className="h-4 w-4" />
               )}
@@ -140,7 +140,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
             className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
             aria-label="Reset checkpoint"
           >
-            <RotateCcw className="h-3 w-3" />
+            <Refresh className="h-3 w-3" />
             Reset
           </button>
         </div>

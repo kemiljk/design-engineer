@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { CheckCircle2, Circle, Clock, Trophy } from "lucide-react";
+import { CheckCircle, Circle, Clock, Trophy } from "iconoir-react";
 
 interface ProgressStats {
   totalLessons: number;
@@ -66,7 +66,7 @@ export function ProgressTracker() {
       <div className="grid grid-cols-3 gap-4 text-center">
         <div>
           <div className="flex items-center justify-center gap-1 text-swiss-red">
-            <CheckCircle2 className="h-4 w-4" />
+            <CheckCircle className="h-4 w-4" />
             <span className="text-lg font-bold">{stats.completedCount}</span>
           </div>
           <p className="text-xs text-neutral-500">Completed</p>

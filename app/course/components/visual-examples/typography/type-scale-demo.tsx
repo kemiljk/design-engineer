@@ -30,7 +30,7 @@ export function TypeScaleDemo() {
 
   return (
     <ExampleWrapper
-      title="Typographic Scale"
+      title="Typographic MenuScale"
       description="See how different scale ratios create varying levels of contrast"
       controls={
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -57,7 +57,7 @@ export function TypeScaleDemo() {
       }
     >
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Scale visualization */}
+        {/* MenuScale visualization */}
         <div className="space-y-1">
           {scale.slice().reverse().map(({ name, step }) => {
             const size = baseSize * Math.pow(ratioNum, step);

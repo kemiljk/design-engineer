@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Check, Download, Copy, RotateCcw } from "lucide-react";
+import { Check, Download, Copy, Refresh } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -40,7 +40,7 @@ const INITIAL_CHECKLIST: ChecklistSection[] = [
   {
     title: "Documentation",
     items: [
-      { id: "dc-1", label: "Layers properly named", checked: false },
+      { id: "dc-1", label: "ViewColumns2 properly named", checked: false },
       { id: "dc-2", label: "File organised", checked: false },
       { id: "dc-3", label: "Edge cases noted", checked: false },
       { id: "dc-4", label: "Complex interactions documented", checked: false },
@@ -78,7 +78,7 @@ export function HandoffChecklistDemo() {
     setIsHydrated(true);
   }, []);
 
-  // Save to localStorage on change
+  // FloppyDisk to localStorage on change
   useEffect(() => {
     if (isHydrated) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ checklist, projectName }));
@@ -286,7 +286,7 @@ export function HandoffChecklistDemo() {
               onClick={resetChecklist}
               className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
             >
-              <RotateCcw className="h-3.5 w-3.5" />
+              <Refresh className="h-3.5 w-3.5" />
               Reset
             </button>
           </div>

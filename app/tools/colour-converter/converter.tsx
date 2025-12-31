@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Copy, Check, Pipette } from "lucide-react";
+import { Copy, Check, ColorPicker } from "iconoir-react";
 import { clsx } from "clsx";
 
 type ColorFormat = "hex" | "rgb" | "hsl" | "oklch" | "swift" | "android" | "tailwind";
@@ -94,7 +94,7 @@ export default function ColourConverter() {
                 />
               </div>
               <label className="flex cursor-pointer items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 px-3 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
-                <Pipette className="h-5 w-5 text-neutral-500" />
+                <ColorPicker className="h-5 w-5 text-neutral-500" />
                 <input
                   type="color"
                   value={colorValues.hex}
@@ -110,7 +110,7 @@ export default function ColourConverter() {
           </div>
         </div>
 
-        {/* Colour Info */}
+        {/* Colour InfoCircle */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Values</h2>
           
@@ -189,7 +189,7 @@ export default function ColourConverter() {
           <h2 className="mb-6 text-lg font-bold">Variations</h2>
           
           <div className="space-y-4">
-            {/* Lightness Scale */}
+            {/* Lightness MenuScale */}
             <div>
               <h3 className="mb-2 text-sm font-medium text-neutral-500">Lightness</h3>
               <div className="flex overflow-hidden rounded-none">
@@ -210,7 +210,7 @@ export default function ColourConverter() {
               </div>
             </div>
 
-            {/* Saturation Scale */}
+            {/* Saturation MenuScale */}
             <div>
               <h3 className="mb-2 text-sm font-medium text-neutral-500">Saturation</h3>
               <div className="flex overflow-hidden rounded-none">

@@ -1,8 +1,8 @@
 "use client";
 
-import { ExternalLink, Github, Video, Clock, CheckCircle, Star } from "lucide-react";
+import { OpenNewWindow, Github, MediaVideo, Clock, CheckCircle, StarSolid } from "iconoir-react";
 import type { GalleryProject } from "@/lib/types";
-import Image from "next/image";
+import MediaImage from "next/image";
 
 interface GalleryProjectCardProps {
   project: GalleryProject;
@@ -34,7 +34,7 @@ const statusConfig = {
   },
   featured: {
     label: "Featured",
-    icon: Star,
+    icon: StarSolid,
     className: "bg-swiss-red text-white",
   },
   rejected: {
@@ -54,7 +54,7 @@ export function GalleryProjectCard({ project, showStatus = false }: GalleryProje
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden bg-neutral-100 dark:bg-neutral-800">
         {metadata.thumbnail_url ? (
-          <Image
+          <MediaImage
             src={metadata.thumbnail_url}
             alt={project.title}
             fill
@@ -77,7 +77,7 @@ export function GalleryProjectCard({ project, showStatus = false }: GalleryProje
         {/* Featured Badge */}
         {!showStatus && metadata.status === "featured" && (
           <div className="absolute top-2 left-2 flex items-center gap-1 bg-swiss-red px-2 py-1 text-xs font-medium text-white">
-            <Star className="h-3 w-3" />
+            <StarSolid className="h-3 w-3" />
             Featured
           </div>
         )}
@@ -133,7 +133,7 @@ export function GalleryProjectCard({ project, showStatus = false }: GalleryProje
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-xs text-swiss-red hover:underline"
             >
-              <ExternalLink className="h-3 w-3" />
+              <OpenNewWindow className="h-3 w-3" />
               View Project
             </a>
           )}
@@ -155,7 +155,7 @@ export function GalleryProjectCard({ project, showStatus = false }: GalleryProje
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-xs text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
             >
-              <Video className="h-3 w-3" />
+              <MediaVideo className="h-3 w-3" />
               Demo
             </a>
           )}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copy, Check, Sun, Moon } from "lucide-react";
+import { Copy, Check, SunLight, HalfMoon } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -125,12 +125,12 @@ export function TokenExplorerDemo() {
               >
                 {theme === "light" ? (
                   <>
-                    <Sun className="h-3.5 w-3.5" />
+                    <SunLight className="h-3.5 w-3.5" />
                     Light
                   </>
                 ) : (
                   <>
-                    <Moon className="h-3.5 w-3.5" />
+                    <HalfMoon className="h-3.5 w-3.5" />
                     Dark
                   </>
                 )}

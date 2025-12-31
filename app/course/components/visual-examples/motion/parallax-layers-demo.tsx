@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { MousePointer2 } from "lucide-react";
+import { CursorPointer } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -62,7 +62,7 @@ function ParallaxScene() {
   return (
     <ExampleWrapper
       title="Parallax Scrolling"
-      description="Layers moving at different speeds create an illusion of depth (3D space) on a 2D screen."
+      description="ViewColumns2 moving at different speeds create an illusion of depth (3D space) on a 2D screen."
       controls={
         <div className="flex justify-end">
           <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
@@ -118,7 +118,7 @@ function ParallaxScene() {
                 >
                   <h3 className="text-4xl font-bold tracking-tight">Depth</h3>
                   <p className="mt-2 text-indigo-200">Scroll to explore</p>
-                  <MousePointer2 className="mt-8 animate-bounce text-white/50" />
+                  <CursorPointer className="mt-8 animate-bounce text-white/50" />
                 </motion.div>
 
               </div>

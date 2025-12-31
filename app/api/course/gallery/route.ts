@@ -136,7 +136,7 @@ ${description}
 Links:
 ${thumbnailUrl ? `• Thumbnail: ${thumbnailUrl}` : ""}
 ${projectUrl ? `• Project: ${projectUrl}` : ""}
-${githubUrl ? `• GitHub: ${githubUrl}` : ""}
+${githubUrl ? `• Github: ${githubUrl}` : ""}
 ${videoUrl ? `• Video: ${videoUrl}` : ""}
 
 Technologies: ${technologies?.length ? technologies.join(", ") : "None specified"}
@@ -146,7 +146,7 @@ To approve this project:
 1. Go to Cosmic Dashboard → Gallery Projects
 2. Find this submission (slug: ${project.slug})
 3. Change status from "Pending Review" to "Approved" or "Featured"
-4. Save/Publish the changes
+4. FloppyDisk/Publish the changes
       `.trim(),
     });
   } catch (emailError) {

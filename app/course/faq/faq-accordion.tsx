@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown } from "lucide-react";
+import { NavArrowDown } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface Question {
@@ -26,7 +26,7 @@ export function FAQAccordion({ questions }: FAQAccordionProps) {
             className="flex w-full items-center justify-between py-4 text-left"
           >
             <span className="pr-4 font-medium">{item.q}</span>
-            <ChevronDown
+            <NavArrowDown
               className={cn(
                 "h-5 w-5 shrink-0 text-neutral-500 transition-transform",
                 openIndex === index && "rotate-180"

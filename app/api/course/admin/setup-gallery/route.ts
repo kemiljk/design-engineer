@@ -83,7 +83,7 @@ export async function POST() {
     },
     {
       key: "github_url",
-      title: "GitHub URL",
+      title: "Github URL",
       type: "text",
       required: false,
     },

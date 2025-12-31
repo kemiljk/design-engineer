@@ -3,15 +3,15 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
-  Layout, 
-  Code2, 
-  Infinity, 
+  LayoutLeft, 
+  Code, 
+  Infinite, 
   ArrowRight,
-  RotateCcw,
-  CheckCircle2,
-  ClipboardList,
-  Scale
-} from "lucide-react";
+  Refresh,
+  CheckCircle,
+  ClipboardCheck,
+  MenuScale
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -158,7 +158,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
     localStorage.removeItem("course-recommendation");
   };
 
-  // Save recommendation to localStorage when results are shown
+  // FloppyDisk recommendation to localStorage when results are shown
   useEffect(() => {
     if (showResults && recommendation) {
       localStorage.setItem(
@@ -180,7 +180,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
       {/* Header */}
       <div className="flex items-center justify-between border-b-2 border-neutral-900 bg-neutral-900 px-4 py-3 dark:border-neutral-100 dark:bg-neutral-100">
         <div className="flex items-center gap-3">
-          <ClipboardList className="h-5 w-5 text-white dark:text-neutral-900" />
+          <ClipboardCheck className="h-5 w-5 text-white dark:text-neutral-900" />
           <span className="font-semibold text-white dark:text-neutral-900">{exercise.title}</span>
         </div>
         <span className="rounded-full bg-neutral-600 px-2 py-0.5 text-xs font-medium text-white dark:bg-neutral-400">
@@ -195,7 +195,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
       )}
       {/* Content */}
       <div className="p-6 space-y-8">
-        {/* Rating Scale Legend */}
+        {/* Rating MenuScale Legend */}
         <div className="flex flex-wrap gap-4 rounded bg-neutral-50 p-4 text-sm dark:bg-neutral-800/50">
           {RATING_LABELS.map(({ value, label }) => (
             <div key={value} className="flex items-center gap-2">
@@ -298,7 +298,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
               onClick={resetAssessment}
               className="flex items-center gap-2 border border-neutral-200 px-4 py-2 text-sm font-medium transition-colors hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700"
             >
-              <RotateCcw className="h-4 w-4" />
+              <Refresh className="h-4 w-4" />
               Reset Assessment
             </button>
           )}
@@ -342,22 +342,22 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
                 <div className="mb-4 flex items-center gap-3">
                   {recommendation.track === "design" && (
                     <div className="flex h-12 w-12 items-center justify-center bg-swiss-red/10">
-                      <Layout className="h-6 w-6 text-swiss-red" />
+                      <LayoutLeft className="h-6 w-6 text-swiss-red" />
                     </div>
                   )}
                   {recommendation.track === "engineering" && (
                     <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-700">
-                      <Code2 className="h-6 w-6" />
+                      <Code className="h-6 w-6" />
                     </div>
                   )}
                   {recommendation.track === "convergence" && (
                     <div className="flex h-12 w-12 items-center justify-center bg-gradient-to-br from-swiss-red/20 to-neutral-200 dark:to-neutral-700">
-                      <Infinity className="h-6 w-6 text-swiss-red" />
+                      <Infinite className="h-6 w-6 text-swiss-red" />
                     </div>
                   )}
                   {recommendation.track === "balanced" && (
                     <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-700">
-                      <Scale className="h-6 w-6" />
+                      <MenuScale className="h-6 w-6" />
                     </div>
                   )}
                   <div>
@@ -413,7 +413,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
 
                 {recommendation.readyForConvergence && recommendation.track !== "convergence" && (
                   <div className="mb-4 flex items-start gap-2 rounded bg-green-50 p-3 text-sm dark:bg-green-900/20">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-600 dark:text-green-400" />
+                    <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-green-600 dark:text-green-400" />
                     <p className="text-green-800 dark:text-green-200">
                       You could also consider the <strong>Convergence Track</strong> after 
                       a quick review of fundamentals.
@@ -439,7 +439,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
                         e.currentTarget.style.backgroundPosition = "0% 0%";
                       }}
                     >
-                      <Infinity className="h-4 w-4" />
+                      <Infinite className="h-4 w-4" />
                       Start Convergence Track
                     </Link>
                   )}
@@ -453,7 +453,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
                           : "border border-neutral-200 hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700"
                       )}
                     >
-                      <Layout className="h-4 w-4" />
+                      <LayoutLeft className="h-4 w-4" />
                       {recommendation.track === "design" ? "Start Design Track" : "Design Track"}
                     </Link>
                   )}
@@ -467,7 +467,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
                           : "border border-neutral-200 hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700"
                       )}
                     >
-                      <Code2 className="h-4 w-4" />
+                      <Code className="h-4 w-4" />
                       {recommendation.track === "engineering" ? "Start Engineering Track" : "Engineering Track"}
                     </Link>
                   )}

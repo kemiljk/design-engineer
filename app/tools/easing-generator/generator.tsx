@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import { Copy, Check, RefreshCw } from "lucide-react";
+import { Copy, Check, Refresh } from "iconoir-react";
 
 type Point = { x: number; y: number };
 
@@ -96,7 +96,7 @@ export default function EasingGenerator() {
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerUp}
         >
-          {/* Grid/Axes */}
+          {/* ViewGrid/Axes */}
           <line x1={padding} y1={size - padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
           <line x1={padding} y1={padding} x2={padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
           <line x1={size - padding} y1={padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />

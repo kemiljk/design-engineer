@@ -205,7 +205,7 @@ export function AffordanceSignifier() {
           Click me
         </text>
 
-        {/* Cursor indicator */}
+        {/* CursorPointer indicator */}
         <CursorIcon
           x={CONTENT.right - colWidth / 2 + 30}
           y={startY + 42}

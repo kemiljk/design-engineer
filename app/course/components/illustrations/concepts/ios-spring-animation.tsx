@@ -36,7 +36,7 @@ export function IosSpringAnimation() {
         strokeWidth={1}
       />
 
-      {/* Grid Lines */}
+      {/* ViewGrid Lines */}
       {[0.25, 0.5, 0.75].map((pos) => (
         <Line
           key={`h-${pos}`}

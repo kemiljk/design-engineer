@@ -4,13 +4,13 @@ import React from "react";
 import { 
   ArrowRight, 
   ArrowDown,
-  AlignStartVertical,
-  AlignCenterVertical,
-  AlignEndVertical,
-  AlignStartHorizontal,
-  AlignCenterHorizontal,
-  AlignEndHorizontal,
-} from "lucide-react";
+  AlignTopBox,
+  AlignVerticalCenters,
+  AlignBottomBox,
+  AlignLeftBox,
+  AlignHorizontalCenters,
+  AlignRightBox,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface AutoLayoutPanelProps {
@@ -115,15 +115,15 @@ export function FigmaAutoLayoutPanel({
             <div className="flex items-center gap-1">
               {direction === "horizontal" ? (
                 <>
-                  <AlignButton active={alignPrimary === "start"} icon={<AlignStartHorizontal className="h-3 w-3" />} />
-                  <AlignButton active={alignPrimary === "center"} icon={<AlignCenterHorizontal className="h-3 w-3" />} />
-                  <AlignButton active={alignPrimary === "end"} icon={<AlignEndHorizontal className="h-3 w-3" />} />
+                  <AlignButton active={alignPrimary === "start"} icon={<AlignLeftBox className="h-3 w-3" />} />
+                  <AlignButton active={alignPrimary === "center"} icon={<AlignHorizontalCenters className="h-3 w-3" />} />
+                  <AlignButton active={alignPrimary === "end"} icon={<AlignRightBox className="h-3 w-3" />} />
                 </>
               ) : (
                 <>
-                  <AlignButton active={alignPrimary === "start"} icon={<AlignStartVertical className="h-3 w-3" />} />
-                  <AlignButton active={alignPrimary === "center"} icon={<AlignCenterVertical className="h-3 w-3" />} />
-                  <AlignButton active={alignPrimary === "end"} icon={<AlignEndVertical className="h-3 w-3" />} />
+                  <AlignButton active={alignPrimary === "start"} icon={<AlignTopBox className="h-3 w-3" />} />
+                  <AlignButton active={alignPrimary === "center"} icon={<AlignVerticalCenters className="h-3 w-3" />} />
+                  <AlignButton active={alignPrimary === "end"} icon={<AlignBottomBox className="h-3 w-3" />} />
                 </>
               )}
               <div className={cn(
@@ -145,15 +145,15 @@ export function FigmaAutoLayoutPanel({
             <div className="flex items-center gap-1">
               {direction === "horizontal" ? (
                 <>
-                  <AlignButton active={alignCross === "start"} icon={<AlignStartVertical className="h-3 w-3" />} />
-                  <AlignButton active={alignCross === "center"} icon={<AlignCenterVertical className="h-3 w-3" />} />
-                  <AlignButton active={alignCross === "end"} icon={<AlignEndVertical className="h-3 w-3" />} />
+                  <AlignButton active={alignCross === "start"} icon={<AlignTopBox className="h-3 w-3" />} />
+                  <AlignButton active={alignCross === "center"} icon={<AlignVerticalCenters className="h-3 w-3" />} />
+                  <AlignButton active={alignCross === "end"} icon={<AlignBottomBox className="h-3 w-3" />} />
                 </>
               ) : (
                 <>
-                  <AlignButton active={alignCross === "start"} icon={<AlignStartHorizontal className="h-3 w-3" />} />
-                  <AlignButton active={alignCross === "center"} icon={<AlignCenterHorizontal className="h-3 w-3" />} />
-                  <AlignButton active={alignCross === "end"} icon={<AlignEndHorizontal className="h-3 w-3" />} />
+                  <AlignButton active={alignCross === "start"} icon={<AlignLeftBox className="h-3 w-3" />} />
+                  <AlignButton active={alignCross === "center"} icon={<AlignHorizontalCenters className="h-3 w-3" />} />
+                  <AlignButton active={alignCross === "end"} icon={<AlignRightBox className="h-3 w-3" />} />
                 </>
               )}
             </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { ArrowRight, Copy, Check, AlertCircle } from "lucide-react";
+import { ArrowRight, Copy, Check, WarningCircle } from "iconoir-react";
 import { clsx } from "clsx";
 
 type Framework = "react" | "vue" | "svelte" | "astro" | "solid";
@@ -152,7 +152,7 @@ export default function FrameworkConverter() {
       {convertedCode.warnings.length > 0 && (
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950">
           <div className="flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 shrink-0 text-amber-600 dark:text-amber-400" />
+            <WarningCircle className="h-5 w-5 shrink-0 text-amber-600 dark:text-amber-400" />
             <div className="space-y-1">
               <h4 className="font-medium text-amber-800 dark:text-amber-200">
                 Conversion Notes

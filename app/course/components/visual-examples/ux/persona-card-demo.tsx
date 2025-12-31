@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { Target, Frown, Monitor, Gauge } from "lucide-react";
+import MediaImage from "next/image";
+import { Gps, EmojiSad, Computer, DashboardSpeed } from "iconoir-react";
 
 interface Persona {
   name: string;
@@ -41,7 +41,7 @@ export function PersonaCardDemo() {
         <div className="flex items-center gap-4 border-b border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
           {/* Avatar */}
           <div className="relative h-16 w-16 shrink-0">
-            <Image
+            <MediaImage
               src={persona.avatar}
               alt={persona.name}
               width={64}
@@ -63,13 +63,13 @@ export function PersonaCardDemo() {
           </div>
         </div>
 
-        {/* Content Grid */}
+        {/* Content ViewGrid */}
         <div className="grid gap-4 p-4 sm:grid-cols-2">
           {/* Goals */}
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded bg-green-100 dark:bg-green-900/30">
-                <Target className="h-3.5 w-3.5 text-green-600 dark:text-green-400" />
+                <Gps className="h-3.5 w-3.5 text-green-600 dark:text-green-400" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                 Goals
@@ -92,7 +92,7 @@ export function PersonaCardDemo() {
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded bg-red-100 dark:bg-red-900/30">
-                <Frown className="h-3.5 w-3.5 text-red-600 dark:text-red-400" />
+                <EmojiSad className="h-3.5 w-3.5 text-red-600 dark:text-red-400" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                 Frustrations
@@ -115,7 +115,7 @@ export function PersonaCardDemo() {
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded bg-blue-100 dark:bg-blue-900/30">
-                <Monitor className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                <Computer className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                 Context
@@ -130,7 +130,7 @@ export function PersonaCardDemo() {
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded bg-purple-100 dark:bg-purple-900/30">
-                <Gauge className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />
+                <DashboardSpeed className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
                 Technical Level

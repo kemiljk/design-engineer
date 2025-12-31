@@ -4,17 +4,17 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
-  StickyNote,
-  Award,
-  FolderKanban,
+  Notes,
+  Medal,
+  Folder,
   Clock,
   Trophy,
-  BookOpen,
+  Book,
   Send,
   PlusCircle,
-  ExternalLink,
+  OpenNewWindow,
   User,
-} from "lucide-react";
+} from "iconoir-react";
 import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
 import { getUserCertificates, checkCertificateEligibility } from "@/lib/certificate";
 import { getUserGalleryProjects } from "@/lib/cosmic";
@@ -155,7 +155,7 @@ export default async function DashboardPage() {
             className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-              <StickyNote className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+              <Notes className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div className="flex-1">
               <h3 className="font-bold group-hover:text-swiss-red">My Notes</h3>
@@ -169,7 +169,7 @@ export default async function DashboardPage() {
             className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="flex h-12 w-12 items-center justify-center bg-swiss-red/10">
-              <Award className="h-6 w-6 text-swiss-red" />
+              <Medal className="h-6 w-6 text-swiss-red" />
             </div>
             <div className="flex-1">
               <h3 className="font-bold group-hover:text-swiss-red">Certificates</h3>
@@ -188,7 +188,7 @@ export default async function DashboardPage() {
             className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-              <FolderKanban className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+              <Folder className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div className="flex-1">
               <h3 className="font-bold group-hover:text-swiss-red">Project Gallery</h3>
@@ -202,7 +202,7 @@ export default async function DashboardPage() {
         <section className="mb-12">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-lg font-bold">
-              <StickyNote className="h-5 w-5 text-neutral-500" />
+              <Notes className="h-5 w-5 text-neutral-500" />
               Recent Notes
             </h2>
             {notes.length > 3 && (
@@ -211,14 +211,14 @@ export default async function DashboardPage() {
                 className="flex items-center gap-1 text-sm text-swiss-red hover:underline"
               >
                 View all ({notes.length})
-                <ExternalLink className="h-3 w-3" />
+                <OpenNewWindow className="h-3 w-3" />
               </Link>
             )}
           </div>
 
           {recentNotes.length === 0 ? (
             <div className="rounded-none border border-neutral-200 bg-white p-8 text-center dark:border-neutral-800 dark:bg-neutral-900">
-              <StickyNote className="mx-auto h-10 w-10 text-neutral-300" />
+              <Notes className="mx-auto h-10 w-10 text-neutral-300" />
               <p className="mt-3 text-neutral-500">No notes yet</p>
               <p className="mt-1 text-sm text-neutral-400">
                 Take notes whilst learning to see them here
@@ -248,7 +248,7 @@ export default async function DashboardPage() {
         <section className="mb-12">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-lg font-bold">
-              <FolderKanban className="h-5 w-5 text-neutral-500" />
+              <Folder className="h-5 w-5 text-neutral-500" />
               My Project Submissions
             </h2>
             {enrollment && (
@@ -264,7 +264,7 @@ export default async function DashboardPage() {
 
           {galleryProjects.length === 0 ? (
             <div className="rounded-none border border-neutral-200 bg-white p-8 text-center dark:border-neutral-800 dark:bg-neutral-900">
-              <FolderKanban className="mx-auto h-10 w-10 text-neutral-300" />
+              <Folder className="mx-auto h-10 w-10 text-neutral-300" />
               <p className="mt-3 text-neutral-500">No projects submitted yet</p>
               <p className="mt-1 text-sm text-neutral-400">
                 Complete a capstone project and share your work with the community
@@ -321,7 +321,7 @@ export default async function DashboardPage() {
           <section className="mb-12">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="flex items-center gap-2 text-lg font-bold">
-                <Award className="h-5 w-5 text-swiss-red" />
+                <Medal className="h-5 w-5 text-swiss-red" />
                 Earned Certificates
               </h2>
               <Link
@@ -329,7 +329,7 @@ export default async function DashboardPage() {
                 className="flex items-center gap-1 text-sm text-swiss-red hover:underline"
               >
                 Manage Certificates
-                <ExternalLink className="h-3 w-3" />
+                <OpenNewWindow className="h-3 w-3" />
               </Link>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
@@ -338,7 +338,7 @@ export default async function DashboardPage() {
                   key={cert.id}
                   className="flex items-center gap-3 border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5"
                 >
-                  <Award className="h-8 w-8 text-swiss-red" />
+                  <Medal className="h-8 w-8 text-swiss-red" />
                   <div>
                     <p className="font-medium">
                       {cert.metadata.platform === "web" && "Web Design Engineer"}
@@ -363,21 +363,21 @@ export default async function DashboardPage() {
               href="/course/faq"
               className="flex items-center gap-2 text-sm text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
             >
-              <BookOpen className="h-4 w-4" />
+              <Book className="h-4 w-4" />
               Frequently Asked Questions
             </Link>
             <a
               href="mailto:hello@designengineer.xyz"
               className="flex items-center gap-2 text-sm text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
             >
-              <ExternalLink className="h-4 w-4" />
+              <OpenNewWindow className="h-4 w-4" />
               Contact Support
             </a>
             <Link
               href="/course/refund-policy"
               className="flex items-center gap-2 text-sm text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
             >
-              <BookOpen className="h-4 w-4" />
+              <Book className="h-4 w-4" />
               Refund Policy
             </Link>
           </div>

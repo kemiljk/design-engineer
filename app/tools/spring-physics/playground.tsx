@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { RefreshCw } from "lucide-react";
+import { Refresh } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -265,13 +265,13 @@ animateFloatAsState(
           className="absolute right-4 top-4 rounded-none bg-white p-2 text-neutral-600 shadow-sm hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white"
           title="Replay Animation"
         >
-          <RefreshCw className="h-4 w-4" />
+          <Refresh className="h-4 w-4" />
         </button>
 
         <div className="flex w-full flex-col gap-12">
-          {/* Scale Animation */}
+          {/* MenuScale Animation */}
           <div className="flex flex-col items-center gap-4">
-             <span className="text-xs font-medium uppercase tracking-wider text-neutral-500">Scale</span>
+             <span className="text-xs font-medium uppercase tracking-wider text-neutral-500">MenuScale</span>
              <motion.div
               key={`scale-${key}`}
               initial={{ scale: 0.5, opacity: 0 }}

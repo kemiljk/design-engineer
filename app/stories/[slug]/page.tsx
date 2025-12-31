@@ -13,7 +13,7 @@ import { StoryTitle } from "@/app/components/story-title";
 import { QnABlock } from "@/app/stories/[slug]/qna-block";
 import CopyButton from "@/app/components/copy-button";
 import Markdown from "react-markdown";
-import { InfoIcon } from "lucide-react";
+import { InfoCircle } from "iconoir-react";
 
 const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params;
@@ -129,7 +129,7 @@ const StoryPage = async (props: { params: Promise<{ slug: string }> }) => {
           <Markdown>{story.metadata.summary}</Markdown>
         </article>
         <div className="mt-6 flex w-full items-center gap-2 text-neutral-500">
-          <InfoIcon className="h-6 w-6 text-swiss-red" />
+          <InfoCircle className="h-6 w-6 text-swiss-red" />
           <p>This transcript has been partially edited for brevity.</p>
         </div>
         {story.metadata.qna.metadata.qna.map((qna) => (

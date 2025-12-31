@@ -75,7 +75,7 @@ export function WhitespaceDemo() {
         <div className="flex flex-col justify-center space-y-6">
           <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              Perception Scale
+              Perception MenuScale
             </p>
             <div className="relative h-8 overflow-hidden rounded-full bg-gradient-to-r from-neutral-300 via-neutral-100 to-neutral-200 dark:from-neutral-700 dark:via-neutral-800 dark:to-neutral-600">
               <div

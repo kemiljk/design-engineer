@@ -18,7 +18,7 @@ export default function Loading() {
       <PageHeaderSkeleton />
 
       <div className="container-page py-12">
-        {/* Stories Grid - matches flex wrap layout */}
+        {/* Stories ViewGrid - matches flex wrap layout */}
         <div className="flex flex-wrap justify-center gap-8">
           {Array.from({ length: 3 }).map((_, i) => (
             <div

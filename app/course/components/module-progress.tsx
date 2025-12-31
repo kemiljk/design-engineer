@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Circle } from "lucide-react";
+import { CheckCircle, Circle } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface ModuleProgressProps {
@@ -24,7 +24,7 @@ export function ModuleProgress({ modules }: ModuleProgressProps) {
         return (
           <div key={module.id} className="flex items-center gap-3">
             {isComplete ? (
-              <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
+              <CheckCircle className="h-5 w-5 text-green-500 shrink-0" />
             ) : (
               <Circle className="h-5 w-5 text-neutral-300 shrink-0" />
             )}

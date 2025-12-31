@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, FileText } from "lucide-react";
+import { ArrowLeft, Page } from "iconoir-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Design Engineer Course",
@@ -22,7 +22,7 @@ export default function TermsPage() {
         <div className="rounded-none border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900 md:p-12">
           <div className="mb-8 flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-              <FileText className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+              <Page className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div>
               <h1 className="text-2xl font-bold md:text-3xl">Terms of Service</h1>
@@ -101,7 +101,7 @@ export default function TermsPage() {
             <p>You may not:</p>
             <ul>
               <li>Copy, reproduce, or distribute course content</li>
-              <li>Share your account credentials with others</li>
+              <li>ShareIos your account credentials with others</li>
               <li>Use content for commercial purposes without permission</li>
               <li>Reverse engineer or attempt to extract source code</li>
               <li>Remove any copyright or proprietary notices</li>

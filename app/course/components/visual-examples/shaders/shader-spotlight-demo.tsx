@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { MousePointer2 } from "lucide-react";
+import { CursorPointer } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,
@@ -228,7 +228,7 @@ export function ShaderSpotlightDemo() {
         />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm">
-            <MousePointer2 className="size-4 text-white/60" />
+            <CursorPointer className="size-4 text-white/60" />
             <span className="text-sm text-white/60">Move mouse here</span>
           </div>
         </div>

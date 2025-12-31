@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { Copy, Check, Pipette } from "lucide-react";
+import { Copy, Check, ColorPicker } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -58,7 +58,7 @@ export default function SpectrumGenerator() {
       
       const targetLightness = stepToLightness(step);
       
-      // Scale chroma proportionally based on distance from optimal lightness
+      // MenuScale chroma proportionally based on distance from optimal lightness
       // Use the input's chroma as reference, scaled by the lightness relationship
       const inputChromaAtTargetLightness = calculateChromaForLightness(
         baseOklch.c,
@@ -228,7 +228,7 @@ Text(
                   />
                 </div>
                 <label className="flex cursor-pointer items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 px-3 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
-                  <Pipette className="h-5 w-5 text-neutral-500" />
+                  <ColorPicker className="h-5 w-5 text-neutral-500" />
                   <input
                     type="color"
                     value={inputColour}
@@ -271,10 +271,10 @@ Text(
           </div>
         </div>
 
-        {/* Scale Preview */}
+        {/* MenuScale Preview */}
         <div className="lg:col-span-8">
           <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
-            <h2 className="mb-4 text-lg font-bold">Generated Scale</h2>
+            <h2 className="mb-4 text-lg font-bold">Generated MenuScale</h2>
 
             <div className="space-y-2">
               {colourScale.map((colour) => (
@@ -326,9 +326,9 @@ Text(
         </div>
       </div>
 
-      {/* Visual Scale Bar */}
+      {/* Visual MenuScale Bar */}
       <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
-        <h2 className="mb-4 text-lg font-bold">Scale Preview</h2>
+        <h2 className="mb-4 text-lg font-bold">MenuScale Preview</h2>
         <div className="flex h-16 overflow-hidden rounded-lg shadow-inner sm:h-20">
           {colourScale.map((colour) => (
             <button
@@ -431,7 +431,7 @@ function calculateChromaForLightness(
   const inputMaxChroma = getMaxChromaAtLightness(inputLightness);
   const targetMaxChroma = getMaxChromaAtLightness(targetLightness);
   
-  // Scale the input chroma proportionally
+  // MenuScale the input chroma proportionally
   if (inputMaxChroma < 0.001) {
     return targetMaxChroma * 0.5;
   }

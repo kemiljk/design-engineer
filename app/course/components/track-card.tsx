@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BookOpen, Clock, CheckCircle, Star } from "lucide-react";
+import { Book, Clock, CheckCircle, StarSolid } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface TrackCardProps {
@@ -84,7 +84,7 @@ export function TrackCard({
       {/* Recommended Badge */}
       {isRecommended && (
         <div className="absolute right-3 top-3 z-10 flex items-center gap-1 rounded bg-swiss-red px-2 py-1 text-xs font-medium text-white shadow-sm">
-          <Star className="h-3 w-3" />
+          <StarSolid className="h-3 w-3" />
           Recommended
         </div>
       )}
@@ -108,7 +108,7 @@ export function TrackCard({
 
         <div className="mt-auto space-y-3 border-t border-neutral-100 pt-4 text-sm text-neutral-500 dark:border-neutral-800">
           <div className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4" />
+            <Book className="h-4 w-4" />
             <span>{stats.lessons} lessons</span>
             {showFreeBadge && (
               <span className="ml-auto rounded bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400">

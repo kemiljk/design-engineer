@@ -4,11 +4,11 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Download, 
-  FileCode, 
-  Image as ImageIcon, 
+  Code, 
+  MediaImage, 
   Check,
-  ExternalLink
-} from "lucide-react";
+  OpenNewWindow
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ease, duration } from "@/lib/motion";
 
@@ -229,12 +229,12 @@ export function LogoContextMenu({
   const menuItems: MenuItem[] = [
     {
       label: "Copy as SVG",
-      icon: <FileCode className="h-4 w-4" />,
+      icon: <Code className="h-4 w-4" />,
       action: copySvg,
     },
     {
       label: "Copy as PNG",
-      icon: <ImageIcon className="h-4 w-4" />,
+      icon: <MediaImage className="h-4 w-4" />,
       action: copyPng,
       dividerAfter: true,
     },
@@ -333,7 +333,7 @@ export function LogoContextMenu({
                   "focus:outline-none focus:bg-neutral-100 dark:focus:bg-neutral-800"
                 )}
               >
-                <ExternalLink className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
+                <OpenNewWindow className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
                 <span>Brand Guidelines</span>
               </a>
             </div>

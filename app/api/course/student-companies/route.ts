@@ -17,7 +17,7 @@ const COMPANY_NAMES: Record<string, string> = {
   "apple.com": "Apple", "google.com": "Google", "microsoft.com": "Microsoft",
   "amazon.com": "Amazon", "meta.com": "Meta", "facebook.com": "Meta",
   "netflix.com": "Netflix", "airbnb.com": "Airbnb", "stripe.com": "Stripe",
-  "figma.com": "Figma", "vercel.com": "Vercel", "github.com": "GitHub",
+  "figma.com": "Figma", "vercel.com": "Vercel", "github.com": "Github",
   "shopify.com": "Shopify", "spotify.com": "Spotify", "twitter.com": "X",
   "x.com": "X", "linkedin.com": "LinkedIn", "salesforce.com": "Salesforce",
   "adobe.com": "Adobe", "atlassian.com": "Atlassian", "slack.com": "Slack",

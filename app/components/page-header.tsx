@@ -99,7 +99,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
       {/* Main container - defines the content width */}
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8">
         {/* 
-          Swiss Grid Container
+          Swiss ViewGrid Container
           The grid lines and content share the SAME CSS grid.
           This guarantees perfect alignment.
         */}
@@ -108,9 +108,9 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
           style={{ gridTemplateRows: "auto auto auto auto" }}
         >
           {/* 
-            Vertical Grid Lines - use same percentage math as CSS grid
+            Vertical ViewGrid Lines - use same percentage math as CSS grid
             Mobile: 4 cols (0%, 25%, 50%, 75%, 100%)
-            Tablet: 6 cols (0%, 16.67%, 33.33%, 50%, 66.67%, 83.33%, 100%)
+            PenTablet: 6 cols (0%, 16.67%, 33.33%, 50%, 66.67%, 83.33%, 100%)
             Desktop: 12 cols (0%, 8.33%, 16.67%, ..., 100%)
             z-0 ensures lines are behind content
           */}

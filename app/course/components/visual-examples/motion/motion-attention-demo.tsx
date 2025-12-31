@@ -4,13 +4,13 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Bell,
-  MessageSquare,
+  Message,
   Mail,
   Calendar,
-  X,
-  CheckCircle2,
-  AlertCircle,
-} from "lucide-react";
+  Xmark,
+  CheckCircle,
+  WarningCircle,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -195,7 +195,7 @@ function NotificationSystem() {
                   className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-500/20 ring-1 ring-indigo-500/30 transition-colors group-hover:bg-indigo-500/25">
-                    <MessageSquare className="size-5 text-indigo-400" />
+                    <Message className="size-5 text-indigo-400" />
                   </div>
                   <span className="text-sm font-medium text-neutral-300">
                     Message
@@ -264,7 +264,7 @@ function NotificationSystem() {
                       )}
                     >
                       {n.type === "message" ? (
-                        <MessageSquare className="size-4" />
+                        <Message className="size-4" />
                       ) : n.type === "mail" ? (
                         <Mail className="size-4" />
                       ) : (
@@ -288,7 +288,7 @@ function NotificationSystem() {
                       onClick={() => removeNotification(n.id)}
                       className="-mt-1 -mr-1 ml-1 rounded-full p-1 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                     >
-                      <X className="size-4" />
+                      <Xmark className="size-4" />
                     </button>
                   </div>
                 </motion.div>
@@ -301,7 +301,7 @@ function NotificationSystem() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-              <CheckCircle2 className="size-4 text-emerald-500" />
+              <CheckCircle className="size-4 text-emerald-500" />
               Non-Blocking
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
@@ -311,7 +311,7 @@ function NotificationSystem() {
           </div>
           <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-              <AlertCircle className="size-4 text-indigo-500" />
+              <WarningCircle className="size-4 text-indigo-500" />
               Natural Entry
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">

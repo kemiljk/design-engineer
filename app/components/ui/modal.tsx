@@ -9,7 +9,7 @@ import {
   useEffect,
 } from "react";
 import { cn } from "@/lib/utils";
-import { X } from "lucide-react";
+import { Xmark } from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -139,7 +139,7 @@ const ModalContent = forwardRef<
         className="absolute right-4 top-4 p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
         aria-label="Close modal"
       >
-        <X className="h-4 w-4" />
+        <Xmark className="h-4 w-4" />
       </button>
       {children}
     </div>

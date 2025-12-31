@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Copy } from "lucide-react";
+import { Check, Copy } from "iconoir-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import Prism from "prismjs";

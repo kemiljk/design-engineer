@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, X, Plus, AlertCircle, CheckCircle } from "lucide-react";
+import { RefreshDouble, Xmark, Plus, WarningCircle, CheckCircle } from "iconoir-react";
 
 const platforms = [
   { value: "web", label: "Web" },
@@ -120,7 +120,7 @@ export function SubmitProjectForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
         <div className="flex items-center gap-2 rounded-none border border-red-200 bg-red-50 p-4 text-red-700 dark:border-red-900 dark:bg-red-950/30 dark:text-red-400">
-          <AlertCircle className="h-5 w-5 shrink-0" />
+          <WarningCircle className="h-5 w-5 shrink-0" />
           <p>{error}</p>
         </div>
       )}
@@ -225,10 +225,10 @@ export function SubmitProjectForm() {
         />
       </div>
 
-      {/* GitHub URL */}
+      {/* Github URL */}
       <div>
         <label htmlFor="githubUrl" className="mb-2 block text-sm font-medium">
-          GitHub Repository
+          Github Repository
         </label>
         <input
           id="githubUrl"
@@ -240,10 +240,10 @@ export function SubmitProjectForm() {
         />
       </div>
 
-      {/* Video URL */}
+      {/* MediaVideo URL */}
       <div>
         <label htmlFor="videoUrl" className="mb-2 block text-sm font-medium">
-          Demo Video URL
+          Demo MediaVideo URL
         </label>
         <input
           id="videoUrl"
@@ -273,7 +273,7 @@ export function SubmitProjectForm() {
                   onClick={() => removeTechnology(tech)}
                   className="hover:text-swiss-red/70"
                 >
-                  <X className="h-3 w-3" />
+                  <Xmark className="h-3 w-3" />
                 </button>
               </span>
             ))}
@@ -334,7 +334,7 @@ export function SubmitProjectForm() {
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="h-5 w-5 animate-spin" />
+              <RefreshDouble className="h-5 w-5 animate-spin" />
               Submitting...
             </>
           ) : (

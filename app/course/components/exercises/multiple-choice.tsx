@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { CheckCircle, XmarkCircle } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { fireSuccessConfetti } from "@/lib/confetti";
 import { ExerciseWrapper } from "./exercise-wrapper";
@@ -110,10 +110,10 @@ export function MultipleChoice({ exercise }: MultipleChoiceProps) {
               </span>
               <span className="flex-1">{option.text}</span>
               {showResult && option.isCorrect && (
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-neutral-900 dark:text-neutral-100" />
+                <CheckCircle className="h-5 w-5 shrink-0 text-neutral-900 dark:text-neutral-100" />
               )}
               {showResult && !option.isCorrect && isSelected && (
-                <XCircle className="h-5 w-5 shrink-0 text-[#FF4400]" />
+                <XmarkCircle className="h-5 w-5 shrink-0 text-[#FF4400]" />
               )}
             </motion.button>
           );

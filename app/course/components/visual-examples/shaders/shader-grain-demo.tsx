@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Play } from "lucide-react";
+import { PlaySolid } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,
@@ -37,7 +37,7 @@ const GRAIN_FRAGMENT_SHADER = `
     float timeOffset = u_animated > 0.5 ? fract(u_time * 10.0) : 0.0;
     
     // Generate grain
-    vec2 grainUV = v_uv * u_resolution / 2.0; // Scale to pixel density
+    vec2 grainUV = v_uv * u_resolution / 2.0; // MenuScale to pixel density
     float grain = random(grainUV + timeOffset);
     
     // Center around 0 and apply intensity
@@ -155,7 +155,7 @@ export function ShaderGrainDemo() {
               ))}
             </ControlGroup>
             <ControlButton active={animated} onClick={() => setAnimated(!animated)}>
-              <Play className={`size-4 ${animated ? "fill-current" : ""}`} />
+              <PlaySolid className={`size-4 ${animated ? "fill-current" : ""}`} />
               <span className="ml-2">Animate</span>
             </ControlButton>
           </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Book, Clock, CheckCircle } from "iconoir-react";
 import { COURSE_STRUCTURE, getEstimatedDuration } from "@/lib/course-shared";
 import { cn } from "@/lib/utils";
 import { TrackLogo, type Track, type Platform } from "@/app/components/track-logo";
@@ -141,7 +141,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
                 : "bg-neutral-50 dark:bg-neutral-800"
             )}>
               {isCompleted ? (
-                <CheckCircle2 className="h-6 w-6 text-swiss-red" />
+                <CheckCircle className="h-6 w-6 text-swiss-red" />
               ) : (
                 <TrackLogo 
                   track={track} 
@@ -161,7 +161,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-500 dark:text-neutral-400">
                 <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
-                  <BookOpen className="h-3.5 w-3.5 shrink-0" />
+                  <Book className="h-3.5 w-3.5 shrink-0" />
                   {platformData.lessons} lessons
                 </span>
                 <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap">
@@ -170,7 +170,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
                 </span>
                 {hasMounted && hasStarted && !isCompleted && platformProgress && (
                   <span className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-swiss-red">
-                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+                    <CheckCircle className="h-3.5 w-3.5 shrink-0" />
                     {platformProgress.completed}/{platformProgress.total} done
                   </span>
                 )}

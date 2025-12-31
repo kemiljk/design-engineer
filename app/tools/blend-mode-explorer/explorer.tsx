@@ -19,7 +19,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Plus, Trash2, Info, ChevronDown, ChevronUp, GripVertical, Copy, Check, Heart, MessageCircle, Share2, Bookmark, ImagePlus, X } from "lucide-react";
+import { Plus, Trash, InfoCircle, NavArrowDown, NavArrowUp, DragHandGesture, Copy, Check, Heart, ChatBubble, ShareIos, Bookmark, MediaImagePlus, Xmark } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -376,7 +376,7 @@ function SortableLayer({
             {...listeners}
             className="cursor-grab touch-none rounded p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 active:cursor-grabbing dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
           >
-            <GripVertical className="h-4 w-4" />
+            <DragHandGesture className="h-4 w-4" />
           </button>
           <span className="text-sm font-medium">Layer {index + 1}</span>
           <span
@@ -389,7 +389,7 @@ function SortableLayer({
           disabled={!canRemove}
           className="p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30"
         >
-          <Trash2 className="h-4 w-4" />
+          <Trash className="h-4 w-4" />
         </button>
       </div>
 
@@ -715,7 +715,7 @@ ${layerStyles}
     <!-- Content here -->
   </div>
   
-  <!-- Blend Layers -->
+  <!-- Blend ViewColumns2 -->
 ${layerClasses}
 </div>`;
   };
@@ -759,7 +759,7 @@ ${layerClasses}
         endPoint: .bottomTrailing
     )
     
-    // Blend Layers
+    // Blend ViewColumns2
 ${layerViews}
 }`;
   };
@@ -819,7 +819,7 @@ Box(modifier = Modifier.fillMaxSize()) {
             )
     )
     
-    // Blend Layers
+    // Blend ViewColumns2
 ${layerBoxes}
 }`;
   };
@@ -854,9 +854,9 @@ ${layerBoxes}
             </p>
           </div>
           {showReference ? (
-            <ChevronUp className="h-5 w-5 text-neutral-400" />
+            <NavArrowUp className="h-5 w-5 text-neutral-400" />
           ) : (
-            <ChevronDown className="h-5 w-5 text-neutral-400" />
+            <NavArrowDown className="h-5 w-5 text-neutral-400" />
           )}
         </button>
 
@@ -927,7 +927,7 @@ ${layerBoxes}
                     <h3 className="text-lg font-bold">{selectedMode.label}</h3>
                     <span className="text-xs text-swiss-red">{selectedMode.category}</span>
                   </div>
-                  <Info className="h-5 w-5 text-neutral-400" />
+                  <InfoCircle className="h-5 w-5 text-neutral-400" />
                 </div>
 
                 <div className="space-y-4 text-sm">
@@ -1058,7 +1058,7 @@ ${layerBoxes}
                     <div className="p-3 space-y-3">
                       {/* Layer badges */}
                       <div>
-                        <p className="mb-2 text-xs font-medium text-neutral-500">Layers</p>
+                        <p className="mb-2 text-xs font-medium text-neutral-500">ViewColumns2</p>
                         <div className="flex flex-wrap gap-1">
                           {preset.layers.map((layer, i) => (
                             <span
@@ -1184,11 +1184,11 @@ ${layerBoxes}
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-200 dark:bg-neutral-800">
-                    <ImagePlus className="h-5 w-5 text-neutral-500" />
+                    <MediaImagePlus className="h-5 w-5 text-neutral-500" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                      {customImage ? "Image uploaded" : "Upload an image"}
+                      {customImage ? "MediaImage uploaded" : "Upload an image"}
                     </p>
                     <p className="text-xs text-neutral-500">
                       {customImage ? "Stored in memory only" : "Test blend modes on your own images"}
@@ -1218,7 +1218,7 @@ ${layerBoxes}
                         onClick={clearCustomImage}
                         className="rounded p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 dark:hover:bg-neutral-800"
                       >
-                        <X className="h-4 w-4" />
+                        <Xmark className="h-4 w-4" />
                       </button>
                     </>
                   )}
@@ -1248,7 +1248,7 @@ ${layerBoxes}
           <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-bold">Blend Layers</h2>
+                <h2 className="text-lg font-bold">Blend ViewColumns2</h2>
                 <p className="text-xs text-neutral-500">Drag to reorder</p>
               </div>
               <button
@@ -1296,7 +1296,7 @@ ${layerBoxes}
 
           {/* Hero Section Demo */}
           <div className="overflow-hidden rounded-lg shadow-lg">
-            {/* Image with blend overlay */}
+            {/* MediaImage with blend overlay */}
             <div
               className="relative h-64 sm:h-80"
               style={

@@ -23,7 +23,7 @@ export function SpacingScaleDemo() {
 
   return (
     <ExampleWrapper
-      title="The 8-Point Grid"
+      title="The 8-Point ViewGrid"
       description="All spacing values as multiples of a base unit"
       controls={
         <ControlGroup label="Base Unit">

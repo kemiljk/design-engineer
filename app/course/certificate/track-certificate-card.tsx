@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, Share2, ExternalLink, Award } from "lucide-react";
+import { Download, ShareIos, OpenNewWindow, Medal } from "iconoir-react";
 import { pdf } from "@react-pdf/renderer";
 import { TrackCertificatePDF } from "./track-certificate-pdf";
 import type { TrackCertificate, CertificatePlatform, CertificateTrack } from "@/lib/types";
@@ -73,7 +73,7 @@ export function TrackCertificateCard({ certificate }: TrackCertificateCardProps)
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-            <Award className="h-5 w-5 text-swiss-red" />
+            <Medal className="h-5 w-5 text-swiss-red" />
           </div>
           <div>
             <h3 className="font-bold">{fullTitle}</h3>
@@ -99,8 +99,8 @@ export function TrackCertificateCard({ certificate }: TrackCertificateCardProps)
           onClick={handleShare}
           className="flex items-center gap-1.5 bg-neutral-100 px-3 py-1.5 text-xs font-medium hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
         >
-          <Share2 className="h-3.5 w-3.5" />
-          Share
+          <ShareIos className="h-3.5 w-3.5" />
+          ShareIos
         </button>
         <a
           href={`/verify/${certificate.slug}`}
@@ -108,7 +108,7 @@ export function TrackCertificateCard({ certificate }: TrackCertificateCardProps)
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 bg-neutral-100 px-3 py-1.5 text-xs font-medium hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
         >
-          <ExternalLink className="h-3.5 w-3.5" />
+          <OpenNewWindow className="h-3.5 w-3.5" />
           View
         </a>
       </div>

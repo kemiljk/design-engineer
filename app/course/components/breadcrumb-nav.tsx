@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { Book } from "iconoir-react";
 import { formatBreadcrumb } from "@/lib/format";
 
 interface BreadcrumbNavProps {
@@ -54,7 +54,7 @@ export function BreadcrumbNav({ slug }: BreadcrumbNavProps) {
         className="flex items-center gap-1.5 overflow-x-auto text-sm scrollbar-hide"
         aria-label="Breadcrumb"
       >
-        <BookOpen className="h-4 w-4 shrink-0 text-neutral-400" />
+        <Book className="h-4 w-4 shrink-0 text-neutral-400" />
         {slug.map((segment, index) => {
           const href = `/course/${slug.slice(0, index + 1).join("/")}`;
           const isLast = index === slug.length - 1;

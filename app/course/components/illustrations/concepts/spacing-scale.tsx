@@ -24,7 +24,7 @@ export function SpacingScale() {
 
   return (
     <Illustration
-      title="Spacing Scale"
+      title="Spacing MenuScale"
       description="Visual representation of a spacing scale from 4px to 48px"
       width={GRID.width}
       height={GRID.height}

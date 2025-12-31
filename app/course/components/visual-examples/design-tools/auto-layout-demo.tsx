@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, ArrowDown, ImageIcon, Star } from "lucide-react";
+import { ArrowRight, ArrowDown, MediaImage, StarSolid } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 type Direction = "horizontal" | "vertical";
@@ -25,7 +25,7 @@ export function AutoLayoutDemo() {
       {/* Header - constrained width */}
       <div className="rounded-t-xl border border-b-0 border-neutral-200 bg-neutral-50 px-4 py-3 dark:border-neutral-800 dark:bg-neutral-950">
         <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
-          Auto Layout in Practice
+          Auto LayoutLeft in Practice
         </h4>
         <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
           Adjust the properties to see how auto layout affects the card
@@ -55,14 +55,14 @@ export function AutoLayoutDemo() {
                 height: containerSize.height,
               }}
             >
-              {/* Image placeholder */}
+              {/* MediaImage placeholder */}
               <div
                 className={cn(
                   "flex shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-700 dark:to-neutral-600",
                   direction === "vertical" ? "h-32 w-full" : "h-full w-32",
                 )}
               >
-                <ImageIcon className="h-10 w-10 text-neutral-400 dark:text-neutral-500" />
+                <MediaImage className="h-10 w-10 text-neutral-400 dark:text-neutral-500" />
               </div>
 
               {/* Content */}
@@ -77,7 +77,7 @@ export function AutoLayoutDemo() {
                 </div>
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star
+                    <StarSolid
                       key={i}
                       className={cn(
                         "h-3.5 w-3.5",
@@ -265,7 +265,7 @@ export function AutoLayoutDemo() {
                 <div className="flex flex-wrap gap-2">
                   <div className="flex items-center gap-1.5 rounded bg-white px-2 py-1 dark:bg-neutral-900">
                     <div className="h-2.5 w-2.5 rounded-sm bg-neutral-300 dark:bg-neutral-600" />
-                    <span className="text-[10px] text-neutral-500">Image</span>
+                    <span className="text-[10px] text-neutral-500">MediaImage</span>
                   </div>
                   <div className="flex items-center gap-1.5 rounded bg-white px-2 py-1 dark:bg-neutral-900">
                     <div className="h-2.5 w-2.5 rounded-sm bg-neutral-500" />

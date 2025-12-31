@@ -22,7 +22,7 @@ export function GridColumnsDemo() {
 
   return (
     <ExampleWrapper
-      title="12-Column Grid System"
+      title="12-Column ViewGrid System"
       description="See how the 12-column grid enables flexible layouts"
       controls={
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

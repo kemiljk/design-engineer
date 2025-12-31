@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Heart, MessageCircle, Share2, Bookmark } from "lucide-react";
+import { Heart, ChatBubble, ShareIos, Bookmark } from "iconoir-react";
 import confetti from "canvas-confetti";
 import { cn } from "@/lib/utils";
 import {
@@ -85,7 +85,7 @@ function BounceRotateLike() {
   );
 }
 
-// Style 2: Scale & Splat - Heart scales from center with expanding ring and splats
+// Style 2: MenuScale & Splat - Heart scales from center with expanding ring and splats
 function ScaleSplatLike() {
   const [liked, setLiked] = useState(false);
   const [showEffects, setShowEffects] = useState(false);
@@ -175,7 +175,7 @@ function ScaleSplatLike() {
         />
       </motion.div>
       <span className="text-xs font-semibold tracking-wide text-white/90">
-        Scale & Splat
+        MenuScale & Splat
       </span>
     </button>
   );
@@ -306,7 +306,7 @@ export function LikeButtonDemo() {
 }`;
 
   const motionCode = `import { motion, AnimatePresence } from "motion/react";
-import { Heart } from "lucide-react";
+import { Heart } from "iconoir-react";
 import confetti from "canvas-confetti";
 
 function LikeButton() {
@@ -478,13 +478,13 @@ function LikeButton() {
 
                 {/* Comment button */}
                 <button className="flex items-center gap-2 rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-sky-50 hover:text-sky-500 dark:hover:bg-sky-900/20 dark:hover:text-sky-400">
-                  <MessageCircle className="size-[20px]" />
+                  <ChatBubble className="size-[20px]" />
                   <span className="text-sm font-medium">24</span>
                 </button>
 
-                {/* Share button */}
+                {/* ShareIos button */}
                 <button className="flex items-center gap-2 rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-emerald-50 hover:text-emerald-500 dark:hover:bg-emerald-900/20 dark:hover:text-emerald-400">
-                  <Share2 className="size-[20px]" />
+                  <ShareIos className="size-[20px]" />
                   <span className="text-sm font-medium">8</span>
                 </button>
 
@@ -501,7 +501,7 @@ function LikeButton() {
             {[
               {
                 step: "1",
-                title: "Scale Pop",
+                title: "MenuScale Pop",
                 desc: "Heart bounces through 100% → 140% → 90% → 110% → 100%",
                 color:
                   "bg-pink-100 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400",

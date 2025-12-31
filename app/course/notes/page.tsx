@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getUserNotes } from "@/lib/course";
-import { StickyNote, ArrowLeft, Pin, ExternalLink } from "lucide-react";
+import { Notes, ArrowLeft, Pin, OpenNewWindow } from "iconoir-react";
 import type { CourseNote } from "@/lib/types";
 
 export const metadata = {
@@ -64,7 +64,7 @@ export default async function NotesPage() {
         
         <div className="mb-8">
           <h1 className="text-3xl font-bold flex items-center gap-3">
-            <StickyNote className="h-8 w-8 text-swiss-red" />
+            <Notes className="h-8 w-8 text-swiss-red" />
             My Course Notes
           </h1>
           <p className="mt-2 text-neutral-600 dark:text-neutral-400">
@@ -74,7 +74,7 @@ export default async function NotesPage() {
         
         {sortedGroups.length === 0 ? (
           <div className="rounded-none border border-neutral-200 bg-white p-12 text-center dark:border-neutral-800 dark:bg-neutral-900">
-            <StickyNote className="mx-auto h-12 w-12 text-neutral-300" />
+            <Notes className="mx-auto h-12 w-12 text-neutral-300" />
             <h2 className="mt-4 text-lg font-semibold">No notes yet</h2>
             <p className="mt-2 text-neutral-500">
               Start taking notes while learning to see them here.
@@ -104,7 +104,7 @@ export default async function NotesPage() {
                     className="flex items-center gap-1 text-sm text-swiss-red hover:underline"
                   >
                     Go to lesson
-                    <ExternalLink className="h-3 w-3" />
+                    <OpenNewWindow className="h-3 w-3" />
                   </Link>
                 </div>
                 <div className="divide-y divide-neutral-100 dark:divide-neutral-800">

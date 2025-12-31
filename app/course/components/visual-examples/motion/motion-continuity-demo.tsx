@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { LayoutGrid, List } from "lucide-react";
+import { ViewGrid, List } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -98,7 +98,7 @@ function FileManager() {
   return (
     <ExampleWrapper
       title="Motion Creates Continuity"
-      description="Layout animations help users maintain context when the structure of the page changes."
+      description="LayoutLeft animations help users maintain context when the structure of the page changes."
       controls={
         <div className="flex justify-end">
           <ControlButton
@@ -124,8 +124,8 @@ function FileManager() {
                   : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700/50 dark:hover:text-neutral-200",
               )}
             >
-              <LayoutGrid className="size-3.5" />
-              Grid
+              <ViewGrid className="size-3.5" />
+              ViewGrid
             </button>
             <button
               onClick={() => setView("list")}

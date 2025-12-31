@@ -15,24 +15,24 @@ import { TrackLogo } from "@/app/components/track-logo";
 import NextLink from "next/link";
 import {
   ArrowRight,
-  BookOpen,
-  Code2,
+  Book,
+  Code,
   Gift,
   Activity,
-  Spline,
-  Type as TypeIcon,
-  Wrench,
-  Blend,
-  Layers,
+  Sparks,
+  Text,
+  Tools,
+  HalfMoon,
+  ViewColumns2,
   Palette,
-  Pointer,
-  Tags,
-  SquareStack,
-  Combine,
-} from "lucide-react";
+  CursorPointer,
+  Label,
+  ViewGrid,
+  Union,
+} from "iconoir-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
-import Image from "next/image";
+import MediaImage from "next/image";
 import { HeroIllustration } from "./components/hero-illustration";
 import { FAQAccordion } from "./course/faq/faq-accordion";
 import { AnimatedSection } from "./components/animated-section";
@@ -134,7 +134,7 @@ async function SponsorsSection() {
               key={sponsor.id}
               className="flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
             >
-              <Image
+              <MediaImage
                 src={`${sponsor.metadata.logo.imgix_url}?w=200&auto=format`}
                 alt={sponsor.title}
                 width={200}
@@ -217,7 +217,7 @@ function FAQSection() {
 
 const featuredTools = [
   {
-    icon: Code2,
+    icon: Code,
     title: "Framework Converter",
     description: "Convert components between React, Vue, Svelte, Astro & Solid",
     href: "/tools/framework-converter",
@@ -232,7 +232,7 @@ const featuredTools = [
     category: "Animation",
   },
   {
-    icon: Tags,
+    icon: Label,
     title: "Token Naming",
     description:
       "Build consistent semantic token names with auto-generated variants",
@@ -240,7 +240,7 @@ const featuredTools = [
     category: "Systems",
   },
   {
-    icon: TypeIcon,
+    icon: Text,
     title: "Token Calculator",
     description:
       "Generate typography and spacing scales for Tailwind v4, CSS or SCSS",
@@ -248,7 +248,7 @@ const featuredTools = [
     category: "Systems",
   },
   {
-    icon: SquareStack,
+    icon: ViewGrid,
     title: "Corner Radius Calculator",
     description:
       "Calculate harmonious nested corner radii for optically perfect components",
@@ -256,21 +256,21 @@ const featuredTools = [
     category: "Visual",
   },
   {
-    icon: Combine,
+    icon: Union,
     title: "Blend Mode Explorer",
     description: "Learn how blend modes work and experiment with stacking effects",
     href: "/tools/blend-mode-explorer",
     category: "Visual",
   },
   {
-    icon: Spline,
+    icon: Sparks,
     title: "Easing Generator",
     description: "Design custom cubic-bezier curves with interactive controls",
     href: "/tools/easing-generator",
     category: "Animation",
   },
   {
-    icon: Pointer,
+    icon: CursorPointer,
     title: "Touch Targets",
     description:
       "Validate accessibility against iOS, Android & WCAG guidelines",
@@ -291,7 +291,7 @@ function ToolsSection() {
           <div>
             <div className="mb-2 flex items-center gap-2">
               <div className="bg-swiss-red flex h-8 w-8 items-center justify-center">
-                <Wrench className="h-4 w-4 text-white" />
+                <Tools className="h-4 w-4 text-white" />
               </div>
               <span className="heading-eyebrow">Free Tools</span>
             </div>
@@ -310,7 +310,7 @@ function ToolsSection() {
           </NextLink>
         </div>
 
-        {/* Tools Grid */}
+        {/* Tools ViewGrid */}
         <AnimatedGrid className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {featuredTools.map((tool) => (
             <NextLink
@@ -418,7 +418,7 @@ async function CourseSection() {
         <div className="flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 sm:flex-row sm:justify-between dark:border-neutral-800">
           <div className="flex items-center gap-6 text-sm text-neutral-500">
             <div className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
+              <Book className="h-4 w-4" />
               <span>150+ lessons</span>
             </div>
             <div className="flex items-center gap-2">

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeClosed } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -173,7 +173,7 @@ function Input({ label, value, onChange }) {
                   onClick={() => setShowPassword(!showPassword)}
                   className="ml-2 text-neutral-400 hover:text-neutral-600 focus:outline-none dark:hover:text-neutral-200"
                 >
-                  {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
+                  {showPassword ? <EyeClosed className="size-5" /> : <Eye className="size-5" />}
                 </button>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Shield } from "lucide-react";
+import { ArrowLeft, Shield } from "iconoir-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Design Engineer Course",
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
               <li>Track your course progress and save your notes</li>
               <li>Send you updates, newsletters, and promotional materials (with your consent)</li>
               <li>Respond to your comments, questions, and support requests</li>
-              <li>Monitor and analyse usage patterns to improve the Service</li>
+              <li>Computer and analyse usage patterns to improve the Service</li>
               <li>Detect, prevent, and address technical issues or fraud</li>
             </ul>
 
