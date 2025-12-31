@@ -1,5 +1,5 @@
 import { getApprovedTestimonials } from "@/lib/cosmic";
-import { QuotationMark } from "iconoir-react";
+import { Quote } from "iconoir-react";
 import { TrackLogo } from "@/app/components/track-logo";
 
 export async function TestimonialsSection() {
@@ -79,7 +79,7 @@ function TestimonialCard({
       }`}
     >
       {/* Quote Icon */}
-      <QuotationMark className="absolute right-4 top-4 h-8 w-8 text-neutral-200 dark:text-neutral-700" />
+      <Quote className="absolute right-4 top-4 h-8 w-8 text-neutral-200 dark:text-neutral-700" />
 
       {/* Content */}
       <p className="mb-6 flex-1 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">

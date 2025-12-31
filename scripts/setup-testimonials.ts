@@ -103,9 +103,9 @@ async function setupTestimonialsObjectType() {
           type: "select-dropdown",
           required: true,
           options: [
-            { value: "design" },
-            { value: "engineering" },
-            { value: "convergence" },
+            { key: "design", value: "design" },
+            { key: "engineering", value: "engineering" },
+            { key: "convergence", value: "convergence" },
           ],
         },
         {
@@ -114,9 +114,9 @@ async function setupTestimonialsObjectType() {
           type: "select-dropdown",
           required: true,
           options: [
-            { value: "web" },
-            { value: "ios" },
-            { value: "android" },
+            { key: "web", value: "web" },
+            { key: "ios", value: "ios" },
+            { key: "android", value: "android" },
           ],
         },
         {
@@ -131,10 +131,10 @@ async function setupTestimonialsObjectType() {
           type: "select-dropdown",
           required: true,
           options: [
-            { value: "pending" },
-            { value: "approved" },
-            { value: "featured" },
-            { value: "rejected" },
+            { key: "pending", value: "pending" },
+            { key: "approved", value: "approved" },
+            { key: "featured", value: "featured" },
+            { key: "rejected", value: "rejected" },
           ],
         },
         {
