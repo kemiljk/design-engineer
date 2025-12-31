@@ -10,7 +10,7 @@ import {
   Clock,
   Trophy,
   BookOpen,
-  Sparkles,
+  Send,
   PlusCircle,
   ExternalLink,
   User,
@@ -272,7 +272,7 @@ export default async function DashboardPage() {
               {enrollment ? (
                 <Button
                   href="/course/gallery/submit"
-                  startContent={<Sparkles className="h-4 w-4" />}
+                  startContent={<Send className="h-4 w-4" />}
                   className="mt-4 text-sm"
                 >
                   Submit Your First Project

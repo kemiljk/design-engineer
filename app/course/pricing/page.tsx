@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
-import { ArrowLeft, Check, Sparkles, PartyPopper } from "lucide-react";
+import { ArrowLeft, Check, ShieldCheck, PartyPopper } from "lucide-react";
 import { StudentDiscountForm } from "./student-discount-form";
 import { PricingClientWrapper } from "./pricing-client-wrapper";
 import { getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
@@ -141,7 +141,7 @@ export default async function PricingPage() {
             {/* Guarantee */}
             <div className="rounded-none border border-neutral-200 bg-white p-8 text-center dark:border-neutral-800 dark:bg-neutral-900">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center bg-swiss-red/10">
-                <Sparkles className="h-6 w-6 text-swiss-red" />
+                <ShieldCheck className="h-6 w-6 text-swiss-red" />
               </div>
               <h2 className="mb-2 text-xl font-bold">14-Day Money-Back Guarantee</h2>
               <p className="mx-auto max-w-xl text-neutral-600 dark:text-neutral-400">

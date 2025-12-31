@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Github, Video, Clock, CheckCircle, Sparkles } from "lucide-react";
+import { ExternalLink, Github, Video, Clock, CheckCircle, Star } from "lucide-react";
 import type { GalleryProject } from "@/lib/types";
 import Image from "next/image";
 
@@ -34,7 +34,7 @@ const statusConfig = {
   },
   featured: {
     label: "Featured",
-    icon: Sparkles,
+    icon: Star,
     className: "bg-swiss-red text-white",
   },
   rejected: {
@@ -77,7 +77,7 @@ export function GalleryProjectCard({ project, showStatus = false }: GalleryProje
         {/* Featured Badge */}
         {!showStatus && metadata.status === "featured" && (
           <div className="absolute top-2 left-2 flex items-center gap-1 bg-swiss-red px-2 py-1 text-xs font-medium text-white">
-            <Sparkles className="h-3 w-3" />
+            <Star className="h-3 w-3" />
             Featured
           </div>
         )}

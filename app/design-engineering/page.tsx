@@ -5,7 +5,7 @@ import {
   ArrowRight,
   Code2,
   Layout,
-  Sparkles,
+  ArrowLeftRight,
   Target,
   Zap,
   CheckCircle2,
@@ -76,7 +76,7 @@ export default function DesignEngineeringPage() {
               </p>
             </div>
             <div className="group border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:bg-neutral-100/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800/40">
-              <Sparkles className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
+              <ArrowLeftRight className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
               <h3 className="mb-2 font-bold">The Bridge</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 Translates between design and engineering teams without losing

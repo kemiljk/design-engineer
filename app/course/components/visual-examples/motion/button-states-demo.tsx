@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Loader2, Send, Sparkles, MousePointer2, Hand, RefreshCw } from "lucide-react";
+import { Check, Loader2, Send, MousePointer2, Hand, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -211,7 +211,7 @@ function SubmitButton() {
         {/* Simplified State Breakdown */}
         <div className="grid gap-3 sm:grid-cols-4">
           {[
-            { icon: <Sparkles className="size-4" />, label: "Hover", sub: "Lift & Glow" },
+            { icon: <MousePointer2 className="size-4" />, label: "Hover", sub: "Lift & Glow" },
             { icon: <Hand className="size-4" />, label: "Press", sub: "Scale Down" },
             { icon: <Loader2 className="size-4" />, label: "Loading", sub: "Spinner" },
             { icon: <Check className="size-4" />, label: "Success", sub: "Morph" },

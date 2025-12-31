@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Bell, RotateCcw, Sparkles } from "lucide-react";
+import { Bell, RotateCcw, Flame } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -380,7 +380,7 @@ function NotificationBell() {
                 className="flex items-center gap-2 rounded-xl bg-amber-500 px-4 py-2 text-sm font-medium text-white shadow-md transition-all hover:bg-amber-600 hover:shadow-lg"
                 data-demo-trigger
               >
-                <Sparkles className="h-4 w-4" />
+                <Bell className="h-4 w-4" />
                 Trigger Notification
               </button>
               <button
@@ -411,7 +411,7 @@ function NotificationBell() {
 
           <div className="rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-100 dark:bg-orange-900/30">
-              <Sparkles className="h-4 w-4 text-orange-500" />
+              <Flame className="h-4 w-4 text-orange-500" />
             </div>
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Particle Burst

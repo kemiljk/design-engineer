@@ -6,7 +6,7 @@ import {
   Palette,
   Type,
   Space,
-  Sparkles,
+  Blend,
   ChevronRight,
   Copy,
   Check,
@@ -18,6 +18,7 @@ import {
   Download,
   GraduationCap,
   Wrench,
+  GitBranch,
   CheckSquare,
   Square,
 } from "lucide-react";
@@ -80,7 +81,7 @@ const CATEGORIES: { id: Category; label: string; icon: React.ElementType; descri
   { id: "color", label: "Colour", icon: Palette, description: "Background, text, border, and icon colours" },
   { id: "typography", label: "Typography", icon: Type, description: "Font sizes, weights, and line heights" },
   { id: "spacing", label: "Spacing", icon: Space, description: "Padding, margin, and gap values" },
-  { id: "effects", label: "Effects", icon: Sparkles, description: "Shadows, borders, and radii" },
+  { id: "effects", label: "Effects", icon: Blend, description: "Shadows, borders, and radii" },
 ];
 
 const PROPERTIES: Record<Category, PropertyOption[]> = {
@@ -1402,7 +1403,7 @@ export default function TokenNamingBuilder() {
                 className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-swiss-red" />
+                  <Zap className="h-5 w-5 text-swiss-red" />
                   <h2 className="text-lg font-bold">Complete {element.charAt(0).toUpperCase() + element.slice(1)} Token Set</h2>
                 </div>
 
@@ -1820,7 +1821,7 @@ function BuilderModeUI({
         {/* Variants Selection */}
         <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-swiss-red" />
+            <GitBranch className="h-5 w-5 text-swiss-red" />
             <h3 className="font-bold">Variants</h3>
           </div>
 
