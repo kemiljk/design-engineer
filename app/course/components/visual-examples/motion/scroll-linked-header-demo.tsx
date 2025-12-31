@@ -135,11 +135,11 @@ function StickyHeader() {
                   {[...Array(4)].map((_, i) => (
                     <div
                       key={i}
-                      className="h-32 rounded-[16px] bg-white p-4 shadow-sm dark:bg-neutral-800"
+                      className="h-32 rounded-2xl bg-white p-4 shadow-sm dark:bg-neutral-800"
                     >
-                      <div className="h-8 w-8 rounded-[8px] bg-neutral-100 dark:bg-neutral-700" />
-                      <div className="mt-4 h-4 w-20 rounded-[4px] bg-neutral-100 dark:bg-neutral-700" />
-                      <div className="mt-2 h-6 w-12 rounded-[4px] bg-neutral-100 dark:bg-neutral-700" />
+                      <div className="h-8 w-8 rounded-lg bg-neutral-100 dark:bg-neutral-700" />
+                      <div className="mt-4 h-4 w-20 rounded bg-neutral-100 dark:bg-neutral-700" />
+                      <div className="mt-2 h-6 w-12 rounded bg-neutral-100 dark:bg-neutral-700" />
                     </div>
                   ))}
                 </div>
@@ -147,12 +147,12 @@ function StickyHeader() {
                 {[...Array(6)].map((_, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 rounded-[16px] bg-white p-4 shadow-sm dark:bg-neutral-800"
+                    className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm dark:bg-neutral-800"
                   >
                     <div className="h-10 w-10 rounded-full bg-neutral-100 dark:bg-neutral-700" />
                     <div className="flex-1 space-y-2">
-                      <div className="h-4 w-1/3 rounded-[4px] bg-neutral-100 dark:bg-neutral-700" />
-                      <div className="h-3 w-1/2 rounded-[4px] bg-neutral-50 dark:bg-neutral-700/50" />
+                      <div className="h-4 w-1/3 rounded bg-neutral-100 dark:bg-neutral-700" />
+                      <div className="h-3 w-1/2 rounded bg-neutral-50 dark:bg-neutral-700/50" />
                     </div>
                   </div>
                 ))}
@@ -162,9 +162,9 @@ function StickyHeader() {
         </div>
 
         {/* Visual Explanation */}
-        <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-[10px] text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-xxs text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
               i
             </span>
             Mapping Scroll to Style

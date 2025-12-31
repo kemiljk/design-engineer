@@ -225,7 +225,7 @@ function SubmitButton() {
               </div>
               <div>
                 <p className="text-xs font-bold text-neutral-900 dark:text-white">{item.label}</p>
-                <p className="text-[10px] text-neutral-500">{item.sub}</p>
+                <p className="text-xxs text-neutral-500">{item.sub}</p>
               </div>
             </div>
           ))}

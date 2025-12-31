@@ -169,7 +169,7 @@ function NotificationSystem() {
                     animate={{ scale: 1 }}
                     exit={{ scale: 0 }}
                     transition={{ type: "spring", stiffness: 500, damping: 25 }}
-                    className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[10px] font-bold text-white ring-2 ring-white dark:ring-neutral-900"
+                    className="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-xxs font-bold text-white ring-2 ring-white dark:ring-neutral-900"
                   >
                     {unreadCount}
                   </motion.div>
@@ -192,7 +192,7 @@ function NotificationSystem() {
               <div className="grid grid-cols-3 gap-3 pt-4">
                 <button
                   onClick={() => addNotification("message")}
-                  className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
+                  className="group flex flex-col items-center gap-3 rounded-20 bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-500/20 ring-1 ring-indigo-500/30 transition-colors group-hover:bg-indigo-500/25">
                     <MessageSquare className="size-5 text-indigo-400" />
@@ -204,7 +204,7 @@ function NotificationSystem() {
 
                 <button
                   onClick={() => addNotification("mail")}
-                  className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
+                  className="group flex flex-col items-center gap-3 rounded-20 bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20 ring-1 ring-blue-500/30 transition-colors group-hover:bg-blue-500/25">
                     <Mail className="size-5 text-blue-400" />
@@ -216,7 +216,7 @@ function NotificationSystem() {
 
                 <button
                   onClick={() => addNotification("event")}
-                  className="group flex flex-col items-center gap-3 rounded-[20px] bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
+                  className="group flex flex-col items-center gap-3 rounded-20 bg-neutral-800 p-5 ring-1 ring-neutral-700/50 transition-all hover:bg-neutral-750 hover:ring-neutral-600 active:scale-[0.98] dark:bg-neutral-800 dark:ring-neutral-700/50"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/20 ring-1 ring-amber-500/30 transition-colors group-hover:bg-amber-500/25">
                     <Calendar className="size-5 text-amber-400" />
@@ -250,7 +250,7 @@ function NotificationSystem() {
                       removeNotification(n.id);
                     }
                   }}
-                  className="pointer-events-auto relative overflow-hidden rounded-[24px] border border-neutral-200 bg-white/90 p-4 shadow-lg backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/90"
+                  className="pointer-events-auto relative overflow-hidden rounded-3xl border border-neutral-200 bg-white/90 p-4 shadow-lg backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/90"
                 >
                   <div className="flex items-start gap-3">
                     <div
@@ -276,7 +276,7 @@ function NotificationSystem() {
                         <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
                           {n.title}
                         </h4>
-                        <span className="text-[10px] text-neutral-400">
+                        <span className="text-xxs text-neutral-400">
                           {n.time}
                         </span>
                       </div>
@@ -299,7 +299,7 @@ function NotificationSystem() {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
               <CheckCircle2 className="size-4 text-emerald-500" />
               Non-Blocking
@@ -309,7 +309,7 @@ function NotificationSystem() {
               block the main content area. This respects user flow.
             </p>
           </div>
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
               <AlertCircle className="size-4 text-indigo-500" />
               Natural Entry

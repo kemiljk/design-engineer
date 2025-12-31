@@ -176,7 +176,7 @@ export default function ColourConverter() {
                     )}
                   </button>
                 </div>
-                <pre className="overflow-x-auto whitespace-pre-wrap break-all font-mono text-[10px] text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
+                <pre className="overflow-x-auto whitespace-pre-wrap break-all font-mono text-xxs text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
                   {value}
                 </pre>
               </div>

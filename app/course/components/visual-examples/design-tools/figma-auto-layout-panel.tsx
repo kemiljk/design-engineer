@@ -62,7 +62,7 @@ export function FigmaAutoLayoutPanel({
           </span>
         </div>
         {title && (
-          <span className="text-[10px] font-medium text-neutral-400">
+          <span className="text-xxs font-medium text-neutral-400">
             {title}
           </span>
         )}
@@ -72,7 +72,7 @@ export function FigmaAutoLayoutPanel({
         <div className="grid grid-cols-2 gap-3">
           {/* Direction & Alignment */}
           <div className="space-y-2">
-            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+            <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
               Direction
             </span>
             <div className="flex items-center gap-2">
@@ -97,7 +97,7 @@ export function FigmaAutoLayoutPanel({
 
           {/* Gap */}
           <div className="space-y-2">
-            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+            <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
               Gap
             </span>
             <div className="flex h-7 items-center rounded border border-neutral-300 bg-white px-2 dark:border-neutral-600 dark:bg-neutral-900">
@@ -109,7 +109,7 @@ export function FigmaAutoLayoutPanel({
 
           {/* Alignment - Primary Axis */}
           <div className="space-y-2">
-            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+            <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
               {direction === "horizontal" ? "Horizontal" : "Vertical"}
             </span>
             <div className="flex items-center gap-1">
@@ -139,7 +139,7 @@ export function FigmaAutoLayoutPanel({
 
           {/* Alignment - Cross Axis */}
           <div className="space-y-2">
-            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+            <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
               {direction === "horizontal" ? "Vertical" : "Horizontal"}
             </span>
             <div className="flex items-center gap-1">
@@ -162,7 +162,7 @@ export function FigmaAutoLayoutPanel({
 
         {/* Padding */}
         <div className="mt-3 space-y-2">
-          <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+          <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
             Padding
           </span>
           {hasUniformPadding ? (
@@ -184,7 +184,7 @@ export function FigmaAutoLayoutPanel({
         {/* Children Preview */}
         {children.length > 0 && (
           <div className="mt-3 space-y-2">
-            <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+            <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
               Children
             </span>
             <div className="rounded border border-neutral-300 bg-white p-2 dark:border-neutral-600 dark:bg-neutral-900">
@@ -195,7 +195,7 @@ export function FigmaAutoLayoutPanel({
                 {children.map((child, i) => (
                   <div 
                     key={i}
-                    className="rounded bg-swiss-red/10 px-2 py-1 text-[10px] font-medium text-swiss-red"
+                    className="rounded bg-swiss-red/10 px-2 py-1 text-xxs font-medium text-swiss-red"
                   >
                     {child}
                   </div>
@@ -223,9 +223,9 @@ function AlignButton({ active, icon }: { active: boolean; icon: React.ReactNode 
 function PaddingInput({ value, label }: { value: number | string; label: string }) {
   return (
     <div className="flex items-center gap-1">
-      <span className="text-[10px] text-neutral-400">{label}</span>
+      <span className="text-xxs text-neutral-400">{label}</span>
       <div className="flex h-6 w-10 items-center justify-center rounded border border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-900">
-        <span className="font-mono text-[10px] text-neutral-700 dark:text-neutral-300">
+        <span className="font-mono text-xxs text-neutral-700 dark:text-neutral-300">
           {value}
         </span>
       </div>

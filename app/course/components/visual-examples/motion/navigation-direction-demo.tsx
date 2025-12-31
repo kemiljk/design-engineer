@@ -111,7 +111,7 @@ function Navigation() {
         {/* Interactive Demo */}
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Hierarchy Visualization */}
-          <div className="flex flex-col justify-center rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900/50">
+          <div className="flex flex-col justify-center rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900/50">
             <h4 className="mb-3 text-xs font-semibold text-neutral-900 dark:text-white">
               Information Architecture
             </h4>
@@ -119,7 +119,7 @@ function Navigation() {
               <button 
                 onClick={() => navigate(0)}
                 className={cn(
-                  "flex w-full items-center gap-2 rounded-[6px] border px-2.5 py-2 text-xs transition-all",
+                  "flex w-full items-center gap-2 rounded-md border px-2.5 py-2 text-xs transition-all",
                   level === 0 
                     ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
                     : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
@@ -137,7 +137,7 @@ function Navigation() {
                 <button 
                   onClick={() => navigate(1)}
                   className={cn(
-                    "flex flex-1 items-center gap-2 rounded-[6px] border px-2.5 py-2 text-xs transition-all",
+                    "flex flex-1 items-center gap-2 rounded-md border px-2.5 py-2 text-xs transition-all",
                     level === 1
                       ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
@@ -156,7 +156,7 @@ function Navigation() {
                 <button 
                   onClick={() => navigate(2)}
                   className={cn(
-                    "flex flex-1 items-center gap-2 rounded-[6px] border px-2.5 py-2 text-xs transition-all",
+                    "flex flex-1 items-center gap-2 rounded-md border px-2.5 py-2 text-xs transition-all",
                     level === 2
                       ? "border-indigo-500 bg-indigo-50 shadow-sm dark:bg-indigo-900/20" 
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
@@ -174,7 +174,7 @@ function Navigation() {
 
           {/* Preview */}
           <div className="flex justify-center">
-            <div className="relative h-[400px] w-[240px] overflow-hidden rounded-[24px] border-[6px] border-neutral-900 bg-black shadow-xl dark:border-neutral-700">
+            <div className="relative h-[400px] w-[240px] overflow-hidden rounded-3xl border-[6px] border-neutral-900 bg-black shadow-xl dark:border-neutral-700">
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={level}
@@ -203,14 +203,14 @@ function Navigation() {
                   </div>
 
                   <div className="flex-1 space-y-3">
-                    <div className="h-24 rounded-[12px] bg-neutral-200/50 dark:bg-neutral-800/50" />
-                    <div className="h-12 rounded-[8px] bg-neutral-200/50 dark:bg-neutral-800/50" />
-                    <div className="h-12 rounded-[8px] bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-24 rounded-xl bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-12 rounded-lg bg-neutral-200/50 dark:bg-neutral-800/50" />
+                    <div className="h-12 rounded-lg bg-neutral-200/50 dark:bg-neutral-800/50" />
                     
                     {level < 2 && (
                       <button
                         onClick={() => navigate((level + 1) as Level)}
-                        className="mt-4 flex w-full items-center justify-between rounded-[8px] bg-indigo-600 px-4 py-3 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700"
+                        className="mt-4 flex w-full items-center justify-between rounded-lg bg-indigo-600 px-4 py-3 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700"
                       >
                         Go Deeper <ChevronRight className="size-3" />
                       </button>

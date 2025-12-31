@@ -14,7 +14,7 @@ const cardVariants = {
   inconsistent: [
     { bg: "bg-neutral-100 dark:bg-neutral-900", border: "border-neutral-400 dark:border-neutral-600", radius: "rounded-xl", shadow: "shadow-lg" },
     { bg: "bg-white dark:bg-neutral-800", border: "border-neutral-200 dark:border-neutral-700", radius: "rounded-none", shadow: "" },
-    { bg: "bg-neutral-50 dark:bg-neutral-850", border: "border-[#ff4400]/30", radius: "rounded-2xl", shadow: "shadow-md" },
+    { bg: "bg-neutral-50 dark:bg-neutral-850", border: "border-swiss-red/30", radius: "rounded-2xl", shadow: "shadow-md" },
   ],
 };
 
@@ -25,7 +25,7 @@ const buttonVariants = {
     "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 rounded-md px-4 py-2",
   ],
   inconsistent: [
-    "bg-[#ff4400] text-white rounded-full px-6 py-3",
+    "bg-swiss-red text-white rounded-full px-6 py-3",
     "border-2 border-neutral-900 text-neutral-900 dark:border-white dark:text-white rounded-none px-3 py-1",
     "bg-neutral-700 text-white dark:bg-neutral-300 dark:text-neutral-900 rounded-xl px-5 py-2 shadow-lg",
   ],
@@ -95,7 +95,7 @@ export function RepetitionDemo() {
         )}
         {level === "inconsistent" && (
           <div className="space-y-1">
-            <p className="text-sm text-[#ff4400]">
+            <p className="text-sm text-swiss-red">
               ✗ Inconsistent styling: Each card looks like a different component
             </p>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">

@@ -149,7 +149,7 @@ function FeedbackButton() {
               disabled={buttonStates.primary !== "idle"}
               whileTap={{ scale: 0.98 }}
               className={cn(
-                "relative flex h-10 w-32 items-center justify-center rounded-[12px] text-sm font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:outline-none",
+                "relative flex h-10 w-32 items-center justify-center rounded-xl text-sm font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:outline-none",
                 buttonStates.primary === "success"
                   ? "bg-emerald-500 text-white hover:bg-emerald-600"
                   : "bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100",
@@ -213,7 +213,7 @@ function FeedbackButton() {
               }
               transition={{ duration: 0.4 }}
               className={cn(
-                "relative flex h-10 w-32 items-center justify-center rounded-[12px] border text-sm font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:outline-none",
+                "relative flex h-10 w-32 items-center justify-center rounded-xl border text-sm font-medium shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:outline-none",
                 buttonStates.destructive === "error"
                   ? "border-red-200 bg-red-50 text-red-600 dark:border-red-900/50 dark:bg-red-900/20"
                   : "border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 hover:text-red-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900",
@@ -263,7 +263,7 @@ function FeedbackButton() {
         <div className="grid gap-6 sm:grid-cols-3">
           <div className="space-y-2">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-[10px] dark:bg-neutral-800">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-xxs dark:bg-neutral-800">
                 1
               </span>
               Confirmation
@@ -276,7 +276,7 @@ function FeedbackButton() {
           </div>
           <div className="space-y-2">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-[10px] dark:bg-neutral-800">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-xxs dark:bg-neutral-800">
                 2
               </span>
               Status Persistence
@@ -289,7 +289,7 @@ function FeedbackButton() {
           </div>
           <div className="space-y-2">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-[10px] dark:bg-neutral-800">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 text-xxs dark:bg-neutral-800">
                 3
               </span>
               Error Shake

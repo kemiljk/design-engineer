@@ -90,9 +90,9 @@ function FeatureList() {
             <div className="mx-auto max-w-md space-y-24 pb-24">
               {/* Hero Section */}
               <div className="space-y-4 text-center">
-                <div className="mx-auto h-12 w-12 rounded-[12px] bg-neutral-200 dark:bg-neutral-800" />
-                <div className="mx-auto h-6 w-32 rounded-[8px] bg-neutral-200 dark:bg-neutral-800" />
-                <div className="mx-auto h-4 w-48 rounded-[6px] bg-neutral-100 dark:bg-neutral-900" />
+                <div className="mx-auto h-12 w-12 rounded-xl bg-neutral-200 dark:bg-neutral-800" />
+                <div className="mx-auto h-6 w-32 rounded-lg bg-neutral-200 dark:bg-neutral-800" />
+                <div className="mx-auto h-4 w-48 rounded-md bg-neutral-100 dark:bg-neutral-900" />
                 <p className="pt-8 text-sm text-neutral-400">↓ Scroll down</p>
               </div>
 
@@ -114,7 +114,7 @@ function FeatureList() {
                         delay: i * 0.1,
                         ease: [0.21, 0.47, 0.32, 0.98] 
                       }}
-                      className="flex flex-col items-center gap-3 rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-neutral-200 dark:bg-neutral-900 dark:ring-neutral-800"
+                      className="flex flex-col items-center gap-3 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-neutral-200 dark:bg-neutral-900 dark:ring-neutral-800"
                     >
                       <div className={cn("flex h-10 w-10 items-center justify-center rounded-full text-white shadow-md", feature.color)}>
                         <feature.icon className="size-5" />
@@ -130,8 +130,8 @@ function FeatureList() {
 
               {/* Footer Section */}
               <div className="space-y-4 text-center opacity-50">
-                <div className="mx-auto h-4 w-24 rounded-[6px] bg-neutral-200 dark:bg-neutral-800" />
-                <div className="mx-auto h-3 w-40 rounded-[6px] bg-neutral-100 dark:bg-neutral-900" />
+                <div className="mx-auto h-4 w-24 rounded-md bg-neutral-200 dark:bg-neutral-800" />
+                <div className="mx-auto h-3 w-40 rounded-md bg-neutral-100 dark:bg-neutral-900" />
               </div>
             </div>
           </div>
@@ -142,13 +142,13 @@ function FeatureList() {
         </div>
 
         {/* Visual Explanation */}
-        <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-[10px] text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">i</span>
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-xxs text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">i</span>
             Staggered Entry
           </h4>
           <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-            Notice how the cards don't appear all at once. The <code className="rounded-[6px] bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">delay: i * 0.1</code> creates a "waterfall" effect that makes the content feel lighter and more elegant.
+            Notice how the cards don't appear all at once. The <code className="rounded-md bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">delay: i * 0.1</code> creates a "waterfall" effect that makes the content feel lighter and more elegant.
           </p>
         </div>
 

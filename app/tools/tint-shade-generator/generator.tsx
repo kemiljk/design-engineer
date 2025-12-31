@@ -297,7 +297,7 @@ Text(
                         {colour.step}
                       </span>
                       {colour.isInput && (
-                        <span className="rounded bg-swiss-red px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+                        <span className="rounded bg-swiss-red px-1.5 py-0.5 text-xxs font-bold uppercase text-white">
                           Input
                         </span>
                       )}

@@ -1029,7 +1029,7 @@ ${layerBoxes}
                   ))}
                   {/* Mini hero text overlay */}
                   <div className="relative z-10 flex h-full flex-col justify-end p-2">
-                    <span className="text-[10px] font-bold text-white drop-shadow-lg">
+                    <span className="text-xxs font-bold text-white drop-shadow-lg">
                       Hero Title
                     </span>
                     <span className="text-[8px] text-white/80 drop-shadow">
@@ -1063,7 +1063,7 @@ ${layerBoxes}
                           {preset.layers.map((layer, i) => (
                             <span
                               key={i}
-                              className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-medium dark:bg-neutral-800"
+                              className="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2 py-0.5 text-xxs font-medium dark:bg-neutral-800"
                             >
                               <span
                                 className="h-2 w-2 rounded-full"
@@ -1078,7 +1078,7 @@ ${layerBoxes}
                       {/* Code preview */}
                       <div>
                         <p className="mb-2 text-xs font-medium text-neutral-500">CSS</p>
-                        <pre className="max-h-32 overflow-auto rounded bg-neutral-50 p-2 font-mono text-[10px] text-neutral-600 dark:bg-neutral-950 dark:text-neutral-400">
+                        <pre className="max-h-32 overflow-auto rounded bg-neutral-50 p-2 font-mono text-xxs text-neutral-600 dark:bg-neutral-950 dark:text-neutral-400">
                           {getPresetCSS(preset)}
                         </pre>
                       </div>

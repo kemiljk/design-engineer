@@ -236,7 +236,7 @@ export default function TouchTargetCalculator() {
               height: `${height}px`,
             }}
           >
-            <span className="text-[10px] font-medium text-neutral-600 dark:text-neutral-300">
+            <span className="text-xxs font-medium text-neutral-600 dark:text-neutral-300">
               {width}×{height}
             </span>
           </div>

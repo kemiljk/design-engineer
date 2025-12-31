@@ -142,7 +142,7 @@ export function AutoLayoutDemo() {
             <div className="space-y-4 p-3">
               {/* Direction */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-500 uppercase">
                   Direction
                 </span>
                 <div className="flex items-center gap-1">
@@ -173,7 +173,7 @@ export function AutoLayoutDemo() {
 
               {/* Gap */}
               <div className="flex items-center justify-between gap-3">
-                <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-500 uppercase">
                   Gap
                 </span>
                 <div className="flex items-center gap-2">
@@ -193,7 +193,7 @@ export function AutoLayoutDemo() {
 
               {/* Padding */}
               <div className="flex items-center justify-between gap-3">
-                <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-500 uppercase">
                   Padding
                 </span>
                 <div className="flex items-center gap-2">
@@ -213,7 +213,7 @@ export function AutoLayoutDemo() {
 
               {/* Main Axis Alignment */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-500 uppercase">
                   {direction === "horizontal" ? "Horizontal" : "Vertical"}
                 </span>
                 <div className="flex gap-1">
@@ -222,7 +222,7 @@ export function AutoLayoutDemo() {
                       key={align}
                       onClick={() => setAlignMain(align)}
                       className={cn(
-                        "flex h-6 items-center justify-center rounded px-2 text-[10px] font-medium transition-colors",
+                        "flex h-6 items-center justify-center rounded px-2 text-xxs font-medium transition-colors",
                         alignMain === align
                           ? "bg-swiss-red text-white"
                           : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-400",
@@ -236,7 +236,7 @@ export function AutoLayoutDemo() {
 
               {/* Cross Axis Alignment */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-500 uppercase">
                   {direction === "horizontal" ? "Vertical" : "Horizontal"}
                 </span>
                 <div className="flex gap-1">
@@ -245,7 +245,7 @@ export function AutoLayoutDemo() {
                       key={align}
                       onClick={() => setAlignCross(align)}
                       className={cn(
-                        "flex h-6 items-center justify-center rounded px-2 text-[10px] font-medium transition-colors",
+                        "flex h-6 items-center justify-center rounded px-2 text-xxs font-medium transition-colors",
                         alignCross === align
                           ? "bg-swiss-red text-white"
                           : "bg-neutral-200 text-neutral-600 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-400",
@@ -259,23 +259,23 @@ export function AutoLayoutDemo() {
 
               {/* Children indicator */}
               <div className="space-y-1.5 border-t border-neutral-200 pt-3 dark:border-neutral-700">
-                <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-500 uppercase">
                   Children
                 </span>
                 <div className="flex flex-wrap gap-2">
                   <div className="flex items-center gap-1.5 rounded bg-white px-2 py-1 dark:bg-neutral-900">
                     <div className="h-2.5 w-2.5 rounded-sm bg-neutral-300 dark:bg-neutral-600" />
-                    <span className="text-[10px] text-neutral-500">Image</span>
+                    <span className="text-xxs text-neutral-500">Image</span>
                   </div>
                   <div className="flex items-center gap-1.5 rounded bg-white px-2 py-1 dark:bg-neutral-900">
                     <div className="h-2.5 w-2.5 rounded-sm bg-neutral-500" />
-                    <span className="text-[10px] text-neutral-500">
+                    <span className="text-xxs text-neutral-500">
                       Content
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 rounded bg-white px-2 py-1 dark:bg-neutral-900">
                     <div className="bg-swiss-red h-2.5 w-2.5 rounded-sm" />
-                    <span className="text-[10px] text-neutral-500">Button</span>
+                    <span className="text-xxs text-neutral-500">Button</span>
                   </div>
                 </div>
               </div>

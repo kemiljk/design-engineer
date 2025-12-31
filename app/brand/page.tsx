@@ -430,7 +430,7 @@ export default function BrandPage() {
                   showLayer="shape"
                   className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
                 />
-                <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">01</span>
+                <span className="absolute bottom-0 right-0 text-xxs font-mono opacity-50">01</span>
               </div>
               <p className="font-bold text-sm uppercase tracking-wider">The Shape</p>
               <p className="text-xs opacity-60 mt-1">Defines the Track</p>
@@ -449,7 +449,7 @@ export default function BrandPage() {
                   showLayer="platform"
                   className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
                 />
-                <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">02</span>
+                <span className="absolute bottom-0 right-0 text-xxs font-mono opacity-50">02</span>
               </div>
               <p className="font-bold text-sm uppercase tracking-wider">The Accessory</p>
               <p className="text-xs opacity-60 mt-1">Defines the Platform</p>
@@ -468,7 +468,7 @@ export default function BrandPage() {
                   showLayer="core"
                   className={invertTheme ? "text-white dark:text-neutral-900" : "text-neutral-900 dark:text-white"}
                 />
-                <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">03</span>
+                <span className="absolute bottom-0 right-0 text-xxs font-mono opacity-50">03</span>
               </div>
               <p className="font-bold text-sm uppercase tracking-wider">The Core</p>
               <p className="text-xs opacity-60 mt-1">Defines the Brand</p>

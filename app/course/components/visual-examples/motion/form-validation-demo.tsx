@@ -90,7 +90,7 @@ function ValidationMessage({ status }) {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="mx-auto max-w-sm rounded-[24px] border border-neutral-200 bg-white p-8 shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="mx-auto max-w-sm rounded-3xl border border-neutral-200 bg-white p-8 shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
           <label className="mb-2 block text-sm font-semibold text-neutral-900 dark:text-white">
             Choose a username
           </label>
@@ -106,7 +106,7 @@ function ValidationMessage({ status }) {
               onChange={(e) => setUsername(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""))}
               placeholder="username"
               className={cn(
-                "w-full rounded-[12px] border bg-neutral-50 py-3 pl-12 pr-12 text-neutral-900 outline-none transition-all focus:ring-4 dark:bg-neutral-800 dark:text-white dark:placeholder:text-neutral-500",
+                "w-full rounded-xl border bg-neutral-50 py-3 pl-12 pr-12 text-neutral-900 outline-none transition-all focus:ring-4 dark:bg-neutral-800 dark:text-white dark:placeholder:text-neutral-500",
                 status === "idle" && "border-neutral-200 focus:border-indigo-500 focus:bg-white focus:ring-indigo-500/20 dark:border-neutral-700 dark:focus:border-indigo-400 dark:focus:bg-neutral-800 dark:focus:ring-indigo-500/30",
                 status === "checking" && "border-neutral-300 focus:border-neutral-400 focus:bg-white focus:ring-neutral-500/20 dark:border-neutral-600 dark:focus:bg-neutral-800 dark:focus:ring-neutral-500/30",
                 status === "available" && "border-emerald-500 ring-4 ring-emerald-500/20 dark:border-emerald-400 dark:ring-emerald-500/30",
@@ -195,7 +195,7 @@ function ValidationMessage({ status }) {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Color Morphing
             </h4>
@@ -203,12 +203,12 @@ function ValidationMessage({ status }) {
               The border color transitions smoothly, avoiding harsh jumps. The focus ring expands to reinforce the status.
             </p>
           </div>
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Icon Swap
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              <code className="rounded-[4px] bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">AnimatePresence mode="wait"</code> ensures the old icon leaves before the new one enters, preventing layout shifts.
+              <code className="rounded bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">AnimatePresence mode="wait"</code> ensures the old icon leaves before the new one enters, preventing layout shifts.
             </p>
           </div>
         </div>

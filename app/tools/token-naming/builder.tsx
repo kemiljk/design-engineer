@@ -1316,12 +1316,12 @@ export default function TokenNamingBuilder() {
                   >
                     <div className="flex items-center gap-3">
                       {token.isBase && (
-                        <span className="rounded bg-swiss-red px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+                        <span className="rounded bg-swiss-red px-1.5 py-0.5 text-xxs font-bold uppercase text-white">
                           Base
                         </span>
                       )}
                       {token.type === "state" && (
-                        <span className="rounded bg-neutral-200 px-1.5 py-0.5 text-[10px] font-bold uppercase text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
+                        <span className="rounded bg-neutral-200 px-1.5 py-0.5 text-xxs font-bold uppercase text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
                           State
                         </span>
                       )}
@@ -1746,7 +1746,7 @@ function BuilderModeUI({
                       )}>
                         {comp.label}
                       </span>
-                      <span className="text-[10px] text-neutral-400">
+                      <span className="text-xxs text-neutral-400">
                         {categoryCount} {categoryCount === 1 ? "category" : "categories"}
                         {comp.hasStates && " + states"}
                       </span>
@@ -1768,7 +1768,7 @@ function BuilderModeUI({
                         <div className="border-t border-neutral-200 dark:border-neutral-700 p-3 space-y-3">
                           {/* Category toggles */}
                           <div>
-                            <div className="text-[10px] font-medium uppercase text-neutral-500 mb-2">Categories</div>
+                            <div className="text-xxs font-medium uppercase text-neutral-500 mb-2">Categories</div>
                             <div className="flex flex-wrap gap-1.5">
                               {CATEGORIES.map(cat => {
                                 const hasCategory = comp.categories.includes(cat.id);
@@ -1793,7 +1793,7 @@ function BuilderModeUI({
                           
                           {/* States toggle */}
                           <div>
-                            <div className="text-[10px] font-medium uppercase text-neutral-500 mb-2">Interactive States</div>
+                            <div className="text-xxs font-medium uppercase text-neutral-500 mb-2">Interactive States</div>
                             <button
                               onClick={() => handleToggleComponentStates(comp.id)}
                               className={clsx(
@@ -2052,7 +2052,7 @@ function BuilderModeUI({
                                   <code className="min-w-0 break-all font-mono text-xs text-neutral-600 dark:text-neutral-400">
                                     {token.formatted}
                                   </code>
-                                  <span className="text-[10px] text-neutral-400">({token.label})</span>
+                                  <span className="text-xxs text-neutral-400">({token.label})</span>
                                 </div>
                                 <button
                                   onClick={() => handleCopy(token.formatted)}
@@ -2093,7 +2093,7 @@ function BuilderModeUI({
                           {componentTokens.length} tokens
                         </span>
                         {comp.hasStates && (
-                          <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
+                          <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xxs text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
                             +states
                           </span>
                         )}

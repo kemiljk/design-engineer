@@ -287,7 +287,7 @@ function Race() {
                   {racer.label}
                 </h4>
               </div>
-              <p className="text-[10px] leading-snug text-neutral-500 dark:text-neutral-400">
+              <p className="text-xxs leading-snug text-neutral-500 dark:text-neutral-400">
                 {racer.bestFor}
               </p>
             </div>

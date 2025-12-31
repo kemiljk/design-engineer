@@ -101,7 +101,7 @@ export function MultipleChoice({ exercise }: MultipleChoiceProps) {
                 !isComplete && isSelected && "border-neutral-900 bg-neutral-100 dark:border-neutral-100 dark:bg-neutral-800",
                 !isComplete && !isSelected && "border-neutral-200 hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-500",
                 showResult && option.isCorrect && "border-neutral-900 bg-neutral-100 dark:border-neutral-100 dark:bg-neutral-800",
-                showResult && !option.isCorrect && isSelected && "border-[#FF4400] bg-red-50 dark:bg-red-950/30",
+                showResult && !option.isCorrect && isSelected && "border-swiss-red bg-red-50 dark:bg-red-950/30",
                 showResult && !option.isCorrect && !isSelected && "border-neutral-200 opacity-50 dark:border-neutral-700"
               )}
             >
@@ -113,7 +113,7 @@ export function MultipleChoice({ exercise }: MultipleChoiceProps) {
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-neutral-900 dark:text-neutral-100" />
               )}
               {showResult && !option.isCorrect && isSelected && (
-                <XCircle className="h-5 w-5 shrink-0 text-[#FF4400]" />
+                <XCircle className="h-5 w-5 shrink-0 text-swiss-red" />
               )}
             </motion.button>
           );

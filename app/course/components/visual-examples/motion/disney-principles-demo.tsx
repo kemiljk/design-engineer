@@ -90,7 +90,7 @@ function BouncingBall({ elasticity }) {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="relative h-[320px] overflow-hidden rounded-[24px] border border-neutral-200 bg-linear-to-b from-neutral-50 to-neutral-100 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950">
+        <div className="relative h-[320px] overflow-hidden rounded-3xl border border-neutral-200 bg-linear-to-b from-neutral-50 to-neutral-100 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950">
           <div className="absolute inset-0 flex items-end justify-center pb-12">
             {/* The Ball */}
             <motion.div

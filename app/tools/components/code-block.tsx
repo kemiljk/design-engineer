@@ -36,7 +36,7 @@ export function CodeBlock({ label, code, displayCode, language }: CodeBlockProps
         </button>
       </div>
       <div className="overflow-x-auto p-3 sm:p-4">
-        <pre className="whitespace-pre-wrap break-all font-mono text-[10px] text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
+        <pre className="whitespace-pre-wrap break-all font-mono text-xxs text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
           {displayCode ?? code}
         </pre>
       </div>

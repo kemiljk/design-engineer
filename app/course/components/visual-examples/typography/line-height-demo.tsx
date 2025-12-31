@@ -55,7 +55,7 @@ export function LineHeightDemo() {
                     </div>
                     {i < 3 && (
                       <div
-                        className="absolute left-0 ml-2 mt-1 text-[10px] font-mono text-neutral-400"
+                        className="absolute left-0 ml-2 mt-1 text-xxs font-mono text-neutral-400"
                         style={{ height: 16 * lineHeight - 16 }}
                       >
                         ↕ {(lineHeight * 16 - 16).toFixed(0)}px

@@ -46,7 +46,7 @@ export function HierarchyDemo() {
             "text-xl font-bold text-neutral-700 dark:text-neutral-300 italic",
           body: "text-lg font-bold text-neutral-800 dark:text-neutral-200",
           meta: "text-lg font-bold text-neutral-600 dark:text-neutral-400 uppercase",
-          cta: "bg-[#ff4400] text-white px-4 py-2 font-bold text-lg",
+          cta: "bg-swiss-red text-white px-4 py-2 font-bold text-lg",
           secondary:
             "text-lg font-bold text-neutral-500 dark:text-neutral-400 underline decoration-2",
         };
@@ -93,7 +93,7 @@ export function HierarchyDemo() {
 
       {/* Insight - fixed height to prevent layout shift */}
       <div className="mt-6 min-h-[2.5rem]">
-        <p className={`text-xs italic ${mode === "clear" ? "text-neutral-600 dark:text-neutral-400" : "text-[#ff4400]"}`}>
+        <p className={`text-xs italic ${mode === "clear" ? "text-neutral-600 dark:text-neutral-400" : "text-swiss-red"}`}>
           {mode === "clear" && "✓ Clear hierarchy: Your eye naturally moves from title → subtitle → body → action"}
           {mode === "flat" && "✗ No hierarchy: Everything looks equally important. Where should you look first?"}
           {mode === "competing" && "✗ Competing elements: Multiple focal points fight for attention. Nothing wins."}

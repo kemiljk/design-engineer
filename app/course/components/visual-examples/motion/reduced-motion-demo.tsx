@@ -87,10 +87,10 @@ function Modal() {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="relative flex h-[420px] items-center justify-center overflow-hidden rounded-[24px] border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="relative flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
           <button
             onClick={() => setIsOpen(true)}
-            className="flex items-center gap-2 rounded-[12px] bg-white px-6 py-3 font-semibold text-neutral-900 shadow-sm transition-all hover:bg-neutral-50 hover:shadow-md dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
+            className="flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-neutral-900 shadow-sm transition-all hover:bg-neutral-50 hover:shadow-md dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
           >
             <Settings className="size-5" />
             Open Settings
@@ -129,7 +129,7 @@ function Modal() {
                       }
                 }
                 style={{ willChange: "transform, opacity" }}
-                className="relative w-full max-w-sm overflow-hidden rounded-[20px] bg-white p-6 shadow-xl dark:bg-neutral-900"
+                className="relative w-full max-w-sm overflow-hidden rounded-20 bg-white p-6 shadow-xl dark:bg-neutral-900"
               >
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
@@ -176,13 +176,13 @@ function Modal() {
                 <div className="mt-6 flex justify-end gap-3">
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="rounded-[8px] px-4 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                    className="rounded-lg px-4 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="rounded-[8px] bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+                    className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
                   >
                     Save Changes
                   </button>
@@ -194,7 +194,7 @@ function Modal() {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Motion Sensitivity
             </h4>
@@ -204,7 +204,7 @@ function Modal() {
               communicates state change.
             </p>
           </div>
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               `useReducedMotion`
             </h4>

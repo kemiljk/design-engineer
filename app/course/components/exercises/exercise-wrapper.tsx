@@ -20,7 +20,7 @@ interface ExerciseWrapperProps {
 const difficultyColors = {
   easy: "bg-neutral-400 dark:bg-neutral-600",
   medium: "bg-neutral-600 dark:bg-neutral-500",
-  hard: "bg-[#FF4400]",
+  hard: "bg-swiss-red",
 };
 
 export function ExerciseWrapper({
@@ -75,7 +75,7 @@ export function ExerciseWrapper({
               "border-t-2 px-4 py-4",
               isCorrect
                 ? "border-neutral-900 bg-neutral-100 dark:border-neutral-100 dark:bg-neutral-800"
-                : "border-[#FF4400] bg-red-50 dark:bg-red-950/30"
+                : "border-swiss-red bg-red-50 dark:bg-red-950/30"
             )}
           >
             <div className="flex items-center gap-2">
@@ -88,8 +88,8 @@ export function ExerciseWrapper({
                 </>
               ) : (
                 <>
-                  <XCircle className="h-5 w-5 text-[#FF4400]" />
-                  <span className="font-medium text-[#FF4400]">
+                  <XCircle className="h-5 w-5 text-swiss-red" />
+                  <span className="font-medium text-swiss-red">
                     Not quite right. Try again!
                   </span>
                 </>

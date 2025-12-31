@@ -461,7 +461,7 @@ transition: transform 1s ${formatCubicBezier(points)};`;
 
           {/* More presets */}
           <div>
-            <span className="mb-3 block text-[10px] font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
+            <span className="mb-3 block text-xxs font-semibold tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
               More Presets
             </span>
             <div className="flex flex-wrap gap-2">

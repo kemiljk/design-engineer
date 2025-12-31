@@ -141,8 +141,8 @@ export function GestaltContinuityDemo() {
           )}
 
           {/* Intersection points */}
-          <circle cx="140" cy="80" r="6" className="fill-[#ff4400]" />
-          <circle cx="260" cy="80" r="6" className="fill-[#ff4400]" />
+          <circle cx="140" cy="80" r="6" className="fill-swiss-red" />
+          <circle cx="260" cy="80" r="6" className="fill-swiss-red" />
         </svg>
 
         {/* Explanation - fixed height to prevent layout shift */}
@@ -205,7 +205,7 @@ export function GestaltContinuityDemo() {
                   >
                     {i + 1}
                   </div>
-                  <span className="text-[10px] text-neutral-500">{step}</span>
+                  <span className="text-xxs text-neutral-500">{step}</span>
                 </div>
               ))}
             </div>

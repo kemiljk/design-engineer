@@ -130,7 +130,7 @@ function Gallery() {
       <div className="space-y-12">
         {/* Interactive Demo */}
         <MotionConfig transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}>
-          <div className="relative h-[480px] overflow-hidden rounded-[16px] bg-neutral-900 p-6">
+          <div className="relative h-[480px] overflow-hidden rounded-2xl bg-neutral-900 p-6">
             {/* Grid */}
             <div className="grid h-full grid-cols-2 gap-3">
               {items.map((item) => (
@@ -138,7 +138,7 @@ function Gallery() {
                   layoutId={`card-${item.id}`}
                   key={item.id}
                   onClick={() => setSelectedId(item.id)}
-                  className="relative cursor-pointer overflow-hidden rounded-[12px]"
+                  className="relative cursor-pointer overflow-hidden rounded-xl"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -178,7 +178,7 @@ function Gallery() {
                   <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center p-6">
                     <motion.div
                       layoutId={`card-${selectedId}`}
-                      className="pointer-events-auto relative w-full max-w-[280px] overflow-hidden rounded-[16px] bg-neutral-800"
+                      className="pointer-events-auto relative w-full max-w-[280px] overflow-hidden rounded-2xl bg-neutral-800"
                     >
                       <motion.div
                         layoutId={`image-container-${selectedId}`}
@@ -227,7 +227,7 @@ function Gallery() {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ delay: 0.2 }}
-                          className="mt-4 w-full rounded-[10px] bg-white py-2.5 text-sm font-semibold text-neutral-900 transition-colors hover:bg-neutral-100"
+                          className="mt-4 w-full rounded-10 bg-white py-2.5 text-sm font-semibold text-neutral-900 transition-colors hover:bg-neutral-100"
                         >
                           Explore
                         </motion.button>
@@ -241,21 +241,21 @@ function Gallery() {
         </MotionConfig>
 
         {/* Visual Explanation */}
-        <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-[10px] text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-100 text-xxs text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
               i
             </span>
             How it works
           </h4>
           <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
             By assigning the same{" "}
-            <code className="rounded-[4px] bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">
+            <code className="rounded bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">
               layoutId
             </code>{" "}
             to components in different parts of the tree, Motion automatically
             calculates the transform needed to morph one into the other. The{" "}
-            <code className="rounded-[4px] bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">
+            <code className="rounded bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">
               MotionConfig
             </code>{" "}
             wrapper applies consistent spring physics to all children.

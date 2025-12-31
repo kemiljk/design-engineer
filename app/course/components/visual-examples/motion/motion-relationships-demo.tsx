@@ -93,11 +93,11 @@ function ContextMenu({ isOpen, origin }) {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
-                "flex items-center gap-2 rounded-[12px] bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition-all hover:bg-neutral-50 active:scale-95 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700",
+                "flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-sm transition-all hover:bg-neutral-50 active:scale-95 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700",
                 isOpen && "ring-2 ring-indigo-500/20 dark:ring-indigo-500/40"
               )}
             >
-              <div className="flex h-5 w-5 items-center justify-center rounded-[8px] bg-gradient-to-br from-indigo-500 to-purple-600 text-[10px] font-bold text-white">
+              <div className="flex h-5 w-5 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-xxs font-bold text-white">
                 K
               </div>
               <span>Karl's Workspace</span>
@@ -122,11 +122,11 @@ function ContextMenu({ isOpen, origin }) {
                     style={{
                       transformOrigin: origin === "trigger" ? "top left" : origin === "top-left" ? "0 0" : "center",
                     }}
-                    className="absolute left-0 top-full z-20 mt-2 min-w-[240px] overflow-hidden rounded-[24px] border border-neutral-200 bg-white/80 p-1.5 shadow-xl backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/80"
+                    className="absolute left-0 top-full z-20 mt-2 min-w-[240px] overflow-hidden rounded-3xl border border-neutral-200 bg-white/80 p-1.5 shadow-xl backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-900/80"
                   >
                     <div className="mb-1.5 flex items-center gap-2 px-2 py-1.5 text-xs text-neutral-500">
                       <span>karl@designengineer.com</span>
-                      <span className="rounded-[6px] bg-emerald-100 px-1.5 py-0.5 text-[10px] font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Pro</span>
+                      <span className="rounded-md bg-emerald-100 px-1.5 py-0.5 text-xxs font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Pro</span>
                     </div>
                     
                     <div className="h-px bg-neutral-100 dark:bg-neutral-800" />
@@ -135,7 +135,7 @@ function ContextMenu({ isOpen, origin }) {
                       {menuItems.map((item, i) => (
                         <button
                           key={item.label}
-                          className="flex w-full items-center justify-between rounded-[12px] px-2 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-indigo-50 hover:text-indigo-900 dark:text-neutral-300 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-100"
+                          className="flex w-full items-center justify-between rounded-xl px-2 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-indigo-50 hover:text-indigo-900 dark:text-neutral-300 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-100"
                         >
                           <div className="flex items-center gap-2.5">
                             <item.icon className="size-4 opacity-70" />
@@ -143,7 +143,7 @@ function ContextMenu({ isOpen, origin }) {
                           </div>
                           <div className="flex items-center gap-2">
                             {item.badge && (
-                              <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white">
+                              <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-xxs font-bold text-white">
                                 {item.badge}
                               </span>
                             )}
@@ -156,13 +156,13 @@ function ContextMenu({ isOpen, origin }) {
                     <div className="h-px bg-neutral-100 dark:bg-neutral-800" />
 
                     <div className="py-1">
-                      <button className="flex w-full items-center justify-between rounded-[12px] px-2 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800">
+                      <button className="flex w-full items-center justify-between rounded-xl px-2 py-1.5 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800">
                         <div className="flex items-center gap-2.5">
                           <Plus className="size-4 opacity-70" />
                           <span>New Team</span>
                         </div>
                       </button>
-                      <button className="flex w-full items-center justify-between rounded-[12px] px-2 py-1.5 text-sm text-rose-600 transition-colors hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-900/20">
+                      <button className="flex w-full items-center justify-between rounded-xl px-2 py-1.5 text-sm text-rose-600 transition-colors hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-900/20">
                         <div className="flex items-center gap-2.5">
                           <LogOut className="size-4 opacity-70" />
                           <span>Log Out</span>
@@ -201,7 +201,7 @@ function ContextMenu({ isOpen, origin }) {
             <div 
               key={item.mode}
               className={cn(
-                "rounded-[12px] border p-4 transition-colors",
+                "rounded-xl border p-4 transition-colors",
                 origin === item.mode
                   ? "border-neutral-900 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
                   : "border-transparent bg-white dark:bg-neutral-900"

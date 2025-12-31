@@ -120,7 +120,7 @@ export function BalanceDemo() {
             </p>
           )}
           {balanceType === "unbalanced" && (
-            <p className="text-sm text-[#ff4400]">
+            <p className="text-sm text-swiss-red">
               <strong>Unbalanced:</strong> Visual weight concentrated on one side creates tension (sometimes intentional)
             </p>
           )}

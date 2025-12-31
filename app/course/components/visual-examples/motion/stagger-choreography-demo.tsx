@@ -161,7 +161,7 @@ const item = {
                       }
                     }
                   }}
-                  className="flex items-center gap-4 rounded-[24px] bg-white p-3 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/5"
+                  className="flex items-center gap-4 rounded-3xl bg-white p-3 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/5"
                 >
                   <motion.div
                     variants={{
@@ -194,7 +194,7 @@ const item = {
 
         {/* Timeline Visualizer */}
         <div className="flex flex-col gap-6">
-          <div className="rounded-[32px] border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-4xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-neutral-400">Timeline</h4>
             <div className="space-y-4">
               {items.map((item, index) => {
@@ -236,7 +236,7 @@ const item = {
             </div>
           </div>
           
-          <div className="rounded-[24px] bg-neutral-100 p-4 text-xs leading-relaxed text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
+          <div className="rounded-3xl bg-neutral-100 p-4 text-xs leading-relaxed text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
             <span className="font-semibold text-neutral-900 dark:text-white">Pro Tip:</span> Stagger delays should be short (30-100ms). Too long and the animation feels sluggish; too short and it looks like a single block moving.
           </div>
         </div>

@@ -143,7 +143,7 @@ function ReadingProgress() {
                     style={{ pathLength: scrollYProgress }}
                   />
                 </svg>
-                <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-neutral-900 dark:text-white">
+                <div className="absolute inset-0 flex items-center justify-center text-xxs font-bold text-neutral-900 dark:text-white">
                   <motion.span>
                     {useSpring(scrollYProgress, { stiffness: 100, damping: 30 }).get().toFixed(0)}%
                   </motion.span>

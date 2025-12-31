@@ -114,11 +114,11 @@ function FileManager() {
         {/* Interactive Demo */}
         <div className="relative border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
           {/* Controls - Moved to Top Right */}
-          <div className="absolute top-4 right-4 z-10 flex gap-1 rounded-[8px] bg-white p-1 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10">
+          <div className="absolute top-4 right-4 z-10 flex gap-1 rounded-lg bg-white p-1 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10">
             <button
               onClick={() => setView("grid")}
               className={cn(
-                "flex items-center gap-2 rounded-[6px] px-3 py-1.5 text-xs font-medium transition-all",
+                "flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium transition-all",
                 view === "grid"
                   ? "bg-neutral-100 text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
                   : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700/50 dark:hover:text-neutral-200",
@@ -130,7 +130,7 @@ function FileManager() {
             <button
               onClick={() => setView("list")}
               className={cn(
-                "flex items-center gap-2 rounded-[6px] px-3 py-1.5 text-xs font-medium transition-all",
+                "flex items-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium transition-all",
                 view === "list"
                   ? "bg-neutral-100 text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-white"
                   : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700/50 dark:hover:text-neutral-200",
@@ -166,7 +166,7 @@ function FileManager() {
                       layout: { type: "spring", stiffness: 500, damping: 35 },
                     }}
                     className={cn(
-                      "group relative overflow-hidden rounded-[16px] bg-white shadow-sm ring-1 ring-neutral-200 transition-shadow hover:shadow-md dark:bg-neutral-800 dark:ring-neutral-700",
+                      "group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-neutral-200 transition-shadow hover:shadow-md dark:bg-neutral-800 dark:ring-neutral-700",
                       view === "list" ? "flex items-center gap-3 p-2 pr-4" : "p-0",
                     )}
                   >
@@ -176,7 +176,7 @@ function FileManager() {
                         "overflow-hidden",
                         view === "grid"
                           ? "aspect-square w-full"
-                          : "h-12 w-12 shrink-0 rounded-[10px]",
+                          : "h-12 w-12 shrink-0 rounded-10",
                       )}
                     >
                       <img
@@ -208,7 +208,7 @@ function FileManager() {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Spatial Constancy
             </h4>
@@ -218,7 +218,7 @@ function FileManager() {
               lose our place.
             </p>
           </div>
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               The `layout` Prop
             </h4>

@@ -30,7 +30,7 @@ const ShimmerOverlay = () => (
 
 const SkeletonCard = () => (
   <motion.div
-    className="relative overflow-hidden rounded-[32px] border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+    className="relative overflow-hidden rounded-4xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
     animate={{
       scale: [1, 1.002, 1],
     }}
@@ -56,10 +56,10 @@ const SkeletonCard = () => (
           <ShimmerOverlay />
         </div>
         <div className="flex-1 space-y-2">
-          <div className="relative h-4 w-3/4 overflow-hidden rounded-[8px] bg-neutral-100 dark:bg-neutral-800">
+          <div className="relative h-4 w-3/4 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
             <ShimmerOverlay />
           </div>
-          <div className="relative h-3 w-1/2 overflow-hidden rounded-[8px] bg-neutral-100 dark:bg-neutral-800">
+          <div className="relative h-3 w-1/2 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
             <ShimmerOverlay />
           </div>
         </div>
@@ -67,13 +67,13 @@ const SkeletonCard = () => (
 
       {/* Text Block Skeletons */}
       <div className="space-y-2">
-        <div className="relative h-3 w-full overflow-hidden rounded-[8px] bg-neutral-100 dark:bg-neutral-800">
+        <div className="relative h-3 w-full overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
           <ShimmerOverlay />
         </div>
-        <div className="relative h-3 w-11/12 overflow-hidden rounded-[8px] bg-neutral-100 dark:bg-neutral-800">
+        <div className="relative h-3 w-11/12 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
           <ShimmerOverlay />
         </div>
-        <div className="relative h-3 w-4/5 overflow-hidden rounded-[8px] bg-neutral-100 dark:bg-neutral-800">
+        <div className="relative h-3 w-4/5 overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
           <ShimmerOverlay />
         </div>
       </div>
@@ -83,7 +83,7 @@ const SkeletonCard = () => (
 
 const LoadedCard = () => (
   <div
-    className="overflow-hidden rounded-[32px] border border-neutral-200 bg-white shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+    className="overflow-hidden rounded-4xl border border-neutral-200 bg-white shadow-md dark:border-neutral-800 dark:bg-neutral-900"
     style={{
       animation: "fadeIn 0.5s ease-out forwards",
     }}
@@ -110,7 +110,7 @@ const LoadedCard = () => (
       </p>
 
       <div className="flex justify-end">
-        <button className="rounded-[12px] bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100">
+        <button className="rounded-xl bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100">
           Read More
         </button>
       </div>
@@ -223,7 +223,7 @@ function Skeleton() {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[24px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-3xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Perceived Performance
             </h4>
@@ -232,7 +232,7 @@ function Skeleton() {
               user "the app is working, not frozen."
             </p>
           </div>
-          <div className="rounded-[24px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-3xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Reduced Layout Shift
             </h4>

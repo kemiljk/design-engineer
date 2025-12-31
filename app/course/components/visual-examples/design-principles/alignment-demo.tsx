@@ -66,12 +66,12 @@ export function AlignmentDemo() {
         {/* Alignment guide line */}
         {showGuide && alignment !== "centered" && (
           <div
-            className="absolute left-0 top-0 h-full w-0.5 bg-[#ff4400]/50"
+            className="absolute left-0 top-0 h-full w-0.5 bg-swiss-red/50"
           />
         )}
         {showGuide && alignment === "centered" && (
           <div
-            className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-[#ff4400]/50"
+            className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-swiss-red/50"
           />
         )}
 
@@ -122,7 +122,7 @@ export function AlignmentDemo() {
 
         {/* Insight - fixed height to prevent layout shift */}
         <div className="mt-4 min-h-[2rem] text-center">
-          <p className={`text-xs ${alignment === "misaligned" ? "text-[#ff4400]" : "text-neutral-600 dark:text-neutral-400"}`}>
+          <p className={`text-xs ${alignment === "misaligned" ? "text-swiss-red" : "text-neutral-600 dark:text-neutral-400"}`}>
             {alignment === "aligned" && "✓ Left alignment creates an invisible line that guides the eye smoothly"}
             {alignment === "centered" && "✓ Centre alignment works for short, impactful content (but harder to scan)"}
             {alignment === "misaligned" && "✗ Random offsets create visual chaos—the eye has no clear path to follow"}

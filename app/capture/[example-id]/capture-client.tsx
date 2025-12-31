@@ -249,7 +249,7 @@ function RelationshipsCaptureDemo() {
     <div className="flex h-full w-full flex-col items-center pt-8">
       <div className="relative">
         <button className="flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-neutral-900 shadow-sm ring-1 ring-neutral-200">
-          <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-linear-to-br from-indigo-500 to-purple-600 text-[10px] font-bold text-white">
+          <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-linear-to-br from-indigo-500 to-purple-600 text-xxs font-bold text-white">
             K
           </div>
           Account
@@ -275,7 +275,7 @@ function RelationshipsCaptureDemo() {
                   <item.icon className="h-4 w-4 text-neutral-400" />
                   {item.label}
                   {item.badge && (
-                    <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-[10px] font-bold text-white">
+                    <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500 text-xxs font-bold text-white">
                       {item.badge}
                     </span>
                   )}

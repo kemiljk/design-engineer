@@ -73,7 +73,7 @@ function ParallaxScene() {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="relative h-[400px] overflow-hidden rounded-[12px] border border-neutral-200 bg-neutral-900 dark:border-neutral-800">
+        <div className="relative h-[400px] overflow-hidden rounded-xl border border-neutral-200 bg-neutral-900 dark:border-neutral-800">
           <div 
             ref={containerRef}
             className="absolute inset-0 overflow-y-auto scroll-smooth"
@@ -95,7 +95,7 @@ function ParallaxScene() {
                   style={{ y: middleY }}
                   className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
                 >
-                  <div className="absolute left-10 top-20 h-24 w-24 rounded-[24px] bg-gradient-to-br from-purple-500/30 to-purple-600/30 backdrop-blur-sm border border-white/10" />
+                  <div className="absolute left-10 top-20 h-24 w-24 rounded-3xl bg-gradient-to-br from-purple-500/30 to-purple-600/30 backdrop-blur-sm border border-white/10" />
                   <div className="absolute right-20 bottom-40 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500/20 to-rose-600/20 backdrop-blur-sm border border-white/10" />
                 </motion.div>
 
@@ -103,7 +103,7 @@ function ParallaxScene() {
                 <div className="absolute inset-0 z-20 pointer-events-none">
                   <motion.div 
                     style={{ y: frontY, x: frontLeftX }}
-                    className="absolute -bottom-10 -left-10 h-48 w-48 rounded-[32px] bg-gradient-to-br from-neutral-800 to-black shadow-2xl border border-white/5 rotate-12" 
+                    className="absolute -bottom-10 -left-10 h-48 w-48 rounded-4xl bg-gradient-to-br from-neutral-800 to-black shadow-2xl border border-white/5 rotate-12" 
                   />
                   <motion.div 
                     style={{ y: frontY, x: frontRightX }}
@@ -133,10 +133,10 @@ function ParallaxScene() {
             { layer: "Midground", speed: "0.5x", desc: "Moves at moderate speed, establishing context." },
             { layer: "Foreground", speed: "1.0x", desc: "Moves at scroll speed, appearing closest." },
           ].map((item) => (
-            <div key={item.layer} className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+            <div key={item.layer} className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
               <div className="flex items-center justify-between">
                 <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">{item.layer}</h4>
-                <span className="rounded-[4px] bg-neutral-200 px-1.5 py-0.5 text-[10px] font-mono font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
+                <span className="rounded bg-neutral-200 px-1.5 py-0.5 text-xxs font-mono font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
                   {item.speed}
                 </span>
               </div>

@@ -132,7 +132,7 @@ export function FontComparisonDemo() {
                 }`}
               >
                 {font.name}
-                <span className="ml-1.5 text-[10px] opacity-60">
+                <span className="ml-1.5 text-xxs opacity-60">
                   {categoryLabels[font.category]}
                 </span>
               </button>
@@ -210,7 +210,7 @@ export function FontComparisonDemo() {
                   <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
                     {font.name}
                   </span>
-                  <span className="ml-1 text-[10px] text-neutral-400">
+                  <span className="ml-1 text-xxs text-neutral-400">
                     {categoryLabels[font.category]}
                   </span>
                 </div>

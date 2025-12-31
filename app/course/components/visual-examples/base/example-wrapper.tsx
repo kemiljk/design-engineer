@@ -59,7 +59,7 @@ export function ControlGroup({ label, children }: ControlGroupProps) {
   return (
     <div className="flex flex-wrap items-center gap-3">
       {label && (
-        <span className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+        <span className="text-xxs font-semibold uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
           {label}
         </span>
       )}

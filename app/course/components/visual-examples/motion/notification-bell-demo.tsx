@@ -424,7 +424,7 @@ function NotificationBell() {
 
           <div className="rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-red-100 dark:bg-red-900/30">
-              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
+              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xxs font-bold text-white">
                 3
               </div>
             </div>

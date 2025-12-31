@@ -89,8 +89,8 @@ function SwipeCard() {
         {/* Interactive Demo Area */}
         <div className="relative flex h-[400px] items-center justify-center overflow-hidden bg-neutral-100 dark:bg-neutral-900">
           {/* Background Placeholder Cards */}
-          <div className="absolute h-[340px] w-[260px] translate-y-2 scale-95 rounded-[20px] bg-white opacity-50 shadow-sm dark:bg-neutral-800" />
-          <div className="absolute h-[340px] w-[260px] translate-y-4 scale-90 rounded-[20px] bg-white opacity-30 shadow-sm dark:bg-neutral-800" />
+          <div className="absolute h-[340px] w-[260px] translate-y-2 scale-95 rounded-20 bg-white opacity-50 shadow-sm dark:bg-neutral-800" />
+          <div className="absolute h-[340px] w-[260px] translate-y-4 scale-90 rounded-20 bg-white opacity-30 shadow-sm dark:bg-neutral-800" />
 
           {/* Draggable Card */}
           <motion.div
@@ -100,10 +100,10 @@ function SwipeCard() {
             style={{ x: xSpring, y: ySpring, rotate }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 1.05, cursor: "grabbing" }}
-            className="absolute h-[340px] w-[260px] cursor-grab overflow-hidden rounded-[20px] bg-white shadow-xl ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10"
+            className="absolute h-[340px] w-[260px] cursor-grab overflow-hidden rounded-20 bg-white shadow-xl ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10"
           >
             {/* Card Content */}
-            <div className="h-full overflow-hidden rounded-[20px]">
+            <div className="h-full overflow-hidden rounded-20">
               <div className="relative h-3/5 w-full overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=520&h=400&fit=crop&auto=format&q=80"
@@ -155,7 +155,7 @@ function SwipeCard() {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[16px] border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Constraint & Elasticity
             </h4>
@@ -166,7 +166,7 @@ function SwipeCard() {
               rubber-band effect where the card fights to return to center.
             </p>
           </div>
-          <div className="rounded-[16px] border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Value Mapping
             </h4>

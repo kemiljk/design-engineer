@@ -121,10 +121,10 @@ export function FontPairingDemo() {
               {/* Heading Font */}
               <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+                  <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
                     Heading
                   </span>
-                  <span className="font-mono text-[10px] text-neutral-400">
+                  <span className="font-mono text-xxs text-neutral-400">
                     {pairing.heading.name}
                   </span>
                 </div>
@@ -152,10 +152,10 @@ export function FontPairingDemo() {
               {/* Body Font */}
               <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+                  <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
                     Body
                   </span>
-                  <span className="font-mono text-[10px] text-neutral-400">
+                  <span className="font-mono text-xxs text-neutral-400">
                     {pairing.body.name}
                   </span>
                 </div>
@@ -175,10 +175,10 @@ export function FontPairingDemo() {
               {pairing.mono && (
                 <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
                   <div className="mb-2 flex items-center justify-between">
-                    <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-400">
+                    <span className="text-xxs font-medium uppercase tracking-wider text-neutral-400">
                       Code
                     </span>
-                    <span className="font-mono text-[10px] text-neutral-400">
+                    <span className="font-mono text-xxs text-neutral-400">
                       {pairing.mono.name}
                     </span>
                   </div>
@@ -213,7 +213,7 @@ export function FontPairingDemo() {
               className="border border-neutral-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900"
             >
               <p
-                className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#ff4400]"
+                className="mb-2 text-xs font-semibold uppercase tracking-wider text-swiss-red"
                 style={{
                   fontFamily: fontsLoaded ? pairing.body.family : "inherit",
                 }}
@@ -277,8 +277,8 @@ export function FontPairingDemo() {
           className="mt-6 grid gap-4 sm:grid-cols-3"
         >
           {/* Why it works */}
-          <div className="border-l-2 border-[#ff4400] bg-neutral-50 p-4 dark:bg-neutral-800/50">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[#ff4400]">
+          <div className="border-l-2 border-swiss-red bg-neutral-50 p-4 dark:bg-neutral-800/50">
+            <p className="mb-2 text-xxs font-semibold uppercase tracking-wider text-swiss-red">
               Why It Works
             </p>
             <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -288,7 +288,7 @@ export function FontPairingDemo() {
 
           {/* Pros */}
           <div className="bg-neutral-50 p-4 dark:bg-neutral-800/50">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
+            <p className="mb-2 text-xxs font-semibold uppercase tracking-wider text-neutral-500">
               Strengths
             </p>
             <ul className="space-y-1.5">
@@ -303,7 +303,7 @@ export function FontPairingDemo() {
 
           {/* Cons */}
           <div className="bg-neutral-50 p-4 dark:bg-neutral-800/50">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
+            <p className="mb-2 text-xxs font-semibold uppercase tracking-wider text-neutral-500">
               Considerations
             </p>
             <ul className="space-y-1.5">

@@ -133,7 +133,7 @@ export function Colour603010Demo() {
           <div className={`rounded p-2 text-center text-sm transition-all ${
             isBalanced 
               ? "ring-1 ring-neutral-300 bg-neutral-100 text-neutral-700 dark:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-300" 
-              : "ring-1 ring-[#ff4400]/30 bg-[#ff4400]/10 text-[#ff4400]"
+              : "ring-1 ring-swiss-red/30 bg-swiss-red/10 text-swiss-red"
           }`}>
             {isBalanced 
               ? "✓ Well-balanced distribution" 

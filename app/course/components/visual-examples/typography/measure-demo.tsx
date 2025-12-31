@@ -37,7 +37,7 @@ export function MeasureDemo() {
                 ? "bg-neutral-200 text-neutral-900 dark:bg-neutral-700 dark:text-white"
                 : charCount < 50
                 ? "bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400"
-                : "bg-[#ff4400]/10 text-[#ff4400]"
+                : "bg-swiss-red/10 text-swiss-red"
             }`}>
               {charCount >= 50 && charCount <= 75 && "Optimal"}
               {charCount < 50 && "Too Short"}
@@ -62,16 +62,16 @@ export function MeasureDemo() {
               {/* Zones */}
               <div className="absolute left-[30%] h-full w-[20%] rounded-l-full bg-neutral-200 dark:bg-neutral-700" />
               <div className="absolute left-[50%] h-full w-[25%] bg-neutral-300 dark:bg-neutral-600" />
-              <div className="absolute left-[75%] h-full w-[25%] rounded-r-full bg-[#ff4400]/20" />
+              <div className="absolute left-[75%] h-full w-[25%] rounded-r-full bg-swiss-red/20" />
               
               {/* Labels */}
-              <span className="absolute left-[40%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-neutral-500 dark:text-neutral-400">
+              <span className="absolute left-[40%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-xxs font-medium text-neutral-500 dark:text-neutral-400">
                 Short
               </span>
-              <span className="absolute left-[62.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-neutral-700 dark:text-neutral-300">
+              <span className="absolute left-[62.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-xxs font-medium text-neutral-700 dark:text-neutral-300">
                 Optimal
               </span>
-              <span className="absolute left-[87.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-medium text-[#ff4400]">
+              <span className="absolute left-[87.5%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-xxs font-medium text-swiss-red">
                 Long
               </span>
 
@@ -82,7 +82,7 @@ export function MeasureDemo() {
                 transition={{ duration: 0.3 }}
               />
             </div>
-            <div className="mt-2 flex justify-between text-[10px] text-neutral-400">
+            <div className="mt-2 flex justify-between text-xxs text-neutral-400">
               <span>30ch</span>
               <span>50ch</span>
               <span>75ch</span>

@@ -306,7 +306,7 @@ ${spacingVars}
                 />
                  <div className="text-center">
                   <div className="text-xs font-medium text-neutral-500">{s.step}</div>
-                  <div className="font-mono text-[10px] text-neutral-400">{s.px}px</div>
+                  <div className="font-mono text-xxs text-neutral-400">{s.px}px</div>
                 </div>
               </div>
             ))}

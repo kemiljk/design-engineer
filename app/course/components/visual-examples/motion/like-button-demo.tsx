@@ -29,7 +29,7 @@ function BounceRotateLike() {
   return (
     <button
       onClick={handleLike}
-      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-gradient-to-br from-rose-500 to-pink-600 p-6 shadow-md transition-transform active:scale-95"
+      className="relative flex flex-col items-center gap-3 rounded-3xl bg-gradient-to-br from-rose-500 to-pink-600 p-6 shadow-md transition-transform active:scale-95"
     >
       {/* Burst particles */}
       <AnimatePresence>
@@ -112,7 +112,7 @@ function ScaleSplatLike() {
   return (
     <button
       onClick={handleLike}
-      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-neutral-900 p-6 shadow-md transition-transform active:scale-95"
+      className="relative flex flex-col items-center gap-3 rounded-3xl bg-neutral-900 p-6 shadow-md transition-transform active:scale-95"
     >
       {/* Expanding ring */}
       <AnimatePresence>
@@ -188,7 +188,7 @@ function SpringBounceLike() {
   return (
     <button
       onClick={() => setLiked(!liked)}
-      className="relative flex flex-col items-center gap-3 rounded-[24px] bg-gradient-to-br from-violet-500 to-indigo-600 p-6 shadow-md transition-transform active:scale-95"
+      className="relative flex flex-col items-center gap-3 rounded-3xl bg-gradient-to-br from-violet-500 to-indigo-600 p-6 shadow-md transition-transform active:scale-95"
     >
       {/* Glow effect */}
       <AnimatePresence>
@@ -383,7 +383,7 @@ function LikeButton() {
         <div className="flex flex-col items-center gap-6">
           <div className="relative flex w-full justify-center bg-neutral-100 p-4 sm:p-8 dark:bg-neutral-900/50">
             {/* Social card */}
-            <div className="relative w-full max-w-80 overflow-hidden rounded-[24px] border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="relative w-full max-w-80 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
               {/* Header */}
               <div className="flex items-center gap-3 border-b border-neutral-100 p-4 dark:border-neutral-800">
                 <div className="h-10 w-10 overflow-hidden !rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-0.5">
@@ -414,7 +414,7 @@ function LikeButton() {
                 {/* Like button */}
                 <button
                   onClick={handleLike}
-                  className="group relative flex items-center gap-2 rounded-[24px] px-3 py-2 transition-colors hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                  className="group relative flex items-center gap-2 rounded-3xl px-3 py-2 transition-colors hover:bg-pink-50 dark:hover:bg-pink-900/20"
                 >
                   {/* Particle burst */}
                   <AnimatePresence>
@@ -477,19 +477,19 @@ function LikeButton() {
                 </button>
 
                 {/* Comment button */}
-                <button className="flex items-center gap-2 rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-sky-50 hover:text-sky-500 dark:hover:bg-sky-900/20 dark:hover:text-sky-400">
+                <button className="flex items-center gap-2 rounded-3xl px-3 py-2 text-neutral-400 transition-colors hover:bg-sky-50 hover:text-sky-500 dark:hover:bg-sky-900/20 dark:hover:text-sky-400">
                   <MessageCircle className="size-[20px]" />
                   <span className="text-sm font-medium">24</span>
                 </button>
 
                 {/* Share button */}
-                <button className="flex items-center gap-2 rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-emerald-50 hover:text-emerald-500 dark:hover:bg-emerald-900/20 dark:hover:text-emerald-400">
+                <button className="flex items-center gap-2 rounded-3xl px-3 py-2 text-neutral-400 transition-colors hover:bg-emerald-50 hover:text-emerald-500 dark:hover:bg-emerald-900/20 dark:hover:text-emerald-400">
                   <Share2 className="size-[20px]" />
                   <span className="text-sm font-medium">8</span>
                 </button>
 
                 {/* Bookmark */}
-                <button className="flex items-center rounded-[24px] px-3 py-2 text-neutral-400 transition-colors hover:bg-amber-50 hover:text-amber-500 dark:hover:bg-amber-900/20 dark:hover:text-amber-400">
+                <button className="flex items-center rounded-3xl px-3 py-2 text-neutral-400 transition-colors hover:bg-amber-50 hover:text-amber-500 dark:hover:bg-amber-900/20 dark:hover:text-amber-400">
                   <Bookmark className="size-[20px]" />
                 </button>
               </div>
@@ -527,13 +527,13 @@ function LikeButton() {
               <div
                 key={item.step}
                 className={cn(
-                  "rounded-[24px] border bg-white p-5 shadow-sm dark:bg-neutral-900",
+                  "rounded-3xl border bg-white p-5 shadow-sm dark:bg-neutral-900",
                   item.border,
                 )}
               >
                 <div
                   className={cn(
-                    "mb-3 flex h-7 w-7 items-center justify-center rounded-[8px] text-xs font-bold",
+                    "mb-3 flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold",
                     item.color,
                   )}
                 >

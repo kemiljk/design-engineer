@@ -340,7 +340,7 @@ export function SpringPhysicsDemo() {
 
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-2xl border border-neutral-200/60 bg-white p-3 shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900">
-              <div className="text-[10px] tracking-wider text-neutral-400 uppercase">
+              <div className="text-xxs tracking-wider text-neutral-400 uppercase">
                 Response
               </div>
               <div
@@ -353,7 +353,7 @@ export function SpringPhysicsDemo() {
               </div>
             </div>
             <div className="rounded-2xl border border-neutral-200/60 bg-white p-3 shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900">
-              <div className="text-[10px] tracking-wider text-neutral-400 uppercase">
+              <div className="text-xxs tracking-wider text-neutral-400 uppercase">
                 Duration
               </div>
               <div className="mt-1 text-sm font-bold text-neutral-900 dark:text-white">
@@ -411,7 +411,7 @@ export function SpringPhysicsDemo() {
 
           {/* Real-time Graph */}
           <div className="relative h-64 overflow-hidden rounded-3xl border border-neutral-200/60 bg-white shadow-sm dark:border-neutral-800/60 dark:bg-neutral-950">
-            <div className="absolute top-3 left-4 text-[10px] font-bold tracking-wider text-neutral-400 uppercase">
+            <div className="absolute top-3 left-4 text-xxs font-bold tracking-wider text-neutral-400 uppercase">
               Velocity Graph
             </div>
             <canvas ref={canvasRef} className="h-full w-full" />

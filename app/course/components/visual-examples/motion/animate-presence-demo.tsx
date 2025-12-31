@@ -99,7 +99,7 @@ function TodoList() {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="mx-auto max-w-md overflow-hidden rounded-[24px] bg-white shadow-xl dark:bg-neutral-900">
+        <div className="mx-auto max-w-md overflow-hidden rounded-3xl bg-white shadow-xl dark:bg-neutral-900">
           <div className="bg-linear-to-r from-indigo-500 to-purple-600 p-8 text-white">
             <h3 className="text-2xl font-bold">Tasks</h3>
             <p className="text-indigo-100 opacity-80">
@@ -114,12 +114,12 @@ function TodoList() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Add a new task..."
-                className="w-full rounded-[12px] bg-neutral-100 px-4 py-3 pr-12 text-neutral-900 placeholder:text-neutral-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-neutral-800 dark:text-white"
+                className="w-full rounded-xl bg-neutral-100 px-4 py-3 pr-12 text-neutral-900 placeholder:text-neutral-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none dark:bg-neutral-800 dark:text-white"
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center justify-center rounded-[8px] bg-white p-1.5 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
+                className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center justify-center rounded-lg bg-white p-1.5 text-indigo-600 shadow-sm transition-colors hover:bg-indigo-50 disabled:opacity-50 dark:bg-neutral-700 dark:text-indigo-400"
               >
                 <Plus className="size-5" />
               </button>
@@ -144,7 +144,7 @@ function TodoList() {
                       damping: 30,
                       mass: 1,
                     }}
-                    className="group flex items-center justify-between rounded-[12px] border border-neutral-200 bg-white px-4 py-3 shadow-sm transition-shadow hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+                    className="group flex items-center justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3 shadow-sm transition-shadow hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900"
                   >
                     <div className="flex items-center gap-3">
                       <button
@@ -185,7 +185,7 @@ function TodoList() {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Graceful Exit
             </h4>
@@ -195,7 +195,7 @@ function TodoList() {
               to close the gap smoothly.
             </p>
           </div>
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               popLayout Mode
             </h4>

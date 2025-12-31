@@ -54,7 +54,7 @@ export function TypographicShowcaseDemo() {
                 Harmonies
                 <br />
                 Through{" "}
-                <span className="text-[#ff4400]">Difference</span>
+                <span className="text-swiss-red">Difference</span>
               </h2>
             </motion.div>
 
@@ -112,7 +112,7 @@ export function TypographicShowcaseDemo() {
               transition={{ duration: 0.3, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <span className="inline-block bg-[#ff4400] px-6 py-3 text-sm font-semibold tracking-wide text-white">
+              <span className="inline-block bg-swiss-red px-6 py-3 text-sm font-semibold tracking-wide text-white">
                 Sign Up
               </span>
             </motion.div>
@@ -122,7 +122,7 @@ export function TypographicShowcaseDemo() {
           <div className="space-y-6 md:col-span-5">
             {/* Weight showcase */}
             <motion.div
-              className="border border-neutral-700 bg-[#ff4400] p-4"
+              className="border border-neutral-700 bg-swiss-red p-4"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
@@ -172,11 +172,11 @@ export function TypographicShowcaseDemo() {
             >
               <div className="flex-1 border-t border-neutral-700 pt-3">
                 <p className="font-mono text-2xl font-bold text-white sm:text-3xl">40–60</p>
-                <p className="text-[10px] uppercase tracking-wider text-neutral-500">Headline px</p>
+                <p className="text-xxs uppercase tracking-wider text-neutral-500">Headline px</p>
               </div>
               <div className="flex-1 border-t border-neutral-700 pt-3">
                 <p className="font-mono text-2xl font-bold text-white sm:text-3xl">16–20</p>
-                <p className="text-[10px] uppercase tracking-wider text-neutral-500">Body px</p>
+                <p className="text-xxs uppercase tracking-wider text-neutral-500">Body px</p>
               </div>
             </motion.div>
           </div>
@@ -199,7 +199,7 @@ export function TypographicShowcaseDemo() {
           <span className="rounded-none border border-neutral-700 px-3 py-1 font-mono text-xs tracking-wider text-neutral-400">
             Monospace
           </span>
-          <span className="rounded-none border border-[#ff4400] bg-[#ff4400]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#ff4400]">
+          <span className="rounded-none border border-swiss-red bg-swiss-red/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-swiss-red">
             Accent
           </span>
         </motion.div>

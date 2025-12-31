@@ -70,8 +70,15 @@
   --tracking-wide: 0.05em;      /* Small caps, labels */
   --tracking-wider: 0.1em;      /* Uppercase micro text */
 
-  /* Border radius - preserve Tailwind defaults, use rounded-none explicitly where needed */
+  /* Border radius - extend Tailwind defaults */
+  --radius-10: 10px;
+  --radius-20: 20px;
+  --radius-4xl: 2rem;
   --radius-full: 9999px;
+
+  /* Extra small text */
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 1.4;
 
   /* Animation keyframes */
   --animate-in: enter 0.2s ease-out;

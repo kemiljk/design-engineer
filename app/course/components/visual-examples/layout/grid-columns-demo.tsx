@@ -58,7 +58,7 @@ export function GridColumnsDemo() {
             {Array.from({ length: 12 }).map((_, i) => (
               <div
                 key={i}
-                className="h-full bg-[#ff4400]/10"
+                className="h-full bg-swiss-red/10"
               />
             ))}
           </div>

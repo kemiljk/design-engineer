@@ -409,7 +409,7 @@ export function FloatingNotesPanel({
                             <p className="truncate text-xs font-medium text-neutral-900 dark:text-white">
                               {note.metadata.content?.slice(0, 30) || "Empty note"}
                             </p>
-                            <p className="mt-0.5 text-[10px] text-neutral-400">
+                            <p className="mt-0.5 text-xxs text-neutral-400">
                               {new Date(note.created_at).toLocaleDateString()}
                             </p>
                           </div>

@@ -729,8 +729,8 @@ fun HarmoniousCard(
                   style={{ borderRadius: 24 }}
                 />
               </div>
-              <p className="mt-2 text-[10px] text-neutral-500 sm:text-xs">Same radius</p>
-              <p className="text-[10px] text-neutral-400">✗ Wrong</p>
+              <p className="mt-2 text-xxs text-neutral-500 sm:text-xs">Same radius</p>
+              <p className="text-xxs text-neutral-400">✗ Wrong</p>
             </div>
             <div className="text-xl text-neutral-300 sm:text-2xl">→</div>
             <div className="text-center">
@@ -743,8 +743,8 @@ fun HarmoniousCard(
                   style={{ borderRadius: 10 }}
                 />
               </div>
-              <p className="mt-2 text-[10px] text-neutral-500 sm:text-xs">Adjusted</p>
-              <p className="text-[10px] text-swiss-red">✓ Correct</p>
+              <p className="mt-2 text-xxs text-neutral-500 sm:text-xs">Adjusted</p>
+              <p className="text-xxs text-swiss-red">✓ Correct</p>
             </div>
           </div>
         </div>
@@ -897,7 +897,7 @@ opticalInner = outer - gap - offset`}
           {/* Wrong - Same radius */}
           <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-bold text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400 sm:px-3 sm:py-1 sm:text-xs">
+              <span className="inline-block rounded-full bg-neutral-100 px-2 py-0.5 text-xxs font-bold text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400 sm:px-3 sm:py-1 sm:text-xs">
                 ✗ Same
               </span>
             </div>
@@ -915,7 +915,7 @@ opticalInner = outer - gap - offset`}
                 }}
               />
             </div>
-            <p className="text-center font-mono text-[10px] text-neutral-500 sm:text-xs">
+            <p className="text-center font-mono text-xxs text-neutral-500 sm:text-xs">
               {outerRadius}px
             </p>
           </div>
@@ -923,7 +923,7 @@ opticalInner = outer - gap - offset`}
           {/* Standard formula */}
           <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 sm:px-3 sm:py-1 sm:text-xs">
+              <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-xxs font-bold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 sm:px-3 sm:py-1 sm:text-xs">
                 ○ Standard
               </span>
             </div>
@@ -941,7 +941,7 @@ opticalInner = outer - gap - offset`}
                 }}
               />
             </div>
-            <p className="text-center font-mono text-[10px] text-neutral-500 sm:text-xs">
+            <p className="text-center font-mono text-xxs text-neutral-500 sm:text-xs">
               {standardInnerRadius}px
             </p>
           </div>
@@ -949,7 +949,7 @@ opticalInner = outer - gap - offset`}
           {/* Optical - With correction */}
           <div className="space-y-2 sm:space-y-3">
             <div className="text-center">
-              <span className="inline-block rounded-full bg-swiss-red/10 px-2 py-0.5 text-[10px] font-bold text-swiss-red sm:px-3 sm:py-1 sm:text-xs">
+              <span className="inline-block rounded-full bg-swiss-red/10 px-2 py-0.5 text-xxs font-bold text-swiss-red sm:px-3 sm:py-1 sm:text-xs">
                 ✓ Optical
               </span>
             </div>
@@ -967,7 +967,7 @@ opticalInner = outer - gap - offset`}
                 }}
               />
             </div>
-            <p className="text-center font-mono text-[10px] text-neutral-500 sm:text-xs">
+            <p className="text-center font-mono text-xxs text-neutral-500 sm:text-xs">
               {Math.max(0, standardInnerRadius - suggestedOffset)}px
             </p>
           </div>

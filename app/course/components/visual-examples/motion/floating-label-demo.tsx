@@ -78,9 +78,9 @@ function Input({ label, value, onChange }) {
     >
       <div className="space-y-12">
         {/* Interactive Demo */}
-        <div className="mx-auto max-w-sm rounded-[32px] border border-neutral-200 bg-white p-8 shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="mx-auto max-w-sm rounded-4xl border border-neutral-200 bg-white p-8 shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
           <div className="mb-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-[24px] bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-3xl bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
               <Lock className="size-6" />
             </div>
             <h3 className="text-xl font-bold text-neutral-900 dark:text-white">Welcome Back</h3>
@@ -93,7 +93,7 @@ function Input({ label, value, onChange }) {
               <motion.div
                 layout
                 className={cn(
-                  "absolute inset-0 rounded-[12px] border transition-colors",
+                  "absolute inset-0 rounded-xl border transition-colors",
                   focusedField === "email" 
                     ? "border-indigo-500 bg-indigo-50/10 dark:bg-indigo-900/10" 
                     : "border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
@@ -135,7 +135,7 @@ function Input({ label, value, onChange }) {
               <motion.div
                 layout
                 className={cn(
-                  "absolute inset-0 rounded-[12px] border transition-colors",
+                  "absolute inset-0 rounded-xl border transition-colors",
                   focusedField === "password" 
                     ? "border-indigo-500 bg-indigo-50/10 dark:bg-indigo-900/10" 
                     : "border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800"
@@ -178,7 +178,7 @@ function Input({ label, value, onChange }) {
               </div>
             </div>
 
-            <button className="w-full rounded-[12px] bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-700 hover:shadow-indigo-500/40 active:scale-[0.98]">
+            <button className="w-full rounded-xl bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-700 hover:shadow-indigo-500/40 active:scale-[0.98]">
               Sign In
             </button>
           </div>
@@ -186,7 +186,7 @@ function Input({ label, value, onChange }) {
 
         {/* Visual Explanation */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Space Efficiency
             </h4>
@@ -194,7 +194,7 @@ function Input({ label, value, onChange }) {
               Combines the label and input into a single visual unit, saving vertical space while maintaining clarity.
             </p>
           </div>
-          <div className="rounded-[12px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
               Context Preservation
             </h4>

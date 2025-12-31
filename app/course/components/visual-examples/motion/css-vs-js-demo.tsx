@@ -89,12 +89,12 @@ function SpringCard() {
           {/* CSS Example */}
           <div className="flex flex-col items-center gap-4">
             <div 
-              className="group relative flex h-48 w-full cursor-pointer items-center justify-center rounded-[24px] bg-neutral-100 dark:bg-neutral-800"
+              className="group relative flex h-48 w-full cursor-pointer items-center justify-center rounded-3xl bg-neutral-100 dark:bg-neutral-800"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               <div 
-                className="flex h-32 w-32 items-center justify-center rounded-[20px] bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-xl transition-transform duration-300 ease-out will-change-transform group-hover:-translate-y-2 group-hover:scale-105 group-hover:rotate-3"
+                className="flex h-32 w-32 items-center justify-center rounded-20 bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-xl transition-transform duration-300 ease-out will-change-transform group-hover:-translate-y-2 group-hover:scale-105 group-hover:rotate-3"
               >
                 <span className="font-bold">CSS</span>
               </div>
@@ -111,14 +111,14 @@ function SpringCard() {
           {/* Motion Example */}
           <div className="flex flex-col items-center gap-4">
             <motion.div 
-              className="relative flex h-48 w-full cursor-pointer items-center justify-center rounded-[24px] bg-neutral-100 dark:bg-neutral-800"
+              className="relative flex h-48 w-full cursor-pointer items-center justify-center rounded-3xl bg-neutral-100 dark:bg-neutral-800"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{ perspective: 1000 }}
             >
               <motion.div 
                 style={{ rotateX, rotateY }}
-                className="flex h-32 w-32 items-center justify-center rounded-[20px] bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-xl"
+                className="flex h-32 w-32 items-center justify-center rounded-20 bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-xl"
               >
                 <span className="font-bold">Motion</span>
               </motion.div>
@@ -135,7 +135,7 @@ function SpringCard() {
         </div>
 
         {/* Feature Matrix */}
-        <div className="overflow-hidden rounded-[16px] border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
           <div className="grid grid-cols-3 border-b border-neutral-200 bg-neutral-50 p-3 text-xs font-semibold text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:text-white">
             <div>Feature</div>
             <div className="text-center">CSS</div>

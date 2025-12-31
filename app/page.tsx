@@ -322,7 +322,7 @@ function ToolsSection() {
                 <div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
                   <tool.icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400" />
                 </div>
-                <span className="text-[10px] font-medium tracking-wider text-neutral-400 uppercase">
+                <span className="text-xxs font-medium tracking-wider text-neutral-400 uppercase">
                   {tool.category}
                 </span>
               </div>

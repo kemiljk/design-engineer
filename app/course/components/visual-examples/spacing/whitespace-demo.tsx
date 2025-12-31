@@ -111,9 +111,9 @@ export function WhitespaceDemo() {
               )}
               {density >= 60 && density < 85 && (
                 <>
-                  <span className="rounded-full border border-[#ff4400]/30 bg-[#ff4400]/10 px-2 py-1 text-xs text-[#ff4400]">Premium</span>
-                  <span className="rounded-full border border-[#ff4400]/30 bg-[#ff4400]/10 px-2 py-1 text-xs text-[#ff4400]">Refined</span>
-                  <span className="rounded-full border border-[#ff4400]/30 bg-[#ff4400]/10 px-2 py-1 text-xs text-[#ff4400]">Luxury</span>
+                  <span className="rounded-full border border-swiss-red/30 bg-swiss-red/10 px-2 py-1 text-xs text-swiss-red">Premium</span>
+                  <span className="rounded-full border border-swiss-red/30 bg-swiss-red/10 px-2 py-1 text-xs text-swiss-red">Refined</span>
+                  <span className="rounded-full border border-swiss-red/30 bg-swiss-red/10 px-2 py-1 text-xs text-swiss-red">Luxury</span>
                 </>
               )}
               {density >= 85 && (

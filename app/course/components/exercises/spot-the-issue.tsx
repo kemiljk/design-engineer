@@ -40,8 +40,8 @@ function MockElement({
         !showResult && !isSelected && "border-transparent hover:border-neutral-400",
         !showResult && isSelected && "border-neutral-900 bg-neutral-100 dark:border-neutral-100 dark:bg-neutral-800",
         showResult && element.isIssue && isSelected && "border-neutral-900 bg-neutral-100 dark:border-neutral-100 dark:bg-neutral-800",
-        showResult && element.isIssue && !isSelected && "border-[#FF4400] bg-red-50 dark:bg-red-950/30",
-        showResult && !element.isIssue && isSelected && "border-[#FF4400] bg-red-50 dark:bg-red-950/30",
+        showResult && element.isIssue && !isSelected && "border-swiss-red bg-red-50 dark:bg-red-950/30",
+        showResult && !element.isIssue && isSelected && "border-swiss-red bg-red-50 dark:bg-red-950/30",
         showResult && !element.isIssue && !isSelected && "border-transparent opacity-50"
       )}
       style={element.styles}

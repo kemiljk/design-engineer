@@ -193,7 +193,7 @@ export function ConstraintsDemo() {
             {/* Constraint labels */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-500">
+                <span className="text-xxs font-medium uppercase tracking-wider text-neutral-500">
                   Horizontal
                 </span>
                 <span className="rounded bg-white px-2 py-1 text-xs font-medium text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
@@ -201,7 +201,7 @@ export function ConstraintsDemo() {
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-medium uppercase tracking-wider text-neutral-500">
+                <span className="text-xxs font-medium uppercase tracking-wider text-neutral-500">
                   Vertical
                 </span>
                 <span className="rounded bg-white px-2 py-1 text-xs font-medium text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
