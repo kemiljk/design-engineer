@@ -33,18 +33,18 @@ const trackDescriptions: Record<Track, { name: string; shape: string; meaning: s
 const platformDescriptions: Record<Platform, { name: string; treatment: string; meaning: string }> = {
   web: {
     name: "Web",
-    treatment: "Horizontal bars",
-    meaning: "Browser layers, responsive grids",
+    treatment: "Horizontal lines",
+    meaning: "Layers, responsive grids",
   },
   ios: {
     name: "iOS",
-    treatment: "Rounded forms",
-    meaning: "Apple's design language",
+    treatment: "Concentric arc",
+    meaning: "Apple's circular aesthetic",
   },
   android: {
     name: "Android",
-    treatment: "Angular cuts",
-    meaning: "Material Design geometry",
+    treatment: "Corner arc",
+    meaning: "Material Design's rounded corners",
   },
 };
 
@@ -451,7 +451,7 @@ export default function BrandPage() {
                 />
                 <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">02</span>
               </div>
-              <p className="font-bold text-sm uppercase tracking-wider">The Texture</p>
+              <p className="font-bold text-sm uppercase tracking-wider">The Accessory</p>
               <p className="text-xs opacity-60 mt-1">Defines the Platform</p>
             </div>
 

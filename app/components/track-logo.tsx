@@ -16,8 +16,8 @@
  *
  * Platform Treatment (inner detail):
  *   - Web: Horizontal lines (layers, responsive)
- *   - iOS: Curved arc using mask technique (Apple's rounded aesthetic)
- *   - Android: Triangle cut (Angular cuts)
+ *   - iOS: Concentric arc (Apple's rounded, circular aesthetic)
+ *   - Android: Corner arc (Material Design's rounded corners)
  */
 
 import { cn } from "@/lib/utils";
@@ -78,9 +78,6 @@ export function TrackLogo({
     (showLayer === "all" || showLayer === "platform") && !isSmall;
   const showCore = showLayer === "all" || showLayer === "core" || showLayer === "track";
 
-  // Generate unique mask ID for each logo instance
-  const maskId = `ios-mask-${track}-${platform}-${size}`;
-
   return (
     <svg
       width={size}
@@ -112,7 +109,6 @@ export function TrackLogo({
           platform={platform}
           track={track}
           strokeWidth={innerStroke}
-          maskId={maskId}
         />
       </g>
 
@@ -201,12 +197,10 @@ function PlatformTreatment({
   platform,
   track,
   strokeWidth,
-  maskId,
 }: {
   platform: Platform;
   track: Track;
   strokeWidth: number;
-  maskId: string;
 }) {
   // All tracks now use the same inset (rounded square has same bounds as square)
   const inset = INNER_OFFSET;
@@ -233,68 +227,42 @@ function PlatformTreatment({
       );
 
     case "ios":
-      // Curved arc using mask technique - EXACT coordinates from user's SVGs
-      // Scale factor from 42px to 32px: 32/42 ≈ 0.762
-      const iosScale = 32 / 42;
-
-      // All three tracks use the same iOS arc (curved half-circle in top half)
-      // Original SVG path from user (42px viewBox):
-      // Outer arc: M6 21 C6 17.0218, 7.58035 13.2064, 10.3934 10.3934 C13.2064 7.58035, 17.0217 6, 21 6 C24.9782 6, 28.7935 7.58035, 31.6066 10.3934 C34.4196 13.2064, 36 17.0217, 36 21
-      // Inner arc: L33.0344 21 C33.0344 17.8083, 31.7665 14.7473, 29.5096 12.4904 C27.2527 10.2335, 24.1917 8.96556, 21 8.96556 C17.8083 8.96556, 14.7473 10.2335, 12.4904 12.4904 C10.2335 14.7473, 8.96556 17.8083, 8.96556 21 L6 21 Z
-      // Original stroke-width: 6 (in 42px), scaled: ~4.57
-
-      // Scale all coordinates exactly
-      const s = iosScale;
-
-      // Outer arc control points (scaled exactly from 42px SVG)
-      const outerPath = `M ${6 * s} ${21 * s} C ${6 * s} ${17.0218 * s}, ${7.58035 * s} ${13.2064 * s}, ${10.3934 * s} ${10.3934 * s} C ${13.2064 * s} ${7.58035 * s}, ${17.0217 * s} ${6 * s}, ${21 * s} ${6 * s} C ${24.9782 * s} ${6 * s}, ${28.7935 * s} ${7.58035 * s}, ${31.6066 * s} ${10.3934 * s} C ${34.4196 * s} ${13.2064 * s}, ${36 * s} ${17.0217 * s}, ${36 * s} ${21 * s}`;
-
-      // Inner arc control points (scaled exactly)
-      const innerPath = `L ${33.0344 * s} ${21 * s} C ${33.0344 * s} ${17.8083 * s}, ${31.7665 * s} ${14.7473 * s}, ${29.5096 * s} ${12.4904 * s} C ${27.2527 * s} ${10.2335 * s}, ${24.1917 * s} ${8.96556 * s}, ${21 * s} ${8.96556 * s} C ${17.8083 * s} ${8.96556 * s}, ${14.7473 * s} ${10.2335 * s}, ${12.4904 * s} ${12.4904 * s} C ${10.2335 * s} ${14.7473 * s}, ${8.96556 * s} ${17.8083 * s}, ${8.96556 * s} ${21 * s} L ${6 * s} ${21 * s} Z`;
-
-      const fullPath = outerPath + " " + innerPath;
-
-      // Original stroke-width was 6 in 42px, with mask technique
-      // Scaled: 6 * 0.762 ≈ 4.57
-      const arcStrokeWidth = 6 * s;
-
+      // Concentric Arc - Apple's rounded, concentric design language
+      // A semicircle in the top half, referencing iOS's love of circles and concentricity
+      //
+      // Arc specification (32px viewBox):
+      //   - Radius: 7 units (matches INNER_OFFSET for visual consistency)
+      //   - Centre: (16, 16) - logo centre
+      //   - Start: (9, 16) - left point at centre height
+      //   - End: (23, 16) - right point at centre height
+      //   - Creates a 180° arc through the top half
       return (
-        <>
-          <defs>
-            <mask id={maskId} fill="white">
-              <path d={fullPath} />
-            </mask>
-          </defs>
-          <path
-            d={fullPath}
-            stroke="currentColor"
-            strokeWidth={arcStrokeWidth}
-            mask={`url(#${maskId})`}
-            fill="none"
-          />
-        </>
+        <path
+          d="M 9 16 A 7 7 0 0 1 23 16"
+          stroke="currentColor"
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          fill="none"
+        />
       );
 
     case "android":
-      // Filled Triangle - "Angular cuts"
-      // Mathematically perfect isoceles right triangle with grid-aligned coordinates
+      // Corner Arc - Material Design 3's signature rounded corner
+      // A quarter-circle stroke representing the rounded corner that defines every Material surface
       //
-      // Triangle specification (32px viewBox):
-      //   - Size: 6×6 units (equal legs)
-      //   - Bottom-left corner: (8, 24)
-      //   - Top vertex: (8, 18)
-      //   - Bottom-right corner: (14, 24)
-      //
-      // Geometry:
-      //   - Left leg: 6 units vertical (24 - 18 = 6)
-      //   - Bottom leg: 6 units horizontal (14 - 8 = 6)
-      //   - Hypotenuse: √72 ≈ 8.49 units at 45°
-      //   - All vertices on integer grid coordinates
+      // Arc specification (32px viewBox):
+      //   - Radius: 6 units
+      //   - Centre: (8, 24) - bottom-left corner point
+      //   - Start: (8, 18) - top of arc
+      //   - End: (14, 24) - right of arc
+      //   - Creates a 90° arc resembling a rounded corner
       return (
         <path
-          d="M 14 24 L 8 18 L 8 24 Z"
-          fill="currentColor"
-          stroke="none"
+          d="M 8 18 A 6 6 0 0 1 14 24"
+          stroke="currentColor"
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          fill="none"
         />
       );
   }
