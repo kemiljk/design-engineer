@@ -167,7 +167,7 @@ const homepageFaqs = [
   },
   {
     q: "Who is this course for?",
-    a: "The Design Track is for engineers who want design skills—learn visual fundamentals to ship beautiful interfaces with confidence. The Engineering Track is for designers who want to code—go beyond Vibe Coding with real understanding, not just AI prompts. Convergence is for those starting their career or wanting to master both—get everything plus exclusive advanced content.",
+    a: "The Design Track is for engineers who want to develop design skills. The Engineering Track is for designers who want to learn to code properly, not just Vibe Code. Convergence is for people starting their career or those who want to master both disciplines.",
   },
   {
     q: "Do I need any prior experience?",
@@ -349,21 +349,21 @@ async function CourseSection() {
       track: "design" as const,
       title: "Design Track",
       description:
-        "For engineers who want design taste—visual fundamentals that AI can't teach",
+        "For engineers. Visual fundamentals that AI can't teach you",
       color: "bg-swiss-red",
     },
     {
       track: "engineering" as const,
       title: "Engineering Track",
       description:
-        "For designers who want to code—build with real understanding, not just AI prompts",
+        "For designers. Go beyond Vibe Coding and build it yourself",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
       track: "convergence" as const,
       title: "Convergence: All-Access",
       description:
-        "For career starters or those mastering both—all tracks, all platforms, plus advanced topics",
+        "Starting out, or want both? All tracks, all platforms, plus advanced topics",
       color: "bg-neutral-500",
     },
   ];
