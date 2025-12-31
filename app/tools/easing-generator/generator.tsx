@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "motion/react";
-import { Copy, Check, RefreshDouble as RefreshCw } from "iconoir-react";
+import { Copy, Check } from "iconoir-react";
 
 type Point = { x: number; y: number };
 
@@ -60,7 +60,8 @@ export default function EasingGenerator() {
   const [dragging, setDragging] = useState<"p1" | "p2" | null>(null);
 
   const handlePointerDown = (point: "p1" | "p2") => (e: React.PointerEvent) => {
-    e.currentTarget.setPointerCapture(e.pointerId);
+    // Set pointer capture on the SVG so all move/up events are captured
+    svgRef.current?.setPointerCapture(e.pointerId);
     setDragging(point);
     setActivePreset("custom");
   };
@@ -69,10 +70,15 @@ export default function EasingGenerator() {
     if (!dragging || !svgRef.current) return;
     
     const rect = svgRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(1, fromGraph(e.clientX - rect.left)));
+    // Scale client coordinates to SVG viewBox coordinates
+    const scale = size / rect.width;
+    const svgX = (e.clientX - rect.left) * scale;
+    const svgY = (e.clientY - rect.top) * scale;
+    
+    const x = Math.max(0, Math.min(1, fromGraph(svgX)));
     // Allow y to go slightly outside 0-1 for elastic effects usually, but standard css cubic-bezier clamps somewhat visually. 
     // CSS bezier CAN go outside 0-1 range for Y.
-    const y = fromGraph(e.clientY - rect.top, true);
+    const y = fromGraph(svgY, true);
 
     if (dragging === "p1") setP1({ x, y });
     else setP2({ x, y });
@@ -141,23 +147,37 @@ export default function EasingGenerator() {
             className="opacity-50"
           />
 
-          {/* Handles */}
-          <circle
-            cx={toGraph(p1.x)}
-            cy={toGraph(p1.y, true)}
-            r="8"
-            fill="#FF3333"
-            className="cursor-pointer transition-transform hover:scale-125"
-            onPointerDown={handlePointerDown("p1")}
-          />
-          <circle
-            cx={toGraph(p2.x)}
-            cy={toGraph(p2.y, true)}
-            r="8"
-            fill="#FF3333"
-            className="cursor-pointer transition-transform hover:scale-125"
-            onPointerDown={handlePointerDown("p2")}
-          />
+          {/* Handles - invisible larger hit area + visible handle */}
+          <g className="cursor-pointer" onPointerDown={handlePointerDown("p1")}>
+            <circle
+              cx={toGraph(p1.x)}
+              cy={toGraph(p1.y, true)}
+              r="20"
+              fill="transparent"
+            />
+            <circle
+              cx={toGraph(p1.x)}
+              cy={toGraph(p1.y, true)}
+              r={dragging === "p1" ? 10 : 8}
+              fill="#FF3333"
+              className="pointer-events-none"
+            />
+          </g>
+          <g className="cursor-pointer" onPointerDown={handlePointerDown("p2")}>
+            <circle
+              cx={toGraph(p2.x)}
+              cy={toGraph(p2.y, true)}
+              r="20"
+              fill="transparent"
+            />
+            <circle
+              cx={toGraph(p2.x)}
+              cy={toGraph(p2.y, true)}
+              r={dragging === "p2" ? 10 : 8}
+              fill="#FF3333"
+              className="pointer-events-none"
+            />
+          </g>
         </svg>
       </div>
 
