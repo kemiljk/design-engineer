@@ -41,11 +41,11 @@ export function PlatformIcon({ platform, size = 20, className }: PlatformIconPro
           className={className}
           aria-hidden="true"
         >
-          {/* Single thick curved arc in top half - matches TrackLogo iOS treatment */}
+          {/* Concentric arc - semicircle in top half */}
           <path 
-            d="M 3 10 C 3 6, 6 3, 10 3 C 14 3, 17 6, 17 10" 
+            d="M 5.5 10 A 4.5 4.5 0 0 1 14.5 10" 
             stroke="currentColor" 
-            strokeWidth="2.5" 
+            strokeWidth="1.5" 
             strokeLinecap="round" 
             fill="none" 
           />
@@ -63,8 +63,14 @@ export function PlatformIcon({ platform, size = 20, className }: PlatformIconPro
           className={className}
           aria-hidden="true"
         >
-          {/* Solid triangle in bottom-left */}
-          <path d="M 3 17 L 11 17 L 3 9 Z" fill="currentColor" />
+          {/* Corner arc - quarter-circle in bottom-left */}
+          <path 
+            d="M 5 11 A 4 4 0 0 1 9 15" 
+            stroke="currentColor" 
+            strokeWidth="1.5" 
+            strokeLinecap="round" 
+            fill="none" 
+          />
         </svg>
       );
   }
