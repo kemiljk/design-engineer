@@ -18,7 +18,7 @@ const faqs = [
       },
       {
         q: "Who is this course for?",
-        a: "This course is designed for two types of learners: (1) Designers who want to go beyond Vibe Coding—instead of prompting AI and hoping for the best, you'll develop real skills to understand implementation, own the build process, and create work that stands up to scrutiny. (2) Engineers who want to ship beautiful, thoroughly considered UIs—not just functional code, but polished interfaces that users love, with the design taste to make confident visual decisions.",
+        a: "The Design Track is for engineers who want design skills—learn visual fundamentals to ship beautiful interfaces with confidence. The Engineering Track is for designers who want to code—go beyond Vibe Coding with real understanding, not just AI prompts. Convergence is for those starting their career or wanting to master both—get everything plus exclusive advanced content.",
       },
       {
         q: "What will I be able to do after completing the course?",
@@ -88,7 +88,7 @@ const faqs = [
       },
       {
         q: "What's the difference between the tracks?",
-        a: "The Design Track helps engineers develop real design taste—you'll learn visual design principles, design tools, design systems, and UX fundamentals that AI simply can't teach. Understand why designs work and make confident visual decisions. The Engineering Track helps designers go beyond Vibe Coding—programming from scratch with real understanding, not just AI prompts. Learn HTML, CSS, JavaScript, and build with intention. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
+        a: "The Design Track is for engineers who want design taste—learn visual principles, design tools, systems, and UX fundamentals to ship beautiful interfaces with confidence. The Engineering Track is for designers who want to code—go beyond Vibe Coding with real understanding of HTML, CSS, and JavaScript, not just AI prompts. Convergence is for career starters or those wanting to master both disciplines—includes everything plus exclusive advanced content on animation, prototyping, accessibility, and the complete Design Engineer workflow.",
       },
     ],
   },
