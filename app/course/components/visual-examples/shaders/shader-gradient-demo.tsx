@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Play, RotateCcw } from "lucide-react";
+import { PlaySolid, Refresh } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,
@@ -193,10 +193,10 @@ export function ShaderGradientDemo() {
           </ControlGroup>
           <div className="flex gap-2">
             <ControlButton active={false} onClick={reset}>
-              <RotateCcw className="size-4" />
+              <Refresh className="size-4" />
             </ControlButton>
             <ControlButton active={isPlaying} onClick={() => setIsPlaying(!isPlaying)}>
-              <Play className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
+              <PlaySolid className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
             </ControlButton>
           </div>
         </div>

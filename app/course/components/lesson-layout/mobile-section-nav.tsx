@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "motion/react";
-import { ChevronUp, X } from "lucide-react";
+import { NavArrowUp, Xmark } from "iconoir-react";
 
 interface Section {
   id: string;
@@ -169,7 +169,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                     className="flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                     aria-label="Close navigation"
                   >
-                    <X className="h-4 w-4" />
+                    <Xmark className="h-4 w-4" />
                   </button>
                 </div>
 
@@ -262,7 +262,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                 </span>
 
                 {/* Chevron */}
-                <ChevronUp className="relative z-10 h-4 w-4 shrink-0 text-neutral-400" />
+                <NavArrowUp className="relative z-10 h-4 w-4 shrink-0 text-neutral-400" />
               </motion.button>
             )}
           </AnimatePresence>

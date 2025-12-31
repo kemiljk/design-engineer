@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronRight, Settings, User, LogOut, HelpCircle, Bell, Plus } from "lucide-react";
+import { NavArrowRight, Settings, User, LogOut, HelpCircle, Bell, Plus } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -101,7 +101,7 @@ function ContextMenu({ isOpen, origin }) {
                 K
               </div>
               <span>Karl's Workspace</span>
-              <ChevronRight className={cn("ml-2 size-4 text-neutral-400 transition-transform", isOpen && "rotate-90")} />
+              <NavArrowRight className={cn("ml-2 size-4 text-neutral-400 transition-transform", isOpen && "rotate-90")} />
             </button>
 
             <AnimatePresence>

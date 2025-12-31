@@ -6,11 +6,11 @@ import { Button } from "@/app/components/ui";
 import {
   Copy,
   Check,
-  Trash2,
-  Sparkles,
-  MessageSquare,
+  Trash,
+  Sparks,
+  ChatBubble,
   ArrowUp,
-} from "lucide-react";
+} from "iconoir-react";
 import { ConversationMessage, continueConversation } from "../actions";
 import { readStreamableValue } from '@ai-sdk/rsc';
 import { TaskBuilderSuggestion } from "@/lib/types";
@@ -87,7 +87,7 @@ function TaskBuilder({
       <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center bg-swiss-red">
-            <Sparkles className="h-5 w-5 text-white" />
+            <Sparks className="h-5 w-5 text-white" />
           </div>
           <div>
             <h2 className="text-xl font-bold">Task Builder</h2>
@@ -101,7 +101,7 @@ function TaskBuilder({
             variant="ghost"
             size="sm"
             onClick={clearConversation}
-            startContent={<Trash2 className="h-4 w-4" />}
+            startContent={<Trash className="h-4 w-4" />}
             className="text-neutral-500 hover:text-red-500"
           >
             Clear
@@ -118,7 +118,7 @@ function TaskBuilder({
                 {message.role === "user" ? (
                   <div className="flex items-start gap-3">
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-neutral-200 dark:bg-neutral-800">
-                      <MessageSquare className="h-4 w-4" />
+                      <ChatBubble className="h-4 w-4" />
                     </div>
                     <div className="flex-1 pt-1">
                       <p className="text-sm font-medium text-neutral-500">
@@ -165,7 +165,7 @@ function TaskBuilder({
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center py-12">
-            <Sparkles className="mb-4 h-12 w-12 text-neutral-300 dark:text-neutral-700" />
+            <Sparks className="mb-4 h-12 w-12 text-neutral-300 dark:text-neutral-700" />
             <h3 className="mb-2 text-lg font-bold">
               What kind of task do you need?
             </h3>

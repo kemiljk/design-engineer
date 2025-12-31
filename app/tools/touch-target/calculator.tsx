@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, X, AlertTriangle } from "lucide-react";
+import { Check, Xmark, WarningTriangle } from "iconoir-react";
 import { clsx } from "clsx";
 
 type Platform = "ios" | "android" | "web";
@@ -64,9 +64,9 @@ export default function TouchTargetCalculator() {
       case "pass":
         return <Check className="h-5 w-5 text-green-500" />;
       case "warning":
-        return <AlertTriangle className="h-5 w-5 text-amber-500" />;
+        return <WarningTriangle className="h-5 w-5 text-amber-500" />;
       case "fail":
-        return <X className="h-5 w-5 text-red-500" />;
+        return <Xmark className="h-5 w-5 text-red-500" />;
     }
   };
 
@@ -111,7 +111,7 @@ export default function TouchTargetCalculator() {
 
         {/* Size Input */}
         <div className="space-y-4">
-          <h2 className="text-lg font-bold">Target Size</h2>
+          <h2 className="text-lg font-bold">Gps Size</h2>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
@@ -180,7 +180,7 @@ export default function TouchTargetCalculator() {
                     {passes ? (
                       <Check className="h-3 w-3 text-green-500" />
                     ) : (
-                      <X className="h-3 w-3 text-red-500" />
+                      <Xmark className="h-3 w-3 text-red-500" />
                     )}
                   </span>
                 </button>

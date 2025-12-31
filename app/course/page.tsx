@@ -9,13 +9,13 @@ import {
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import {
-  BookOpen,
+  Book,
   Clock,
   Trophy,
   ArrowRight,
   Gift,
   Crown,
-} from "lucide-react";
+} from "iconoir-react";
 import { Badge, Button } from "@/app/components/ui";
 import { DiamondIcon } from "@/app/components/diamond-icon";
 import { PageHeader } from "@/app/components/page-header";
@@ -136,7 +136,7 @@ export default async function CoursePage() {
       >
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-neutral-500 md:gap-6">
           <div className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4" />
+            <Book className="h-4 w-4" />
             <span>{course.totalLessons} lessons</span>
           </div>
           <div className="flex items-center gap-2">
@@ -218,7 +218,7 @@ export default async function CoursePage() {
                   </p>
                   <div className="flex items-center gap-4 text-sm text-neutral-500">
                     <div className="flex items-center gap-1">
-                      <BookOpen className="h-4 w-4" />
+                      <Book className="h-4 w-4" />
                       <span>4 lessons</span>
                     </div>
                     <div className="flex items-center gap-1">
@@ -234,7 +234,7 @@ export default async function CoursePage() {
         </div>
       )}
 
-      {/* Tracks Grid */}
+      {/* Tracks ViewGrid */}
       <div className="container-page py-16">
         <div className="mb-8 flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center bg-neutral-200 text-sm font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">

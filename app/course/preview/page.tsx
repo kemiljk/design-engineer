@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { CheckCircle, XmarkCircle, RefreshDouble } from "iconoir-react";
 import Link from "next/link";
 
 export default function PreviewPage() {
@@ -61,7 +61,7 @@ export default function PreviewPage() {
       <div className="max-w-md w-full rounded-none border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900 text-center">
         {status === "loading" && (
           <>
-            <Loader2 className="h-12 w-12 mx-auto mb-4 text-swiss-red animate-spin" />
+            <RefreshDouble className="h-12 w-12 mx-auto mb-4 text-swiss-red animate-spin" />
             <h1 className="text-xl font-bold mb-2">Activating Preview Access</h1>
             <p className="text-neutral-500">Please wait...</p>
           </>
@@ -78,7 +78,7 @@ export default function PreviewPage() {
 
         {status === "error" && (
           <>
-            <XCircle className="h-12 w-12 mx-auto mb-4 text-red-500" />
+            <XmarkCircle className="h-12 w-12 mx-auto mb-4 text-red-500" />
             <h1 className="text-xl font-bold mb-2">Access Denied</h1>
             <p className="text-neutral-500 mb-6">{message}</p>
             <Link

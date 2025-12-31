@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Moon, Sun } from "lucide-react";
+import { HalfMoon, SunLight } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -287,9 +287,9 @@ function Toggle() {
                     transition={{ duration: 0.3 }}
                   >
                     {isOn ? (
-                      <Moon className="size-4 text-indigo-600" />
+                      <HalfMoon className="size-4 text-indigo-600" />
                     ) : (
-                      <Sun className="size-4 text-amber-500" />
+                      <SunLight className="size-4 text-amber-500" />
                     )}
                   </motion.div>
                 </motion.div>

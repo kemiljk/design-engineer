@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
-import { Info, AlertCircle } from "lucide-react";
+import { InfoCircle, WarningCircle } from "iconoir-react";
 
 type Platform = "css" | "tailwind" | "swift" | "android";
 
@@ -270,7 +270,7 @@ struct HarmoniousCard<Content: View>: View {
   };
 
   const generateAndroid = () => {
-    return `<!-- XML Layout -->
+    return `<!-- XML LayoutLeft -->
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -328,7 +328,7 @@ fun HarmoniousCard(
 
   return (
     <div className="space-y-8">
-      {/* Main Grid */}
+      {/* Main ViewGrid */}
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Controls */}
         <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
@@ -494,7 +494,7 @@ fun HarmoniousCard(
               
               {wouldBeNegative && (
                 <div className="mt-2 flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400">
-                  <AlertCircle className="h-3.5 w-3.5" />
+                  <WarningCircle className="h-3.5 w-3.5" />
                   <span>Result clamped to 0 (padding exceeds outer radius)</span>
                 </div>
               )}
@@ -777,7 +777,7 @@ fun HarmoniousCard(
       {/* Why Optical Offset */}
       <div className="rounded-xl border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5 sm:p-6">
         <div className="flex items-start gap-3">
-          <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-swiss-red" />
+          <InfoCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-swiss-red" />
           <div>
             <h2 className="mb-2 text-lg font-bold">Why the Optical Offset?</h2>
             <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">

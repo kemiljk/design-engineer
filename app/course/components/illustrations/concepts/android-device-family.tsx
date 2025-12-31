@@ -96,7 +96,7 @@ export function AndroidDeviceFamily() {
         </text>
       </g>
 
-      {/* Tablet */}
+      {/* PenTablet */}
       <g transform={`translate(${CONTENT.left + 90}, ${CONTENT.top + 32})`}>
         <text
           x={65}
@@ -107,10 +107,10 @@ export function AndroidDeviceFamily() {
           fontFamily="system-ui"
           fontWeight="600"
         >
-          Tablet
+          PenTablet
         </text>
 
-        {/* Tablet Frame */}
+        {/* PenTablet Frame */}
         <Rect
           x={0}
           y={10}

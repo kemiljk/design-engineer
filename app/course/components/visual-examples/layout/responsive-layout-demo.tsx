@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
-import { Monitor, Tablet, Smartphone } from "lucide-react";
+import { Computer, PenTablet, SmartphoneDevice } from "iconoir-react";
 
 type Viewport = "mobile" | "tablet" | "desktop";
 
 const viewports: { value: Viewport; label: string; icon: React.ReactNode; width: number }[] = [
-  { value: "mobile", label: "Mobile", icon: <Smartphone className="h-4 w-4" />, width: 320 },
-  { value: "tablet", label: "Tablet", icon: <Tablet className="h-4 w-4" />, width: 768 },
-  { value: "desktop", label: "Desktop", icon: <Monitor className="h-4 w-4" />, width: 1024 },
+  { value: "mobile", label: "Mobile", icon: <SmartphoneDevice className="h-4 w-4" />, width: 320 },
+  { value: "tablet", label: "Tablet", icon: <PenTablet className="h-4 w-4" />, width: 768 },
+  { value: "desktop", label: "Desktop", icon: <Computer className="h-4 w-4" />, width: 1024 },
 ];
 
 export function ResponsiveLayoutDemo() {
@@ -40,7 +40,7 @@ export function ResponsiveLayoutDemo() {
 
   return (
     <ExampleWrapper
-      title="Responsive Layout"
+      title="Responsive LayoutLeft"
       description="See how layouts adapt across different screen sizes"
       controls={
         <ControlGroup label="Viewport">
@@ -139,7 +139,7 @@ export function ResponsiveLayoutDemo() {
       <div className="mt-4 text-center">
         <p className="text-xs text-neutral-500">
           {viewport === "mobile" && "Mobile: Single column, collapsed navigation, stacked content"}
-          {viewport === "tablet" && "Tablet: Two columns, expanded navigation, balanced layout"}
+          {viewport === "tablet" && "PenTablet: Two columns, expanded navigation, balanced layout"}
           {viewport === "desktop" && "Desktop: Three columns, full navigation, maximum information density"}
         </p>
       </div>

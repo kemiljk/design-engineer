@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Plus, Trash2, GripVertical } from "lucide-react";
+import { Plus, Trash, DragHandGesture } from "iconoir-react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
 
@@ -321,7 +321,7 @@ Brush.radialGradient(
           <div className="space-y-2">
             {sortedStops.map((stop) => (
               <div key={stop.id} className="flex flex-wrap items-center gap-2">
-                <GripVertical className="hidden h-4 w-4 text-neutral-300 sm:block" />
+                <DragHandGesture className="hidden h-4 w-4 text-neutral-300 sm:block" />
                 <input
                   type="color"
                   value={stop.color}
@@ -350,7 +350,7 @@ Brush.radialGradient(
                   disabled={stops.length <= 2}
                   className="ml-auto p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30 sm:ml-0"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Trash className="h-4 w-4" />
                 </button>
               </div>
             ))}

@@ -3,7 +3,7 @@ import SectionTitle from "../components/section-title";
 import { format } from "date-fns";
 import * as Type from "@/lib/types";
 import { Chip } from "@/app/components/ui";
-import { CalendarCheck, Clipboard } from "lucide-react";
+import { Calendar, ClipboardCheck } from "iconoir-react";
 
 
 export default async function Stats() {
@@ -32,7 +32,7 @@ export default async function Stats() {
               variant="secondary"
               size="lg"
               color="success"
-              startContent={<Clipboard className="size-4" />}
+              startContent={<ClipboardCheck className="size-4" />}
               className="gap-1.5"
             >
               {stats.total} total waitlisted
@@ -41,7 +41,7 @@ export default async function Stats() {
               variant="secondary"
               size="lg"
               color="success"
-              startContent={<CalendarCheck className="size-4" />}
+              startContent={<Calendar className="size-4" />}
               className="gap-1.5"
             >
               {statsToday.length} signed up today

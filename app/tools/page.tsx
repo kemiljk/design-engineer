@@ -2,27 +2,27 @@ import React from "react";
 import Link from "next/link";
 import { PageHeader } from "@/app/components/page-header";
 import { 
-  Sparkles, 
+  Sparks, 
   Activity, 
   Eye, 
-  Type, 
+  Text, 
   ArrowRight,
   Lock,
-  Spline,
-  Ratio,
-  Layers,
+  GraphUp,
+  MenuScale,
+  ViewColumns2,
   Palette,
-  Code2,
-  Blend,
-  Pointer,
+  Code,
+  HalfMoon,
+  CursorPointer,
   AppWindow,
   Square,
-  SunMoon,
-  Combine,
-  Tags,
-  SquareStack,
-  LucideIcon
-} from "lucide-react";
+  SunLight,
+  Union,
+  Label,
+  ViewGrid,
+} from "iconoir-react";
+import type { ComponentType, SVGProps } from "react";
 import { SignedOut } from "@clerk/nextjs";
 
 export const metadata = {
@@ -34,7 +34,7 @@ type Tool = {
   title: string;
   description: string;
   href: string;
-  icon: LucideIcon;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   isGated: boolean;
 };
 
@@ -60,7 +60,7 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Easing Generator",
         description: "Create custom cubic-bezier curves for smooth CSS and Motion transitions.",
         href: "/tools/easing-generator",
-        icon: Spline,
+        icon: GraphUp,
         isGated: false,
       },
     ],
@@ -73,14 +73,14 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Gradient Generator",
         description: "Create linear, radial, and conic gradients with export for CSS, Tailwind, SwiftUI, and Android.",
         href: "/tools/gradient-generator",
-        icon: Blend,
+        icon: HalfMoon,
         isGated: false,
       },
       {
         title: "Shadow Generator",
         description: "Design shadows and export for CSS, Tailwind, SwiftUI, Android, and React Native.",
         href: "/tools/shadow-generator",
-        icon: Layers,
+        icon: ViewColumns2,
         isGated: false,
       },
       {
@@ -94,7 +94,7 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Aspect Ratio",
         description: "Calculate dimensions and generate aspect-ratio code for CSS, Tailwind, SwiftUI, and Android.",
         href: "/tools/aspect-ratio",
-        icon: Ratio,
+        icon: MenuScale,
         isGated: false,
       },
       {
@@ -108,14 +108,14 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Blend Mode Explorer",
         description: "Learn how blend modes work and experiment with stacking them for beautiful effects.",
         href: "/tools/blend-mode-explorer",
-        icon: Combine,
+        icon: Union,
         isGated: false,
       },
       {
         title: "Corner Radius Calculator",
         description: "Calculate harmonious nested corner radii for optically perfect UI components.",
         href: "/tools/corner-radius",
-        icon: SquareStack,
+        icon: ViewGrid,
         isGated: false,
       },
     ],
@@ -128,21 +128,21 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Spectrum Generator",
         description: "Generate harmonious colour scales from any colour using perceptually uniform OKLCH.",
         href: "/tools/tint-shade-generator",
-        icon: SunMoon,
+        icon: SunLight,
         isGated: false,
       },
       {
         title: "Token Calculator",
         description: "Generate harmonious typography and spacing scales for Tailwind v4, CSS, or SCSS.",
         href: "/tools/token-calculator",
-        icon: Type,
+        icon: Text,
         isGated: false,
       },
       {
         title: "Token Naming",
         description: "Build consistent semantic token names with auto-generated variants and states.",
         href: "/tools/token-naming",
-        icon: Tags,
+        icon: Label,
         isGated: false,
       },
     ],
@@ -152,10 +152,10 @@ const TOOL_SECTIONS: ToolSection[] = [
     description: "Tools for building accessible, platform-native experiences.",
     tools: [
       {
-        title: "Touch Target Calculator",
+        title: "Touch Gps Calculator",
         description: "Validate touch target sizes against iOS, Android, and WCAG accessibility guidelines.",
         href: "/tools/touch-target",
-        icon: Pointer,
+        icon: CursorPointer,
         isGated: false,
       },
       {
@@ -175,7 +175,7 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Framework Converter",
         description: "Convert component syntax between React, Vue, Svelte, Astro, and Solid.",
         href: "/tools/framework-converter",
-        icon: Code2,
+        icon: Code,
         isGated: false,
       },
     ],
@@ -188,7 +188,7 @@ const TOOL_SECTIONS: ToolSection[] = [
         title: "Task Builder",
         description: "Generate customised design engineering tasks and practice scenarios with AI.",
         href: "/tools/task-builder",
-        icon: Sparkles,
+        icon: Sparks,
         isGated: true,
       },
       {

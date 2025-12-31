@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, XCircle, RotateCcw, Target } from "lucide-react";
+import { CheckCircle, XmarkCircle, Refresh, Gps } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import type { ExerciseDifficulty } from "@/lib/exercise-types";
 
@@ -43,7 +43,7 @@ export function ExerciseWrapper({
       {/* Header */}
       <div className="flex items-center justify-between border-b-2 border-neutral-900 bg-neutral-900 px-4 py-3 dark:border-neutral-100 dark:bg-neutral-100">
         <div className="flex items-center gap-3">
-          <Target className="h-5 w-5 text-white dark:text-neutral-900" />
+          <Gps className="h-5 w-5 text-white dark:text-neutral-900" />
           <span className="font-semibold text-white dark:text-neutral-900">{title}</span>
         </div>
         <span className={cn(
@@ -81,14 +81,14 @@ export function ExerciseWrapper({
             <div className="flex items-center gap-2">
               {isCorrect ? (
                 <>
-                  <CheckCircle2 className="h-5 w-5 text-neutral-900 dark:text-neutral-100" />
+                  <CheckCircle className="h-5 w-5 text-neutral-900 dark:text-neutral-100" />
                   <span className="font-medium text-neutral-900 dark:text-neutral-100">
                     Correct! Great job!
                   </span>
                 </>
               ) : (
                 <>
-                  <XCircle className="h-5 w-5 text-[#FF4400]" />
+                  <XmarkCircle className="h-5 w-5 text-[#FF4400]" />
                   <span className="font-medium text-[#FF4400]">
                     Not quite right. Try again!
                   </span>
@@ -105,7 +105,7 @@ export function ExerciseWrapper({
           onClick={onReset}
           className="flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
         >
-          <RotateCcw className="h-4 w-4" />
+          <Refresh className="h-4 w-4" />
           Reset
         </button>
         <button

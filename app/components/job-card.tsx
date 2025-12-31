@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, CardHeader, CardBody, CardFooter, Button } from "@/app/components/ui";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "iconoir-react";
 import Markdown from "react-markdown";
 import * as Type from "@/lib/types";
-import Image from "next/image";
+import MediaImage from "next/image";
 import { format } from "date-fns";
 
 const JobCard = ({ job }: { job: Type.Job }) => {
@@ -14,7 +14,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
     >
       <CardHeader className="flex w-full items-center gap-4 text-foreground">
         {job.metadata.company.metadata?.logo && (
-          <Image
+          <MediaImage
             className="h-11 w-11 rounded-none border border-neutral-100 object-cover p-1 dark:border-neutral-700"
             src={job.metadata.company.metadata?.logo.imgix_url ?? ""}
             width={120}

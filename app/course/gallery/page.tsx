@@ -2,12 +2,12 @@ import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import {
   ArrowLeft,
-  FolderKanban,
-  Star,
+  Folder,
+  StarSolid,
   Send,
   PlusCircle,
   Filter,
-} from "lucide-react";
+} from "iconoir-react";
 import { getGalleryProjects, getFeaturedGalleryProjects } from "@/lib/cosmic";
 import { getUserEnrollment } from "@/lib/course";
 import { Button } from "@/app/components/ui";
@@ -73,7 +73,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <FolderKanban className="h-8 w-8 text-swiss-red" />
+              <Folder className="h-8 w-8 text-swiss-red" />
               <h1 className="text-2xl font-bold md:text-3xl">Capstone Gallery</h1>
             </div>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">
@@ -95,7 +95,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         {showFeatured && (
           <section className="mb-12">
             <div className="mb-4 flex items-center gap-2">
-              <Star className="h-5 w-5 text-swiss-red" />
+              <StarSolid className="h-5 w-5 text-swiss-red" />
               <h2 className="text-lg font-bold">Featured Projects</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -131,7 +131,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
 
           {projects.length === 0 ? (
             <div className="rounded-none border border-neutral-200 bg-white p-12 text-center dark:border-neutral-800 dark:bg-neutral-900">
-              <FolderKanban className="mx-auto h-12 w-12 text-neutral-300" />
+              <Folder className="mx-auto h-12 w-12 text-neutral-300" />
               <h3 className="mt-4 text-lg font-semibold">No projects found</h3>
               <p className="mt-2 text-neutral-500">
                 {params.platform || params.track
@@ -160,7 +160,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         {/* CTA for non-enrolled users */}
         {!isEnrolled && (
           <section className="mt-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 text-center dark:bg-swiss-red/5">
-            <Star className="mx-auto h-8 w-8 text-swiss-red" />
+            <StarSolid className="mx-auto h-8 w-8 text-swiss-red" />
             <h2 className="mt-4 text-xl font-bold">Create Your Own Capstone</h2>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">
               Enrol in the Design Engineer Course to complete capstone projects and showcase your work here.

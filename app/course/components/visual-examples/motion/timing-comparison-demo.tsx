@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Play, Activity, FlagTriangleRight } from "lucide-react";
+import { PlaySolid, Activity, TriangleFlag } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -162,7 +162,7 @@ function Race() {
                 </>
               ) : (
                 <>
-                  <Play className="size-3.5 fill-current" />
+                  <PlaySolid className="size-3.5 fill-current" />
                   Start Race
                 </>
               )}
@@ -218,7 +218,7 @@ function Race() {
 
                   {/* Finish flag */}
                   <div className="absolute top-1/2 right-3 z-20 -translate-y-1/2">
-                    <FlagTriangleRight className="h-3.5 w-3.5 text-neutral-300 dark:text-neutral-700" />
+                    <TriangleFlag className="h-3.5 w-3.5 text-neutral-300 dark:text-neutral-700" />
                   </div>
 
                   {/* 50% marker */}

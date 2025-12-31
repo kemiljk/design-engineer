@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { Play } from "lucide-react";
+import { PlaySolid } from "iconoir-react";
 import {
   ExampleWrapper,
   ControlGroup,
@@ -51,7 +51,7 @@ const NOISE_FRAGMENT_SHADER = `
   }
   
   void main() {
-    // Scale UV for noise
+    // MenuScale UV for noise
     vec2 st = v_uv * u_scale;
     
     // Animate through noise space
@@ -222,7 +222,7 @@ export function ShaderNoiseDemo() {
               ))}
             </ControlGroup>
             <ControlButton active={isPlaying} onClick={() => setIsPlaying(!isPlaying)}>
-              <Play className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
+              <PlaySolid className={`size-4 ${isPlaying ? "fill-current" : ""}`} />
             </ControlButton>
           </div>
           <div className="flex flex-wrap gap-6">

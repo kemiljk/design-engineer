@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Lightbulb, Eye, EyeOff } from "lucide-react";
+import { LightBulb, Eye, EyeClosed } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { fireSuccessConfetti } from "@/lib/confetti";
 import { ExerciseWrapper } from "./exercise-wrapper";
@@ -88,7 +88,7 @@ export function FixTheCode({ exercise }: FixTheCodeProps) {
             disabled={hintIndex >= exercise.hints.length - 1}
             className="flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 disabled:opacity-50 dark:text-neutral-400 dark:hover:text-neutral-100"
           >
-            <Lightbulb className="h-4 w-4" />
+            <LightBulb className="h-4 w-4" />
             {hintIndex === -1 ? "Show Hint" : `Hint ${hintIndex + 1}/${exercise.hints.length}`}
           </button>
           
@@ -97,7 +97,7 @@ export function FixTheCode({ exercise }: FixTheCodeProps) {
               onClick={() => setShowSolution(!showSolution)}
               className="flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
             >
-              {showSolution ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              {showSolution ? <EyeClosed className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               {showSolution ? "Hide Solution" : "Show Solution"}
             </button>
           )}
@@ -114,7 +114,7 @@ export function FixTheCode({ exercise }: FixTheCodeProps) {
             >
               {exercise.hints.slice(0, hintIndex + 1).map((hint, i) => (
                 <div key={i} className="flex items-start gap-2 rounded-none border border-neutral-300 bg-neutral-100 p-3 text-sm dark:border-neutral-600 dark:bg-neutral-800">
-                  <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-neutral-600 dark:text-neutral-400" />
+                  <LightBulb className="mt-0.5 h-4 w-4 shrink-0 text-neutral-600 dark:text-neutral-400" />
                   <span className="text-neutral-700 dark:text-neutral-300">{hint}</span>
                 </div>
               ))}

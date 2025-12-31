@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
-import { ArrowLeft, Check, ShieldCheck, PartyPopper } from "lucide-react";
+import { ArrowLeft, Check, ShieldCheck, Sparks } from "iconoir-react";
 import { StudentDiscountForm } from "./student-discount-form";
 import { PricingClientWrapper } from "./pricing-client-wrapper";
 import { getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
@@ -68,7 +68,7 @@ export default async function PricingPage() {
         {hasFullAccess ? (
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
-              <PartyPopper className="h-10 w-10 text-green-600 dark:text-green-400" />
+              <Sparks className="h-10 w-10 text-green-600 dark:text-green-400" />
             </div>
             <h1 className="mb-4 text-4xl font-bold md:text-5xl">
               You Have Full Access!

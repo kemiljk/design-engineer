@@ -128,12 +128,12 @@ export default function BrandPage() {
       >
         {/* Main container - defines the content width */}
         <div className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8">
-          {/* Swiss Grid Container */}
+          {/* Swiss ViewGrid Container */}
           <div
             className="relative grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12"
             style={{ gridTemplateRows: "auto auto auto auto" }}
           >
-            {/* Vertical Grid Lines - Mobile */}
+            {/* Vertical ViewGrid Lines - Mobile */}
             <div className="pointer-events-none absolute inset-0 z-0 md:hidden" aria-hidden="true">
               {[0, 1, 2, 3, 4].map((i) => (
                 <motion.div
@@ -153,7 +153,7 @@ export default function BrandPage() {
               ))}
             </div>
 
-            {/* Vertical Grid Lines - Tablet */}
+            {/* Vertical ViewGrid Lines - PenTablet */}
             <div className="pointer-events-none absolute inset-0 z-0 hidden md:block lg:hidden" aria-hidden="true">
               {[0, 1, 2, 3, 4, 5, 6].map((i) => (
                 <motion.div
@@ -173,7 +173,7 @@ export default function BrandPage() {
               ))}
             </div>
 
-            {/* Vertical Grid Lines - Desktop */}
+            {/* Vertical ViewGrid Lines - Desktop */}
             <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block" aria-hidden="true">
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
                 <motion.div
@@ -477,7 +477,7 @@ export default function BrandPage() {
             {/* Equals / Result */}
             <div className="col-span-full pt-8 flex flex-col items-center border-t border-neutral-200 dark:border-neutral-800 mt-4">
               <div className="relative h-48 w-48 flex items-center justify-center">
-                 {/* Grid Overlay */}
+                 {/* ViewGrid Overlay */}
                  <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 opacity-10 pointer-events-none">
                     {[...Array(16)].map((_, i) => (
                       <div key={i} className="border border-current" />
@@ -700,7 +700,7 @@ export default function BrandPage() {
         </div>
       </section>
 
-      {/* Full Grid Section */}
+      {/* Full ViewGrid Section */}
       <section className={cn(
         "border-b transition-colors duration-300",
         invertTheme 

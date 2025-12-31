@@ -18,7 +18,7 @@ export default function Loading() {
       <PageHeaderSkeleton />
 
       <div className="container-page py-12">
-        {/* Resources Grid */}
+        {/* Resources ViewGrid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
             <div

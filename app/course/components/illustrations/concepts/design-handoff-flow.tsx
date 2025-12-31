@@ -178,7 +178,7 @@ export function DesignHandoffFlow() {
           fontFamily="system-ui"
           opacity={0.8}
         >
-          Share with devs
+          ShareIos with devs
         </text>
 
         {/* Icon - handoff */}
@@ -276,7 +276,7 @@ export function DesignHandoffFlow() {
           What to Include in Specs
         </text>
 
-        {/* Grid of spec items */}
+        {/* ViewGrid of spec items */}
         {[
           { label: "Spacing", detail: "dp/pt values" },
           { label: "Typography", detail: "Text styles" },

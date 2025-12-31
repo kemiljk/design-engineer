@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronLeft, ChevronRight, Layers, Layout, FileText, CornerDownRight } from "lucide-react";
+import { NavArrowLeft, NavArrowRight, ViewColumns2, LayoutLeft, Page, CornerBottomRight } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -98,7 +98,7 @@ function Navigation() {
   return (
     <ExampleWrapper
       title="Direction Indicates Hierarchy"
-      description="Movement on the X-axis communicates depth. Forward (right-to-left) means deeper, Back (left-to-right) means shallower."
+      description="Movement on the Xmark-axis communicates depth. Forward (right-to-left) means deeper, Back (left-to-right) means shallower."
       controls={
         <div className="flex justify-end">
           <ControlButton active={showCode} onClick={() => setShowCode(!showCode)}>
@@ -125,7 +125,7 @@ function Navigation() {
                     : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                 )}
               >
-                <Layout className={cn("size-4", level === 0 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                <LayoutLeft className={cn("size-4", level === 0 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
                 <span className={cn("font-medium", level === 0 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                   Level 1: Dashboard
                 </span>
@@ -133,7 +133,7 @@ function Navigation() {
               </button>
 
               <div className="ml-3 flex items-start gap-2 sm:ml-4">
-                <CornerDownRight className="mt-2.5 hidden size-4 text-neutral-300 sm:block" />
+                <CornerBottomRight className="mt-2.5 hidden size-4 text-neutral-300 sm:block" />
                 <button 
                   onClick={() => navigate(1)}
                   className={cn(
@@ -143,7 +143,7 @@ function Navigation() {
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <Layers className={cn("size-4 shrink-0", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <ViewColumns2 className={cn("size-4 shrink-0", level === 1 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
                   <span className={cn("truncate font-medium", level === 1 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                     Level 2: Projects
                   </span>
@@ -152,7 +152,7 @@ function Navigation() {
               </div>
 
               <div className="ml-6 flex items-start gap-2 sm:ml-8">
-                <CornerDownRight className="mt-2.5 hidden size-4 text-neutral-300 sm:block" />
+                <CornerBottomRight className="mt-2.5 hidden size-4 text-neutral-300 sm:block" />
                 <button 
                   onClick={() => navigate(2)}
                   className={cn(
@@ -162,7 +162,7 @@ function Navigation() {
                       : "border-neutral-200 bg-white hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900"
                   )}
                 >
-                  <FileText className={cn("size-4 shrink-0", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
+                  <Page className={cn("size-4 shrink-0", level === 2 ? "text-indigo-600 dark:text-indigo-400" : "text-neutral-400")} />
                   <span className={cn("truncate font-medium", level === 2 ? "text-indigo-900 dark:text-indigo-100" : "text-neutral-600 dark:text-neutral-400")}>
                     Level 3: Details
                   </span>
@@ -194,7 +194,7 @@ function Navigation() {
                   <div className="mb-4 flex items-center gap-2">
                     {level > 0 && (
                       <button onClick={() => navigate((level - 1) as Level)}>
-                        <ChevronLeft className="size-5 text-neutral-500" />
+                        <NavArrowLeft className="size-5 text-neutral-500" />
                       </button>
                     )}
                     <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
@@ -212,7 +212,7 @@ function Navigation() {
                         onClick={() => navigate((level + 1) as Level)}
                         className="mt-4 flex w-full items-center justify-between rounded-[8px] bg-indigo-600 px-4 py-3 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700"
                       >
-                        Go Deeper <ChevronRight className="size-3" />
+                        Go Deeper <NavArrowRight className="size-3" />
                       </button>
                     )}
                   </div>

@@ -4,13 +4,13 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Check,
-  X,
-  Loader2,
-  RefreshCw,
-  Trash2,
-  Save,
+  Xmark,
+  RefreshDouble,
+  Refresh,
+  Trash,
+  FloppyDisk,
   ArrowRight,
-} from "lucide-react";
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -87,7 +87,7 @@ function FeedbackButton() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
           >
-            Save Changes
+            FloppyDisk Changes
           </motion.span>
         )}
         {status === "loading" && (
@@ -97,7 +97,7 @@ function FeedbackButton() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <Loader2 className="animate-spin" />
+            <RefreshDouble className="animate-spin" />
           </motion.span>
         )}
         {status === "success" && (
@@ -177,7 +177,7 @@ function FeedbackButton() {
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.15 }}
                   >
-                    <Loader2 className="size-4 animate-spin" />
+                    <RefreshDouble className="size-4 animate-spin" />
                   </motion.div>
                 )}
                 {buttonStates.primary === "success" && (
@@ -228,7 +228,7 @@ function FeedbackButton() {
                     exit={{ opacity: 0, y: -5 }}
                     className="flex items-center gap-2"
                   >
-                    <Trash2 className="size-3.5" />
+                    <Trash className="size-3.5" />
                     <span>Delete</span>
                   </motion.div>
                 )}
@@ -239,7 +239,7 @@ function FeedbackButton() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                   >
-                    <Loader2 className="size-4 animate-spin text-neutral-400" />
+                    <RefreshDouble className="size-4 animate-spin text-neutral-400" />
                   </motion.div>
                 )}
                 {buttonStates.destructive === "error" && (
@@ -250,7 +250,7 @@ function FeedbackButton() {
                     exit={{ opacity: 0, scale: 0.8 }}
                     className="flex items-center gap-1.5 font-semibold"
                   >
-                    <X className="size-4" strokeWidth={3} />
+                    <Xmark className="size-4" strokeWidth={3} />
                     <span>Failed</span>
                   </motion.div>
                 )}
@@ -259,7 +259,7 @@ function FeedbackButton() {
           </div>
         </div>
 
-        {/* Principles Grid */}
+        {/* Principles ViewGrid */}
         <div className="grid gap-6 sm:grid-cols-3">
           <div className="space-y-2">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-neutral-900 dark:text-white">

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, X, Loader2, AtSign } from "lucide-react";
+import { Check, Xmark, RefreshDouble, AtSign } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -125,7 +125,7 @@ function ValidationMessage({ status }) {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                   >
-                    <Loader2 className="size-5 animate-spin text-neutral-400" />
+                    <RefreshDouble className="size-5 animate-spin text-neutral-400" />
                   </motion.div>
                 )}
                 {status === "available" && (
@@ -145,7 +145,7 @@ function ValidationMessage({ status }) {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                   >
-                    <X className="size-5 text-rose-500" />
+                    <Xmark className="size-5 text-rose-500" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -174,7 +174,7 @@ function ValidationMessage({ status }) {
                   exit={{ opacity: 0, y: -5 }}
                   className="flex items-center gap-1.5 text-xs font-medium text-rose-600 dark:text-rose-400"
                 >
-                  <X className="size-3" />
+                  <Xmark className="size-3" />
                   Sorry, that name is taken.
                 </motion.p>
               )}

@@ -2,7 +2,7 @@ import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import TaskBuilder from "./builder";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { ArrowRight, Sparkles, Target, Layers, Zap, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Sparks, Gps, ViewColumns2, Flash, CheckCircle } from "iconoir-react";
 import { Button } from "@/app/components/ui";
 import { getTaskBuilderSuggestions } from "@/lib/cosmic";
 
@@ -16,19 +16,19 @@ export default async function TaskBuilderPage() {
 
   const features = [
     {
-      icon: Target,
+      icon: Gps,
       title: "Tailored Challenges",
       description:
         "Tasks generated based on your specific requirements, skill level, and areas of focus.",
     },
     {
-      icon: Layers,
+      icon: ViewColumns2,
       title: "Real-World Scenarios",
       description:
         "Practice with tasks that mirror actual design engineering challenges at top companies.",
     },
     {
-      icon: Zap,
+      icon: Flash,
       title: "Instant Generation",
       description:
         "Get detailed task briefs in seconds, complete with requirements and evaluation criteria.",
@@ -66,7 +66,7 @@ export default async function TaskBuilderPage() {
               <div className="border-b border-neutral-200 p-8 dark:border-neutral-800">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-gradient-to-br from-swiss-red to-red-600">
-                    <Sparkles className="h-6 w-6 text-white" />
+                    <Sparks className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold">Task Builder</h2>
@@ -77,7 +77,7 @@ export default async function TaskBuilderPage() {
                 </div>
               </div>
 
-              {/* Features Grid */}
+              {/* Features ViewGrid */}
               <div className="grid gap-px bg-neutral-200 dark:bg-neutral-800 md:grid-cols-3">
                 {features.map((feature) => (
                   <div
@@ -99,7 +99,7 @@ export default async function TaskBuilderPage() {
                 <div className="grid gap-3 sm:grid-cols-2">
                   {useCases.map((useCase) => (
                     <div key={useCase} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-swiss-red" />
+                      <CheckCircle className="h-4 w-4 shrink-0 text-swiss-red" />
                       <span className="text-sm text-neutral-600 dark:text-neutral-400">
                         {useCase}
                       </span>

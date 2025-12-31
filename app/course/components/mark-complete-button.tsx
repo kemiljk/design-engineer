@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
-import { Check, CheckCircle2, AlertCircle } from "lucide-react";
+import { Check, CheckCircle, WarningCircle } from "iconoir-react";
 
 interface MarkCompleteButtonProps {
   lessonPath: string;
@@ -96,7 +96,7 @@ export function MarkCompleteButton({
         whileTap={{ scale: 0.98 }}
         className="flex w-full md:w-auto items-center justify-center gap-2 rounded-none bg-red-100 px-6 py-3 font-medium text-red-700 transition-all hover:bg-red-200 dark:bg-red-900/30 dark:text-red-400"
       >
-        <AlertCircle className="h-5 w-5" />
+        <WarningCircle className="h-5 w-5" />
         Retry
       </motion.button>
     );
@@ -121,7 +121,7 @@ export function MarkCompleteButton({
         <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
       ) : isCompleted ? (
         <>
-          <CheckCircle2 className="h-5 w-5" />
+          <CheckCircle className="h-5 w-5" />
           Completed
         </>
       ) : (

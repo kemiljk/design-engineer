@@ -87,7 +87,7 @@ export function HierarchyDemo() {
 
         <div className="flex items-center gap-4 pt-2">
           <button className={styles.cta}>Read Article</button>
-          <button className={styles.secondary}>Save for Later</button>
+          <button className={styles.secondary}>FloppyDisk for Later</button>
         </div>
       </div>
 

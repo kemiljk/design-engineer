@@ -5,7 +5,7 @@ import { getPosts, getResources } from "@/lib/cosmic";
 import * as Type from "@/lib/types";
 import { ResourceIcon } from "../components/resource-icon";
 import { PageHeader } from "../components/page-header";
-import { ExternalLink } from "lucide-react";
+import { OpenNewWindow } from "iconoir-react";
 
 const ResourcesPage: React.FC = async () => {
   const [resources, fetchPosts] = await Promise.all([
@@ -25,7 +25,7 @@ const ResourcesPage: React.FC = async () => {
       />
 
       <div className="container-page py-12">
-        {/* Resources Grid */}
+        {/* Resources ViewGrid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((item: Type.Resource) => (
             <div
@@ -76,7 +76,7 @@ const ResourcesPage: React.FC = async () => {
                       {post.metadata.snippet || post.metadata.content?.slice(0, 150)}
                     </p>
                   </div>
-                  <ExternalLink className="h-4 w-4 shrink-0 text-neutral-400 group-hover:text-swiss-red" />
+                  <OpenNewWindow className="h-4 w-4 shrink-0 text-neutral-400 group-hover:text-swiss-red" />
                 </Link>
               ))}
             </div>

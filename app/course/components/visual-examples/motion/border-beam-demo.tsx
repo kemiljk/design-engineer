@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, type MotionStyle, type Transition } from "motion/react";
-import { Mail, ArrowRight, Zap } from "lucide-react";
+import { Mail, ArrowRight, Flash } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, SliderControl } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
@@ -129,7 +129,7 @@ function EmailSignupCard({
       />
       <div className="relative z-10 space-y-4">
         <div className="flex items-center gap-2">
-          <Zap className="h-5 w-5 text-amber-500" />
+          <Flash className="h-5 w-5 text-amber-500" />
           <span className="text-sm font-semibold text-neutral-900 dark:text-white">
             Join the waitlist
           </span>
@@ -285,7 +285,7 @@ function BorderBeam({ duration = ${speed} }) {
           <EmailSignupCard duration={speed} borderWidth={borderWidth} />
         </div>
 
-        {/* Info */}
+        {/* InfoCircle */}
         <div className="rounded-2xl border border-neutral-200/60 bg-neutral-50 p-5 shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900">
           <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
             <span className="font-semibold text-neutral-900 dark:text-white">

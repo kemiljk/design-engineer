@@ -75,7 +75,7 @@ export function GestaltSimilarityDemo() {
       }
     >
       <div className="flex flex-col items-center gap-8">
-        {/* Grid of elements - fixed cell size to prevent layout shift */}
+        {/* ViewGrid of elements - fixed cell size to prevent layout shift */}
         <div className="grid grid-cols-6 gap-3">
           {[0, 1, 2].map((row) =>
             [0, 1, 2, 3, 4, 5].map((col) => {

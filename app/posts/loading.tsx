@@ -24,7 +24,7 @@ export default function Loading() {
           <div className="h-10 w-full animate-pulse bg-neutral-200 dark:bg-neutral-800 sm:w-40" />
         </div>
 
-        {/* Posts Grid */}
+        {/* Posts ViewGrid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
             <div

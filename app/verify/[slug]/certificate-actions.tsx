@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Share2, Printer, Copy, Check, Linkedin } from "lucide-react";
+import { ShareIos, Printer, Copy, Check, Linkedin } from "iconoir-react";
 
 function XLogo({ className }: { className?: string }) {
   return (
@@ -116,10 +116,10 @@ export function CertificateActions({ certificateTitle, userName }: CertificateAc
         <button
           onClick={handleShare}
           className="flex items-center gap-1.5 rounded-none bg-swiss-red px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-neutral-900"
-          title="Share certificate"
+          title="ShareIos certificate"
         >
-          <Share2 className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">Share</span>
+          <ShareIos className="h-3.5 w-3.5" />
+          <span className="hidden sm:inline">ShareIos</span>
         </button>
 
         {showShareMenu && (
@@ -129,14 +129,14 @@ export function CertificateActions({ certificateTitle, userName }: CertificateAc
               className="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-700"
             >
               <Linkedin className="h-4 w-4" />
-              Share on LinkedIn
+              ShareIos on LinkedIn
             </button>
             <button
               onClick={shareToTwitter}
               className="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-700"
             >
               <XLogo className="h-4 w-4" />
-              Share on X
+              ShareIos on Xmark
             </button>
             <button
               onClick={() => {

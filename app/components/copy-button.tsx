@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Toaster, toast } from "sonner";
-import { Check, LinkIcon } from "lucide-react";
+import { Check, Link } from "iconoir-react";
 import { Button } from "@/app/components/ui";
 import { usePathname } from "next/navigation";
 
@@ -36,11 +36,11 @@ export default function CopyButton() {
           copied ? (
             <Check className="motion-pop size-4 text-green-600 dark:text-green-500" />
           ) : (
-            <LinkIcon className="size-4" />
+            <Link className="size-4" />
           )
         }
       >
-        Copy and Share
+        Copy and ShareIos
       </Button>
     </div>
   );

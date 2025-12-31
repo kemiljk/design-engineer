@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Circle, Award, Loader2 } from "lucide-react";
+import { CheckCircle, Circle, Medal, RefreshDouble } from "iconoir-react";
 import type { CertificateEligibility, CertificateTrack } from "@/lib/types";
 import { useRouter } from "next/navigation";
 
@@ -27,7 +27,7 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
     return (
       <div className="border-2 border-green-500 bg-green-50 p-4 dark:bg-green-950/30">
         <div className="flex items-center gap-2 mb-2">
-          <Award className="h-5 w-5 text-green-600 dark:text-green-400" />
+          <Medal className="h-5 w-5 text-green-600 dark:text-green-400" />
           <h3 className="font-bold">{platformTitles[platform]} Design Engineer</h3>
         </div>
         <p className="text-sm text-green-600 dark:text-green-400">
@@ -175,7 +175,7 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
                       className="text-xs font-medium text-swiss-red hover:underline disabled:opacity-50"
                     >
                       {claimingTrack === track.track ? (
-                        <Loader2 className="h-3 w-3 animate-spin" />
+                        <RefreshDouble className="h-3 w-3 animate-spin" />
                       ) : (
                         "Claim Certificate"
                       )}
@@ -211,12 +211,12 @@ export function EligibilityCard({ eligibility }: EligibilityCardProps) {
           >
             {isLoading ? (
               <>
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <RefreshDouble className="h-4 w-4 animate-spin" />
                 Claiming...
               </>
             ) : (
               <>
-                <Award className="h-4 w-4" />
+                <Medal className="h-4 w-4" />
                 Claim Design Engineer Certificate
               </>
             )}

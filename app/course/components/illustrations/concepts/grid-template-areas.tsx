@@ -26,7 +26,7 @@ export function GridTemplateAreas() {
 
   return (
     <Illustration
-      title="Grid Template Areas"
+      title="ViewGrid Template Areas"
       description="Named grid areas for creating complex layouts"
       width={GRID.width}
       height={GRID.height}
@@ -35,7 +35,7 @@ export function GridTemplateAreas() {
         GRID-TEMPLATE-AREAS
       </Label>
 
-      {/* Grid container outline */}
+      {/* ViewGrid container outline */}
       <Rect
         x={gridX - 2}
         y={gridY - 2}
@@ -46,7 +46,7 @@ export function GridTemplateAreas() {
         strokeWidth={1}
       />
 
-      {/* Grid areas */}
+      {/* ViewGrid areas */}
       {areas.map((area) => (
         <g key={area.name}>
           <Rect

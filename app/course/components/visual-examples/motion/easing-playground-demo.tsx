@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import { motion, useAnimationControls } from "motion/react";
-import { Play, RotateCcw } from "lucide-react";
+import { PlaySolid, Refresh } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -218,7 +218,7 @@ transition: transform 1s ${formatCubicBezier(points)};`;
               onPointerUp={handlePointerUp}
               onPointerLeave={handlePointerUp}
             >
-              {/* Grid */}
+              {/* ViewGrid */}
               <defs>
                 <pattern
                   id="grid"
@@ -404,14 +404,14 @@ transition: transform 1s ${formatCubicBezier(points)};`;
                 disabled={isPlaying}
                 className="flex h-10 items-center gap-2 bg-neutral-900 px-5 text-xs font-medium text-white shadow-sm transition-all hover:bg-neutral-800 active:scale-[0.98] disabled:opacity-50 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
               >
-                <Play className="size-3.5 fill-current" />
-                {isPlaying ? "Playing..." : "Play Animation"}
+                <PlaySolid className="size-3.5 fill-current" />
+                {isPlaying ? "Playing..." : "PlaySolid Animation"}
               </button>
               <button
                 onClick={resetAnimation}
                 className="flex h-10 w-10 items-center justify-center border border-neutral-200/60 text-neutral-500 shadow-sm transition-all hover:bg-neutral-50 hover:text-neutral-900 active:scale-[0.98] dark:border-neutral-800/60 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
               >
-                <RotateCcw className="size-3.5" />
+                <Refresh className="size-3.5" />
               </button>
               <button
                 onClick={() => setLoopMode(!loopMode)}

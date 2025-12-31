@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight, PlaySolid } from "iconoir-react";
 import { formatTitle, formatBreadcrumb } from "@/lib/format";
 
 interface ContinueLearningProps {
@@ -31,7 +31,7 @@ export function ContinueLearning({ lessonPath, lessonTitle }: ContinueLearningPr
     >
       <div className="flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center bg-swiss-red text-white">
-          <PlayCircle className="h-6 w-6" />
+          <PlaySolid className="h-6 w-6" />
         </div>
         <div>
           <p className="text-sm font-medium text-swiss-red">Continue where you left off</p>

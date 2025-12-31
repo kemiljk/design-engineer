@@ -38,7 +38,7 @@ const PROGRESSIVE_BLUR_FRAGMENT_SHADER = `
     vec4 color = vec4(0.0);
     float total = 0.0;
     
-    // Scale samples based on blur amount
+    // MenuScale samples based on blur amount
     float radius = blurAmount * 16.0;
     
     for (float x = -4.0; x <= 4.0; x += 1.0) {

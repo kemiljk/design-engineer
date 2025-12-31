@@ -3,13 +3,13 @@ import { PageHeader } from "../components/page-header";
 import { Callout } from "@/app/components/ui";
 import {
   ArrowRight,
-  Code2,
-  Layout,
-  ArrowLeftRight,
-  Target,
-  Zap,
-  CheckCircle2,
-} from "lucide-react";
+  Code,
+  LayoutLeft,
+  ArrowSeparateVertical,
+  Gps,
+  Flash,
+  CheckCircle,
+} from "iconoir-react";
 import NextLink from "next/link";
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export default function DesignEngineeringPage() {
 
           <div className="my-8 grid gap-6 md:grid-cols-3">
             <div className="group border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:bg-neutral-100/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800/40">
-              <Layout className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
+              <LayoutLeft className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
               <h3 className="mb-2 font-bold">Design Fluency</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 Deep understanding of typography, colour, spacing, layout, and
@@ -68,7 +68,7 @@ export default function DesignEngineeringPage() {
               </p>
             </div>
             <div className="group border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:bg-neutral-100/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800/40">
-              <Code2 className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
+              <Code className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
               <h3 className="mb-2 font-bold">Technical Proficiency</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 Production-quality code. Understands performance, accessibility,
@@ -76,7 +76,7 @@ export default function DesignEngineeringPage() {
               </p>
             </div>
             <div className="group border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:bg-neutral-100/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800/40">
-              <ArrowLeftRight className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
+              <ArrowSeparateVertical className="text-swiss-red mb-3 h-8 w-8 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none" />
               <h3 className="mb-2 font-bold">The Bridge</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">
                 Translates between design and engineering teams without losing
@@ -123,7 +123,7 @@ export default function DesignEngineeringPage() {
 
           <div className="my-6 space-y-4">
             <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <CheckCircle className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Design System Development</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -134,7 +134,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <CheckCircle className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">End-to-end Project Delivery</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -145,7 +145,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <CheckCircle className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Prototyping</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -156,7 +156,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <CheckCircle className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Implementation</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -167,7 +167,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <CheckCircle className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">
                   Design-Engineering Translation
@@ -180,7 +180,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <CheckCircle className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Tooling and Infrastructure</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -239,7 +239,7 @@ export default function DesignEngineeringPage() {
 
           <div className="my-6 space-y-4">
             <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+              <Gps className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Faster Iteration</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -250,7 +250,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+              <Gps className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Higher Quality Output</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -261,7 +261,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+              <Gps className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Better Communication</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -272,7 +272,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+              <Gps className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Design System Adoption</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -638,14 +638,14 @@ export default function DesignEngineeringPage() {
 
           <div className="space-y-4">
             <div className="flex gap-4">
-              <Zap className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <Flash className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 Design Engineers bridge design and engineering, translating
                 between both worlds without losing fidelity.
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <Flash className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 The title varies (UI Engineer, Design Technologist, Creative
                 Developer, etc.), but the capability is consistent: shipping
@@ -653,21 +653,21 @@ export default function DesignEngineeringPage() {
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <Flash className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 Design Engineering differs from vibe coding. It&apos;s based on
                 deep understanding of principles, not just prompting AI.
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <Flash className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 Companies like Apple, Stripe, Vercel, DuckDuckGo, Airbnb, and
                 Figma actively hire Design Engineers.
               </p>
             </div>
             <div className="flex gap-4">
-              <Zap className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+              <Flash className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
               <p className="text-neutral-700 dark:text-neutral-300">
                 Design Engineering is a learnable discipline. It requires
                 deliberately building skills on both sides of the divide.

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { toast } from "sonner";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 const CopyButton = ({

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { RotateCcw } from "lucide-react";
+import { Refresh } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -75,7 +75,7 @@ function BouncingBall({ elasticity }) {
               onClick={reset}
               className="flex items-center gap-2 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700"
             >
-              <RotateCcw className="size-3.5" />
+              <Refresh className="size-3.5" />
               Reset
             </button>
             <ControlButton

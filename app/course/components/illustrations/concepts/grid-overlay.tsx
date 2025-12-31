@@ -14,7 +14,7 @@ export function GridOverlay() {
 
   return (
     <Illustration
-      title="12-Column Grid System"
+      title="12-Column ViewGrid System"
       description="Visualization of a responsive 12-column grid layout"
       width={GRID.width}
       height={GRID.height}

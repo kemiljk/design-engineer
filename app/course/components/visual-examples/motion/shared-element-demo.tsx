@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, MotionConfig } from "motion/react";
-import { X } from "lucide-react";
+import { Xmark } from "iconoir-react";
 import { ExampleWrapper, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
@@ -97,7 +97,7 @@ function Gallery() {
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedId(null)}
               >
-                <X />
+                <Xmark />
               </motion.button>
             </motion.div>
           </>
@@ -131,7 +131,7 @@ function Gallery() {
         {/* Interactive Demo */}
         <MotionConfig transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}>
           <div className="relative h-[480px] overflow-hidden rounded-[16px] bg-neutral-900 p-6">
-            {/* Grid */}
+            {/* ViewGrid */}
             <div className="grid h-full grid-cols-2 gap-3">
               {items.map((item) => (
                 <motion.div
@@ -200,7 +200,7 @@ function Gallery() {
                         onClick={() => setSelectedId(null)}
                         className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition-colors hover:bg-black/60"
                       >
-                        <X className="size-4" />
+                        <Xmark className="size-4" />
                       </motion.button>
 
                       <div className="p-4">

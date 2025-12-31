@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, Xmark } from "iconoir-react";
 import Markdown from "react-markdown";
 import { useBanner } from "./banner-context";
 
@@ -98,7 +98,7 @@ export default function Banner({
         aria-label="Close Banner"
         className="flex h-8 w-8 items-center justify-center text-neutral-500 transition-colors hover:text-white dark:hover:text-black"
       >
-        <X className="h-4 w-4" />
+        <Xmark className="h-4 w-4" />
       </button>
     </div>
   );

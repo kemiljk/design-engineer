@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
-import { Check, Minus } from "lucide-react";
+import { Check, Minus } from "iconoir-react";
 
 type PairingApproach = "classic" | "same-family" | "superfamily" | "inverse";
 

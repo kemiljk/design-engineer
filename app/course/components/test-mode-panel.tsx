@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Bug, RefreshCw, CheckCircle, XCircle, Trash2 } from "lucide-react";
+import { Bug, Refresh, CheckCircle, XmarkCircle, Trash } from "iconoir-react";
 
 interface DebugData {
   userId: string;
@@ -148,7 +148,7 @@ export function TestModePanel() {
               disabled={isLoading}
               className="rounded p-1 hover:bg-neutral-100 dark:hover:bg-neutral-700"
             >
-              <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
+              <Refresh className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
             </button>
           </div>
 
@@ -173,7 +173,7 @@ export function TestModePanel() {
                   </span>
                 ) : (
                   <span className="flex items-center gap-1 text-red-500">
-                    <XCircle className="h-3 w-3" />
+                    <XmarkCircle className="h-3 w-3" />
                     Not found
                   </span>
                 )}
@@ -271,7 +271,7 @@ export function TestModePanel() {
                   disabled={cleanupStatus === "loading"}
                   className="w-full flex items-center justify-center gap-2 rounded border border-neutral-300 bg-neutral-100 px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-200 disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-300"
                 >
-                  <Trash2 className="h-3 w-3" />
+                  <Trash className="h-3 w-3" />
                   {cleanupStatus === "loading" ? "Cleaning..." : "Cleanup Old Progress Records"}
                 </button>
                 {cleanupMessage && (
@@ -283,7 +283,7 @@ export function TestModePanel() {
             </div>
           ) : (
             <div className="flex items-center justify-center py-4">
-              <RefreshCw className="h-5 w-5 animate-spin text-neutral-400" />
+              <Refresh className="h-5 w-5 animate-spin text-neutral-400" />
             </div>
           )}
         </div>

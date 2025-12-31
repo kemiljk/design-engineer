@@ -69,7 +69,7 @@ export function TouchTargetSizes() {
 
   return (
     <Illustration
-      title="Touch Target Sizes"
+      title="Touch Gps Sizes"
       description="Minimum touch target sizes for accessible interfaces"
       width={GRID.width}
       height={GRID.height}
@@ -86,7 +86,7 @@ export function TouchTargetSizes() {
             {/* Finger overlay */}
             <FingerTip cx={x} cy={centerY} size={fingerSize} />
 
-            {/* Target button */}
+            {/* Gps button */}
             <Rect
               x={x - target.size / 2}
               y={centerY - target.size / 2}

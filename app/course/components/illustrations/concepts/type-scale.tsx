@@ -19,7 +19,7 @@ export function TypeScale() {
 
   return (
     <Illustration
-      title="Typography Scale"
+      title="Typography MenuScale"
       description="Demonstrates a typographic scale from caption to display sizes"
       width={GRID.width}
       height={GRID.height}

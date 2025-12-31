@@ -24,7 +24,7 @@ export function SeverityScale() {
 
   return (
     <Illustration
-      title="Severity Scale"
+      title="Severity MenuScale"
       description="Rating scale for usability issues from 0 (not a problem) to 4 (catastrophic)"
       width={GRID.width}
       height={GRID.height}

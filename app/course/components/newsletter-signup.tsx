@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/app/components/ui";
-import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { ArrowRight, Check, RefreshDouble } from "iconoir-react";
 
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
@@ -62,7 +62,7 @@ export function NewsletterSignup() {
           className="h-11 w-full shrink-0 sm:w-auto"
         >
           {status === "loading" ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <RefreshDouble className="h-4 w-4 animate-spin" />
           ) : (
             <>
               Notify Me

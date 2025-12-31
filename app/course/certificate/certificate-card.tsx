@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, Share2, ExternalLink, Award } from "lucide-react";
+import { Download, ShareIos, OpenNewWindow, Medal } from "iconoir-react";
 import { pdf } from "@react-pdf/renderer";
 import { CertificatePDF } from "./certificate-pdf";
 import type { Certificate } from "@/lib/types";
@@ -65,7 +65,7 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center bg-swiss-red/10">
-            <Award className="h-6 w-6 text-swiss-red" />
+            <Medal className="h-6 w-6 text-swiss-red" />
           </div>
           <div>
             <h3 className="font-bold text-lg">{platformTitles[metadata.platform]}</h3>
@@ -95,8 +95,8 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
           onClick={handleShare}
           className="flex items-center gap-2 border border-neutral-200 px-4 py-2 text-sm font-medium hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700"
         >
-          <Share2 className="h-4 w-4" />
-          Share
+          <ShareIos className="h-4 w-4" />
+          ShareIos
         </button>
         <a
           href={`/verify/${certificate.slug}`}
@@ -104,7 +104,7 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
           rel="noopener noreferrer"
           className="flex items-center gap-2 border border-neutral-200 px-4 py-2 text-sm font-medium hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700"
         >
-          <ExternalLink className="h-4 w-4" />
+          <OpenNewWindow className="h-4 w-4" />
           View
         </a>
       </div>

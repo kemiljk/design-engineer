@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CheckCircle, Calendar, Clock, ExternalLink, ArrowLeft, Award } from "lucide-react";
+import { CheckCircle, Calendar, Clock, OpenNewWindow, ArrowLeft, Medal } from "iconoir-react";
 import { getCertificateBySlug, getTotalLessonsForPlatform } from "@/lib/certificate";
 import { COURSE_STRUCTURE } from "@/lib/course-shared";
 import type { CertificatePlatform, CertificateTrack } from "@/lib/types";
@@ -141,7 +141,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
             
             {/* Header section with accent and grid */}
             <div className="relative border-b border-neutral-200 dark:border-neutral-800 px-8 pt-8 pb-6 print:border-neutral-200 overflow-hidden">
-              {/* Grid lines - Swiss style */}
+              {/* ViewGrid lines - Swiss style */}
               <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                 {/* Vertical grid lines */}
                 {[0, 25, 50, 75, 100].map((pos) => (
@@ -236,7 +236,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center gap-1.5 text-neutral-500 dark:text-neutral-400 mb-1.5 print:text-neutral-500">
-                  <Award className="h-4 w-4" />
+                  <Medal className="h-4 w-4" />
                   <span className="text-xs font-medium uppercase tracking-wide">Lessons</span>
                 </div>
                 <p className="font-semibold text-sm">{lessonCount}</p>
@@ -252,7 +252,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
                 className="inline-flex items-center gap-2 text-sm text-swiss-red hover:underline print:hidden"
               >
                 Learn more about the Design Engineer Course
-                <ExternalLink className="h-4 w-4" />
+                <OpenNewWindow className="h-4 w-4" />
               </Link>
               <p className="hidden print:block text-xs text-neutral-500 mt-4">
                 Verify at: designengineer.xyz/verify/{certificate.slug}

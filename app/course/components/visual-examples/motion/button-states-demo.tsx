@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Loader2, Send, MousePointer2, Hand, RefreshCw } from "lucide-react";
+import { Check, RefreshDouble, Send, CursorPointer, OpenSelectHandGesture, Refresh } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -68,7 +68,7 @@ function SubmitButton() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <Loader2 className="animate-spin" />
+            <RefreshDouble className="animate-spin" />
           </motion.span>
         ) : (
           <motion.span>Send</motion.span>
@@ -187,7 +187,7 @@ function SubmitButton() {
                     transition={{ duration: 0.15 }}
                     className="flex items-center gap-2.5"
                   >
-                    <Loader2 className="size-[18px] animate-spin" />
+                    <RefreshDouble className="size-[18px] animate-spin" />
                     Sending...
                   </motion.span>
                 )}
@@ -211,9 +211,9 @@ function SubmitButton() {
         {/* Simplified State Breakdown */}
         <div className="grid gap-3 sm:grid-cols-4">
           {[
-            { icon: <MousePointer2 className="size-4" />, label: "Hover", sub: "Lift & Glow" },
-            { icon: <Hand className="size-4" />, label: "Press", sub: "Scale Down" },
-            { icon: <Loader2 className="size-4" />, label: "Loading", sub: "Spinner" },
+            { icon: <CursorPointer className="size-4" />, label: "Hover", sub: "Lift & Glow" },
+            { icon: <OpenSelectHandGesture className="size-4" />, label: "Press", sub: "MenuScale Down" },
+            { icon: <RefreshDouble className="size-4" />, label: "Loading", sub: "Spinner" },
             { icon: <Check className="size-4" />, label: "Success", sub: "Morph" },
           ].map((item) => (
             <div

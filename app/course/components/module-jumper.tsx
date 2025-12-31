@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Check, Layers } from "lucide-react";
+import { NavArrowDown, Check, ViewColumns2 } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import { formatBreadcrumb } from "@/lib/format";
 
@@ -72,14 +72,14 @@ export function ModuleJumper({ modules, currentModule, trackSlug, platformSlug }
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <Layers className="size-4" />
+        <ViewColumns2 className="size-4" />
         <span className="hidden sm:inline">
           Module {currentIndex + 1}: {currentModuleData?.title || formatBreadcrumb(currentModule)}
         </span>
         <span className="sm:hidden">
           Module {currentIndex + 1}
         </span>
-        <ChevronDown className={cn("size-4 transition-transform", isOpen && "rotate-180")} />
+        <NavArrowDown className={cn("size-4 transition-transform", isOpen && "rotate-180")} />
       </button>
 
       {isOpen && (

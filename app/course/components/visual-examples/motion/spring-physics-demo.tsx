@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useSpring, useTransform } from "motion/react";
-import { Play, RotateCcw, Activity, Settings2 } from "lucide-react";
+import { PlaySolid, Refresh, Activity, Settings } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -116,11 +116,11 @@ export function SpringPhysicsDemo() {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Grid lines
+      // ViewGrid lines
       ctx.strokeStyle = "rgba(0,0,0,0.05)";
       ctx.lineWidth = 1;
 
-      // Target line (1.0)
+      // Gps line (1.0)
       const targetY = height * 0.3;
       ctx.beginPath();
       ctx.setLineDash([4, 4]);
@@ -281,7 +281,7 @@ export function SpringPhysicsDemo() {
         <div className="flex shrink-0 flex-col gap-6 lg:w-64">
           <div className="rounded-3xl border border-neutral-200/60 bg-neutral-50 p-5 shadow-sm dark:border-neutral-800/60 dark:bg-neutral-900/50">
             <div className="mb-4 flex items-center gap-2 text-neutral-900 dark:text-white">
-              <Settings2 className="size-4" />
+              <Settings className="size-4" />
               <h4 className="text-sm font-bold">Parameters</h4>
             </div>
 
@@ -374,14 +374,14 @@ export function SpringPhysicsDemo() {
                 onClick={reset}
                 className="flex h-10 w-10 items-center justify-center border border-neutral-200/60 bg-white text-neutral-500 shadow-sm transition-all hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-800/60 dark:bg-neutral-900 dark:text-neutral-400"
               >
-                <RotateCcw className="size-4" />
+                <Refresh className="size-4" />
               </button>
               <button
                 data-demo-trigger
                 onClick={trigger}
                 className="flex h-10 items-center gap-2 bg-neutral-900 px-5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-neutral-800 active:scale-[0.98] dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
               >
-                <Play className="size-3.5 fill-current" />
+                <PlaySolid className="size-3.5 fill-current" />
                 Trigger
               </button>
             </div>

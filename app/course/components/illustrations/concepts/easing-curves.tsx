@@ -62,7 +62,7 @@ export function EasingCurves() {
               strokeWidth={1}
             />
 
-            {/* Grid lines */}
+            {/* ViewGrid lines */}
             <Line
               x1={x}
               y1={graphY + graphSize / 2}

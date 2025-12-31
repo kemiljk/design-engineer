@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { RefreshCw, Image as ImageIcon } from "lucide-react";
+import { Refresh, MediaImage } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
   ExampleWrapper,
@@ -43,9 +43,9 @@ const SkeletonCard = () => (
     {/* Shimmer effect */}
     <ShimmerOverlay />
 
-    {/* Image Placeholder */}
+    {/* MediaImage Placeholder */}
     <div className="relative flex h-48 items-center justify-center overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-      <ImageIcon className="size-10 text-neutral-300 dark:text-neutral-600" />
+      <MediaImage className="size-10 text-neutral-300 dark:text-neutral-600" />
       <ShimmerOverlay />
     </div>
 
@@ -180,7 +180,7 @@ function Skeleton() {
             onClick={toggleLoading}
             className="flex items-center gap-2 bg-neutral-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 dark:ring-1 dark:ring-neutral-700/80 dark:hover:bg-neutral-700 dark:hover:text-white"
           >
-            <RefreshCw className={cn("size-3.5", loading && "animate-spin")} />
+            <Refresh className={cn("size-3.5", loading && "animate-spin")} />
             {loading ? "Loading..." : "Reload Data"}
           </button>
           <ControlButton
@@ -234,7 +234,7 @@ function Skeleton() {
           </div>
           <div className="rounded-[24px] border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-white">
-              Reduced Layout Shift
+              Reduced LayoutLeft Shift
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
               By reserving space for content, we prevent layout shift (CLS) when

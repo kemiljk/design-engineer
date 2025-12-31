@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Upload } from "lucide-react";
+import { ArrowLeft, Upload } from "iconoir-react";
 import { getUserEnrollment } from "@/lib/course";
 import { SubmitProjectForm } from "./submit-form";
 
@@ -67,7 +67,7 @@ export default async function SubmitProjectPage() {
               Submit Your Project
             </h1>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-              Share your capstone project with the Design Engineer community. All submissions are reviewed before being published.
+              ShareIos your capstone project with the Design Engineer community. All submissions are reviewed before being published.
             </p>
           </div>
 
