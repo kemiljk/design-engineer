@@ -3,7 +3,6 @@ import {
   Book as BookOpen,
   Code as Code2,
   LayoutLeft as Layout,
-  Flash as Zap,
   Bell,
   CheckCircle as CheckCircle2,
   Crown,
@@ -11,6 +10,7 @@ import {
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
 import { FAQAccordion } from "../faq/faq-accordion";
+import { TrackLogo, type Track } from "@/app/components/track-logo";
 
 const faqs = [
   {
@@ -48,27 +48,28 @@ const faqs = [
 ];
 
 export function ComingSoon() {
-  const tracks = [
+  const tracks: {
+    track: Track;
+    title: string;
+    description: string;
+  }[] = [
     {
-      icon: Layout,
+      track: "design",
       title: "Design Track",
       description:
         "Develop real design taste—visual fundamentals that AI can't teach.",
-      color: "bg-swiss-red",
     },
     {
-      icon: Code2,
+      track: "engineering",
       title: "Engineering Track",
       description:
         "Go beyond Vibe Coding—build with real understanding, not just AI prompts.",
-      color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
-      icon: Zap,
+      track: "convergence",
       title: "Convergence",
       description:
         "Where design meets code. Motion, prototyping, accessibility, and polish.",
-      color: "bg-neutral-500",
     },
   ];
 
@@ -116,19 +117,20 @@ export function ComingSoon() {
               Three Tracks to Mastery
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
-              {tracks.map((track) => (
+              {tracks.map((t) => (
                 <div
-                  key={track.title}
+                  key={t.title}
                   className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
                 >
-                  <div
-                    className={`mb-4 flex h-10 w-10 items-center justify-center ${track.color}`}
-                  >
-                    <track.icon className="h-5 w-5 text-white dark:text-black" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-bold">{track.title}</h3>
+                  <TrackLogo
+                    track={t.track}
+                    size={40}
+                    showLayer="track"
+                    className="mb-4"
+                  />
+                  <h3 className="mb-2 text-lg font-bold">{t.title}</h3>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                    {track.description}
+                    {t.description}
                   </p>
                 </div>
               ))}
@@ -141,7 +143,7 @@ export function ComingSoon() {
             <div className="grid gap-4 sm:grid-cols-2">
               {highlights.map((highlight) => (
                 <div key={highlight} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-swiss-red" />
+                  <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
                   <span className="text-neutral-600 dark:text-neutral-400">
                     {highlight}
                   </span>
@@ -162,7 +164,7 @@ export function ComingSoon() {
             <div className="grid gap-6 md:grid-cols-3">
               {/* Design Full */}
               <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <div className="mb-1 text-xs font-medium uppercase tracking-wider text-swiss-red">
+                <div className="text-swiss-red mb-1 text-xs font-medium tracking-wider uppercase">
                   Design Track
                 </div>
                 <h3 className="mb-2 text-lg font-bold">Full Access</h3>
@@ -174,15 +176,15 @@ export function ComingSoon() {
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     48+ design lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     All 3 platforms
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     Lifetime access
                   </li>
                 </ul>
@@ -190,7 +192,7 @@ export function ComingSoon() {
 
               {/* Engineering Full */}
               <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
-                <div className="mb-1 text-xs font-medium uppercase tracking-wider text-neutral-500">
+                <div className="mb-1 text-xs font-medium tracking-wider text-neutral-500 uppercase">
                   Engineering Track
                 </div>
                 <h3 className="mb-2 text-lg font-bold">Full Access</h3>
@@ -202,46 +204,48 @@ export function ComingSoon() {
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     67+ engineering lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     All 3 platforms
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     Lifetime access
                   </li>
                 </ul>
               </div>
 
               {/* Convergence */}
-              <div className="border-2 border-swiss-red bg-swiss-red/[0.025] p-6 dark:bg-swiss-red/5">
+              <div className="border-swiss-red bg-swiss-red/[0.025] dark:bg-swiss-red/5 border-2 p-6">
                 <div className="mb-1 flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-swiss-red">
+                  <span className="text-swiss-red text-xs font-bold tracking-wider uppercase">
                     Best Value
                   </span>
-                  <Crown className="h-3 w-3 text-swiss-red" />
+                  <Crown className="text-swiss-red h-3 w-3" />
                 </div>
                 <h3 className="mb-2 text-lg font-bold">Convergence</h3>
                 <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
                   Everything — Design + Engineering + exclusive content
                 </p>
                 <div className="mb-4">
-                  <span className="text-3xl font-bold text-swiss-red">£599</span>
+                  <span className="text-swiss-red text-3xl font-bold">
+                    £599
+                  </span>
                 </div>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     ALL 156+ lessons
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     Exclusive advanced content
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-swiss-red" />
+                    <CheckCircle2 className="text-swiss-red h-4 w-4" />
                     Lifetime access + updates
                   </li>
                 </ul>
@@ -249,14 +253,15 @@ export function ComingSoon() {
             </div>
 
             <p className="mt-6 text-center text-sm text-neutral-500">
-              Individual platform tracks from £99 · Students get 30% off · 14-day money-back guarantee
+              Individual platform tracks from £99 · Students get 30% off ·
+              14-day money-back guarantee
             </p>
           </div>
 
           {/* Newsletter Signup */}
-          <div className="mb-16 border border-swiss-red bg-white p-8 dark:bg-neutral-900">
+          <div className="border-swiss-red mb-16 border bg-white p-8 dark:bg-neutral-900">
             <div className="flex flex-col items-center text-center">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center bg-swiss-red">
+              <div className="bg-swiss-red mb-4 flex h-12 w-12 items-center justify-center">
                 <Bell className="h-6 w-6 text-white" />
               </div>
               <h2 className="mb-2 text-xl font-bold">Get Notified at Launch</h2>
@@ -270,7 +275,9 @@ export function ComingSoon() {
 
           {/* FAQ Section */}
           <div className="border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
-            <h2 className="mb-6 text-xl font-bold">Frequently Asked Questions</h2>
+            <h2 className="mb-6 text-xl font-bold">
+              Frequently Asked Questions
+            </h2>
             <FAQAccordion questions={faqs} />
             <div className="mt-6 text-center">
               <p className="text-sm text-neutral-500">
