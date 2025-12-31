@@ -16,7 +16,7 @@ export default function SubmitArticle() {
   return (
     <>
       <Button
-        className="w-full md:w-max"
+        className="w-full whitespace-nowrap md:w-max"
         onClick={onOpen}
       >
         Submit an Article
