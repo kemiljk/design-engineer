@@ -435,3 +435,30 @@ export type GalleryProject = {
     admin_notes?: string;
   };
 };
+
+// Testimonial Types
+
+export type TestimonialStatus = 'pending' | 'approved' | 'featured' | 'rejected';
+
+export type Testimonial = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: string;
+  modified_at?: string;
+  metadata: {
+    user_id: string;
+    user_name: string;
+    user_email: string;
+    user_photo_url?: string;
+    user_role?: string;
+    user_company?: string;
+    content: string;
+    track_completed: CertificateTrack;
+    platform_completed: CertificatePlatform;
+    rating?: number;
+    status: TestimonialStatus;
+    featured_at?: string;
+    admin_notes?: string;
+  };
+};

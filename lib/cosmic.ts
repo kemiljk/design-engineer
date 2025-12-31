@@ -434,3 +434,149 @@ export const getGalleryProject = async (
     return null;
   }
 };
+
+// Testimonial Functions
+
+export const getTestimonials = unstable_cache(
+  async (options?: { 
+    status?: Type.TestimonialStatus;
+    limit?: number;
+  }): Promise<Type.Testimonial[]> => {
+    try {
+      const query: Record<string, unknown> = {
+        type: "testimonials",
+      };
+      
+      if (options?.status) {
+        query["metadata.status"] = options.status;
+      }
+      
+      let request = cosmic.objects
+        .find(query)
+        .props("id,slug,title,created_at,modified_at,metadata")
+        .depth(1)
+        .sort("-created_at");
+      
+      if (options?.limit) {
+        request = request.limit(options.limit);
+      }
+      
+      const { objects } = await request;
+      return objects || [];
+    } catch (error: unknown) {
+      if (error && typeof error === "object" && "status" in error && error.status === 404) {
+        return [];
+      }
+      console.error("Error fetching testimonials:", error);
+      return [];
+    }
+  },
+  ["testimonials"],
+  { revalidate: 300, tags: ["testimonials"] }
+);
+
+export const getFeaturedTestimonials = unstable_cache(
+  async (limit: number = 6): Promise<Type.Testimonial[]> => {
+    try {
+      const { objects } = await cosmic.objects
+        .find({
+          type: "testimonials",
+          "metadata.status": "featured",
+        })
+        .props("id,slug,title,created_at,modified_at,metadata")
+        .depth(1)
+        .sort("-metadata.featured_at")
+        .limit(limit);
+      
+      return objects || [];
+    } catch (error: unknown) {
+      if (error && typeof error === "object" && "status" in error && error.status === 404) {
+        return [];
+      }
+      console.error("Error fetching featured testimonials:", error);
+      return [];
+    }
+  },
+  ["testimonials-featured"],
+  { revalidate: 300, tags: ["testimonials"] }
+);
+
+export const getApprovedTestimonials = unstable_cache(
+  async (limit: number = 12): Promise<Type.Testimonial[]> => {
+    try {
+      // Get both approved and featured testimonials
+      const { objects } = await cosmic.objects
+        .find({
+          type: "testimonials",
+          "metadata.status": { $in: ["approved", "featured"] },
+        })
+        .props("id,slug,title,created_at,modified_at,metadata")
+        .depth(1)
+        .sort("-created_at")
+        .limit(limit);
+      
+      return objects || [];
+    } catch (error: unknown) {
+      if (error && typeof error === "object" && "status" in error && error.status === 404) {
+        return [];
+      }
+      console.error("Error fetching approved testimonials:", error);
+      return [];
+    }
+  },
+  ["testimonials-approved"],
+  { revalidate: 300, tags: ["testimonials"] }
+);
+
+export const getUserTestimonial = async (
+  userId: string
+): Promise<Type.Testimonial | null> => {
+  try {
+    const { objects } = await cosmic.objects
+      .find({
+        type: "testimonials",
+        "metadata.user_id": userId,
+      })
+      .props("id,slug,title,created_at,modified_at,metadata")
+      .depth(1)
+      .limit(1);
+    
+    return objects?.[0] || null;
+  } catch (error: unknown) {
+    if (error && typeof error === "object" && "status" in error && error.status === 404) {
+      return null;
+    }
+    console.error("Error fetching user testimonial:", error);
+    return null;
+  }
+};
+
+export const submitTestimonial = async (
+  data: Omit<Type.Testimonial["metadata"], "status" | "featured_at" | "admin_notes">
+): Promise<Type.Testimonial> => {
+  const { nanoid } = await import("nanoid");
+  const slug = `testimonial-${data.user_id}-${nanoid(8)}`.toLowerCase();
+  
+  const result = await cosmic.objects.insertOne({
+    type: "testimonials",
+    title: `${data.user_name}'s testimonial`,
+    slug,
+    metadata: {
+      ...data,
+      status: "pending" as Type.TestimonialStatus,
+    },
+  });
+
+  return result.object;
+};
+
+export const updateTestimonial = async (
+  testimonialId: string,
+  data: Partial<Type.Testimonial["metadata"]>
+): Promise<Type.Testimonial> => {
+  const result = await cosmic.objects.updateOne(testimonialId, {
+    metadata: data,
+  });
+
+  return result.object;
+};

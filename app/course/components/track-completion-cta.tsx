@@ -5,10 +5,13 @@ import Link from "next/link";
 import { Medal as Award, NavArrowRight as ArrowRight, CheckCircle, RefreshDouble as Loader2, Gift as PartyPopper } from "iconoir-react";
 import { motion } from "motion/react";
 import type { CertificatePlatform, CertificateEligibility, CertificateTrack } from "@/lib/types";
+import { TestimonialModal } from "./testimonial-modal";
 
 interface TrackCompletionCTAProps {
   lessonPath: string;
   isLoggedIn: boolean;
+  userName?: string;
+  userPhotoUrl?: string;
 }
 
 const trackTitles: Record<CertificateTrack, string> = {
@@ -50,11 +53,12 @@ function extractTrackInfo(lessonPath: string): {
   };
 }
 
-export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCTAProps) {
+export function TrackCompletionCTA({ lessonPath, isLoggedIn, userName, userPhotoUrl }: TrackCompletionCTAProps) {
   const [eligibility, setEligibility] = useState<CertificateEligibility | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isClaiming, setIsClaiming] = useState(false);
   const [claimedType, setClaimedType] = useState<"track" | "master" | null>(null);
+  const [showTestimonialModal, setShowTestimonialModal] = useState(false);
 
   const trackInfo = extractTrackInfo(lessonPath);
   const platform = trackInfo?.platform;
@@ -97,6 +101,8 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
 
       if (response.ok) {
         setClaimedType("track");
+        // Show testimonial modal after brief delay
+        setTimeout(() => setShowTestimonialModal(true), 500);
       } else {
         const data = await response.json();
         alert(data.error || "Failed to claim certificate");
@@ -121,6 +127,8 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
 
       if (response.ok) {
         setClaimedType("master");
+        // Show testimonial modal after brief delay
+        setTimeout(() => setShowTestimonialModal(true), 500);
       } else {
         const data = await response.json();
         alert(data.error || "Failed to claim certificate");
@@ -191,18 +199,30 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
   // Just claimed a certificate - show success
   if (claimedType) {
     return (
-      <Link
-        href="/course/certificate"
-        className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-green-500 bg-green-50 p-4 transition-all hover:bg-green-100 dark:bg-green-950 dark:hover:bg-green-900"
-      >
-        <div className="flex items-center justify-end gap-2 text-xs text-green-600 dark:text-green-400 mb-1">
-          <span>Certificate Earned!</span>
-          <CheckCircle className="h-3 w-3" />
-        </div>
-        <p className="text-sm font-medium text-right text-green-700 dark:text-green-300">
-          View Your Certificate
-        </p>
-      </Link>
+      <>
+        <Link
+          href="/course/certificate"
+          className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-green-500 bg-green-50 p-4 transition-all hover:bg-green-100 dark:bg-green-950 dark:hover:bg-green-900"
+        >
+          <div className="flex items-center justify-end gap-2 text-xs text-green-600 dark:text-green-400 mb-1">
+            <span>Certificate Earned!</span>
+            <CheckCircle className="h-3 w-3" />
+          </div>
+          <p className="text-sm font-medium text-right text-green-700 dark:text-green-300">
+            View Your Certificate
+          </p>
+        </Link>
+        {certificateTrack && platform && (
+          <TestimonialModal
+            isOpen={showTestimonialModal}
+            onClose={() => setShowTestimonialModal(false)}
+            trackCompleted={certificateTrack}
+            platformCompleted={platform}
+            userName={userName}
+            userPhotoUrl={userPhotoUrl}
+          />
+        )}
+      </>
     );
   }
 

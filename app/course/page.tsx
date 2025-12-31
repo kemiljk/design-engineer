@@ -24,6 +24,7 @@ import { ContinueLearning } from "./components/continue-learning";
 import { StudentCompanies } from "./components/student-companies";
 import { TrackCard } from "./components/track-card";
 import { TrackLogo } from "@/app/components/track-logo";
+import { TestimonialsSection } from "./components/testimonials-section";
 
 export const metadata = {
   title: "Design Engineer Course",
@@ -415,6 +416,8 @@ export default async function CoursePage() {
         </div>
       )}
 
+      {/* Student Testimonials */}
+      <TestimonialsSection />
 
       {/* Course Footer */}
       <div className="border-t border-neutral-200 bg-white py-12 dark:border-neutral-800 dark:bg-neutral-900">

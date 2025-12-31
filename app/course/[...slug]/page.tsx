@@ -1,5 +1,5 @@
 import { notFound, redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import Link from "next/link";
 import fs from "fs/promises";
 import path from "path";
@@ -335,10 +335,20 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const trackSlug = isTrackPlatformPath ? slug[0] : "";
   const platformSlug = isTrackPlatformPath ? slug[1] : "";
 
-  const [adjacentLessons, lessonCompleted, modules] = await Promise.all([
+  const [adjacentLessons, lessonCompleted, modules, userData] = await Promise.all([
     getAdjacentLessonsAcrossModules(lessonPath),
     userId ? isLessonCompleted(userId, lessonPath) : Promise.resolve(false),
     isTrackPlatformPath ? getModulesForTrack(trackSlug, platformSlug) : Promise.resolve([]),
+    userId ? (async () => {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      return {
+        name: user.firstName && user.lastName 
+          ? `${user.firstName} ${user.lastName}`.trim()
+          : user.firstName || "Anonymous",
+        photoUrl: user.imageUrl,
+      };
+    })() : Promise.resolve(null),
   ]);
   const { prev, next, currentModule, totalInModule, currentInModule } = adjacentLessons;
 
@@ -477,7 +487,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
                     </p>
                   </Link>
                 ) : (
-                  <TrackCompletionCTA lessonPath={lessonPath} isLoggedIn={!!userId} />
+                  <TrackCompletionCTA 
+                    lessonPath={lessonPath} 
+                    isLoggedIn={!!userId} 
+                    userName={userData?.name}
+                    userPhotoUrl={userData?.photoUrl}
+                  />
                 )}
               </div>
             </div>
