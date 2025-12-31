@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Badge, Button } from "@/app/components/ui";
+import { DiamondIcon } from "@/app/components/diamond-icon";
 import { PageHeader } from "@/app/components/page-header";
 import { ProgressTracker } from "./components/progress-tracker";
 import { ContinueLearning } from "./components/continue-learning";
@@ -203,7 +204,7 @@ export default async function CoursePage() {
                 className="group flex items-start gap-6 border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:border-swiss-red dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:border-swiss-red"
               >
                 <div className="bg-swiss-red/10 flex h-12 w-12 shrink-0 items-center justify-center">
-                  <Sparkles className="text-swiss-red h-6 w-6" />
+                  <DiamondIcon className="text-swiss-red h-6 w-6" />
                 </div>
                 <div className="flex-1">
                   <h3 className="group-hover:text-swiss-red mb-2 text-lg font-bold md:text-xl">
@@ -291,7 +292,7 @@ export default async function CoursePage() {
                 {!introCompleted && (
                   <Button
                     href="/course/00-introduction/01-welcome"
-                    startContent={<Sparkles className="h-4 w-4" />}
+                    startContent={<DiamondIcon className="h-4 w-4" />}
                     className="px-4 py-2 text-sm font-medium"
                   >
                     Start Introduction
