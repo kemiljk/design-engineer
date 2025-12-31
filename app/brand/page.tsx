@@ -451,7 +451,7 @@ export default function BrandPage() {
                 />
                 <span className="absolute bottom-0 right-0 text-[10px] font-mono opacity-50">02</span>
               </div>
-              <p className="font-bold text-sm uppercase tracking-wider">The Texture</p>
+              <p className="font-bold text-sm uppercase tracking-wider">The Accessory</p>
               <p className="text-xs opacity-60 mt-1">Defines the Platform</p>
             </div>
 
