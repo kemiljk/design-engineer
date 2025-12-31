@@ -18,7 +18,7 @@ const faqs = [
       },
       {
         q: "Who is this course for?",
-        a: "This course is designed for two types of learners: (1) Designers who want to go beyond Vibe Coding—instead of prompting AI and hoping for the best, you'll develop real skills to understand implementation, own the build process, and create work that stands up to scrutiny. (2) Engineers who want to ship beautiful, thoroughly considered UIs—not just functional code, but polished interfaces that users love, with the design taste to make confident visual decisions.",
+        a: "The Design Track is for engineers who want to develop design skills. The Engineering Track is for designers who want to learn to code properly, not just Vibe Code. Convergence is for people starting their career or those who want to master both disciplines.",
       },
       {
         q: "What will I be able to do after completing the course?",
@@ -88,7 +88,7 @@ const faqs = [
       },
       {
         q: "What's the difference between the tracks?",
-        a: "The Design Track helps engineers develop real design taste—you'll learn visual design principles, design tools, design systems, and UX fundamentals that AI simply can't teach. Understand why designs work and make confident visual decisions. The Engineering Track helps designers go beyond Vibe Coding—programming from scratch with real understanding, not just AI prompts. Learn HTML, CSS, JavaScript, and build with intention. The Convergence All-Access purchase gives you EVERYTHING: all Design tracks, all Engineering tracks, PLUS the exclusive advanced Convergence content covering animation, prototyping, accessibility, performance, and the complete Design Engineer workflow. Convergence is the best value - it's the complete course.",
+        a: "The Design Track is for engineers. You'll learn visual principles, design tools, systems, and UX fundamentals. The Engineering Track is for designers. You'll go beyond Vibe Coding and actually understand HTML, CSS, and JavaScript. Convergence is for people starting their career or those who want both skillsets. It includes everything plus exclusive advanced content on animation, prototyping, accessibility, and workflow.",
       },
     ],
   },
