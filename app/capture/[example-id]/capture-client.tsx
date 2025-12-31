@@ -11,7 +11,7 @@ import {
 import {
   Mail,
   ArrowRight,
-  Sparkles,
+  Zap,
   Activity,
   Heart,
   Check,
@@ -85,7 +85,7 @@ function BorderBeamCaptureDemo() {
       <BorderBeam size={120} duration={12} borderWidth={1.5} />
       <div className="relative z-10 space-y-4">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-amber-500" />
+          <Zap className="h-5 w-5 text-amber-500" />
           <span className="text-base font-semibold text-neutral-900">
             Join the waitlist
           </span>

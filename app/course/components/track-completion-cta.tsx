@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Award, ArrowRight, CheckCircle, Loader2, Sparkles } from "lucide-react";
+import { Award, ArrowRight, CheckCircle, Loader2, PartyPopper } from "lucide-react";
 import { motion } from "motion/react";
 import type { CertificatePlatform, CertificateEligibility, CertificateTrack } from "@/lib/types";
 
@@ -238,7 +238,7 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
           className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red p-4 text-white transition-all hover:bg-neutral-900 disabled:opacity-70"
         >
           <div className="flex items-center justify-end gap-2 text-xs opacity-90 mb-1">
-            <Sparkles className="h-3 w-3" />
+            <PartyPopper className="h-3 w-3" />
             <span>All Tracks Complete!</span>
           </div>
           <p className="text-sm font-medium text-right flex items-center justify-end gap-2">
@@ -269,7 +269,7 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
         className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red p-4 text-white transition-all hover:bg-neutral-900 disabled:opacity-70"
       >
         <div className="flex items-center justify-end gap-2 text-xs opacity-90 mb-1">
-          <Sparkles className="h-3 w-3" />
+          <PartyPopper className="h-3 w-3" />
           <span>Congratulations!</span>
         </div>
         <p className="text-sm font-medium text-right flex items-center justify-end gap-2">
@@ -301,7 +301,7 @@ export function TrackCompletionCTA({ lessonPath, isLoggedIn }: TrackCompletionCT
         className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red p-4 text-white transition-all hover:bg-neutral-900 disabled:opacity-70"
       >
         <div className="flex items-center justify-end gap-2 text-xs opacity-90 mb-1">
-          <Sparkles className="h-3 w-3" />
+          <PartyPopper className="h-3 w-3" />
           <span>{trackTitles[certificateTrack]} Complete!</span>
         </div>
         <p className="text-sm font-medium text-right flex items-center justify-end gap-2">

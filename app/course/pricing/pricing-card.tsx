@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Star, Sparkles } from "lucide-react";
+import { Check, Star, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ProductWithPrice } from "@/lib/types";
 
@@ -167,7 +167,7 @@ export function BundleCard({ product, currentAccess, userId }: BundleCardProps) 
       {isConvergence && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <span className="inline-flex items-center gap-1 bg-swiss-red px-4 py-1 text-xs font-bold text-white">
-            <Sparkles className="h-3 w-3" />
+            <Crown className="h-3 w-3" />
             EVERYTHING INCLUDED
           </span>
         </div>

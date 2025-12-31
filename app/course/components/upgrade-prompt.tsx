@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 import { motion } from "motion/react";
-import { Lock, Sparkles, Check, ArrowRight } from "lucide-react";
+import { Lock, Crown, Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ProductKey, ProductWithPrice } from "@/lib/types";
 
@@ -171,7 +171,7 @@ export function UpgradePrompt({
           >
             <div className="absolute -top-3 left-4">
               <span className="flex items-center gap-1 bg-swiss-red px-2 py-0.5 text-xs font-medium text-white">
-                <Sparkles className="h-3 w-3" />
+                <Crown className="h-3 w-3" />
                 Best Value
               </span>
             </div>

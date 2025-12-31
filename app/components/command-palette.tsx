@@ -13,7 +13,7 @@ import {
   Search,
   ExternalLink,
   Briefcase,
-  Sparkles,
+  UserPlus,
   Blend,
   GraduationCap,
 } from "lucide-react";
@@ -97,7 +97,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
     {
       name: "Sign Up",
       href: "/sign-up",
-      icon: Sparkles,
+      icon: UserPlus,
       keywords: "register join",
     },
   ];

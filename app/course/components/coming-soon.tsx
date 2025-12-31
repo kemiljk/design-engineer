@@ -6,7 +6,7 @@ import {
   Zap,
   Bell,
   CheckCircle2,
-  Sparkles,
+  Crown,
 } from "lucide-react";
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
@@ -222,7 +222,7 @@ export function ComingSoon() {
                   <span className="text-xs font-bold uppercase tracking-wider text-swiss-red">
                     Best Value
                   </span>
-                  <Sparkles className="h-3 w-3 text-swiss-red" />
+                  <Crown className="h-3 w-3 text-swiss-red" />
                 </div>
                 <h3 className="mb-2 text-lg font-bold">Convergence</h3>
                 <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">

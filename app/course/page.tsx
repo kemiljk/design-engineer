@@ -13,7 +13,8 @@ import {
   Clock,
   Trophy,
   ArrowRight,
-  Sparkles,
+  Gift,
+  Crown,
 } from "lucide-react";
 import { Badge, Button } from "@/app/components/ui";
 import { DiamondIcon } from "@/app/components/diamond-icon";
@@ -144,7 +145,7 @@ export default async function CoursePage() {
           </div>
           {!hasPaidAccess && (
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-swiss-red" />
+              <Gift className="h-4 w-4 text-swiss-red" />
               <span>Free intro modules</span>
             </div>
           )}
@@ -273,7 +274,7 @@ export default async function CoursePage() {
           <div className="container-page">
             <div className="mx-auto max-w-3xl text-center">
               <Badge variant="success" className="mb-4 gap-2 px-4 py-2">
-                <Sparkles className="h-4 w-4" />
+                <Gift className="h-4 w-4" />
                 Start Free
               </Badge>
               <h2 className="heading-subsection mb-4">Try Before You Buy</h2>
@@ -379,7 +380,7 @@ export default async function CoursePage() {
                     <span className="text-xs font-bold uppercase tracking-wider text-swiss-red">
                       Best Value
                     </span>
-                    <Sparkles className="h-3 w-3 text-swiss-red" />
+                    <Crown className="h-3 w-3 text-swiss-red" />
                   </div>
                   <h3 className="mb-2 text-lg font-bold">Convergence</h3>
                   <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">

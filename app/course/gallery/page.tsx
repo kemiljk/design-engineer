@@ -3,7 +3,8 @@ import Link from "next/link";
 import {
   ArrowLeft,
   FolderKanban,
-  Sparkles,
+  Star,
+  Send,
   PlusCircle,
   Filter,
 } from "lucide-react";
@@ -94,7 +95,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         {showFeatured && (
           <section className="mb-12">
             <div className="mb-4 flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-swiss-red" />
+              <Star className="h-5 w-5 text-swiss-red" />
               <h2 className="text-lg font-bold">Featured Projects</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -140,7 +141,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
               {isEnrolled && (
                 <Button
                   href="/course/gallery/submit"
-                  startContent={<Sparkles className="h-4 w-4" />}
+                  startContent={<Send className="h-4 w-4" />}
                   className="mt-6"
                 >
                   Submit Your Project
@@ -159,7 +160,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         {/* CTA for non-enrolled users */}
         {!isEnrolled && (
           <section className="mt-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 text-center dark:bg-swiss-red/5">
-            <Sparkles className="mx-auto h-8 w-8 text-swiss-red" />
+            <Star className="mx-auto h-8 w-8 text-swiss-red" />
             <h2 className="mt-4 text-xl font-bold">Create Your Own Capstone</h2>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">
               Enrol in the Design Engineer Course to complete capstone projects and showcase your work here.

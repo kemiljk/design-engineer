@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, XCircle, RotateCcw, Sparkles } from "lucide-react";
+import { CheckCircle2, XCircle, RotateCcw, Target } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ExerciseDifficulty } from "@/lib/exercise-types";
 
@@ -43,7 +43,7 @@ export function ExerciseWrapper({
       {/* Header */}
       <div className="flex items-center justify-between border-b-2 border-neutral-900 bg-neutral-900 px-4 py-3 dark:border-neutral-100 dark:bg-neutral-100">
         <div className="flex items-center gap-3">
-          <Sparkles className="h-5 w-5 text-white dark:text-neutral-900" />
+          <Target className="h-5 w-5 text-white dark:text-neutral-900" />
           <span className="font-semibold text-white dark:text-neutral-900">{title}</span>
         </div>
         <span className={cn(

@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { 
   Layout, 
   Code2, 
-  Sparkles, 
+  Infinity, 
   ArrowRight,
   RotateCcw,
   CheckCircle2,
-  ClipboardList
+  ClipboardList,
+  Scale
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -351,12 +352,12 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
                   )}
                   {recommendation.track === "convergence" && (
                     <div className="flex h-12 w-12 items-center justify-center bg-gradient-to-br from-swiss-red/20 to-neutral-200 dark:to-neutral-700">
-                      <Sparkles className="h-6 w-6 text-swiss-red" />
+                      <Infinity className="h-6 w-6 text-swiss-red" />
                     </div>
                   )}
                   {recommendation.track === "balanced" && (
                     <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-700">
-                      <Sparkles className="h-6 w-6" />
+                      <Scale className="h-6 w-6" />
                     </div>
                   )}
                   <div>
@@ -438,7 +439,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
                         e.currentTarget.style.backgroundPosition = "0% 0%";
                       }}
                     >
-                      <Sparkles className="h-4 w-4" />
+                      <Infinity className="h-4 w-4" />
                       Start Convergence Track
                     </Link>
                   )}

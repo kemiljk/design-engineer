@@ -17,7 +17,7 @@ import {
   ArrowRight,
   BookOpen,
   Code2,
-  Sparkles,
+  Gift,
   Activity,
   Spline,
   Type as TypeIcon,
@@ -422,7 +422,7 @@ async function CourseSection() {
               <span>150+ lessons</span>
             </div>
             <div className="flex items-center gap-2">
-              <Sparkles className="text-swiss-red h-4 w-4" />
+              <Gift className="text-swiss-red h-4 w-4" />
               <span>Free intro modules</span>
             </div>
           </div>

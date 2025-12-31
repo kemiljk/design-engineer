@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BookOpen, Clock, CheckCircle, Sparkles } from "lucide-react";
+import { BookOpen, Clock, CheckCircle, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TrackCardProps {
@@ -84,7 +84,7 @@ export function TrackCard({
       {/* Recommended Badge */}
       {isRecommended && (
         <div className="absolute right-3 top-3 z-10 flex items-center gap-1 rounded bg-swiss-red px-2 py-1 text-xs font-medium text-white shadow-sm">
-          <Sparkles className="h-3 w-3" />
+          <Star className="h-3 w-3" />
           Recommended
         </div>
       )}
