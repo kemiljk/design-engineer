@@ -20,7 +20,7 @@ export async function GET() {
     ]);
     
     const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
-    const stats = getProgressStats(progress, accessLevel);
+    const stats = await getProgressStats(progress, accessLevel);
 
     return NextResponse.json({ progress, stats });
   } catch (error) {

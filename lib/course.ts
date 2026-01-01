@@ -10,6 +10,10 @@ import path from "path";
 import { COURSE_STRUCTURE, getEstimatedDuration, formatModuleName } from "./course-shared";
 export { COURSE_STRUCTURE, getEstimatedDuration, formatModuleName };
 
+// Import dynamic structure for accurate lesson counts
+import { getDynamicCourseStructure, getDynamicTotalLessonsForAccess } from "./course-structure";
+export { getDynamicCourseStructure };
+
 // Free lessons - only the FIRST lesson of each track/platform
 const FREE_LESSONS = new Set([
   // Introduction (all free)
@@ -451,13 +455,16 @@ export async function updateProgress(
   return result.object;
 }
 
-export function getProgressStats(
+export async function getProgressStats(
   progress: Type.CourseProgress | null,
   accessLevel: Type.AccessLevel = "full"
 ) {
+  // Use dynamic structure for accurate lesson counts from actual content
+  const totalLessons = await getDynamicTotalLessonsForAccess(accessLevel);
+  
   if (!progress) {
     return {
-      totalLessons: getTotalLessonsForAccess(accessLevel),
+      totalLessons,
       completedCount: 0,
       inProgressCount: 0,
       completionPercentage: 0,
@@ -468,33 +475,48 @@ export function getProgressStats(
   }
 
   const lessons = progress.metadata.lessons || {};
-  const lessonEntries = Object.values(lessons);
   
-  const completedCount = lessonEntries.filter(l => l.status === "completed").length;
-  const inProgressCount = lessonEntries.filter(l => l.status === "in_progress").length;
+  // Filter lessons by access level - only count lessons the user can access
+  // This prevents showing "31/10 complete" if access level changed or data is inconsistent
+  const accessibleLessons = Object.entries(lessons).filter(([lessonPath]) => 
+    canAccessLesson(accessLevel, lessonPath)
+  );
+  
+  const rawCompletedCount = accessibleLessons.filter(([, data]) => data.status === "completed").length;
+  const rawInProgressCount = accessibleLessons.filter(([, data]) => data.status === "in_progress").length;
+  
+  // Cap counts to never exceed total lessons available for this access level
+  const completedCount = Math.min(rawCompletedCount, totalLessons);
+  const inProgressCount = Math.min(rawInProgressCount, totalLessons - completedCount);
+  
   const totalTime = progress.metadata.total_time_spent_seconds || 0;
-  const totalLessons = getTotalLessonsForAccess(accessLevel);
+
+  // Cap completion percentage at 100%
+  const completionPercentage = totalLessons > 0 
+    ? Math.min(100, Math.round((completedCount / totalLessons) * 100))
+    : 0;
 
   return {
     totalLessons,
     completedCount,
     inProgressCount,
-    completionPercentage: totalLessons > 0 
-      ? Math.round((completedCount / totalLessons) * 100)
-      : 0,
+    completionPercentage,
     totalTimeSpent: totalTime,
     totalTimeFormatted: formatTime(totalTime),
     accessLevel,
   };
 }
 
+/**
+ * @deprecated Use getDynamicTotalLessonsForAccess for accurate counts from actual content.
+ * This function uses static constants which may be out of sync.
+ */
 function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
   const intro = COURSE_STRUCTURE.introduction.lessons;
   
   switch (accessLevel) {
     case "free":
-      // Free users only have access to intro + first lesson of each track
-      return intro + 6; // intro + 6 first lessons (design web/ios/android + eng web/ios/android)
+      return intro + 6;
     case "design_web":
       return intro + COURSE_STRUCTURE.design.web.lessons;
     case "design_ios":
@@ -522,7 +544,6 @@ function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
         COURSE_STRUCTURE.engineering.android.lessons
       );
     case "full":
-      // Full access: all tracks
       return (
         intro +
         COURSE_STRUCTURE.design.web.lessons +
@@ -536,7 +557,7 @@ function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
         COURSE_STRUCTURE.convergence.android.lessons
       );
     default:
-      return 156; // fallback
+      return 242; // fallback - total lessons
   }
 }
 
@@ -552,9 +573,10 @@ function formatTime(seconds: number): string {
 
 // Get course data with accurate counts
 export async function getCourse() {
-  const structure = COURSE_STRUCTURE;
+  // Use dynamic structure for accurate counts from actual content
+  const structure = await getDynamicCourseStructure();
   
-  // Calculate totals
+  // Calculate totals dynamically
   const designTotal = structure.design.web.lessons + structure.design.ios.lessons + structure.design.android.lessons;
   const engineeringTotal = structure.engineering.web.lessons + structure.engineering.ios.lessons + structure.engineering.android.lessons;
   const convergenceTotal = structure.convergence.web.lessons + structure.convergence.ios.lessons + structure.convergence.android.lessons;
