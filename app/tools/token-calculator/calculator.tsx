@@ -196,7 +196,7 @@ ${spacingVars}
     <div className="grid gap-8 lg:grid-cols-12">
       {/* Controls */}
       <div className="lg:col-span-4 space-y-6">
-        <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="flex items-center gap-2 mb-4">
             <Settings className="h-5 w-5 text-swiss-red" />
             <h2 className="text-lg font-bold">Configuration</h2>
@@ -274,18 +274,18 @@ ${spacingVars}
       {/* Visualiser */}
       <div className="lg:col-span-8 space-y-8">
         {/* Typography Visualiser */}
-        <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Typography Scale</h2>
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {typeScale.slice().reverse().map((t) => (
-              <div key={t.step} className="flex flex-col gap-2 border-b border-neutral-100 pb-8 last:border-0 last:pb-0 dark:border-neutral-800 sm:flex-row sm:items-baseline sm:gap-8">
+              <div key={t.step} className="flex flex-col gap-1 border-b border-neutral-100 pb-6 last:border-0 last:pb-0 dark:border-neutral-800 sm:flex-row sm:items-baseline sm:gap-8 sm:pb-8">
                 <div className="shrink-0 sm:w-32">
                   <div className="text-sm font-medium text-neutral-500">text-{getSemanticLabel(t.step)}</div>
                   <div className="font-mono text-xs text-neutral-400">{t.px}px / {t.rem}rem</div>
                 </div>
                 <div 
-                    style={{ fontSize: `${t.px}px`, lineHeight: 1.2 }} 
-                    className="font-bold text-neutral-900 dark:text-white truncate"
+                    style={{ fontSize: `${t.px}px`, lineHeight: 1.3 }} 
+                    className="min-w-0 break-words font-bold text-neutral-900 dark:text-white"
                 >
                   The quick brown fox
                 </div>
