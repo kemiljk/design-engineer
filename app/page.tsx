@@ -358,10 +358,9 @@ function DesignEngineeringSection() {
             </span>
           </h2>
           <p className="mb-8 max-w-2xl text-lg text-neutral-600 md:text-xl dark:text-neutral-400">
-            Design Engineers operate in the overlap between design and
-            code—fluent in both languages, translating between them without
-            losing fidelity. It&apos;s not about being good at both. It&apos;s
-            a distinct discipline.
+            Design Engineers operate in the overlap between design and code.
+            Fluent in both languages, they translate between them without losing
+            fidelity. Not just good at both. A distinct discipline.
           </p>
           <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
             <Button
