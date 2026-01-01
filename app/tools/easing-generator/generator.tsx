@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
-import { motion, useSpring } from "motion/react";
+import { motion } from "motion/react";
 import { useDrag } from "@use-gesture/react";
 import { Copy, Check } from "iconoir-react";
 
@@ -14,8 +14,6 @@ const PRESETS = {
   "linear": [0, 0, 1, 1],
   "swift-out": [0.4, 0.0, 0.2, 1.0],
 };
-
-const SPRING_CONFIG = { stiffness: 600, damping: 40 };
 
 function DragHandle({
   point,
@@ -49,18 +47,8 @@ function DragHandle({
     return (val - padding) / graphSize;
   };
 
-  const springX = useSpring(toGraph(point.x), SPRING_CONFIG);
-  const springY = useSpring(toGraph(point.y, true), SPRING_CONFIG);
-
-  React.useEffect(() => {
-    if (!isDragging) {
-      springX.set(toGraph(point.x));
-      springY.set(toGraph(point.y, true));
-    }
-  }, [point.x, point.y, isDragging, springX, springY]);
-
   const bind = useDrag(
-    ({ active, xy: [clientX, clientY], first, last, memo, event }) => {
+    ({ xy: [clientX, clientY], first, last, memo, event }) => {
       event?.preventDefault();
       event?.stopPropagation();
 
@@ -70,10 +58,10 @@ function DragHandle({
         const svg = containerRef.current?.ownerSVGElement;
         if (!svg) return;
         const rect = svg.getBoundingClientRect();
-        return { rect, offsetX: 0, offsetY: 0 };
+        return { rect };
       }
 
-      const state = memo as { rect: DOMRect; offsetX: number; offsetY: number };
+      const state = memo as { rect: DOMRect };
       if (!state?.rect) return memo;
 
       const { rect } = state;
@@ -84,8 +72,6 @@ function DragHandle({
       const x = Math.max(0, Math.min(1, fromGraph(svgX)));
       const y = fromGraph(svgY, true);
 
-      springX.set(toGraph(x));
-      springY.set(toGraph(y, true));
       setPoint({ x, y });
 
       if (last) {
@@ -102,6 +88,9 @@ function DragHandle({
     }
   );
 
+  const cx = toGraph(point.x);
+  const cy = toGraph(point.y, true);
+
   return (
     <g
       ref={containerRef}
@@ -109,41 +98,20 @@ function DragHandle({
       style={{ touchAction: "none", cursor: isDragging ? "grabbing" : "grab" }}
     >
       {/* Large invisible hit area for easier touch/click targeting */}
-      <motion.circle
-        cx={springX}
-        cy={springY}
-        r="28"
-        fill="transparent"
-        className="pointer-events-auto"
-      />
-      {/* Visual handle with spring animation */}
-      <motion.circle
-        cx={springX}
-        cy={springY}
-        r={isDragging ? 12 : 8}
+      <circle cx={cx} cy={cy} r="28" fill="transparent" />
+      {/* Visual handle */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={isDragging ? 10 : 8}
         fill={color}
         className="pointer-events-none"
         style={{
-          filter: isDragging ? "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))" : "none",
+          filter: isDragging
+            ? "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))"
+            : "none",
         }}
-        animate={{ scale: isDragging ? 1.2 : 1 }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
-      {/* Outer ring indicator when dragging */}
-      {isDragging && (
-        <motion.circle
-          cx={springX}
-          cy={springY}
-          r="18"
-          fill="none"
-          stroke={color}
-          strokeWidth="2"
-          strokeOpacity={0.3}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.8, opacity: 0 }}
-        />
-      )}
     </g>
   );
 }
@@ -154,7 +122,6 @@ export default function EasingGenerator() {
   const [activePreset, setActivePreset] = useState<string>("ease-in-out");
   const [copied, setCopied] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
 
   const bezierString = `cubic-bezier(${p1.x.toFixed(2)}, ${p1.y.toFixed(2)}, ${p2.x.toFixed(2)}, ${p2.y.toFixed(2)})`;
 
@@ -172,12 +139,10 @@ export default function EasingGenerator() {
   };
 
   const handleDragStart = useCallback(() => {
-    setIsDragging(true);
     setActivePreset("custom");
   }, []);
 
   const handleDragEnd = useCallback(() => {
-    setIsDragging(false);
     setAnimationKey((prev) => prev + 1);
   }, []);
 
@@ -189,18 +154,6 @@ export default function EasingGenerator() {
     if (isY) return size - padding - val * graphSize;
     return padding + val * graphSize;
   };
-
-  const controlLineSpringX1 = useSpring(toGraph(p1.x), SPRING_CONFIG);
-  const controlLineSpringY1 = useSpring(toGraph(p1.y, true), SPRING_CONFIG);
-  const controlLineSpringX2 = useSpring(toGraph(p2.x), SPRING_CONFIG);
-  const controlLineSpringY2 = useSpring(toGraph(p2.y, true), SPRING_CONFIG);
-
-  React.useEffect(() => {
-    controlLineSpringX1.set(toGraph(p1.x));
-    controlLineSpringY1.set(toGraph(p1.y, true));
-    controlLineSpringX2.set(toGraph(p2.x));
-    controlLineSpringY2.set(toGraph(p2.y, true));
-  }, [p1.x, p1.y, p2.x, p2.y]);
 
   return (
     <div className="space-y-8">
@@ -259,7 +212,7 @@ export default function EasingGenerator() {
           />
 
           {/* Bezier Curve */}
-          <motion.path
+          <path
             d={`M ${padding} ${size - padding} C ${toGraph(p1.x)} ${toGraph(p1.y, true)}, ${toGraph(p2.x)} ${toGraph(p2.y, true)}, ${size - padding} ${padding}`}
             fill="none"
             stroke="#FF3333"
@@ -267,22 +220,22 @@ export default function EasingGenerator() {
             strokeLinecap="round"
           />
 
-          {/* Control Lines with spring animation */}
-          <motion.line
+          {/* Control Lines */}
+          <line
             x1={padding}
             y1={size - padding}
-            x2={controlLineSpringX1}
-            y2={controlLineSpringY1}
+            x2={toGraph(p1.x)}
+            y2={toGraph(p1.y, true)}
             stroke="#FF3333"
             strokeWidth="1.5"
             strokeOpacity={0.5}
             strokeLinecap="round"
           />
-          <motion.line
+          <line
             x1={size - padding}
             y1={padding}
-            x2={controlLineSpringX2}
-            y2={controlLineSpringY2}
+            x2={toGraph(p2.x)}
+            y2={toGraph(p2.y, true)}
             stroke="#FF3333"
             strokeWidth="1.5"
             strokeOpacity={0.5}
