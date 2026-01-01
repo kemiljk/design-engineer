@@ -43,7 +43,7 @@ export default async function DashboardPage() {
   ]);
 
   const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
-  const stats = getProgressStats(progress, accessLevel);
+  const stats = await getProgressStats(progress, accessLevel);
 
   const [webEligibility, iosEligibility, androidEligibility] = await Promise.all([
     checkCertificateEligibility(userId, "web"),

@@ -236,30 +236,58 @@ ${indent}}`;
 } as const;`;
 }
 
+// Extract lesson counts from course-shared.ts
+async function getCurrentStructureFromFile(): Promise<Record<string, Record<string, { lessons: number }>> | null> {
+  try {
+    const content = await fs.readFile(COURSE_SHARED_PATH, "utf-8");
+    
+    // Helper to extract lessons count immediately after a specific title
+    // Pattern: title: "X",\n      lessons: Y
+    const extractLessons = (titlePattern: string): number => {
+      const regex = new RegExp(`title:\\s*"${titlePattern}",\\s*\\n\\s*lessons:\\s*(\\d+)`);
+      const match = content.match(regex);
+      return match ? parseInt(match[1]) : 0;
+    };
+    
+    // Extract introduction lessons
+    const introMatch = content.match(/introduction:\s*\{\s*\n\s*title:\s*"Introduction",\s*\n\s*lessons:\s*(\d+)/);
+    const introLessons = introMatch ? parseInt(introMatch[1]) : 0;
+
+    return {
+      introduction: { lessons: introLessons },
+      design: {
+        web: { lessons: extractLessons("Design \\(Web\\)") },
+        ios: { lessons: extractLessons("Design \\(iOS\\)") },
+        android: { lessons: extractLessons("Design \\(Android\\)") },
+      },
+      engineering: {
+        web: { lessons: extractLessons("Engineering \\(Web\\)") },
+        ios: { lessons: extractLessons("Engineering \\(iOS\\)") },
+        android: { lessons: extractLessons("Engineering \\(Android\\)") },
+      },
+      convergence: {
+        web: { lessons: extractLessons("Convergence \\(Web\\)") },
+        ios: { lessons: extractLessons("Convergence \\(iOS\\)") },
+        android: { lessons: extractLessons("Convergence \\(Android\\)") },
+      },
+    };
+  } catch {
+    return null;
+  }
+}
+
 // Compare scanned structure with current and report differences
-function compareStructures(
+async function compareStructures(
   scanned: CourseStructure,
-  description: string
-): { hasDiscrepancies: boolean; report: string } {
-  // Known values from course-shared.ts (hardcoded for comparison)
-  const current = {
-    introduction: { lessons: 4 },
-    design: {
-      web: { lessons: 25 },
-      ios: { lessons: 18 },
-      android: { lessons: 18 },
-    },
-    engineering: {
-      web: { lessons: 38 },
-      ios: { lessons: 21 },
-      android: { lessons: 21 },
-    },
-    convergence: {
-      web: { lessons: 28 },
-      ios: { lessons: 6 },
-      android: { lessons: 6 },
-    },
-  };
+): Promise<{ hasDiscrepancies: boolean; report: string }> {
+  const current = await getCurrentStructureFromFile();
+  
+  if (!current) {
+    return {
+      hasDiscrepancies: false,
+      report: "⚠️  Could not read current COURSE_STRUCTURE from course-shared.ts",
+    };
+  }
 
   const discrepancies: string[] = [];
 
@@ -277,7 +305,7 @@ function compareStructures(
   for (const track of tracks) {
     for (const platform of platforms) {
       const scannedCount = scanned[track][platform].lessons;
-      const currentCount = current[track][platform].lessons;
+      const currentCount = (current[track] as Record<string, { lessons: number }>)[platform]?.lessons || 0;
       if (scannedCount !== currentCount) {
         discrepancies.push(
           `  ${track}/${platform}: ${currentCount} → ${scannedCount}`
@@ -346,7 +374,7 @@ async function main() {
   console.log(`   Total: ${totalLessons} lessons\n`);
 
   // Compare with current structure
-  const { hasDiscrepancies, report } = compareStructures(scanned, "current");
+  const { hasDiscrepancies, report } = await compareStructures(scanned);
   console.log(report);
   console.log("");
 

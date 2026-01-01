@@ -10,6 +10,10 @@ import path from "path";
 import { COURSE_STRUCTURE, getEstimatedDuration, formatModuleName } from "./course-shared";
 export { COURSE_STRUCTURE, getEstimatedDuration, formatModuleName };
 
+// Import dynamic structure for accurate lesson counts
+import { getDynamicCourseStructure, getDynamicTotalLessonsForAccess } from "./course-structure";
+export { getDynamicCourseStructure };
+
 // Free lessons - only the FIRST lesson of each track/platform
 const FREE_LESSONS = new Set([
   // Introduction (all free)
@@ -451,11 +455,12 @@ export async function updateProgress(
   return result.object;
 }
 
-export function getProgressStats(
+export async function getProgressStats(
   progress: Type.CourseProgress | null,
   accessLevel: Type.AccessLevel = "full"
 ) {
-  const totalLessons = getTotalLessonsForAccess(accessLevel);
+  // Use dynamic structure for accurate lesson counts from actual content
+  const totalLessons = await getDynamicTotalLessonsForAccess(accessLevel);
   
   if (!progress) {
     return {
@@ -502,13 +507,16 @@ export function getProgressStats(
   };
 }
 
+/**
+ * @deprecated Use getDynamicTotalLessonsForAccess for accurate counts from actual content.
+ * This function uses static constants which may be out of sync.
+ */
 function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
   const intro = COURSE_STRUCTURE.introduction.lessons;
   
   switch (accessLevel) {
     case "free":
-      // Free users only have access to intro + first lesson of each track
-      return intro + 6; // intro + 6 first lessons (design web/ios/android + eng web/ios/android)
+      return intro + 6;
     case "design_web":
       return intro + COURSE_STRUCTURE.design.web.lessons;
     case "design_ios":
@@ -536,7 +544,6 @@ function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
         COURSE_STRUCTURE.engineering.android.lessons
       );
     case "full":
-      // Full access: all tracks
       return (
         intro +
         COURSE_STRUCTURE.design.web.lessons +
@@ -550,7 +557,7 @@ function getTotalLessonsForAccess(accessLevel: Type.AccessLevel): number {
         COURSE_STRUCTURE.convergence.android.lessons
       );
     default:
-      return 156; // fallback
+      return 242; // fallback - total lessons
   }
 }
 
@@ -566,9 +573,10 @@ function formatTime(seconds: number): string {
 
 // Get course data with accurate counts
 export async function getCourse() {
-  const structure = COURSE_STRUCTURE;
+  // Use dynamic structure for accurate counts from actual content
+  const structure = await getDynamicCourseStructure();
   
-  // Calculate totals
+  // Calculate totals dynamically
   const designTotal = structure.design.web.lessons + structure.design.ios.lessons + structure.design.android.lessons;
   const engineeringTotal = structure.engineering.web.lessons + structure.engineering.ios.lessons + structure.engineering.android.lessons;
   const convergenceTotal = structure.convergence.web.lessons + structure.convergence.ios.lessons + structure.convergence.android.lessons;
