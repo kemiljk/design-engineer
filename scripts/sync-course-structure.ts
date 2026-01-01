@@ -236,8 +236,27 @@ ${indent}}`;
 } as const;`;
 }
 
+interface ParsedStructure {
+  introduction: { lessons: number };
+  design: {
+    web: { lessons: number };
+    ios: { lessons: number };
+    android: { lessons: number };
+  };
+  engineering: {
+    web: { lessons: number };
+    ios: { lessons: number };
+    android: { lessons: number };
+  };
+  convergence: {
+    web: { lessons: number };
+    ios: { lessons: number };
+    android: { lessons: number };
+  };
+}
+
 // Extract lesson counts from course-shared.ts
-async function getCurrentStructureFromFile(): Promise<Record<string, Record<string, { lessons: number }>> | null> {
+async function getCurrentStructureFromFile(): Promise<ParsedStructure | null> {
   try {
     const content = await fs.readFile(COURSE_SHARED_PATH, "utf-8");
     
@@ -299,13 +318,15 @@ async function compareStructures(
   }
 
   // Check each track/platform
-  const tracks = ["design", "engineering", "convergence"] as const;
-  const platforms = ["web", "ios", "android"] as const;
+  type TrackKey = "design" | "engineering" | "convergence";
+  type PlatformKey = "web" | "ios" | "android";
+  const tracks: TrackKey[] = ["design", "engineering", "convergence"];
+  const platforms: PlatformKey[] = ["web", "ios", "android"];
 
   for (const track of tracks) {
     for (const platform of platforms) {
       const scannedCount = scanned[track][platform].lessons;
-      const currentCount = (current[track] as Record<string, { lessons: number }>)[platform]?.lessons || 0;
+      const currentCount = current[track][platform].lessons;
       if (scannedCount !== currentCount) {
         discrepancies.push(
           `  ${track}/${platform}: ${currentCount} → ${scannedCount}`
