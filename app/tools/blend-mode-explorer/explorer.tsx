@@ -584,17 +584,20 @@ export default function BlendModeExplorer() {
       blendMode: "screen",
       opacity: 50,
     };
-    setLayers([...layers, newLayer]);
+    setLayers((prev) => [...prev, newLayer]);
   };
 
   const removeLayer = (id: string) => {
-    if (layers.length > 1) {
-      setLayers(layers.filter((l) => l.id !== id));
-    }
+    setLayers((prev) => {
+      if (prev.length > 1) {
+        return prev.filter((l) => l.id !== id);
+      }
+      return prev;
+    });
   };
 
   const updateLayer = (id: string, updates: Partial<Layer>) => {
-    setLayers(layers.map((l) => (l.id === id ? { ...l, ...updates } : l)));
+    setLayers((prev) => prev.map((l) => (l.id === id ? { ...l, ...updates } : l)));
   };
 
   const handleDragEnd = (event: DragEndEvent) => {

@@ -94,30 +94,35 @@ export default function GradientGenerator() {
 
   const addStop = () => {
     const newId = String(Date.now());
-    // Find the largest gap between existing stops and insert there
-    const sorted = [...stops].sort((a, b) => a.position - b.position);
-    let maxGap = 0;
-    let insertPosition = 50;
-    for (let i = 0; i < sorted.length - 1; i++) {
-      const gap = sorted[i + 1].position - sorted[i].position;
-      if (gap > maxGap) {
-        maxGap = gap;
-        insertPosition = sorted[i].position + gap / 2;
+    setStops((prev) => {
+      // Find the largest gap between existing stops and insert there
+      const sorted = [...prev].sort((a, b) => a.position - b.position);
+      let maxGap = 0;
+      let insertPosition = 50;
+      for (let i = 0; i < sorted.length - 1; i++) {
+        const gap = sorted[i + 1].position - sorted[i].position;
+        if (gap > maxGap) {
+          maxGap = gap;
+          insertPosition = sorted[i].position + gap / 2;
+        }
       }
-    }
-    setStops([...stops, { id: newId, color: "#888888", position: Math.round(insertPosition) }]);
+      return [...prev, { id: newId, color: "#888888", position: Math.round(insertPosition) }];
+    });
     setActivePreset(null);
   };
 
   const removeStop = (id: string) => {
-    if (stops.length > 2) {
-      setStops(stops.filter((s) => s.id !== id));
-      setActivePreset(null);
-    }
+    setStops((prev) => {
+      if (prev.length > 2) {
+        return prev.filter((s) => s.id !== id);
+      }
+      return prev;
+    });
+    setActivePreset(null);
   };
 
   const updateStop = (id: string, key: keyof ColorStop, value: string | number) => {
-    setStops(stops.map((s) => (s.id === id ? { ...s, [key]: value } : s)));
+    setStops((prev) => prev.map((s) => (s.id === id ? { ...s, [key]: value } : s)));
     setActivePreset(null);
   };
 
