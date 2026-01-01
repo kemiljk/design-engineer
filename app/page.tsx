@@ -351,17 +351,17 @@ function DesignEngineeringSection() {
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <p className="heading-eyebrow mb-4">The discipline</p>
           <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Design meets engineering.
+            The space where design
             <br />
             <span className="text-neutral-500 dark:text-neutral-400">
-              No compromise.
+              meets implementation.
             </span>
           </h2>
           <p className="mb-8 max-w-2xl text-lg text-neutral-600 md:text-xl dark:text-neutral-400">
-            Design Engineering sits at the convergence of visual design and
-            front-end development. It&apos;s not about being &quot;good at
-            both&quot;—it&apos;s a distinct discipline focused on shipping
-            beautiful, polished interfaces that work.
+            Design Engineers operate in the overlap between design and
+            code—fluent in both languages, translating between them without
+            losing fidelity. It&apos;s not about being good at both. It&apos;s
+            a distinct discipline.
           </p>
           <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
             <Button
