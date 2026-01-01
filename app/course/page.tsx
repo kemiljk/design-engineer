@@ -5,7 +5,10 @@ import {
   getLastActivity,
   getUserEnrollment,
   normalizeAccessLevel,
+  getUserProgress,
+  getProgressStats,
 } from "@/lib/course";
+import type { AccessLevel } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import {
@@ -47,17 +50,23 @@ export default async function CoursePage() {
   let lastActivity = null;
   let introCompleted = false;
   let accessLevel: string | null = null;
+  let filteredCompletedCount = 0;
 
   if (userId) {
-    const [progressData, lastActivityData, enrollment] = await Promise.all([
+    const [progressData, lastActivityData, enrollment, userProgress] = await Promise.all([
       getCourseProgress(userId),
       getLastActivity(userId),
       getUserEnrollment(userId),
+      getUserProgress(userId),
     ]);
 
     progress = progressData;
     lastActivity = lastActivityData;
     accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level);
+
+    // Get filtered stats based on actual access level
+    const stats = await getProgressStats(userProgress, (accessLevel || "free") as AccessLevel);
+    filteredCompletedCount = stats.completedCount;
 
     // Check if all intro lessons are completed
     if (progress?.completedLessons) {
@@ -164,7 +173,7 @@ export default async function CoursePage() {
                 <div className="flex items-center gap-2 text-sm text-neutral-500">
                   <Trophy className="text-swiss-red h-4 w-4" />
                   <span>
-                    {progress.completedLessons.length} lessons completed
+                    {filteredCompletedCount} lessons completed
                   </span>
                 </div>
               </div>
