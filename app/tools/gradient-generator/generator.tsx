@@ -95,18 +95,18 @@ export default function GradientGenerator() {
   const addStop = () => {
     const newId = String(Date.now());
     setStops((prev) => {
-      // Find the largest gap between existing stops and insert there
+      // Sort existing stops by position
       const sorted = [...prev].sort((a, b) => a.position - b.position);
-      let maxGap = 0;
-      let insertPosition = 50;
-      for (let i = 0; i < sorted.length - 1; i++) {
-        const gap = sorted[i + 1].position - sorted[i].position;
-        if (gap > maxGap) {
-          maxGap = gap;
-          insertPosition = sorted[i].position + gap / 2;
-        }
-      }
-      return [...prev, { id: newId, color: "#888888", position: Math.round(insertPosition) }];
+      const newCount = sorted.length + 1;
+      
+      // Redistribute existing stops evenly, leaving room for new stop at 100%
+      const redistributed = sorted.map((stop, index) => ({
+        ...stop,
+        position: Math.round((index / (newCount - 1)) * 100),
+      }));
+      
+      // Add new stop at 100%
+      return [...redistributed, { id: newId, color: "#888888", position: 100 }];
     });
     setActivePreset(null);
   };
