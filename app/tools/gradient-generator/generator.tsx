@@ -94,9 +94,18 @@ export default function GradientGenerator() {
 
   const addStop = () => {
     const newId = String(Date.now());
-    const lastPosition = stops[stops.length - 1]?.position || 0;
-    const newPosition = Math.min(lastPosition + 20, 100);
-    setStops([...stops, { id: newId, color: "#888888", position: newPosition }]);
+    // Find the largest gap between existing stops and insert there
+    const sorted = [...stops].sort((a, b) => a.position - b.position);
+    let maxGap = 0;
+    let insertPosition = 50;
+    for (let i = 0; i < sorted.length - 1; i++) {
+      const gap = sorted[i + 1].position - sorted[i].position;
+      if (gap > maxGap) {
+        maxGap = gap;
+        insertPosition = sorted[i].position + gap / 2;
+      }
+    }
+    setStops([...stops, { id: newId, color: "#888888", position: Math.round(insertPosition) }]);
     setActivePreset(null);
   };
 
