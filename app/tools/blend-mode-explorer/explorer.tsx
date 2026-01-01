@@ -365,7 +365,7 @@ function SortableLayer({
       ref={setNodeRef}
       style={style}
       className={clsx(
-        "rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950",
+        "border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950",
         isDragging && "z-50 shadow-lg ring-2 ring-swiss-red"
       )}
     >
@@ -584,17 +584,20 @@ export default function BlendModeExplorer() {
       blendMode: "screen",
       opacity: 50,
     };
-    setLayers([...layers, newLayer]);
+    setLayers((prev) => [...prev, newLayer]);
   };
 
   const removeLayer = (id: string) => {
-    if (layers.length > 1) {
-      setLayers(layers.filter((l) => l.id !== id));
-    }
+    setLayers((prev) => {
+      if (prev.length > 1) {
+        return prev.filter((l) => l.id !== id);
+      }
+      return prev;
+    });
   };
 
   const updateLayer = (id: string, updates: Partial<Layer>) => {
-    setLayers(layers.map((l) => (l.id === id ? { ...l, ...updates } : l)));
+    setLayers((prev) => prev.map((l) => (l.id === id ? { ...l, ...updates } : l)));
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -842,7 +845,7 @@ ${layerBoxes}
       {/* ================================================================== */}
       {/* Section 1: Blend Mode Reference */}
       {/* ================================================================== */}
-      <div className="rounded-xl border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
         <button
           onClick={() => setShowReference(!showReference)}
           className="flex w-full items-center justify-between p-4 text-left sm:p-6"
@@ -896,7 +899,7 @@ ${layerBoxes}
                         key={mode.name}
                         onClick={() => setSelectedMode(mode)}
                         className={clsx(
-                          "group relative overflow-hidden rounded-lg border-2 p-1 transition-all",
+                          "group relative overflow-hidden border-2 p-1 transition-all",
                           selectedMode.name === mode.name
                             ? "border-swiss-red"
                             : "border-transparent hover:border-neutral-300 dark:hover:border-neutral-600"
@@ -921,7 +924,7 @@ ${layerBoxes}
               </div>
 
               {/* Selected mode info */}
-              <div className="rounded-lg bg-neutral-50 p-4 dark:bg-neutral-950">
+              <div className="bg-neutral-50 p-4 dark:bg-neutral-950">
                 <div className="mb-4 flex items-start justify-between">
                   <div>
                     <h3 className="text-lg font-bold">{selectedMode.label}</h3>
@@ -964,7 +967,7 @@ ${layerBoxes}
                   <h4 className="mb-2 text-xs font-medium uppercase text-neutral-500">
                     Preview
                   </h4>
-                  <div className="relative h-32 overflow-hidden rounded-lg bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
+                  <div className="relative h-32 overflow-hidden bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
                     <div
                       className="absolute inset-0 bg-gradient-to-tr from-cyan-400 to-blue-600"
                       style={{
@@ -987,7 +990,7 @@ ${layerBoxes}
       {/* ================================================================== */}
       {/* Section 2: Stacking Presets */}
       {/* ================================================================== */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-2 text-lg font-bold">Stacking Presets</h2>
         <p className="mb-4 text-sm text-neutral-500">
           Click to view code and apply to playground
@@ -998,7 +1001,7 @@ ${layerBoxes}
             <div
               key={preset.name}
               className={clsx(
-                "relative overflow-hidden rounded-lg border transition-all",
+                "relative overflow-hidden border transition-all",
                 expandedPreset === preset.name
                   ? "border-swiss-red lg:col-span-2 lg:row-span-2"
                   : "border-neutral-200 hover:border-swiss-red dark:border-neutral-700 dark:hover:border-swiss-red"
@@ -1078,7 +1081,7 @@ ${layerBoxes}
                       {/* Code preview */}
                       <div>
                         <p className="mb-2 text-xs font-medium text-neutral-500">CSS</p>
-                        <pre className="max-h-32 overflow-auto rounded bg-neutral-50 p-2 font-mono text-xxs text-neutral-600 dark:bg-neutral-950 dark:text-neutral-400">
+                        <pre className="max-h-32 overflow-auto bg-neutral-50 p-2 font-mono text-xxs text-neutral-600 dark:bg-neutral-950 dark:text-neutral-400">
                           {getPresetCSS(preset)}
                         </pre>
                       </div>
@@ -1087,7 +1090,7 @@ ${layerBoxes}
                       <div className="flex gap-2">
                         <button
                           onClick={() => copyPresetCode(preset)}
-                          className="flex flex-1 items-center justify-center gap-1 rounded bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                          className="flex flex-1 items-center justify-center gap-1 bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
                         >
                           {copiedPreset === preset.name ? (
                             <>
@@ -1103,7 +1106,7 @@ ${layerBoxes}
                         </button>
                         <button
                           onClick={() => applyPreset(preset)}
-                          className="flex flex-1 items-center justify-center gap-1 rounded bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600"
+                          className="flex flex-1 items-center justify-center gap-1 bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600"
                         >
                           Apply to Playground
                         </button>
@@ -1124,7 +1127,7 @@ ${layerBoxes}
         {/* Controls */}
         <div className="space-y-6">
           {/* Backdrop selection */}
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <h2 className="mb-4 text-lg font-bold">Backdrop</h2>
 
             {/* Gradient presets */}
@@ -1180,10 +1183,10 @@ ${layerBoxes}
             </div>
 
             {/* Custom image upload */}
-            <div className="rounded-lg border border-dashed border-neutral-300 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950">
+            <div className="border border-dashed border-neutral-300 bg-neutral-50 p-3 dark:border-neutral-700 dark:bg-neutral-950">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-200 dark:bg-neutral-800">
+                  <div className="flex h-10 w-10 items-center justify-center bg-neutral-200 dark:bg-neutral-800">
                     <ImagePlus className="h-5 w-5 text-neutral-500" />
                   </div>
                   <div>
@@ -1199,7 +1202,7 @@ ${layerBoxes}
                   {customImage && (
                     <>
                       <div
-                        className="h-10 w-10 shrink-0 rounded border border-neutral-300 dark:border-neutral-600"
+                        className="h-10 w-10 shrink-0 border border-neutral-300 dark:border-neutral-600"
                         style={{ 
                           backgroundImage: `url(${customImage})`,
                           backgroundSize: "cover",
@@ -1209,20 +1212,20 @@ ${layerBoxes}
                       {!useCustomImage && (
                         <button
                           onClick={() => setUseCustomImage(true)}
-                          className="rounded bg-neutral-200 px-2 py-1 text-xs font-medium text-neutral-700 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-300"
+                          className="bg-neutral-200 px-2 py-1 text-xs font-medium text-neutral-700 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-300"
                         >
                           Use
                         </button>
                       )}
                       <button
                         onClick={clearCustomImage}
-                        className="rounded p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 dark:hover:bg-neutral-800"
+                        className="p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 dark:hover:bg-neutral-800"
                       >
                         <X className="h-4 w-4" />
                       </button>
                     </>
                   )}
-                  <label className="cursor-pointer rounded bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">
+                  <label className="cursor-pointer bg-swiss-red px-3 py-1.5 text-xs font-medium text-white hover:bg-red-600">
                     {customImage ? "Replace" : "Upload"}
                     <input
                       type="file"
@@ -1245,7 +1248,7 @@ ${layerBoxes}
           </div>
 
           {/* Layer controls */}
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <h2 className="text-lg font-bold">Blend Layers</h2>
@@ -1288,14 +1291,14 @@ ${layerBoxes}
         </div>
 
         {/* Live Preview */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Live Preview</h2>
           <p className="mb-4 text-xs text-neutral-500">
             Blend layers applied to the image overlay — a common real-world use case
           </p>
 
           {/* Hero Section Demo */}
-          <div className="overflow-hidden rounded-lg shadow-lg">
+          <div className="overflow-hidden shadow-lg">
             {/* Image with blend overlay */}
             <div
               className="relative h-64 sm:h-80"
@@ -1339,10 +1342,10 @@ ${layerBoxes}
                     duotone effects, and branded imagery.
                   </p>
                   <div className="flex gap-3">
-                    <button className="rounded-lg bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-lg transition-transform hover:scale-105">
+                    <button className="bg-white px-4 py-2 text-sm font-medium text-neutral-900 shadow-lg transition-transform hover:scale-105">
                       Learn More
                     </button>
-                    <button className="rounded-lg bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-transform hover:scale-105">
+                    <button className="bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-transform hover:scale-105">
                       View Code
                     </button>
                   </div>
@@ -1374,14 +1377,14 @@ ${layerBoxes}
           </div>
 
           {/* Layer stack visualisation */}
-          <div className="mt-4 rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
+          <div className="mt-4 bg-neutral-50 p-3 dark:bg-neutral-950">
             <h3 className="mb-2 text-xs font-medium uppercase text-neutral-500">
               How it works
             </h3>
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex items-center gap-1">
                 <div
-                  className="h-6 w-6 rounded border border-neutral-300 dark:border-neutral-600"
+                  className="h-6 w-6 border border-neutral-300 dark:border-neutral-600"
                   style={
                     useCustomImage && customImage
                       ? {
@@ -1422,7 +1425,7 @@ ${layerBoxes}
       {/* ================================================================== */}
       {/* Section 4: Code Output */}
       {/* ================================================================== */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-bold">Code</h2>
           <div className="relative flex bg-neutral-100 p-1 dark:bg-neutral-800">

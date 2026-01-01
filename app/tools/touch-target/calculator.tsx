@@ -87,7 +87,7 @@ export default function TouchTargetCalculator() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         {/* Platform Selection */}
         <div>
           <h2 className="mb-4 text-lg font-bold">Platform</h2>
@@ -142,7 +142,7 @@ export default function TouchTargetCalculator() {
         </div>
 
         {/* Validation Result */}
-        <div className={clsx("rounded-lg border p-4", getStatusColor())}>
+        <div className={clsx("border p-4", getStatusColor())}>
           <div className="flex items-start gap-3">
             {getStatusIcon()}
             <div>
@@ -190,7 +190,7 @@ export default function TouchTargetCalculator() {
         </div>
 
         {/* Guidelines */}
-        <div className="space-y-3 rounded-lg bg-neutral-50 p-4 dark:bg-neutral-800">
+        <div className="space-y-3 bg-neutral-50 p-4 dark:bg-neutral-800">
           <h3 className="font-medium">Platform Guidelines</h3>
           <div className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
             <div className="flex justify-between">
@@ -210,7 +210,7 @@ export default function TouchTargetCalculator() {
       </div>
 
       {/* Preview */}
-      <div className="flex flex-col items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
+      <div className="flex flex-col items-center justify-center border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
         <p className="mb-6 text-sm text-neutral-500">Touch target with finger overlay</p>
         
         <div className="relative">

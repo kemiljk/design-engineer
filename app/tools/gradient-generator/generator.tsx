@@ -94,21 +94,35 @@ export default function GradientGenerator() {
 
   const addStop = () => {
     const newId = String(Date.now());
-    const lastPosition = stops[stops.length - 1]?.position || 0;
-    const newPosition = Math.min(lastPosition + 20, 100);
-    setStops([...stops, { id: newId, color: "#888888", position: newPosition }]);
+    setStops((prev) => {
+      // Sort existing stops by position
+      const sorted = [...prev].sort((a, b) => a.position - b.position);
+      const newCount = sorted.length + 1;
+      
+      // Redistribute existing stops evenly, leaving room for new stop at 100%
+      const redistributed = sorted.map((stop, index) => ({
+        ...stop,
+        position: Math.round((index / (newCount - 1)) * 100),
+      }));
+      
+      // Add new stop at 100%
+      return [...redistributed, { id: newId, color: "#888888", position: 100 }];
+    });
     setActivePreset(null);
   };
 
   const removeStop = (id: string) => {
-    if (stops.length > 2) {
-      setStops(stops.filter((s) => s.id !== id));
-      setActivePreset(null);
-    }
+    setStops((prev) => {
+      if (prev.length > 2) {
+        return prev.filter((s) => s.id !== id);
+      }
+      return prev;
+    });
+    setActivePreset(null);
   };
 
   const updateStop = (id: string, key: keyof ColorStop, value: string | number) => {
-    setStops(stops.map((s) => (s.id === id ? { ...s, [key]: value } : s)));
+    setStops((prev) => prev.map((s) => (s.id === id ? { ...s, [key]: value } : s)));
     setActivePreset(null);
   };
 
@@ -232,7 +246,7 @@ Brush.radialGradient(
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         {/* Presets */}
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
@@ -397,7 +411,7 @@ Brush.radialGradient(
       </div>
 
       {/* Preview */}
-      <div className="flex min-h-[300px] items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[400px]">
+      <div className="flex min-h-[300px] items-center justify-center border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[400px]">
         <div
           className="h-48 w-48 shadow-lg sm:h-64 sm:w-64"
           style={{ background: cssGradient() }}

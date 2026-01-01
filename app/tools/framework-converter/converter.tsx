@@ -63,7 +63,7 @@ export default function FrameworkConverter() {
           <select
             value={sourceFramework}
             onChange={(e) => setSourceFramework(e.target.value as Framework)}
-            className="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-medium focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-900"
+            className="border border-neutral-200 bg-white px-4 py-2 text-sm font-medium focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-900"
           >
             {FRAMEWORKS.map((fw) => (
               <option key={fw.value} value={fw.value}>
@@ -86,7 +86,7 @@ export default function FrameworkConverter() {
           <select
             value={targetFramework}
             onChange={(e) => setTargetFramework(e.target.value as Framework)}
-            className="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-medium focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-900"
+            className="border border-neutral-200 bg-white px-4 py-2 text-sm font-medium focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-900"
           >
             {FRAMEWORKS.map((fw) => (
               <option key={fw.value} value={fw.value}>
@@ -112,7 +112,7 @@ export default function FrameworkConverter() {
           <textarea
             value={inputCode}
             onChange={(e) => setInputCode(e.target.value)}
-            className="h-64 w-full resize-none rounded-lg border border-neutral-200 bg-neutral-50 p-3 font-mono text-xxs leading-relaxed focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950 sm:h-96 sm:p-4 sm:text-xs"
+            className="h-64 w-full resize-none border border-neutral-200 bg-neutral-50 p-3 font-mono text-xxs leading-relaxed focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950 sm:h-96 sm:p-4 sm:text-xs"
             placeholder="Paste your component code here..."
             spellCheck={false}
           />
@@ -130,7 +130,7 @@ export default function FrameworkConverter() {
               </span>
               <button
                 onClick={handleCopy}
-                className="rounded-md p-1 text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+                className="p-1 text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
               >
                 {copied ? (
                   <Check className="h-4 w-4 text-green-500" />
@@ -140,7 +140,7 @@ export default function FrameworkConverter() {
               </button>
             </div>
           </div>
-          <div className="relative h-64 overflow-auto rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:h-96 sm:p-4">
+          <div className="relative h-64 overflow-auto border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:h-96 sm:p-4">
             <pre className="whitespace-pre-wrap break-all font-mono text-xxs leading-relaxed text-neutral-600 dark:text-neutral-400 sm:whitespace-pre sm:break-normal sm:text-xs">
               {convertedCode.code}
             </pre>
@@ -150,7 +150,7 @@ export default function FrameworkConverter() {
 
       {/* Warnings/Notes */}
       {convertedCode.warnings.length > 0 && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950">
+        <div className="border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950">
           <div className="flex items-start gap-3">
             <AlertCircle className="h-5 w-5 shrink-0 text-amber-600 dark:text-amber-400" />
             <div className="space-y-1">
@@ -168,7 +168,7 @@ export default function FrameworkConverter() {
       )}
 
       {/* Supported Patterns */}
-      <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h3 className="mb-4 font-bold">Supported Conversions</h3>
         <div className="grid gap-4 text-sm sm:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-2">

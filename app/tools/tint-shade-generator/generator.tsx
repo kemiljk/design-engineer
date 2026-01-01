@@ -206,12 +206,12 @@ Text(
       {/* Input Section */}
       <div className="grid gap-6 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <h2 className="mb-4 text-lg font-bold">Base Colour</h2>
 
             {/* Colour Preview */}
             <div
-              className="mb-6 aspect-video w-full rounded-lg shadow-inner"
+              className="mb-6 aspect-video w-full shadow-inner"
               style={{ backgroundColor: inputColour }}
             />
 
@@ -224,10 +224,10 @@ Text(
                     value={inputColour}
                     onChange={(e) => setInputColour(e.target.value)}
                     placeholder="#FF4400"
-                    className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-3 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
+                    className="w-full border border-neutral-200 bg-neutral-50 px-3 py-3 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
                   />
                 </div>
-                <label className="flex cursor-pointer items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 px-3 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
+                <label className="flex cursor-pointer items-center justify-center border border-neutral-200 bg-neutral-50 px-3 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
                   <Pipette className="h-5 w-5 text-neutral-500" />
                   <input
                     type="color"
@@ -247,19 +247,19 @@ Text(
                   value={colourName}
                   onChange={(e) => setColourName(e.target.value.toLowerCase().replace(/\s+/g, "-"))}
                   placeholder="primary"
-                  className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
+                  className="w-full border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
                 />
               </div>
 
               {baseOklch && (
                 <div className="space-y-3">
-                  <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
+                  <div className="bg-neutral-50 p-3 dark:bg-neutral-950">
                     <p className="mb-1 text-xs font-medium uppercase text-neutral-500">Input OKLCH</p>
                     <p className="font-mono text-sm text-neutral-700 dark:text-neutral-300">
                       L: {baseOklch.l.toFixed(3)} C: {baseOklch.c.toFixed(3)} H: {baseOklch.h.toFixed(1)}°
                     </p>
                   </div>
-                  <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-950">
+                  <div className="bg-neutral-50 p-3 dark:bg-neutral-950">
                     <p className="mb-1 text-xs font-medium uppercase text-neutral-500">Closest Step</p>
                     <p className="font-mono text-sm text-neutral-700 dark:text-neutral-300">
                       ~{findClosestStep(baseOklch.l)} (L: {baseOklch.l.toFixed(2)})
@@ -273,7 +273,7 @@ Text(
 
         {/* Scale Preview */}
         <div className="lg:col-span-8">
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <h2 className="mb-4 text-lg font-bold">Generated Scale</h2>
 
             <div className="space-y-2">
@@ -281,13 +281,13 @@ Text(
                 <div
                   key={colour.step}
                   className={clsx(
-                    "group flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800",
+                    "group flex items-center gap-3 p-2 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800",
                     colour.isInput && "ring-2 ring-swiss-red ring-offset-2 dark:ring-offset-neutral-900"
                   )}
                 >
                   <button
                     onClick={() => handleCopyStep(colour.hex, colour.step)}
-                    className="h-12 w-12 shrink-0 rounded-lg shadow-sm transition-transform hover:scale-105 sm:h-14 sm:w-14"
+                    className="h-12 w-12 shrink-0 shadow-sm transition-transform hover:scale-105 sm:h-14 sm:w-14"
                     style={{ backgroundColor: colour.hex }}
                     title={`Copy ${colour.hex}`}
                   />
@@ -327,9 +327,9 @@ Text(
       </div>
 
       {/* Visual Scale Bar */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">Scale Preview</h2>
-        <div className="flex h-16 overflow-hidden rounded-lg shadow-inner sm:h-20">
+        <div className="flex h-16 overflow-hidden shadow-inner sm:h-20">
           {colourScale.map((colour) => (
             <button
               key={colour.step}
@@ -347,7 +347,7 @@ Text(
       </div>
 
       {/* Code Output */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-bold">Code</h2>
           <div className="relative flex bg-neutral-100 p-1 dark:bg-neutral-800">

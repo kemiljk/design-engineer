@@ -20,7 +20,7 @@ export function CodeBlock({ label, code, displayCode, language }: CodeBlockProps
   };
 
   return (
-    <div className="group relative rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
+    <div className="group relative border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950">
       <div className="flex items-center justify-between border-b border-neutral-200 px-4 py-2 dark:border-neutral-800">
         <span className="text-xs font-medium text-neutral-500">{label}</span>
         <button

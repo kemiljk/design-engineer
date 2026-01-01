@@ -192,7 +192,7 @@ function TaskBuilder({
 
       {/* Input Area */}
       <div className="sticky bottom-0 mt-8 border-t border-neutral-200 bg-neutral-50 px-4 py-4 dark:border-neutral-800 dark:bg-neutral-950 sm:px-0">
-        <div className="relative flex w-full items-end rounded-xl border border-neutral-200 bg-white p-2 shadow-sm focus-within:border-swiss-red focus-within:ring-1 focus-within:ring-swiss-red dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="relative flex w-full items-end border border-neutral-200 bg-white p-2 shadow-sm focus-within:border-swiss-red focus-within:ring-1 focus-within:ring-swiss-red dark:border-neutral-800 dark:bg-neutral-900">
           <textarea
             ref={textareaRef}
             value={input}
