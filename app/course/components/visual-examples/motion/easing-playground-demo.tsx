@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useAnimationControls } from "motion/react";
+import { useDrag } from "@use-gesture/react";
 import { Play, Undo as RotateCcw } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import {
@@ -33,6 +34,103 @@ const presets: EasingPreset[] = [
   { name: "expo-out", points: easings.expOut },
 ];
 
+type DragHandleProps = {
+  cx: number;
+  cy: number;
+  color: string;
+  svgRef: React.RefObject<SVGSVGElement | null>;
+  width: number;
+  padding: number;
+  gridSize: number;
+  onDrag: (x: number, y: number) => void;
+  onDragStart: () => void;
+};
+
+function DragHandle({
+  cx,
+  cy,
+  color,
+  svgRef,
+  width,
+  padding,
+  gridSize,
+  onDrag,
+  onDragStart,
+}: DragHandleProps) {
+  const containerRef = useRef<SVGGElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const fromSvg = (svgX: number, svgY: number): [number, number] => {
+    const x = Math.max(0, Math.min(1, (svgX - padding) / gridSize));
+    const y = Math.max(-0.5, Math.min(1.5, 1 - (svgY - padding) / gridSize));
+    return [x, y];
+  };
+
+  const bind = useDrag(
+    ({ xy: [clientX, clientY], first, last, memo, event }) => {
+      event?.preventDefault();
+      event?.stopPropagation();
+
+      if (first) {
+        setIsDragging(true);
+        onDragStart();
+        const svg = svgRef.current;
+        if (!svg) return;
+        const rect = svg.getBoundingClientRect();
+        return { rect };
+      }
+
+      const state = memo as { rect: DOMRect };
+      if (!state?.rect) return memo;
+
+      const { rect } = state;
+      const scale = width / rect.width;
+      const svgX = (clientX - rect.left) * scale;
+      const svgY = (clientY - rect.top) * scale;
+
+      const [normX, normY] = fromSvg(svgX, svgY);
+      onDrag(normX, normY);
+
+      if (last) {
+        setIsDragging(false);
+      }
+
+      return memo;
+    },
+    {
+      pointer: { touch: true },
+      filterTaps: true,
+      preventDefault: true,
+    }
+  );
+
+  return (
+    <g
+      ref={containerRef}
+      {...bind()}
+      style={{ touchAction: "none", cursor: isDragging ? "grabbing" : "grab" }}
+    >
+      {/* Large invisible hit area for easier touch/click targeting */}
+      <circle cx={cx} cy={cy} r="24" fill="transparent" />
+      {/* Visual handle */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={isDragging ? 9 : 7}
+        fill={color}
+        stroke="white"
+        strokeWidth="2.5"
+        className="pointer-events-none"
+        style={{
+          filter: isDragging
+            ? "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))"
+            : "none",
+        }}
+      />
+    </g>
+  );
+}
+
 export function EasingPlaygroundDemo() {
   const [points, setPoints] = useState<[number, number, number, number]>([
     0.4, 0, 0.2, 1,
@@ -45,7 +143,6 @@ export function EasingPlaygroundDemo() {
 
   const controls = useAnimationControls();
   const svgRef = useRef<SVGSVGElement>(null);
-  const draggingRef = useRef<"p1" | "p2" | null>(null);
 
   const width = 400;
   const height = 400;
@@ -60,42 +157,16 @@ export function EasingPlaygroundDemo() {
     padding + (1 - y) * gridSize,
   ];
 
-  const fromSvg = (svgX: number, svgY: number): [number, number] => {
-    const x = Math.max(0, Math.min(1, (svgX - padding) / gridSize));
-    const y = Math.max(-0.5, Math.min(1.5, 1 - (svgY - padding) / gridSize));
-    return [x, y];
+  const handleDragP1 = (x: number, y: number) => {
+    setPoints((prev) => [x, y, prev[2], prev[3]]);
   };
 
-  const handlePointerDown = (point: "p1" | "p2") => (e: React.PointerEvent) => {
-    e.preventDefault();
-    draggingRef.current = point;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  const handleDragP2 = (x: number, y: number) => {
+    setPoints((prev) => [prev[0], prev[1], x, y]);
   };
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!draggingRef.current || !svgRef.current) return;
-    const svg = svgRef.current;
-    const rect = svg.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const [normX, normY] = fromSvg(x, y);
-
-    setPoints((prev) => {
-      const next = [...prev] as [number, number, number, number];
-      if (draggingRef.current === "p1") {
-        next[0] = normX;
-        next[1] = normY;
-      } else {
-        next[2] = normX;
-        next[3] = normY;
-      }
-      return next;
-    });
+  const handleDragStart = () => {
     setActivePreset("");
-  }, []);
-
-  const handlePointerUp = () => {
-    draggingRef.current = null;
   };
 
   const playAnimation = async () => {
@@ -213,10 +284,8 @@ transition: transform 1s ${formatCubicBezier(points)};`;
               width={width}
               height={height}
               viewBox={`0 0 ${width} ${height}`}
-              className="h-auto w-full touch-none select-none"
-              onPointerMove={handlePointerMove}
-              onPointerUp={handlePointerUp}
-              onPointerLeave={handlePointerUp}
+              className="h-auto w-full select-none"
+              style={{ touchAction: "none" }}
             >
               {/* Grid */}
               <defs>
@@ -315,38 +384,28 @@ transition: transform 1s ${formatCubicBezier(points)};`;
               />
 
               {/* Draggable control points */}
-              <g
-                onPointerDown={handlePointerDown("p1")}
-                className="cursor-grab active:cursor-grabbing"
-              >
-                <circle cx={p1x} cy={p1y} r="14" fill="transparent" />{" "}
-                {/* Hit target */}
-                <circle
-                  cx={p1x}
-                  cy={p1y}
-                  r="7"
-                  fill={velocityFrom}
-                  stroke="white"
-                  strokeWidth="2.5"
-                  className="shadow-sm"
-                />
-              </g>
-              <g
-                onPointerDown={handlePointerDown("p2")}
-                className="cursor-grab active:cursor-grabbing"
-              >
-                <circle cx={p2x} cy={p2y} r="14" fill="transparent" />{" "}
-                {/* Hit target */}
-                <circle
-                  cx={p2x}
-                  cy={p2y}
-                  r="7"
-                  fill={velocityTo}
-                  stroke="white"
-                  strokeWidth="2.5"
-                  className="shadow-sm"
-                />
-              </g>
+              <DragHandle
+                cx={p1x}
+                cy={p1y}
+                color={velocityFrom}
+                svgRef={svgRef}
+                width={width}
+                padding={padding}
+                gridSize={gridSize}
+                onDrag={handleDragP1}
+                onDragStart={handleDragStart}
+              />
+              <DragHandle
+                cx={p2x}
+                cy={p2y}
+                color={velocityTo}
+                svgRef={svgRef}
+                width={width}
+                padding={padding}
+                gridSize={gridSize}
+                onDrag={handleDragP2}
+                onDragStart={handleDragStart}
+              />
 
               {/* Axis labels */}
               <text
