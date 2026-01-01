@@ -341,6 +341,43 @@ function ToolsSection() {
   );
 }
 
+function DesignEngineeringSection() {
+  return (
+    <AnimatedSection
+      as="div"
+      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
+    >
+      <div className="container-page">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <p className="heading-eyebrow mb-4">The discipline</p>
+          <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            The space where design
+            <br />
+            <span className="text-neutral-500 dark:text-neutral-400">
+              meets implementation.
+            </span>
+          </h2>
+          <p className="mb-8 max-w-2xl text-lg text-neutral-600 md:text-xl dark:text-neutral-400">
+            Design Engineers operate in the overlap between design and code.
+            Fluent in both languages, they translate between them without losing
+            fidelity. Not just good at both. A distinct discipline.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+            <Button
+              href="/design-engineering"
+              variant="outline"
+              size="lg"
+              endContent={<ArrowRight className="h-4 w-4" />}
+            >
+              What is a Design Engineer?
+            </Button>
+          </div>
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
+
 async function CourseSection() {
   const { is_available: isCourseAvailable } = await getCourseAvailability();
 
@@ -468,6 +505,8 @@ export default function Home() {
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection />
       </Suspense>
+
+      <DesignEngineeringSection />
 
       <Suspense fallback={<CourseSectionSkeleton />}>
         <CourseSection />
