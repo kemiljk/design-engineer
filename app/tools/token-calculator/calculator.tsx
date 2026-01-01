@@ -274,7 +274,7 @@ ${spacingVars}
       {/* Visualiser */}
       <div className="lg:col-span-8 space-y-8">
         {/* Typography Visualiser */}
-        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="overflow-hidden border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Typography Scale</h2>
           <div className="space-y-6 sm:space-y-8">
             {typeScale.slice().reverse().map((t) => (
@@ -285,9 +285,9 @@ ${spacingVars}
                 </div>
                 <div 
                     style={{ fontSize: `${t.px}px`, lineHeight: 1.3 }} 
-                    className="min-w-0 break-words font-bold text-neutral-900 dark:text-white"
+                    className="max-w-full overflow-hidden font-bold text-neutral-900 dark:text-white"
                 >
-                  The quick brown fox
+                  <span className="block break-words">The quick brown fox</span>
                 </div>
               </div>
             ))}

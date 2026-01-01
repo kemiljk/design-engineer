@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
@@ -160,7 +160,10 @@ elevation: ${Math.round(config.blur / 2)},
   };
 
   // Generate preview shadow style
-  const previewShadow = `${config.inset ? "inset " : ""}${config.offsetX}px ${config.offsetY}px ${config.blur}px ${config.spread}px ${hexToRgba(config.color, config.opacity)}`;
+  const previewShadow = useMemo(() => {
+    const rgba = hexToRgba(config.color, config.opacity);
+    return `${config.inset ? "inset " : ""}${config.offsetX}px ${config.offsetY}px ${config.blur}px ${config.spread}px ${rgba}`;
+  }, [config.inset, config.offsetX, config.offsetY, config.blur, config.spread, config.color, config.opacity]);
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
@@ -356,6 +359,7 @@ elevation: ${Math.round(config.blur / 2)},
       {/* Preview */}
       <div className="flex min-h-[200px] items-center justify-center border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[300px] sm:p-8">
         <div
+          key={previewShadow}
           className="flex h-32 w-32 items-center justify-center bg-white dark:bg-neutral-800 sm:h-48 sm:w-48"
           style={{ boxShadow: previewShadow }}
         >
