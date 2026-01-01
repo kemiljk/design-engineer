@@ -131,7 +131,7 @@ animateFloatAsState(
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls Section */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
           <div className="flex flex-wrap gap-2">
@@ -259,7 +259,7 @@ animateFloatAsState(
       </div>
 
       {/* Preview Section */}
-      <div className="relative flex min-h-[300px] flex-col items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 sm:min-h-[400px] sm:p-8">
+      <div className="relative flex min-h-[300px] flex-col items-center justify-center border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 sm:min-h-[400px] sm:p-8">
         <button
           onClick={() => setKey((prev) => prev + 1)}
           className="absolute right-4 top-4 rounded-none bg-white p-2 text-neutral-600 shadow-sm hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white"
@@ -282,7 +282,7 @@ animateFloatAsState(
                 stiffness: config.stiffness,
                 damping: config.damping,
               }}
-              className="h-24 w-24 rounded-2xl bg-swiss-red shadow-lg"
+              className="h-24 w-24 bg-swiss-red shadow-lg"
             />
           </div>
 

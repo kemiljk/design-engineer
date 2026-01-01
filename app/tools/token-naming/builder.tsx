@@ -867,7 +867,7 @@ export default function TokenNamingBuilder() {
   return (
     <div className="space-y-8">
       {/* Mode Toggle */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <div className="mb-4">
           <h2 className="text-lg font-bold">Mode</h2>
           <p className="mt-1 text-sm text-neutral-500">
@@ -879,14 +879,14 @@ export default function TokenNamingBuilder() {
           <button
             onClick={() => setMode("educational")}
             className={clsx(
-              "flex items-start gap-4 rounded-lg border p-4 text-left transition-all",
+              "flex items-start gap-4 border p-4 text-left transition-all",
               mode === "educational"
                 ? "border-swiss-red bg-swiss-red/5 ring-1 ring-swiss-red"
                 : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
             )}
           >
             <div className={clsx(
-              "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
+              "flex h-10 w-10 shrink-0 items-center justify-center",
               mode === "educational" ? "bg-swiss-red text-white" : "bg-neutral-100 text-neutral-500 dark:bg-neutral-800"
             )}>
               <GraduationCap className="h-5 w-5" />
@@ -902,14 +902,14 @@ export default function TokenNamingBuilder() {
           <button
             onClick={() => setMode("builder")}
             className={clsx(
-              "flex items-start gap-4 rounded-lg border p-4 text-left transition-all",
+              "flex items-start gap-4 border p-4 text-left transition-all",
               mode === "builder"
                 ? "border-swiss-red bg-swiss-red/5 ring-1 ring-swiss-red"
                 : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
             )}
           >
             <div className={clsx(
-              "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
+              "flex h-10 w-10 shrink-0 items-center justify-center",
               mode === "builder" ? "bg-swiss-red text-white" : "bg-neutral-100 text-neutral-500 dark:bg-neutral-800"
             )}>
               <Wrench className="h-5 w-5" />
@@ -925,12 +925,12 @@ export default function TokenNamingBuilder() {
       </div>
 
       {/* Convention Selection */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold">Naming Convention</h2>
           <button
             onClick={mode === "builder" ? handleResetBuilder : handleReset}
-            className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
           >
             <RotateCcw className="h-4 w-4" />
             Reset
@@ -943,7 +943,7 @@ export default function TokenNamingBuilder() {
               key={conv.id}
               onClick={() => setConvention(conv.id)}
               className={clsx(
-                "rounded-lg border p-4 text-left transition-all",
+                "border p-4 text-left transition-all",
                 convention === conv.id
                   ? "border-swiss-red bg-swiss-red/5 ring-1 ring-swiss-red"
                   : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
@@ -1002,7 +1002,7 @@ export default function TokenNamingBuilder() {
         {/* Builder Panel */}
         <div className="space-y-6 lg:col-span-5">
           {/* Step 1: Category */}
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
               <div className="flex h-6 w-6 items-center justify-center rounded-full bg-swiss-red text-xs font-bold text-white">
                 1
@@ -1021,7 +1021,7 @@ export default function TokenNamingBuilder() {
                     setElement(null);
                   }}
                   className={clsx(
-                    "flex items-center gap-3 rounded-lg border p-3 text-left transition-all",
+                    "flex items-center gap-3 border p-3 text-left transition-all",
                     category === cat.id
                       ? "border-swiss-red bg-swiss-red/5"
                       : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
@@ -1046,7 +1046,7 @@ export default function TokenNamingBuilder() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
+                className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-swiss-red text-xs font-bold text-white">
@@ -1061,7 +1061,7 @@ export default function TokenNamingBuilder() {
                       key={prop.id}
                       onClick={() => setProperty(prop.id)}
                       className={clsx(
-                        "flex w-full items-center justify-between rounded-lg border p-3 text-left transition-all",
+                        "flex w-full items-center justify-between border p-3 text-left transition-all",
                         property === prop.id
                           ? "border-swiss-red bg-swiss-red/5"
                           : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
@@ -1089,7 +1089,7 @@ export default function TokenNamingBuilder() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
+                className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-swiss-red text-xs font-bold text-white">
@@ -1107,7 +1107,7 @@ export default function TokenNamingBuilder() {
                         setElement(null);
                       }}
                       className={clsx(
-                        "flex w-full items-center justify-between rounded-lg border p-3 text-left transition-all",
+                        "flex w-full items-center justify-between border p-3 text-left transition-all",
                         context === ctx.id
                           ? "border-swiss-red bg-swiss-red/5"
                           : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600"
@@ -1135,7 +1135,7 @@ export default function TokenNamingBuilder() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
+                className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-200 text-xs font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
@@ -1181,7 +1181,7 @@ export default function TokenNamingBuilder() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
+                className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <div className="flex h-6 w-6 items-center justify-center rounded-full bg-neutral-200 text-xs font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
@@ -1248,14 +1248,14 @@ export default function TokenNamingBuilder() {
         {/* Preview Panel */}
         <div className="space-y-6 lg:col-span-7">
           {/* Output Format Selection */}
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4">
               <h2 className="text-lg font-bold">Output Format</h2>
               <p className="mt-1 text-xs text-neutral-500">
                 JSON works with Style Dictionary, W3C DTCG, Figma Variables, and Tokens Studio
               </p>
             </div>
-            <div className="relative grid grid-cols-2 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
+            <div className="relative grid grid-cols-2 gap-1 bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
               {OUTPUT_FORMATS.map(format => {
                 const isSelected = outputFormat === format.value;
                 return (
@@ -1263,7 +1263,7 @@ export default function TokenNamingBuilder() {
                     key={format.value}
                     onClick={() => setOutputFormat(format.value)}
                     className={clsx(
-                      "relative z-10 rounded-md px-2 py-2 text-xs font-medium transition-colors",
+                      "relative z-10 px-2 py-2 text-xs font-medium transition-colors",
                       isSelected
                         ? "text-neutral-900 dark:text-white"
                         : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
@@ -1272,7 +1272,7 @@ export default function TokenNamingBuilder() {
                     {isSelected && (
                       <motion.div
                         layoutId="token-naming-format-indicator"
-                        className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-neutral-700"
+                        className="absolute inset-0 bg-white shadow-sm dark:bg-neutral-700"
                         transition={{
                           type: "spring",
                           stiffness: 500,
@@ -1288,7 +1288,7 @@ export default function TokenNamingBuilder() {
           </div>
 
           {/* Generated Tokens */}
-          <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
               <Layers className="h-5 w-5 text-swiss-red" />
               <h2 className="text-lg font-bold">Generated Tokens</h2>
@@ -1308,7 +1308,7 @@ export default function TokenNamingBuilder() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     className={clsx(
-                      "group flex items-center justify-between rounded-lg border p-3 transition-colors",
+                      "group flex items-center justify-between border p-3 transition-colors",
                       token.isBase
                         ? "border-swiss-red/30 bg-swiss-red/5"
                         : "border-neutral-200 dark:border-neutral-700"
@@ -1350,7 +1350,7 @@ export default function TokenNamingBuilder() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
+                className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <Zap className="h-5 w-5 text-swiss-red" />
@@ -1368,7 +1368,7 @@ export default function TokenNamingBuilder() {
                         {related.tokens.map(token => (
                           <div
                             key={token.formatted}
-                            className="group flex items-center justify-between rounded-lg bg-neutral-50 p-2 dark:bg-neutral-800/50"
+                            className="group flex items-center justify-between bg-neutral-50 p-2 dark:bg-neutral-800/50"
                           >
                             <code className="break-all font-mono text-xs text-neutral-600 dark:text-neutral-400">
                               {token.formatted}
@@ -1400,7 +1400,7 @@ export default function TokenNamingBuilder() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
+                className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6"
               >
                 <div className="mb-4 flex items-center gap-2">
                   <Zap className="h-5 w-5 text-swiss-red" />
@@ -1529,7 +1529,7 @@ function BuilderModeUI({
       {/* Configuration Panel */}
       <div className="space-y-6 lg:col-span-5">
         {/* Components Selection */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Layers className="h-5 w-5 text-swiss-red" />
@@ -1604,7 +1604,7 @@ function BuilderModeUI({
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="rounded-lg border border-purple-200 p-4 dark:border-purple-800">
+                  <div className="border border-purple-200 p-4 dark:border-purple-800">
                     {/* Name input */}
                     <div className="mb-3">
                       <label className="mb-1.5 block text-xs font-medium text-purple-700 dark:text-purple-300">
@@ -1615,7 +1615,7 @@ function BuilderModeUI({
                         value={customComponentInput}
                         onChange={(e) => setCustomComponentInput(e.target.value)}
                         placeholder="e.g., stepper, chip, carousel..."
-                        className="w-full rounded-lg border border-purple-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 dark:border-purple-700 dark:bg-neutral-800"
+                        className="w-full border border-purple-200 bg-white px-3 py-2 text-sm placeholder:text-neutral-400 focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 dark:border-purple-700 dark:bg-neutral-800"
                       />
                     </div>
                     
@@ -1670,7 +1670,7 @@ function BuilderModeUI({
                       <button
                         onClick={handleAddCustomComponent}
                         disabled={!customComponentInput.trim() || customComponentCategories.length === 0}
-                        className="flex items-center gap-1.5 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex items-center gap-1.5 bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <Plus className="h-4 w-4" />
                         Add Component
@@ -1680,7 +1680,7 @@ function BuilderModeUI({
                           setShowCustomForm(false);
                           setCustomComponentInput("");
                         }}
-                        className="rounded-lg px-4 py-2 text-sm text-purple-600 transition-colors hover:bg-purple-100 dark:text-purple-400 dark:hover:bg-purple-900/50"
+                        className="px-4 py-2 text-sm text-purple-600 transition-colors hover:bg-purple-100 dark:text-purple-400 dark:hover:bg-purple-900/50"
                       >
                         Cancel
                       </button>
@@ -1721,7 +1721,7 @@ function BuilderModeUI({
 
         {/* Component Configuration */}
         {builderComponents.length > 0 && (
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center gap-2">
             <Palette className="h-5 w-5 text-swiss-red" />
             <h3 className="font-bold">Component Configuration</h3>
@@ -1734,7 +1734,7 @@ function BuilderModeUI({
               const categoryCount = comp.categories.length;
               
               return (
-                <div key={comp.id} className="rounded-lg border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div key={comp.id} className="border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                   <button
                     onClick={() => setExpandedComponent(isExpanded ? null : comp.id)}
                     className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
@@ -1819,7 +1819,7 @@ function BuilderModeUI({
         )}
 
         {/* Variants Selection */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center gap-2">
             <GitBranch className="h-5 w-5 text-swiss-red" />
             <h3 className="font-bold">Variants</h3>
@@ -1850,7 +1850,7 @@ function BuilderModeUI({
         </div>
 
         {/* States Selection */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center gap-2">
             <Zap className="h-5 w-5 text-swiss-red" />
             <h3 className="font-bold">States</h3>
@@ -1881,7 +1881,7 @@ function BuilderModeUI({
         </div>
 
         {/* Scale Tokens */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Space className="h-5 w-5 text-swiss-red" />
@@ -1894,7 +1894,7 @@ function BuilderModeUI({
           </p>
 
           {/* Radius Scale Toggle */}
-          <div className="flex items-center justify-between rounded-lg border border-neutral-200 p-3 dark:border-neutral-700">
+          <div className="flex items-center justify-between border border-neutral-200 p-3 dark:border-neutral-700">
             <div>
               <div className="font-medium text-sm">Border Radius Scale</div>
               <div className="text-xs text-neutral-500">
@@ -1922,14 +1922,14 @@ function BuilderModeUI({
       {/* Preview Panel */}
       <div className="space-y-6 lg:col-span-7">
         {/* Output Format Selection */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4">
             <h2 className="text-lg font-bold">Output Format</h2>
             <p className="mt-1 text-xs text-neutral-500">
               JSON works with Style Dictionary, W3C DTCG, Figma Variables, and Tokens Studio
             </p>
           </div>
-          <div className="relative grid grid-cols-2 gap-1 rounded-lg bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
+          <div className="relative grid grid-cols-2 gap-1 bg-neutral-100 p-1 dark:bg-neutral-800 sm:grid-cols-4">
             {OUTPUT_FORMATS.map(format => {
               const isSelected = outputFormat === format.value;
               return (
@@ -1937,7 +1937,7 @@ function BuilderModeUI({
                   key={format.value}
                   onClick={() => setOutputFormat(format.value)}
                   className={clsx(
-                    "relative z-10 rounded-md px-2 py-2 text-xs font-medium transition-colors",
+                    "relative z-10 px-2 py-2 text-xs font-medium transition-colors",
                     isSelected
                       ? "text-neutral-900 dark:text-white"
                       : "text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
@@ -1946,7 +1946,7 @@ function BuilderModeUI({
                   {isSelected && (
                     <motion.div
                       layoutId="builder-format-indicator"
-                      className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-neutral-700"
+                      className="absolute inset-0 bg-white shadow-sm dark:bg-neutral-700"
                       transition={{
                         type: "spring",
                         stiffness: 500,
@@ -1963,26 +1963,26 @@ function BuilderModeUI({
 
         {/* Summary Stats */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{builderComponents.length}</div>
             <div className="text-xs text-neutral-500">Components</div>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{builderComponents.filter(c => c.hasStates).length}</div>
             <div className="text-xs text-neutral-500">With States</div>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{radiusScaleTokens.length}</div>
             <div className="text-xs text-neutral-500">Scale Tokens</div>
           </div>
-          <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
+          <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
             <div className="text-2xl font-bold text-swiss-red">{builderTokens.length + radiusScaleTokens.length}</div>
             <div className="text-xs text-neutral-500">Total Tokens</div>
           </div>
         </div>
 
         {/* Token Preview */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Layers className="h-5 w-5 text-swiss-red" />
@@ -1990,7 +1990,7 @@ function BuilderModeUI({
             </div>
             <button
               onClick={handleCopyAllBuilderTokens}
-              className="flex items-center gap-2 rounded-lg bg-swiss-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90"
+              className="flex items-center gap-2 bg-swiss-red px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90"
             >
               {copiedAll ? (
                 <>
@@ -2015,7 +2015,7 @@ function BuilderModeUI({
             <div className="space-y-4">
               {/* Radius Scale Tokens */}
               {radiusScaleTokens.length > 0 && (
-                <div className="rounded-lg border border-neutral-200 dark:border-neutral-700">
+                <div className="border border-neutral-200 dark:border-neutral-700">
                   <button
                     onClick={() => setExpandedCategory(expandedCategory === "radius-scale" ? null : "radius-scale")}
                     className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
@@ -2081,7 +2081,7 @@ function BuilderModeUI({
                 const isExpanded = expandedCategory === comp.id;
                 
                 return (
-                  <div key={comp.id} className="rounded-lg border border-neutral-200 dark:border-neutral-700">
+                  <div key={comp.id} className="border border-neutral-200 dark:border-neutral-700">
                     <button
                       onClick={() => setExpandedCategory(isExpanded ? null : comp.id)}
                       className="flex w-full items-center justify-between p-3 text-left transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"

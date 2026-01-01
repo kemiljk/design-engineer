@@ -36,7 +36,7 @@ export default function AccessibilityAuditor() {
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Input Section */}
       <div className="space-y-4">
-        <div className="rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h2 className="mb-4 text-lg font-bold">Input Code</h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="relative">
@@ -44,13 +44,13 @@ export default function AccessibilityAuditor() {
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
                 placeholder="Paste your React component or HTML here..."
-                className="min-h-[400px] w-full resize-y rounded-lg border border-neutral-200 bg-neutral-50 p-4 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300"
+                className="min-h-[400px] w-full resize-y border border-neutral-200 bg-neutral-50 p-4 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300"
               />
             </div>
             <button
               type="submit"
               disabled={isLoading || !inputCode.trim()}
-              className="flex items-center justify-center gap-2 rounded-lg bg-swiss-red px-6 py-3 font-medium text-white transition-colors hover:bg-red-600 disabled:opacity-50"
+              className="flex items-center justify-center gap-2 bg-swiss-red px-6 py-3 font-medium text-white transition-colors hover:bg-red-600 disabled:opacity-50"
             >
               {isLoading ? (
                 <>
@@ -70,7 +70,7 @@ export default function AccessibilityAuditor() {
 
       {/* Output Section */}
       <div className="space-y-4">
-        <div className="min-h-[400px] rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="min-h-[400px] border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h2 className="mb-4 text-lg font-bold">Audit Report</h2>
           {output ? (
             <div className="prose prose-sm dark:prose-invert max-w-none">

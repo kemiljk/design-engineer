@@ -114,7 +114,7 @@ export default function BorderComparison() {
   return (
     <div className="space-y-8">
       {/* Background Controls */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">Background</h2>
 
         {/* Preset Gradients */}
@@ -172,7 +172,7 @@ export default function BorderComparison() {
                     type="color"
                     value={customColor1}
                     onChange={(e) => setCustomColor1(e.target.value)}
-                    className="h-10 w-14 cursor-pointer rounded-lg border border-neutral-200 dark:border-neutral-800"
+                    className="h-10 w-14 cursor-pointer border border-neutral-200 dark:border-neutral-800"
                   />
                   <input
                     type="text"
@@ -191,7 +191,7 @@ export default function BorderComparison() {
                     type="color"
                     value={customColor2}
                     onChange={(e) => setCustomColor2(e.target.value)}
-                    className="h-10 w-14 cursor-pointer rounded-lg border border-neutral-200 dark:border-neutral-800"
+                    className="h-10 w-14 cursor-pointer border border-neutral-200 dark:border-neutral-800"
                   />
                   <input
                     type="text"
@@ -207,7 +207,7 @@ export default function BorderComparison() {
       </div>
 
       {/* Border Controls */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">Border Settings</h2>
 
         <div className="space-y-6">
@@ -297,7 +297,7 @@ export default function BorderComparison() {
 
       {/* Comparison Preview */}
       <div
-        className="relative min-h-[400px] rounded-xl p-6 sm:min-h-[500px] sm:p-12"
+        className="relative min-h-[400px] p-6 sm:min-h-[500px] sm:p-12"
         style={{ background: activeGradient }}
       >
         <div className="grid h-full gap-8 md:grid-cols-2">
@@ -399,7 +399,7 @@ export default function BorderComparison() {
       </div>
 
       {/* Explanation */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">Why This Matters</h2>
         <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
           <p>

@@ -158,7 +158,7 @@ export default function EasingGenerator() {
   return (
     <div className="space-y-8">
       {/* Graph Visualiser */}
-      <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
+      <div className="flex items-center justify-center border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
         <svg
           viewBox={`0 0 ${size} ${size}`}
           className="aspect-square w-full max-w-[400px] select-none overflow-visible"
@@ -269,7 +269,7 @@ export default function EasingGenerator() {
       </div>
 
       {/* Controls */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
           <div className="flex flex-wrap gap-2">
@@ -291,7 +291,7 @@ export default function EasingGenerator() {
 
         <div className="space-y-4">
           <h2 className="text-lg font-bold">Value</h2>
-          <div className="flex items-center justify-between gap-2 rounded-lg border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:p-4">
+          <div className="flex items-center justify-between gap-2 border border-neutral-200 bg-neutral-50 p-3 dark:border-neutral-800 dark:bg-neutral-950 sm:p-4">
             <code className="min-w-0 break-all font-mono text-xs text-neutral-600 dark:text-neutral-400 sm:text-sm">
               {bezierString}
             </code>
@@ -308,7 +308,7 @@ export default function EasingGenerator() {
           </div>
         </div>
 
-        <div className="rounded-lg bg-neutral-50 p-4 dark:bg-neutral-950 sm:p-6">
+        <div className="bg-neutral-50 p-4 dark:bg-neutral-950 sm:p-6">
           <h3 className="mb-4 text-sm font-bold uppercase text-neutral-500">
             Preview
           </h3>

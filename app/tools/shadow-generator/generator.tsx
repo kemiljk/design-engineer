@@ -165,7 +165,7 @@ elevation: ${Math.round(config.blur / 2)},
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         {/* Presets */}
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
@@ -271,13 +271,13 @@ elevation: ${Math.round(config.blur / 2)},
                   type="color"
                   value={config.color}
                   onChange={(e) => handleChange("color", e.target.value)}
-                  className="h-10 w-14 cursor-pointer rounded-lg border border-neutral-200 dark:border-neutral-800"
+                  className="h-10 w-14 cursor-pointer border border-neutral-200 dark:border-neutral-800"
                 />
                 <input
                   type="text"
                   value={config.color}
                   onChange={(e) => handleChange("color", e.target.value)}
-                  className="flex-1 rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 font-mono text-sm dark:border-neutral-800 dark:bg-neutral-950"
+                  className="flex-1 border border-neutral-200 bg-neutral-50 px-3 py-2 font-mono text-sm dark:border-neutral-800 dark:bg-neutral-950"
                 />
               </div>
             </div>
@@ -354,7 +354,7 @@ elevation: ${Math.round(config.blur / 2)},
       </div>
 
       {/* Preview */}
-      <div className="flex min-h-[200px] items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[300px] sm:p-8">
+      <div className="flex min-h-[200px] items-center justify-center border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[300px] sm:p-8">
         <div
           className="flex h-32 w-32 items-center justify-center bg-white dark:bg-neutral-800 sm:h-48 sm:w-48"
           style={{ boxShadow: previewShadow }}

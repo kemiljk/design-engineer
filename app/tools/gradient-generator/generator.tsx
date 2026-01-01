@@ -232,7 +232,7 @@ Brush.radialGradient(
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         {/* Presets */}
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
@@ -397,7 +397,7 @@ Brush.radialGradient(
       </div>
 
       {/* Preview */}
-      <div className="flex min-h-[300px] items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[400px]">
+      <div className="flex min-h-[300px] items-center justify-center border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:min-h-[400px]">
         <div
           className="h-48 w-48 shadow-lg sm:h-64 sm:w-64"
           style={{ background: cssGradient() }}

@@ -331,7 +331,7 @@ fun HarmoniousCard(
       {/* Main Grid */}
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Controls */}
-        <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
+        <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
           {/* Presets */}
           <div>
             <h2 className="mb-4 text-lg font-bold">Presets</h2>
@@ -361,7 +361,7 @@ fun HarmoniousCard(
                 <label
                   key={modeOption.value}
                   className={clsx(
-                    "flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition-colors",
+                    "flex cursor-pointer items-start gap-3 border p-3 transition-colors",
                     mode === modeOption.value
                       ? "border-swiss-red bg-swiss-red/5 dark:border-swiss-red/50"
                       : "border-neutral-200 hover:border-neutral-300 dark:border-neutral-800 dark:hover:border-neutral-700"
@@ -455,7 +455,7 @@ fun HarmoniousCard(
             </div>
 
             {/* Result */}
-            <div className="rounded-lg border border-dashed border-neutral-300 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50">
+            <div className="border border-dashed border-neutral-300 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Calculated Inner Radius
@@ -473,7 +473,7 @@ fun HarmoniousCard(
               
               {/* Show optical offset details when in optical mode */}
               {mode === "optical" && suggestedOffset > 0 && (
-                <div className="mt-3 rounded-md bg-swiss-red/[0.025] p-3 dark:bg-swiss-red/5">
+                <div className="mt-3 bg-swiss-red/[0.025] p-3 dark:bg-swiss-red/5">
                   <p className="text-xs font-medium text-swiss-red">
                     Optical correction: −{suggestedOffset}px
                   </p>
@@ -485,7 +485,7 @@ fun HarmoniousCard(
               
               {/* Show suggested offset when in custom mode */}
               {mode === "custom" && (
-                <div className="mt-3 rounded-md bg-neutral-100 p-3 dark:bg-neutral-800">
+                <div className="mt-3 bg-neutral-100 p-3 dark:bg-neutral-800">
                   <p className="text-xs text-neutral-700 dark:text-neutral-300">
                     💡 Suggested optical offset: <strong>{suggestedOffset}px</strong>
                   </p>
@@ -502,7 +502,7 @@ fun HarmoniousCard(
             
             {/* Optical Offset Formula Explanation */}
             {mode === "optical" && (
-              <div className="overflow-hidden rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
+              <div className="overflow-hidden bg-neutral-100 p-3 dark:bg-neutral-800">
                 <p className="mb-2 text-xs font-semibold text-neutral-700 dark:text-neutral-300">
                   Optical Offset Formula
                 </p>
@@ -536,7 +536,7 @@ fun HarmoniousCard(
 
         {/* Preview */}
         <div className="flex flex-col">
-          <div className="relative flex min-h-[350px] flex-1 items-center justify-center overflow-hidden rounded-xl border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800 sm:min-h-[400px]">
+          <div className="relative flex min-h-[350px] flex-1 items-center justify-center overflow-hidden border border-neutral-200 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-800 sm:min-h-[400px]">
             
             {/* Preview card */}
             <div className="relative">
@@ -702,7 +702,7 @@ fun HarmoniousCard(
       </div>
 
       {/* Understanding the Problem */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">The Problem: Visual Tension in Nested Corners</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="prose prose-neutral max-w-none text-sm dark:prose-invert">
@@ -751,9 +751,9 @@ fun HarmoniousCard(
       </div>
 
       {/* The Standard Formula */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold">The Standard Formula</h2>
-        <div className="mb-4 flex items-center justify-center rounded-lg bg-neutral-100 p-4 dark:bg-neutral-800 sm:p-6">
+        <div className="mb-4 flex items-center justify-center bg-neutral-100 p-4 dark:bg-neutral-800 sm:p-6">
           <div className="text-center">
             <p className="font-mono text-lg font-bold text-neutral-900 dark:text-white sm:text-2xl">
               inner = outer − gap
@@ -775,7 +775,7 @@ fun HarmoniousCard(
       </div>
 
       {/* Why Optical Offset */}
-      <div className="rounded-xl border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5 sm:p-6">
+      <div className="border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5 sm:p-6">
         <div className="flex items-start gap-3">
           <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-swiss-red" />
           <div>
@@ -791,14 +791,14 @@ fun HarmoniousCard(
               <h3 className="text-base font-semibold">Two Perceptual Factors</h3>
               
               <div className="not-prose my-4 grid gap-3 sm:grid-cols-2 sm:gap-4">
-                <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
+                <div className="border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
                   <div className="mb-2 text-xl sm:text-2xl">📐</div>
                   <h4 className="text-sm font-semibold sm:text-base">Curve Weight</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
                     Larger radii carry more visual &quot;mass&quot;, creating subtle tension with the outer curve.
                   </p>
                 </div>
-                <div className="rounded-lg border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
+                <div className="border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-800 sm:p-4">
                   <div className="mb-2 text-xl sm:text-2xl">👁️</div>
                   <h4 className="text-sm font-semibold sm:text-base">Gap Perception</h4>
                   <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">
@@ -808,7 +808,7 @@ fun HarmoniousCard(
               </div>
 
               <h3 className="text-base font-semibold">The Optical Formula</h3>
-              <div className="not-prose my-4 overflow-x-auto rounded-lg bg-neutral-900 p-4 dark:bg-neutral-950">
+              <div className="not-prose my-4 overflow-x-auto bg-neutral-900 p-4 dark:bg-neutral-950">
                 <pre className="whitespace-pre-wrap break-words text-xs text-neutral-300 sm:whitespace-pre sm:break-normal">
 {`// Subtle optical correction (3-6%)
 curveFactor = 0.03 + (1 - gap/outer) × 0.03
@@ -891,7 +891,7 @@ opticalInner = outer - gap - offset`}
       </div>
 
       {/* Visual Comparison */}
-      <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+      <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
         <h2 className="mb-4 text-lg font-bold sm:mb-6">Visual Comparison</h2>
         <div className="grid grid-cols-3 gap-2 sm:gap-6">
           {/* Wrong - Same radius */}
@@ -974,7 +974,7 @@ opticalInner = outer - gap - offset`}
         </div>
         
         {/* Quick comparison stats */}
-        <div className="mt-6 rounded-lg bg-neutral-50 p-3 dark:bg-neutral-800/50 sm:p-4">
+        <div className="mt-6 bg-neutral-50 p-3 dark:bg-neutral-800/50 sm:p-4">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs sm:gap-x-8 sm:text-sm">
             <div className="flex items-center gap-1 sm:gap-2">
               <span className="text-neutral-500">Outer:</span>

@@ -72,12 +72,12 @@ export default function ColourConverter() {
     <div className="grid gap-8 lg:grid-cols-12">
       {/* Preview & Input */}
       <div className="lg:col-span-4 space-y-6">
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Colour</h2>
           
           {/* Colour Preview */}
           <div
-            className="mb-6 aspect-video w-full rounded-lg shadow-inner"
+            className="mb-6 aspect-video w-full shadow-inner"
             style={{ backgroundColor: colorValues.hex }}
           />
 
@@ -90,10 +90,10 @@ export default function ColourConverter() {
                   value={inputColor}
                   onChange={(e) => setInputColor(e.target.value)}
                   placeholder="#FF4400 or rgb(255, 68, 0)"
-                  className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-3 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
+                  className="w-full border border-neutral-200 bg-neutral-50 px-3 py-3 font-mono text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
                 />
               </div>
-              <label className="flex cursor-pointer items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 px-3 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
+              <label className="flex cursor-pointer items-center justify-center border border-neutral-200 bg-neutral-50 px-3 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-900">
                 <Pipette className="h-5 w-5 text-neutral-500" />
                 <input
                   type="color"
@@ -111,7 +111,7 @@ export default function ColourConverter() {
         </div>
 
         {/* Colour Info */}
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-4 text-lg font-bold">Values</h2>
           
           <div className="space-y-3 text-sm">
@@ -147,14 +147,14 @@ export default function ColourConverter() {
 
       {/* Output Formats */}
       <div className="lg:col-span-8">
-        <div className="rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Export Formats</h2>
           
           <div className="grid gap-4 sm:grid-cols-2">
             {formats.map(({ format, value }) => (
               <div
                 key={format}
-                className="group rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950"
+                className="group border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950"
               >
                 <div className="mb-2 flex items-center justify-between">
                   <div>
@@ -185,7 +185,7 @@ export default function ColourConverter() {
         </div>
 
         {/* Colour Variations */}
-        <div className="mt-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
+        <div className="mt-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6">
           <h2 className="mb-6 text-lg font-bold">Variations</h2>
           
           <div className="space-y-4">

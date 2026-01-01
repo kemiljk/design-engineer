@@ -166,7 +166,7 @@ Image(
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Controls */}
-      <div className="space-y-6 rounded-xl border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
+      <div className="space-y-6 border border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:space-y-8 sm:p-6">
         <div>
           <h2 className="mb-4 text-lg font-bold">Presets</h2>
           <div className="flex flex-wrap gap-2">
@@ -188,7 +188,7 @@ Image(
         </div>
 
         <div className="space-y-6">
-          <div className="flex items-center gap-4 rounded-lg bg-neutral-50 p-4 dark:bg-neutral-950">
+          <div className="flex items-center gap-4 bg-neutral-50 p-4 dark:bg-neutral-950">
              <div className="flex-1 space-y-2">
                 <label className="text-xs font-bold uppercase text-neutral-500">Ratio Width</label>
                 <input 
@@ -227,7 +227,7 @@ Image(
                 type="number"
                 value={width}
                 onChange={(e) => calculateMissing("w", Number(e.target.value))}
-                className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
+                className="w-full border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
               />
             </div>
             <div className="space-y-2">
@@ -238,7 +238,7 @@ Image(
                 type="number"
                 value={height}
                 onChange={(e) => calculateMissing("h", Number(e.target.value))}
-                className="w-full rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
+                className="w-full border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-800 dark:bg-neutral-950"
               />
             </div>
           </div>
@@ -284,7 +284,7 @@ Image(
       </div>
 
       {/* Visualiser */}
-      <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="flex items-center justify-center border border-neutral-200 bg-neutral-100 p-8 dark:border-neutral-800 dark:bg-neutral-900">
          <div 
             className="flex items-center justify-center bg-swiss-red text-white shadow-lg transition-all duration-300"
             style={{
