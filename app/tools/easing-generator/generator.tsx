@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import { motion } from "motion/react";
+import React, { useState, useRef, useCallback } from "react";
+import { motion, useSpring } from "motion/react";
+import { useDrag } from "@use-gesture/react";
 import { Copy, Check } from "iconoir-react";
 
 type Point = { x: number; y: number };
@@ -11,37 +12,33 @@ const PRESETS = {
   "ease-out": [0, 0, 0.58, 1],
   "ease-in-out": [0.42, 0, 0.58, 1],
   "linear": [0, 0, 1, 1],
-  "swift-out": [0.4, 0.0, 0.2, 1.0], // Material Design standard
+  "swift-out": [0.4, 0.0, 0.2, 1.0],
 };
 
-export default function EasingGenerator() {
-  const [p1, setP1] = useState<Point>({ x: 0.42, y: 0 });
-  const [p2, setP2] = useState<Point>({ x: 0.58, y: 1 });
-  const [activePreset, setActivePreset] = useState<string>("ease-in-out");
-  const [copied, setCopied] = useState(false);
-  const [animationKey, setAnimationKey] = useState(0);
+const SPRING_CONFIG = { stiffness: 600, damping: 40 };
 
-  const bezierString = `cubic-bezier(${p1.x.toFixed(2)}, ${p1.y.toFixed(2)}, ${p2.x.toFixed(2)}, ${p2.y.toFixed(2)})`;
+function DragHandle({
+  point,
+  setPoint,
+  graphSize,
+  padding,
+  size,
+  onDragStart,
+  onDragEnd,
+  color = "#FF3333",
+}: {
+  point: Point;
+  setPoint: (p: Point) => void;
+  graphSize: number;
+  padding: number;
+  size: number;
+  onDragStart: () => void;
+  onDragEnd: () => void;
+  color?: string;
+}) {
+  const containerRef = useRef<SVGGElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
-  const handlePresetChange = (name: string, values: number[]) => {
-    setP1({ x: values[0], y: values[1] });
-    setP2({ x: values[2], y: values[3] });
-    setActivePreset(name);
-    setAnimationKey(prev => prev + 1);
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(bezierString);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  // Graph dimensions
-  const size = 300;
-  const padding = 40;
-  const graphSize = size - padding * 2;
-
-  // Coordinate conversion
   const toGraph = (val: number, isY = false) => {
     if (isY) return size - padding - val * graphSize;
     return padding + val * graphSize;
@@ -52,61 +49,203 @@ export default function EasingGenerator() {
     return (val - padding) / graphSize;
   };
 
-  // Drag logic would go here, simplified for this iteration to just sliders/inputs if drag is too complex without external libs like d3-drag or react-use-gesture.
-  // Actually, let's use simple sliders for control points as "drag" on a canvas/svg in raw react can be verbose.
-  // OR, we can just implement basic pointer events on the handles.
+  const springX = useSpring(toGraph(point.x), SPRING_CONFIG);
+  const springY = useSpring(toGraph(point.y, true), SPRING_CONFIG);
 
-  const svgRef = useRef<SVGSVGElement>(null);
-  const [dragging, setDragging] = useState<"p1" | "p2" | null>(null);
+  React.useEffect(() => {
+    if (!isDragging) {
+      springX.set(toGraph(point.x));
+      springY.set(toGraph(point.y, true));
+    }
+  }, [point.x, point.y, isDragging, springX, springY]);
 
-  const handlePointerDown = (point: "p1" | "p2") => (e: React.PointerEvent) => {
-    // Set pointer capture on the SVG so all move/up events are captured
-    svgRef.current?.setPointerCapture(e.pointerId);
-    setDragging(point);
+  const bind = useDrag(
+    ({ active, xy: [clientX, clientY], first, last, memo, event }) => {
+      event?.preventDefault();
+      event?.stopPropagation();
+
+      if (first) {
+        setIsDragging(true);
+        onDragStart();
+        const svg = containerRef.current?.ownerSVGElement;
+        if (!svg) return;
+        const rect = svg.getBoundingClientRect();
+        return { rect, offsetX: 0, offsetY: 0 };
+      }
+
+      const state = memo as { rect: DOMRect; offsetX: number; offsetY: number };
+      if (!state?.rect) return memo;
+
+      const { rect } = state;
+      const scale = size / rect.width;
+      const svgX = (clientX - rect.left) * scale;
+      const svgY = (clientY - rect.top) * scale;
+
+      const x = Math.max(0, Math.min(1, fromGraph(svgX)));
+      const y = fromGraph(svgY, true);
+
+      springX.set(toGraph(x));
+      springY.set(toGraph(y, true));
+      setPoint({ x, y });
+
+      if (last) {
+        setIsDragging(false);
+        onDragEnd();
+      }
+
+      return memo;
+    },
+    {
+      pointer: { touch: true },
+      filterTaps: true,
+      preventDefault: true,
+    }
+  );
+
+  return (
+    <g
+      ref={containerRef}
+      {...bind()}
+      style={{ touchAction: "none", cursor: isDragging ? "grabbing" : "grab" }}
+    >
+      {/* Large invisible hit area for easier touch/click targeting */}
+      <motion.circle
+        cx={springX}
+        cy={springY}
+        r="28"
+        fill="transparent"
+        className="pointer-events-auto"
+      />
+      {/* Visual handle with spring animation */}
+      <motion.circle
+        cx={springX}
+        cy={springY}
+        r={isDragging ? 12 : 8}
+        fill={color}
+        className="pointer-events-none"
+        style={{
+          filter: isDragging ? "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))" : "none",
+        }}
+        animate={{ scale: isDragging ? 1.2 : 1 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      />
+      {/* Outer ring indicator when dragging */}
+      {isDragging && (
+        <motion.circle
+          cx={springX}
+          cy={springY}
+          r="18"
+          fill="none"
+          stroke={color}
+          strokeWidth="2"
+          strokeOpacity={0.3}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+        />
+      )}
+    </g>
+  );
+}
+
+export default function EasingGenerator() {
+  const [p1, setP1] = useState<Point>({ x: 0.42, y: 0 });
+  const [p2, setP2] = useState<Point>({ x: 0.58, y: 1 });
+  const [activePreset, setActivePreset] = useState<string>("ease-in-out");
+  const [copied, setCopied] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const bezierString = `cubic-bezier(${p1.x.toFixed(2)}, ${p1.y.toFixed(2)}, ${p2.x.toFixed(2)}, ${p2.y.toFixed(2)})`;
+
+  const handlePresetChange = (name: string, values: number[]) => {
+    setP1({ x: values[0], y: values[1] });
+    setP2({ x: values[2], y: values[3] });
+    setActivePreset(name);
+    setAnimationKey((prev) => prev + 1);
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(bezierString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDragStart = useCallback(() => {
+    setIsDragging(true);
     setActivePreset("custom");
+  }, []);
+
+  const handleDragEnd = useCallback(() => {
+    setIsDragging(false);
+    setAnimationKey((prev) => prev + 1);
+  }, []);
+
+  const size = 300;
+  const padding = 40;
+  const graphSize = size - padding * 2;
+
+  const toGraph = (val: number, isY = false) => {
+    if (isY) return size - padding - val * graphSize;
+    return padding + val * graphSize;
   };
 
-  const handlePointerMove = (e: React.PointerEvent) => {
-    if (!dragging || !svgRef.current) return;
-    
-    const rect = svgRef.current.getBoundingClientRect();
-    // Scale client coordinates to SVG viewBox coordinates
-    const scale = size / rect.width;
-    const svgX = (e.clientX - rect.left) * scale;
-    const svgY = (e.clientY - rect.top) * scale;
-    
-    const x = Math.max(0, Math.min(1, fromGraph(svgX)));
-    // Allow y to go slightly outside 0-1 for elastic effects usually, but standard css cubic-bezier clamps somewhat visually. 
-    // CSS bezier CAN go outside 0-1 range for Y.
-    const y = fromGraph(svgY, true);
+  const controlLineSpringX1 = useSpring(toGraph(p1.x), SPRING_CONFIG);
+  const controlLineSpringY1 = useSpring(toGraph(p1.y, true), SPRING_CONFIG);
+  const controlLineSpringX2 = useSpring(toGraph(p2.x), SPRING_CONFIG);
+  const controlLineSpringY2 = useSpring(toGraph(p2.y, true), SPRING_CONFIG);
 
-    if (dragging === "p1") setP1({ x, y });
-    else setP2({ x, y });
-  };
-
-  const handlePointerUp = (e: React.PointerEvent) => {
-    setDragging(null);
-    e.currentTarget.releasePointerCapture(e.pointerId);
-    setAnimationKey(prev => prev + 1);
-  };
+  React.useEffect(() => {
+    controlLineSpringX1.set(toGraph(p1.x));
+    controlLineSpringY1.set(toGraph(p1.y, true));
+    controlLineSpringX2.set(toGraph(p2.x));
+    controlLineSpringY2.set(toGraph(p2.y, true));
+  }, [p1.x, p1.y, p2.x, p2.y]);
 
   return (
     <div className="space-y-8">
-      {/* Graph Visualizer */}
+      {/* Graph Visualiser */}
       <div className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
         <svg
-          ref={svgRef}
           viewBox={`0 0 ${size} ${size}`}
-          className="aspect-square w-full max-w-[400px] touch-none select-none overflow-visible"
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerLeave={handlePointerUp}
+          className="aspect-square w-full max-w-[400px] select-none overflow-visible"
+          style={{ touchAction: "none" }}
         >
           {/* Grid/Axes */}
-          <line x1={padding} y1={size - padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
-          <line x1={padding} y1={padding} x2={padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="2" />
-          <line x1={size - padding} y1={padding} x2={size - padding} y2={size - padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />
-          <line x1={padding} y1={padding} x2={size - padding} y2={padding} stroke="#e5e5e5" strokeWidth="1" strokeDasharray="4 4" />
+          <line
+            x1={padding}
+            y1={size - padding}
+            x2={size - padding}
+            y2={size - padding}
+            stroke="#e5e5e5"
+            strokeWidth="2"
+          />
+          <line
+            x1={padding}
+            y1={padding}
+            x2={padding}
+            y2={size - padding}
+            stroke="#e5e5e5"
+            strokeWidth="2"
+          />
+          <line
+            x1={size - padding}
+            y1={padding}
+            x2={size - padding}
+            y2={size - padding}
+            stroke="#e5e5e5"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+          <line
+            x1={padding}
+            y1={padding}
+            x2={size - padding}
+            y2={padding}
+            stroke="#e5e5e5"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
 
           {/* Linear Reference */}
           <line
@@ -120,64 +259,59 @@ export default function EasingGenerator() {
           />
 
           {/* Bezier Curve */}
-          <path
+          <motion.path
             d={`M ${padding} ${size - padding} C ${toGraph(p1.x)} ${toGraph(p1.y, true)}, ${toGraph(p2.x)} ${toGraph(p2.y, true)}, ${size - padding} ${padding}`}
             fill="none"
             stroke="#FF3333"
             strokeWidth="4"
+            strokeLinecap="round"
           />
 
-          {/* Control Lines */}
-          <line
+          {/* Control Lines with spring animation */}
+          <motion.line
             x1={padding}
             y1={size - padding}
-            x2={toGraph(p1.x)}
-            y2={toGraph(p1.y, true)}
+            x2={controlLineSpringX1}
+            y2={controlLineSpringY1}
             stroke="#FF3333"
-            strokeWidth="1"
-            className="opacity-50"
+            strokeWidth="1.5"
+            strokeOpacity={0.5}
+            strokeLinecap="round"
           />
-          <line
+          <motion.line
             x1={size - padding}
             y1={padding}
-            x2={toGraph(p2.x)}
-            y2={toGraph(p2.y, true)}
+            x2={controlLineSpringX2}
+            y2={controlLineSpringY2}
             stroke="#FF3333"
-            strokeWidth="1"
-            className="opacity-50"
+            strokeWidth="1.5"
+            strokeOpacity={0.5}
+            strokeLinecap="round"
           />
 
-          {/* Handles - invisible larger hit area + visible handle */}
-          <g className="cursor-pointer" onPointerDown={handlePointerDown("p1")}>
-            <circle
-              cx={toGraph(p1.x)}
-              cy={toGraph(p1.y, true)}
-              r="20"
-              fill="transparent"
-            />
-            <circle
-              cx={toGraph(p1.x)}
-              cy={toGraph(p1.y, true)}
-              r={dragging === "p1" ? 10 : 8}
-              fill="#FF3333"
-              className="pointer-events-none"
-            />
-          </g>
-          <g className="cursor-pointer" onPointerDown={handlePointerDown("p2")}>
-            <circle
-              cx={toGraph(p2.x)}
-              cy={toGraph(p2.y, true)}
-              r="20"
-              fill="transparent"
-            />
-            <circle
-              cx={toGraph(p2.x)}
-              cy={toGraph(p2.y, true)}
-              r={dragging === "p2" ? 10 : 8}
-              fill="#FF3333"
-              className="pointer-events-none"
-            />
-          </g>
+          {/* Start and end points */}
+          <circle cx={padding} cy={size - padding} r="4" fill="#999" />
+          <circle cx={size - padding} cy={padding} r="4" fill="#999" />
+
+          {/* Drag Handles */}
+          <DragHandle
+            point={p1}
+            setPoint={setP1}
+            graphSize={graphSize}
+            padding={padding}
+            size={size}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+          />
+          <DragHandle
+            point={p2}
+            setPoint={setP2}
+            graphSize={graphSize}
+            padding={padding}
+            size={size}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+          />
         </svg>
       </div>
 
@@ -212,27 +346,33 @@ export default function EasingGenerator() {
               onClick={copyToClipboard}
               className="shrink-0 text-neutral-400 hover:text-swiss-red"
             >
-              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copied ? (
+                <Check className="h-4 w-4" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
             </button>
           </div>
         </div>
-        
+
         <div className="rounded-lg bg-neutral-50 p-4 dark:bg-neutral-950 sm:p-6">
-           <h3 className="mb-4 font-bold text-sm uppercase text-neutral-500">Preview</h3>
-           <div className="relative h-8 w-full rounded-full bg-neutral-200 dark:bg-neutral-800">
-              <motion.div
-                key={animationKey}
-                className="absolute top-0 left-0 h-8 w-8 rounded-full bg-swiss-red shadow-sm"
-                initial={{ left: "0%" }}
-                animate={{ left: "calc(100% - 32px)" }}
-                transition={{
-                    duration: 1,
-                    ease: [p1.x, p1.y, p2.x, p2.y],
-                    repeat: Infinity,
-                    repeatDelay: 1
-                }}
-              />
-           </div>
+          <h3 className="mb-4 text-sm font-bold uppercase text-neutral-500">
+            Preview
+          </h3>
+          <div className="relative h-8 w-full rounded-full bg-neutral-200 dark:bg-neutral-800">
+            <motion.div
+              key={animationKey}
+              className="absolute left-0 top-0 h-8 w-8 rounded-full bg-swiss-red shadow-sm"
+              initial={{ left: "0%" }}
+              animate={{ left: "calc(100% - 32px)" }}
+              transition={{
+                duration: 1,
+                ease: [p1.x, p1.y, p2.x, p2.y],
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
