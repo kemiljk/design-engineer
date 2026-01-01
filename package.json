@@ -20,7 +20,8 @@
     "setup:testimonials": "tsx scripts/setup-testimonials.ts",
     "generate:og-images": "tsx scripts/generate-og-images.ts",
     "assign:og-images": "tsx scripts/assign-og-images.ts",
-    "capture:gifs": "tsx scripts/capture-example-gifs.ts"
+    "capture:gifs": "tsx scripts/capture-example-gifs.ts",
+    "sync:course-structure": "tsx scripts/sync-course-structure.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.1",

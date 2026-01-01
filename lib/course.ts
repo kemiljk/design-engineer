@@ -455,9 +455,11 @@ export function getProgressStats(
   progress: Type.CourseProgress | null,
   accessLevel: Type.AccessLevel = "full"
 ) {
+  const totalLessons = getTotalLessonsForAccess(accessLevel);
+  
   if (!progress) {
     return {
-      totalLessons: getTotalLessonsForAccess(accessLevel),
+      totalLessons,
       completedCount: 0,
       inProgressCount: 0,
       completionPercentage: 0,
@@ -468,20 +470,32 @@ export function getProgressStats(
   }
 
   const lessons = progress.metadata.lessons || {};
-  const lessonEntries = Object.values(lessons);
   
-  const completedCount = lessonEntries.filter(l => l.status === "completed").length;
-  const inProgressCount = lessonEntries.filter(l => l.status === "in_progress").length;
+  // Filter lessons by access level - only count lessons the user can access
+  // This prevents showing "31/10 complete" if access level changed or data is inconsistent
+  const accessibleLessons = Object.entries(lessons).filter(([lessonPath]) => 
+    canAccessLesson(accessLevel, lessonPath)
+  );
+  
+  const rawCompletedCount = accessibleLessons.filter(([, data]) => data.status === "completed").length;
+  const rawInProgressCount = accessibleLessons.filter(([, data]) => data.status === "in_progress").length;
+  
+  // Cap counts to never exceed total lessons available for this access level
+  const completedCount = Math.min(rawCompletedCount, totalLessons);
+  const inProgressCount = Math.min(rawInProgressCount, totalLessons - completedCount);
+  
   const totalTime = progress.metadata.total_time_spent_seconds || 0;
-  const totalLessons = getTotalLessonsForAccess(accessLevel);
+
+  // Cap completion percentage at 100%
+  const completionPercentage = totalLessons > 0 
+    ? Math.min(100, Math.round((completedCount / totalLessons) * 100))
+    : 0;
 
   return {
     totalLessons,
     completedCount,
     inProgressCount,
-    completionPercentage: totalLessons > 0 
-      ? Math.round((completedCount / totalLessons) * 100)
-      : 0,
+    completionPercentage,
     totalTimeSpent: totalTime,
     totalTimeFormatted: formatTime(totalTime),
     accessLevel,
