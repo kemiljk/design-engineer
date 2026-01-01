@@ -341,6 +341,42 @@ function ToolsSection() {
   );
 }
 
+function DesignEngineeringSection() {
+  return (
+    <AnimatedSection
+      as="div"
+      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
+    >
+      <div className="container-readable text-center">
+        <p className="heading-eyebrow mb-4">The discipline</p>
+        <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          Design meets engineering.
+          <br />
+          <span className="text-neutral-500 dark:text-neutral-400">
+            No compromise.
+          </span>
+        </h2>
+        <p className="mx-auto mb-8 max-w-2xl text-lg text-neutral-600 md:text-xl dark:text-neutral-400">
+          Design Engineering sits at the convergence of visual design and
+          front-end development. It&apos;s not about being &quot;good at
+          both&quot;—it&apos;s a distinct discipline focused on shipping
+          beautiful, polished interfaces that work.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Button
+            href="/design-engineering"
+            variant="outline"
+            size="lg"
+            endContent={<ArrowRight className="h-4 w-4" />}
+          >
+            What is a Design Engineer?
+          </Button>
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
+
 async function CourseSection() {
   const { is_available: isCourseAvailable } = await getCourseAvailability();
 
@@ -468,6 +504,8 @@ export default function Home() {
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection />
       </Suspense>
+
+      <DesignEngineeringSection />
 
       <Suspense fallback={<CourseSectionSkeleton />}>
         <CourseSection />
