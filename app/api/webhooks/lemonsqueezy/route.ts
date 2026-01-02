@@ -3,6 +3,7 @@ import {
   verifyWebhookSignature,
   getProductKeyFromVariantId,
   WebhookEvent,
+  PRODUCT_CONFIG,
 } from "@/lib/lemonsqueezy";
 import { createEnrollment } from "@/lib/course";
 
@@ -29,23 +30,59 @@ export async function POST(request: NextRequest) {
   const eventName = event.meta.event_name;
 
   if (eventName === "order_created") {
-    const { attributes } = event.data;
+    const { attributes, relationships } = event.data;
     const userId = event.meta.custom_data?.user_id;
 
     if (!userId) {
-      console.error("No user_id in webhook custom data");
+      console.error("No user_id in webhook custom data. Event structure:", {
+        meta: event.meta,
+        dataType: event.data?.type,
+        hasAttributes: !!attributes,
+        hasRelationships: !!relationships,
+      });
       return NextResponse.json(
         { error: "Missing user ID" },
         { status: 400 }
       );
     }
 
+    let variantId: number | string | undefined = attributes?.variant_id;
+    
+    if (!variantId && attributes?.first_order_item?.variant_id) {
+      variantId = attributes.first_order_item.variant_id;
+    }
+    
+    if (!variantId && relationships?.["order-items"]?.data) {
+      const orderItems = Array.isArray(relationships["order-items"].data) 
+        ? relationships["order-items"].data 
+        : [relationships["order-items"].data];
+      
+      if (orderItems.length > 0 && orderItems[0].attributes?.variant_id) {
+        variantId = orderItems[0].attributes.variant_id;
+      }
+    }
+    
+    if (!variantId) {
+      console.warn("Test webhook or missing variant_id - skipping enrollment. Payload structure:", {
+        eventName,
+        userId,
+        hasAttributes: !!attributes,
+        hasFirstOrderItem: !!attributes?.first_order_item,
+        firstOrderItemVariantId: attributes?.first_order_item?.variant_id,
+        hasOrderItemsRelationship: !!relationships?.["order-items"],
+      });
+      return NextResponse.json(
+        { received: true, message: "Test webhook received (no variant_id)" },
+        { status: 200 }
+      );
+    }
+
     const productKey = getProductKeyFromVariantId(
-      String(attributes.variant_id)
+      String(variantId)
     );
 
     if (!productKey) {
-      console.error("Unknown variant ID:", attributes.variant_id);
+      console.error("Unknown variant ID:", variantId, "Available variant IDs:", Object.values(PRODUCT_CONFIG).map(p => p.variantId));
       return NextResponse.json(
         { error: "Unknown product" },
         { status: 400 }

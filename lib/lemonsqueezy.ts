@@ -249,10 +249,30 @@ export interface WebhookEvent {
       status: string;
       user_email: string;
       customer_id: number;
-      order_id: number;
-      variant_id: number;
-      product_id: number;
+      order_id?: number;
+      variant_id?: number;
+      product_id?: number;
       created_at: string;
+      first_order_item?: {
+        id: number;
+        variant_id: number;
+        product_id: number;
+        order_id: number;
+        price: number;
+        quantity: number;
+        product_name?: string;
+        variant_name?: string;
+      };
+    };
+    relationships?: {
+      "order-items"?: {
+        data?: Array<{
+          id: string;
+          attributes?: {
+            variant_id?: number;
+          };
+        }>;
+      };
     };
   };
 }
