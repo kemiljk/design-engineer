@@ -220,8 +220,11 @@ export function ShaderProgressiveBlurDemo() {
     };
     image.src = IMAGE_URL;
 
+    // Capture animation ref for cleanup
+    const currentAnimationRef = animationRef;
+
     return () => {
-      cancelAnimationFrame(animationRef.current);
+      cancelAnimationFrame(currentAnimationRef.current);
       gl.deleteShader(vs);
       gl.deleteShader(fs);
       gl.deleteProgram(program);

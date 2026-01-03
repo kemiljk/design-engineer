@@ -874,6 +874,13 @@ function MicroValidationCaptureDemo() {
 // 9. Notification Bell - Complex Layered Animation
 // ============================================
 
+const NOTIFICATION_TEXTS = [
+  "New message from Sarah",
+  "Meeting in 15 minutes",
+  "Your order shipped!",
+  "2 new followers",
+];
+
 function NotificationBellCaptureDemo() {
   const [isActive, setIsActive] = useState(false);
   const [ripples, setRipples] = useState<number[]>([]);
@@ -884,13 +891,6 @@ function NotificationBellCaptureDemo() {
   const [notifications, setNotifications] = useState<
     { id: number; text: string }[]
   >([]);
-
-  const notificationTexts = [
-    "New message from Sarah",
-    "Meeting in 15 minutes",
-    "Your order shipped!",
-    "2 new followers",
-  ];
 
   useEffect(() => {
     let mounted = true;
@@ -919,7 +919,7 @@ function NotificationBellCaptureDemo() {
         setNotifications((n) => [
           {
             id: Date.now(),
-            text: notificationTexts[n.length % notificationTexts.length],
+            text: NOTIFICATION_TEXTS[n.length % NOTIFICATION_TEXTS.length],
           },
           ...n.slice(0, 2),
         ]);

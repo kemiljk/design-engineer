@@ -214,7 +214,7 @@ function FileManager() {
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
               When items move from one position to another, our brain tracks
-              them. Without motion, the change feels like a "refresh" where we
+              them. Without motion, the change feels like a &ldquo;refresh&rdquo; where we
               lose our place.
             </p>
           </div>

@@ -148,7 +148,7 @@ function FeatureList() {
             Staggered Entry
           </h4>
           <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-            Notice how the cards don't appear all at once. The <code className="rounded-md bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">delay: i * 0.1</code> creates a "waterfall" effect that makes the content feel lighter and more elegant.
+            Notice how the cards don&apos;t appear all at once. The <code className="rounded-md bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">delay: i * 0.1</code> creates a &ldquo;waterfall&rdquo; effect that makes the content feel lighter and more elegant.
           </p>
         </div>
 

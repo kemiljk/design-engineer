@@ -199,7 +199,7 @@ function Input({ label, value, onChange }) {
               Context Preservation
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              Unlike standard placeholders that disappear when typing, the floating label remains visible, reminding the user what field they're editing.
+              Unlike standard placeholders that disappear when typing, the floating label remains visible, reminding the user what field they&apos;re editing.
             </p>
           </div>
         </div>

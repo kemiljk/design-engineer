@@ -284,8 +284,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
     
     // Show rate limit message if exceeded
     if (!rateLimit.allowed) {
+      const now = Date.now();
       const resetTime = new Date(rateLimit.resetAt);
-      const minutesRemaining = Math.ceil((rateLimit.resetAt - Date.now()) / 60000);
+      const minutesRemaining = Math.ceil((rateLimit.resetAt - now) / 60000);
       
       return (
         <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">

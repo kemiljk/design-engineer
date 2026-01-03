@@ -305,7 +305,7 @@ function NotificationSystem() {
               Non-Blocking
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              The notifications appear in the periphery (bottom-right) and don't
+              The notifications appear in the periphery (bottom-right) and don&apos;t
               block the main content area. This respects user flow.
             </p>
           </div>

@@ -209,7 +209,7 @@ function Modal() {
               `useReducedMotion`
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              Motion's hook automatically detects the OS setting. Use it to
+              Motion&apos;s hook automatically detects the OS setting. Use it to
               conditionally change your animation props.
             </p>
           </div>

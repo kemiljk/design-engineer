@@ -1,12 +1,34 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useScroll, useSpring, useTransform, MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import { ExampleWrapper, ControlGroup, ControlButton } from "../base/example-wrapper";
 import { CodePanel, type CodeTab } from "./code-panel";
 
 type ProgressStyle = "bar" | "circle" | "segments";
+
+// Separate component to properly use hooks
+function CirclePercentage({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
+  const springProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const percentage = useTransform(springProgress, (v) => Math.round(v * 100));
+  return <motion.span>{percentage}</motion.span>;
+}
+
+// Separate component for segment progress
+function SegmentProgress({ scrollYProgress, threshold }: { scrollYProgress: MotionValue<number>; threshold: number }) {
+  const segmentScale = useTransform(
+    scrollYProgress,
+    [threshold, threshold + 0.25],
+    [0, 1]
+  );
+  return (
+    <motion.div
+      className="h-full w-full bg-indigo-600 origin-left dark:bg-indigo-500"
+      style={{ scaleX: segmentScale }}
+    />
+  );
+}
 
 export function ScrollProgressDemo() {
   const [style, setStyle] = useState<ProgressStyle>("bar");
@@ -144,9 +166,7 @@ function ReadingProgress() {
                   />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center text-xxs font-bold text-neutral-900 dark:text-white">
-                  <motion.span>
-                    {useSpring(scrollYProgress, { stiffness: 100, damping: 30 }).get().toFixed(0)}%
-                  </motion.span>
+                  <CirclePercentage scrollYProgress={scrollYProgress} />%
                 </div>
               </div>
             )}
@@ -155,16 +175,7 @@ function ReadingProgress() {
               <div className="absolute left-0 right-0 top-0 z-20 flex gap-1 bg-white/90 p-2 pt-12 backdrop-blur-md dark:bg-neutral-950/90">
                 {[0, 0.25, 0.5, 0.75].map((threshold, i) => (
                   <div key={i} className="h-1 flex-1 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
-                    <motion.div
-                      className="h-full w-full bg-indigo-600 origin-left dark:bg-indigo-500"
-                      style={{
-                        scaleX: useTransform(
-                          scrollYProgress,
-                          [threshold, threshold + 0.25],
-                          [0, 1]
-                        ),
-                      }}
-                    />
+                    <SegmentProgress scrollYProgress={scrollYProgress} threshold={threshold} />
                   </div>
                 ))}
               </div>

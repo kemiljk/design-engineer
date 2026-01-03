@@ -732,6 +732,41 @@ export default function TokenNamingBuilder() {
     return grouped;
   }, [builderTokens]);
 
+  // Helper to safely build nested object structure
+  const buildNestedObject = useCallback((
+    tokens: string[],
+    valueBuilder: (parts: string[]) => unknown
+  ): Record<string, unknown> => {
+    const result: Record<string, unknown> = {};
+    
+    tokens.forEach(t => {
+      if (!t || typeof t !== "string") return;
+      
+      const parts = t.split(".").filter(Boolean);
+      if (parts.length === 0) return;
+      
+      let current: Record<string, unknown> = result;
+      
+      for (let i = 0; i < parts.length; i++) {
+        const part = parts[i];
+        const isLast = i === parts.length - 1;
+        
+        if (isLast) {
+          current[part] = valueBuilder(parts);
+        } else {
+          if (current[part] === undefined) {
+            current[part] = {};
+          } else if (typeof current[part] !== "object" || current[part] === null) {
+            current[part] = { _value: current[part] };
+          }
+          current = current[part] as Record<string, unknown>;
+        }
+      }
+    });
+    
+    return result;
+  }, []);
+
   // Generate builder export code
   const generateBuilderExportCode = useCallback(() => {
     const scaleTokens = radiusScaleTokens.map(t => t.formatted);
@@ -779,7 +814,7 @@ export default function TokenNamingBuilder() {
       default:
         return allTokens.join("\n");
     }
-  }, [builderTokens, radiusScaleTokens, outputFormat]);
+  }, [builderTokens, radiusScaleTokens, outputFormat, buildNestedObject]);
 
   const handleCopyAllBuilderTokens = useCallback(() => {
     const code = generateBuilderExportCode();
@@ -787,41 +822,6 @@ export default function TokenNamingBuilder() {
     setCopiedAll(true);
     setTimeout(() => setCopiedAll(false), 2000);
   }, [generateBuilderExportCode]);
-
-  // Helper to safely build nested object structure
-  const buildNestedObject = (
-    tokens: string[],
-    valueBuilder: (parts: string[]) => unknown
-  ): Record<string, unknown> => {
-    const result: Record<string, unknown> = {};
-    
-    tokens.forEach(t => {
-      if (!t || typeof t !== "string") return;
-      
-      const parts = t.split(".").filter(Boolean);
-      if (parts.length === 0) return;
-      
-      let current: Record<string, unknown> = result;
-      
-      for (let i = 0; i < parts.length; i++) {
-        const part = parts[i];
-        const isLast = i === parts.length - 1;
-        
-        if (isLast) {
-          current[part] = valueBuilder(parts);
-        } else {
-          if (current[part] === undefined) {
-            current[part] = {};
-          } else if (typeof current[part] !== "object" || current[part] === null) {
-            current[part] = { _value: current[part] };
-          }
-          current = current[part] as Record<string, unknown>;
-        }
-      }
-    });
-    
-    return result;
-  };
 
   // Generate export code
   const generateExportCode = () => {

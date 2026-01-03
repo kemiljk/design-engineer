@@ -229,7 +229,7 @@ function Skeleton() {
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
               The moving gradient (shimmer) indicates activity. It tells the
-              user "the app is working, not frozen."
+              user &ldquo;the app is working, not frozen.&rdquo;
             </p>
           </div>
           <div className="rounded-3xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-900">

@@ -208,7 +208,7 @@ function ValidationMessage({ status }) {
               Icon Swap
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              <code className="rounded bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">AnimatePresence mode="wait"</code> ensures the old icon leaves before the new one enters, preventing layout shifts.
+              <code className="rounded bg-neutral-200 px-1 py-0.5 font-mono dark:bg-neutral-800">AnimatePresence mode=&ldquo;wait&rdquo;</code> ensures the old icon leaves before the new one enters, preventing layout shifts.
             </p>
           </div>
         </div>
