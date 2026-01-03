@@ -220,9 +220,12 @@ export function ShaderNoiseTypesDemo() {
 
     animationRef.current = requestAnimationFrame(render);
 
+    // Capture cleanupRefs.current for cleanup function
+    const cleanups = [...cleanupRefs.current];
+
     return () => {
       cancelAnimationFrame(animationRef.current);
-      cleanupRefs.current.forEach(cleanup => cleanup?.());
+      cleanups.forEach(cleanup => cleanup?.());
     };
   }, [supported]);
 

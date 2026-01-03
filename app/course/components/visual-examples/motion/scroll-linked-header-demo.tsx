@@ -172,8 +172,8 @@ function StickyHeader() {
           <p className="mt-2 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
             We map the first 100px of scroll to various properties: height
             shrinks from 80px to 60px, title size scales down, and background
-            opacity increases. This creates a seamless transition from "hero"
-            state to "sticky" state.
+            opacity increases. This creates a seamless transition from &ldquo;hero&rdquo;
+            state to &ldquo;sticky&rdquo; state.
           </p>
         </div>
 

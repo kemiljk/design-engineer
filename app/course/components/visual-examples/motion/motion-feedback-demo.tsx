@@ -295,7 +295,7 @@ function FeedbackButton() {
               Error Shake
             </h4>
             <p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              The horizontal shake mimics a human head shaking "no". It's a
+              The horizontal shake mimics a human head shaking &ldquo;no&rdquo;. It&apos;s a
               universally understood motion for rejection or error.
             </p>
           </div>

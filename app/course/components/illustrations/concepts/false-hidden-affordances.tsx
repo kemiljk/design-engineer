@@ -115,7 +115,7 @@ export function FalseHiddenAffordances() {
           textAnchor="middle"
           fontFamily="system-ui, -apple-system, sans-serif"
         >
-          Looks clickable but isn't
+          Looks clickable but isn&apos;t
         </text>
 
         <XIcon

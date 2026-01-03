@@ -187,7 +187,7 @@ export function HeuristicsGrid() {
       height={GRID.height}
     >
       <Label x={CONTENT.centerX} y={CONTENT.top + 12} anchor="middle">
-        NIELSEN'S 10 USABILITY HEURISTICS
+        NIELSEN&apos;S 10 USABILITY HEURISTICS
       </Label>
 
       {heuristics.map((h, index) => {

@@ -100,7 +100,7 @@ function ContextMenu({ isOpen, origin }) {
               <div className="flex h-5 w-5 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-xxs font-bold text-white">
                 K
               </div>
-              <span>Karl's Workspace</span>
+              <span>Karl&apos;s Workspace</span>
               <ChevronRight className={cn("ml-2 size-4 text-neutral-400 transition-transform", isOpen && "rotate-90")} />
             </button>
 

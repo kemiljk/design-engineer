@@ -200,7 +200,7 @@ function TodoList() {
               popLayout Mode
             </h4>
             <p className="mt-1 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-              The `mode="popLayout"` prop removes the exiting element from the
+              The `mode=&ldquo;popLayout&rdquo;` prop removes the exiting element from the
               layout immediately (absolute positioning) so siblings can animate
               into their new places simultaneously.
             </p>
