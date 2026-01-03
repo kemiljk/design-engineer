@@ -42,7 +42,6 @@ export function ContentCard({
       >
         <div className="flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
           <div className="relative aspect-video w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt={post.title}
               className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"

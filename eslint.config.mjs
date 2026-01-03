@@ -12,6 +12,9 @@ const eslintConfig = [
       // Disable overly strict purity rule that flags Date.now() in server components
       // where it's actually deterministic per request
       "react-hooks/purity": "off",
+      // Allow <img> elements in demo components that use external images
+      // where next/image optimisation isn't needed or practical
+      "@next/next/no-img-element": "off",
     },
   },
 ];
