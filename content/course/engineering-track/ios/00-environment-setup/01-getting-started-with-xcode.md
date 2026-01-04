@@ -4,16 +4,18 @@
 
 ## Version Requirements
 
-This course is tested with the following versions (January 2026). Newer versions should work fine:
+This course is tested with the following versions (January 2026):
 
 | Tool | Minimum Version | Recommended |
 |------|-----------------|-------------|
-| **macOS** | 14 (Sonoma) | 15 (Sequoia) or latest |
-| **Xcode** | 15.0 | 16.x (latest) |
-| **Swift** | 5.9 | 6.0+ |
-| **iOS SDK** | 17.0 | 18.0+ |
+| **macOS** | 15 (Sequoia) | 26 or latest |
+| **Xcode** | 16.0 | 26 (latest) |
+| **Swift** | 6.0 | Latest |
+| **iOS SDK** | 18.0 | 26 |
 
 **Note:** Xcode only runs on Mac. Windows and Linux users cannot build iOS apps natively.
+
+**What's New in iOS 26:** This version introduces **Liquid Glass**, Apple's new design language featuring translucent, depth-aware materials that respond dynamically to content and context. We'll cover Liquid Glass principles throughout the iOS design and SwiftUI sections.
 
 ## What You'll Learn
 
