@@ -2,13 +2,15 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { NavArrowLeft as ArrowLeft } from "iconoir-react";
 import { FAQAccordion } from "./faq-accordion";
+import { getCourse } from "@/lib/course";
 
 export const metadata: Metadata = {
   title: "FAQ | Design Engineer Course",
   description: "Frequently asked questions about the Design Engineer Course. Learn about pricing, access, curriculum, and more.",
 };
 
-const faqs = [
+function getFaqs(totalLessons: number) {
+  return [
   {
     category: "About the Course",
     questions: [
@@ -26,7 +28,7 @@ const faqs = [
       },
       {
         q: "How long does the course take to complete?",
-        a: "The full course contains 156 lessons across all tracks. At an average pace of 8-10 minutes per lesson, you can complete a single platform track (Web, iOS, or Android) in about 15-20 hours. Most students complete their chosen track in 4-8 weeks while working or studying. You have lifetime access, so you can learn at your own pace.",
+        a: `The full course contains ${totalLessons} lessons across all tracks. At an average pace of 8-10 minutes per lesson, you can complete a single platform track (Web, iOS, or Android) in about 15-20 hours. Most students complete their chosen track in 4-8 weeks while working or studying. You have lifetime access, so you can learn at your own pace.`,
       },
       {
         q: "Do I need any prior experience?",
@@ -39,7 +41,7 @@ const faqs = [
     questions: [
       {
         q: "How much does the course cost?",
-        a: "We offer flexible pricing: individual platform tracks (e.g., Design for Web, Engineering for iOS) are available separately, or you can purchase Convergence All-Access for complete access to EVERYTHING at a significant discount. Convergence includes all 156 lessons across all Design tracks, Engineering tracks, and Convergence content for Web, iOS, and Android. Check our pricing page to see the savings. All purchases include lifetime access.",
+        a: `We offer flexible pricing: individual platform tracks (e.g., Design for Web, Engineering for iOS) are available separately, or you can purchase Convergence All-Access for complete access to EVERYTHING at a significant discount. Convergence includes all ${totalLessons} lessons across all Design tracks, Engineering tracks, and Convergence content for Web, iOS, and Android. Check our pricing page to see the savings. All purchases include lifetime access.`,
       },
       {
         q: "Is there a free trial?",
@@ -144,8 +146,11 @@ const faqs = [
     ],
   },
 ];
+}
 
-export default function FAQPage() {
+export default async function FAQPage() {
+  const course = await getCourse();
+  const faqs = getFaqs(course.totalLessons);
   return (
     <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="container-readable py-12">
