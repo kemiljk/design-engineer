@@ -29,14 +29,15 @@ All critical accuracy issues have been fixed:
 
 1. ✅ Added version requirements tables to all environment setup lessons
 2. ✅ Added CSS Nesting syntax coverage (Baseline 2024 feature)
+3. ✅ **Added iOS 26 Liquid Glass coverage** - Comprehensive design and SwiftUI API documentation
+4. ✅ **Updated iOS version requirements** to Xcode 26 / iOS SDK 26
 
 ### Remaining Recommendations
 
-1. Include iOS 18 design updates when Apple releases new design language
-2. Add more real-world project complexity in capstone exercises
-3. Include CI/CD and deployment workflows in engineering tracks
-4. Consider adding TypeScript introduction to web track
-5. Expand iOS/Android convergence tracks with additional content
+1. Add more real-world project complexity in capstone exercises
+2. Include CI/CD and deployment workflows in engineering tracks
+3. Consider adding TypeScript introduction to web track
+4. Expand iOS/Android convergence tracks with additional content
 
 ---
 
@@ -64,10 +65,11 @@ All critical accuracy issues have been fixed:
 | SwiftUI | ✅ Modern patterns | iOS 17+ features | **Current** |
 | `@Observable` macro | ✅ Used correctly | iOS 17+ (2023) | **Current** |
 | `#Preview` macro | ✅ Used correctly | iOS 17+ | **Current** |
-| Xcode | macOS 14+ mentioned | macOS 14 Sonoma minimum | **Current** |
+| Xcode | ✅ Xcode 26 | Xcode 26 (2025) | **Current** |
 | SF Symbols | ✅ SF Symbols 6 mentioned | SF Symbols 6 (2024) | **Current** |
 | SwiftData | Not covered | Available iOS 17+ | Minor gap |
-| iOS 18 design changes | Not applicable | Monitor for updates | N/A |
+| **Liquid Glass** | ✅ Comprehensive coverage | iOS 26 (2025) | **Excellent** |
+| `.glassEffect()` modifier | ✅ Full API coverage | iOS 26+ | **Current** |
 
 **iOS Track Recency Score: Excellent (5/5)**
 
@@ -251,19 +253,21 @@ None identified. Code patterns and best practices are correctly presented.
 
 ### Track: iOS Engineering
 
-#### Value Score: 4.5/5 - Excellent
+#### Value Score: 5/5 - Excellent
 
 **Strengths:**
 - Modern SwiftUI patterns (`@Observable`, `#Preview`)
 - Clear state management explanation
 - Appropriate scope for designers learning to code
+- ✅ **Liquid Glass SwiftUI APIs** now covered with dedicated lesson
+- ✅ **iOS 26 version requirements** throughout
 
 **Gaps:**
 - No UIKit coverage (acceptable for modern focus)
 - Limited networking/persistence content
 - No SwiftData coverage
 
-**Competitor comparison:** Comparable to Stanford CS193p in technical depth, better for design-focused learners.
+**Competitor comparison:** Comparable to Stanford CS193p in technical depth, better for design-focused learners. **Unique Liquid Glass coverage**.
 
 **Priority:** Low
 
@@ -271,15 +275,15 @@ None identified. Code patterns and best practices are correctly presented.
 
 ### Track: iOS Design
 
-#### Value Score: 4/5 - Good
+#### Value Score: 4.5/5 - Excellent
 
 **Strengths:**
 - Solid HIG coverage
 - SF Symbols integration
 - Platform-specific design patterns
+- ✅ **Liquid Glass design principles** now covered comprehensively
 
 **Gaps:**
-- Could expand on Apple's evolving design language
 - Limited visionOS/spatial design content
 
 **Priority:** Low
@@ -420,6 +424,32 @@ Added comprehensive CSS Nesting syntax coverage to the Selectors Deep Dive lesso
 - Media query nesting
 - Best practices for nesting depth
 
+### Enhancement 3: iOS 26 Liquid Glass Coverage - COMPLETED
+
+Added comprehensive Liquid Glass coverage across iOS tracks:
+
+**iOS Design Track (`01-hig-fundamentals/01-ios-design-philosophy.md`):**
+- Liquid Glass design principles
+- Material characteristics (blur, reflect, react, morph)
+- Where Liquid Glass appears automatically
+- Adoption guidelines for existing apps
+
+**iOS Engineering Track (`02-swiftui-fundamentals/07-liquid-glass.md`):**
+- New dedicated lesson covering:
+  - `.glassEffect()` modifier basics
+  - Custom shapes (`.rect(cornerRadius:)`, `.circle`)
+  - `Glass` structure configuration (`.tint()`, `.interactive()`)
+  - `GlassEffectContainer` for combining effects
+  - `.glassEffectUnion()` for unified glass regions
+  - `.glassEffectID()` for morphing transitions
+  - `GlassEffectTransition` types
+  - Best practices and accessibility considerations
+
+**Updated Files:**
+- `00-environment-setup/01-getting-started-with-xcode.md` - Xcode 26, iOS 26 version requirements
+- `02-swiftui-fundamentals/06-styling-and-theming.md` - References Liquid Glass and `.glass` button style
+- `04-capstone/06-capstone-finalisation.md` - Updated version requirements
+
 ---
 
 ## Recommended Improvements
@@ -457,6 +487,9 @@ Added comprehensive CSS Nesting syntax coverage to the Selectors Deep Dive lesso
 - Apple Developer Documentation: https://developer.apple.com/documentation/
 - Human Interface Guidelines: https://developer.apple.com/design/human-interface-guidelines/
 - SF Symbols: https://developer.apple.com/sf-symbols/
+- Liquid Glass Overview: https://developer.apple.com/documentation/technologyoverviews/liquid-glass
+- Adopting Liquid Glass: https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass
+- Applying Liquid Glass to Custom Views: https://developer.apple.com/documentation/swiftui/applying-liquid-glass-to-custom-views
 
 ### Android
 - Android Developers: https://developer.android.com/
@@ -487,9 +520,14 @@ Added comprehensive CSS Nesting syntax coverage to the Selectors Deep Dive lesso
 1. ✅ Fixed 50+ instances of British English in code (CSS, Kotlin, Swift, JavaScript)
 2. ✅ Added version requirements to all environment setup lessons
 3. ✅ Added CSS Nesting syntax coverage (Baseline 2024)
-4. ✅ Updated evaluation report to reflect completed fixes
+4. ✅ **Added iOS 26 Liquid Glass coverage:**
+   - Design principles in iOS Design Philosophy lesson
+   - New SwiftUI Liquid Glass lesson with full API documentation
+   - Updated version requirements to Xcode 26 / iOS SDK 26
+   - Added `.glass` button style reference in theming lesson
+5. ✅ Updated evaluation report to reflect completed fixes
 
 ---
 
 *Report generated: January 2026*
-*Last updated: After fixes applied*
+*Last updated: After iOS 26 Liquid Glass enhancements*

@@ -31,7 +31,9 @@ Rectangle()
 
 ## Materials
 
-Translucent backgrounds:
+### Traditional Materials
+
+Translucent backgrounds for pre-iOS 26:
 ```swift
 Text("Frosted")
     .padding()
@@ -39,6 +41,10 @@ Text("Frosted")
     .background(.regularMaterial)
     .background(.thickMaterial)
 ```
+
+### Liquid Glass (iOS 26+)
+
+iOS 26 introduces Liquid Glass, a dynamic material that blurs, reflects, and responds to interactions. Standard components adopt it automatically—for custom views, use the `.glassEffect()` modifier. We cover this in detail in [Liquid Glass in SwiftUI](./07-liquid-glass.md).
 
 ## Typography
 
@@ -71,6 +77,10 @@ Button("Prominent") { }
 
 Button("Plain") { }
     .buttonStyle(.plain)
+
+// iOS 26+ Liquid Glass style
+Button("Glass") { }
+    .buttonStyle(.glass)
 ```
 
 ### Custom Button Style
@@ -190,8 +200,6 @@ Create a view and preview it:
 - Environment values access system settings
 - Always test light and dark modes
 
-## Congratulations!
+## Next Steps
 
-You've completed the SwiftUI Fundamentals module!
-
-Continue to [Building Interfaces: Building a Button](../03-building-interfaces/01-building-a-button.md) →
+Continue to [Liquid Glass in SwiftUI](./07-liquid-glass.md) →

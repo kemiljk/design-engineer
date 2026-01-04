@@ -50,8 +50,8 @@ A SwiftUI task management app demonstrating modern iOS development patterns.
 - MVVM-inspired structure
 
 ## Requirements
-- iOS 17.0+ (iOS 18.0+ recommended)
-- Xcode 15+ (Xcode 16+ recommended)
+- iOS 18.0+ (iOS 26 recommended for Liquid Glass)
+- Xcode 16+ (Xcode 26 recommended)
 
 ## Installation
 1. Clone the repository
