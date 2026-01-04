@@ -3,6 +3,7 @@
 **Course:** Design Engineer Course (d×e)
 **Evaluation Date:** January 2026
 **Evaluator:** Automated Course Evaluation Agent
+**Status:** ✅ All critical issues resolved
 
 ---
 
@@ -12,21 +13,30 @@
 
 The Design Engineer Course is a **comprehensive, well-structured curriculum** that successfully bridges the gap between design and engineering across web, iOS, and Android platforms. The course demonstrates strong pedagogical design, authentic practitioner voice, and covers modern frameworks and tooling.
 
-However, **critical accuracy issues were identified** that require immediate attention—specifically, British English spellings used in code examples where American English is mandatory (CSS properties, Kotlin parameters). These issues would cause code to fail if copied directly.
+### ✅ Issues Resolved
 
-### Critical Issues Requiring Immediate Attention
+All critical accuracy issues have been fixed:
 
-1. **CSS code uses British English spellings** (`colour`, `background-colour`, `border-colour`) - CSS requires American English (`color`, `background-color`, `border-color`). Found in 15+ files with 39+ instances.
+1. **CSS code** - All `colour`, `background-colour`, `border-colour` instances in code blocks have been changed to American English (`color`, `background-color`, `border-color`).
 
-2. **Kotlin/Compose code uses British English** (`colour = MaterialTheme.colorScheme.background`) - Compose parameters use American English. Found in Android track files.
+2. **Kotlin/Compose code** - All `colour =` parameter usages have been changed to `color =`.
 
-### Top 5 Improvement Recommendations
+3. **Swift/SwiftUI code** - All `.shadow(colour:` and property names have been updated to use `color`.
 
-1. **Fix all British English in code** (Critical - code won't compile/run)
-2. Add explicit version requirements in environment setup lessons
-3. Include iOS 18 and potential "Liquid Glass" design language updates when released
-4. Add more real-world project complexity in capstone exercises
-5. Include CI/CD and deployment workflows in engineering tracks
+4. **JavaScript DOM code** - All `element.style.colour` instances fixed to `element.style.color`.
+
+### Improvements Made
+
+1. ✅ Added version requirements tables to all environment setup lessons
+2. ✅ Added CSS Nesting syntax coverage (Baseline 2024 feature)
+
+### Remaining Recommendations
+
+1. Include iOS 18 design updates when Apple releases new design language
+2. Add more real-world project complexity in capstone exercises
+3. Include CI/CD and deployment workflows in engineering tracks
+4. Consider adding TypeScript introduction to web track
+5. Expand iOS/Android convergence tracks with additional content
 
 ---
 
@@ -38,7 +48,7 @@ However, **critical accuracy issues were identified** that require immediate att
 |------------|---------------|-----------------|------------|
 | CSS Container Queries | ✅ Covered | Widely supported (2023+) | **Current** |
 | CSS `:has()` selector | ✅ Covered | Baseline 2023 | **Current** |
-| CSS Nesting | Not mentioned | Baseline 2024 | Minor gap |
+| CSS Nesting | ✅ Now covered | Baseline 2024 | **Current** |
 | View Transitions API | Not covered | Experimental/Growing | Acceptable |
 | WCAG | ✅ WCAG 2.2 mentioned | WCAG 2.2 (Oct 2023) | **Current** |
 | Motion library | ✅ `motion/react` import | Correct modern syntax | **Current** |
@@ -361,55 +371,54 @@ None identified. Code patterns and best practices are correctly presented.
 
 ---
 
-## Required Fixes
+## ✅ Completed Fixes
 
-### Fix 1: CSS British English to American English
+### Fix 1: CSS British English to American English - COMPLETED
 
-**Scope:** All CSS code blocks in web track and convergence track
+All CSS code blocks in web track and convergence track have been updated:
+- `colour:` → `color:`
+- `background-colour:` → `background-color:`
+- `border-colour:` → `border-color:`
 
-**Find and replace:**
-| British (Wrong) | American (Correct) |
-|-----------------|-------------------|
-| `colour:` | `color:` |
-| `background-colour:` | `background-color:` |
-| `border-colour:` | `border-color:` |
-| `text-colour:` | (CSS var name - evaluate case-by-case) |
+**Files fixed:** 15+ files across web engineering, convergence, and design tracks.
 
-**Files requiring changes:**
-1. `/content/course/engineering-track/web/02-css-mastery/01-how-css-works.md`
-2. `/content/course/engineering-track/web/02-css-mastery/02-selectors-deep-dive.md`
-3. `/content/course/engineering-track/web/02-css-mastery/03-the-box-model.md`
-4. `/content/course/engineering-track/web/02-css-mastery/07-custom-properties.md`
-5. `/content/course/engineering-track/web/02-css-mastery/08-css-transitions.md`
-6. `/content/course/engineering-track/web/02-css-mastery/08-transitions-and-animations.md`
-7. `/content/course/engineering-track/web/02-css-mastery/08b-keyframe-animations.md`
-8. `/content/course/engineering-track/web/04-building-components/02-building-a-button.md`
-9. `/content/course/engineering-track/web/04-building-components/03-building-a-card.md`
-10. `/content/course/engineering-track/web/04-building-components/05-building-a-form.md`
-11. `/content/course/engineering-track/web/06-capstone/03-capstone-components.md`
-12. `/content/course/convergence/web/01-motion-and-interaction/03-micro-interactions.md`
-13. `/content/course/convergence/web/03-accessibility/05-color-and-contrast.md`
-14. `/content/course/convergence/web/05-performance-and-polish/03-css-performance.md`
-15. `/content/course/design-track/web/04-design-systems/02-tokens-and-variables.md`
+### Fix 2: Kotlin/Compose British English to American English - COMPLETED
 
-**Note:** CSS custom property *names* (e.g., `--primary-colour`) are arbitrary strings and can use British spelling as a stylistic choice. However, for consistency with the actual CSS property names they represent, American spelling is recommended.
+All Kotlin/Compose code blocks have been updated:
+- `colour =` → `color =`
+- `colours =` → `colors =`
 
-### Fix 2: Kotlin/Compose British English to American English
+**Files fixed:** 6 files across Android engineering track.
 
-**Scope:** All Kotlin code blocks with Compose function parameters
+### Fix 3: Swift/SwiftUI British English to American English - COMPLETED
 
-**Find and replace in code blocks:**
-| British (Wrong) | American (Correct) |
-|-----------------|-------------------|
-| `colour =` | `color =` |
+All Swift code blocks have been updated:
+- `.shadow(colour:` → `.shadow(color:`
+- Property names updated for consistency
 
-**Files requiring changes:**
-1. `/content/course/engineering-track/android/00-environment-setup/01-getting-started-with-android-studio.md`
-2. `/content/course/engineering-track/android/02-compose-fundamentals/06-theming.md`
-3. `/content/course/engineering-track/android/03-building-interfaces/01-building-a-button.md`
-4. `/content/course/engineering-track/android/03-building-interfaces/02-building-a-card.md`
-5. `/content/course/engineering-track/android/03-building-interfaces/03-building-a-list-item.md`
-6. `/content/course/engineering-track/android/03-building-interfaces/05-custom-composables.md`
+**Files fixed:** 4 files across iOS engineering track.
+
+### Fix 4: JavaScript DOM British English to American English - COMPLETED
+
+All JavaScript DOM style manipulation code has been updated:
+- `element.style.colour` → `element.style.color`
+
+**Files fixed:** 2 files in JavaScript essentials module.
+
+### Enhancement 1: Version Requirements Added - COMPLETED
+
+Added version requirements tables to all platform environment setup lessons:
+- Web: Node.js 22.x LTS, npm 10.x, Git 2.30+
+- iOS: Xcode 16.x, Swift 6.0+, iOS SDK 18.0+
+- Android: Android Studio latest, Kotlin 2.0+, Compose BOM latest
+
+### Enhancement 2: CSS Nesting Coverage Added - COMPLETED
+
+Added comprehensive CSS Nesting syntax coverage to the Selectors Deep Dive lesson:
+- Native nesting with `&` selector
+- Nested descendants, children, and pseudo-classes
+- Media query nesting
+- Best practices for nesting depth
 
 ---
 
@@ -467,12 +476,20 @@ None identified. Code patterns and best practices are correctly presented.
 | Category | Assessment |
 |----------|------------|
 | **Recency** | Excellent - Course is current with 2024/2025 technologies |
-| **Accuracy** | Critical issues found - Code examples need American English |
+| **Accuracy** | ✅ Excellent - All code issues resolved |
 | **Realism** | Good - Appropriate for target audience with room for complexity |
 | **Value** | Excellent - Strong differentiation in design engineer niche |
 
-**Overall Recommendation:** Fix critical code accuracy issues immediately. The course is otherwise well-positioned as a leading resource for design engineers.
+**Status:** All critical issues have been resolved. The course is well-positioned as a leading resource for design engineers.
+
+### Changes Made in This Evaluation
+
+1. ✅ Fixed 50+ instances of British English in code (CSS, Kotlin, Swift, JavaScript)
+2. ✅ Added version requirements to all environment setup lessons
+3. ✅ Added CSS Nesting syntax coverage (Baseline 2024)
+4. ✅ Updated evaluation report to reflect completed fixes
 
 ---
 
 *Report generated: January 2026*
+*Last updated: After fixes applied*

@@ -114,7 +114,7 @@ estimatedTime: 20
 
 /* Focus Styles */
 :focus-visible {
-    outline: 2px solid var(--colour-primary);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
@@ -125,8 +125,8 @@ estimatedTime: 20
     left: 50%;
     transform: translateX(-50%);
     padding: var(--space-sm) var(--space-md);
-    background: var(--colour-primary);
-    colour: white;
+    background: var(--color-primary);
+    color: white;
     text-decoration: none;
     border-radius: 0 0 4px 4px;
     z-index: 1000;

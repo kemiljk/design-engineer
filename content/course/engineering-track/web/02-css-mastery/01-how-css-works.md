@@ -21,7 +21,7 @@ CSS (Cascading Style Sheets) controls how HTML elements look:
 
 ```css
 h1 {
-  colour: navy;
+  color: navy;
   font-size: 2rem;
 }
 ```
@@ -53,13 +53,13 @@ selector {
 **Internal styles:**
 ```html
 <style>
-  h1 { colour: navy; }
+  h1 { color: navy; }
 </style>
 ```
 
 **Inline styles (avoid for styling):**
 ```html
-<h1 style="colour: navy;">Title</h1>
+<h1 style="color: navy;">Title</h1>
 ```
 
 ## The Cascade
@@ -81,13 +81,13 @@ When styles conflict, these factors determine the winner (in order):
 
 ```css
 /* Rule 1 - less specific */
-p { colour: black; }
+p { color: black; }
 
 /* Rule 2 - more specific */
-.intro { colour: blue; }
+.intro { color: blue; }
 
 /* Rule 3 - same specificity as Rule 2, but later */
-.highlight { colour: red; }
+.highlight { color: red; }
 ```
 
 ```html
@@ -126,16 +126,16 @@ Count the IDs, classes, and elements:
 
 ```css
 /* Specificity: 0,0,1 */
-p { colour: black; }
+p { color: black; }
 
 /* Specificity: 0,1,0 — wins over above */
-.text { colour: blue; }
+.text { color: blue; }
 
 /* Specificity: 0,1,1 */
-p.text { colour: green; }
+p.text { color: green; }
 
 /* Specificity: 1,0,0 — wins over all above */
-#intro { colour: red; }
+#intro { color: red; }
 ```
 
 ### !important
@@ -143,7 +143,7 @@ p.text { colour: green; }
 The nuclear option:
 
 ```css
-p { colour: red !important; }
+p { color: red !important; }
 ```
 
 This overrides everything except other `!important` rules with higher specificity.
@@ -157,7 +157,7 @@ Some CSS properties pass from parent to child elements.
 ### Inherited Properties
 
 Text-related properties typically inherit:
-- `colour`
+- `color`
 - `font-family`
 - `font-size`
 - `line-height`
@@ -166,7 +166,7 @@ Text-related properties typically inherit:
 ```css
 body {
   font-family: Arial, sans-serif;
-  colour: #333;
+  color: #333;
 }
 ```
 
@@ -202,9 +202,9 @@ Children of `.container` don't automatically have borders.
 
 ```css
 .element {
-  colour: inherit;  /* Use parent's value */
-  colour: initial;  /* Use browser default */
-  colour: unset;    /* inherit if inherited property, initial otherwise */
+  color: inherit;  /* Use parent's value */
+  color: initial;  /* Use browser default */
+  color: unset;    /* inherit if inherited property, initial otherwise */
 }
 ```
 
@@ -291,11 +291,11 @@ Organize CSS predictably:
 Without running the code, predict the colour:
 
 ```css
-p { colour: black; }
-.text { colour: blue; }
-p.text { colour: green; }
-#intro { colour: red; }
-p#intro.text { colour: purple; }
+p { color: black; }
+.text { color: blue; }
+p.text { color: green; }
+#intro { color: red; }
+p#intro.text { color: purple; }
 ```
 
 ```html
@@ -315,7 +315,7 @@ Create a nested structure:
 </div>
 ```
 
-Test which properties inherit (colour, border, margin) and which don't.
+Test which properties inherit (`color`, `border`, `margin`) and which don't.
 
 ## Test Your Understanding
 
@@ -326,7 +326,7 @@ Test which properties inherit (colour, border, margin) and which don't.
   "title": "CSS Specificity",
   "description": "Test your understanding of CSS cascade and specificity.",
   "difficulty": "medium",
-  "question": "If an element has both a class (.button) and an ID (#submit), and both have conflicting background-colour rules, which wins?",
+  "question": "If an element has both a class (.button) and an ID (#submit), and both have conflicting background-color rules, which wins?",
   "options": [
     {
       "id": "a",

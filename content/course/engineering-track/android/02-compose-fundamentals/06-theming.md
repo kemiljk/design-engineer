@@ -51,11 +51,11 @@ private val DarkColorScheme = darkColorScheme(
 ```kotlin
 Text(
     text = "Primary",
-    colour = MaterialTheme.colorScheme.primary
+    color = MaterialTheme.colorScheme.primary
 )
 
 Surface(
-    colour = MaterialTheme.colorScheme.surface
+    color = MaterialTheme.colorScheme.surface
 ) { }
 ```
 
@@ -147,7 +147,7 @@ CompositionLocalProvider(
 
 // Use
 val customColors = LocalCustomColors.current
-Text(colour = customColors.success)
+Text(color = customColors.success)
 ```
 
 ## Try It Yourself

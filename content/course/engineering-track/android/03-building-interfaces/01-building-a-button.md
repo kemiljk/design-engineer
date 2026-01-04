@@ -53,7 +53,7 @@ IconButton(onClick = { }) {
 ```kotlin
 Button(
     onClick = { },
-    colours = ButtonDefaults.buttonColors(
+    colors = ButtonDefaults.buttonColors(
         containerColor = Color(0xFF6200EE),
         contentColor = Color.White
     ),
@@ -85,7 +85,7 @@ fun CustomButton(
     ) {
         Text(
             text = text,
-            colour = if (enabled) MaterialTheme.colorScheme.onPrimary
+            color = if (enabled) MaterialTheme.colorScheme.onPrimary
                    else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
             style = MaterialTheme.typography.labelLarge
         )
@@ -109,7 +109,7 @@ fun LoadingButton(
         if (isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.size(20.dp),
-                colour = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 strokeWidth = 2.dp
             )
             Spacer(Modifier.width(8.dp))

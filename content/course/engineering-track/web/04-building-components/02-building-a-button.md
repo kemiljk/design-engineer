@@ -56,13 +56,13 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
   border-radius: 0.5rem;
   font-weight: 500;
 
-  /* Default colours */
-  background-colour: var(--colour-primary);
-  colour: white;
+  /* Default colors */
+  background-color: var(--color-primary);
+  color: white;
 
   /* Transition for states */
   transition:
-    background-colour 0.15s ease,
+    background-color 0.15s ease,
     transform 0.1s ease;
 }
 ```
@@ -72,12 +72,12 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
 ```css
 /* Hover */
 .button:hover {
-  background-colour: var(--colour-primary-dark);
+  background-color: var(--color-primary-dark);
 }
 
 /* Focus (keyboard navigation) */
 .button:focus-visible {
-  outline: 2px solid var(--colour-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -98,27 +98,27 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
 ```css
 /* Primary (default) */
 .button--primary {
-  background-colour: var(--colour-primary);
-  colour: white;
+  background-color: var(--color-primary);
+  color: white;
 }
 
 /* Secondary */
 .button--secondary {
-  background-colour: var(--colour-neutral-100);
-  colour: var(--colour-neutral-900);
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-900);
 }
 
 /* Ghost/Outline */
 .button--ghost {
-  background-colour: transparent;
+  background-color: transparent;
   border: 1px solid currentColor;
-  colour: var(--colour-primary);
+  color: var(--color-primary);
 }
 
 /* Danger */
 .button--danger {
-  background-colour: var(--colour-error);
-  colour: white;
+  background-color: var(--color-error);
+  color: white;
 }
 ```
 

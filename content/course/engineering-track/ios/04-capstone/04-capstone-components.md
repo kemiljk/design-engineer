@@ -88,7 +88,7 @@ struct CardStyle: ViewModifier {
             .padding()
             .background(.background)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(colour: .black.opacity(0.1), radius: 4, y: 2)
+            .shadow(color: .black.opacity(0.1), radius: 4, y: 2)
     }
 }
 

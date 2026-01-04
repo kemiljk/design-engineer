@@ -2,6 +2,19 @@
 
 > **Quick Summary:** Android Studio is Google's official development environment for building Android apps. Setting it up properly is your first step towards bringing your Material Design creations to life.
 
+## Version Requirements
+
+This course is tested with the following versions (January 2026). Newer versions should work fine:
+
+| Tool | Minimum Version | Recommended |
+|------|-----------------|-------------|
+| **Android Studio** | Hedgehog (2023.1) | Latest stable |
+| **Kotlin** | 1.9 | 2.0+ |
+| **Jetpack Compose** | 1.5 | Latest BOM |
+| **Minimum SDK** | API 26 (Android 8.0) | API 26+ |
+| **Target SDK** | API 34 | API 35 (Android 15) |
+| **Gradle** | 8.0 | Latest compatible |
+
 ## What You'll Learn
 
 - What Android Studio is and why it's required
@@ -217,7 +230,7 @@ class MainActivity : ComponentActivity() {
             MyFirstAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    colour = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
                 }

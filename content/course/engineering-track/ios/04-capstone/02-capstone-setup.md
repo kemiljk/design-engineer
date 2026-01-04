@@ -67,7 +67,7 @@ enum Priority: Int, Codable, CaseIterable {
         }
     }
     
-    var colour: Color {
+    var color: Color {
         switch self {
         case .low: return .green
         case .medium: return .orange

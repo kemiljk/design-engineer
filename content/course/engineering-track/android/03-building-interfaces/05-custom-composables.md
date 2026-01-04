@@ -109,7 +109,7 @@ fun Badge(
         modifier = modifier
             .background(backgroundColor, RoundedCornerShape(4.dp))
             .padding(horizontal = 8.dp, vertical = 4.dp),
-        colour = textColor,
+        color = textColor,
         style = MaterialTheme.typography.labelSmall
     )
 }

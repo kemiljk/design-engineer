@@ -38,7 +38,7 @@ The foundation of any component library:
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--colour-primary-500);
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
@@ -49,23 +49,23 @@ The foundation of any component library:
 
 /* Variants */
 .btn--primary {
-  background: var(--colour-primary-500);
-  colour: white;
+  background: var(--color-primary-500);
+  color: white;
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: var(--colour-primary-600);
+  background: var(--color-primary-600);
 }
 
 .btn--secondary {
   background: transparent;
-  border-colour: var(--colour-border);
-  colour: var(--colour-text-primary);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
 }
 
 .btn--ghost {
   background: transparent;
-  colour: var(--colour-text-primary);
+  color: var(--color-text-primary);
 }
 
 /* Sizes */

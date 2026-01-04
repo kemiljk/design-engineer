@@ -58,7 +58,7 @@ fun ContentCard(
                 Text(
                     text = description,
                     style = MaterialTheme.typography.bodyMedium,
-                    colour = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -134,7 +134,7 @@ fun CustomCard(
     Surface(
         modifier = modifier,
         shape = RoundedCornerShape(16.dp),
-        colour = MaterialTheme.colorScheme.surfaceVariant,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         tonalElevation = 2.dp
     ) {
         Box(modifier = Modifier.padding(16.dp)) {

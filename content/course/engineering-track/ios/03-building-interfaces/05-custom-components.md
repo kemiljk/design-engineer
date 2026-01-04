@@ -77,11 +77,11 @@ LoadingView(isLoading: viewModel.isLoading) {
 ```swift
 struct Badge: View {
     let text: String
-    let colour: Color
+    let color: Color
     
-    init(_ text: String, colour: Color = .blue) {
+    init(_ text: String, color: Color = .blue) {
         self.text = text
-        self.colour = colour
+        self.color = color
     }
     
     var body: some View {
@@ -89,13 +89,13 @@ struct Badge: View {
             .font(.caption)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
-            .background(colour, in: Capsule())
+            .background(color, in: Capsule())
             .foregroundStyle(.white)
     }
 }
 
 Badge("New")
-Badge("Sale", colour: .red)
+Badge("Sale", color: .red)
 ```
 
 ### Via Environment

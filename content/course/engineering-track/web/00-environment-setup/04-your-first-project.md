@@ -99,7 +99,7 @@ body {
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  colour: white;
+  color: white;
 }
 
 main {

@@ -2,6 +2,19 @@
 
 > **Quick Summary:** Xcode is Apple's integrated development environment (IDE) for building iOS, macOS, watchOS, and tvOS apps. Setting it up properly is essential before you can bring your designs to life on Apple platforms.
 
+## Version Requirements
+
+This course is tested with the following versions (January 2026). Newer versions should work fine:
+
+| Tool | Minimum Version | Recommended |
+|------|-----------------|-------------|
+| **macOS** | 14 (Sonoma) | 15 (Sequoia) or latest |
+| **Xcode** | 15.0 | 16.x (latest) |
+| **Swift** | 5.9 | 6.0+ |
+| **iOS SDK** | 17.0 | 18.0+ |
+
+**Note:** Xcode only runs on Mac. Windows and Linux users cannot build iOS apps natively.
+
 ## What You'll Learn
 
 - What Xcode is and why it's required

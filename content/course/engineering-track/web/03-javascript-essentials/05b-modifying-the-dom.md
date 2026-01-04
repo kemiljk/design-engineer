@@ -187,13 +187,13 @@ element.classList.replace('old', 'new');
 ### Inline Styles
 
 ```javascript
-element.style.colour = 'blue';
+element.style.color = 'blue';
 element.style.backgroundColor = 'yellow';  // camelCase
 element.style.fontSize = '18px';
 
 // Multiple styles
 Object.assign(element.style, {
-  colour: 'blue',
+  color: 'blue',
   backgroundColor: 'yellow',
   padding: '10px'
 });

@@ -182,7 +182,7 @@ Most properties with numeric or colour values:
 ```css
 .button {
   background: #3b82f6;
-  colour: white;
+  color: white;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 0.5rem;
