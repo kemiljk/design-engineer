@@ -16,7 +16,7 @@
 Targets elements by tag name:
 
 ```css
-p { colour: #333; }
+p { color: #333; }
 h1 { font-size: 2rem; }
 ```
 
@@ -126,7 +126,7 @@ input[required] {
 /* Data attributes */
 [data-theme="dark"] {
   background: #1a1a1a;
-  colour: white;
+  color: white;
 }
 ```
 
@@ -188,7 +188,7 @@ h1 ~ p { margin-left: 1rem; }
 
 ```css
 /* All links in nav (descendant) */
-.nav a { colour: white; }
+.nav a { color: white; }
 
 /* Only direct children ul (child) */
 .nav > ul { display: flex; }
@@ -205,7 +205,7 @@ Pseudo-classes target elements in specific states or patterns.
 
 ```css
 /* Mouse over */
-a:hover { colour: blue; }
+a:hover { color: blue; }
 
 /* Keyboard focus */
 a:focus { outline: 2px solid blue; }
@@ -220,8 +220,8 @@ button:focus-visible { outline: 2px solid blue; }
 ### Link States
 
 ```css
-a:link { colour: blue; }      /* Unvisited */
-a:visited { colour: purple; } /* Visited */
+a:link { color: blue; }      /* Unvisited */
+a:visited { color: purple; } /* Visited */
 ```
 
 Order matters: `:link`, `:visited`, `:hover`, `:active` (LVHA).
@@ -229,13 +229,13 @@ Order matters: `:link`, `:visited`, `:hover`, `:active` (LVHA).
 ### Form States
 
 ```css
-input:focus { border-colour: blue; }
+input:focus { border-color: blue; }
 input:disabled { opacity: 0.5; }
 input:checked { ... } /* Checkboxes, radios */
 input:required { ... }
 input:optional { ... }
-input:valid { border-colour: green; }
-input:invalid { border-colour: red; }
+input:valid { border-color: green; }
+input:invalid { border-color: red; }
 input:placeholder-shown { ... }
 ```
 
@@ -307,7 +307,7 @@ Create content before or after an element:
 ```css
 .required-field::before {
   content: "* ";
-  colour: red;
+  color: red;
 }
 
 .external-link::after {
@@ -337,7 +337,7 @@ Style selected text:
 ```css
 ::selection {
   background: yellow;
-  colour: black;
+  color: black;
 }
 ```
 
@@ -347,7 +347,7 @@ Style input placeholders:
 
 ```css
 input::placeholder {
-  colour: #999;
+  color: #999;
   font-style: italic;
 }
 ```
@@ -358,7 +358,7 @@ Style list markers:
 
 ```css
 li::marker {
-  colour: blue;
+  color: blue;
   font-weight: bold;
 }
 ```
@@ -401,6 +401,85 @@ Single-purpose classes:
 .mt-4 { margin-top: 1rem; }
 .hidden { display: none; }
 ```
+
+## CSS Nesting
+
+Native CSS now supports nesting (Baseline 2024), similar to Sass:
+
+```css
+.card {
+  padding: 1rem;
+  background: white;
+  
+  /* Nested selector - equivalent to .card:hover */
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Nested descendant - equivalent to .card .title */
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  /* Nested child - equivalent to .card > .content */
+  > .content {
+    margin-top: 0.5rem;
+  }
+  
+  /* Media query nesting */
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+```
+
+### The & Selector
+
+The `&` represents the parent selector:
+
+```css
+.button {
+  background: blue;
+  
+  &:hover { background: darkblue; }
+  &:focus { outline: 2px solid blue; }
+  &:disabled { opacity: 0.5; }
+  
+  /* Compound: .button.primary */
+  &.primary { background: green; }
+  
+  /* Parent context: .dark .button */
+  .dark & { background: lightblue; }
+}
+```
+
+### When to Nest
+
+Nesting improves readability for related styles, but don't over-nest:
+
+```css
+/* Good: Related styles grouped */
+.nav {
+  display: flex;
+  
+  a { color: white; }
+  a:hover { text-decoration: underline; }
+}
+
+/* Avoid: Too deeply nested */
+.page {
+  .container {
+    .sidebar {
+      .widget {
+        .title { /* Too deep! */ }
+      }
+    }
+  }
+}
+```
+
+Keep nesting shallow (2-3 levels max) to maintain readability and avoid specificity issues.
 
 ## Try It Yourself
 
@@ -470,6 +549,7 @@ Create navigation where:
 - Combinators express relationships: descendant, child, sibling
 - Pseudo-classes target states: `:hover`, `:focus`, `:nth-child()`
 - Pseudo-elements create virtual elements: `::before`, `::after`
+- Native CSS nesting with `&` is now baseline (2024)
 - Keep selectors simple and specificity low
 - `:has()` is a powerful parent selector (modern browsers)
 

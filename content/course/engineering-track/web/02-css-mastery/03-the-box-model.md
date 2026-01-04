@@ -61,7 +61,7 @@ The visible edge of the element:
   
   border-width: 1px;
   border-style: solid;      /* solid, dashed, dotted, double, none */
-  border-colour: black;
+  border-color: black;
 }
 ```
 

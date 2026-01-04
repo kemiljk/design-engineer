@@ -2,6 +2,21 @@
 
 > **Quick Summary:** Xcode is Apple's integrated development environment (IDE) for building iOS, macOS, watchOS, and tvOS apps. Setting it up properly is essential before you can bring your designs to life on Apple platforms.
 
+## Version Requirements
+
+This course is tested with the following versions (January 2026):
+
+| Tool | Minimum Version | Recommended |
+|------|-----------------|-------------|
+| **macOS** | 15 (Sequoia) | 26 or latest |
+| **Xcode** | 16.0 | 26 (latest) |
+| **Swift** | 6.0 | Latest |
+| **iOS SDK** | 18.0 | 26 |
+
+**Note:** Xcode only runs on Mac. Windows and Linux users cannot build iOS apps natively.
+
+**What's New in iOS 26:** This version introduces **Liquid Glass**, Apple's new design language featuring translucent, depth-aware materials that respond dynamically to content and context. We'll cover Liquid Glass principles throughout the iOS design and SwiftUI sections.
+
 ## What You'll Learn
 
 - What Xcode is and why it's required

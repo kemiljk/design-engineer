@@ -77,26 +77,52 @@ The latest evolution (Material You):
 
 ## Material 3 Expressive
 
-The newest evolution of Material Design (2024+), focusing on emotional, personality-driven design:
+The newest evolution of Material Design (2024+), built on extensive research to create emotional, personality-driven design that actually improves usability.
 
-### What's New
-- **Motion with personality:** Components now feature more playful, bouncy animations
-- **Richer visual expressions:** Enhanced use of colour, shape, and motion to convey emotion
-- **Adaptive components:** UI elements that respond more dynamically to user interactions
-- **Emphasis on delight:** Design principles that prioritise joy and engagement
+### The Research Behind M3 Expressive
 
-### Key Principles
-- **Emotional resonance:** Interfaces that connect emotionally with users
+Google conducted **46 research studies** with **18,000+ participants** worldwide to validate expressive design:
+
+| Finding | Result |
+|---------|--------|
+| **Preference** | 87% of 18-24 year olds preferred expressive designs |
+| **Subculture perception** | 32% increase—designs feel more relevant |
+| **Modernity** | 34% boost—designs feel fresh and forward-thinking |
+| **UI element recognition** | Users spotted key elements **4x faster** |
+| **Age equalisation** | Older users performed on par with younger users |
+
+### Why It Works
+
+M3 Expressive designs were rated significantly higher for:
+- Energetic and emotive
+- Positive vibe
+- Creative and playful
+- Friendly and approachable
+
+Most importantly: expressive design **improves usability**, not just aesthetics. Strategic use of colour, size, shape, and containment draws attention to key elements and helps users navigate faster.
+
+### What's New in M3 Expressive
+
+- **Bold colour and shape:** Enhanced use of colour and rounded forms
+- **Motion with personality:** Playful, bouncy, spring-based animations
+- **Larger touch targets:** Extra-large button options for better accessibility
+- **Adaptive components:** UI elements that respond dynamically to interactions
+- **Shape morphing:** Containers that animate between states
+
+### Key Design Principles
+
+- **Emotional resonance:** Interfaces that connect with users on an emotional level
 - **Personality expression:** Components that reflect brand character through motion and form
 - **Contextual adaptation:** Elements that respond appropriately to different contexts
 - **Enhanced feedback:** More expressive responses to user interactions
 
-### Impact on Design
-Material 3 Expressive builds on M3's foundations whilst adding:
-- Spring-based animations for more natural motion
-- More expressive component states (hover, press, focus)
-- Enhanced micro-interactions throughout the system
-- Greater emphasis on motion as a design tool
+### Context Still Matters
+
+While expressive design offers exciting possibilities, respect established UI patterns:
+- Don't replace familiar patterns with unfamiliar layouts
+- Keep text labels for important actions
+- Maintain basic functionality first
+- Expressive design enhances—it doesn't replace—usability
 
 ## Android Identity
 

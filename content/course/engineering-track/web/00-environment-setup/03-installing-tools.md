@@ -2,6 +2,18 @@
 
 > **Quick Summary:** Learn how to install the essential tools for web development using package managers. We'll set up Homebrew (Mac) or Chocolatey (Windows), Node.js, and npm, which form the foundation for modern web projects.
 
+## Version Requirements
+
+This course is tested with the following versions (January 2026). Newer versions should work fine:
+
+| Tool | Minimum Version | Recommended |
+|------|-----------------|-------------|
+| **Node.js** | 18.x (LTS) | 22.x (Current LTS) |
+| **npm** | 9.x | 10.x |
+| **Git** | 2.30+ | Latest |
+| **Homebrew** (Mac) | 4.x | Latest |
+| **VS Code** | 1.80+ | Latest |
+
 ## What You'll Learn
 
 - What package managers are and why they matter

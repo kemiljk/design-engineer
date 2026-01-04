@@ -77,7 +77,7 @@ enum class Priority {
     val label: String
         get() = name.lowercase().replaceFirstChar { it.uppercase() }
     
-    val colour: Color
+    val color: Color
         get() = when (this) {
             LOW -> Color(0xFF4CAF50)
             MEDIUM -> Color(0xFFFF9800)

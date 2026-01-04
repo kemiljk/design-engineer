@@ -70,10 +70,10 @@ Don't rely on colour alone:
 
 ```html
 <!-- Bad: Only colour indicates error -->
-<input style="border-colour: red">
+<input style="border-color: red">
 
 <!-- Good: Color + icon + text -->
-<input style="border-colour: red" aria-invalid="true">
+<input style="border-color: red" aria-invalid="true">
 <span class="error">
   <svg><!-- error icon --></svg>
   Invalid email address
@@ -90,7 +90,7 @@ Use multiple visual cues:
 
 ```html
 <!-- Links: underline + colour -->
-<a href="/about" style="colour: blue; text-decoration: underline">
+<a href="/about" style="color: blue; text-decoration: underline">
   About us
 </a>
 

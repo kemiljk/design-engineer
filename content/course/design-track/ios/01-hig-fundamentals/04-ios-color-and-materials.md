@@ -1,12 +1,13 @@
-# iOS Color and Materials
+# iOS Colour and Materials
 
-> **Quick Summary:** iOS uses system colours that adapt to appearance modes and accessibility settings, plus translucent materials that create depth.
+> **Quick Summary:** iOS 26 introduces **Liquid Glass**, a dynamic material that unifies Apple's design language. Combined with system colours and standard materials, you can create beautiful, adaptive interfaces.
 
 ## What You'll Learn
 
+- The two types of iOS materials: Liquid Glass and Standard Materials
+- Liquid Glass variants (Regular and Clear)
 - System colours and semantic colours
 - Dark mode considerations
-- Materials and blur effects
 - Designing for accessibility
 
 ## System Colors
@@ -58,26 +59,53 @@ iOS apps should support both light and dark appearance:
 
 ## Materials
 
-Translucent, blurred backgrounds:
+iOS features two types of materials that help visually separate foreground elements from background content.
 
-### Material Types
-- **Ultra Thin:** Most transparent
-- **Thin:** Subtle blur
-- **Regular:** Balanced
-- **Thick:** More opaque
-- **Chrome:** For bars and toolbars
+### Liquid Glass (iOS 26+)
 
-### When to Use Materials
-- Navigation bars
-- Tab bars
+**Liquid Glass** is the new dynamic material that forms a distinct functional layer for controls and navigation elements—floating above the content layer.
+
+#### Characteristics
+- **Blurs content** behind it whilst maintaining legibility
+- **Reflects colour and light** from surrounding content
+- **Reacts to interactions** with fluid motion
+- **Morphs between states** during transitions
+
+#### Where Liquid Glass Appears
+Liquid Glass automatically applies to:
+- Navigation bars and tab bars
+- Toolbars and sidebars
 - Sheets and popovers
-- Cards over rich backgrounds
+- Buttons and controls
+- Scroll edge effects
 
-### Effect
-- Shows content underneath (blurred)
-- Creates visual depth
-- Maintains context
-- Feels lightweight
+#### Liquid Glass Variants
+
+| Variant | Use Case |
+|---------|----------|
+| **Regular** | Most components—maintains legibility for text, alerts, sidebars, popovers |
+| **Clear** | Floating above photos/videos—highly translucent for immersive media experiences |
+
+#### Design Guidelines
+- **Don't overuse.** Reserve Liquid Glass for functional elements (controls, navigation). Overuse distracts from content.
+- **Separate content from navigation.** Establish a clear hierarchy with navigation floating above content.
+- **Let content infuse the material.** Be judicious with colour in controls so content can shine through.
+- **Test with accessibility settings.** Liquid Glass adapts when users enable Reduce Transparency or Reduce Motion.
+
+### Standard Materials (Content Layer)
+
+Use standard materials within the content layer to create visual distinction:
+
+| Material | Transparency | Use Case |
+|----------|-------------|----------|
+| **Ultra Thin** | Most transparent | Subtle overlay |
+| **Thin** | High transparency | Light separation |
+| **Regular** | Balanced | Default choice |
+| **Thick** | Less transparent | Strong separation |
+
+### When to Use Each Type
+- **Liquid Glass:** Navigation and controls (floating layer)
+- **Standard Materials:** Content backgrounds, cards, and visual distinction within the content layer
 
 ## Vibrancy
 
@@ -112,17 +140,28 @@ Pair colour with:
 
 ## Try It Yourself
 
-### Exercise 1: Color Palette
+### Exercise 1: Liquid Glass Audit
+
+Open Apple's built-in apps on iOS 26:
+1. Identify where Liquid Glass appears (navigation bars, tab bars, toolbars)
+2. Notice how content blurs behind Liquid Glass elements
+3. Observe how the material reflects surrounding colours
+4. Interact with controls and watch the fluid response
+
+### Exercise 2: Colour Palette
 
 Create a colour palette using system colours:
-- Background colours
-- Text colours
-- Accent colours
-- Ensure both modes work
+- Background colours for the content layer
+- Text colours at different hierarchy levels
+- Accent colours (use sparingly with Liquid Glass)
+- Ensure both light and dark modes work
 
-### Exercise 2: Material Exploration
+### Exercise 3: Material Hierarchy
 
-In Figma or Sketch, experiment with material effects over different background images.
+Sketch a simple app screen showing:
+- The Liquid Glass layer (navigation, controls)
+- The content layer (using standard materials where needed)
+- Clear visual separation between layers
 
 ## Test Your Understanding
 
@@ -130,34 +169,34 @@ In Figma or Sketch, experiment with material effects over different background i
 {
   "id": "ios-materials-quiz",
   "type": "multiple-choice",
-  "title": "iOS Colors and Materials",
-  "description": "Test your understanding of iOS visual system.",
+  "title": "iOS Colours and Materials",
+  "description": "Test your understanding of iOS materials including Liquid Glass.",
   "difficulty": "medium",
-  "question": "What are 'materials' in iOS design?",
+  "question": "In iOS 26, what is the difference between Liquid Glass and Standard Materials?",
   "options": [
     {
       "id": "a",
-      "text": "Solid background colours for containers",
+      "text": "Liquid Glass is for dark mode, Standard Materials are for light mode",
       "isCorrect": false,
-      "explanation": "Materials are more sophisticated than simple solid colours."
+      "explanation": "Both material types work in both light and dark modes—they serve different purposes in the interface hierarchy."
     },
     {
       "id": "b",
-      "text": "Translucent surfaces with blur effects that show depth and context",
+      "text": "Liquid Glass forms the navigation/controls layer above content; Standard Materials are for the content layer",
       "isCorrect": true,
-      "explanation": "Correct! iOS materials are semi-transparent layers with blur (vibrancy) that let underlying content show through, creating depth and context while maintaining legibility."
+      "explanation": "Correct! Liquid Glass creates a distinct functional layer for navigation and controls that floats above content. Standard Materials (ultra-thin, thin, regular, thick) are used within the content layer for visual distinction."
     },
     {
       "id": "c",
-      "text": "Textures that mimic real-world surfaces",
+      "text": "They're the same thing with different names",
       "isCorrect": false,
-      "explanation": "That's skeuomorphism. iOS materials are about translucency and depth, not texture simulation."
+      "explanation": "They're distinct material systems with different visual properties and use cases."
     },
     {
       "id": "d",
-      "text": "The colour palette used for icons",
+      "text": "Liquid Glass is only for iPads, Standard Materials are for iPhones",
       "isCorrect": false,
-      "explanation": "Materials are about surface treatments, not icon colours."
+      "explanation": "Both material systems work across all Apple platforms including iPhone and iPad."
     }
   ]
 }
@@ -165,14 +204,14 @@ In Figma or Sketch, experiment with material effects over different background i
 
 ## Key Takeaways
 
+- **Liquid Glass** is the new material for navigation and controls in iOS 26
+- Use **Regular** variant for text-heavy elements, **Clear** variant for media experiences
+- **Standard Materials** are for the content layer—creating visual distinction
 - Use semantic system colours for automatic adaptation
 - Design for both light and dark modes
-- Materials create depth through translucency
-- Elevated surfaces behave differently in each mode
-- Always consider accessibility
+- Don't overuse Liquid Glass—reserve for functional elements
+- Always test with accessibility settings (Reduce Transparency, Reduce Motion)
 
-## Congratulations!
+## Next Steps
 
-You've completed the HIG Fundamentals module!
-
-Continue to [iOS Design Patterns: Standard UI Components](../02-ios-design-patterns/01-standard-ui-components.md) →
+Continue to [Adopting Liquid Glass](./05-adopting-liquid-glass.md) →
