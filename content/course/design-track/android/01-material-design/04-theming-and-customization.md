@@ -185,8 +185,6 @@ Which fits your brand?
 - Use tools like Material Theme Builder
 - Document and systematise your theme
 
-## Congratulations!
+## Next Steps
 
-You've completed the Material Design Fundamentals module!
-
-Continue to [Android Design Patterns: Android Navigation](../02-android-design-patterns/01-android-navigation.md) →
+Continue to [Material 3 Expressive](./05-material-3-expressive.md) →

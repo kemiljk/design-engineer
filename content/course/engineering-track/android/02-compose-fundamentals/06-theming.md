@@ -150,6 +150,60 @@ val customColors = LocalCustomColors.current
 Text(color = customColors.success)
 ```
 
+## Material 3 Expressive Features
+
+Material 3 Expressive introduces enhanced theming capabilities for more dynamic, emotional interfaces.
+
+### Expressive Shapes
+
+Define shapes that can morph during interactions:
+
+```kotlin
+val Shapes = Shapes(
+    // Smaller radius for buttons
+    small = RoundedCornerShape(8.dp),
+    // Medium for cards
+    medium = RoundedCornerShape(16.dp),
+    // Larger for sheets and dialogs
+    large = RoundedCornerShape(24.dp),
+    // Extra large for containers
+    extraLarge = RoundedCornerShape(32.dp)
+)
+```
+
+### Animated Shape Changes
+
+```kotlin
+val cornerRadius by animateDpAsState(
+    targetValue = if (isPressed) 8.dp else 24.dp,
+    animationSpec = spring(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessLow
+    )
+)
+
+Surface(
+    shape = RoundedCornerShape(cornerRadius),
+    // ...
+) { }
+```
+
+### Spring-Based Motion
+
+M3 Expressive favours bouncy, spring-based animations:
+
+```kotlin
+val scale by animateFloatAsState(
+    targetValue = if (isPressed) 0.95f else 1f,
+    animationSpec = spring(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessMedium
+    )
+)
+```
+
+These expressive patterns create interfaces that feel more dynamic and engaging whilst maintaining usability.
+
 ## Try It Yourself
 
 ### Exercise 1: Custom Theme

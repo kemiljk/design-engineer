@@ -29,6 +29,14 @@ Motion reflects personality:
 - Appropriate energy level
 - Consistent feel
 
+### M3 Expressive Motion
+
+Material 3 Expressive takes expression further:
+- **Spring-based physics:** Bouncy, playful animations
+- **Variable font animation:** Font weight/width changes during interaction
+- **Shape morphing:** Containers animate between states
+- **Dynamic feedback:** Richer responses to user input
+
 ## Transition Patterns
 
 ### Container Transform

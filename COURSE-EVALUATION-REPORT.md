@@ -79,7 +79,9 @@ All critical accuracy issues have been fixed:
 |------------|---------------|-----------------|------------|
 | Jetpack Compose | ✅ Modern patterns | Current | **Current** |
 | Material Design 3 | ✅ Comprehensive | Current | **Current** |
-| Material 3 Expressive | ✅ Mentioned (2024+) | Latest evolution | **Excellent** |
+| Material 3 Expressive | ✅ **Full coverage with research** | Latest evolution | **Excellent** |
+| M3 Expressive Research | ✅ 46 studies, 18K participants | Google's UX research | **Excellent** |
+| Wear OS Design Language | ✅ Edge-hugging, variable fonts | Latest patterns | **Current** |
 | Dynamic Color | ✅ Covered | Android 12+ | **Current** |
 | Kotlin DSL | ✅ Recommended | Current best practice | **Current** |
 | Kotlin Multiplatform | Not covered | Growing adoption | Minor gap |
@@ -316,12 +318,18 @@ None identified. Code patterns and best practices are correctly presented.
 
 ### Track: Android Design
 
-#### Value Score: 4.5/5 - Excellent
+#### Value Score: 5/5 - Excellent
 
 **Strengths:**
 - Comprehensive Material Design coverage
 - Dynamic color explained well
-- Material 3 Expressive inclusion is excellent
+- ✅ **Material 3 Expressive with full research backing:**
+  - 46 studies, 18,000+ participants
+  - Quantified usability improvements (4x faster UI recognition)
+  - Age equalisation findings
+  - Accessibility benefits
+- ✅ **Wear OS design language** (edge-hugging buttons, variable fonts)
+- ✅ **Expressive motion patterns** (spring physics, shape morphing)
 
 **Gaps:**
 - Could expand on designing for foldables/large screens
@@ -551,7 +559,13 @@ Added comprehensive Liquid Glass coverage across iOS tracks:
    - New SwiftUI Liquid Glass lesson with full API documentation
    - Updated version requirements to Xcode 26 / iOS SDK 26
    - Added `.glass` button style reference in theming lesson
-5. ✅ Updated evaluation report to reflect completed fixes
+5. ✅ **Added Material 3 Expressive research and patterns:**
+   - Updated Material Design Philosophy with research findings
+   - New M3 Expressive lesson with research data, colour, typography, shape, and motion
+   - Added Wear OS design language patterns (edge-hugging buttons, arc text)
+   - Updated motion principles with expressive motion concepts
+   - Added expressive theming to Compose engineering track
+6. ✅ Updated evaluation report to reflect completed fixes
 
 ---
 
