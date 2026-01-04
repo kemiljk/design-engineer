@@ -275,13 +275,18 @@ None identified. Code patterns and best practices are correctly presented.
 
 ### Track: iOS Design
 
-#### Value Score: 4.5/5 - Excellent
+#### Value Score: 5/5 - Excellent
 
 **Strengths:**
-- Solid HIG coverage
+- Solid HIG coverage with updated design principles (Hierarchy, Harmony, Consistency)
 - SF Symbols integration
 - Platform-specific design patterns
-- ✅ **Liquid Glass design principles** now covered comprehensively
+- ✅ **Comprehensive Liquid Glass coverage:**
+  - Design philosophy and principles
+  - Material types and variants
+  - App icon redesign guide with Icon Composer workflow
+  - Navigation, controls, menus, and toolbar updates
+  - Platform-specific considerations
 
 **Gaps:**
 - Limited visionOS/spatial design content
@@ -428,22 +433,43 @@ Added comprehensive CSS Nesting syntax coverage to the Selectors Deep Dive lesso
 
 Added comprehensive Liquid Glass coverage across iOS tracks:
 
-**iOS Design Track (`01-hig-fundamentals/01-ios-design-philosophy.md`):**
+**iOS Design Track - HIG Fundamentals:**
+
+`01-hig-fundamentals/01-ios-design-philosophy.md`:
 - Liquid Glass design principles
 - Material characteristics (blur, reflect, react, morph)
 - Where Liquid Glass appears automatically
 - Adoption guidelines for existing apps
 
-**iOS Engineering Track (`02-swiftui-fundamentals/07-liquid-glass.md`):**
-- New dedicated lesson covering:
-  - `.glassEffect()` modifier basics
-  - Custom shapes (`.rect(cornerRadius:)`, `.circle`)
-  - `Glass` structure configuration (`.tint()`, `.interactive()`)
-  - `GlassEffectContainer` for combining effects
-  - `.glassEffectUnion()` for unified glass regions
-  - `.glassEffectID()` for morphing transitions
-  - `GlassEffectTransition` types
-  - Best practices and accessibility considerations
+`01-hig-fundamentals/04-ios-color-and-materials.md`:
+- Two material types: Liquid Glass and Standard Materials
+- Liquid Glass variants (Regular and Clear)
+- When to use each material type
+- Updated exercises and quiz for Liquid Glass
+
+`01-hig-fundamentals/05-adopting-liquid-glass.md` (NEW):
+- Comprehensive adoption guide covering:
+  - App icon redesign (layers, Icon Composer, appearance variants)
+  - Control updates (rounder forms, fluid interactions, scroll edge effects)
+  - Navigation hierarchy (tab bars, sidebars, background extension)
+  - Menus and toolbars (grouping, SF Symbols)
+  - Windows and modals (sheets, action sheets)
+  - Organisation and layout changes
+  - Platform-specific considerations (iOS, iPadOS, watchOS, tvOS, macOS)
+  - Accessibility adaptations
+- Links to Apple Design Resources
+
+**iOS Engineering Track:**
+
+`02-swiftui-fundamentals/07-liquid-glass.md` (NEW):
+- `.glassEffect()` modifier basics
+- Custom shapes (`.rect(cornerRadius:)`, `.circle`)
+- `Glass` structure configuration (`.tint()`, `.interactive()`)
+- `GlassEffectContainer` for combining effects
+- `.glassEffectUnion()` for unified glass regions
+- `.glassEffectID()` for morphing transitions
+- `GlassEffectTransition` types
+- Best practices and accessibility considerations
 
 **Updated Files:**
 - `00-environment-setup/01-getting-started-with-xcode.md` - Xcode 26, iOS 26 version requirements
