@@ -10,7 +10,7 @@ import {
 import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
 import { FAQAccordion } from "../faq/faq-accordion";
-import { TrackLogo, type Track } from "@/app/components/track-logo";
+import { CurriculumPreview } from "./curriculum-preview";
 
 const faqs = [
   {
@@ -48,31 +48,6 @@ const faqs = [
 ];
 
 export function ComingSoon() {
-  const tracks: {
-    track: Track;
-    title: string;
-    description: string;
-  }[] = [
-    {
-      track: "design",
-      title: "Design Track",
-      description:
-        "For engineers. Visual fundamentals that AI can't teach you.",
-    },
-    {
-      track: "engineering",
-      title: "Engineering Track",
-      description:
-        "For designers. Go beyond Vibe Coding and build it yourself.",
-    },
-    {
-      track: "convergence",
-      title: "Convergence",
-      description:
-        "Starting out, or want both? Design + code + motion, prototyping, and polish.",
-    },
-  ];
-
   const highlights = [
     "Platform-specific tracks for Web, iOS, and Android",
     "Real-world projects and exercises",
@@ -109,34 +84,11 @@ export function ComingSoon() {
         <StudentCompanies />
       </PageHeader>
 
+      {/* Curriculum Preview */}
+      <CurriculumPreview />
+
       <div className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          {/* Tracks Preview */}
-          <div className="mb-16">
-            <h2 className="mb-8 text-center text-2xl font-bold">
-              Three Tracks to Mastery
-            </h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              {tracks.map((t) => (
-                <div
-                  key={t.title}
-                  className="border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
-                >
-                  <TrackLogo
-                    track={t.track}
-                    size={40}
-                    showLayer="track"
-                    className="mb-4"
-                  />
-                  <h3 className="mb-2 text-lg font-bold">{t.title}</h3>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                    {t.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Highlights */}
           <div className="mb-16 border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
             <h2 className="mb-6 text-xl font-bold">What&apos;s Included</h2>
