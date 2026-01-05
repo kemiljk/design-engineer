@@ -164,10 +164,10 @@ export function TestimonialModal({
                       <img
                         src={userPhotoUrl}
                         alt={userName || "User"}
-                        className="h-10 w-10 rounded-full object-cover"
+                        className="h-10 w-10 object-cover"
                       />
                     ) : (
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-swiss-red text-sm font-bold text-white">
+                      <div className="flex h-10 w-10 items-center justify-center bg-swiss-red text-sm font-bold text-white">
                         {userName?.charAt(0) || "?"}
                       </div>
                     )}

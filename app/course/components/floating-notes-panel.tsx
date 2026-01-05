@@ -326,14 +326,14 @@ export function FloatingNotesPanel({
                   <div className="flex items-center gap-1">
                     <Link
                       href="/course/notes"
-                      className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                      className="flex h-7 w-7 items-center justify-center text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                       title="Full view"
                     >
                       <ExternalLink className="h-3.5 w-3.5" />
                     </Link>
                     <button
                       onClick={() => setIsOpen(false)}
-                      className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                      className="flex h-7 w-7 items-center justify-center text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                       aria-label="Close notes"
                     >
                       <X className="h-4 w-4" />
@@ -346,7 +346,7 @@ export function FloatingNotesPanel({
                   <button
                     onClick={() => setViewMode("lesson")}
                     className={cn(
-                      "rounded-full px-3 py-1 text-xs font-medium transition-colors",
+                      "px-3 py-1 text-xs font-medium transition-colors",
                       viewMode === "lesson"
                         ? "bg-swiss-red text-white"
                         : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
@@ -357,7 +357,7 @@ export function FloatingNotesPanel({
                   <button
                     onClick={() => setViewMode("all")}
                     className={cn(
-                      "rounded-full px-3 py-1 text-xs font-medium transition-colors",
+                      "px-3 py-1 text-xs font-medium transition-colors",
                       viewMode === "all"
                         ? "bg-swiss-red text-white"
                         : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
@@ -380,7 +380,7 @@ export function FloatingNotesPanel({
 
                     {isLoading ? (
                       <div className="flex justify-center py-8">
-                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-swiss-red border-t-transparent" />
+                        <div className="h-5 w-5 animate-spin border-2 border-swiss-red border-t-transparent" />
                       </div>
                     ) : notes.length === 0 ? (
                       <div className="px-3 py-6 text-center text-xs text-neutral-400">
@@ -433,7 +433,7 @@ export function FloatingNotesPanel({
                               })
                             }
                             className={cn(
-                              "rounded-full p-1.5 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800",
+                              "p-1.5 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800",
                               activeNote.metadata.is_pinned
                                 ? "text-swiss-red"
                                 : "text-neutral-400"
@@ -444,7 +444,7 @@ export function FloatingNotesPanel({
                           </button>
                           <button
                             onClick={() => deleteNote(activeNote.id)}
-                            className="rounded-full p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
+                            className="p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
                             title="Delete note"
                           >
                             <Trash className="h-3 w-3" />
@@ -485,7 +485,7 @@ export function FloatingNotesPanel({
                   Notes
                 </span>
                 {notes.length > 0 && (
-                  <span className="shrink-0 rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium tabular-nums text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400">
+                  <span className="shrink-0 bg-neutral-100 px-2 py-0.5 text-xs font-medium tabular-nums text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400">
                     {notes.length}
                   </span>
                 )}

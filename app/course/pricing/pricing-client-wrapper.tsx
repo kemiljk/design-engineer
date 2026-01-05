@@ -88,11 +88,11 @@ export function PricingClientWrapper({
       {showValueBanner && (
         <div className="mb-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 dark:bg-swiss-red/5">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-swiss-red bg-white px-4 py-2 text-sm font-bold text-swiss-red dark:bg-neutral-900">
+            <div className="mb-4 inline-flex items-center gap-2 border-2 border-swiss-red bg-white px-4 py-2 text-sm font-bold text-swiss-red dark:bg-neutral-900">
               <Crown className="h-4 w-4" />
               Best Value
             </div>
-            <h2 className="mb-4 text-2xl font-bold">
+            <h2 className="mb-4 heading-section">
               <span className="text-swiss-red">Convergence: All-Access</span> = Everything Included
             </h2>
             <p className="mb-6 text-neutral-600 dark:text-neutral-400">

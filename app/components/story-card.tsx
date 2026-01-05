@@ -2,6 +2,7 @@ import { Card, CardBody, CardHeader } from "@/app/components/ui";
 import * as Type from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export function StoryCard({
   story,
@@ -22,7 +23,7 @@ export function StoryCard({
   const url = story.metadata.is_available ? `/stories/${story.slug}` : ``;
 
   return (
-    <Link href={url} className={className} rel="noopener noreferrer">
+    <Link href={url} className={cn("focus-ring", className)} rel="noopener noreferrer">
       <Card
         key="1"
         className="group mx-auto w-80 overflow-hidden transition-all duration-500 ease-out hover:shadow-xl dark:border-neutral-700"

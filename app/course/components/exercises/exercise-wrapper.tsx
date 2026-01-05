@@ -47,7 +47,7 @@ export function ExerciseWrapper({
           <span className="font-semibold text-white dark:text-neutral-900">{title}</span>
         </div>
         <span className={cn(
-          "rounded-full px-2 py-0.5 text-xs font-medium text-white",
+          "px-2 py-0.5 text-xs font-medium text-white",
           difficultyColors[difficulty]
         )}>
           {difficulty}

@@ -81,22 +81,22 @@ export default function Banner({
       <div className="flex flex-1 items-center justify-center gap-4">
         <NextLink
           href={link}
-          className="text-sm text-neutral-400 transition-colors hover:text-white dark:text-neutral-600 dark:hover:text-black [&_strong]:font-bold [&_strong]:text-white dark:[&_strong]:text-black"
+          className="text-sm text-neutral-400 transition-colors hover:text-white motion-reduce:transition-none dark:text-neutral-600 dark:hover:text-black [&_strong]:font-bold [&_strong]:text-white dark:[&_strong]:text-black"
         >
           <Markdown>{message}</Markdown>
         </NextLink>
         <NextLink
           href={link}
-          className="group flex items-center gap-2 bg-swiss-red px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white"
+          className="group flex items-center gap-2 bg-swiss-red px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white hover:text-black motion-reduce:transition-none dark:hover:bg-neutral-900 dark:hover:text-white"
         >
           {button_label}
-          <NavArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+          <NavArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
         </NextLink>
       </div>
       <button
         onClick={handleDismiss}
         aria-label="Close Banner"
-        className="flex h-8 w-8 items-center justify-center text-neutral-500 transition-colors hover:text-white dark:hover:text-black"
+        className="flex h-8 w-8 items-center justify-center text-neutral-500 transition-colors hover:text-white motion-reduce:transition-none dark:hover:text-black"
       >
         <Xmark className="h-4 w-4" />
       </button>

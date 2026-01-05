@@ -40,10 +40,10 @@ export function ModuleProgress({ modules }: ModuleProgressProps) {
                   {module.completedLessons}/{module.lessons}
                 </span>
               </div>
-              <div className="h-1.5 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+              <div className="h-1.5 bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
                 <div 
                   className={cn(
-                    "h-full transition-all rounded-full",
+                    "h-full transition-all",
                     isComplete ? "bg-green-500" : "bg-swiss-red"
                   )}
                   style={{ width: `${percentage}%` }} 

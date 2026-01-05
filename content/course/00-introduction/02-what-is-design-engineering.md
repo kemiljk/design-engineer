@@ -32,13 +32,13 @@ The role has different names: Design Technologist, Creative Engineer, UI Enginee
 
 Not every Design Engineer has the same balance of skills. Think of it as a spectrum:
 
-```
-Design-Heavy ←————————————→ Engineering-Heavy
-
-   |         |         |         |         |
-Designer   Design    Balanced   Product   Engineer
-who codes  Engineer  Hybrid     Engineer  with taste
-```
+| Position on Spectrum | Role Name | Description |
+|----------------------|-----------|-------------|
+| Design-Heavy | Designer who codes | Started in design, learned code to prototype |
+| Design-Heavy | Design Engineer | Balanced design and code skills |
+| Balanced | Balanced Hybrid | True generalist, moves fluidly between both |
+| Engineering-Heavy | Product Engineer | Product-focused with strong technical skills |
+| Engineering-Heavy | Engineer with taste | Started in engineering, developed aesthetic sensibilities |
 
 ### Design-Heavy Design Engineers
 

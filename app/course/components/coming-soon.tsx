@@ -106,7 +106,7 @@ export function ComingSoon() {
 
           {/* Pricing Preview */}
           <div className="mb-16">
-            <h2 className="mb-2 text-center text-2xl font-bold">
+            <h2 className="heading-section mb-2 text-center">
               Simple, Transparent Pricing
             </h2>
             <p className="mb-8 text-center text-neutral-600 dark:text-neutral-400">

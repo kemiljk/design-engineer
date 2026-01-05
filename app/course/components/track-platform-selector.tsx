@@ -120,7 +120,7 @@ export function TrackPlatformSelector({ trackSlug }: TrackPlatformSelectorProps)
             key={platform}
             href={startLink}
             className={cn(
-              "group relative flex items-center gap-4 overflow-hidden border bg-white p-4 no-underline transition-colors sm:gap-6 sm:p-5 dark:bg-neutral-900",
+              "group relative flex items-center gap-4 overflow-hidden border bg-white p-4 no-underline transition-colors sm:gap-6 sm:p-6 dark:bg-neutral-900",
               isCompleted
                 ? "border-swiss-red/30 hover:border-swiss-red"
                 : "border-neutral-200 hover:border-swiss-red dark:border-neutral-800 dark:hover:border-swiss-red"

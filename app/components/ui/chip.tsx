@@ -25,13 +25,6 @@ const chipVariants = cva(
         md: "h-7 px-2.5 text-xs",
         lg: "h-8 px-3 text-sm",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
     },
     compoundVariants: [
       {
@@ -60,7 +53,6 @@ const chipVariants = cva(
       variant: "default",
       chipColor: "default",
       size: "md",
-      radius: "none",
     },
   }
 );
@@ -83,7 +75,6 @@ const Chip = forwardRef<HTMLSpanElement, ChipProps>(
       variant,
       color,
       size,
-      radius,
       startContent,
       endContent,
       children,
@@ -98,7 +89,7 @@ const Chip = forwardRef<HTMLSpanElement, ChipProps>(
       <span
         ref={ref}
         className={cn(
-          chipVariants({ variant, chipColor: color, size, radius }),
+          chipVariants({ variant, chipColor: color, size }),
           className,
         )}
         {...props}

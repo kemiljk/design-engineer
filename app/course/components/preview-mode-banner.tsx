@@ -42,7 +42,7 @@ export function PreviewModeBanner() {
         </span>
         <button
           onClick={handleDismiss}
-          className="ml-2 rounded-sm p-1 hover:bg-amber-200/50 dark:hover:bg-amber-800/50"
+          className="ml-2 p-1 hover:bg-amber-200/50 dark:hover:bg-amber-800/50"
           aria-label="Dismiss banner"
         >
           <X className="h-4 w-4" />

@@ -61,7 +61,7 @@ export function KeyboardHint() {
         </div>
         <button
           onClick={dismiss}
-          className="ml-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
+          className="focus-ring ml-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
           aria-label="Dismiss hint"
         >
           ×

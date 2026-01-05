@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "@/app/components/SyntaxHighlighter";
 import { cn } from "@/lib/utils";
-import { MasterQuote } from "@/app/components/ui";
+import { MasterQuote, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/app/components/ui";
 import {
   SummaryCard,
   ObjectivesCard,
@@ -181,12 +181,42 @@ function parseContent(content: string): ParsedSection[] {
     if (block.index > lastIndex) {
       const textBefore = remaining.slice(lastIndex, block.index).trim();
       if (textBefore) {
-        const headingMatch = textBefore.match(/^##\s+(.+)$/m);
-        const id = headingMatch 
-          ? headingMatch[1].toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
-          : undefined;
-        const label = headingMatch ? headingMatch[1] : undefined;
-        contentParts.push({ type: "content", content: textBefore, id, label });
+        // Find all h2 headings in textBefore to create separate sections
+        const h2Pattern = /^##\s+(.+)$/gm;
+        let h2Match;
+        const headings: { title: string; index: number }[] = [];
+        
+        while ((h2Match = h2Pattern.exec(textBefore)) !== null) {
+          headings.push({ title: h2Match[1], index: h2Match.index });
+        }
+        
+        if (headings.length > 0) {
+          // Add any content before the first heading
+          if (headings[0].index > 0) {
+            const beforeFirstHeading = textBefore.slice(0, headings[0].index).trim();
+            if (beforeFirstHeading) {
+              contentParts.push({ type: "content", content: beforeFirstHeading });
+            }
+          }
+          
+          // Create sections for each h2
+          for (let i = 0; i < headings.length; i++) {
+            const start = headings[i].index;
+            const end = i < headings.length - 1 ? headings[i + 1].index : textBefore.length;
+            const sectionContent = textBefore.slice(start, end).trim();
+            const id = headings[i].title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+            
+            contentParts.push({
+              type: "content",
+              content: sectionContent,
+              id,
+              label: headings[i].title,
+            });
+          }
+        } else {
+          // No h2 headings, just add as content
+          contentParts.push({ type: "content", content: textBefore });
+        }
       }
     }
     
@@ -195,11 +225,11 @@ function parseContent(content: string): ParsedSection[] {
     } else if (block.type === 'visual-example') {
       contentParts.push({ type: "visual-example", content: block.content });
     } else {
+      // Don't add id/label for exercise-interactive blocks - they don't need
+      // their own nav item since they're part of the "Test Your Understanding" section
       contentParts.push({
         type: "exercise-interactive",
         content: block.content,
-        id: `exercise-${block.exerciseType}`,
-        label: "Exercise",
       });
     }
     
@@ -645,6 +675,24 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
     blockquote: (blockquote: React.HTMLAttributes<HTMLElement>) => {
       return <MasterQuote>{blockquote.children}</MasterQuote>;
     },
+    table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
+      <Table>{children}</Table>
+    ),
+    thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+      <TableHeader>{children}</TableHeader>
+    ),
+    tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+      <TableBody>{children}</TableBody>
+    ),
+    tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
+      <TableRow>{children}</TableRow>
+    ),
+    th: ({ children, ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+      <TableHead {...props}>{children}</TableHead>
+    ),
+    td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+      <TableCell {...props}>{children}</TableCell>
+    ),
   }), []);
 
   return (

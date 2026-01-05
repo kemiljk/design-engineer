@@ -16,3 +16,12 @@ export { Divider } from "./divider";
 export { ScrollContainer } from "./scroll-container";
 export { Callout } from "./callout";
 export { MasterQuote } from "./master-quote";
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+} from "./table";

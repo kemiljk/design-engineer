@@ -67,10 +67,10 @@ export default async function PricingPage() {
         {/* Full Access - Show thank you message instead of pricing */}
         {hasFullAccess ? (
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+            <div className="mb-8 inline-flex h-20 w-20 items-center justify-center bg-green-100 dark:bg-green-900/30">
               <PartyPopper className="h-10 w-10 text-green-600 dark:text-green-400" />
             </div>
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+            <h1 className="mb-4 heading-section md:text-4xl md:text-5xl">
               You Have Full Access!
             </h1>
             <p className="mb-8 text-lg text-neutral-600 dark:text-neutral-400">
@@ -102,7 +102,7 @@ export default async function PricingPage() {
           <>
             {/* Header */}
             <div className="mb-12 text-center">
-              <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+              <h1 className="mb-4 heading-section md:text-4xl md:text-5xl">
                 Invest in Your Future
               </h1>
               <p className="mx-auto max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">

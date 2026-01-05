@@ -27,13 +27,21 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
   const isClickScrolling = useRef(false);
   const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const hasInitialised = useRef(false);
 
   const activeIndex = sections.findIndex((s) => s.id === activeSection);
   const activeSectionData = sections.find((s) => s.id === activeSection);
   const progress =
     sections.length > 0 ? ((activeIndex + 1) / sections.length) * 100 : 0;
 
-  const updateActiveSection = useCallback((sectionsList: Section[]) => {
+  const updateHash = useCallback((id: string) => {
+    if (typeof window !== "undefined") {
+      const newUrl = `${window.location.pathname}#${id}`;
+      window.history.replaceState(null, "", newUrl);
+    }
+  }, []);
+
+  const updateActiveSection = useCallback((sectionsList: Section[], shouldUpdateHash = true) => {
     if (isClickScrolling.current || sectionsList.length === 0) return;
 
     const scrollPosition = window.scrollY;
@@ -43,7 +51,9 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
     const isAtBottom = scrollPosition + windowHeight >= documentHeight - 50;
 
     if (isAtBottom) {
-      setActiveSection(sectionsList[sectionsList.length - 1].id);
+      const lastId = sectionsList[sectionsList.length - 1].id;
+      setActiveSection(lastId);
+      if (shouldUpdateHash) updateHash(lastId);
       return;
     }
 
@@ -63,12 +73,39 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
     }
 
     setActiveSection(currentSection);
-  }, []);
+    if (shouldUpdateHash) updateHash(currentSection);
+  }, [updateHash]);
 
   useEffect(() => {
     if (sections.length === 0) return;
 
-    updateActiveSection(sections);
+    // On initial load, check for hash in URL and scroll to that section
+    if (!hasInitialised.current) {
+      hasInitialised.current = true;
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const targetSection = sections.find(s => s.id === hash);
+        if (targetSection) {
+          const element = document.getElementById(hash);
+          if (element) {
+            setActiveSection(hash);
+            // Small delay to ensure DOM is ready
+            setTimeout(() => {
+              const elementTop = element.getBoundingClientRect().top + window.scrollY;
+              const offset = 100;
+              window.scrollTo({
+                top: elementTop - offset,
+                behavior: "instant",
+              });
+            }, 100);
+            return;
+          }
+        }
+      }
+      // No hash or invalid hash, set initial section without updating hash
+      updateActiveSection(sections, false);
+      return;
+    }
 
     const handleScroll = () => {
       requestAnimationFrame(() => updateActiveSection(sections));
@@ -120,6 +157,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
     isClickScrolling.current = true;
     setActiveSection(id);
     setIsOpen(false);
+    updateHash(id);
 
     const elementTop = element.getBoundingClientRect().top + window.scrollY;
     const offset = 100;
@@ -166,7 +204,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                   </span>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+                    className="flex h-6 w-6 items-center justify-center text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
                     aria-label="Close navigation"
                   >
                     <X className="h-4 w-4" />
@@ -187,7 +225,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                         <motion.button
                           key={section.id}
                           onClick={() => handleSectionClick(section.id)}
-                          className="relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors"
+                          className="relative flex items-center gap-3 px-3 py-2.5 text-left transition-colors"
                           whileHover={{
                             backgroundColor: "rgba(0, 0, 0, 0.03)",
                           }}
@@ -199,14 +237,14 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                           {isActive && (
                             <motion.div
                               layoutId="activeSectionBg"
-                              className="absolute inset-0 rounded-lg bg-neutral-100 dark:bg-neutral-800"
+                              className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800"
                               transition={springTransition}
                             />
                           )}
 
                           {/* Dot indicator */}
                           <span
-                            className={`relative z-10 h-2 w-2 shrink-0 rounded-full transition-all ${
+                            className={`relative z-10 h-2 w-2 shrink-0 transition-all ${
                               isActive
                                 ? "bg-swiss-red"
                                 : isPast
@@ -257,7 +295,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                 </span>
 
                 {/* Section count pill */}
-                <span className="relative z-10 shrink-0 rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-500 tabular-nums dark:bg-neutral-800 dark:text-neutral-400">
+                <span className="relative z-10 shrink-0 bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-500 tabular-nums dark:bg-neutral-800 dark:text-neutral-400">
                   {activeIndex + 1}/{sections.length}
                 </span>
 

@@ -49,7 +49,7 @@ export function StudentDiscountForm() {
     <div className="rounded-none border-2 border-swiss-red/20 bg-swiss-red/[0.025] p-8 dark:border-swiss-red/30 dark:bg-swiss-red/5">
       <div className="mx-auto max-w-xl">
         <div className="mb-4 flex items-center justify-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-swiss-red text-white">
+          <div className="flex h-12 w-12 items-center justify-center bg-swiss-red text-white">
             <GraduationCap className="h-6 w-6" />
           </div>
         </div>

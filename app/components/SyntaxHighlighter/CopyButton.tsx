@@ -18,7 +18,7 @@ const CopyButton = ({
   return (
     <button
       className={cn(
-        "inline-flex h-8 w-8 items-center justify-center rounded-md bg-neutral-100 text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700",
+        "inline-flex h-8 w-8 items-center justify-center bg-neutral-100 text-neutral-600 transition-colors hover:bg-neutral-200 motion-reduce:transition-none dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700",
         className
       )}
       aria-label="Copy code to clipboard"

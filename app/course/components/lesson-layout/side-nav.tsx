@@ -15,8 +15,16 @@ export function SideNav({ sections }: SideNavProps) {
   const [activeSection, setActiveSection] = useState<string>(sections[0]?.id || "");
   const isClickScrolling = useRef(false);
   const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasInitialised = useRef(false);
 
-  const updateActiveSection = useCallback((sectionsList: Section[]) => {
+  const updateHash = useCallback((id: string) => {
+    if (typeof window !== "undefined") {
+      const newUrl = `${window.location.pathname}#${id}`;
+      window.history.replaceState(null, "", newUrl);
+    }
+  }, []);
+
+  const updateActiveSection = useCallback((sectionsList: Section[], shouldUpdateHash = true) => {
     if (isClickScrolling.current || sectionsList.length === 0) return;
 
     const scrollPosition = window.scrollY;
@@ -28,7 +36,9 @@ export function SideNav({ sections }: SideNavProps) {
     
     if (isAtBottom) {
       // At bottom, activate last section
-      setActiveSection(sectionsList[sectionsList.length - 1].id);
+      const lastId = sectionsList[sectionsList.length - 1].id;
+      setActiveSection(lastId);
+      if (shouldUpdateHash) updateHash(lastId);
       return;
     }
 
@@ -51,13 +61,39 @@ export function SideNav({ sections }: SideNavProps) {
     }
 
     setActiveSection(currentSection);
-  }, []);
+    if (shouldUpdateHash) updateHash(currentSection);
+  }, [updateHash]);
 
   useEffect(() => {
     if (sections.length === 0) return;
 
-    // Initial update
-    updateActiveSection(sections);
+    // On initial load, check for hash in URL and scroll to that section
+    if (!hasInitialised.current) {
+      hasInitialised.current = true;
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const targetSection = sections.find(s => s.id === hash);
+        if (targetSection) {
+          const element = document.getElementById(hash);
+          if (element) {
+            setActiveSection(hash);
+            // Small delay to ensure DOM is ready
+            setTimeout(() => {
+              const elementTop = element.getBoundingClientRect().top + window.scrollY;
+              const offset = 100;
+              window.scrollTo({
+                top: elementTop - offset,
+                behavior: "instant",
+              });
+            }, 100);
+            return;
+          }
+        }
+      }
+      // No hash or invalid hash, set initial section without updating hash
+      updateActiveSection(sections, false);
+      return;
+    }
 
     const handleScroll = () => {
       requestAnimationFrame(() => updateActiveSection(sections));
@@ -82,6 +118,7 @@ export function SideNav({ sections }: SideNavProps) {
     // Immediately set active and prevent scroll updates
     isClickScrolling.current = true;
     setActiveSection(id);
+    updateHash(id);
 
     const elementTop = element.getBoundingClientRect().top + window.scrollY;
     const offset = 100;
@@ -140,7 +177,7 @@ export function SideNav({ sections }: SideNavProps) {
               aria-current={isActive ? "true" : undefined}
             >
               <span
-                className={`h-[11px] w-[11px] shrink-0 rounded-full border-2 transition-all duration-150 ${
+                className={`h-[11px] w-[11px] shrink-0 border-2 transition-all duration-150 ${
                   isActive
                     ? "border-swiss-red bg-swiss-red"
                     : "border-neutral-300 bg-white dark:border-neutral-600 dark:bg-neutral-900"

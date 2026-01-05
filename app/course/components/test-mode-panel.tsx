@@ -133,14 +133,14 @@ export function TestModePanel() {
             fetchDebugData();
           }
         }}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-500 text-black shadow-lg transition-all hover:scale-105 hover:bg-yellow-400"
+        className="flex h-12 w-12 items-center justify-center bg-yellow-500 text-black shadow-lg transition-all hover:scale-105 hover:bg-yellow-400"
         aria-label="Toggle debug panel"
       >
         <Bug className="h-5 w-5" />
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-14 left-0 w-96 rounded-lg border border-neutral-200 bg-white p-4 shadow-xl dark:border-neutral-700 dark:bg-neutral-800">
+        <div className="absolute bottom-14 left-0 w-96 border border-neutral-200 bg-white p-4 shadow-xl dark:border-neutral-700 dark:bg-neutral-800">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="font-bold">Debug Panel</h3>
             <button

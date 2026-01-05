@@ -64,7 +64,7 @@ export function ModuleJumper({ modules, currentModule, trackSlug, platformSlug }
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors",
+          "flex items-center gap-2 px-3 py-1.5 text-sm font-medium transition-colors",
           "bg-neutral-100 text-neutral-700 hover:bg-neutral-200",
           "dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700",
           isOpen && "bg-neutral-200 dark:bg-neutral-700"
@@ -83,7 +83,7 @@ export function ModuleJumper({ modules, currentModule, trackSlug, platformSlug }
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
           <div className="border-b border-neutral-100 px-3 py-2 dark:border-neutral-800">
             <p className="text-xs font-medium text-neutral-500">
               Jump to module <span className="text-neutral-400">(Alt+1-9)</span>
@@ -99,14 +99,14 @@ export function ModuleJumper({ modules, currentModule, trackSlug, platformSlug }
                   href={`/course/${module.firstLessonPath}`}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors",
+                    "flex items-center gap-3 px-3 py-2.5 transition-colors",
                     isCurrent
                       ? "bg-swiss-red/10 text-swiss-red"
                       : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
                   )}
                 >
                   <span className={cn(
-                    "flex size-6 shrink-0 items-center justify-center rounded-md text-xs font-bold",
+                    "flex size-6 shrink-0 items-center justify-center text-xs font-bold",
                     isCurrent
                       ? "bg-swiss-red text-white"
                       : "bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-400"

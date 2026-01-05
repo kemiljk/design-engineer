@@ -1,0 +1,711 @@
+---
+alwaysApply: false
+---
+## Brand Foundation
+
+### Primary Colour: Swiss Red
+
+**Usage:**
+- Primary actions and CTAs
+- Brand accent and active states
+- Interactive hover states
+- Selection highlights
+- Grid accent lines
+
+**Token:** `--color-swiss-red: #ff4400` / `swiss-red`
+
+**Never use Swiss Red for:**
+- Large background areas
+- Body text
+- Borders (except hover states)
+
+### Neutral Palette
+
+**Foreground/Background:**
+- Light mode: `#171717` (foreground) / `#ffffff` (background)
+- Dark mode: `#fafafa` (foreground) / `#000000` (background)
+
+**Neutral greys** (`neutral-*`) are used for:
+- Body text hierarchy (`neutral-500`, `neutral-400` for secondary)
+- Borders (`neutral-200` light / `neutral-800` dark)
+- Backgrounds (`neutral-50` light / `neutral-900` dark)
+- Disabled states
+
+### Semantic Colours
+
+**Success:** `--color-success: #16a34a` (green-600)
+- Positive feedback, free badges, confirmations
+
+**Warning:** `--color-warning: #ca8a04` (yellow-600)
+- Caution states, test mode indicators
+
+---
+
+## Typography System
+
+### Font Families
+
+**Primary (Body & Headings):** Host Grotesk
+- Variable: `--font-sans`
+- Used for all body text, headings, UI elements
+
+**Monospace (Code & Labels):** Martian Mono
+- Variable: `--font-mono`
+- Used for code blocks, technical labels, eyebrow text
+
+### Type Scale
+
+The type scale uses **tight line-heights** that decrease as size increases (Swiss typography principle):
+
+| Size | Font Size | Line Height | Letter Spacing | Use Case |
+|------|-----------|-------------|----------------|----------|
+| `text-xs` | 0.75rem | 1.35 | 0 | Small labels, captions |
+| `text-sm` | 0.875rem | 1.35 | 0 | Secondary text |
+| `text-base` | 1rem | 1.5 | -0.01em | Body text |
+| `text-lg` | 1.125rem | 1.4 | -0.01em | Lead paragraphs |
+| `text-xl` | 1.25rem | 1.25 | -0.02em | H3 |
+| `text-2xl` | 1.5rem | 1.2 | -0.02em | H2 |
+| `text-3xl` | 1.875rem | 1.1 | -0.03em | H1 |
+| `text-4xl` | 2.25rem | 1.1 | -0.03em | Display |
+| `text-5xl` | 3rem | 1.05 | -0.04em | Hero |
+| `text-6xl` | 3.75rem | 1 | -0.045em | Mega display |
+| `text-7xl` | 4.5rem | 1 | -0.05em | Impact text |
+
+**Key rule:** Larger text gets tighter leading and more negative tracking (optical compensation).
+
+### Semantic Heading Classes
+
+**Always use semantic classes instead of raw Tailwind:**
+
+```tsx
+// Section headings - primary level
+<h2 className="heading-section">The Complete Course</h2>
+
+// Subsection headings - secondary level
+<h3 className="heading-subsection">Design Track</h3>
+
+// Card headings - tertiary level
+<h3 className="heading-card">Tool Name</h3>
+
+// Eyebrow/overline - category markers
+<p className="heading-eyebrow">Free Tools</p>
+```
+
+**Display Typography Utilities:**
+
+- `.text-display` - Hero headlines (text-5xl, line-height: 0.9)
+- `.text-hero` - Massive impact text (text-6xl, line-height: 0.88)
+- `.text-mega` - Single word impact (text-7xl, line-height: 0.85)
+- `.text-label` - Small caps style (text-xs, uppercase, tracking-widest)
+- `.text-overline` - Category markers (text-xs, bold, uppercase, tracking-widest)
+- `.text-caption` - Image captions, footnotes
+- `.text-lead` - Introductory paragraphs (text-lg, comfortable reading)
+
+### Typography Rules
+
+1. **Headings (h1-h4):**
+   - Font weight: `700` (bold)
+   - Letter spacing: `-0.02em` to `-0.03em`
+   - Line height: `1.1` (tight)
+   - Use `text-wrap: balance` for better wrapping
+
+2. **Body text:**
+   - Font weight: `400` (normal)
+   - Letter spacing: `-0.01em`
+   - Line height: `1.55` (comfortable reading)
+
+3. **Small text:**
+   - Letter spacing: `0` (no negative tracking)
+   - Slightly looser line-height (`1.4`)
+
+4. **Uppercase labels:**
+   - Use `.text-label` or `.text-overline`
+   - Letter spacing: `0.08em` to `0.1em` (wider for readability)
+
+---
+
+## Spacing & Layout
+
+### 8-Point Grid System
+
+**Spacing Scale:**
+- `xs`: 4px - Icon padding, tight gaps
+- `sm`: 8px - Related items, inline spacing
+- `md`: 16px - Standard component padding
+- `lg`: 24px - Card padding, comfortable gaps
+- `xl`: 32px - Between card groups
+- `2xl`: 48px - Minor section padding
+- `3xl`: 64px - Major section padding
+
+**CSS Variables:**
+```css
+--space-xs: 4px;
+--space-sm: 8px;
+--space-md: 16px;
+--space-lg: 24px;
+--space-xl: 32px;
+--space-2xl: 48px;
+--space-3xl: 64px;
+```
+
+**Rule:** Always use multiples of 4px. Never use arbitrary values like `p-5` (20px) or `gap-7` (28px).
+
+### Container Utilities
+
+**Page Container:**
+```tsx
+<div className="container-page">
+  {/* Max-width: 1280px (max-w-7xl) */}
+  {/* Padding: 16px → 24px → 32px responsive */}
+</div>
+```
+
+**Readable Container:**
+```tsx
+<div className="container-readable">
+  {/* Max-width: ~65ch (max-w-prose) */}
+  {/* For long-form content */}
+</div>
+```
+
+### Grid System
+
+**Swiss Grid:**
+- Mobile: 4 columns
+- Tablet: 6 columns
+- Desktop: 12 columns
+
+**Utility:** `.grid-page` applies the responsive grid:
+```tsx
+<div className="grid-page">
+  {/* Automatically: grid-cols-4 md:grid-cols-6 lg:grid-cols-12 */}
+</div>
+```
+
+**Grid Alignment:**
+- Content MUST align to grid columns
+- Use `col-span-*` utilities to span columns
+- Grid lines are visual guides (see PageHeader component)
+
+---
+
+## Component Patterns
+
+### Border Radius: NONE
+
+**Critical rule:** This is a brutalist design system. **Do not use border-radius** except for:
+- Range input thumbs (16px square)
+- Checkbox/radio (native form controls)
+
+**Never use:**
+- `rounded`, `rounded-md`, `rounded-lg`, etc.
+- Custom border-radius values
+
+**Exception:** If absolutely necessary for a specific component (e.g., tool-specific UI), use `rounded-none` explicitly to override any defaults.
+
+### Interactive Elements
+
+**Hover States:**
+- Cards: `hover:border-swiss-red`
+- Links: `hover:text-swiss-red` or `hover:text-black` (dark: `hover:text-white`)
+- Buttons: See button variants below
+
+**Focus States:**
+- Always use `.focus-ring` utility:
+```tsx
+className="focus-ring"
+// Applies: focus-visible:ring-2 focus-visible:ring-swiss-red/40
+```
+
+### Icon Patterns
+
+**Icon Container:**
+```tsx
+<div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
+  <Icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400" />
+</div>
+```
+
+**Pattern:**
+- Square containers (h-10 w-10, h-12 w-12, etc.)
+- Neutral background (`bg-neutral-100` / `dark:bg-neutral-800`)
+- Fill with Swiss Red on hover
+- Icon colour transitions to white on hover
+
+**Icon Library:** Use **Iconoir** (`iconoir-react`), not Lucide for new components.
+
+**Icon Sizes:**
+- Small: `h-4 w-4` (16px)
+- Default: `h-5 w-5` (20px)
+- Large: `h-6 w-6` (24px)
+
+### Button Component
+
+**Variants:**
+- `default` - Swiss Red background, white text
+- `secondary` - Neutral background
+- `outline` - Bordered, transparent background
+- `ghost` - No background, minimal
+
+**Sizes:**
+- `sm` - h-8, compact UI
+- `md` - h-9, default
+- `lg` - h-10, primary CTAs
+- `xl` - h-12, hero sections (uppercase, tracking-wider)
+
+**Hover behaviour:**
+- Default: `hover:bg-neutral-900` (dark: `hover:bg-white hover:text-black`)
+- Active: `active:translate-y-0.5` (subtle press)
+- Respects `motion-reduce` preference
+
+**Always use the Button component from `@/app/components/ui`.**
+
+### Card Component
+
+**Pattern:**
+```tsx
+<Card variant="interactive" padding="md">
+  {/* Border: neutral-200/800 */}
+  {/* Hover: border-swiss-red */}
+</Card>
+```
+
+**Variants:**
+- `default` - Static card
+- `interactive` - Hover border change
+- `elevated` - Shadow on hover
+
+**Padding:**
+- `none` - No padding (custom spacing)
+- `sm` - p-4
+- `md` - p-6 (default)
+- `lg` - p-8
+
+### Badge Component
+
+**Variants:**
+- `default` - Neutral grey
+- `success` - Green (free badges, confirmations)
+- `warning` - Yellow (caution)
+- `accent` - Swiss Red tinted background
+
+**Usage:** Small status indicators, category labels.
+
+### Input Component
+
+**Pattern:**
+- Border: `border-neutral-200` (dark: `border-neutral-800`)
+- Hover: `hover:border-neutral-400` (dark: `hover:border-neutral-600`)
+- Focus: `focus:border-swiss-red`
+- No border-radius
+- Floating labels supported
+
+**Sizes:**
+- `sm` - h-8
+- `md` - h-10 (default)
+- `lg` - h-12
+
+---
+
+## Motion Design
+
+### Animation Library
+
+**Use `motion/react`** (not framer-motion directly). Import from `@/lib/motion` for tokens.
+
+### Duration Tokens
+
+```typescript
+duration = {
+  instant: 0.1,    // 100ms - Instant feedback
+  fast: 0.15,      // 150ms - UI feedback (buttons, hovers)
+  normal: 0.3,     // 300ms - Standard transitions
+  slow: 0.5,      // 500ms - Content reveals
+  slower: 0.7,    // 700ms - Major transitions
+}
+```
+
+### Easing Curves
+
+**Primary easing:** `ease.outQuint` - `[0.23, 1, 0.32, 1]`
+- Use for: Content reveals, page transitions, major animations
+- Quick start, long gentle settle
+
+**Secondary easing:** `ease.out` - `[0.33, 1, 0.68, 1]`
+- Use for: UI feedback, button hovers, quick interactions
+
+**Spring:** `ease.spring` - `{ stiffness: 400, damping: 30 }`
+- Use for: Bouncy interactions (rare)
+
+### Animation Patterns
+
+**Fade Up (Content Reveal):**
+```tsx
+import { fadeUp, viewportOnce } from "@/lib/motion";
+
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={viewportOnce}
+  variants={fadeUp}
+>
+```
+
+**Stagger Children:**
+```tsx
+import { stagger, fadeUpChild } from "@/lib/motion";
+
+<motion.div variants={stagger} initial="hidden" animate="visible">
+  {items.map(item => (
+    <motion.div key={item.id} variants={fadeUpChild}>
+      {item.content}
+    </motion.div>
+  ))}
+</motion.div>
+```
+
+**Viewport Trigger:**
+- Use `viewportOnce` for scroll-triggered animations
+- Margin: `-100px` (starts slightly before viewport)
+
+### Motion Rules
+
+1. **Respect reduced motion:**
+   - Use `motion-reduce:transition-none` for CSS transitions
+   - Use `motion-reduce:transform-none` for transforms
+   - Animations should gracefully degrade
+
+2. **Subtle and purposeful:**
+   - Animations should feel intentional, not decorative
+   - Avoid excessive motion
+   - Use motion to guide attention, not distract
+
+3. **Performance:**
+   - Use `transform` and `opacity` for animations (GPU-accelerated)
+   - Avoid animating `width`, `height`, `top`, `left` (layout-triggering)
+
+4. **Timing:**
+   - Stagger delays: `0.04s` to `0.08s` between children
+   - Initial delay: `0.1s` to `0.2s` for page loads
+
+---
+
+## Dark Mode
+
+### Implementation
+
+Dark mode uses CSS custom properties that adapt automatically. Always use semantic tokens:
+
+**Foreground/Background:**
+- `text-foreground` / `bg-background`
+- Never hardcode `#000` or `#fff`
+
+**Borders:**
+- `border-neutral-200` (light) / `border-neutral-800` (dark)
+
+**Text Hierarchy:**
+- Primary: `text-foreground`
+- Secondary: `text-neutral-500` (light) / `text-neutral-400` (dark)
+- Tertiary: `text-neutral-400` (light) / `text-neutral-500` (dark)
+
+### Illustration Colours
+
+**Light mode:**
+- Primary: `#ff4400` (swiss-red)
+- Dark: `#171717`
+- Muted: `#636363`
+- Light: `#d4d4d4`
+- Background: `#fafafa`
+
+**Dark mode:**
+- Primary: `#ff4400` (swiss-red) - unchanged
+- Dark: `#fafafa` (inverted)
+- Muted: `#a8a8a8` (lighter)
+- Light: `#404040` (darker)
+- Background: `#171717` (inverted)
+
+**Use illustration tokens:** `--illustration-primary`, `--illustration-dark`, etc.
+
+---
+
+## Layout Patterns
+
+### Page Structure
+
+**Standard Page:**
+```tsx
+<main className="min-h-screen bg-white dark:bg-black">
+  <PageHeader title="Page Title" description="Description" />
+  
+  <div className="container-page py-12">
+    {/* Content */}
+  </div>
+</main>
+```
+
+**Sectioned Page:**
+```tsx
+<main className="min-h-screen bg-white dark:bg-black">
+  <PageHeader title="Page Title" />
+  
+  <AnimatedSection className="container-page py-16">
+    {/* Section 1 */}
+  </AnimatedSection>
+  
+  <AnimatedSection className="w-full border-y border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50">
+    {/* Section 2 with background */}
+  </AnimatedSection>
+</main>
+```
+
+### Section Backgrounds
+
+**Alternating sections:**
+- Default: `bg-white` / `dark:bg-black`
+- Alternating: `bg-neutral-50` / `dark:bg-neutral-900/50`
+- Use borders (`border-t`, `border-b`) to separate sections
+
+### Grid Layouts
+
+**Card Grids:**
+```tsx
+<div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+  {/* Cards */}
+</div>
+```
+
+**Responsive columns:**
+- Mobile: 1 column
+- Tablet: 2 columns (`md:grid-cols-2`)
+- Desktop: 3-4 columns (`lg:grid-cols-3` or `lg:grid-cols-4`)
+
+**Gap sizes:**
+- Tight: `gap-3` (12px)
+- Default: `gap-4` (16px) or `gap-6` (24px)
+- Loose: `gap-8` (32px)
+
+---
+
+## Accessibility
+
+### Focus Management
+
+**Always include:**
+- `.focus-ring` utility on interactive elements
+- Visible focus indicators (Swiss Red ring)
+- Skip links for main content
+
+### Colour Contrast
+
+- Text: Minimum WCAG AA contrast
+- Swiss Red on white: 4.5:1 (meets AA for large text)
+- Use `text-neutral-500` for secondary text (meets contrast)
+
+### Reduced Motion
+
+**Always respect:**
+```css
+@media (prefers-reduced-motion: no-preference) {
+  /* Animations */
+}
+```
+
+Or use Tailwind's `motion-safe:` prefix:
+```tsx
+className="motion-safe:transition-transform motion-reduce:transition-none"
+```
+
+### Semantic HTML
+
+- Use proper heading hierarchy (h1 → h2 → h3)
+- Use `<nav>`, `<main>`, `<section>`, `<article>` appropriately
+- Include ARIA labels where needed
+- Use `aria-hidden="true"` for decorative elements
+
+---
+
+## Code Examples
+
+### Complete Card Pattern
+
+```tsx
+import { Card } from "@/app/components/ui";
+import { motion } from "motion/react";
+import { fadeUp, viewportOnce } from "@/lib/motion";
+import { ArrowRight } from "iconoir-react";
+
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={viewportOnce}
+  variants={fadeUp}
+>
+  <Card variant="interactive" padding="md" className="group">
+    <div className="mb-4 flex items-center justify-between">
+      <div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
+        <Icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400" />
+      </div>
+      <Badge variant="accent">Category</Badge>
+    </div>
+    
+    <h3 className="heading-card mb-2">Card Title</h3>
+    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+      Description text
+    </p>
+    
+    <div className="mt-4 flex items-center gap-2 text-swiss-red opacity-0 transition-opacity group-hover:opacity-100">
+      <span className="text-xs font-medium">Learn more</span>
+      <ArrowRight className="h-3 w-3" />
+    </div>
+  </Card>
+</motion.div>
+```
+
+### Button with Icon
+
+```tsx
+import { Button } from "@/app/components/ui";
+import { ArrowRight } from "iconoir-react";
+
+<Button
+  href="/path"
+  variant="default"
+  size="lg"
+  endContent={<ArrowRight className="h-4 w-4" />}
+>
+  Button Text
+</Button>
+```
+
+### Section with Header
+
+```tsx
+import { AnimatedSection } from "@/app/components/animated-section";
+import SectionTitle from "@/app/components/section-title";
+
+<AnimatedSection className="container-page py-16">
+  <div className="mb-12 flex items-end justify-between border-b border-neutral-200 pb-8 dark:border-neutral-800">
+    <SectionTitle>Section Title</SectionTitle>
+    <Button href="/more" variant="ghost">
+      View all
+    </Button>
+  </div>
+  
+  {/* Content */}
+</AnimatedSection>
+```
+
+---
+
+## Common Mistakes to Avoid
+
+### ❌ Don't Do This
+
+1. **Border radius:**
+   ```tsx
+   <div className="rounded-lg"> {/* NO */}
+   ```
+
+2. **Arbitrary spacing:**
+   ```tsx
+   <div className="p-5 gap-7"> {/* NO - use p-4 or p-6, gap-6 or gap-8 */}
+   ```
+
+3. **Hardcoded colours:**
+   ```tsx
+   <div className="text-black bg-white"> {/* NO - use text-foreground bg-background */}
+   ```
+
+4. **Wrong icon library:**
+   ```tsx
+   import { ArrowRight } from "lucide-react"; {/* NO - use iconoir-react */}
+   ```
+
+5. **Missing focus states:**
+   ```tsx
+   <button>Click</button> {/* NO - add focus-ring */}
+   ```
+
+6. **Wrong heading classes:**
+   ```tsx
+   <h2 className="text-2xl font-bold">Title</h2> {/* NO - use heading-section */}
+   ```
+
+7. **Missing motion preferences:**
+   ```tsx
+   className="transition-transform" {/* NO - add motion-reduce:transition-none */}
+   ```
+
+### ✅ Do This Instead
+
+1. **No border radius:**
+   ```tsx
+   <div className="border border-neutral-200"> {/* YES */}
+   ```
+
+2. **8-point grid:**
+   ```tsx
+   <div className="p-4 gap-6"> {/* YES */}
+   ```
+
+3. **Semantic tokens:**
+   ```tsx
+   <div className="text-foreground bg-background"> {/* YES */}
+   ```
+
+4. **Correct icon library:**
+   ```tsx
+   import { NavArrowRight as ArrowRight } from "iconoir-react"; {/* YES */}
+   ```
+
+5. **Focus states:**
+   ```tsx
+   <button className="focus-ring">Click</button> {/* YES */}
+   ```
+
+6. **Semantic headings:**
+   ```tsx
+   <h2 className="heading-section">Title</h2> {/* YES */}
+   ```
+
+7. **Motion preferences:**
+   ```tsx
+   className="motion-safe:transition-transform motion-reduce:transition-none" {/* YES */}
+   ```
+
+---
+
+## Reference Files
+
+When in doubt, reference these files for patterns:
+
+- **Design Tokens:** `app/globals.css`
+- **Motion System:** `lib/motion.ts`
+- **Button Component:** `app/components/ui/button.tsx`
+- **Card Component:** `app/components/ui/card.tsx`
+- **Page Header:** `app/components/page-header.tsx`
+- **Animated Section:** `app/components/animated-section.tsx`
+- **Home Page:** `app/page.tsx` (comprehensive examples)
+
+---
+
+## Summary Checklist
+
+Before creating any new UI component, verify:
+
+- [ ] Uses semantic colour tokens (no hardcoded colours)
+- [ ] No border-radius (brutalist aesthetic)
+- [ ] Spacing follows 8-point grid (multiples of 4px)
+- [ ] Typography uses semantic heading classes
+- [ ] Icons from Iconoir (not Lucide)
+- [ ] Interactive elements have `.focus-ring`
+- [ ] Hover states use Swiss Red appropriately
+- [ ] Motion respects `prefers-reduced-motion`
+- [ ] Dark mode tested and working
+- [ ] Follows existing component patterns
+- [ ] Uses `container-page` or `container-readable` for layout
+- [ ] Grid layouts use responsive column classes
+
+---
+
+**Remember:** "Less, but better." Every design decision should be intentional and purposeful. When in doubt, simplify.

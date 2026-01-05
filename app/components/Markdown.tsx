@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "./SyntaxHighlighter";
 import { cn } from "@/lib/utils";
-import { MasterQuote } from "@/app/components/ui";
+import { MasterQuote, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/app/components/ui";
 
 interface MarkdownProps {
   content: string;
@@ -145,6 +145,24 @@ const Markdown: React.FC<MarkdownProps> = ({ content, ...props }) => {
     blockquote: (blockquote: React.HTMLAttributes<HTMLElement>) => {
       return <MasterQuote>{blockquote.children}</MasterQuote>;
     },
+    table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
+      <Table>{children}</Table>
+    ),
+    thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+      <TableHeader>{children}</TableHeader>
+    ),
+    tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+      <TableBody>{children}</TableBody>
+    ),
+    tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
+      <TableRow>{children}</TableRow>
+    ),
+    th: ({ children, ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+      <TableHead {...props}>{children}</TableHead>
+    ),
+    td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+      <TableCell {...props}>{children}</TableCell>
+    ),
   };
 
   return (

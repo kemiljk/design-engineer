@@ -183,7 +183,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
           <ClipboardList className="h-5 w-5 text-white dark:text-neutral-900" />
           <span className="font-semibold text-white dark:text-neutral-900">{exercise.title}</span>
         </div>
-        <span className="rounded-full bg-neutral-600 px-2 py-0.5 text-xs font-medium text-white dark:bg-neutral-400">
+        <span className="bg-neutral-600 px-2 py-0.5 text-xs font-medium text-white dark:bg-neutral-400">
           {exercise.difficulty}
         </span>
       </div>
@@ -251,7 +251,7 @@ export function SelfAssessment({ exercise }: SelfAssessmentProps) {
 
             {/* Category Progress Bar */}
             {categoryTotals[category.name].answered > 0 && (
-              <div className="h-2 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
+              <div className="h-2 overflow-hidden bg-neutral-200 dark:bg-neutral-700">
                 <motion.div
                   className="h-full bg-swiss-red"
                   initial={{ width: 0 }}
@@ -495,10 +495,10 @@ function ScoreCard({
   return (
     <div className="rounded bg-white p-4 text-center dark:bg-neutral-800">
       <p className="mb-1 text-sm text-neutral-500">{label}</p>
-      <p className="text-2xl font-bold">
+      <p className="heading-subsection">
         {score} <span className="text-sm font-normal text-neutral-400">/ {max}</span>
       </p>
-      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
+      <div className="mt-2 h-1.5 overflow-hidden bg-neutral-200 dark:bg-neutral-700">
         <div
           className="h-full bg-swiss-red transition-all"
           style={{ width: `${percent * 100}%` }}

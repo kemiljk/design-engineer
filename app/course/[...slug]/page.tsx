@@ -398,7 +398,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 />
               </div>
             )}
-            <h1 className="mt-4 text-3xl font-bold">{title}</h1>
+            <h1 className="mt-4 heading-section">{title}</h1>
           </div>
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
@@ -412,7 +412,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 <span className="text-sm text-neutral-500">
                   Lesson {currentInModule} of {totalInModule} in {formatModuleName(currentModule)}
                 </span>
-                <div className="mt-2 mx-auto h-1 w-48 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                <div className="mt-2 mx-auto h-1 w-48 bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
                   <div 
                     className="h-full bg-swiss-red transition-all" 
                     style={{ width: `${(currentInModule / totalInModule) * 100}%` }} 

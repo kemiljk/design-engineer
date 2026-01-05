@@ -96,7 +96,7 @@ function DesktopOverflowMenu({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={{ duration: duration.fast, ease: ease.out }}
-            className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-md border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black"
+            className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black"
           >
             {items.map((item, index) =>
               isExternalLink(item.href) ? (
@@ -110,7 +110,7 @@ function DesktopOverflowMenu({
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: duration.fast, delay: index * 0.03 }}
-                  className="focus-ring flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
+                  className="focus-ring flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black motion-reduce:transition-none dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
                 >
                   {item.title}
                   <ExternalLink className="h-3 w-3" aria-hidden="true" />
@@ -129,7 +129,7 @@ function DesktopOverflowMenu({
                     aria-current={isActive(item.href) ? "page" : undefined}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
+                      "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black motion-reduce:transition-none dark:hover:bg-neutral-900 dark:hover:text-white",
                       isActive(item.href)
                         ? "text-swiss-red"
                         : "text-neutral-700 dark:text-neutral-200",
@@ -346,7 +346,7 @@ export default function Nav({
               <div ref={navLogoRef}>
                 <Logo 
                   size={32} 
-                  className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105" 
+                  className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transition-none" 
                 />
               </div>
             </NextLink>

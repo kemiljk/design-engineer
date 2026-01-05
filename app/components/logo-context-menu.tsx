@@ -269,7 +269,7 @@ export function LogoContextMenu({
             exit={{ opacity: 0, scale: 0.95, y: -4 }}
             transition={{ duration: duration.fast, ease: ease.out }}
             style={{ left: position.x, top: position.y }}
-            className="fixed z-50 min-w-[200px] overflow-hidden rounded-lg border border-neutral-200 bg-white p-1 shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
+            className="fixed z-50 min-w-[200px] overflow-hidden border border-neutral-200 bg-white p-1 shadow-xl dark:border-neutral-800 dark:bg-neutral-900"
           >
             {/* Header */}
             <div className="px-3 py-2 border-b border-neutral-100 dark:border-neutral-800 mb-1">
@@ -291,7 +291,7 @@ export function LogoContextMenu({
                     }}
                     disabled={status === "loading"}
                     className={cn(
-                      "flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                      "flex w-full items-center gap-3 px-3 py-2 text-sm transition-colors motion-reduce:transition-none",
                       "text-neutral-700 dark:text-neutral-300",
                       "hover:bg-neutral-100 dark:hover:bg-neutral-800",
                       "focus:outline-none focus:bg-neutral-100 dark:focus:bg-neutral-800",
@@ -302,7 +302,7 @@ export function LogoContextMenu({
                       {status === "success" ? (
                         <Check className="h-4 w-4 text-green-500" />
                       ) : status === "loading" ? (
-                        <span className="h-4 w-4 block border-2 border-neutral-300 border-t-neutral-600 rounded-full animate-spin" />
+                        <span className="h-4 w-4 block border-2 border-neutral-300 border-t-neutral-600 animate-spin" />
                       ) : (
                         item.icon
                       )}
@@ -327,7 +327,7 @@ export function LogoContextMenu({
                 href="/brand"
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                  "flex w-full items-center gap-3 px-3 py-2 text-sm transition-colors",
                   "text-neutral-700 dark:text-neutral-300",
                   "hover:bg-neutral-100 dark:hover:bg-neutral-800",
                   "focus:outline-none focus:bg-neutral-100 dark:focus:bg-neutral-800"

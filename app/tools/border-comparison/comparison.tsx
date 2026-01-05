@@ -309,7 +309,7 @@ export default function BorderComparison() {
               </span>
             </div>
             <div
-              className="flex flex-1 flex-col justify-between bg-white p-5 font-sans sm:p-6"
+              className="flex flex-1 flex-col justify-between bg-white p-6 font-sans sm:p-6"
               style={{
                 border: `${borderWidth}px solid ${greyBorderColor}`,
                 borderRadius: "20px",
@@ -356,7 +356,7 @@ export default function BorderComparison() {
               </span>
             </div>
             <div
-              className="flex flex-1 flex-col justify-between bg-white p-5 font-sans sm:p-6"
+              className="flex flex-1 flex-col justify-between bg-white p-6 font-sans sm:p-6"
               style={{
                 boxShadow: showShadow 
                   ? `0 0 0 ${borderWidth}px ${blackBorderColor}, 0 10px 40px -10px rgba(0,0,0,0.2)`

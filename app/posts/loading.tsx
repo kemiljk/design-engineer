@@ -34,7 +34,7 @@ export default function Loading() {
               {/* Image placeholder */}
               <div className="aspect-[16/9] w-full animate-pulse bg-neutral-200 dark:bg-neutral-700" />
               {/* Content */}
-              <div className="p-5">
+              <div className="p-6">
                 <div className="mb-2 flex items-center gap-2">
                   <div className="h-5 w-16 animate-pulse rounded-full bg-neutral-200 dark:bg-neutral-700" />
                 </div>

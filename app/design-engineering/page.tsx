@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { PageHeader } from "../components/page-header";
-import { Callout } from "@/app/components/ui";
+import { Callout, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/app/components/ui";
 import {
   NavArrowRight as ArrowRight,
   Code as Code2,
@@ -325,84 +325,80 @@ export default function DesignEngineeringPage() {
             But it&apos;s fundamentally different from Design Engineering.
           </p>
 
-          <div className="my-8 overflow-hidden border border-neutral-200 dark:border-neutral-800">
-            <table className="w-full">
-              <thead className="bg-neutral-100 dark:bg-neutral-900">
-                <tr>
-                  <th className="p-4 text-left font-bold">Aspect</th>
-                  <th className="p-4 text-left font-bold">Vibe Coding</th>
-                  <th className="p-4 text-left font-bold">
-                    Design Engineering
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800">
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Process</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Prompt, iterate, accept output
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Design with intent, implement with understanding
-                  </td>
-                </tr>
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Decisions</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    AI makes aesthetic choices
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Human makes aesthetic choices based on principles
-                  </td>
-                </tr>
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Understanding</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Surface-level &quot;this looks okay&quot;
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Deep knowledge of why choices work
-                  </td>
-                </tr>
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Iteration</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Re-prompt and hope for better output
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Systematic refinement based on principles
-                  </td>
-                </tr>
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Quality</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Inconsistent, derivative, generic
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Consistent, intentional, polished
-                  </td>
-                </tr>
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Skill Development</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Dependency on tools, limited growth
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Compounding skills, continuous improvement
-                  </td>
-                </tr>
-                <tr className="transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/50">
-                  <td className="p-4 font-medium">Edge Cases</td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Breaks down when AI doesn&apos;t &quot;get it&quot;
-                  </td>
-                  <td className="p-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    Handles complexity with understanding
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Aspect</TableHead>
+                <TableHead>Vibe Coding</TableHead>
+                <TableHead>Design Engineering</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium">Process</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Prompt, iterate, accept output
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Design with intent, implement with understanding
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Decisions</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  AI makes aesthetic choices
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Human makes aesthetic choices based on principles
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Understanding</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Surface-level &quot;this looks okay&quot;
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Deep knowledge of why choices work
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Iteration</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Re-prompt and hope for better output
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Systematic refinement based on principles
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Quality</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Inconsistent, derivative, generic
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Consistent, intentional, polished
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Skill Development</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Dependency on tools, limited growth
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Compounding skills, continuous improvement
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="font-medium">Edge Cases</TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Breaks down when AI doesn&apos;t &quot;get it&quot;
+                </TableCell>
+                <TableCell className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Handles complexity with understanding
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
 
           <p className="mb-4 text-neutral-700 dark:text-neutral-300">
             Vibe Coding might get you 70% of the way there quickly. But that

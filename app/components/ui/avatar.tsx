@@ -12,17 +12,9 @@ const avatarVariants = cva(
         md: "h-10 w-10 text-sm",
         lg: "h-12 w-12 text-base",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
     },
     defaultVariants: {
       size: "md",
-      radius: "full",
     },
   }
 );
@@ -36,7 +28,7 @@ interface AvatarProps
 }
 
 const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
-  ({ className, size, radius, src, alt, fallback, style, ...props }, ref) => {
+  ({ className, size, src, alt, fallback, style, ...props }, ref) => {
     const initials = fallback
       ?.split(" ")
       .map((word) => word[0])
@@ -47,7 +39,7 @@ const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
     return (
       <div
         ref={ref}
-        className={cn(avatarVariants({ size, radius }), className)}
+        className={cn(avatarVariants({ size }), className)}
         style={style}
         {...props}
       >

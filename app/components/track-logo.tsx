@@ -91,7 +91,7 @@ export function TrackLogo({
       {/* Outer shape based on track */}
       <g
         className={cn(
-          "transition-opacity duration-300",
+          "transition-opacity duration-300 motion-reduce:transition-none",
           !showShape && "opacity-0",
         )}
       >
@@ -101,7 +101,7 @@ export function TrackLogo({
       {/* Inner treatment based on platform - only shown if not small */}
       <g
         className={cn(
-          "transition-opacity duration-300",
+          "transition-opacity duration-300 motion-reduce:transition-none",
           !showPlatform && "opacity-0",
         )}
       >
@@ -115,7 +115,7 @@ export function TrackLogo({
       {/* Center accent - always Swiss Red diamond */}
       <g
         className={cn(
-          "transition-opacity duration-300",
+          "transition-opacity duration-300 motion-reduce:transition-none",
           !showCore && "opacity-0",
         )}
       >

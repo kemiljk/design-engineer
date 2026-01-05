@@ -256,7 +256,7 @@ function TrackCard({
         <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
           {track.highlights.map((highlight) => (
             <li key={highlight} className="flex items-center gap-2">
-              <span className="h-1 w-1 shrink-0 rounded-full bg-swiss-red" />
+              <span className="h-1 w-1 shrink-0 bg-swiss-red" />
               {highlight}
             </li>
           ))}
@@ -337,7 +337,7 @@ function CurriculumModal({
                 <ul className="space-y-1 pl-7 text-sm text-neutral-600 dark:text-neutral-400">
                   {module.topics.map((topic) => (
                     <li key={topic} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-neutral-300 dark:bg-neutral-600" />
+                      <span className="mt-1.5 h-1 w-1 shrink-0 bg-neutral-300 dark:bg-neutral-600" />
                       {topic}
                     </li>
                   ))}

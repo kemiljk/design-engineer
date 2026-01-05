@@ -28,7 +28,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "peer w-full border border-neutral-200 bg-transparent px-3 py-2 text-foreground transition-colors",
+            "peer w-full border border-neutral-200 bg-transparent px-3 py-2 text-foreground transition-colors motion-reduce:transition-none",
             "placeholder:text-neutral-500",
             "hover:border-neutral-400 dark:hover:border-neutral-600",
             "focus:border-swiss-red focus:outline-none dark:focus:border-swiss-red",
@@ -51,7 +51,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <label
             htmlFor={inputId}
             className={cn(
-              "pointer-events-none absolute left-3 transition-all duration-150",
+              "pointer-events-none absolute left-3 transition-all duration-150 motion-reduce:transition-none",
               "text-neutral-400",
               isFocused || hasValue
                 ? "top-1 text-xs"
@@ -86,7 +86,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={textareaId}
           className={cn(
-            "peer w-full border border-neutral-200 bg-transparent px-3 pt-6 pb-2 text-foreground transition-colors",
+            "peer w-full border border-neutral-200 bg-transparent px-3 pt-6 pb-2 text-foreground transition-colors motion-reduce:transition-none",
             "placeholder:text-transparent",
             "hover:border-neutral-400 dark:hover:border-neutral-600",
             "focus:border-swiss-red focus:outline-none dark:focus:border-swiss-red",
@@ -109,7 +109,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <label
             htmlFor={textareaId}
             className={cn(
-              "pointer-events-none absolute left-3 transition-all duration-150",
+              "pointer-events-none absolute left-3 transition-all duration-150 motion-reduce:transition-none",
               "text-neutral-400",
               isFocused || hasValue ? "top-2 text-xs" : "top-4 text-sm"
             )}

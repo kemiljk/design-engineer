@@ -40,11 +40,11 @@ export function ContentCard({
         className={`group block h-full w-full ${className}`}
         prefetch={!isExternal}
       >
-        <div className="flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
+        <div className="flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red motion-reduce:transition-none dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
           <div className="relative aspect-video w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
             <img
               alt={post.title}
-              className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+              className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 motion-reduce:transition-none"
               src={imageUrl}
             />
           </div>
@@ -66,7 +66,7 @@ export function ContentCard({
                 <span>{readingTime} min read</span>
               </div>
 
-              <h2 className="text-lg font-bold text-foreground transition-colors group-hover:text-swiss-red md:text-xl">
+              <h2 className="text-lg font-bold text-foreground transition-colors group-hover:text-swiss-red motion-reduce:transition-none md:text-xl">
                 {post.title}
               </h2>
 

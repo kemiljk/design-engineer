@@ -136,7 +136,7 @@ const ModalContent = forwardRef<
     >
       <button
         onClick={context?.onClose}
-        className="absolute right-4 top-4 p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+        className="focus-ring absolute right-4 top-4 p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 motion-reduce:transition-none dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
         aria-label="Close modal"
       >
         <Xmark className="h-4 w-4" />

@@ -125,7 +125,7 @@ export function UpgradePrompt({
         </div>
       </div>
 
-      <h2 className="mb-2 text-center text-2xl font-bold">
+      <h2 className="mb-2 text-center heading-section">
         Unlock {track} {platform && `(${platform})`}
       </h2>
       <p className="mb-8 text-center text-neutral-600 dark:text-neutral-400">
@@ -237,7 +237,7 @@ export function UpgradePrompt({
         className="flex w-full items-center justify-center gap-2 bg-swiss-red px-6 py-4 font-semibold text-white transition-all hover:bg-neutral-900 disabled:opacity-50 dark:hover:bg-white dark:hover:text-black"
       >
         {isLoading ? (
-          <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+          <div className="h-5 w-5 animate-spin border-2 border-white border-t-transparent" />
         ) : isLoaded && !isSignedIn ? (
           <>
             Sign Up to Purchase

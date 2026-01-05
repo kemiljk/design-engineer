@@ -118,7 +118,7 @@ export function MarkCompleteButton({
       }`}
     >
       {isLoading ? (
-        <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+        <div className="h-5 w-5 animate-spin border-2 border-white border-t-transparent" />
       ) : isCompleted ? (
         <>
           <CheckCircle2 className="h-5 w-5" />

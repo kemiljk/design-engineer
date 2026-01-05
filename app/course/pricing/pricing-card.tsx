@@ -94,7 +94,7 @@ export function PricingCard({ product, currentAccess, userId }: PricingCardProps
       >
         {isLoading ? (
           <span className="inline-flex items-center gap-2">
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            <span className="h-4 w-4 animate-spin border-2 border-current border-t-transparent" />
             Loading...
           </span>
         ) : isOwned ? (
@@ -218,7 +218,7 @@ export function BundleCard({ product, currentAccess, userId }: BundleCardProps) 
       >
         {isLoading ? (
           <span className="inline-flex items-center gap-2">
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            <span className="h-4 w-4 animate-spin border-2 border-current border-t-transparent" />
             Loading...
           </span>
         ) : isOwned ? (
@@ -284,7 +284,7 @@ export function PlatformTierCard({ product, currentAccess, userId }: PlatformTie
   const platform = product.key.includes("web") ? "Web" : product.key.includes("ios") ? "iOS" : "Android";
 
   return (
-    <div className="rounded-none border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="rounded-none border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
       <div className="mb-2 flex items-center gap-2">
         <span className={cn(
           "rounded-none px-2 py-0.5 text-xs font-medium",
@@ -308,7 +308,7 @@ export function PlatformTierCard({ product, currentAccess, userId }: PlatformTie
       >
         {isLoading ? (
           <span className="inline-flex items-center gap-2">
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            <span className="h-4 w-4 animate-spin border-2 border-current border-t-transparent" />
           </span>
         ) : isOwned ? (
           "Owned"

@@ -9,9 +9,9 @@ const cardVariants = cva(
       variant: {
         default: "",
         interactive:
-          "transition-colors hover:border-swiss-red dark:hover:border-swiss-red",
+          "transition-colors hover:border-swiss-red motion-reduce:transition-none dark:hover:border-swiss-red",
         elevated:
-          "shadow-sm hover:shadow-md transition-shadow",
+          "shadow-sm hover:shadow-md transition-shadow motion-reduce:transition-none",
       },
       padding: {
         none: "",

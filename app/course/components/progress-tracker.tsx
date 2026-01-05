@@ -30,7 +30,7 @@ export function ProgressTracker() {
   if (isLoading) {
     return (
       <div className="flex h-24 items-center justify-center">
-        <div className="h-6 w-6 animate-spin rounded-full border-2 border-swiss-red border-t-transparent" />
+        <div className="h-6 w-6 animate-spin border-2 border-swiss-red border-t-transparent" />
       </div>
     );
   }

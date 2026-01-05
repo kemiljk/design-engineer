@@ -93,10 +93,10 @@ function TestimonialCard({
             <img
               src={photoUrl}
               alt={name}
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-10 w-10 object-cover"
             />
           ) : (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-200 text-sm font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
+            <div className="flex h-10 w-10 items-center justify-center bg-neutral-200 text-sm font-bold text-neutral-600 dark:bg-neutral-700 dark:text-neutral-300">
               {name.charAt(0)}
             </div>
           )}

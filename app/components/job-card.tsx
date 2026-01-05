@@ -79,7 +79,7 @@ const JobCard = ({ job }: { job: Type.Job }) => {
               style={{
                 backgroundColor: `${industry.metadata.colour}55`,
               }}
-              className="rounded-full px-2 py-1 text-center text-xs text-foreground"
+              className="px-2 py-1 text-center text-xs text-foreground"
             >
               {industry.title}
             </p>

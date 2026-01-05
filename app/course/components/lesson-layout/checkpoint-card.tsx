@@ -78,7 +78,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
 
   if (!isHydrated) {
     return (
-      <div className="my-8 rounded-xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
+      <div className="my-8 border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
         <div className="animate-pulse space-y-3">
           <div className="h-5 w-32 rounded bg-neutral-200 dark:bg-neutral-700" />
           <div className="h-2 w-full rounded bg-neutral-200 dark:bg-neutral-700" />
@@ -94,7 +94,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
     <div className="not-prose my-8">
       <div
         className={cn(
-          "rounded-xl border bg-white transition-colors dark:bg-neutral-900",
+          "border bg-white transition-colors dark:bg-neutral-900",
           isComplete
             ? "border-swiss-red/30 bg-swiss-red/5 dark:border-swiss-red/20 dark:bg-swiss-red/5"
             : "border-neutral-200 dark:border-neutral-800"
@@ -105,7 +105,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
           <div className="flex items-center gap-3">
             <div
               className={cn(
-                "flex h-8 w-8 items-center justify-center rounded-lg transition-colors",
+                "flex h-8 w-8 items-center justify-center transition-colors",
                 isComplete
                   ? "bg-swiss-red text-white"
                   : "bg-neutral-100 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400"
@@ -137,7 +137,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
           </div>
           <button
             onClick={resetChecklist}
-            className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-700 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
             aria-label="Reset checkpoint"
           >
             <RotateCcw className="h-3 w-3" />
@@ -155,10 +155,10 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
               {checkedCount}/{totalCount}
             </span>
           </div>
-          <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
+          <div className="mt-1.5 h-1.5 overflow-hidden bg-neutral-200 dark:bg-neutral-700">
             <div
               className={cn(
-                "h-full rounded-full transition-all duration-300",
+                "h-full transition-all duration-300",
                 isComplete ? "bg-swiss-red" : "bg-neutral-400 dark:bg-neutral-500"
               )}
               style={{ width: `${progress}%` }}
@@ -171,7 +171,7 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
           {checklistItems.map((item) => (
             <label
               key={item.id}
-              className="group flex cursor-pointer items-start gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
+              className="group flex cursor-pointer items-start gap-3 px-2 py-2 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
             >
               <div
                 className={cn(
