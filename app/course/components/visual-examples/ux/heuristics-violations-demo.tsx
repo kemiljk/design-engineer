@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { AlertCircle, HelpCircle, CheckCircle2 } from "lucide-react";
+import { WarningCircle, HelpCircle, CheckCircle } from "iconoir-react";
 
 type Mode = "violations" | "fixes";
 
@@ -27,7 +27,7 @@ export function HeuristicsViolationsDemo() {
           {/* Header */}
           <div className="h-12 border-b border-neutral-100 flex items-center justify-between px-4 dark:border-neutral-900">
             <span className="font-bold text-neutral-900 dark:text-white">Settings</span>
-            {mode === "fixes" && <button className="text-neutral-400 hover:text-neutral-900"><HelpCircle size={18} /></button>}
+            {mode === "fixes" && <button className="text-neutral-400 hover:text-neutral-900"><HelpCircle width={18} height={18} /></button>}
           </div>
 
           <div className="p-5 space-y-6">
@@ -41,7 +41,7 @@ export function HeuristicsViolationsDemo() {
                 <div className="text-sm text-neutral-500">Processing...</div>
               ) : (
                 <div className="flex items-center gap-2 text-green-600 bg-green-50 px-3 py-2 rounded-md border border-green-100 dark:bg-green-900/20 dark:border-green-900/30 dark:text-green-400">
-                  <CheckCircle2 size={16} />
+                  <CheckCircle width={16} height={16} />
                   <span className="text-sm font-medium">Changes Saved</span>
                 </div>
               )}

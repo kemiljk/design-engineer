@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Info } from "lucide-react";
+import { InfoCircle } from "iconoir-react";
 
 type DesignIntent = "arbitrary" | "intentional";
 
@@ -131,7 +131,7 @@ export function IntentionalDesignDemo() {
         {/* The Analysis */}
         <div className="space-y-4">
           <h4 className="font-medium text-neutral-900 dark:text-white flex items-center gap-2">
-            <Info className="h-4 w-4" />
+            <InfoCircle className="h-4 w-4" />
             Analysis
           </h4>
           

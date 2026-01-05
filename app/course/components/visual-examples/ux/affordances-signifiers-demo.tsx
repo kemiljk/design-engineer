@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { ChevronRight } from "lucide-react";
+import { NavArrowRight } from "iconoir-react";
 
 type Type = "hidden" | "false" | "clear";
 
@@ -41,7 +41,7 @@ export function AffordancesSignifiersDemo() {
                    <div className="w-8 h-5 bg-neutral-200 rounded dark:bg-neutral-700"></div>
                    <div className="font-medium">Visa •••• 4242</div>
                 </div>
-                {type === "clear" && <ChevronRight size={20} className="text-neutral-400" />}
+                {type === "clear" && <NavArrowRight width={20} height={20} className="text-neutral-400" />}
              </div>
 
              {/* Card Option 2 */}
@@ -55,7 +55,7 @@ export function AffordancesSignifiersDemo() {
                    <div className="w-8 h-5 bg-neutral-200 rounded dark:bg-neutral-700"></div>
                    <div className="font-medium">Mastercard •••• 8888</div>
                 </div>
-                {type === "clear" && <ChevronRight size={20} className="text-neutral-400" />}
+                {type === "clear" && <NavArrowRight width={20} height={20} className="text-neutral-400" />}
              </div>
           </div>
 

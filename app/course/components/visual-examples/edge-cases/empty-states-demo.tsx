@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Search, Plus, Sparkles, FolderOpen, Inbox } from "lucide-react";
+import { Search, Plus, Sparks, Folder, MailIn } from "iconoir-react";
 
 type EmptyType = "first-use" | "no-results" | "cleared";
 
@@ -30,7 +30,7 @@ export function EmptyStatesDemo() {
             <span className="font-bold text-neutral-900 dark:text-white">
                {type === "first-use" ? "Projects" : type === "no-results" ? "Search" : "Inbox"}
             </span>
-            {type === "first-use" && <button className="p-2 bg-neutral-900 text-white rounded-full"><Plus size={16} /></button>}
+            {type === "first-use" && <button className="p-2 bg-neutral-900 text-white rounded-full"><Plus width={16} height={16} /></button>}
           </div>
 
           <div className="flex-1 flex items-center justify-center p-6 text-center">
@@ -38,7 +38,7 @@ export function EmptyStatesDemo() {
              {type === "first-use" && (
                <div className="space-y-4 max-w-[240px]">
                  <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
-                   <Sparkles size={32} />
+                   <Sparks width={32} height={32} />
                  </div>
                  <div>
                    <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">Start your first project</h3>
@@ -53,7 +53,7 @@ export function EmptyStatesDemo() {
              {type === "no-results" && (
                <div className="space-y-4 max-w-[240px]">
                  <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mx-auto text-neutral-400 dark:bg-neutral-900">
-                   <Search size={32} />
+                   <Search width={32} height={32} />
                  </div>
                  <div>
                    <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">No matching results</h3>
@@ -68,7 +68,7 @@ export function EmptyStatesDemo() {
              {type === "cleared" && (
                <div className="space-y-4 max-w-[240px]">
                  <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto text-green-600 dark:bg-green-900/20 dark:text-green-400">
-                   <Inbox size={32} />
+                   <MailIn width={32} height={32} />
                  </div>
                  <div>
                    <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">All caught up!</h3>

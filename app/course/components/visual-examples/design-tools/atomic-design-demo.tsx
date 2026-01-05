@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Search, Bell, User } from "lucide-react";
+import { Search, Bell, User } from "iconoir-react";
 
 type Level = "atoms" | "molecules" | "organisms" | "templates";
 
@@ -56,7 +56,7 @@ export function AtomicDesignDemo() {
              {/* Search Bar Molecule */}
              <div className="flex flex-col items-center gap-3">
                <div className="flex items-center w-64 rounded-lg border border-neutral-200 bg-white px-3 py-2 shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
-                 <Search size={18} className="mr-2 text-neutral-400" />
+                 <Search width={18} height={18} className="mr-2 text-neutral-400" />
                  <span className="text-sm text-neutral-400">Search...</span>
                </div>
                <span className="text-xs font-mono text-neutral-400">Search Molecule</span>
@@ -90,7 +90,7 @@ export function AtomicDesignDemo() {
 
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <Bell size={20} className="text-neutral-500" />
+                    <Bell width={20} height={20} className="text-neutral-500" />
                     <div className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-neutral-900"></div>
                   </div>
                   <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xs font-bold">SJ</div>

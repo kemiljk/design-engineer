@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
-import { Home, Settings, User, Bell, Search, Menu } from "lucide-react";
+import { Home, Settings, User, Bell, Search, Menu } from "iconoir-react";
 
 type IconSize = 16 | 20 | 24 | 32 | 48 | 64;
 
@@ -41,12 +41,12 @@ export function IconSizingDemo() {
       <div className="flex flex-col items-center justify-center gap-8 py-8">
         {/* Grid of icons at current size */}
         <div className="flex flex-wrap items-center justify-center gap-6 p-8 rounded-xl bg-neutral-50 border border-dashed border-neutral-200 dark:bg-neutral-900/50 dark:border-neutral-800">
-          <Home size={size} strokeWidth={1.5} className="text-neutral-900 dark:text-white" />
-          <Settings size={size} strokeWidth={1.5} className="text-neutral-900 dark:text-white" />
-          <User size={size} strokeWidth={1.5} className="text-neutral-900 dark:text-white" />
-          <Bell size={size} strokeWidth={1.5} className="text-neutral-900 dark:text-white" />
-          <Search size={size} strokeWidth={1.5} className="text-neutral-900 dark:text-white" />
-          <Menu size={size} strokeWidth={1.5} className="text-neutral-900 dark:text-white" />
+          <Home width={size} height={size} className="text-neutral-900 dark:text-white" />
+          <Settings width={size} height={size} className="text-neutral-900 dark:text-white" />
+          <User width={size} height={size} className="text-neutral-900 dark:text-white" />
+          <Bell width={size} height={size} className="text-neutral-900 dark:text-white" />
+          <Search width={size} height={size} className="text-neutral-900 dark:text-white" />
+          <Menu width={size} height={size} className="text-neutral-900 dark:text-white" />
         </div>
 
         {/* Context description */}
@@ -69,10 +69,10 @@ export function IconSizingDemo() {
                 <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">Dense Table Row</span>
                 <div className="flex gap-2">
                    <button className="p-1 hover:bg-neutral-100 rounded dark:hover:bg-neutral-900">
-                     <Settings size={size} className="text-neutral-400" />
+                     <Settings width={size} height={size} className="text-neutral-400" />
                    </button>
                    <button className="p-1 hover:bg-neutral-100 rounded dark:hover:bg-neutral-900">
-                     <User size={size} className="text-neutral-400" />
+                     <User width={size} height={size} className="text-neutral-400" />
                    </button>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export function IconSizingDemo() {
             {(size === 24 || size === 32) && (
               <div className="p-4 flex items-center gap-4">
                 <button className="flex items-center justify-center gap-2 w-full bg-neutral-900 text-white rounded-lg py-2.5 px-4 dark:bg-white dark:text-neutral-900">
-                  <Search size={size} />
+                  <Search width={size} height={size} />
                   <span className={size === 32 ? "text-lg" : "text-base"}>Search Now</span>
                 </button>
               </div>
@@ -90,7 +90,7 @@ export function IconSizingDemo() {
             {size >= 48 && (
               <div className="p-8 text-center flex flex-col items-center">
                 <div className="bg-neutral-100 p-4 rounded-full mb-4 dark:bg-neutral-900">
-                  <Bell size={size} className="text-neutral-400" />
+                  <Bell width={size} height={size} className="text-neutral-400" />
                 </div>
                 <h4 className="text-lg font-bold text-neutral-900 dark:text-white">No Notifications</h4>
                 <p className="text-sm text-neutral-500 mt-1">We'll let you know when something arrives.</p>

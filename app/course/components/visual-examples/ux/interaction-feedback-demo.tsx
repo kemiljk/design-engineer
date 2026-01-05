@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Check, Loader2, X } from "lucide-react";
+import { Check, RefreshDouble as Loader, Xmark } from "iconoir-react";
 
 type FeedbackType = "none" | "delayed" | "immediate";
 
@@ -59,7 +59,7 @@ export function InteractionFeedbackDemo() {
           )}
         >
           <div className="flex items-center justify-center gap-2">
-            {status === "loading" && <Loader2 className="animate-spin" />}
+            {status === "loading" && <Loader className="animate-spin" width={20} height={20} />}
             {status === "success" && <Check className="animate-in zoom-in spin-in-45" />}
             <span>
               {status === "idle" && "Save Changes"}

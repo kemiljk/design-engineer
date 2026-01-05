@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Check, AlertCircle } from "lucide-react";
+import { Check, WarningCircle } from "iconoir-react";
 
 type DesignMode = "decoration" | "communication";
 
@@ -85,7 +85,7 @@ export function VisualDesignComparisonDemo() {
             </div>
             
             <div className="mt-6 flex items-start gap-2 rounded-md bg-neutral-50 p-3 text-xs text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400">
-              <AlertCircle className="h-4 w-4 shrink-0 text-neutral-500" />
+              <WarningCircle className="h-4 w-4 shrink-0 text-neutral-500" />
               <p>Communication prioritises clarity, hierarchy, and actionable feedback.</p>
             </div>
           </div>

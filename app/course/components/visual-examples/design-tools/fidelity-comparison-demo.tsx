@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { User, MapPin, Star } from "lucide-react";
+import { User, Pin, Star } from "iconoir-react";
 
 type Fidelity = "low" | "medium" | "high";
 
@@ -63,7 +63,7 @@ export function FidelityComparisonDemo() {
               <div className={cn("h-6 w-12", fidelity === "low" ? "border border-neutral-400" : "bg-neutral-200 rounded dark:bg-neutral-800")}>
                   {fidelity === "high" && (
                     <div className="flex items-center gap-1 text-sm font-semibold text-neutral-900 bg-neutral-100 px-1.5 py-0.5 rounded dark:bg-neutral-800 dark:text-white">
-                      <Star size={12} fill="currentColor" /> 4.9
+                      <Star width={12} height={12} fill="currentColor" /> 4.9
                     </div>
                   )}
               </div>
@@ -72,7 +72,7 @@ export function FidelityComparisonDemo() {
             {/* Location */}
              <div className="flex items-center gap-2 mb-6">
                 <div className={cn("w-4 h-4", fidelity === "low" ? "border border-neutral-400" : "bg-neutral-300 rounded-full dark:bg-neutral-700")}>
-                    {fidelity === "high" && <MapPin size={16} className="text-neutral-500" />}
+                    {fidelity === "high" && <Pin width={16} height={16} className="text-neutral-500" />}
                 </div>
                 <div className={cn("h-3 w-1/2", fidelity === "low" ? "border border-neutral-400" : "bg-neutral-200 rounded dark:bg-neutral-800")}>
                     {fidelity === "high" && <span className="text-sm text-neutral-500 block -mt-1">Aspen, Colorado</span>}

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Trash2, Mail, Plus } from "lucide-react";
+import { ArrowRight, Trash, Mail, Plus } from "iconoir-react";
 
 type Variant = "primary" | "secondary" | "outline" | "ghost" | "danger";
 type Size = "sm" | "md" | "lg";
@@ -60,9 +60,9 @@ export function ComponentVariantsDemo() {
         {/* The Button Playground */}
         <div className="flex items-center gap-4">
           <button className={getButtonClass()}>
-            {variant === "danger" ? <Trash2 size={size === "sm" ? 14 : size === "md" ? 16 : 18} /> : 
-             variant === "outline" ? <Mail size={size === "sm" ? 14 : size === "md" ? 16 : 18} /> :
-             variant === "primary" ? <Plus size={size === "sm" ? 14 : size === "md" ? 16 : 18} /> : null}
+            {variant === "danger" ? <Trash width={size === "sm" ? 14 : size === "md" ? 16 : 18} height={size === "sm" ? 14 : size === "md" ? 16 : 18} /> : 
+             variant === "outline" ? <Mail width={size === "sm" ? 14 : size === "md" ? 16 : 18} height={size === "sm" ? 14 : size === "md" ? 16 : 18} /> :
+             variant === "primary" ? <Plus width={size === "sm" ? 14 : size === "md" ? 16 : 18} height={size === "sm" ? 14 : size === "md" ? 16 : 18} /> : null}
             
             <span>
               {variant === "danger" ? "Delete Item" : 
@@ -71,7 +71,7 @@ export function ComponentVariantsDemo() {
                "Button Label"}
             </span>
             
-            {variant === "ghost" && <ArrowRight size={size === "sm" ? 14 : size === "md" ? 16 : 18} />}
+            {variant === "ghost" && <ArrowRight width={size === "sm" ? 14 : size === "md" ? 16 : 18} height={size === "sm" ? 14 : size === "md" ? 16 : 18} />}
           </button>
         </div>
 

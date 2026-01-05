@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Menu, Search, User, Home, Bell, Settings, ArrowLeft } from "lucide-react";
+import { Menu, Search, User, Home, Bell, Settings, ArrowLeft } from "iconoir-react";
 
 type NavPattern = "global" | "local" | "contextual";
 
@@ -32,8 +32,8 @@ export function NavPatternsDemo() {
           )}>
             <div className="font-bold text-lg">Logo</div>
             <div className="flex gap-4">
-              <Search size={20} className="text-neutral-500" />
-              <User size={20} className="text-neutral-500" />
+              <Search width={20} height={20} className="text-neutral-500" />
+              <User width={20} height={20} className="text-neutral-500" />
             </div>
           </div>
 
@@ -43,15 +43,15 @@ export function NavPatternsDemo() {
                "w-16 border-r border-neutral-200 dark:border-neutral-800 flex flex-col items-center py-4 gap-6 transition-all duration-500",
                pattern === "local" ? "bg-blue-50 dark:bg-blue-900/20 ring-2 ring-blue-500 ring-inset z-20" : "bg-neutral-50 dark:bg-neutral-900"
             )}>
-               <div className="p-2 bg-neutral-200 dark:bg-neutral-800 rounded-lg"><Home size={20} /></div>
-               <div className="p-2 text-neutral-400"><Bell size={20} /></div>
-               <div className="p-2 text-neutral-400"><Settings size={20} /></div>
+               <div className="p-2 bg-neutral-200 dark:bg-neutral-800 rounded-lg"><Home width={20} height={20} /></div>
+               <div className="p-2 text-neutral-400"><Bell width={20} height={20} /></div>
+               <div className="p-2 text-neutral-400"><Settings width={20} height={20} /></div>
             </div>
 
             {/* Main Content */}
             <div className="flex-1 p-6 overflow-y-auto">
                <div className="flex items-center gap-2 mb-6 text-sm text-neutral-500">
-                  <ArrowLeft size={16} />
+                  <ArrowLeft width={16} height={16} />
                   <span>Back to Settings</span>
                </div>
                

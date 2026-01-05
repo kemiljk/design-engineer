@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { AlertCircle, XCircle, Info } from "lucide-react";
+import { WarningCircle, XmarkCircle, InfoCircle } from "iconoir-react";
 
 type ErrorType = "vague" | "blame" | "helpful";
 
@@ -39,21 +39,21 @@ export function ErrorStatesDemo() {
             
             {type === "vague" && (
               <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
-                <XCircle size={12} />
+                <XmarkCircle width={12} height={12} />
                 Invalid input.
               </p>
             )}
             
             {type === "blame" && (
               <p className="text-xs text-red-600 mt-1 font-bold flex items-center gap-1">
-                <XCircle size={12} />
+                <XmarkCircle width={12} height={12} />
                 You entered a bad email address! Fix it.
               </p>
             )}
             
             {type === "helpful" && (
               <p className="text-xs text-red-600 mt-1 flex items-center gap-1 dark:text-red-400">
-                <AlertCircle size={12} />
+                <WarningCircle width={12} height={12} />
                 Please include an '@' and a domain (e.g. .com)
               </p>
             )}
@@ -62,7 +62,7 @@ export function ErrorStatesDemo() {
           <div className="p-4 rounded-lg border bg-white shadow-sm dark:bg-neutral-950 dark:border-neutral-800">
              {type === "vague" && (
                <div className="flex gap-3">
-                 <div className="text-red-500"><AlertCircle size={20} /></div>
+                 <div className="text-red-500"><WarningCircle width={20} height={20} /></div>
                  <div>
                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white">Error 500</h4>
                    <p className="text-sm text-neutral-500 mt-1">Something went wrong.</p>
@@ -72,7 +72,7 @@ export function ErrorStatesDemo() {
 
              {type === "blame" && (
                <div className="flex gap-3">
-                 <div className="text-red-600"><XCircle size={20} /></div>
+                 <div className="text-red-600"><XmarkCircle width={20} height={20} /></div>
                  <div>
                    <h4 className="text-sm font-bold text-red-700 dark:text-red-400">Operation Failed</h4>
                    <p className="text-sm text-red-600 mt-1 dark:text-red-300">You lost your connection. Try again when your internet isn't broken.</p>
@@ -82,7 +82,7 @@ export function ErrorStatesDemo() {
 
              {type === "helpful" && (
                <div className="flex gap-3">
-                 <div className="text-amber-500"><Info size={20} /></div>
+                 <div className="text-amber-500"><InfoCircle width={20} height={20} /></div>
                  <div className="flex-1">
                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white">Connection Lost</h4>
                    <p className="text-sm text-neutral-500 mt-1">We couldn't save your changes. Check your connection—we'll retry automatically in 5s.</p>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
+import { RefreshDouble as Loader } from "iconoir-react";
 
 type State = "default" | "hover" | "focus" | "active" | "disabled" | "loading";
 
@@ -50,7 +50,7 @@ export function ComponentStatesDemo() {
              // Prevent actual interactions from overriding the demo state
              style={{ pointerEvents: 'none' }}
            >
-             {state === "loading" && <Loader2 className="animate-spin" size={18} />}
+             {state === "loading" && <Loader className="animate-spin" width={18} height={18} />}
              <span>Submit Request</span>
            </button>
            

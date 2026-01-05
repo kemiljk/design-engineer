@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Folder, FileText } from "lucide-react";
+import { NavArrowRight, Folder, Page } from "iconoir-react";
 
 type HierarchyType = "flat" | "deep";
 
@@ -41,7 +41,7 @@ export function IAHierarchyDepthDemo() {
              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                {Array.from({ length: 9 }).map((_, i) => (
                  <div key={i} className="flex flex-col items-center p-4 rounded-lg border border-neutral-100 hover:bg-neutral-50 transition-colors cursor-pointer dark:border-neutral-800 dark:hover:bg-neutral-900">
-                    <FileText size={24} className="text-blue-500 mb-2" />
+                    <Page width={24} height={24} className="text-blue-500 mb-2" />
                     <span className="text-xs text-center font-medium">Item {i + 1}</span>
                  </div>
                ))}
@@ -54,8 +54,8 @@ export function IAHierarchyDepthDemo() {
                      className="flex items-center gap-3 p-3 bg-neutral-50 cursor-pointer hover:bg-neutral-100 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                      onClick={() => togglePath(cat)}
                    >
-                     <ChevronRight size={16} className={cn("transition-transform text-neutral-400", activePath.includes(cat) && "rotate-90")} />
-                     <Folder size={18} className="text-yellow-500" />
+                     <NavArrowRight width={16} height={16} className={cn("transition-transform text-neutral-400", activePath.includes(cat) && "rotate-90")} />
+                     <Folder width={18} height={18} className="text-yellow-500" />
                      <span className="text-sm font-medium">{cat}</span>
                    </div>
                    
@@ -67,19 +67,19 @@ export function IAHierarchyDepthDemo() {
                                className="flex items-center gap-2 py-1 cursor-pointer hover:text-blue-600"
                                onClick={() => togglePath(`${cat}-${sub}`)}
                              >
-                                <ChevronRight size={14} className={cn("transition-transform text-neutral-300", activePath.includes(`${cat}-${sub}`) && "rotate-90")} />
-                                <Folder size={14} className="text-yellow-500/70" />
+                                <NavArrowRight width={14} height={14} className={cn("transition-transform text-neutral-300", activePath.includes(`${cat}-${sub}`) && "rotate-90")} />
+                                <Folder width={14} height={14} className="text-yellow-500/70" />
                                 <span className="text-xs">{sub}</span>
                              </div>
                              
                              {activePath.includes(`${cat}-${sub}`) && (
                                <div className="pl-6 py-1 space-y-1">
                                   <div className="flex items-center gap-2 py-1 px-2 rounded hover:bg-neutral-50 dark:hover:bg-neutral-900 cursor-pointer">
-                                     <FileText size={12} className="text-blue-500" />
+                                     <Page width={12} height={12} className="text-blue-500" />
                                      <span className="text-xs text-neutral-600 dark:text-neutral-400">Item 1</span>
                                   </div>
                                   <div className="flex items-center gap-2 py-1 px-2 rounded hover:bg-neutral-50 dark:hover:bg-neutral-900 cursor-pointer">
-                                     <FileText size={12} className="text-blue-500" />
+                                     <Page width={12} height={12} className="text-blue-500" />
                                      <span className="text-xs text-neutral-600 dark:text-neutral-400">Item 2</span>
                                   </div>
                                </div>

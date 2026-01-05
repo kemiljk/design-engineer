@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wrapper";
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
+import { RefreshDouble as Loader } from "iconoir-react";
 
 type LoadingType = "spinner" | "progress" | "skeleton";
 
@@ -44,7 +44,7 @@ export function LoadingStatesDemo() {
              
              {type === "spinner" && (
                <div className="flex flex-col items-center gap-3">
-                 <Loader2 className="animate-spin text-blue-600" size={32} />
+                 <Loader className="animate-spin text-blue-600" width={32} height={32} />
                  <span className="text-sm text-neutral-500">Loading...</span>
                </div>
              )}

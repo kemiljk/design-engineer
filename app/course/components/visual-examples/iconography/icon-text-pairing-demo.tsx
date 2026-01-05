@@ -5,14 +5,14 @@ import { ExampleWrapper, ControlButton, ControlGroup } from "../base/example-wra
 import { cn } from "@/lib/utils";
 import { 
   Download, 
-  Share2, 
-  Trash2, 
-  Edit3, 
-  MoreHorizontal, 
+  ShareIos, 
+  Trash, 
+  Edit, 
+  MoreHorizCircle, 
   Heart,
   Archive,
-  Flag
-} from "lucide-react";
+  TriangleFlag
+} from "iconoir-react";
 
 type LabelMode = "icon-only" | "icon-text" | "text-only";
 
@@ -52,11 +52,11 @@ export function IconTextPairingDemo() {
           <p className="text-xs font-medium text-neutral-500 uppercase tracking-wider">Toolbar Context</p>
           <div className="flex items-center gap-2 p-2 bg-neutral-100 rounded-lg border border-neutral-200 dark:bg-neutral-900 dark:border-neutral-800">
             {[
-              { icon: Edit3, label: "Edit" },
-              { icon: Share2, label: "Share" },
+              { icon: Edit, label: "Edit" },
+              { icon: ShareIos, label: "Share" },
               { icon: Download, label: "Export" },
               { icon: Archive, label: "Archive" },
-              { icon: Trash2, label: "Delete", danger: true }
+              { icon: Trash, label: "Delete", danger: true }
             ].map((item, i) => (
               <button
                 key={i}
@@ -68,7 +68,7 @@ export function IconTextPairingDemo() {
                 )}
                 title={mode === "icon-only" ? item.label : undefined}
               >
-                {mode !== "text-only" && <item.icon size={18} />}
+                {mode !== "text-only" && <item.icon width={18} height={18} />}
                 {mode !== "icon-only" && <span>{item.label}</span>}
               </button>
             ))}
@@ -85,7 +85,7 @@ export function IconTextPairingDemo() {
                  <p className="text-sm text-neutral-500">Updated 2 hours ago</p>
                </div>
                <button className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white">
-                 <MoreHorizontal size={20} />
+                 <MoreHorizCircle width={20} height={20} />
                </button>
              </div>
              
@@ -94,7 +94,7 @@ export function IconTextPairingDemo() {
                  "flex flex-1 items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-white py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 dark:bg-transparent dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900",
                  mode === "icon-only" && "px-0"
                )}>
-                 {mode !== "text-only" && <Heart size={16} />}
+                 {mode !== "text-only" && <Heart width={16} height={16} />}
                  {mode !== "icon-only" && <span>Favorite</span>}
                </button>
                
@@ -102,7 +102,7 @@ export function IconTextPairingDemo() {
                  "flex flex-1 items-center justify-center gap-2 rounded-lg border border-neutral-200 bg-white py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-50 dark:bg-transparent dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900",
                   mode === "icon-only" && "px-0"
                )}>
-                 {mode !== "text-only" && <Flag size={16} />}
+                 {mode !== "text-only" && <TriangleFlag width={16} height={16} />}
                  {mode !== "icon-only" && <span>Report</span>}
                </button>
              </div>
