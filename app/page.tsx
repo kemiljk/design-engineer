@@ -6,6 +6,7 @@ import {
   getPosts,
   getCourseAvailability,
 } from "@/lib/cosmic";
+import { getCourse } from "@/lib/course";
 import * as Type from "@/lib/types";
 import { RandomisedPosts } from "@/app/components/randomised-posts";
 import { cn } from "@/lib/utils";
@@ -380,7 +381,10 @@ function DesignEngineeringSection() {
 }
 
 async function CourseSection() {
-  const { is_available: isCourseAvailable } = await getCourseAvailability();
+  const [{ is_available: isCourseAvailable }, course] = await Promise.all([
+    getCourseAvailability(),
+    getCourse(),
+  ]);
 
   const tracks = [
     {
@@ -457,7 +461,7 @@ async function CourseSection() {
           <div className="flex items-center gap-6 text-sm text-neutral-500">
             <div className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
-              <span>150+ lessons</span>
+              <span>{course.totalLessons}+ lessons</span>
             </div>
             <div className="flex items-center gap-2">
               <Gift className="text-swiss-red h-4 w-4" />

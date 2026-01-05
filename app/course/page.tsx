@@ -28,6 +28,7 @@ import { StudentCompanies } from "./components/student-companies";
 import { TrackCard } from "./components/track-card";
 import { TrackLogo } from "@/app/components/track-logo";
 import { TestimonialsSection } from "./components/testimonials-section";
+import { CurriculumPreview } from "./components/curriculum-preview";
 
 export const metadata = {
   title: "Design Engineer Course",
@@ -278,6 +279,9 @@ export default async function CoursePage() {
         </div>
       </div>
 
+      {/* Curriculum Preview - What You'll Learn */}
+      <CurriculumPreview />
+
       {/* Free Content Callout - only show for non-enrolled users */}
       {(!accessLevel || accessLevel === "free") && (
         <div className="border-t border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50">
@@ -358,7 +362,7 @@ export default async function CoursePage() {
                     <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <li>✓ 48+ design lessons</li>
+                    <li>✓ {course.tracks.design.totalLessons}+ design lessons</li>
                     <li>✓ All 3 platforms</li>
                     <li>✓ Lifetime access</li>
                   </ul>
@@ -378,7 +382,7 @@ export default async function CoursePage() {
                     <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <li>✓ 67+ engineering lessons</li>
+                    <li>✓ {course.tracks.engineering.totalLessons}+ engineering lessons</li>
                     <li>✓ All 3 platforms</li>
                     <li>✓ Lifetime access</li>
                   </ul>
@@ -401,7 +405,7 @@ export default async function CoursePage() {
                     <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <li>✓ ALL 156+ lessons</li>
+                    <li>✓ All {course.totalLessons}+ lessons</li>
                     <li>✓ Exclusive advanced content</li>
                     <li>✓ Lifetime access + updates</li>
                   </ul>
