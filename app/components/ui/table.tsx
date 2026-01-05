@@ -5,11 +5,11 @@ const Table = forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="my-8 overflow-hidden border border-neutral-200 dark:border-neutral-800">
+  <div className="not-prose my-8 overflow-hidden border border-neutral-200 dark:border-neutral-800">
     <div className="overflow-x-auto">
       <table
         ref={ref}
-        className={cn("w-full text-sm", className)}
+        className={cn("w-full border-collapse text-sm", className)}
         {...props}
       />
     </div>
