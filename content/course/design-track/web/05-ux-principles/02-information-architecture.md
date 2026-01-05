@@ -103,6 +103,8 @@ Most products use hybrid schemes—topical navigation with task-based sections.
 
 Navigation helps users move through information.
 
+<!-- visual-example: nav-patterns-demo -->
+
 <!-- illustration: navigation-patterns -->
 
 ### Global Navigation
@@ -167,6 +169,8 @@ Traditional wisdom: "No more than 3 clicks." This is oversimplified.
 Better principle: Each step should feel like progress toward the goal.
 
 10 clear clicks beat 3 confusing ones.
+
+<!-- visual-example: ia-hierarchy-depth-demo -->
 
 ### Flat vs. Deep
 

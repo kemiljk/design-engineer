@@ -25,6 +25,8 @@ Intentional design means every visual choice (colour, size, spacing, font) serve
 
 ## The "Why?" Test
 
+<!-- visual-example: intentional-design-demo -->
+
 For every design decision, ask: **Why?**
 
 - "Why is this button blue?" 

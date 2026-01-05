@@ -21,13 +21,22 @@ import { SpacingScaleDemo, WhitespaceDemo } from "./spacing";
 import { GridColumnsDemo, ResponsiveLayoutDemo } from "./layout";
 
 // Design Tools
-import { AutoLayoutDemo, SizingBehaviorsDemo, ConstraintsDemo, HandoffChecklistDemo } from "./design-tools";
+import { AutoLayoutDemo, SizingBehaviorsDemo, ConstraintsDemo, HandoffChecklistDemo, AtomicDesignDemo, LayersDemo, FidelityComparisonDemo } from "./design-tools";
 
 // Design Systems
-import { TokenExplorerDemo } from "./design-systems";
+import { TokenExplorerDemo, ComponentVariantsDemo, ComponentStatesDemo } from "./design-systems";
 
 // UX
-import { PersonaCardDemo } from "./ux";
+import { PersonaCardDemo, NavPatternsDemo, IAHierarchyDepthDemo, AffordancesSignifiersDemo, InteractionFeedbackDemo, HeuristicsViolationsDemo } from "./ux";
+
+// Foundations
+import { VisualDesignComparisonDemo, IntentionalDesignDemo } from "./foundations";
+
+// Iconography
+import { IconSizingDemo, IconTextPairingDemo } from "./iconography";
+
+// Edge Cases
+import { EmptyStatesDemo, LoadingStatesDemo, ErrorStatesDemo } from "./edge-cases";
 
 // Motion
 import {
@@ -121,12 +130,35 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "sizing-behaviors-demo": SizingBehaviorsDemo,
   "constraints-demo": ConstraintsDemo,
   "handoff-checklist-demo": HandoffChecklistDemo,
+  "atomic-design-demo": AtomicDesignDemo,
+  "layers-demo": LayersDemo,
+  "fidelity-comparison-demo": FidelityComparisonDemo,
   
   // Design Systems
   "token-explorer-demo": TokenExplorerDemo,
+  "component-variants-demo": ComponentVariantsDemo,
+  "component-states-demo": ComponentStatesDemo,
   
   // UX
   "persona-card-demo": PersonaCardDemo,
+  "nav-patterns-demo": NavPatternsDemo,
+  "ia-hierarchy-depth-demo": IAHierarchyDepthDemo,
+  "affordances-signifiers-demo": AffordancesSignifiersDemo,
+  "interaction-feedback-demo": InteractionFeedbackDemo,
+  "heuristics-violations-demo": HeuristicsViolationsDemo,
+
+  // Foundations
+  "visual-design-comparison-demo": VisualDesignComparisonDemo,
+  "intentional-design-demo": IntentionalDesignDemo,
+
+  // Iconography
+  "icon-sizing-demo": IconSizingDemo,
+  "icon-text-pairing-demo": IconTextPairingDemo,
+
+  // Edge Cases
+  "empty-states-demo": EmptyStatesDemo,
+  "loading-states-demo": LoadingStatesDemo,
+  "error-states-demo": ErrorStatesDemo,
   
   // Motion - Lesson 1: Why Motion Matters
   "motion-feedback-demo": MotionFeedbackDemo,

@@ -26,6 +26,8 @@ Products that handle edge cases well feel polished and trustworthy. Products tha
 
 Empty states occur when there's no content to display.
 
+<!-- visual-example: empty-states-demo -->
+
 <!-- illustration: empty-state-anatomy -->
 
 ### When Empty States Happen
@@ -141,9 +143,13 @@ Prevention is better than handling:
 
 But when errors happen anyway, handle them well.
 
+<!-- visual-example: error-states-demo -->
+
 ## Loading States
 
 Loading states appear while waiting for data or processing.
+
+<!-- visual-example: loading-states-demo -->
 
 <!-- illustration: loading-duration -->
 

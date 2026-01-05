@@ -70,6 +70,8 @@ Consistency reduces learning curve and maintenance burden.
 
 Variants are predefined configurations for different use cases.
 
+<!-- visual-example: component-variants-demo -->
+
 ### Identifying Variants
 
 Ask:
@@ -115,6 +117,8 @@ Define sizes consistently across components:
 ## Designing Component States
 
 States reflect the component's current condition.
+
+<!-- visual-example: component-states-demo -->
 
 <!-- illustration: component-states -->
 

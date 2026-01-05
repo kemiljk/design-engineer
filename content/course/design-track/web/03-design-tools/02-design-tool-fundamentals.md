@@ -53,6 +53,8 @@ Name your frames descriptively:
 
 Every element is a layer. Understanding layer management is essential.
 
+<!-- visual-example: layers-demo -->
+
 ### Layer Order
 
 Layers stack from bottom to top. Top layers visually overlap bottom layers.

@@ -49,6 +49,8 @@ Visual design serves several critical functions:
 
 ### Communication Without Words
 
+<!-- visual-example: visual-design-comparison-demo -->
+
 Before users read a single word, visual design has already communicated:
 - What's important (hierarchy)
 - What belongs together (grouping)

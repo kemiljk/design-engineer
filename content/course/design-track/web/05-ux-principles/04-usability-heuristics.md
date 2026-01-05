@@ -17,6 +17,8 @@ Heuristics are rules of thumb. Usability heuristics are established principles t
 
 Jakob Nielsen's 10 Usability Heuristics (1994) remain the most influential framework. They're not laws, but guidelines that catch common issues.
 
+<!-- visual-example: heuristics-violations-demo -->
+
 <!-- illustration: heuristics-grid -->
 
 ## The 10 Heuristics

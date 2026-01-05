@@ -27,6 +27,8 @@ If you've used any modern framework (React, Vue, SwiftUI), you're already thinki
 
 Brad Frost's Atomic Design provides a useful vocabulary for component hierarchy:
 
+<!-- visual-example: atomic-design-demo -->
+
 <!-- illustration: atomic-design -->
 
 ### Atoms

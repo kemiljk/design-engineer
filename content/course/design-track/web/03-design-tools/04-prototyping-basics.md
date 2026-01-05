@@ -41,6 +41,8 @@ This lesson covers design tool prototypes. Code prototyping is covered in the Co
 
 Not all prototypes are created equal. Choose fidelity based on your goals:
 
+<!-- visual-example: fidelity-comparison-demo -->
+
 ### Low Fidelity
 
 **What:** Paper sketches, wireframes, basic clickable screens

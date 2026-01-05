@@ -18,8 +18,8 @@ import {
   Book as BookOpen,
   Code as Code2,
   Gift,
-  Activity,
-  CurveArray as Spline,
+  BounceRight,
+  EaseCurveControlPoints,
   Text as TypeIcon,
   Wrench,
   Intersect as Blend,
@@ -27,8 +27,9 @@ import {
   Palette,
   CursorPointer as Pointer,
   Label as Tags,
-  Square3dCornerToCorner as SquareStack,
+  StyleBorder,
   Union as Combine,
+  ColorPicker,
 } from "iconoir-react";
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
@@ -224,7 +225,7 @@ const featuredTools = [
     category: "Code",
   },
   {
-    icon: Activity,
+    icon: BounceRight,
     title: "Spring Physics",
     description:
       "Visualise and export spring animations for Motion, CSS, SwiftUI & Android",
@@ -248,7 +249,7 @@ const featuredTools = [
     category: "Systems",
   },
   {
-    icon: SquareStack,
+    icon: StyleBorder,
     title: "Corner Radius Calculator",
     description:
       "Calculate harmonious nested corner radii for optically perfect components",
@@ -263,7 +264,7 @@ const featuredTools = [
     category: "Visual",
   },
   {
-    icon: Spline,
+    icon: EaseCurveControlPoints,
     title: "Easing Generator",
     description: "Design custom cubic-bezier curves with interactive controls",
     href: "/tools/easing-generator",

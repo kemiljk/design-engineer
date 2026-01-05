@@ -25,6 +25,8 @@ If information architecture is the blueprint, interaction design is the operatin
 
 An affordance is what an object allows you to do.
 
+<!-- visual-example: affordances-signifiers-demo -->
+
 <!-- illustration: affordance-signifier -->
 
 A physical button affords pressing. A handle affords pulling. A knob affords turning.
@@ -98,6 +100,8 @@ Without feedback, users don't know if:
 - What happened as a result
 
 Feedback closes the interaction loop.
+
+<!-- visual-example: interaction-feedback-demo -->
 
 <!-- illustration: feedback-loop -->
 

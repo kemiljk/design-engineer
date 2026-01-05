@@ -57,6 +57,8 @@ Icons are simplified visual symbols representing objects, actions, or concepts.
 
 Icons alone are often ambiguous. Best practice:
 
+<!-- visual-example: icon-text-pairing-demo -->
+
 **Icons + text labels:** Clearest option. Use for navigation, important actions.
 
 **Icons only:** Only for universally understood symbols (×, ←, ⚙️) or when space is critical and users are trained.
@@ -64,6 +66,8 @@ Icons alone are often ambiguous. Best practice:
 **Tooltips:** Reveal label on hover. Acceptable for icon-only interfaces, but not accessible on touch devices.
 
 ### Icon Sizing
+
+<!-- visual-example: icon-sizing-demo -->
 
 <!-- illustration: icon-sizing -->
 

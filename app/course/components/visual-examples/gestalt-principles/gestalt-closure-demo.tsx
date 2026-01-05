@@ -110,10 +110,17 @@ export function GestaltClosureDemo() {
           </p>
           <div className="relative overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
             <div className="flex gap-4">
-              <div className="h-24 w-36 shrink-0 rounded bg-neutral-300 dark:bg-neutral-600" />
-              <div className="h-24 w-36 shrink-0 rounded bg-neutral-300 dark:bg-neutral-600" />
+              <div 
+                className="h-24 w-36 shrink-0 rounded bg-cover bg-center shadow-sm" 
+                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=300&auto=format&fit=crop)' }}
+              />
+              <div 
+                className="h-24 w-36 shrink-0 rounded bg-cover bg-center shadow-sm" 
+                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=300&auto=format&fit=crop)' }}
+              />
               <motion.div 
-                className="h-24 w-36 shrink-0 rounded bg-neutral-300 dark:bg-neutral-600"
+                className="h-24 w-36 shrink-0 rounded bg-cover bg-center shadow-sm"
+                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=300&auto=format&fit=crop)' }}
                 animate={{ 
                   clipPath: `inset(0 ${100 - completeness}% 0 0)` 
                 }}
