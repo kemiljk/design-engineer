@@ -43,9 +43,9 @@ Which direction items flow:
 
 ```css
 .container {
-  flex-direction: row;            /* Default: left to right */
-  flex-direction: row-reverse;    /* Right to left */
-  flex-direction: column;         /* Top to bottom */
+  flex-direction: row; /* Default: left to right */
+  flex-direction: row-reverse; /* Right to left */
+  flex-direction: column; /* Top to bottom */
   flex-direction: column-reverse; /* Bottom to top */
 }
 ```
@@ -59,18 +59,18 @@ Flexbox has two axes:
 **Main axis:** The direction items flow (`flex-direction`)
 **Cross axis:** Perpendicular to main axis
 
-```
+```text
 flex-direction: row
 
 Main axis →
 ┌─────────────────────────────────┐
-│ ┌───┐ ┌───┐ ┌───┐              │ ↕ Cross axis
-│ │ 1 │ │ 2 │ │ 3 │              │
-│ └───┘ └───┘ └───┘              │
+│ ┌───┐ ┌───┐ ┌───┐               │ ↕ Cross axis
+│ │ 1 │ │ 2 │ │ 3 │               │
+│ └───┘ └───┘ └───┘               │
 └─────────────────────────────────┘
 ```
 
-```
+```text
 flex-direction: column
 
         ↕ Main axis
@@ -92,12 +92,12 @@ Distributes space along the main axis:
 
 ```css
 .container {
-  justify-content: flex-start;    /* Default: pack at start */
-  justify-content: flex-end;      /* Pack at end */
-  justify-content: center;        /* Center items */
+  justify-content: flex-start; /* Default: pack at start */
+  justify-content: flex-end; /* Pack at end */
+  justify-content: center; /* Center items */
   justify-content: space-between; /* Equal space between */
-  justify-content: space-around;  /* Equal space around */
-  justify-content: space-evenly;  /* Equal space everywhere */
+  justify-content: space-around; /* Equal space around */
+  justify-content: space-evenly; /* Equal space everywhere */
 }
 ```
 
@@ -107,11 +107,11 @@ Aligns items on the cross axis:
 
 ```css
 .container {
-  align-items: stretch;     /* Default: fill container height */
-  align-items: flex-start;  /* Align to start */
-  align-items: flex-end;    /* Align to end */
-  align-items: center;      /* Center */
-  align-items: baseline;    /* Align text baselines */
+  align-items: stretch; /* Default: fill container height */
+  align-items: flex-start; /* Align to start */
+  align-items: flex-end; /* Align to end */
+  align-items: center; /* Center */
+  align-items: baseline; /* Align text baselines */
 }
 ```
 
@@ -135,8 +135,8 @@ Space between items:
 
 ```css
 .container {
-  gap: 1rem;           /* Row and column gap */
-  gap: 1rem 2rem;      /* Row gap | Column gap */
+  gap: 1rem; /* Row and column gap */
+  gap: 1rem 2rem; /* Row gap | Column gap */
   row-gap: 1rem;
   column-gap: 2rem;
 }
@@ -154,8 +154,8 @@ How much an item grows relative to siblings:
 
 ```css
 .item {
-  flex-grow: 0;  /* Default: don't grow */
-  flex-grow: 1;  /* Grow to fill space */
+  flex-grow: 0; /* Default: don't grow */
+  flex-grow: 1; /* Grow to fill space */
 }
 ```
 
@@ -167,8 +167,8 @@ How much an item shrinks when space is tight:
 
 ```css
 .item {
-  flex-shrink: 1;  /* Default: shrink equally */
-  flex-shrink: 0;  /* Don't shrink */
+  flex-shrink: 1; /* Default: shrink equally */
+  flex-shrink: 0; /* Don't shrink */
 }
 ```
 
@@ -178,9 +178,9 @@ Starting size before growing/shrinking:
 
 ```css
 .item {
-  flex-basis: auto;   /* Default: use width/height */
-  flex-basis: 200px;  /* Start at 200px */
-  flex-basis: 0;      /* Ignore content size */
+  flex-basis: auto; /* Default: use width/height */
+  flex-basis: 200px; /* Start at 200px */
+  flex-basis: 0; /* Ignore content size */
 }
 ```
 
@@ -190,18 +190,25 @@ Combine grow, shrink, basis:
 
 ```css
 .item {
-  flex: 0 1 auto;    /* Default: don't grow, can shrink, auto size */
-  flex: 1;           /* flex: 1 1 0 — grow equally */
-  flex: auto;        /* flex: 1 1 auto — grow based on content */
-  flex: none;        /* flex: 0 0 auto — fixed size */
+  flex: 0 1 auto; /* Default: don't grow, can shrink, auto size */
+  flex: 1; /* flex: 1 1 0 — grow equally */
+  flex: auto; /* flex: 1 1 auto — grow based on content */
+  flex: none; /* flex: 0 0 auto — fixed size */
 }
 ```
 
 Common patterns:
+
 ```css
-.item { flex: 1; }      /* All items equal width */
-.sidebar { flex: 0 0 250px; }  /* Fixed width */
-.main { flex: 1; }      /* Takes remaining space */
+.item {
+  flex: 1;
+} /* All items equal width */
+.sidebar {
+  flex: 0 0 250px;
+} /* Fixed width */
+.main {
+  flex: 1;
+} /* Takes remaining space */
 ```
 
 ### Align Self
@@ -210,7 +217,7 @@ Override alignment for one item:
 
 ```css
 .item {
-  align-self: auto;       /* Use container's align-items */
+  align-self: auto; /* Use container's align-items */
   align-self: flex-start;
   align-self: center;
   align-self: flex-end;
@@ -223,9 +230,15 @@ Override alignment for one item:
 Change visual order without changing HTML:
 
 ```css
-.item { order: 0; }       /* Default */
-.item-first { order: -1; } /* Move to start */
-.item-last { order: 1; }   /* Move to end */
+.item {
+  order: 0;
+} /* Default */
+.item-first {
+  order: -1;
+} /* Move to start */
+.item-last {
+  order: 1;
+} /* Move to end */
 ```
 
 ## Flex Wrap
@@ -234,8 +247,8 @@ By default, items stay on one line and shrink:
 
 ```css
 .container {
-  flex-wrap: nowrap;   /* Default: single line */
-  flex-wrap: wrap;     /* Wrap to new lines */
+  flex-wrap: nowrap; /* Default: single line */
+  flex-wrap: wrap; /* Wrap to new lines */
   flex-wrap: wrap-reverse; /* Wrap upward */
 }
 ```
@@ -260,10 +273,11 @@ By default, items stay on one line and shrink:
   gap: 1rem;
 }
 
-.nav-item { }
+.nav-item {
+}
 
 .nav-spacer {
-  margin-left: auto;  /* Push subsequent items right */
+  margin-left: auto; /* Push subsequent items right */
 }
 ```
 
@@ -276,7 +290,7 @@ By default, items stay on one line and shrink:
 }
 
 .card {
-  flex: 1;  /* Equal width cards */
+  flex: 1; /* Equal width cards */
 }
 ```
 
@@ -288,11 +302,11 @@ By default, items stay on one line and shrink:
 }
 
 .sidebar {
-  flex: 0 0 250px;  /* Fixed width */
+  flex: 0 0 250px; /* Fixed width */
 }
 
 .main {
-  flex: 1;  /* Fill remaining */
+  flex: 1; /* Fill remaining */
 }
 ```
 
@@ -305,17 +319,25 @@ By default, items stay on one line and shrink:
   min-height: 100vh;
 }
 
-.header { }
-.footer { }
+.header {
+}
+.footer {
+}
 
 .content {
   display: flex;
   flex: 1;
 }
 
-.sidebar-left { flex: 0 0 200px; }
-.main { flex: 1; }
-.sidebar-right { flex: 0 0 200px; }
+.sidebar-left {
+  flex: 0 0 200px;
+}
+.main {
+  flex: 1;
+}
+.sidebar-right {
+  flex: 0 0 200px;
+}
 ```
 
 ### Form Row
@@ -336,7 +358,7 @@ By default, items stay on one line and shrink:
 }
 
 .form-row button {
-  flex: none;  /* Button's natural size */
+  flex: none; /* Button's natural size */
 }
 ```
 
@@ -350,10 +372,11 @@ By default, items stay on one line and shrink:
 }
 
 .main {
-  flex: 1;  /* Grows to push footer down */
+  flex: 1; /* Grows to push footer down */
 }
 
-.footer { }
+.footer {
+}
 ```
 
 ## Try It Yourself
@@ -361,6 +384,7 @@ By default, items stay on one line and shrink:
 ### Exercise 1: Navigation Bar
 
 Create a nav bar with:
+
 - Logo on the left
 - Links in the center
 - Login button on the right
@@ -370,6 +394,7 @@ Use flexbox with `margin-left: auto` to separate sections.
 ### Exercise 2: Card Grid
 
 Create a row of 3 equal-width cards that:
+
 - Have equal widths
 - Have consistent gap
 - Center their content vertically
@@ -377,6 +402,7 @@ Create a row of 3 equal-width cards that:
 ### Exercise 3: Modal
 
 Create a full-page modal overlay with:
+
 - Content centred both horizontally and vertically
 - Modal box that doesn't stretch to fill
 

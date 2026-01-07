@@ -48,7 +48,7 @@ Grids are invisible structures that organise content. They create consistency, e
 - 4 columns: 3 + 3 + 3 + 3
 - Asymmetric: 8 + 4, 3 + 9, etc.
 
-```
+```text
 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  | 11  | 12  |
 |_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|_____|
 ```

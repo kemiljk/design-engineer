@@ -144,7 +144,7 @@ Navigation and search are complementary. Some users browse; others search.
 ### Breadcrumbs
 
 Show current location in hierarchy:
-```
+```text
 Home > Products > Electronics > Cameras
 ```
 
@@ -243,7 +243,7 @@ Understand how users group content:
 ### Site Mapping
 
 Visualise the structure:
-```
+```text
 Home
 ├── Products
 │   ├── Category A

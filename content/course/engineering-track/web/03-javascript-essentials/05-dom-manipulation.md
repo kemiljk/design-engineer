@@ -24,7 +24,7 @@ The DOM is a tree representation of your HTML that JavaScript can interact with:
 
 Becomes:
 
-```
+```text
 document
 └── body
     └── div#app

@@ -52,7 +52,7 @@ These aren't necessarily wrong, but they're incomplete. Dig deeper until you fin
 
 Every visual element falls somewhere on a spectrum:
 
-```
+```text
 Pure Decoration ←——————————→ Pure Communication
      |                              |
  "Looks nice"              "Serves function"

@@ -204,7 +204,7 @@ Watch the progress bar at the bottom. When it says "Gradle sync finished," you'r
 
 Your new project contains:
 
-```
+```text
 MyFirstApp/
 ├── app/
 │   ├── src/

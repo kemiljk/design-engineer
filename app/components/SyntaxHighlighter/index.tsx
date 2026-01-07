@@ -84,7 +84,7 @@ const SyntaxHighlighter = ({
           </pre>
         </div>
       </ScrollContainer>
-      {showCopyButton && (
+      {showCopyButton && !isPlainText && (
         <div className="absolute top-0 right-0">
           <CopyButton text={code} className="rounded-none" />
         </div>

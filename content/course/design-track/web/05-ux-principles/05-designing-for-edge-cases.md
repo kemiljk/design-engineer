@@ -67,7 +67,7 @@ Good empty states include:
 ### Examples
 
 **First-use:**
-```
+```text
 Welcome to Inbox!
 You'll see messages here once you receive them.
 In the meantime, why not send your first message?
@@ -76,7 +76,7 @@ In the meantime, why not send your first message?
 ```
 
 **No results:**
-```
+```text
 No matches found
 Try adjusting your search or filters.
 
@@ -84,7 +84,7 @@ Try adjusting your search or filters.
 ```
 
 **No activity:**
-```
+```text
 All quiet...
 No activity in the last 7 days.
 ```

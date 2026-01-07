@@ -95,6 +95,7 @@ import {
   JsxVsHtmlDemo,
   PropsFlowDemo,
   StateCounterDemo,
+  TaskManagerDemo,
   EffectLifecycleDemo,
   HooksComparisonDemo,
 } from "./react";
@@ -226,6 +227,7 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "jsx-vs-html-demo": JsxVsHtmlDemo,
   "props-flow-demo": PropsFlowDemo,
   "state-counter-demo": StateCounterDemo,
+  "task-manager-demo": TaskManagerDemo,
   "effect-lifecycle-demo": EffectLifecycleDemo,
   "hooks-comparison-demo": HooksComparisonDemo,
 };

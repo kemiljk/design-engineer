@@ -74,7 +74,7 @@ Every piece of state should have one owner:
 - Changes flow back up automatically
 
 ### Example Flow
-```
+```text
 ParentView (@State count)
     ↓ passes $count
 ChildView (@Binding count)

@@ -25,7 +25,7 @@ The gap between design and implementation:
 
 Structure your files for clarity:
 
-```
+```text
 📁 Screen Name
   📁 Final Designs
     - Light Mode

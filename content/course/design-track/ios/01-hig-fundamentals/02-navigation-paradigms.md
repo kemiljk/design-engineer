@@ -90,7 +90,7 @@ For focused tasks and interruptions:
 
 Most apps combine multiple patterns:
 
-```
+```text
 App (Tab Bar)
 ├── Home Tab
 │   └── Navigation Stack

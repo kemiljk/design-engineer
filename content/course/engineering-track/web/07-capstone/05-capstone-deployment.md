@@ -59,7 +59,7 @@ module.exports = {
 
 ### Repository Structure
 
-```
+```text
 your-component-library/
 ├── src/
 │   ├── tokens/
@@ -76,7 +76,7 @@ your-component-library/
 
 ### Create .gitignore
 
-```
+```text
 node_modules/
 dist/
 .DS_Store

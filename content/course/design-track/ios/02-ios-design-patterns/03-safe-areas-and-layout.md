@@ -54,7 +54,7 @@ Safe areas define where content should go to avoid:
 ### Full Width Content
 Let content go edge-to-edge, but keep text/controls in safe areas:
 
-```
+```text
 ┌─────────────────────┐
 │    [Status Bar]     │ ← Outside safe area
 ├─────────────────────┤

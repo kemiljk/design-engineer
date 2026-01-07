@@ -27,7 +27,7 @@ npm init -y
 
 Create your folder structure:
 
-```
+```text
 my-component-library/
 ├── src/
 │   ├── tokens/

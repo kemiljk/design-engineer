@@ -91,7 +91,7 @@ Central screen with detail views:
 ## Combining Patterns
 
 Typical app structure:
-```
+```text
 Bottom Navigation
 ├── Home Tab
 │   └── Stack Navigation

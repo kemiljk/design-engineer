@@ -18,7 +18,7 @@ Start with common iPhone sizes:
 - iPhone SE: 375×667
 
 ### Page Organization
-```
+```text
 📄 Cover
 📄 Components
 📄 Screens - Home

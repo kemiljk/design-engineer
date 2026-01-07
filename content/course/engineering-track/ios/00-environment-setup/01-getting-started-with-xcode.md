@@ -193,7 +193,7 @@ Let's create a simple SwiftUI project:
 
 Your new project contains:
 
-```
+```text
 My First App/
 ├── My First App.xcodeproj   ← Project file (don't edit manually)
 ├── My First App/

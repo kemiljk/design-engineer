@@ -241,7 +241,7 @@ git push origin main
 
 Your `.gitignore` should include:
 
-```
+```text
 # Android Studio
 *.iml
 .gradle/
@@ -333,7 +333,7 @@ Work with two files side by side.
 
 ### Recommended Structure
 
-```
+```text
 app/src/main/java/com/yourname/app/
 ├── ui/
 │   ├── theme/
@@ -362,7 +362,7 @@ app/src/main/java/com/yourname/app/
 
 Group by feature for larger apps:
 
-```
+```text
 ├── features/
 │   ├── home/
 │   │   ├── HomeScreen.kt

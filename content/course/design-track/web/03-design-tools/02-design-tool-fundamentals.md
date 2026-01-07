@@ -59,7 +59,7 @@ Every element is a layer. Understanding layer management is essential.
 
 Layers stack from bottom to top. Top layers visually overlap bottom layers.
 
-```
+```text
 Layers panel:        Visual result:
 ─────────────        ─────────────
 Button (top)         Button appears in front
@@ -78,7 +78,7 @@ Background (bottom)  Background behind everything
 ### Nesting
 
 Frames contain frames. A page might have:
-```
+```text
 Page
 ├── Header
 │   ├── Logo

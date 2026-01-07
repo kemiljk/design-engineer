@@ -17,6 +17,7 @@ Material 3 Expressive isn't just about making things look good—it's backed by 
 ### Research Methodology
 
 Google's design team used multiple research methods:
+
 - **Quantitative surveys** measuring preference and perception
 - **Qualitative interviews** exploring emotional response
 - **Eye-tracking studies** measuring visual attention
@@ -24,13 +25,13 @@ Google's design team used multiple research methods:
 
 ### Key Findings
 
-| Metric | Improvement |
-|--------|-------------|
-| **Visual element recognition** | Up to 4x faster |
-| **Preference among 18-24** | 87% chose expressive |
-| **Subculture relevance** | +32% |
-| **Modernity perception** | +34% |
-| **Boldness/innovation** | +30% |
+| Metric                         | Improvement          |
+| ------------------------------ | -------------------- |
+| **Visual element recognition** | Up to 4x faster      |
+| **Preference among 18-24**     | 87% chose expressive |
+| **Subculture relevance**       | +32%                 |
+| **Modernity perception**       | +34%                 |
+| **Boldness/innovation**        | +30%                 |
 
 ### The Age Equaliser
 
@@ -39,6 +40,7 @@ One of the most significant findings: expressive design levels the playing field
 ### Accessibility Benefits
 
 Participants with varying movement and visual abilities found M3 Expressive designs:
+
 - More visually appealing
 - More intuitive
 - Easier to use
@@ -50,18 +52,19 @@ Larger buttons, high-contrast visual containment, and strategic colour use make 
 ### Deeper Tonal Palettes
 
 M3 Expressive expands the colour system:
+
 - Wider token set for more colour across themes
 - Deeper tonal palettes with more variation
 - Strategic colour application for emphasis
 
 ### Colour Guidelines
 
-| Do | Don't |
-|----|-------|
-| Use colour to draw attention to key actions | Apply colour everywhere |
-| Leverage system colours for light/dark adaptation | Use colours that don't adapt |
-| Apply colour strategically for hierarchy | Let colour compete with content |
-| Test with colour blindness simulators | Rely on colour alone for meaning |
+| Do                                                | Don't                            |
+| ------------------------------------------------- | -------------------------------- |
+| Use colour to draw attention to key actions       | Apply colour everywhere          |
+| Leverage system colours for light/dark adaptation | Use colours that don't adapt     |
+| Apply colour strategically for hierarchy          | Let colour compete with content  |
+| Test with colour blindness simulators             | Rely on colour alone for meaning |
 
 ## Expressive Typography
 
@@ -69,15 +72,16 @@ M3 Expressive expands the colour system:
 
 M3 Expressive embraces variable fonts (like Roboto Flex) with customisable axes:
 
-| Axis | Use Case |
-|------|----------|
-| **Weight** | Emphasis, hierarchy |
-| **Width** | Density, screen sizes |
+| Axis             | Use Case                               |
+| ---------------- | -------------------------------------- |
+| **Weight**       | Emphasis, hierarchy                    |
+| **Width**        | Density, screen sizes                  |
 | **Optical size** | Optimised rendering at different sizes |
 
 ### Dynamic Typography in Motion
 
 Variable font axes can animate to signal feedback:
+
 - **Dynamic font weight:** Heavier on press, lighter on release
 - **Dynamic font width:** Expand for emphasis, contract for subtlety
 - **Combined axes:** Weight and width together for expressive interactions
@@ -85,6 +89,7 @@ Variable font axes can animate to signal feedback:
 ### New Type Roles (Wear OS)
 
 For wearable interfaces, new type roles support specific patterns:
+
 - **Arc Text:** For surface titles that follow curved edges
 - **Numerals:** Bigger, more styled sizes for non-localised strings
 - **Proactive content:** Type optimised for live, glanceable information
@@ -94,27 +99,29 @@ For wearable interfaces, new type roles support specific patterns:
 ### Flexible Container Shapes
 
 Shape language becomes more meaningful in M3 Expressive:
+
 - **Corner radius variety:** Different radii establish relationship and distinction
 - **Shape morphing:** Containers animate between states
 - **Concentric design:** Shapes align with hardware and other UI elements
 
 ### Shape Patterns
 
-```
+```text
 ┌─────────────────────────────────────┐
 │  Larger radius: Primary containers  │
-│  ┌─────────────────────────────┐   │
+│  ┌──────────────────────────────┐   │
 │  │  Medium radius: Secondary    │   │
-│  │  ┌─────────────────────┐    │   │
-│  │  │ Smaller: Nested items│    │   │
-│  │  └─────────────────────┘    │   │
-│  └─────────────────────────────┘   │
+│  │  ┌───────────────────────┐   │   │
+│  │  │ Smaller: Nested items │   │   │
+│  │  └───────────────────────┘   │   │
+│  └──────────────────────────────┘   │
 └─────────────────────────────────────┘
 ```
 
 ### Grouped Containers
 
 Component containers use flexible layout techniques:
+
 - Distribute space evenly for symmetry
 - Strategically arrange for visual hierarchy
 - Guide user interaction through visual cues
@@ -125,6 +132,7 @@ Component containers use flexible layout techniques:
 ### Motion as Feedback
 
 Interactions become more expressive and delightful:
+
 - Spring-based physics for bouncy, natural motion
 - Variable font axis animation during interactions
 - Shape morphing for button states
@@ -133,6 +141,7 @@ Interactions become more expressive and delightful:
 ### Loading Animations
 
 Expressive loading states:
+
 - Shape-morphing indicators
 - Playful, branded animations
 - Progress that feels engaging, not frustrating
@@ -144,12 +153,15 @@ Expressive loading states:
 Wear OS introduces unique expressive patterns:
 
 #### Edge-Hugging Buttons
+
 A distinctive pattern for round devices:
+
 - Buttons embrace the circular form factor
 - Maximise space within the round display
 - Create an iconic, ownable design language
 
 #### Shape Containers on Wear
+
 - Shapes that embrace the round display
 - Corner radius that complements the circular form
 - Dynamic adaptation to available space
@@ -157,6 +169,7 @@ A distinctive pattern for round devices:
 ### Phones and Tablets
 
 Expressive design scales across form factors:
+
 - Larger buttons and touch targets on tablets
 - Adaptive layouts that maintain expression
 - Consistent personality across screen sizes
@@ -166,12 +179,14 @@ Expressive design scales across form factors:
 Context matters. Expressive design isn't appropriate everywhere:
 
 ### Use Expressive For
+
 - Consumer apps (media, social, shopping)
 - Creative tools
 - Entertainment
 - Personal productivity
 
 ### Use Restraint For
+
 - Banking and finance
 - Medical applications
 - Enterprise tools
@@ -192,6 +207,7 @@ The lesson: expressive design enhances established patterns—it doesn't replace
 ### Exercise 1: Expressive Audit
 
 Open Google apps (Gmail, Photos, Messages) and identify:
+
 - Where colour draws attention to key actions
 - How shape varies between container types
 - Motion feedback on interactions
@@ -200,10 +216,12 @@ Open Google apps (Gmail, Photos, Messages) and identify:
 ### Exercise 2: Before/After Comparison
 
 Take an existing screen design and create two versions:
+
 1. Standard Material 3
 2. Material 3 Expressive
 
 Compare:
+
 - Touch target sizes
 - Colour application
 - Shape language
@@ -212,6 +230,7 @@ Compare:
 ### Exercise 3: Shape System
 
 Design a shape system for an app:
+
 - Define 3-4 corner radius values
 - Assign to container types (cards, buttons, dialogs)
 - Ensure concentric nesting works

@@ -357,7 +357,7 @@ localStorage.clear();
 ### Exercise 1: User Fetcher
 
 Fetch and display a user from JSONPlaceholder API:
-```
+```text
 https://jsonplaceholder.typicode.com/users/1
 ```
 

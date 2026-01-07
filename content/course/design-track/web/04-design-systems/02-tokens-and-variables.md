@@ -146,7 +146,7 @@ Tokens exist at different levels of abstraction:
 
 Raw values with descriptive names:
 
-```
+```text
 blue-500: #3B82F6
 grey-100: #F3F4F6
 space-4: 16px
@@ -158,7 +158,7 @@ Primitive tokens describe _what_ the value is.
 
 Values with contextual meaning:
 
-```
+```text
 colour-primary: {blue-500}
 colour-background: {grey-100}
 space-component-padding: {space-4}
@@ -188,7 +188,7 @@ Consistent naming makes tokens discoverable and intuitive.
 
 **Category-Property-Variant:**
 
-```
+```text
 colour-background-primary
 colour-text-secondary
 space-padding-large
@@ -196,7 +196,7 @@ space-padding-large
 
 **Property-Scale:**
 
-```
+```text
 font-size-sm
 font-size-md
 font-size-lg
@@ -204,7 +204,7 @@ font-size-lg
 
 **Component-Property-State:**
 
-```
+```text
 button-background-default
 button-background-hover
 button-background-disabled

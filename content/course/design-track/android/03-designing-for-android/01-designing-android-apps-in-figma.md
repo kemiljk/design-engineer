@@ -19,7 +19,7 @@ Common Android frame sizes (dp):
 - Large tablet: 840×1280
 
 ### Page Organization
-```
+```text
 📄 Cover
 📄 Tokens & Styles
 📄 Components

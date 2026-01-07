@@ -31,7 +31,7 @@ Good handoff enables:
 
 Structure your files clearly:
 
-```
+```text
 📁 Feature Name
   📁 Final Designs
     - Light Theme

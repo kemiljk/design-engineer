@@ -37,8 +37,9 @@ ls
 ```
 
 Output:
-```
-Desktop    Documents  Downloads  Pictures
+
+```text
+Desktop  Documents  Downloads  Pictures
 ```
 
 #### Useful Flags
@@ -55,7 +56,7 @@ Shows a detailed list with file sizes, dates, and permissions.
 ls -a
 ```
 
-Shows *all* files, including hidden ones (files starting with `.`).
+Shows _all_ files, including hidden ones (files starting with `.`).
 
 ```bash
 ls -la
@@ -308,16 +309,16 @@ Shows practical examples instead of dense documentation.
 
 These will save you hours:
 
-| Shortcut | Action |
-|----------|--------|
-| **Tab** | Autocomplete file/folder names |
-| **↑ / ↓** | Browse previous commands |
-| **Ctrl + C** | Cancel current command |
-| **Ctrl + A** | Jump to start of line |
-| **Ctrl + E** | Jump to end of line |
-| **Ctrl + U** | Clear the current line |
-| **Ctrl + R** | Search command history |
-| **Ctrl + L** | Clear screen |
+| Shortcut     | Action                         |
+| ------------ | ------------------------------ |
+| **Tab**      | Autocomplete file/folder names |
+| **↑ / ↓**    | Browse previous commands       |
+| **Ctrl + C** | Cancel current command         |
+| **Ctrl + A** | Jump to start of line          |
+| **Ctrl + E** | Jump to end of line            |
+| **Ctrl + U** | Clear the current line         |
+| **Ctrl + R** | Search command history         |
+| **Ctrl + L** | Clear screen                   |
 
 ### Command History
 

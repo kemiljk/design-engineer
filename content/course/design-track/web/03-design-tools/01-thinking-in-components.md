@@ -195,7 +195,7 @@ Use the same terminology:
 
 Design component properties should match code props:
 
-```
+```text
 Design:
 - Button
   - Variant: Primary, Secondary

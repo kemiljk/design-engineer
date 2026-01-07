@@ -218,7 +218,7 @@ Browser uses first supported format.
 ```
 
 **Captions file (WebVTT format):**
-```
+```text
 WEBVTT
 
 00:00:01.000 --> 00:00:04.000

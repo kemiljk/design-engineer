@@ -120,7 +120,7 @@ export function StateCounterDemo() {
             <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
               State History
             </div>
-            <div className="rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
+            <div className="h-[164px] overflow-y-auto rounded-lg bg-neutral-100 p-3 dark:bg-neutral-800">
               <div className="flex flex-col gap-1">
                 {history.map((entry, i) => (
                   <div

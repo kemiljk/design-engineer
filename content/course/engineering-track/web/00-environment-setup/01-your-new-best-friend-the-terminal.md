@@ -83,7 +83,7 @@ Or search for "Terminal" in the Start menu.
 
 When you open the terminal, you'll see something like this:
 
-```
+```text
 karl@macbook ~ %
 ```
 
@@ -105,7 +105,7 @@ echo "Hello, I'm a design engineer now"
 
 The terminal responds:
 
-```
+```text
 Hello, I'm a design engineer now
 ```
 
@@ -121,7 +121,7 @@ pwd
 
 This stands for "print working directory". It shows you where you currently are in your computer's file system:
 
-```
+```text
 /Users/karl
 ```
 

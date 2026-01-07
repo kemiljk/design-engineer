@@ -96,7 +96,7 @@ data class Category(
 
 ## Step 4: Project Organisation
 
-```
+```text
 app/src/main/java/com/yourpackage/
 ├── MainActivity.kt
 ├── data/

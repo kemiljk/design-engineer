@@ -114,7 +114,7 @@ export function HooksComparisonDemo() {
                 <div className="text-4xl font-bold text-neutral-900 dark:text-white">
                   {refDisplay}
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-col gap-2">
                   <button
                     onClick={() => {
                       clickCountRef.current += 1;

@@ -42,7 +42,7 @@ The 8-point grid is an industry-standard spacing system. All spacing values are 
 
 <!-- illustration: spacing-scale -->
 
-```
+```text
 8, 16, 24, 32, 40, 48, 56, 64, 72, 80...
 ```
 
@@ -60,7 +60,7 @@ The 8-point grid is an industry-standard spacing system. All spacing values are 
 
 Some systems use 4-point for fine-tuning:
 
-```
+```text
 4, 8, 12, 16, 20, 24, 28, 32...
 ```
 
@@ -188,7 +188,7 @@ Elements that are distinct should have more space:
 
 ### Visual Example
 
-```
+```text
 [ Section Title ]            ← 48px above
                               ← 16px below title
 [ Card 1                ]     

@@ -169,7 +169,7 @@ Watch interfaces must be:
 
 ### Structure for Multiple Form Factors
 
-```
+```text
 📁 App Name
   📁 Compact (Phone)
     - Home

@@ -47,9 +47,9 @@ Which direction items flow:
 
 ```css
 .container {
-  flex-direction: row;            /* Default: left to right */
-  flex-direction: row-reverse;    /* Right to left */
-  flex-direction: column;         /* Top to bottom */
+  flex-direction: row; /* Default: left to right */
+  flex-direction: row-reverse; /* Right to left */
+  flex-direction: column; /* Top to bottom */
   flex-direction: column-reverse; /* Bottom to top */
 }
 ```
@@ -61,18 +61,18 @@ Understanding flexbox requires understanding its two axes:
 **Main axis:** The direction items flow (set by `flex-direction`)
 **Cross axis:** Perpendicular to main axis
 
-```
+```text
 flex-direction: row
 
 Main axis →
 ┌─────────────────────────────────┐
-│ ┌───┐ ┌───┐ ┌───┐              │ ↕ Cross axis
-│ │ 1 │ │ 2 │ │ 3 │              │
-│ └───┘ └───┘ └───┘              │
+│ ┌───┐ ┌───┐ ┌───┐               │ ↕ Cross axis
+│ │ 1 │ │ 2 │ │ 3 │               │
+│ └───┘ └───┘ └───┘               │
 └─────────────────────────────────┘
 ```
 
-```
+```text
 flex-direction: column
 
         ↕ Main axis
@@ -96,12 +96,12 @@ Distributes space along the main axis:
 
 ```css
 .container {
-  justify-content: flex-start;    /* Default: pack at start */
-  justify-content: flex-end;      /* Pack at end */
-  justify-content: center;        /* Center items */
+  justify-content: flex-start; /* Default: pack at start */
+  justify-content: flex-end; /* Pack at end */
+  justify-content: center; /* Center items */
   justify-content: space-between; /* Equal space between */
-  justify-content: space-around;  /* Equal space around */
-  justify-content: space-evenly;  /* Equal space everywhere */
+  justify-content: space-around; /* Equal space around */
+  justify-content: space-evenly; /* Equal space everywhere */
 }
 ```
 
@@ -111,11 +111,11 @@ Aligns items on the cross axis:
 
 ```css
 .container {
-  align-items: stretch;     /* Default: fill container height */
-  align-items: flex-start;  /* Align to start */
-  align-items: flex-end;    /* Align to end */
-  align-items: center;      /* Center */
-  align-items: baseline;    /* Align text baselines */
+  align-items: stretch; /* Default: fill container height */
+  align-items: flex-start; /* Align to start */
+  align-items: flex-end; /* Align to end */
+  align-items: center; /* Center */
+  align-items: baseline; /* Align text baselines */
 }
 ```
 
@@ -139,8 +139,8 @@ Modern CSS provides `gap` for spacing between items:
 
 ```css
 .container {
-  gap: 1rem;           /* Row and column gap */
-  gap: 1rem 2rem;      /* Row gap | Column gap */
+  gap: 1rem; /* Row and column gap */
+  gap: 1rem 2rem; /* Row gap | Column gap */
   row-gap: 1rem;
   column-gap: 2rem;
 }
@@ -158,8 +158,8 @@ How much an item grows relative to siblings when extra space is available:
 
 ```css
 .item {
-  flex-grow: 0;  /* Default: don't grow */
-  flex-grow: 1;  /* Grow to fill space */
+  flex-grow: 0; /* Default: don't grow */
+  flex-grow: 1; /* Grow to fill space */
 }
 ```
 
@@ -171,8 +171,8 @@ How much an item shrinks when space is tight:
 
 ```css
 .item {
-  flex-shrink: 1;  /* Default: shrink equally */
-  flex-shrink: 0;  /* Don't shrink (fixed size) */
+  flex-shrink: 1; /* Default: shrink equally */
+  flex-shrink: 0; /* Don't shrink (fixed size) */
 }
 ```
 
@@ -182,9 +182,9 @@ Starting size before growing/shrinking:
 
 ```css
 .item {
-  flex-basis: auto;   /* Default: use width/height */
-  flex-basis: 200px;  /* Start at 200px */
-  flex-basis: 0;      /* Ignore content size */
+  flex-basis: auto; /* Default: use width/height */
+  flex-basis: 200px; /* Start at 200px */
+  flex-basis: 0; /* Ignore content size */
 }
 ```
 
@@ -194,18 +194,25 @@ Combine grow, shrink, and basis:
 
 ```css
 .item {
-  flex: 0 1 auto;    /* Default: don't grow, can shrink, auto size */
-  flex: 1;           /* flex: 1 1 0 — grow equally */
-  flex: auto;        /* flex: 1 1 auto — grow based on content */
-  flex: none;        /* flex: 0 0 auto — fixed size */
+  flex: 0 1 auto; /* Default: don't grow, can shrink, auto size */
+  flex: 1; /* flex: 1 1 0 — grow equally */
+  flex: auto; /* flex: 1 1 auto — grow based on content */
+  flex: none; /* flex: 0 0 auto — fixed size */
 }
 ```
 
 **Most common patterns:**
+
 ```css
-.item { flex: 1; }          /* All items equal width */
-.sidebar { flex: 0 0 250px; } /* Fixed 250px width */
-.main { flex: 1; }          /* Takes remaining space */
+.item {
+  flex: 1;
+} /* All items equal width */
+.sidebar {
+  flex: 0 0 250px;
+} /* Fixed 250px width */
+.main {
+  flex: 1;
+} /* Takes remaining space */
 ```
 
 ### Align Self
@@ -214,7 +221,7 @@ Override alignment for one specific item:
 
 ```css
 .item {
-  align-self: auto;       /* Use container's align-items */
+  align-self: auto; /* Use container's align-items */
   align-self: flex-start;
   align-self: center;
   align-self: flex-end;
@@ -227,9 +234,15 @@ Override alignment for one specific item:
 Change visual order without changing HTML:
 
 ```css
-.item { order: 0; }        /* Default */
-.item-first { order: -1; } /* Move to start */
-.item-last { order: 1; }   /* Move to end */
+.item {
+  order: 0;
+} /* Default */
+.item-first {
+  order: -1;
+} /* Move to start */
+.item-last {
+  order: 1;
+} /* Move to end */
 ```
 
 ## Flex Wrap
@@ -238,8 +251,8 @@ By default, items stay on one line and shrink:
 
 ```css
 .container {
-  flex-wrap: nowrap;       /* Default: single line */
-  flex-wrap: wrap;         /* Wrap to new lines */
+  flex-wrap: nowrap; /* Default: single line */
+  flex-wrap: wrap; /* Wrap to new lines */
   flex-wrap: wrap-reverse; /* Wrap upward */
 }
 ```
@@ -253,6 +266,7 @@ Create a full-page container that centres a box both horizontally and vertically
 ### Exercise 2: Distribution
 
 Create a row of 4 items where:
+
 - Items are evenly distributed across the container
 - Items have consistent gaps between them
 - The container has padding
@@ -260,6 +274,7 @@ Create a row of 4 items where:
 ### Exercise 3: Mixed Sizing
 
 Create a row with:
+
 - A fixed-width sidebar (200px)
 - A flexible main area that takes remaining space
 - Another fixed-width sidebar (150px)
@@ -315,4 +330,3 @@ Create a row with:
 ## Next Steps
 
 Continue to [Flexbox Patterns](./04b-flexbox-patterns.md) →
-

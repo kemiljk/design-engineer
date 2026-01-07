@@ -222,7 +222,7 @@ git push origin main
 
 Exclude unnecessary files:
 
-```
+```text
 # Xcode
 *.xcuserstate
 xcuserdata/
@@ -307,7 +307,7 @@ Drag the preview canvas to a second monitor for maximum code space.
 
 Organise your project sensibly:
 
-```
+```text
 MyApp/
 ├── App/
 │   └── MyAppApp.swift

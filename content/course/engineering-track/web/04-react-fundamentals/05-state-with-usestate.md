@@ -395,9 +395,43 @@ function SearchInput() {
 
 ## Building a Complete Example
 
-Let's build an interactive task manager:
+Let's build an interactive task manager. Try it out first, then we'll walk through building it step by step:
+
+<!-- visual-example: task-manager-demo -->
+
+### Setting Up
+
+If you don't have a React project yet, create one with Vite:
+
+```bash
+npm create vite@latest task-manager -- --template react
+cd task-manager
+npm install
+npm run dev
+```
+
+Your project structure will look like this:
+
+```text
+task-manager/
+├── src/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── TaskManager.jsx    ← Create this
+│   ├── TaskManager.css    ← Create this
+│   └── main.jsx
+└── package.json
+```
+
+### Step 1: Create the Component
+
+Create a new file `src/TaskManager.jsx`:
 
 ```jsx
+// src/TaskManager.jsx
+import { useState } from 'react';
+import './TaskManager.css';
+
 function TaskManager() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
@@ -484,7 +518,178 @@ function TaskManager() {
     </div>
   );
 }
+
+export default TaskManager;
 ```
+
+Note the key parts:
+- **Line 2**: Import `useState` from React
+- **Line 3**: Import the CSS file (we'll create this next)
+- **Line 108**: Export the component so other files can use it
+
+### Step 2: Add the Styles
+
+Create `src/TaskManager.css`:
+
+```css
+/* Task Manager Styles */
+.task-manager {
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: system-ui, sans-serif;
+}
+
+.task-manager h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.task-manager form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.task-manager input[type="text"] {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.task-manager input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.task-manager button {
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.task-manager button:hover {
+  background: #2563eb;
+}
+
+.filters {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.filters button {
+  flex: 1;
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.filters button:hover {
+  color: #111827;
+}
+
+.filters button.active {
+  background: white;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.task-list li.completed span {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.task-list input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.task-list span {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.task-list li button {
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.task-list li:hover button {
+  opacity: 1;
+}
+
+.task-list li button:hover {
+  color: #ef4444;
+  background: transparent;
+}
+
+.count {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+```
+
+### Step 3: Use It in Your App
+
+Update `src/App.jsx` to import and render the TaskManager:
+
+```jsx
+// src/App.jsx
+import TaskManager from './TaskManager';
+
+function App() {
+  return (
+    <div style={{ padding: '2rem' }}>
+      <TaskManager />
+    </div>
+  );
+}
+
+export default App;
+```
+
+Now run `npm run dev` and open http://localhost:5173 to see your task manager in action!
+
+### How It All Connects
+
+1. **main.jsx** renders `App` into the DOM
+2. **App.jsx** imports and renders `TaskManager`
+3. **TaskManager.jsx** imports `useState` from React and its styles
+4. **TaskManager.css** provides the visual styling
+
+The `useState` hook doesn't need installing - it comes with React, which Vite already set up for you when you chose the React template.
 
 ## State Design Tips
 

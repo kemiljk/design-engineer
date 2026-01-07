@@ -197,7 +197,7 @@ Colours communicate interaction possibilities:
 
 Maintain consistent semantic meaning:
 
-```
+```text
 Success: green variants
 Warning: yellow/orange variants  
 Error: red variants

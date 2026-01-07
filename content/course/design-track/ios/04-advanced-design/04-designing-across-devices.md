@@ -153,7 +153,7 @@ Define how your design adapts:
 ### Structure for Multi-Device
 Organize your Figma/Sketch files:
 
-```
+```text
 📁 App Name
   📁 iPhone
     - Home

@@ -273,7 +273,7 @@ Outdated documentation is worse than no documentation—it misleads.
 
 ### Site Organization
 
-```
+```text
 /
 ├── Getting Started
 │   ├── Introduction
@@ -301,7 +301,7 @@ Outdated documentation is worse than no documentation—it misleads.
 
 ### Component Page Structure
 
-```
+```text
 # Button
 
 Overview paragraph

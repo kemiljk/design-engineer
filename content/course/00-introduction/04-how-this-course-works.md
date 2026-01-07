@@ -17,7 +17,7 @@ estimatedTime: 10
 
 The course is organised into three main sections, each with platform-specific content:
 
-```
+```text
 ├── Introduction (you are here)
 │
 ├── Design Track

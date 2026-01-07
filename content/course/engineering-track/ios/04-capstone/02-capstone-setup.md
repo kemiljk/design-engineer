@@ -110,7 +110,7 @@ struct TaskManagerApp: App {
 
 Organise your files:
 
-```
+```text
 YourApp/
 ├── App/
 │   └── YourApp.swift

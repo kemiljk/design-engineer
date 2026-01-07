@@ -35,7 +35,7 @@ Everything is a View—text, images, buttons, containers.
 
 ### Auto Layout → SwiftUI
 
-```
+```text
 Design: Horizontal, centred, 16pt spacing
 SwiftUI: HStack(spacing: 16) { ... }
 

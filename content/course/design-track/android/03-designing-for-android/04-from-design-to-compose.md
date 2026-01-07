@@ -40,7 +40,7 @@ Everything is a composable—building blocks that combine.
 
 ### Design → Compose
 
-```
+```text
 Design: Vertical, 16dp spacing, centred
 Compose: Column(
     verticalArrangement = Arrangement.spacedBy(16.dp),

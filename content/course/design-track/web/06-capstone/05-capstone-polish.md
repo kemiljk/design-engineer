@@ -119,7 +119,7 @@ Structure for presentation:
 
 ### Recommended Page Structure
 
-```
+```text
 📁 Your Capstone File
 ├── 🎨 Cover
 ├── 📚 Design System

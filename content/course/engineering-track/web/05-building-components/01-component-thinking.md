@@ -26,7 +26,7 @@ When you see a design, practice decomposition:
 ### Example: Card Grid
 
 A grid of product cards breaks down into:
-```
+```text
 ProductGrid (organism)
 ├── ProductCard (molecule)
 │   ├── ProductImage (atom)

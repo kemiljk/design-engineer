@@ -146,7 +146,7 @@ Design tokens create a shared vocabulary:
 
 Define tokens in your tool:
 
-```
+```text
 Colors:
 - primary/500: #3B82F6
 - grey/100: #F3F4F6
@@ -283,7 +283,7 @@ If you have a design system:
 
 Each design component should map to a code component:
 
-```
+```text
 Design: Button/Primary/Large
 Code: <Button variant="primary" size="lg">
 ```
@@ -294,7 +294,7 @@ Document the mapping.
 
 Design component properties = code props:
 
-```
+```text
 Design:
 - Variant: Primary, Secondary
 - Size: Small, Medium, Large
