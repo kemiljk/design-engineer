@@ -156,6 +156,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         <Link
           ref={ref as React.Ref<HTMLAnchorElement>}
           href={href}
+          scroll={true}
           className={cn(buttonVariants({ variant, size }), className)}
           {...anchorProps}
           rel={safeRel}
