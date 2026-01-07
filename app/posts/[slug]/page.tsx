@@ -110,7 +110,7 @@ export default async function Post(props: {
           {post.metadata.categories && post.metadata.categories.length > 0 && (
             <div className="flex items-center gap-2">
               {post.metadata.categories.map((category: { id?: string; title: string }) => (
-                <Chip key={category.id || category.title} variant="outline" radius="full">
+                <Chip key={category.id || category.title} variant="outline" className="rounded-full">
                   {category.title}
                 </Chip>
               ))}
