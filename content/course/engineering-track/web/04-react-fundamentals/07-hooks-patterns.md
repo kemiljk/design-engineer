@@ -22,6 +22,10 @@
 | useCallback | Memoize functions |
 | useReducer | Complex state logic |
 
+Compare how different hooks behave:
+
+<!-- visual-example: hooks-comparison-demo -->
+
 ## useRef: Mutable References
 
 `useRef` creates a mutable object that persists across renders:

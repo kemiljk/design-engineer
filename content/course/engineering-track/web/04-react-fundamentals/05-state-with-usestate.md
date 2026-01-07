@@ -33,7 +33,9 @@ When state changes, React re-renders the component with the new values.
 
 ## The useState Hook
 
-`useState` is a React hook that adds state to function components:
+`useState` is a React hook that adds state to function components. Try the interactive counter to see state in action:
+
+<!-- visual-example: state-counter-demo -->
 
 ```jsx
 import { useState } from 'react';

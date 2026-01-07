@@ -26,7 +26,9 @@ These are "side effects"—they affect things beyond returning JSX.
 
 ## The useEffect Hook
 
-`useEffect` runs after React renders your component:
+`useEffect` runs after React renders your component. Watch the lifecycle in action:
+
+<!-- visual-example: effect-lifecycle-demo -->
 
 ```jsx
 import { useEffect, useState } from 'react';

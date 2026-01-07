@@ -85,6 +85,10 @@ You never write `createElement` yourself. JSX handles it.
 
 ### JSX vs HTML: Key Differences
 
+Explore the key differences interactively:
+
+<!-- visual-example: jsx-vs-html-demo -->
+
 #### 1. className Instead of class
 
 ```jsx

@@ -12,7 +12,9 @@
 
 ## What Are Props?
 
-Props (short for "properties") are how you pass data to components. They're like function arguments:
+Props (short for "properties") are how you pass data to components. They're like function arguments. Try changing the props below to see how the component updates:
+
+<!-- visual-example: props-flow-demo -->
 
 ```jsx
 // Without props: static component

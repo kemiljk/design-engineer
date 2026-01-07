@@ -180,6 +180,10 @@ export class CounterComponent {
 
 ### The Same Component, Four Ways
 
+Try it yourself—see how the same counter component is written in each framework:
+
+<!-- visual-example: framework-comparison-demo -->
+
 Here's a more complete example—a todo item with completion toggle:
 
 **React:**
