@@ -1,6 +1,6 @@
 import type { Viewport } from "next";
 import { Suspense } from "react";
-import { Host_Grotesk } from "next/font/google";
+import { Host_Grotesk, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import MainNav from "./components/main-nav";
@@ -12,6 +12,12 @@ import { KeyboardHint } from "./components/keyboard-hint";
 const sans = Host_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -39,7 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sans.variable} text-foreground dark:bg-background relative h-full min-h-screen w-full overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out`}
+        className={`${sans.variable} ${mono.variable} text-foreground dark:bg-background relative h-full min-h-screen w-full overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out`}
       >
         <a
           href="#content"

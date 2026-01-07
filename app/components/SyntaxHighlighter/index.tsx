@@ -50,6 +50,9 @@ const SyntaxHighlighter = ({
     }
   }, [code, language]);
 
+  // Use system mono for text/plain (better box-drawing chars), JetBrains for code
+  const isPlainText = language === "text" || language === "plain";
+
   return (
     <div className={cn("relative mb-6 rounded-none last:mb-0", className)}>
       <ScrollContainer
@@ -58,12 +61,18 @@ const SyntaxHighlighter = ({
       >
         <div>
           <pre
-            className={`language-${language} font-mono text-neutral-900 dark:text-neutral-100`}
+            className={cn(
+              `language-${language} text-neutral-900 dark:text-neutral-100`,
+              isPlainText ? "leading-[1.2]" : "font-mono"
+            )}
             style={{
               borderRadius: "0",
               margin: 0,
               padding: "16px",
               minHeight: "56px",
+              ...(isPlainText && {
+                fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+              }),
             }}
             tabIndex={0}
           >
