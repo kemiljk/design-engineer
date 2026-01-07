@@ -268,7 +268,7 @@ Vue is excellent. If you're working on a Vue codebase or joining a Vue team, lea
 
 Yes, the React ecosystem moves fast. Yes, there are debates about patterns. This is a sign of a healthy, evolving community.
 
-The core React library has remained stable. Your components from 2019 still work in 2024.
+The core React library has remained stable. Your components from 2019 still work in 2026.
 
 ## The Design Engineer Advantage
 

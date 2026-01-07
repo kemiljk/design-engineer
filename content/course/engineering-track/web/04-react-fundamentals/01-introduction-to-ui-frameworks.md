@@ -329,10 +329,10 @@ React concepts transfer everywhere:
 Major companies use React:
 - Facebook/Meta (creator)
 - Netflix
+- DuckDuckGo
 - Airbnb
 - Twitter/X
 - Uber
-- Many more
 
 ### Stability and Investment
 

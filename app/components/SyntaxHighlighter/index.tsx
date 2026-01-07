@@ -2,7 +2,10 @@
 
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
+import { ScrollContainer } from "@/app/components/ui";
+import CopyButton from "./CopyButton";
 import Prism from "prismjs";
+import "prismjs/components/prism-markup";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-tsx";
@@ -15,8 +18,12 @@ import "prismjs/components/prism-bash";
 import "prismjs/components/prism-markdown";
 import "prismjs/components/prism-powershell";
 import "prismjs/components/prism-java";
-import { ScrollContainer } from "@/app/components/ui";
-import CopyButton from "./CopyButton";
+import "prism-svelte";
+
+const languageAliases: Record<string, string> = {
+  vue: "markup",
+  html: "markup",
+};
 
 type SyntaxHighlighterProps = {
   code: string;
@@ -34,9 +41,10 @@ const SyntaxHighlighter = ({
   className,
 }: SyntaxHighlighterProps) => {
   const highlighted = useMemo(() => {
-    const grammar = Prism.languages[language] || Prism.languages.plain || {};
+    const resolvedLanguage = languageAliases[language] || language;
+    const grammar = Prism.languages[resolvedLanguage] || Prism.languages.plain || {};
     try {
-      return Prism.highlight(code, grammar, language);
+      return Prism.highlight(code, grammar, resolvedLanguage);
     } catch {
       return code;
     }
