@@ -1,107 +1,246 @@
 # Patterns and Composition
 
-> **Quick Summary:** Effective components follow patterns that enable composition, flexibility, and maintainability.
+> **Quick Summary:** Effective components follow patterns that enable composition, flexibility, and maintainability. React's component model makes these patterns natural.
 
 ## What You'll Learn
 
-- Component composition patterns
-- Slot-based architecture
-- Higher-order components
+- Component composition patterns in React
+- The children prop and slots
+- Compound components with shared state
+- Render props and custom hooks
 - Best practices for component APIs
 
 ## Composition Over Inheritance
 
-Instead of creating specialised components through inheritance, compose simple components:
+React favours composition over inheritance. Instead of creating specialised components through extending base classes, compose simple components:
 
-```html
-<!-- Composition -->
+```jsx
+// ✅ Composition - flexible and explicit
 <Card>
   <CardHeader>
-    <Avatar src="..." />
-    <CardTitle>Title</CardTitle>
+    <Avatar src={user.avatar} />
+    <CardTitle>{user.name}</CardTitle>
   </CardHeader>
-  <CardBody>Content</CardBody>
+  <CardBody>{user.bio}</CardBody>
 </Card>
 
-<!-- vs. Specialized component -->
+// ❌ Specialised component - rigid, hidden structure
 <ProfileCard 
-  avatar="..."
-  title="Title"
-  content="Content"
+  avatar={user.avatar}
+  title={user.name}
+  content={user.bio}
 />
 ```
 
-Composition is more flexible.
+Composition wins because:
+- You see exactly what's rendered
+- Each piece is reusable elsewhere
+- Adding features doesn't bloat the API
 
-## Slot Pattern
+## The Children Prop
 
-Create components with "slots" for flexible content:
+React's `children` prop is composition in action:
 
-```html
-<div class="card">
-  <div class="card__header" data-slot="header"></div>
-  <div class="card__body" data-slot="body"></div>
-  <div class="card__footer" data-slot="footer"></div>
-</div>
+```jsx
+function Card({ children }) {
+  return <article className="card">{children}</article>;
+}
+
+// Usage - anything goes inside
+<Card>
+  <h2>Title</h2>
+  <p>Content</p>
+  <Button>Action</Button>
+</Card>
 ```
 
-Consumers fill the slots:
+### Multiple Slots via Props
 
-```javascript
-function Card({ header, body, footer }) {
-  return `
-    <div class="card">
-      ${header ? `<div class="card__header">${header}</div>` : ''}
-      <div class="card__body">${body}</div>
-      ${footer ? `<div class="card__footer">${footer}</div>` : ''}
-    </div>
-  `;
+For multiple content areas, use named props:
+
+```jsx
+function Card({ header, children, footer }) {
+  return (
+    <article className="card">
+      {header && <div className="card__header">{header}</div>}
+      <div className="card__body">{children}</div>
+      {footer && <div className="card__footer">{footer}</div>}
+    </article>
+  );
 }
+
+// Usage
+<Card
+  header={<h2>Card Title</h2>}
+  footer={<Button>Save</Button>}
+>
+  <p>Main content goes in children</p>
+</Card>
 ```
 
 ## Compound Components
 
-Related components that work together:
+Components that work together, sharing implicit state through React Context:
 
-```html
-<Tabs>
+<!-- visual-example: tabs-demo -->
+
+```jsx
+// Tabs implementation
+import { createContext, useContext, useState } from 'react';
+
+const TabsContext = createContext();
+
+function Tabs({ children, defaultValue }) {
+  const [activeTab, setActiveTab] = useState(defaultValue);
+  
+  return (
+    <TabsContext.Provider value={{ activeTab, setActiveTab }}>
+      <div className="tabs">{children}</div>
+    </TabsContext.Provider>
+  );
+}
+
+function TabList({ children }) {
+  return <div className="tabs__list" role="tablist">{children}</div>;
+}
+
+function Tab({ value, children }) {
+  const { activeTab, setActiveTab } = useContext(TabsContext);
+  
+  return (
+    <button
+      role="tab"
+      aria-selected={activeTab === value}
+      className={`tabs__tab ${activeTab === value ? 'tabs__tab--active' : ''}`}
+      onClick={() => setActiveTab(value)}
+    >
+      {children}
+    </button>
+  );
+}
+
+function TabPanel({ value, children }) {
+  const { activeTab } = useContext(TabsContext);
+  
+  if (activeTab !== value) return null;
+  
+  return (
+    <div role="tabpanel" className="tabs__panel">
+      {children}
+    </div>
+  );
+}
+
+// Usage - clean, declarative API
+<Tabs defaultValue="details">
   <TabList>
-    <Tab>Tab 1</Tab>
-    <Tab>Tab 2</Tab>
+    <Tab value="details">Details</Tab>
+    <Tab value="reviews">Reviews</Tab>
+    <Tab value="related">Related</Tab>
   </TabList>
-  <TabPanels>
-    <TabPanel>Content 1</TabPanel>
-    <TabPanel>Content 2</TabPanel>
-  </TabPanels>
+  
+  <TabPanel value="details">
+    <ProductDetails />
+  </TabPanel>
+  <TabPanel value="reviews">
+    <Reviews />
+  </TabPanel>
+  <TabPanel value="related">
+    <RelatedProducts />
+  </TabPanel>
 </Tabs>
 ```
 
-The parent manages state; children render UI.
+The parent (`Tabs`) manages state; children read from context. Consumers get a flexible, declarative API.
 
 ## Render Props
 
-Pass rendering control to consumers:
+Give consumers control over rendering:
 
-```javascript
+```jsx
 function List({ items, renderItem }) {
-  return `
-    <ul class="list">
-      ${items.map(item => `<li>${renderItem(item)}</li>`).join('')}
+  return (
+    <ul className="list">
+      {items.map((item, index) => (
+        <li key={item.id ?? index} className="list__item">
+          {renderItem(item)}
+        </li>
+      ))}
     </ul>
-  `;
+  );
+}
+
+// Usage - you control how items render
+<List
+  items={users}
+  renderItem={(user) => (
+    <div className="user">
+      <Avatar src={user.avatar} />
+      <span>{user.name}</span>
+    </div>
+  )}
+/>
+```
+
+### Modern Alternative: Children as Function
+
+```jsx
+function DataFetcher({ url, children }) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+        setLoading(false);
+      });
+  }, [url]);
+  
+  return children({ data, loading });
 }
 
 // Usage
-List({
-  items: users,
-  renderItem: (user) => `
-    <div class="user">
-      <img src="${user.avatar}" />
-      <span>${user.name}</span>
-    </div>
-  `
-});
+<DataFetcher url="/api/user">
+  {({ data, loading }) => (
+    loading ? <Spinner /> : <UserProfile user={data} />
+  )}
+</DataFetcher>
 ```
+
+## Custom Hooks (Modern Pattern)
+
+Hooks have largely replaced render props for sharing logic:
+
+```jsx
+// Custom hook
+function useUser(userId) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(data => {
+        setUser(data);
+        setLoading(false);
+      });
+  }, [userId]);
+  
+  return { user, loading };
+}
+
+// Usage - cleaner than render props
+function UserProfile({ userId }) {
+  const { user, loading } = useUser(userId);
+  
+  if (loading) return <Spinner />;
+  return <Profile user={user} />;
+}
+```
+
+Hooks are preferred when you're sharing logic, not UI structure.
 
 ## API Design Principles
 
@@ -109,40 +248,137 @@ List({
 
 Only require what's essential:
 
-```javascript
-// Good - text is only required prop
-Button({ text: 'Click' })
+```jsx
+// ✅ Good - children is the only requirement
+<Button>Click me</Button>
 
-// Bad - too many required props
-Button({ text: 'Click', size: 'medium', variant: 'primary', type: 'button' })
+// ❌ Bad - too many required props
+<Button 
+  label="Click me" 
+  size="medium" 
+  variant="primary" 
+  type="button"
+  onClick={handleClick}
+/>
 ```
 
 ### Sensible Defaults
 
-```javascript
+```jsx
 function Button({ 
-  text,
   variant = 'primary',
   size = 'medium',
-  disabled = false
-}) { ... }
+  disabled = false,
+  type = 'button',
+  children,
+  ...props
+}) {
+  return (
+    <button 
+      type={type}
+      className={`button button--${variant} button--${size}`}
+      disabled={disabled}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+// Works with minimal props
+<Button onClick={save}>Save</Button>
+
+// Or fully configured
+<Button variant="danger" size="large" onClick={remove}>Delete</Button>
 ```
 
-### Boolean Props for Toggles
+### Spread Props for Flexibility
 
-```javascript
-// Good
-<Button primary>Click</Button>
-<Button disabled>Click</Button>
+Pass through native attributes:
 
-// Less good
-<Button variant="primary">Click</Button>
-<Button isDisabled={true}>Click</Button>
+```jsx
+function Input({ label, error, ...props }) {
+  return (
+    <div className="form-field">
+      <label>{label}</label>
+      <input {...props} />  {/* Native props pass through */}
+      {error && <span className="error">{error}</span>}
+    </div>
+  );
+}
+
+// All native input props work
+<Input 
+  label="Email"
+  type="email"
+  placeholder="you@example.com"
+  required
+  autoComplete="email"
+/>
 ```
 
-### Consistent Naming
+### Consistent Naming Conventions
 
-If one component uses `onClick`, all should use `onClick` (not `handleClick`, `onPress`, etc.)
+Across your component library:
+
+```jsx
+// Event handlers: onX
+onClick, onSubmit, onChange, onBlur
+
+// Boolean states: isX or present
+isOpen, isLoading, disabled, required
+
+// Variants: variant="x" or dedicated props
+variant="primary" | variant="secondary"
+// or
+<Button primary>  // shorthand boolean
+
+// Sizes: size="x"
+size="small" | size="medium" | size="large"
+```
+
+### TypeScript for Self-Documenting APIs
+
+```tsx
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+type ButtonSize = 'small' | 'medium' | 'large';
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  loading?: boolean;
+}
+
+// IDE shows exactly what's allowed
+<Button variant="primary" size="large">Save</Button>
+```
+
+## Forwarding Refs
+
+For components that wrap native elements:
+
+```jsx
+import { forwardRef } from 'react';
+
+const Button = forwardRef(function Button({ children, ...props }, ref) {
+  return (
+    <button ref={ref} {...props}>
+      {children}
+    </button>
+  );
+});
+
+// Now parent can access the DOM element
+function Form() {
+  const submitRef = useRef();
+  
+  useEffect(() => {
+    submitRef.current.focus();
+  }, []);
+  
+  return <Button ref={submitRef}>Submit</Button>;
+}
+```
 
 ## Test Your Understanding
 
@@ -186,11 +422,13 @@ If one component uses `onClick`, all should use `onClick` (not `handleClick`, `o
 ## Key Takeaways
 
 - Prefer composition over specialised components
-- Use slots for flexible content areas
-- Compound components share state
-- Render props give consumers control
-- Design minimal, consistent APIs
-- Provide sensible defaults
+- Use `children` and named props for flexible content slots
+- Compound components share state through React Context
+- Custom hooks have largely replaced render props for logic sharing
+- Design minimal APIs with sensible defaults
+- Spread props (`...props`) forward native attributes
+- Use TypeScript for self-documenting component APIs
+- Forward refs when wrapping native elements
 
 ## Next Steps
 

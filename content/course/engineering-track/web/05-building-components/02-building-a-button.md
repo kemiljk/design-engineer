@@ -13,7 +13,7 @@
 
 A button seems simple, but proper implementation requires attention to:
 
-<!-- illustration: component-states -->
+<!-- visual-example: button-showcase-demo -->
 
 - Semantic HTML
 - Accessibility
@@ -165,7 +165,7 @@ Use `<button>` for actions, `<a>` for navigation. Never use `<div>` as a button.
 </button>
 ```
 
-## JavaScript Enhancement
+## Vanilla JavaScript Version
 
 ```javascript
 function createButton(options = {}) {
@@ -195,6 +195,140 @@ function createButton(options = {}) {
   return button;
 }
 ```
+
+---
+
+## React Version
+
+In React, the same button becomes a reusable component with props:
+
+```jsx
+// Button.jsx
+function Button({
+  variant = 'primary',
+  size = 'medium',
+  disabled = false,
+  loading = false,
+  children,
+  onClick,
+  type = 'button',
+  ...props
+}) {
+  return (
+    <button
+      type={type}
+      className={`button button--${variant} button--${size}`}
+      disabled={disabled || loading}
+      aria-busy={loading ? 'true' : undefined}
+      onClick={onClick}
+      {...props}
+    >
+      {loading ? (
+        <>
+          <span className="spinner" />
+          Loading...
+        </>
+      ) : (
+        children
+      )}
+    </button>
+  );
+}
+
+export default Button;
+```
+
+### Usage
+
+```jsx
+// Using the Button component
+import Button from './Button';
+
+function App() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSave = async () => {
+    setIsLoading(true);
+    await saveData();
+    setIsLoading(false);
+  };
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleSave} loading={isLoading}>
+        Save Changes
+      </Button>
+
+      <Button variant="secondary" size="small">
+        Cancel
+      </Button>
+
+      <Button variant="ghost" disabled>
+        Disabled
+      </Button>
+
+      <Button variant="danger" onClick={() => handleDelete()}>
+        Delete
+      </Button>
+    </div>
+  );
+}
+```
+
+### With TypeScript
+
+For type safety, add prop types:
+
+```tsx
+// Button.tsx
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+type ButtonSize = 'small' | 'medium' | 'large';
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  loading?: boolean;
+  children: React.ReactNode;
+}
+
+function Button({
+  variant = 'primary',
+  size = 'medium',
+  disabled = false,
+  loading = false,
+  children,
+  className,
+  ...props
+}: ButtonProps) {
+  return (
+    <button
+      className={`button button--${variant} button--${size} ${className ?? ''}`}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
+      {...props}
+    >
+      {loading ? (
+        <>
+          <span className="spinner" aria-hidden="true" />
+          <span>Loading...</span>
+        </>
+      ) : (
+        children
+      )}
+    </button>
+  );
+}
+
+export default Button;
+```
+
+### Why React is Better for Components
+
+1. **Declarative:** Describe what to render, not how to create it
+2. **Reactive:** UI updates automatically when props/state change
+3. **Composable:** Pass components as children (`{children}`)
+4. **Type-safe:** TypeScript integration catches errors at build time
+5. **Testable:** Easy to unit test with React Testing Library
 
 ## Try It Yourself
 
@@ -268,6 +402,9 @@ Implement a loading button that:
 - Create variants through modifier classes
 - Always consider accessibility
 - Loading states need visual and accessible feedback
+- React components accept props for configuration
+- TypeScript adds type safety to component APIs
+- `{children}` enables flexible content composition
 
 ## Next Steps
 

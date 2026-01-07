@@ -11,6 +11,8 @@
 
 ## Modal HTML Structure
 
+<!-- visual-example: modal-demo -->
+
 ```html
 <div
   class="modal"
@@ -205,6 +207,260 @@ class Modal {
 4. **Return focus:** Returns to trigger element on close
 5. **Background scroll:** Prevent body scroll when open
 
+---
+
+## React Version
+
+React makes modals much cleaner with hooks for focus management and portals for rendering outside the DOM hierarchy:
+
+### Basic Modal Component
+
+```jsx
+// Modal.jsx
+import { useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+
+function Modal({ isOpen, onClose, title, children }) {
+  const modalRef = useRef(null);
+  const previousActiveElement = useRef(null);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isOpen, onClose]);
+
+  // Focus management
+  useEffect(() => {
+    if (isOpen) {
+      previousActiveElement.current = document.activeElement;
+      modalRef.current?.focus();
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      previousActiveElement.current?.focus();
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return createPortal(
+    <div
+      className="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div className="modal__backdrop" onClick={onClose} />
+      <div 
+        className="modal__container"
+        ref={modalRef}
+        tabIndex={-1}
+      >
+        <div className="modal__header">
+          <h2 id="modal-title" className="modal__title">{title}</h2>
+          <button 
+            className="modal__close" 
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <div className="modal__body">
+          {children}
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+export default Modal;
+```
+
+### Usage
+
+```jsx
+import { useState } from 'react';
+import Modal from './Modal';
+import Button from './Button';
+
+function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setIsOpen(true)}>
+        Open Modal
+      </Button>
+
+      <Modal 
+        isOpen={isOpen} 
+        onClose={() => setIsOpen(false)}
+        title="Confirm Action"
+      >
+        <p>Are you sure you want to continue?</p>
+        <div className="modal__footer">
+          <Button variant="secondary" onClick={() => setIsOpen(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={() => {
+            // Handle confirm
+            setIsOpen(false);
+          }}>
+            Confirm
+          </Button>
+        </div>
+      </Modal>
+    </>
+  );
+}
+```
+
+### With Focus Trap Hook
+
+For robust focus trapping, create a custom hook:
+
+```jsx
+// useFocusTrap.js
+import { useEffect, useRef } from 'react';
+
+function useFocusTrap(isActive) {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!isActive || !containerRef.current) return;
+
+    const container = containerRef.current;
+    const focusableSelector = 
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    
+    const handleKeyDown = (e) => {
+      if (e.key !== 'Tab') return;
+      
+      const focusable = container.querySelectorAll(focusableSelector);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    container.addEventListener('keydown', handleKeyDown);
+    return () => container.removeEventListener('keydown', handleKeyDown);
+  }, [isActive]);
+
+  return containerRef;
+}
+
+export default useFocusTrap;
+```
+
+```jsx
+// Using the hook in Modal
+function Modal({ isOpen, onClose, title, children }) {
+  const focusTrapRef = useFocusTrap(isOpen);
+
+  // ... rest of modal
+  return createPortal(
+    <div className="modal" /* ... */>
+      <div className="modal__container" ref={focusTrapRef}>
+        {/* content */}
+      </div>
+    </div>,
+    document.body
+  );
+}
+```
+
+### Compound Modal Components
+
+For flexible composition:
+
+```jsx
+// Modal components
+function ModalHeader({ children, onClose }) {
+  return (
+    <div className="modal__header">
+      {children}
+      {onClose && (
+        <button className="modal__close" onClick={onClose} aria-label="Close">
+          ×
+        </button>
+      )}
+    </div>
+  );
+}
+
+function ModalTitle({ children }) {
+  return <h2 id="modal-title" className="modal__title">{children}</h2>;
+}
+
+function ModalBody({ children }) {
+  return <div className="modal__body">{children}</div>;
+}
+
+function ModalFooter({ children }) {
+  return <div className="modal__footer">{children}</div>;
+}
+
+// Usage with composition
+<Modal isOpen={isOpen} onClose={handleClose}>
+  <ModalHeader onClose={handleClose}>
+    <ModalTitle>Edit Profile</ModalTitle>
+  </ModalHeader>
+  <ModalBody>
+    <form>
+      {/* form fields */}
+    </form>
+  </ModalBody>
+  <ModalFooter>
+    <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+    <Button variant="primary" type="submit">Save</Button>
+  </ModalFooter>
+</Modal>
+```
+
+### TypeScript Version
+
+```tsx
+// Modal.tsx
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  children: React.ReactNode;
+}
+
+function Modal({ isOpen, onClose, title, children }: ModalProps) {
+  // ... implementation
+}
+```
+
+### Why React Excels at Modals
+
+1. **Portals:** Render outside parent DOM while keeping React context
+2. **Hooks:** Clean lifecycle management for focus and events
+3. **State lifting:** Parent controls open/close state
+4. **Composition:** Flexible content through children
+5. **Reusability:** One Modal serves the entire app
+
 ## Try It Yourself
 
 ### Exercise 1: Basic Modal
@@ -278,6 +534,10 @@ Create a modal with a form:
 - Return focus on close
 - Prevent background scrolling
 - Animate open/close for polish
+- React portals render modals outside DOM hierarchy
+- Custom hooks encapsulate focus and keyboard logic
+- Parent components control modal state via props
+- Compound components allow flexible modal layouts
 
 ## Next Steps
 

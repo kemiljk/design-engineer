@@ -19,6 +19,28 @@ A component is:
 - **Composable:** Can contain other components
 - **Configurable:** Adapts through properties
 
+## Vanilla JS vs. React Components
+
+Throughout this module, we'll show you both approaches:
+
+**Vanilla HTML/CSS/JS** teaches you the fundamentals—semantic HTML, CSS styling, and DOM manipulation. These skills transfer everywhere.
+
+**React** gives you true component superpowers—declarative UI, automatic re-rendering, props, state, and composition patterns that would be cumbersome to build from scratch.
+
+### Why Both?
+
+Understanding vanilla implementation helps you:
+- Debug framework issues
+- Work with legacy code
+- Appreciate what frameworks do for you
+
+Using React helps you:
+- Build faster with less code
+- Manage complex state automatically
+- Create truly reusable component libraries
+
+In production, most teams use React (or Vue, Svelte, etc.). But knowing the underlying principles makes you a better developer regardless of which framework you choose.
+
 ## Breaking Down a UI
 
 When you see a design, practice decomposition:
@@ -112,6 +134,44 @@ Before coding, plan:
    - What goes inside it?
    - Where does it go?
 
+## Components in Practice: A Preview
+
+Here's the same button component in vanilla JS versus React:
+
+### Vanilla JavaScript
+
+```javascript
+function createButton({ variant = 'primary', size = 'medium', label }) {
+  const button = document.createElement('button');
+  button.className = `button button--${variant} button--${size}`;
+  button.textContent = label;
+  return button;
+}
+
+// Usage
+const container = document.getElementById('app');
+container.appendChild(createButton({ label: 'Click me' }));
+```
+
+### React
+
+```jsx
+function Button({ variant = 'primary', size = 'medium', children }) {
+  return (
+    <button className={`button button--${variant} button--${size}`}>
+      {children}
+    </button>
+  );
+}
+
+// Usage
+<Button variant="primary">Click me</Button>
+```
+
+Notice how React's declarative syntax reads more like HTML? You describe *what* you want, not *how* to create it. The framework handles DOM updates automatically when props or state change.
+
+In the following lessons, we'll build each component both ways so you understand the fundamentals and the framework patterns.
+
 ## Try It Yourself
 
 ### Exercise 1: Component Decomposition
@@ -182,6 +242,8 @@ Practise naming components. Names should be:
 - Plan before building: data, states, variations
 - Good component design enables composition and reuse
 - Naming matters for maintainability
+- Vanilla JS teaches fundamentals; React provides declarative, composable patterns
+- Understanding both makes you a more versatile developer
 
 ## Next Steps
 

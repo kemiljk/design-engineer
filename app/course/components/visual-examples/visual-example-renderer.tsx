@@ -98,6 +98,12 @@ import {
   TaskManagerDemo,
   EffectLifecycleDemo,
   HooksComparisonDemo,
+  // Building Components
+  ButtonShowcaseDemo,
+  CardShowcaseDemo,
+  ModalDemo,
+  FormDemo,
+  TabsDemo,
 } from "./react";
 
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
@@ -230,6 +236,13 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "task-manager-demo": TaskManagerDemo,
   "effect-lifecycle-demo": EffectLifecycleDemo,
   "hooks-comparison-demo": HooksComparisonDemo,
+  
+  // Building Components
+  "button-showcase-demo": ButtonShowcaseDemo,
+  "card-showcase-demo": CardShowcaseDemo,
+  "modal-demo": ModalDemo,
+  "form-demo": FormDemo,
+  "tabs-demo": TabsDemo,
 };
 
 interface VisualExampleRendererProps {

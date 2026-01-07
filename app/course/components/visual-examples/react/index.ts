@@ -5,3 +5,8 @@ export { StateCounterDemo } from "./state-counter-demo";
 export { TaskManagerDemo } from "./task-manager-demo";
 export { EffectLifecycleDemo } from "./effect-lifecycle-demo";
 export { HooksComparisonDemo } from "./hooks-comparison-demo";
+export { ButtonShowcaseDemo } from "./button-showcase-demo";
+export { CardShowcaseDemo } from "./card-showcase-demo";
+export { ModalDemo } from "./modal-demo";
+export { FormDemo } from "./form-demo";
+export { TabsDemo } from "./tabs-demo";

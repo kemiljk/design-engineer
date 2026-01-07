@@ -20,6 +20,8 @@ A card typically contains:
 
 All are optional; cards adapt to their content.
 
+<!-- visual-example: card-showcase-demo -->
+
 ## Basic Card Structure
 
 ```html
@@ -186,6 +188,206 @@ Cards should handle varying content:
 }
 ```
 
+---
+
+## React Version
+
+In React, cards become composable components that accept props and children:
+
+### Basic Card Component
+
+```jsx
+// Card.jsx
+function Card({ variant = 'default', interactive = false, className, children }) {
+  const variants = {
+    default: '',
+    elevated: 'card--elevated',
+    outlined: 'card--outlined',
+  };
+
+  return (
+    <article 
+      className={`card ${variants[variant]} ${interactive ? 'card--interactive' : ''} ${className ?? ''}`}
+    >
+      {children}
+    </article>
+  );
+}
+
+function CardMedia({ src, alt, aspectRatio = '16/9' }) {
+  return (
+    <div className="card__media" style={{ aspectRatio }}>
+      <img src={src} alt={alt} />
+    </div>
+  );
+}
+
+function CardBody({ children }) {
+  return <div className="card__body">{children}</div>;
+}
+
+function CardTitle({ children, clamp = false }) {
+  return (
+    <h3 className={`card__title ${clamp ? 'card__title--clamp' : ''}`}>
+      {children}
+    </h3>
+  );
+}
+
+function CardDescription({ children, clamp = false }) {
+  return (
+    <p className={`card__description ${clamp ? 'card__description--clamp' : ''}`}>
+      {children}
+    </p>
+  );
+}
+
+function CardActions({ children }) {
+  return <div className="card__actions">{children}</div>;
+}
+
+export { Card, CardMedia, CardBody, CardTitle, CardDescription, CardActions };
+```
+
+### Usage Examples
+
+```jsx
+import { Card, CardMedia, CardBody, CardTitle, CardDescription, CardActions } from './Card';
+import Button from './Button';
+
+// Basic product card
+function ProductCard({ product }) {
+  return (
+    <Card variant="elevated">
+      <CardMedia src={product.image} alt={product.name} />
+      <CardBody>
+        <CardTitle clamp>{product.name}</CardTitle>
+        <CardDescription clamp>{product.description}</CardDescription>
+        <p className="card__price">£{product.price}</p>
+      </CardBody>
+      <CardActions>
+        <Button variant="primary">Add to Cart</Button>
+      </CardActions>
+    </Card>
+  );
+}
+
+// Horizontal article card
+function ArticleCard({ article }) {
+  return (
+    <Card variant="outlined" className="card--horizontal">
+      <CardMedia src={article.coverImage} alt="" aspectRatio="1/1" />
+      <CardBody>
+        <CardTitle>{article.title}</CardTitle>
+        <CardDescription clamp>{article.excerpt}</CardDescription>
+        <div className="card__meta">
+          <span>{article.author}</span>
+          <span>{article.readTime} min read</span>
+        </div>
+      </CardBody>
+    </Card>
+  );
+}
+
+// Grid of cards
+function ProductGrid({ products }) {
+  return (
+    <div className="card-grid">
+      {products.map(product => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+}
+```
+
+### Interactive Card with Link
+
+```jsx
+import { Link } from 'react-router-dom'; // or Next.js Link
+
+function LinkCard({ href, children }) {
+  return (
+    <Card interactive>
+      <Link to={href} className="card__link">
+        <span className="sr-only">View details</span>
+      </Link>
+      {children}
+    </Card>
+  );
+}
+
+// Usage
+<LinkCard href={`/products/${product.id}`}>
+  <CardMedia src={product.image} alt={product.name} />
+  <CardBody>
+    <CardTitle>{product.name}</CardTitle>
+  </CardBody>
+</LinkCard>
+```
+
+### With TypeScript
+
+```tsx
+// Card.tsx
+interface CardProps {
+  variant?: 'default' | 'elevated' | 'outlined';
+  interactive?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}
+
+interface CardMediaProps {
+  src: string;
+  alt: string;
+  aspectRatio?: string;
+}
+
+interface CardTitleProps {
+  children: React.ReactNode;
+  clamp?: boolean;
+}
+
+function Card({ variant = 'default', interactive = false, className, children }: CardProps) {
+  return (
+    <article 
+      className={`card card--${variant} ${interactive ? 'card--interactive' : ''} ${className ?? ''}`}
+    >
+      {children}
+    </article>
+  );
+}
+
+// ... other typed components
+```
+
+### Why Composition Works
+
+React's composition model shines with cards:
+
+```jsx
+// Flexible - use only what you need
+<Card>
+  <CardBody>
+    <CardTitle>Simple card</CardTitle>
+  </CardBody>
+</Card>
+
+// Full-featured - all slots filled
+<Card variant="elevated">
+  <CardMedia src="..." alt="..." />
+  <CardBody>
+    <CardTitle>Rich card</CardTitle>
+    <CardDescription>With all the details</CardDescription>
+  </CardBody>
+  <CardActions>
+    <Button>Action</Button>
+  </CardActions>
+</Card>
+```
+
+No need for complex conditional props—consumers compose what they need.
+
 ## Try It Yourself
 
 ### Exercise 1: Product Card
@@ -262,6 +464,9 @@ Build a user profile card with:
 - Provide variants for different contexts
 - Handle content overflow gracefully
 - Make interactive cards accessible
+- React enables true composition with sub-components
+- Use separate components (CardMedia, CardBody, etc.) for flexibility
+- Let consumers compose only what they need
 
 ## Next Steps
 
