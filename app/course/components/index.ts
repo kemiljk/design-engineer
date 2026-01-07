@@ -43,3 +43,4 @@ export {
 } from "./visual-examples";
 
 export { default as CourseMarkdown } from "./course-markdown";
+export { CourseApproach } from "./course-approach";

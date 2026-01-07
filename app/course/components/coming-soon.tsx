@@ -11,6 +11,7 @@ import { StudentCompanies } from "./student-companies";
 import { NewsletterSignup } from "./newsletter-signup";
 import { FAQAccordion } from "../faq/faq-accordion";
 import { CurriculumPreview } from "./curriculum-preview";
+import { CourseApproach } from "./course-approach";
 
 const faqs = [
   {
@@ -83,6 +84,9 @@ export function ComingSoon() {
 
         <StudentCompanies />
       </PageHeader>
+
+      {/* Course Approach - Why text-based interactive */}
+      <CourseApproach />
 
       {/* Curriculum Preview */}
       <CurriculumPreview />

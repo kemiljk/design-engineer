@@ -29,6 +29,7 @@ import { TrackCard } from "./components/track-card";
 import { TrackLogo } from "@/app/components/track-logo";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { CurriculumPreview } from "./components/curriculum-preview";
+import { CourseApproach } from "./components/course-approach";
 
 export const metadata = {
   title: "Design Engineer Course",
@@ -278,6 +279,9 @@ export default async function CoursePage() {
           ))}
         </div>
       </div>
+
+      {/* Course Approach - Why text-based interactive */}
+      <CourseApproach />
 
       {/* Curriculum Preview - What You'll Learn */}
       <CurriculumPreview />
