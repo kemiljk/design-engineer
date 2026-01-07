@@ -196,4 +196,4 @@ If one component uses `onClick`, all should use `onClick` (not `handleClick`, `o
 
 You've completed the Building Components module!
 
-Continue to [Design Systems in Code: Tokens in Code](../05-design-systems-in-code/01-tokens-in-code.md) →
+Continue to [Design Systems in Code: Tokens in Code](../06-design-systems-in-code/01-tokens-in-code.md) →

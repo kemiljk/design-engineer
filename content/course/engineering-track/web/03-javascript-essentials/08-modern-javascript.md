@@ -478,4 +478,4 @@ You now understand:
 - Events and async data fetching
 - Modern JavaScript features
 
-Continue to [Building Components: Component Thinking](../04-building-components/01-component-thinking.md) →
+Continue to [React Fundamentals: Introduction to UI Frameworks](../04-react-fundamentals/01-introduction-to-ui-frameworks.md) →
