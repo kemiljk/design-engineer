@@ -82,7 +82,7 @@ export function StateCounterDemo() {
             <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
               The Code
             </div>
-            <div className="rounded-lg bg-neutral-900 p-4">
+            <div className="overflow-x-auto rounded-lg bg-neutral-900 p-4">
               <pre className="font-mono text-xs leading-relaxed sm:text-sm">
                 <code>
                   <span className="text-purple-400">const</span>

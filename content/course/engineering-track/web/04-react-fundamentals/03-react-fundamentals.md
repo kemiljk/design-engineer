@@ -29,7 +29,7 @@ This creates a project with:
 
 ### Project Structure
 
-```
+```text
 my-app/
 ├── node_modules/
 ├── public/
@@ -321,7 +321,7 @@ This is **composition**: building complex UIs from simple pieces.
 
 Every React app is a tree of components:
 
-```
+```text
 App
 ├── Header
 │   ├── Logo
@@ -346,7 +346,7 @@ Data flows down this tree through props (covered in the next lesson).
 
 One component per file is standard:
 
-```
+```text
 src/
 ├── components/
 │   ├── Header.jsx

@@ -68,7 +68,7 @@ export function PropsFlowDemo() {
           <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
             Parent Component (You)
           </div>
-          <div className="rounded-lg bg-neutral-900 p-4">
+          <div className="overflow-x-auto rounded-lg bg-neutral-900 p-4">
             <pre className="font-mono text-xs leading-relaxed sm:text-sm">
               <code>
                 <span className="text-pink-400">&lt;UserButton</span>
@@ -105,7 +105,7 @@ export function PropsFlowDemo() {
           <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
             Child Component (Receives Props)
           </div>
-          <div className="rounded-lg bg-neutral-900 p-4">
+          <div className="overflow-x-auto rounded-lg bg-neutral-900 p-4">
             <pre className="font-mono text-xs leading-relaxed text-neutral-400 sm:text-sm">
               <code>
                 <span className="text-purple-400">function</span>

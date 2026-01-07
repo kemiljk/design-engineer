@@ -86,13 +86,12 @@ export function SideNav({ sections }: SideNavProps) {
                 behavior: "instant",
               });
             }, 100);
-            return;
           }
         }
+      } else {
+        // No hash, set initial section without updating hash
+        updateActiveSection(sections, false);
       }
-      // No hash or invalid hash, set initial section without updating hash
-      updateActiveSection(sections, false);
-      return;
     }
 
     const handleScroll = () => {

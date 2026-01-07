@@ -119,8 +119,8 @@ export function JsxVsHtmlDemo() {
               HTML (Won&apos;t work in JSX)
             </span>
           </div>
-          <div className="flex-1 rounded-lg bg-red-950/20 p-4 ring-1 ring-red-500/20">
-            <pre className="font-mono text-xs leading-relaxed text-red-200 sm:text-sm">
+          <div className="flex-1 overflow-x-auto rounded-lg bg-red-100 p-4 ring-1 ring-red-300 dark:bg-red-950/40 dark:ring-red-500/30">
+            <pre className="font-mono text-xs leading-relaxed text-red-800 dark:text-red-200 sm:text-sm">
               <code>{diff.html}</code>
             </pre>
           </div>
@@ -134,8 +134,8 @@ export function JsxVsHtmlDemo() {
               JSX (Correct)
             </span>
           </div>
-          <div className="flex-1 rounded-lg bg-green-950/20 p-4 ring-1 ring-green-500/20">
-            <pre className="font-mono text-xs leading-relaxed text-green-200 sm:text-sm">
+          <div className="flex-1 overflow-x-auto rounded-lg bg-green-100 p-4 ring-1 ring-green-300 dark:bg-green-950/40 dark:ring-green-500/30">
+            <pre className="font-mono text-xs leading-relaxed text-green-800 dark:text-green-200 sm:text-sm">
               <code>{diff.jsx}</code>
             </pre>
           </div>

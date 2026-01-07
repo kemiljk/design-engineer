@@ -188,7 +188,7 @@ export function HooksComparisonDemo() {
             <div className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
               Syntax
             </div>
-            <div className="rounded-lg bg-neutral-900 p-4">
+            <div className="overflow-x-auto rounded-lg bg-neutral-900 p-4">
               <pre className="font-mono text-xs sm:text-sm">
                 <code className="text-neutral-300">
                   {selectedHook === "useState" && (
