@@ -58,7 +58,7 @@ const SyntaxHighlighter = ({
       >
         <div>
           <pre
-            className={`language-${language} text-neutral-900 dark:text-neutral-100`}
+            className={`language-${language} font-mono text-neutral-900 dark:text-neutral-100`}
             style={{
               borderRadius: "0",
               margin: 0,
