@@ -41,7 +41,7 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
     }
   }, []);
 
-  const updateActiveSection = useCallback((sectionsList: Section[], shouldUpdateHash = true) => {
+  const updateActiveSection = useCallback((sectionsList: Section[]) => {
     if (isClickScrolling.current || sectionsList.length === 0) return;
 
     const scrollPosition = window.scrollY;
@@ -53,7 +53,6 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
     if (isAtBottom) {
       const lastId = sectionsList[sectionsList.length - 1].id;
       setActiveSection(lastId);
-      if (shouldUpdateHash) updateHash(lastId);
       return;
     }
 
@@ -73,8 +72,8 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
     }
 
     setActiveSection(currentSection);
-    if (shouldUpdateHash) updateHash(currentSection);
-  }, [updateHash]);
+    // Don't update hash on scroll - only on explicit click
+  }, []);
 
   useEffect(() => {
     if (sections.length === 0) return;
@@ -89,7 +88,6 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
           const element = document.getElementById(hash);
           if (element) {
             setActiveSection(hash);
-            // Small delay to ensure DOM is ready
             setTimeout(() => {
               const elementTop = element.getBoundingClientRect().top + window.scrollY;
               const offset = 100;
@@ -98,17 +96,17 @@ export function MobileSectionNav({ sections }: MobileSectionNavProps) {
                 behavior: "instant",
               });
             }, 100);
-            return;
           }
         }
       }
-      // No hash or invalid hash, set initial section without updating hash
-      updateActiveSection(sections, false);
-      return;
+      // No hash: just keep the first section active (already set in useState)
+      // Don't calculate scroll position on initial load - let scroll listener handle it
     }
 
     const handleScroll = () => {
-      requestAnimationFrame(() => updateActiveSection(sections));
+      if (!isClickScrolling.current) {
+        requestAnimationFrame(() => updateActiveSection(sections));
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

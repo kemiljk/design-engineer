@@ -89,6 +89,16 @@ import {
   ShaderProgressiveBlurDemo,
 } from "./shaders";
 
+// React Fundamentals
+import {
+  FrameworkComparisonDemo,
+  JsxVsHtmlDemo,
+  PropsFlowDemo,
+  StateCounterDemo,
+  EffectLifecycleDemo,
+  HooksComparisonDemo,
+} from "./react";
+
 export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   // Design Principles
   "hierarchy-demo": HierarchyDemo,
@@ -210,6 +220,14 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "shader-spotlight-demo": ShaderSpotlightDemo,
   "shader-glow-demo": ShaderGlowDemo,
   "shader-progressive-blur-demo": ShaderProgressiveBlurDemo,
+  
+  // React Fundamentals
+  "framework-comparison-demo": FrameworkComparisonDemo,
+  "jsx-vs-html-demo": JsxVsHtmlDemo,
+  "props-flow-demo": PropsFlowDemo,
+  "state-counter-demo": StateCounterDemo,
+  "effect-lifecycle-demo": EffectLifecycleDemo,
+  "hooks-comparison-demo": HooksComparisonDemo,
 };
 
 interface VisualExampleRendererProps {

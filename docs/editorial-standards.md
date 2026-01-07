@@ -299,6 +299,40 @@ Always specify language:
 ❌ "Read more about it [here](url)"
 ✅ "Read the [MDN guide to semantic HTML](url)"
 
+### Punctuation
+
+**Em dashes (—):**
+Use sparingly for emphasis or interruption. Overuse creates choppy, breathless prose.
+
+❌ **Overuse:**
+> Props are how components receive data—they flow down from parent to child—making components reusable.
+
+✅ **Better alternatives:**
+
+| Instead of | Use |
+|------------|-----|
+| Explanation after em dash | Colon or period |
+| Aside or clarification | Parentheses or commas |
+| Contrast or pivot | Semicolon or "but" |
+| Dramatic pause | Keep the em dash (sparingly) |
+
+**Examples:**
+
+❌ "This isn't HTML—it's JSX that compiles to JavaScript."
+✅ "This isn't HTML. It's JSX that compiles to JavaScript."
+
+❌ "Arrays follow the same rule—create new arrays, don't mutate."
+✅ "Arrays follow the same rule: create new arrays, don't mutate."
+
+❌ "Try it yourself—see how the counter works."
+✅ "Try it yourself. See how the counter works."
+
+**When em dashes work well:**
+- Interrupting for effect: "The answer—surprisingly—was yes."
+- Introducing a dramatic reveal: "There was only one solution—refactor everything."
+
+Limit to 1–2 em dashes per lesson section maximum.
+
 ---
 
 ## Content Quality Checklist

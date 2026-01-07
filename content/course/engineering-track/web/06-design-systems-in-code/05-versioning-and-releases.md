@@ -164,6 +164,7 @@ You now understand:
 - HTML structure and semantics
 - CSS styling and layout
 - JavaScript fundamentals
+- React and component-based UI development
 - Building components
 - Design systems in code
 
