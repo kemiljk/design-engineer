@@ -206,7 +206,7 @@ const togglePush = () => {
 
 ## State with Arrays
 
-Arrays follow the same rule—create new arrays, don't mutate:
+Arrays follow the same rule: create new arrays, don't mutate.
 
 ```jsx
 function TodoList() {
@@ -358,7 +358,7 @@ function Example() {
 
 ## Controlled Components
 
-Form inputs in React are typically "controlled"—their value is driven by state:
+Form inputs in React are typically "controlled", meaning their value is driven by state:
 
 ```jsx
 function SearchInput() {
@@ -611,10 +611,10 @@ Build a mini shopping cart:
 
 - State is component memory that persists across renders
 - `useState` returns `[value, setValue]` pair
-- Always create new objects/arrays—never mutate state directly
+- Always create new objects/arrays; never mutate state directly
 - Use functional updates when new state depends on previous state
 - Controlled components tie input values to state
-- Keep state minimal—derive values when possible
+- Keep state minimal; derive values when possible
 - Lift state up when multiple components need to share it
 
 ## Next Steps

@@ -70,7 +70,7 @@ if (isLoggedIn) {
 
 ### Component Architecture
 
-Frameworks encourage building UIs as composable components—the same thinking you learned earlier, now with framework support.
+Frameworks encourage building UIs as composable components, applying the same thinking you learned earlier with framework support.
 
 ### Automatic Updates
 
@@ -106,7 +106,7 @@ function Counter() {
 
 Created by Evan You in 2014, Vue offers a more approachable learning curve with a familiar template syntax.
 
-**Philosophy:** Progressive framework—start simple, add complexity as needed.
+**Philosophy:** Progressive framework. Start simple, add complexity as needed.
 
 ```vue
 <template>
@@ -146,7 +146,7 @@ Created by Rich Harris in 2016, Svelte takes a radically different approach.
 **Key characteristics:**
 - Compiles to vanilla JavaScript
 - No runtime framework code shipped to browser
-- Simpler syntax—less boilerplate
+- Simpler syntax, less boilerplate
 - Smaller bundle sizes
 
 ### Angular
@@ -180,11 +180,11 @@ export class CounterComponent {
 
 ### The Same Component, Four Ways
 
-Try it yourself—see how the same counter component is written in each framework:
+Try it yourself. See how the same counter component is written in each framework:
 
 <!-- visual-example: framework-comparison-demo -->
 
-Here's a more complete example—a todo item with completion toggle:
+Here's a more complete example: a todo item with completion toggle.
 
 **React:**
 ```jsx

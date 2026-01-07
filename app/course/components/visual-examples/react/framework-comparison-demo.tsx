@@ -9,22 +9,26 @@ const frameworkInfo = {
   react: {
     name: "React",
     color: "bg-cyan-500",
-    textColor: "text-cyan-400",
+    badgeBg: "bg-cyan-500/20 dark:bg-cyan-400/20",
+    badgeText: "text-cyan-700 dark:text-cyan-200",
   },
   vue: {
     name: "Vue",
     color: "bg-emerald-500",
-    textColor: "text-emerald-400",
+    badgeBg: "bg-emerald-500/20 dark:bg-emerald-400/20",
+    badgeText: "text-emerald-700 dark:text-emerald-200",
   },
   svelte: {
     name: "Svelte",
     color: "bg-orange-500",
-    textColor: "text-orange-400",
+    badgeBg: "bg-orange-500/20 dark:bg-orange-400/20",
+    badgeText: "text-orange-700 dark:text-orange-200",
   },
   angular: {
     name: "Angular",
     color: "bg-red-500",
-    textColor: "text-red-400",
+    badgeBg: "bg-red-500/20 dark:bg-red-400/20",
+    badgeText: "text-red-700 dark:text-red-200",
   },
 };
 
@@ -90,7 +94,7 @@ export function FrameworkComparisonDemo() {
   return (
     <ExampleWrapper
       title="The Same Component, Four Ways"
-      description="Each framework has its own syntax for state and events—same result, different approaches"
+      description="Each framework has its own syntax for state and events. Same result, different approaches."
       controls={
         <ControlGroup label="Framework">
           {(Object.keys(frameworkInfo) as Framework[]).map((f) => (
@@ -141,7 +145,7 @@ export function FrameworkComparisonDemo() {
             {example.highlights.map((h, i) => (
               <span
                 key={i}
-                className={`rounded-full px-2 py-1 text-xs font-mono ${info.color} bg-opacity-20 ${info.textColor}`}
+                className={`rounded-full px-2 py-1 text-xs font-mono ${info.badgeBg} ${info.badgeText}`}
               >
                 {h}
               </span>

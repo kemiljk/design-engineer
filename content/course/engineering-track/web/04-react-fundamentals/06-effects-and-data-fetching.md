@@ -1,6 +1,6 @@
 # Effects and Data Fetching
 
-> **Quick Summary:** The `useEffect` hook lets you synchronise with external systems—fetch data, set up subscriptions, and manage side effects outside of React's rendering.
+> **Quick Summary:** The `useEffect` hook lets you synchronise with external systems: fetching data, setting up subscriptions, and managing side effects outside of React's rendering.
 
 ## What You'll Learn
 
@@ -22,7 +22,7 @@ Effects are operations that happen outside React's rendering cycle:
 - Measuring DOM elements
 - Setting timers
 
-These are "side effects"—they affect things beyond returning JSX.
+These are "side effects" because they affect things beyond returning JSX.
 
 ## The useEffect Hook
 
@@ -616,7 +616,7 @@ Track scroll position:
       "id": "c",
       "text": "After every render",
       "isCorrect": false,
-      "explanation": "Cleanup doesn't run after render—it runs before re-running the effect."
+      "explanation": "Cleanup doesn't run after render. It runs before re-running the effect."
     },
     {
       "id": "d",

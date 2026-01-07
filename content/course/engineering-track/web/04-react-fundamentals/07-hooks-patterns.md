@@ -227,7 +227,7 @@ Use it for:
 - Creating objects/arrays passed to optimised children
 - Values that shouldn't change reference unnecessarily
 
-Don't overuse it—the memoization itself has a cost.
+Don't overuse it. The memoisation itself has a cost.
 
 ## useCallback: Memoizing Functions
 
@@ -662,7 +662,7 @@ Create a complete theme system:
 - `useReducer` handles complex state with reducer pattern
 - Custom hooks extract and share stateful logic between components
 - Follow the Rules of Hooks: top-level only, React functions only
-- Don't over-optimise—measure before adding memoization
+- Don't over-optimise; measure before adding memoisation
 - Name custom hooks starting with "use" so React knows they're hooks
 
 ## What's Next?

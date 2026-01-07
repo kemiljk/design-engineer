@@ -38,7 +38,7 @@ React's dominance wasn't accidental. Several factors contributed:
 
 ### First-Mover Advantage (Sort Of)
 
-React wasn't first—Angular (v1) predated it. But React introduced ideas that changed everything:
+React wasn't first; Angular (v1) predated it. But React introduced ideas that changed everything:
 
 - **Component model:** Everything is a component
 - **One-way data flow:** Predictable state management
@@ -139,7 +139,7 @@ React's ecosystem is its greatest strength. Whatever you need, someone has built
 
 ## Learning React Is an Investment
 
-React skills don't just help you today—they compound over time.
+React skills don't just help you today. They compound over time.
 
 ### Cross-Platform Development
 
@@ -243,7 +243,7 @@ function Counter() {
 }
 ```
 
-That's a complete, working component. The basics are approachable—complexity is opt-in.
+That's a complete, working component. The basics are approachable; complexity is opt-in.
 
 ### "Shouldn't I learn something newer?"
 
@@ -397,7 +397,7 @@ Compare the communities:
 ## Key Takeaways
 
 - React dominates the job market (65%+ of frontend jobs)
-- The ecosystem is unmatched—solutions exist for every problem
+- The ecosystem is unmatched, with solutions for every problem
 - React skills transfer to mobile (React Native), desktop (Electron), and beyond
 - Meta's backing ensures continued development and stability
 - Learning React is an investment that compounds over time

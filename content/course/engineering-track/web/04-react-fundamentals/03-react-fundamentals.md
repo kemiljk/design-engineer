@@ -1,6 +1,6 @@
 # React Fundamentals
 
-> **Quick Summary:** React components are JavaScript functions that return JSX—a syntax that looks like HTML but has the full power of JavaScript.
+> **Quick Summary:** React components are JavaScript functions that return JSX, a syntax that looks like HTML but has the full power of JavaScript.
 
 ## What You'll Learn
 
@@ -44,7 +44,7 @@ my-app/
 ```
 
 **Key files:**
-- `main.jsx`: Entry point—renders the root component
+- `main.jsx`: Entry point that renders the root component
 - `App.jsx`: Your main component
 - `index.html`: The single HTML page React mounts to
 
@@ -74,7 +74,7 @@ JSX is a syntax extension that lets you write HTML-like code in JavaScript:
 const element = <h1>Hello, world!</h1>;
 ```
 
-This isn't a string or HTML—it's JSX that compiles to JavaScript:
+This isn't a string or HTML. It's JSX that compiles to JavaScript:
 
 ```javascript
 // What JSX compiles to
@@ -315,7 +315,7 @@ function UserMenu() {
 }
 ```
 
-This is **composition**—building complex UIs from simple pieces.
+This is **composition**: building complex UIs from simple pieces.
 
 ### The Component Tree
 

@@ -1,6 +1,6 @@
 # Props and Component Communication
 
-> **Quick Summary:** Props are how React components receive data—they flow down from parent to child, making components reusable and configurable.
+> **Quick Summary:** Props are how React components receive data. They flow down from parent to child, making components reusable and configurable.
 
 ## What You'll Learn
 
@@ -281,7 +281,7 @@ function UserProfile({ user }) {
 }
 ```
 
-Use spread thoughtfully—it can make prop sources unclear.
+Use spread thoughtfully. It can make prop sources unclear.
 
 ## Prop Patterns
 
@@ -519,7 +519,7 @@ Create an `Avatar` component:
       "id": "d",
       "text": "Children cannot communicate with parents",
       "isCorrect": false,
-      "explanation": "Children communicate via callback functions—a core React pattern."
+      "explanation": "Children communicate via callback functions, a core React pattern."
     }
   ]
 }
@@ -531,7 +531,7 @@ Create an `Avatar` component:
 - Use destructuring for cleaner prop access
 - Provide default values for optional props
 - `children` enables powerful composition patterns
-- Props are read-only—never mutate them
+- Props are read-only; never mutate them
 - Pass functions as props for child-to-parent communication
 - Component composition creates flexible, reusable systems
 
