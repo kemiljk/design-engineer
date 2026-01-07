@@ -260,7 +260,8 @@ const featuredTools = [
   {
     icon: Combine,
     title: "Blend Mode Explorer",
-    description: "Learn how blend modes work and experiment with stacking effects",
+    description:
+      "Learn how blend modes work and experiment with stacking effects",
     href: "/tools/blend-mode-explorer",
     category: "Visual",
   },
@@ -390,15 +391,13 @@ async function CourseSection() {
     {
       track: "design" as const,
       title: "Design Track",
-      description:
-        "For engineers. Visual fundamentals that AI can't teach you",
+      description: "For engineers. Visual fundamentals that AI can't teach you",
       color: "bg-swiss-red",
     },
     {
       track: "engineering" as const,
       title: "Engineering Track",
-      description:
-        "For designers. Go beyond Vibe Coding and build it yourself",
+      description: "For designers. Go beyond Vibe Coding and build it yourself",
       color: "bg-neutral-900 dark:bg-neutral-100",
     },
     {
@@ -445,7 +444,7 @@ async function CourseSection() {
                     track={track.track}
                     showLayer="track"
                     size={28}
-                    className="transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none text-neutral-900 dark:text-white"
+                    className="text-neutral-900 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none dark:text-white"
                   />
                 </div>
                 <h3 className="heading-card mb-2">{track.title}</h3>
@@ -469,13 +468,13 @@ async function CourseSection() {
             </div>
           </div>
           <div className="flex gap-4">
-            <Button
+            <NextLink
               href="/course"
-              size="lg"
-              endContent={<ArrowRight className="h-4 w-4" />}
+              className="focus-ring group bg-swiss-red inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-semibold text-white transition-[color,background-color,transform] duration-150 ease-out hover:bg-neutral-900 active:translate-y-0.5 dark:hover:bg-white dark:hover:text-black"
             >
               {isCourseAvailable ? "Start Learning" : "Learn More"}
-            </Button>
+              <ArrowRight className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" />
+            </NextLink>
           </div>
         </div>
       </div>
@@ -527,14 +526,13 @@ export default function Home() {
           <SectionTitle>Latest Insights</SectionTitle>
 
           <div className="flex items-center gap-4">
-            <Button
+            <NextLink
               href="/posts"
-              endContent={<ArrowRight className="h-4 w-4" />}
-              variant="ghost"
-              className="hover:text-swiss-red dark:hover:text-swiss-red px-0 text-sm font-bold tracking-wider text-neutral-600 uppercase hover:bg-transparent dark:text-neutral-400"
+              className="group flex items-center gap-2 bg-neutral-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
             >
               All articles
-            </Button>
+              <ArrowRight className="h-4 w-4" />
+            </NextLink>
           </div>
         </AnimatedSection>
 

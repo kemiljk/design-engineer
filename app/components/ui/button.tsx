@@ -7,7 +7,7 @@ import Link from "next/link";
 
 /**
  * Button Component
- * 
+ *
  * Size Guide (use these, avoid inline overrides):
  * - sm (h-8):  Compact UI, secondary actions in tight spaces
  * - md (h-9):  Default, most buttons
@@ -30,7 +30,7 @@ const buttonVariants = cva(
           "border border-neutral-300 bg-transparent text-foreground hover:border-swiss-red hover:text-swiss-red dark:border-neutral-700",
         // Ghost - no background, minimal
         ghost:
-          "bg-transparent text-foreground hover:bg-neutral-100 dark:hover:bg-neutral-800",
+          "bg-transparent text-foreground hover:bg-neutral-100 dark:hover:bg-neutral-800 px-2",
       },
       size: {
         sm: "h-8 px-3 text-xs",
@@ -43,7 +43,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "md",
     },
-  }
+  },
 );
 
 type ButtonBaseProps = VariantProps<typeof buttonVariants> & {
@@ -81,7 +81,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       href,
       ...props
     },
-    ref
+    ref,
   ) => {
     const iconTransition =
       "inline-flex transition-transform duration-150 ease-out motion-reduce:transition-none";
@@ -135,9 +135,11 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 
     if (href) {
       const isExternal = href.startsWith("http");
-      const anchorProps = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
+      const anchorProps =
+        props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
       const safeRel =
-        anchorProps.rel ?? (anchorProps.target === "_blank" ? "noopener noreferrer" : undefined);
+        anchorProps.rel ??
+        (anchorProps.target === "_blank" ? "noopener noreferrer" : undefined);
 
       if (isExternal) {
         return (
@@ -156,10 +158,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         <Link
           ref={ref as React.Ref<HTMLAnchorElement>}
           href={href}
-          scroll={true}
           className={cn(buttonVariants({ variant, size }), className)}
           {...anchorProps}
           rel={safeRel}
+          scroll
         >
           {content}
         </Link>
@@ -176,7 +178,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         {content}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";
