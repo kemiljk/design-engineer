@@ -6,7 +6,7 @@ import {
   Code as Code2,
   LayoutLeft as Layout,
   DoubleCheck as ArrowLeftRight,
-  Compass as Target,
+  Archery,
   Flash as Zap,
   CheckCircle as CheckCircle2,
 } from "iconoir-react";
@@ -122,8 +122,8 @@ export default function DesignEngineeringPage() {
           </h3>
 
           <div className="my-6 space-y-4">
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <CheckCircle2 className="text-swiss-red inline-flex h-auto w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Design System Development</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -133,8 +133,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <CheckCircle2 className="text-swiss-red inline-flex h-auto w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">End-to-end Project Delivery</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -144,8 +144,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <CheckCircle2 className="text-swiss-red inline-flex h-auto w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Prototyping</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -155,8 +155,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <CheckCircle2 className="text-swiss-red inline-flex h-auto w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Implementation</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -166,8 +166,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <CheckCircle2 className="text-swiss-red inline-flex h-auto w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">
                   Design-Engineering Translation
@@ -179,8 +179,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <CheckCircle2 className="text-swiss-red inline-flex h-auto w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Tooling and Infrastructure</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -238,8 +238,8 @@ export default function DesignEngineeringPage() {
           <h3 className="mt-8 mb-4 text-2xl font-bold">Business Impact</h3>
 
           <div className="my-6 space-y-4">
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <Archery className="text-swiss-red inline-flex h-auto w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Faster Iteration</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -249,8 +249,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <Archery className="text-swiss-red inline-flex h-auto w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Higher Quality Output</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -260,8 +260,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <Archery className="text-swiss-red inline-flex h-auto w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Better Communication</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -271,8 +271,8 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-baseline gap-4">
+              <Archery className="text-swiss-red inline-flex h-auto w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold">Design System Adoption</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
