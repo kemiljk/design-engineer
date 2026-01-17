@@ -11,296 +11,102 @@
 
 ## The Living System
 
-A design system isn't a project with an end date—it's a product that requires continuous investment.
+A common misconception is that a design system is a project you finish. You build the buttons, write the docs, launch the site, and pop the champagne. In reality, a design system is a product serving internal customers. Like any product, if you stop updating it, it dies.
 
-**Without maintenance:**
-- Components fall out of date
-- Documentation becomes inaccurate
-- Adoption drops as trust erodes
-- Teams build workarounds instead of contributing
-
-**With maintenance:**
-- System evolves with needs
-- Quality improves over time
-- Teams rely on and contribute to the system
-- Investment compounds
+Without maintenance, entropy sets in. Components drift from their implementations. Documentation becomes a graveyard of "how things used to work." Teams lose trust and start building their own solutions. To keep a system alive, you must treat it as infrastructure that requires constant care.
 
 ## Types of Maintenance
 
-### Bug Fixes
+Maintenance work generally falls into three buckets, each requiring a different approach.
 
-Issues discovered in existing components:
-- Visual bugs
-- Interaction problems
-- Accessibility issues
-- Browser compatibility
+### 1. Bug Fixes
+These are the urgent repairs. A dropdown menu gets cut off on mobile. A button's focus state fails accessibility audits. These erode trust rapidly ("The system is broken, I can't use it"). Prioritize these above all else to maintain confidence.
 
-Priority: Fix quickly. Bugs erode trust.
+### 2. Enhancements
+These are improvements to existing components. A team might need a new "small" variant of the Button, or a new prop to control icon placement. These requests should be evaluated against the roadmap: Is this a one-off need, or a pattern that benefits everyone?
 
-### Enhancements
-
-Improvements to existing components:
-- New variants
-- Additional props
-- Performance improvements
-- Better accessibility
-
-Priority: Evaluate against roadmap. Not every request should be implemented.
-
-### New Components
-
-Components that don't exist yet:
-- Genuinely new patterns
-- Previously one-off implementations being systematized
-
-Priority: High bar. New components have ongoing maintenance cost.
-
-### Deprecation
-
-Removing outdated components:
-- Replaced by better alternatives
-- No longer used
-- Fundamentally flawed
-
-Priority: Essential for system health. Don't let cruft accumulate.
-
-### Documentation Updates
-
-Keeping docs current:
-- New features documented
-- Outdated information removed
-- Examples updated
-- Screenshots refreshed
-
-Priority: Every code change should include doc updates.
+### 3. New Components
+Adding a net-new component is a commitment. It adds weight to the library and creates a permanent maintenance burden. The bar for entry should be high. Often, a pattern should prove its value in a specific product before being promoted to the system.
 
 ## Versioning
 
-Versioning communicates what changed and how to upgrade.
+How do you communicate changes to your users? You need a versioning strategy. The industry standard is **Semantic Versioning (SemVer)**, which uses a three-part number: `MAJOR.MINOR.PATCH` (e.g., 1.4.2).
 
-### Semantic Versioning (SemVer)
+**PATCH (1.4.1 → 1.4.2):**
+These are bug fixes. They don't add features or break anything. It is safe for teams to upgrade automatically.
 
-The standard: MAJOR.MINOR.PATCH
+**MINOR (1.4.0 → 1.5.0):**
+These are additive changes. You added a new component or a new optional prop. Existing code continues to work, but there are new toys in the box.
 
-**PATCH (1.0.0 → 1.0.1):** Bug fixes, no API changes
-- Safe to upgrade automatically
-- No breaking changes
+**MAJOR (1.0.0 → 2.0.0):**
+These are breaking changes. You renamed a prop, deleted a component, or changed how a function works. Upgrading requires work from the consuming teams. Major versions should be infrequent and painful changes should be grouped together.
 
-**MINOR (1.0.0 → 1.1.0):** New features, backwards compatible
-- New components, new props, new options
-- Existing code continues to work
-- Deprecation warnings may appear
+## The Deprecation Process
 
-**MAJOR (1.0.0 → 2.0.0):** Breaking changes
-- Removed components or props
-- Changed API signatures
-- Requires migration effort
+You can't just delete a component that people are using. You need to guide them off it gently.
 
-### Pre-release Versions
+**Step 1: Mark as Deprecated**
+Add a visual warning in the documentation and a console warning in the code: *"Alert is deprecated. Use Toast instead."* Do not break the code yet.
 
-For testing before release:
-- 1.1.0-alpha.1 — Early development
-- 1.1.0-beta.1 — Feature complete, testing
-- 1.1.0-rc.1 — Release candidate
+**Step 2: Provide a Migration Path**
+Write a clear guide explaining how to move to the new pattern. If possible, write a "codemod" (a script) that automates the update.
 
-### Versioning Strategy
-
-**Libraries:** Version the whole library together (simpler)
-
-**Monorepos:** Version each package independently (more granular)
-
-**Design files:** Use named versions at milestones
-
-## Making Changes
-
-### Additive Changes (Safe)
-
-Adding things is usually safe:
-- New components
-- New props (with default values)
-- New variants
-- New tokens
-
-These are minor version bumps.
-
-### Modifying Existing Behavior
-
-Changes to existing behaviour need care:
-- Changing defaults (could break existing usage)
-- Changing appearance (could break layouts/tests)
-- Changing interaction patterns (could confuse users)
-
-Evaluate impact. Communicate clearly.
-
-### Breaking Changes
-
-Sometimes breaking changes are necessary:
-- Fixing fundamental design flaws
-- Aligning with new platform patterns
-- Removing deprecated items
-
-For breaking changes:
-1. Announce in advance
-2. Provide migration path
-3. Support old version during transition
-4. Make the migration as easy as possible
-
-## Deprecation Process
-
-Deprecation is how you phase out components or features.
-
-### Step 1: Mark as Deprecated
-
-Add deprecation notices:
-- Documentation warnings
-- Console warnings in code
-- Visual indicators in design tools
-
-Include:
-- What's deprecated
-- Why it's deprecated
-- What to use instead
-
-### Step 2: Provide Migration Path
-
-Help users transition:
-- Migration guide documentation
-- Codemods (automated code transforms) if possible
-- Examples of before/after
-
-### Step 3: Removal Timeline
-
-Communicate when removal will happen:
-- "Deprecated in 2.0, will be removed in 3.0"
-- Give adequate time (usually one major version cycle)
-
-### Step 4: Remove
-
-In the next major version:
-- Remove the deprecated item
-- Update documentation
-- Note in release notes
+**Step 3: The Sunset**
+After a designated period (usually the next Major release), remove the old component. This keeps your library from becoming a museum of obsolete code.
 
 ## Governance
 
-Governance is how decisions get made about the system.
+Governance is simply the answer to the question: "Who decides what goes in?"
 
-### Decision-Making Models
+**Centralized Model:**
+A dedicated Design System team makes all the decisions. This ensures high consistency and quality but can become a bottleneck. The core team becomes the "police."
 
-**Centralized:** One team owns the system and makes all decisions.
-- Pros: Consistent vision, clear ownership
-- Cons: Bottleneck, may not reflect user needs
+**Federated Model:**
+Representatives from different product teams form a council. They meet to discuss and approve changes. This distributes ownership but requires coordination overhead.
 
-**Federated:** Multiple teams contribute with coordination.
-- Pros: Diverse input, shared ownership
-- Cons: Coordination overhead, potential inconsistency
-
-**Open Source Model:** Anyone can contribute, core team reviews.
-- Pros: Community investment, distributed effort
-- Cons: Quality control, alignment challenges
-
-Most organizations use a hybrid—core team owns direction, others contribute with guidance.
-
-### Contribution Process
-
-How do contributions get into the system?
-
-**Proposal:**
-1. Identify need
-2. Check if it exists
-3. Create proposal (RFC, design doc)
-4. Review with maintainers
-
-**Design:**
-1. Design exploration
-2. Feedback collection
-3. Design approval
-
-**Implementation:**
-1. Build component
-2. Write documentation
-3. Code review
-4. Release
-
-### Request Process
-
-How do users request changes?
-
-- Issue tracker for bugs and requests
-- Discussion forum for exploration
-- Regular office hours or reviews
-- Clear prioritisation criteria
+**Hybrid Model:**
+Most successful systems land here. A small core team manages the infrastructure and documentation, while product teams contribute new components. The core team acts as "librarians"—curating and polishing contributions rather than building everything from scratch.
 
 ## Measuring Success
 
-How do you know the system is healthy?
+How do you know if your system is working? Don't just count the number of components.
 
-### Adoption Metrics
+**Adoption:**
+Are teams actually using it? Track the percentage of UI in the product that comes from the system. If it's stagnating, find out why.
 
-- How many products use the system?
-- What percentage of components come from the system?
-- Are new projects starting with the system?
+**Efficiency:**
+Are teams shipping faster? This is hard to measure directly, but qualitative surveys ("Did the system help you this sprint?") reveal a lot.
 
-### Quality Metrics
-
-- Bug count and resolution time
-- Accessibility compliance
-- Test coverage
-- Performance benchmarks
-
-### Engagement Metrics
-
-- Contributions from outside core team
-- Questions and answers in channels
-- Documentation usage
-- Training attendance
-
-### Satisfaction Metrics
-
-- Regular surveys
-- NPS (Net Promoter Score) for internal tools
-- Qualitative feedback
+**Contribution:**
+Are people outside the core team fixing bugs or adding patterns? A healthy system has a vibrant community of contributors.
 
 ## The Maintenance Mindset
 
-Design system work is infrastructure work. It requires:
-
-**Patience:** Changes compound over time.
-
-**Empathy:** Understanding user needs and constraints.
-
-**Communication:** Keeping stakeholders informed.
-
-**Pragmatism:** Balancing ideals with reality.
-
-**Long-term thinking:** Making decisions for sustainability.
-
-If you enjoy seeing your work multiply across products and teams, design system maintenance is deeply satisfying.
+Design system work is service work. It requires a specific temperament:
+- **Patience:** You are building for the long term.
+- **Empathy:** You must understand the constraints of the teams using your tools.
+- **Communication:** You are selling the system every day.
+- **Pragmatism:** Sometimes shipping a slightly imperfect component is better than blocking a product release.
 
 ## Try It Yourself
 
 ### Exercise 1: Changelog Review
-
-Review the changelog of a public design system (Material, Carbon, etc.):
-1. How do they communicate changes?
-2. What's included in minor vs. major versions?
-3. How do they handle deprecations?
+Go to the GitHub repository of a major design system (like Material UI or Carbon). Read their Release Notes. Look for:
+- How they describe breaking changes.
+- How they credit contributors.
+- How they structure the notes (New, Fixed, Changed).
 
 ### Exercise 2: Deprecation Plan
-
-You need to deprecate an old Modal component in favour of a new Dialog component. Plan:
-1. Deprecation messaging
-2. Migration documentation outline
-3. Timeline
-4. Support during transition
+Imagine you need to remove a "Modal" component because it has accessibility flaws, and replace it with a new "Dialog" component.
+1. Write the deprecation warning message.
+2. Outline the steps a developer would need to take to switch.
+3. Decide on a timeline for removal.
 
 ### Exercise 3: Contribution Guidelines
-
-Draft contribution guidelines for a hypothetical design system:
-1. How to propose new components
-2. What makes a good proposal
-3. Review process
-4. Implementation expectations
+Draft a simple "How to Contribute" document. Answer:
+- How do I report a bug?
+- How do I request a new feature?
+- What is the process for submitting a code change?
 
 ## Test Your Understanding
 
@@ -343,13 +149,11 @@ Draft contribution guidelines for a hypothetical design system:
 
 ## Key Takeaways
 
-- Design systems require ongoing maintenance—they're products, not projects
-- Maintenance includes: bug fixes, enhancements, new components, deprecation, documentation
-- Semantic versioning communicates change impact: MAJOR.MINOR.PATCH
-- Deprecation is a process: mark, migrate, timeline, remove
-- Governance models: centralized, federated, or hybrid
-- Contribution processes should be clear and documented
-- Measure success through adoption, quality, engagement, and satisfaction
+- A design system is a product, not a project; it needs continuous maintenance.
+- Use Semantic Versioning to communicate the impact of changes.
+- Deprecation is a managed process, not a sudden deletion.
+- Governance models define who makes decisions; hybrid models often work best.
+- Measure success by adoption and team satisfaction, not just component counts.
 
 ## Next Steps
 

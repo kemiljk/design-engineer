@@ -13,299 +13,87 @@
 
 > *"The computer is just a tool. It's got the same merit as a pencil, nothing more, nothing less."* — Paula Scher
 
-This lesson focuses on concepts, not specific tools. Whether you use Figma, Sketch, Adobe XD, or Penpot, the fundamentals are the same:
+It doesn't matter if you use Figma, Sketch, Adobe XD, or Penpot. They all operate on the same fundamental principles. If you learn the *concepts*, you can switch tools in a weekend. If you only memorize shortcuts, you're trapped.
 
-- Frames/artboards contain your designs
-- Layers stack elements in z-order
-- Shapes and text form your content
-- Styles define reusable properties
-- Components enable reuse
-
-Once you understand these concepts, switching tools becomes learning new shortcuts, not new paradigms.
+The core mental model of digital design is: **Objects on a Canvas.**
 
 ## The Canvas Mental Model
 
-Design tools present an infinite canvas where you place design elements.
+Imagine a massive, infinite desk. You can put pieces of paper (Frames) on it. You can draw on the papers, or draw directly on the desk. You can stack papers on top of each other. This is your workspace.
 
-### Key Concepts
+**Infinite Canvas:** Unlike a Word document, there are no "pages" in the traditional sense. You place your screens side-by-side to see the flow. You zoom in to perfect a pixel, and zoom out to see the entire user journey.
 
-**Canvas:** The workspace. Infinite in most tools, scrollable in all directions.
-
-**Frames (Artboards):** Bounded areas representing screens, components, or areas of focus. Content lives inside frames.
-
-**Layers:** Elements stack. Higher layers appear in front of lower layers.
-
-**Zoom:** You'll constantly zoom in (for detail work) and out (for overall view).
-
-### Working with Frames
-
-Frames are your primary organising structure:
-- One frame per screen/page design
-- Frames for components
-- Frames for sections within pages
-
-Name your frames descriptively:
-- `Home - Desktop`
-- `Button/Primary`
-- `Card - Product`
+**Frames (Artboards):** A Frame is a container. It usually represents a device screen (e.g., "iPhone 14"). However, Frames are powerful because they can nest. A "Button" is a Frame containing a text layer. A "Card" is a Frame containing an Image and a Button. This nesting mimics the HTML `div` structure you'll encounter in code.
 
 ## Layers and Hierarchy
 
-Every element is a layer. Understanding layer management is essential.
+Every element you create—a rectangle, a text block, an image—is a **Layer**. Think of them like sheets of acetate transparency stacked on top of each other.
 
-<!-- visual-example: layers-demo -->
+**The Z-Index:**
+Layers at the top of the list cover layers at the bottom. If your text is hidden, it's probably just sitting "under" the background rectangle in the layer stack.
 
-### Layer Order
-
-Layers stack from bottom to top. Top layers visually overlap bottom layers.
-
-```text
-Layers panel:        Visual result:
-─────────────        ─────────────
-Button (top)         Button appears in front
-Card                 Card behind button  
-Background (bottom)  Background behind everything
-```
-
-### Layer Organization
-
-**Groups:** Combine related layers. Moving the group moves all children.
-
-**Frames as containers:** Modern tools let frames clip content and have their own properties.
-
-**Naming:** Name every layer. `Rectangle 47` tells you nothing; `Primary Button` is useful.
-
-### Nesting
-
-Frames contain frames. A page might have:
-```text
-Page
-├── Header
-│   ├── Logo
-│   ├── Navigation
-│   └── Profile Menu
-├── Main Content
-│   ├── Hero
-│   └── Features
-└── Footer
-```
-
-This nesting mirrors both DOM structure and component hierarchy.
+**Grouping vs. Framing:**
+- **Groups** are like a bag. They hold things together so you can move them, but the bag itself has no properties.
+- **Frames** are like a picture frame. They hold things, but they also have their own background color, border, and clipping rules (hiding things that stick out). **Modern design relies heavily on Frames.**
 
 ## Selection and Manipulation
 
-### Selecting Elements
+**Direct Selection:**
+Clicking a group usually selects the whole group. To select an item *inside* a group (like the text inside a button), you usually need to "Deep Select" (Cmd+Click or Ctrl+Click). Mastering this shortcut is the difference between frustration and flow.
 
-**Click:** Select one element
-**Shift+Click:** Add to selection
-**Drag selection:** Select multiple elements in an area
-**Deep select:** Click into groups/frames (usually Cmd/Ctrl+Click)
-
-### Moving and Resizing
-
-**Move:** Drag selected elements
-**Nudge:** Arrow keys move selection (usually 1px, Shift+Arrow for 10px)
-**Resize:** Drag handles on selection
-**Constrained resize:** Hold Shift while dragging to maintain proportions
-
-### Alignment
-
-Most tools have alignment options:
-- Left/Center/Right align
-- Top/Middle/Bottom align
-- Distribute horizontally/vertically
-
-Alignment creates clean, intentional layouts.
-
-### Snapping
-
-Elements snap to:
-- Other elements' edges
-- Guidelines
-- Grid lines
-- Component spacing
-
-Enable snapping for precision; disable for freedom.
+**Nudging:**
+Never drag things with your mouse to align them by eye. It will be messy. Use the arrow keys ("Nudge") to move things by 1px. Hold Shift to move by 10px (or 8px, if configured). This keeps your design on the grid.
 
 ## Shapes and Drawing
 
-### Basic Shapes
+UI design is mostly rectangles. A button is a rectangle. A card is a rectangle. A phone screen is a rectangle.
 
-- **Rectangle:** Most common for UI. Adjust corner radius for rounded rectangles.
-- **Ellipse:** Circles and ovals. Hold Shift for perfect circles.
-- **Line:** Strokes between points.
-- **Polygon:** Triangles, stars, custom shapes.
+**Vector Networks:**
+Unlike raster tools (Photoshop) which paint pixels, UI tools are Vector-based. This means they store the *math* of the shape, not the pixels. You can scale a vector icon from 16px to 1000px and it stays perfectly crisp. This is essential for responsive design.
 
-### Shape Properties
+**Boolean Operations:**
+Complex shapes are often just simple shapes combined.
+- **Union:** Merge two circles to make a cloud.
+- **Subtract:** Cut a circle out of a square to make a hole.
+- **Intersect:** Keep only the overlapping part (like a Venn diagram).
 
-**Fill:** The inside colour (solid, gradient, or image)
+## Typography
 
-**Stroke:** The outline (colour, weight, style)
+Text in design tools comes in two flavors:
+1.  **Point Text:** You click and type. The text box grows as you type. Use this for short labels or headlines.
+2.  **Area Text:** You drag a box, then type. The text wraps when it hits the edge. Use this for body paragraphs.
 
-**Corner radius:** For rounded corners
-
-**Shadow:** Drop shadow, inner shadow
-
-**Blur:** Gaussian blur, background blur
-
-### Boolean Operations
-
-Combine shapes to create complex forms:
-- **Union:** Merge shapes into one
-- **Subtract:** Cut one shape from another
-- **Intersect:** Keep only the overlap
-- **Exclude:** Keep everything except the overlap
-
-## Typography in Tools
-
-### Text Elements
-
-Create text by clicking (point text) or dragging (area text).
-
-**Point text:** Expands as you type. Good for labels, buttons.
-**Area text:** Constrained width, text wraps. Good for paragraphs.
-
-### Text Properties
-
-- **Font family and weight**
-- **Size**
-- **Line height**
-- **Letter spacing (tracking)**
-- **Paragraph spacing**
-- **Alignment** (left, center, right, justify)
-
-### Text Styles
-
-Define reusable text styles:
-- Heading 1
-- Heading 2
-- Body
-- Caption
-
-Apply styles consistently; update the style to change all instances.
+**Styles:**
+Never manually set "Arial, 16px, Bold" on every single heading. Create a **Text Style** called "Heading 3". Apply that style. If you later decide all H3s should be 18px, you update the Style, and every instance updates instantly.
 
 ## Color and Styles
 
-### Color Definition
+Just like type, color should be systematic. Do not use the color picker to find a nice blue every time. Find a nice blue *once*, save it as a **Color Style** (e.g., "Primary/500"), and reuse it.
 
-Colors can be:
-- **Solid:** Single colour (hex, RGB, HSL)
-- **Gradient:** Transition between colours
-- **Image:** Fill with a picture
-
-### Color Styles
-
-Define named colours for reuse:
-- `Primary/500`
-- `Gray/100`
-- `Error/500`
-
-These become your design tokens. When you change the style, all uses update.
-
-### Effects
-
-**Shadow:** Creates depth
-- Drop shadow (outside)
-- Inner shadow (inside)
-
-**Blur:** Creates softness
-- Layer blur (entire element)
-- Background blur (blur what's behind)
+**Fills and Strokes:**
+Objects have Fills (insides) and Strokes (outlines). You can stack them. A button might have a solid Fill, a gradient Fill on top (for a shine effect), and an inner Stroke (for a bevel effect).
 
 ## Exporting
 
-Design tools create assets for handoff and implementation.
+Design tools are not the final destination. The assets must leave the tool to become code.
 
-### Export Formats
+- **SVG:** Use this for icons and simple illustrations. It's code-friendly and scalable.
+- **PNG/JPG:** Use this for photographs.
+- **PDF:** Use this for sharing documents, not for UI assets.
 
-**PNG:** Raster images, supports transparency
-**JPG:** Raster images, no transparency, smaller files
-**SVG:** Vector graphics, scalable, ideal for icons
-**PDF:** Document format, good for print
-
-### Export Scales
-
-For screen work, export at multiple scales:
-- 1× — Standard resolution
-- 2× — Retina/high-DPI displays
-- 3× — Extra high-DPI (mobile)
-
-### What to Export
-
-- Icons (SVG usually)
-- Images that aren't available elsewhere
-- Complex graphics that can't be recreated in code
-
-Don't export everything—CSS can recreate most UI elements.
-
-## Keyboard Shortcuts
-
-Learning shortcuts dramatically speeds up design work:
-
-**Universal across most tools:**
-- `V` — Move/selection tool
-- `R` — Rectangle
-- `T` — Text
-- `Cmd/Ctrl + D` — Duplicate
-- `Cmd/Ctrl + G` — Group
-- `Cmd/Ctrl + Z` — Undo
-- `Space + drag` — Pan canvas
-- `Cmd/Ctrl + scroll` — Zoom
-
-**Learn gradually:** Pick 3-5 shortcuts to practice each week.
-
-## File Organization
-
-### Page Structure
-
-Organize your file into pages:
-- Cover/Overview
-- Components
-- Desktop Designs
-- Mobile Designs
-- Archive
-
-### Naming Conventions
-
-Establish naming patterns:
-- `[Platform] - [Screen] - [State]`
-- `Desktop - Home - Logged In`
-- `Mobile - Settings - Dark Mode`
-
-### Version Management
-
-- Use built-in version history
-- Name significant versions
-- Consider branching for major explorations
+**Export density:**
+Screens have different pixel densities (Retina displays). When exporting bitmaps (PNG/JPG), you often need to export at 1x, 2x, and 3x sizes so the developer can serve the sharpest version for each device.
 
 ## Try It Yourself
 
-### Exercise 1: Tool Setup
+### Exercise 1: The Frame Nesting
+Create a Frame called "Button". Put a Text layer inside it saying "Click Me". Now create a Frame called "Card". Put a Rectangle (image) and your "Button" frame inside it. Notice how moving the Card moves everything.
 
-In your design tool of choice:
-1. Create a new file
-2. Set up pages: Components, Desktop, Mobile
-3. Create frames for three screens (Home, About, Contact)
-4. Name them clearly
+### Exercise 2: Boolean Shapes
+Draw two circles overlapping. Select both. Try the "Union" operation. Now try "Subtract." See how you can create a crescent moon shape just by subtracting one circle from another?
 
-### Exercise 2: Basic Layout
-
-Create a simple card component:
-1. Draw a rectangle (200×250px)
-2. Add corner radius (8px)
-3. Add shadow
-4. Add a placeholder image at top
-5. Add title text below
-6. Add description text
-7. Group everything
-8. Name layers properly
-
-### Exercise 3: Styles Practice
-
-Create and apply:
-1. Three colour styles (Primary, Secondary, Background)
-2. Two text styles (Heading, Body)
-3. Apply them to the card from Exercise 2
+### Exercise 3: Styles
+Type three different headlines. Manually style them. Now, create a Text Style from one of them. Apply it to the others. Change the Style settings and watch all three update.
 
 ## Test Your Understanding
 
@@ -348,13 +136,11 @@ Create and apply:
 
 ## Key Takeaways
 
-- Design tools share common concepts: canvas, frames, layers, shapes, styles
-- Frames organise your work and represent screens/components
-- Layer management (order, naming, grouping) is essential
-- Shapes have properties: fill, stroke, corner radius, shadows
-- Create reusable styles for colours, text, and effects
-- Learn keyboard shortcuts incrementally
-- Organize files with clear naming and page structure
+- Treat the canvas as an infinite desk, not a finite page.
+- Use **Frames** to group and clip content, mimicking HTML containers.
+- **Vector** shapes allow for infinite scaling without quality loss.
+- Always use **Styles** for color and typography to ensure consistency.
+- Learn to **Deep Select** (Cmd/Ctrl+Click) to save hours of clicking.
 
 ## Next Steps
 

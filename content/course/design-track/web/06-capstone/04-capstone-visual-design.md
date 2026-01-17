@@ -15,249 +15,79 @@ estimatedTime: 15
 - Creating cohesive full-page designs
 - Adapting designs for all viewports
 
-## Step 1: Hero Section
+## Step 1: The Hero Section
 
-The hero sets the tone for everything. Get this right first.
+The Hero section is the handshake of your website. It has about 3 seconds to answer: "What is this?" and "Why should I care?"
 
-### Hero Checklist
+**The Hook:**
+Start with your headline. It should be massive (Display size from your type scale) and high-contrast. Don't be afraid of whitespace. Space equals luxury and confidence. Crowded heroes feel desperate.
 
-Apply your design system:
-- [ ] Use your typography scale for headline/subhead
-- [ ] Apply brand colours purposefully
-- [ ] Design primary and secondary CTAs
-- [ ] Add hero imagery or illustration
-- [ ] Ensure it's scannable in 3 seconds
+**The Imagery:**
+Avoid generic stock photos of people shaking hands. Use an illustration that explains the product abstractly, or a high-quality product shot. If you use a photo, ensure it doesn't clash with the text. You might need a gradient overlay to ensure readability.
 
-### Hero Patterns
+**The Call to Action (CTA):**
+Your primary button needs to pop. It should be the most vibrant element on the screen. Place it logically—usually directly under the supporting text.
 
-**Split layout:**
-```plaintext
-┌────────────────────────────────────────┐
-│  Headline              │               │
-│  that captures         │    [IMAGE]    │
-│  attention             │               │
-│                        │               │
-│  Supporting text       │               │
-│  [CTA] [CTA]           │               │
-└────────────────────────────────────────┘
-```
+## Step 2: The Component Library
 
-**Centred layout:**
-```plaintext
-┌────────────────────────────────────────┐
-│         Centred Headline               │
-│      Supporting text here              │
-│         [CTA]  [CTA]                   │
-│                                        │
-│           [IMAGE/VIDEO]                │
-└────────────────────────────────────────┘
-```
+Before you design the rest of the page, stop. Don't paint the walls before you buy the brushes. Build your "ingredients" first.
 
-**Full-bleed image:**
-```plaintext
-┌────────────────────────────────────────┐
-│ ╔════════════════════════════════════╗ │
-│ ║     Headline over image            ║ │
-│ ║     Supporting text                ║ │
-│ ║     [CTA]                          ║ │
-│ ╚════════════════════════════════════╝ │
-└────────────────────────────────────────┘
-```
+**Buttons:**
+Create a master component for your Button. Give it variants for Primary (solid), Secondary (outline), and Ghost (text only). Ensure you have a Hover state for each.
 
-### Design Tips
+**Cards:**
+You'll likely need a Feature Card (icon + title + text) and a Testimonial Card (quote + avatar + name). Build these as components now so that if you change the padding later, every card updates instantly.
 
-- **Contrast:** Ensure headline stands out clearly
-- **Whitespace:** Don't crowd the hero—let it breathe
-- **Visual hierarchy:** One clear focal point
-- **CTA prominence:** Primary button should be obvious
-
-## Step 2: Component Library
-
-Build reusable components before designing pages:
-
-### Buttons
-
-Design all states for each variant:
-
-**Primary button:**
-- Default
-- Hover
-- Active (pressed)
-- Focus
-- Disabled
-
-**Secondary button:**
-- Same states as primary
-
-**Ghost/tertiary button:**
-- Same states
-
-**Sizes:** Small, Medium, Large
-
-### Cards
-
-**Feature card:**
-- Icon or image
-- Title
-- Description
-- Optional link
-
-**Testimonial card:**
-- Quote
-- Avatar
-- Name and title
-- Company (optional)
-
-**Pricing card:**
-- Plan name
-- Price
-- Features list
-- CTA
-- Popular/recommended state
-
-### Form Elements
-
-**Input field:**
-- Default (empty)
-- Placeholder
-- Filled
-- Focus
-- Error
-- Disabled
-
-**Other inputs:**
-- Checkbox
-- Radio
-- Select dropdown
-- Toggle
-
-### Navigation
-
-**Header:**
-- Logo
-- Navigation links (default, hover, active)
-- CTA button
-- Mobile hamburger icon
-
-**Mobile menu:**
-- Full-screen or slide-in
-- Navigation links
-- CTA
-
-**Footer:**
-- Logo
-- Link groups
-- Social icons
-- Legal text
+**Inputs:**
+If you have a form, build the Input component. Don't forget the "Empty," "Active," and "Error" states. Designing the error state now saves you panic later.
 
 ## Step 3: Full Page Design
 
-Now bring it all together:
+Now, assemble the page like LEGOs.
 
-### Design Process
+**Social Proof:**
+Directly under the hero, add a "Trusted By" strip. Use logos that are desaturated or mono-color so they don't compete with your brand. This builds immediate credibility.
 
-1. **Start with the hero** (already done)
-2. **Work section by section** down the page
-3. **Use your components** consistently
-4. **Check spacing** between sections
-5. **Review hierarchy** — is the flow clear?
-
-### Section-by-Section Tips
-
-**Social proof/logos:**
-- Greyscale logos for subtlety
-- "Trusted by" or "Used by" label
-- 4-6 logos maximum
-
-**Features:**
-- Consistent icon style
-- Equal weight to each feature
-- Clear visual grouping
-
-**Testimonials:**
-- Real-looking photos (use Unsplash)
-- Specific, credible quotes
-- Company context adds trust
+**Features Section:**
+Use your Feature Card component. A 3-column grid is standard because it breaks the monotony of full-width text. Use a Zig-Zag layout (Text-Image, Image-Text) to guide the user's eye down the page.
 
 **Pricing:**
-- Highlight recommended plan
-- Clear feature comparison
-- Obvious CTA per plan
+Pricing tables are complex. Use a distinct color or shadow to highlight the "Recommended" plan. Ensure the "Buy" buttons align at the bottom of the cards regardless of how long the feature list is.
 
-**FAQ:**
-- Accordion pattern
-- Scannable questions
-- Concise answers
+**The Footer:**
+The footer is the safety net. It's where users go if they didn't find what they wanted. Organize links into clear columns (Product, Company, Resources). Don't forget the copyright and social links.
 
-**Final CTA:**
-- Reinforce main value proposition
-- Strong headline
-- Single clear action
+## Step 4: Responsive Design
 
-### Design Review
+You designed for Desktop (likely 1440px). Now, break it.
 
-Before moving to responsive:
-- [ ] Consistent spacing throughout
-- [ ] Typography hierarchy is clear
-- [ ] Colour usage is intentional
-- [ ] Alignment is precise
-- [ ] Components used consistently
+**The Tablet Squeeze (768px):**
+On a tablet, your 3-column feature grid will look squashed. Drop it to a 2-column grid (2 on top, 1 below) or a single column. The horizontal menu might still fit, but be ready to switch to a Hamburger menu if it feels tight.
 
-## Step 4: Responsive Designs
+**The Mobile Stack (375px):**
+On mobile, almost everything becomes a single column.
+- **Hero:** Image usually moves *below* the text so the headline is seen first.
+- **Navigation:** Collapses into a Hamburger menu or a bottom bar.
+- **Padding:** Reduce your side margins. 80px padding on desktop should become 16px or 20px on mobile.
+- **Touch Targets:** Your mouse is precise; your thumb is not. Ensure every button is at least 44px tall.
 
-Adapt for all viewports:
+## Step 5: Consistency Check
 
-### Tablet (768px)
+Zoom out. Look at the whole page.
 
-Common adaptations:
-- Navigation might stay horizontal or become hamburger
-- 3-column grids become 2-column
-- Hero image might stack below text
-- Reduce horizontal padding
-- Adjust typography scale slightly
+**Color Balance:**
+Is your primary color used too much? It should be reserved for actions (buttons, links). If your background, icons, and text are all the same "Brand Blue," nothing stands out.
 
-### Mobile (375px)
-
-Common adaptations:
-- Navigation becomes hamburger menu
-- All grids become single column
-- Hero stacks vertically
-- Larger touch targets (44px minimum)
-- Reduced font sizes (but maintain hierarchy)
-- Tighter spacing
-
-### Testing Your Responsive Design
-
-For each viewport:
-- [ ] Can users complete the main task?
-- [ ] Is text readable without zooming?
-- [ ] Are touch targets large enough?
-- [ ] Does important content fit above the fold?
-- [ ] Is the visual hierarchy maintained?
-
-## Checkpoint
-
-Before moving on, verify:
-
-- [ ] Hero section complete and impactful
-- [ ] Component library built with all variants/states
-- [ ] Full desktop design complete
-- [ ] Tablet design complete
-- [ ] Mobile design complete
-- [ ] All designs use tokens consistently
+**Typography Hierarchy:**
+Can you scan the page and read only the headers? They should tell the story by themselves. If the body text is too heavy, lighten it to a dark grey (like `#4B5563`) to create contrast with the black headlines.
 
 ## Try It Yourself
 
-Complete all steps in your Figma file:
-
-1. Design your hero section
-2. Build your component library (buttons, cards, inputs, nav)
-3. Design the full desktop page
-4. Create tablet adaptation
-5. Create mobile adaptation
-6. Review consistency across all viewports
+1.  **Hero:** Design 3 variations of your hero. Pick the best one.
+2.  **Components:** Build your Button, Input, and Card components in Figma.
+3.  **Assembly:** Construct the full desktop page.
+4.  **Responsiveness:** Create a Tablet and Mobile frame and adapt the layout.
 
 ## Next Steps
 
 Continue to [Capstone: Polish and Documentation](./05-capstone-polish.md) →
-

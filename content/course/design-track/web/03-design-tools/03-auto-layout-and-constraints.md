@@ -11,219 +11,115 @@
 
 ## The Problem with Static Design
 
-Traditional design is static: elements are positioned at exact coordinates. This creates problems:
+In the early days of digital design, we treated screens like canvases. We placed a button at `x: 100, y: 200` and it stayed there. This "static design" approach is fragile.
 
-**Content changes:** If button text changes from "OK" to "Submit Application," the button needs manual resizing.
+If you change the button text from "OK" to "Submit Application," the background rectangle doesn't grow. The text spills out. If you translate the app into German, the layout breaks. If you view the design on a wider screen, the button stays stuck in place, leaving awkward whitespace.
 
-**Responsive design:** Elements don't adapt to different screen sizes without manual adjustment.
-
-**Maintenance burden:** Every change requires manually updating multiple instances.
-
-Auto layout solves these problems by defining *relationships* between elements instead of fixed positions.
+**Auto Layout** solves this by defining *relationships* rather than positions. Instead of saying "Put this button at 100px," you say "Put this button 20px below the headline."
 
 ## What is Auto Layout?
 
-Auto layout (or "Flexbox for design tools") arranges children automatically based on rules:
+Auto Layout (called "Flexbox" in web development) is a set of rules that tells a container how to arrange its children.
 
-- Stack children horizontally or vertically
-- Add consistent spacing between children
-- Apply padding inside containers
-- Allow children to grow, shrink, or stay fixed
-
-When content changes, the layout recalculates automatically.
+It handles the math for you. If you add an item to a list, the container grows. If you delete an item, it shrinks. If you change the text size, the padding respects the new boundaries. It turns your design from a static drawing into a dynamic system.
 
 ## Auto Layout Fundamentals
 
-### Direction
+Just like CSS Flexbox, Auto Layout relies on a few core properties:
 
-Choose how children stack:
-- **Horizontal:** Children line up left to right
-- **Vertical:** Children stack top to bottom
+**Direction:**
+Do the children stack horizontally (like a row of buttons) or vertically (like a form)?
 
-### Spacing
+**Spacing (Gap):**
+How much space sits between each item? Using a consistent value here (like 8px or 16px) creates visual rhythm without manually measuring every gap.
 
-Define the gap between children:
-- Consistent spacing keeps rhythm
-- Usually follows your 8-point grid (8px, 16px, 24px)
+**Padding:**
+How much breathing room is inside the container? This is the space between the container's edge and its content.
 
-### Padding
-
-Define space between container edges and children:
-- Can be uniform (all sides the same)
-- Or independent (different top, right, bottom, left)
-
-### Alignment
-
-Control where children sit within the container:
-- **Primary axis:** Start, centre, end, space-between
-- **Cross axis:** Start, centre, end, stretch
-
-This mirrors CSS Flexbox exactly.
+**Alignment:**
+Where do the children sit? Are they centered? Pushed to the left? Spread out to the edges (`Space Between`)?
 
 ## Building with Auto Layout
 
-The interactive example below shows how auto layout properties translate into real UI components. Toggle between examples to see the Figma-style properties panel update.
+Let's look at how these properties create real components.
 
 <!-- visual-example: auto-layout-demo -->
 
-### How It Works
+**The Button:** A button is a horizontal stack. It wraps the label (and maybe an icon). By setting horizontal padding (e.g., 16px) and vertical padding (e.g., 10px), the button automatically resizes to fit whatever text you type.
 
-**Button:** A horizontal layout with icon and text as children. The 8px gap keeps them spaced, and the padding creates breathing room around the content. The button grows or shrinks based on the label length.
+**The Card:** A card is a vertical stack. It contains an image, a headline, a description, and a footer. By setting a vertical gap of 16px, you ensure that even if the headline runs to two lines, the description moves down to accommodate it. Nothing overlaps.
 
-**Card:** A vertical layout stacking image, title, description, and actions. The 16px gap creates consistent rhythm between sections. The card adapts to different content lengths automatically.
-
-**Form Row:** Demonstrates mixed sizing behaviours—the label stays fixed width, the input fills available space, and the button hugs its content.
-
-**Navigation:** Uses space-between alignment to push the logo left and actions right, with nav items in the centre.
-
-### Nested Auto Layout
-
-Layouts nest for complex components. A social media card might have:
-
-- **Card** (vertical layout, 16px gap)
-  - **Header** (horizontal layout, 12px gap)
-    - Avatar
-    - **User Info** (vertical layout, 4px gap)
-      - Name
-      - Date
-  - **Content** (vertical layout, 8px gap)
-    - Title
-    - Description
-  - **Footer** (horizontal layout, 16px gap)
-    - Like Button
-    - Comment Button
-    - Share Button
-
-Each level has its own direction, gap, and padding.
+**The Navigation Bar:** This uses "Space Between" alignment. The Logo sits on the far left, the Menu on the far right, and the auto layout engine calculates the empty space in the middle. If the screen gets wider, the Logo and Menu stay pinned to their corners.
 
 ## Sizing Behaviours
 
-Children can behave differently when the container resizes. The interactive demo below lets you experiment with each sizing mode.
+The magic of Auto Layout comes from how items resize. You have three main choices for any element:
 
 <!-- visual-example: sizing-behaviors-demo -->
 
-### Fixed Size
+**1. Fixed Width:**
+The element stays exactly the size you set (e.g., 24px icon). It ignores the parent container's size.
 
-Element stays the same size regardless of container. Use for icons, avatars, and fixed-width labels.
+**2. Hug Contents:**
+The element shrinks to be as small as possible while still fitting everything inside it. A button "hugs" its text label. If you add more text, the button grows.
 
-### Hug Contents
-
-Element sizes to fit its children. Use for buttons, tags, and badges that should adapt to their text.
-
-### Fill Container
-
-Element expands to fill available space. Use for input fields, main content areas, and anything that should stretch.
+**3. Fill Container:**
+The element stretches to take up all available empty space. In a form, the input field often "Fills Container" so it stretches from the label on the left to the edge of the screen on the right.
 
 ## Constraints
 
-Constraints define how elements behave when their parent resizes. They're essential for responsive positioning.
+While Auto Layout handles items *inside* a stack, **Constraints** tell an item how to behave relative to its parent frame. This is essential for responsive screens.
 
 <!-- visual-example: constraints-demo -->
 
-### Position Constraints
+**Pinning:**
+You can pin an object to the **Left**, **Right**, **Top**, or **Bottom**. A floating action button (FAB) pinned to "Bottom Right" will stay in the bottom right corner whether the screen is an iPhone SE or an iPhone Pro Max.
 
-Control how elements stay positioned:
-- **Left:** Maintains distance from left edge
-- **Right:** Maintains distance from right edge
-- **Left and Right:** Stretches horizontally
-- **Centre:** Stays horizontally centred
-
-Same applies vertically (Top, Bottom, Top and Bottom, Centre).
+**Stretching:**
+Setting constraints to **Left and Right** forces the object to maintain a fixed distance from both edges. As the screen widens, the object stretches. This is perfect for hero images or full-width navigation bars.
 
 ## Responsive Components
 
-Combining auto layout and constraints creates truly responsive designs:
+By combining Auto Layout and Constraints, you can build components that work on any device.
 
-### Responsive Card Grid
+**Responsive Grid:**
+Imagine a row of three cards.
+- The Container uses Auto Layout (Horizontal).
+- The Cards are set to "Fill Container."
+- As you stretch the container, the cards widen equally to fill the space.
 
-Container with:
-- Auto layout (horizontal, wrap)
-- Gap: 24px
-- Padding: 24px
-
-Card children with:
-- Min width: 280px
-- Max width: 400px
-- Fill container (with min/max)
-
-Cards reflow based on available space, just like CSS Grid with minmax.
-
-### Responsive Navigation
-
-Desktop:
-- Horizontal nav items
-- All items visible
-
-Mobile:
-- Items hidden in menu
-- Hamburger button visible
-
-Use component variants or separate designs for each breakpoint.
-
-## Common Patterns
-
-Here are the auto layout settings for common UI patterns:
-
-| Component | Direction | Gap | Padding | Key Settings |
-|-----------|-----------|-----|---------|--------------|
-| **Button** | Horizontal | 8px | 12px / 24px | Centre aligned, hug contents |
-| **Form Field** | Vertical | 4px | 0 | Label, Input, Error stack |
-| **List** | Vertical | 0–1px | 0 | Dividers via gap or borders |
-| **Navigation** | Horizontal | 8px | 16px | Space-between alignment |
-| **Modal** | Vertical | 24px | 32px | Max-width constraint |
-| **Card** | Vertical | 16px | 24px | Stretch children to fill |
+**Responsive Form:**
+- Desktop: Label and Input are side-by-side (Horizontal layout).
+- Mobile: Label and Input are stacked (Vertical layout).
+- You can achieve this by simply changing the "Direction" property on the parent container.
 
 ## Debugging Auto Layout
 
-When auto layout behaves unexpectedly:
+When your layout breaks (and it will), check these common culprits:
 
-### Check Sizing Modes
-
-Is something set to "Fixed" that should be "Fill" or vice versa?
-
-### Check Constraints
-
-Are constraints conflicting? (Left and Right both set but element is fixed width)
-
-### Check Nesting
-
-Is auto layout applied at the right level? Sometimes you need a wrapper frame.
-
-### Check Alignment
-
-Is alignment causing unexpected positioning?
-
-### Simplify
-
-Remove complexity until it works, then add back gradually.
+1.  **Wrong Sizing Mode:** Did you set "Fixed" when you meant "Fill"? If text is overflowing a box, the box is probably Fixed.
+2.  **Conflicting Constraints:** You can't pin something to the Left AND align it to the Center.
+3.  **Nesting Errors:** Auto Layout works best when nested. A Card might be a vertical stack, containing a Header (horizontal stack) and a Footer (horizontal stack). If you try to do it all in one layer, you'll struggle.
 
 ## Try It Yourself
 
-### Exercise 1: Button Component
+### Exercise 1: The Flexible Button
+Create a button that has an icon on the left and text on the right. Set it up so that:
+- It grows when you type more text.
+- The padding stays consistent.
+- The space between the icon and text is exactly 8px.
 
-Build a button with auto layout that:
-- Has icon on the left (optional)
-- Has text label
-- Maintains consistent padding
-- Grows/shrinks with text content
-- Has variants: Small, Medium, Large
+### Exercise 2: The Chat Bubble
+Create a chat message component.
+- **Message:** Text inside a colored bubble.
+- **Timestamp:** Small text below the bubble.
+- **Alignment:** "Sent" messages align right; "Received" messages align left.
+- Use Auto Layout to make the bubble grow with the text.
 
-### Exercise 2: Card Component
-
-Build a card with:
-- Image (fixed aspect ratio)
-- Title (1-2 lines)
-- Description (up to 3 lines)
-- Action button
-
-Test with varying content lengths.
-
-### Exercise 3: Form Layout
-
-Build a form with:
-- Two columns on desktop (label left, input right)
-- Single column on mobile (label above input)
-- Proper spacing between fields
+### Exercise 3: The Responsive Navbar
+Create a navigation bar with a Logo (left) and a "Sign Up" button (right).
+- Resize the frame. The Logo should stick to the left, the Button to the right.
+- Ensure they never overlap, even on small screens.
 
 ## Test Your Understanding
 
@@ -266,13 +162,11 @@ Build a form with:
 
 ## Key Takeaways
 
-- Auto layout creates flexible, content-adaptive designs
-- Direction, spacing, padding, and alignment are the core properties
-- Children can be fixed, hug contents, or fill container
-- Constraints position elements relative to parent edges
-- Nest auto layouts for complex components
-- Responsive design combines auto layout with constraints and breakpoint-specific layouts
-- Debug by checking sizing modes, constraints, nesting, and alignment
+- Auto Layout defines relationships (spacing, padding, alignment) rather than absolute positions.
+- Use **Hug Contents** for elements that adapt to their children (buttons).
+- Use **Fill Container** for elements that adapt to their parent (inputs, hero sections).
+- Use **Constraints** to pin elements to the edges of the screen for responsiveness.
+- Nesting layouts allows for complex, flexible component structures.
 
 ## Next Steps
 

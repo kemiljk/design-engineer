@@ -124,7 +124,6 @@ Used for low-priority actions, often in toolbars or cards.
 - **Keyboard:** Users can trigger the button with `Enter` or `Space`.
 - **Focus:** The button receives a visible focus ring when tabbed to.
 - **Labels:** If the button contains only an icon, you must provide an `aria-label`.
-```
 
 ## Try It Yourself
 

@@ -13,312 +13,120 @@
 
 > *"The details are not the details. They make the design."* — Charles Eames
 
-Traditional handoff is where designs go to die:
+In traditional workflows, handoff is the moment designs go to die. The designer creates a mockup, throws it "over the wall" to a developer, and moves on. The developer, lacking context or precise specs, interprets the static image as best they can. The result is an implementation that misses the mark, leading to frustration on both sides and a lower-quality product.
 
-1. Designer creates mockups
-2. Designer "throws over the wall" to developer
-3. Developer interprets (guesses) missing details
-4. Implementation doesn't match design
-5. Designer is frustrated; developer is frustrated
-6. Quality suffers
-
-As a Design Engineer, you're uniquely positioned to fix this. You understand both sides.
+As a Design Engineer, you are uniquely positioned to solve this. You understand that handoff isn't a single event—it's a continuous process of communication.
 
 ## What Developers Need
 
-Before handing off, consider what developers need to build accurately:
+Developers aren't mind readers. To build your design accurately, they need explicit information that goes beyond what a static image can convey.
 
-### Measurements and Spacing
+**Measurements and Spacing:** Every gap, margin, and padding value needs to be clear. Are those elements 16px apart or 20px? Is that card fixed width or fluid?
 
-- Element dimensions (width, height)
-- Margins and padding
-- Gaps between elements
-- Border radius values
+**Typography:** Don't just show the text. Specify the font family, weight, size, line height, and letter spacing. Better yet, map these to your system's type scale.
 
-### Typography
+**Colors:** Provide exact values (hex, RGB, HSL) and, crucially, their usage context. Is this `#EF4444` just red, or is it your system's `Error/500` token?
 
-- Font family and weight
-- Font size
-- Line height
-- Letter spacing
-- Text colour
+**Assets:** Developers need icons (SVG) and images in the correct formats and resolutions.
 
-### Colors
+**States and Interactions:** Static mocks show the "happy path." Developers need to know what happens when a user hovers, clicks, or disables an element. They need designs for loading states, error states, and empty states.
 
-- Exact colour values (hex, RGB, HSL)
-- Color usage context (when to use which)
-- Transparency values
+**Responsive Behavior:** How does the layout change from mobile to desktop? What happens to the navigation? Which elements stack, hide, or resize?
 
-### Assets
-
-- Icons (SVG format)
-- Images (appropriately sized)
-- Logos and graphics
-
-### States and Interactions
-
-- Hover states
-- Active states
-- Disabled states
-- Loading states
-- Error states
-- Empty states
-
-### Responsive Behaviour
-
-- Breakpoints
-- How layout changes at each breakpoint
-- Which elements hide/show
-- How elements resize
-
-### Animations
-
-- What animates
-- Timing and easing
-- Trigger conditions
+**Animations:** If something moves, specify the timing, easing, and trigger conditions.
 
 ## Preparing Designs for Handoff
 
 ### Organize Your File
 
-**Clean up layers:**
+A messy file leads to a messy implementation. Before you share your work, clean up your layers. Delete unused elements that might confuse a developer. Name your layers properly—`Primary Button` is infinitely more useful than `Group 45`. Group related elements logically so that the structure of your design mirrors the structure of the code.
 
-- Delete unused elements
-- Properly name all layers
-- Group logically
-
-**Organize pages:**
-
-- Separate components from screens
-- Use clear page names
-- Include a cover/overview page
-
-**Remove dead ends:**
-
-- No "WIP" sections in handoff files
-- Archive exploration in separate pages
+Organize your pages to separate components from screens. Use clear page names and include a cover page that provides an overview of the feature. Most importantly, remove dead ends. If a section is "Work in Progress," move it to a separate page or file. Handoff files should be definitive.
 
 ### Use Components Consistently
 
-Components should be:
-
-- Named to match code components
-- Applied consistently (no one-off overrides)
-- Updated globally (no detached instances)
+Your design components should map 1:1 to code components. If you use a `Button` component in Figma, the developer should be able to reach for a `<Button />` component in code. Ensure you use instances of your main component library rather than detached versions or one-off overrides.
 
 ### Apply Design Tokens
 
-Use defined styles everywhere:
-
-- Color styles (no raw hex values)
-- Text styles (no manual typography)
-- Effect styles (shadows, blurs)
-
-This ensures consistency and makes updates manageable.
+Hard-coded values are the enemy of maintainability. Instead of using raw hex codes or random pixel values, apply your defined styles (Design Tokens) everywhere. Use your color styles, text styles, and effect styles. This ensures consistency and means that if you update a token later, the entire system updates with it.
 
 ### Document Edge Cases
 
-Design for:
-
-- Long content (what if the title is 100 characters?)
-- Short content (what if description is empty?)
-- Error states (what if validation fails?)
-- Loading states (what appears during fetch?)
-- Empty states (what if there's no data?)
-
-Developers will hit these cases. Design them or they'll improvise.
+The "happy path" is easy. The real work is in the edges. What happens if a title is 100 characters long? Does it wrap or truncate? What if the description is empty? What does the UI look like when the network fails? Developers will encounter these scenarios immediately. If you haven't designed for them, they will have to improvise, often with mixed results.
 
 ### Create a Red-Line Spec (If Needed)
 
-For complex layouts, create annotated specs:
-
-- Mark key measurements
-- Note spacing relationships
-- Call out specific values
-
-Modern tools make this less necessary (inspect mode), but complex cases benefit from explicit documentation.
+While modern tools like Figma's Dev Mode have made "red-lining" (manually annotating specs) less critical, complex layouts still benefit from explicit notes. Call out specific relationships, behavior rules, or intricate measurements that automated tools might miss.
 
 ## Design Tokens for Handoff
 
-Design tokens create a shared vocabulary:
+Design tokens act as a shared dictionary between design and engineering.
 
-### In Design
+In your design tool, you define tokens for colors (`primary/500`, `grey/100`), spacing (`space-4`, `space-6`), and typography (`heading/large`, `body/default`).
 
-Define tokens in your tool:
-
-```text
-Colors:
-- primary/500: #3B82F6
-- grey/100: #F3F4F6
-- error/500: #EF4444
-
-Spacing:
-- space-2: 8px
-- space-4: 16px
-- space-6: 24px
-
-Typography:
-- heading/large: Inter Bold 32/40
-- body/default: Inter Regular 16/24
-```
-
-### In Code
-
-Developers use matching tokens:
+In code, developers define these same tokens, often as CSS variables:
 
 ```css
 :root {
   --colour-primary-500: #3b82f6;
-  --colour-neutral-100: #f3f4f6;
-  --colour-error-500: #ef4444;
-
-  --space-2: 8px;
   --space-4: 16px;
-  --space-6: 24px;
+  --font-heading-large: "Inter", bold;
 }
 ```
 
-When you say "primary/500 with space-4 padding," developers know exactly what you mean.
+When you speak in tokens ("Use `primary/500` here"), you eliminate ambiguity. The developer knows exactly which variable to use, ensuring the implementation matches the system perfectly.
 
 ## Inspect Mode
 
-Modern design tools have inspect modes that let developers:
+Modern design tools offer an "Inspect" mode that gives developers a look "under the hood" of your design. They can click an element to see its dimensions, position, colors, typography, and even copy CSS code snippets.
 
-- Click any element
-- See CSS properties
-- Copy values
-- Export assets
-
-### What Inspect Mode Shows
-
-- Dimensions
-- Position
-- Colors
-- Typography
-- Spacing
-- CSS code snippets
-
-### Inspect Mode Limitations
-
-Inspect mode isn't perfect:
-
-- Generated code is often verbose
-- Missing context (why these values)
-- Doesn't show interactions
-- Can't capture responsive behaviour
-
-Inspect mode supplements, but doesn't replace, good documentation and communication.
+However, Inspect mode isn't magic. The code it generates is often verbose and lacks context. It can tell a developer that a box is 200px wide, but it can't tell them *why* or how it should behave on a smaller screen. Inspect mode supplements good documentation; it doesn't replace it.
 
 ## Collaboration Workflows
 
 ### Real-Time Collaboration
 
-Modern tools allow simultaneous editing:
+Tools like Figma allow designers and developers to inhabit the same virtual space. Use this to your advantage. Invite developers into the file early. Let them poke around, ask questions via comments, and flag technical constraints before you've solidified the design.
 
-- Designers and developers in the same file
-- Live cursors show who's where
-- Comments enable async feedback
+### Branching
 
-### Branching (If Available)
-
-Some tools support branches:
-
-- Main branch is source of truth
-- Create branches for exploration
-- Merge back when ready
+If your tool supports it, use branching to manage changes. Treat the main branch as the "source of truth"—production-ready designs only. Do your exploration in a separate branch and merge it back only when it's ready for handoff. This prevents developers from building against a moving target.
 
 ### Comment Threads
 
-Use comments for:
-
-- Questions about implementation
-- Flagging issues
-- Requesting changes
-- Discussing alternatives
-
-Resolve comments when addressed.
+Comments are your async communication channel. Use them to clarify intent ("This padding aligns with the grid"), ask questions ("Can we implement this transition efficiently?"), or request changes. Treat comments as tasks—resolve them only when the issue is addressed.
 
 ### Version History
 
-Use named versions for:
-
-- Major milestones
-- Before significant changes
-- Handoff snapshots
-
-Developers can reference specific versions.
+Save named versions at key milestones. A developer might need to reference "Handoff v1.0" even after you've started working on v2.0. Clear versioning provides a safety net and a historical record of decisions.
 
 ## Communication Patterns
 
-### Design Reviews
+**Design Reviews:** Schedule regular syncs to walk developers through new designs. Explain the user problem, the proposed solution, and the implementation details. This is the time to catch potential issues early.
 
-Regular sync with developers:
+**Dedicated Channels:** Create a Slack or Teams channel specifically for design-dev collaboration. Use it for quick clarifications ("What's the error state for this input?") rather than burying them in email or JIRA tickets.
 
-- Walk through new designs
-- Discuss implementation considerations
-- Flag potential issues early
-- Answer questions
-
-### Slack/Chat Channels
-
-Dedicated channel for design questions:
-
-- Quick clarifications
-- Link to specific frames
-- Share screenshots
-
-### Documentation
-
-For complex features:
-
-- Written specs alongside designs
-- Interaction documentation
-- Animation specifications
+**Documentation:** For complex features, supplement your design files with written documentation. Describe the interaction flows, animation logic, and any business rules that aren't obvious from the visuals alone.
 
 ## Working with Design Systems
 
-If you have a design system:
+If you are working with a design system, your handoff process should focus on component mapping.
 
-### Component Mapping
-
-Each design component should map to a code component:
+Explicitly map your design components to their code counterparts. For example:
 
 ```text
-Design: Button/Primary/Large
-Code: <Button variant="primary" size="lg">
+Design: Button / Primary / Large
+Code: <Button variant="primary" size="lg" />
 ```
 
-Document the mapping.
+Document the property alignment. If your design component has a `Variant` property with options `Primary` and `Secondary`, the code component should have a matching prop. This alignment makes translation seamless.
 
-### Prop Alignment
-
-Design component properties = code props:
-
-```text
-Design:
-- Variant: Primary, Secondary
-- Size: Small, Medium, Large
-- Icon position: Left, Right, None
-
-Code:
-variant: 'primary' | 'secondary'
-size: 'sm' | 'md' | 'lg'
-iconPosition: 'left' | 'right' | null
-```
-
-### Shared Source of Truth
-
-Ideally:
-
-- Design tokens exported to code
-- Single source for colours, spacing, typography
-- Updates propagate automatically
-
-Tools like Style Dictionary, Figma Tokens, or design-to-code plugins enable this.
+Ideally, your system shares a single source of truth. Tools like Style Dictionary or Figma Tokens can automate this, syncing your design tokens directly to the codebase so that updates propagate automatically.
 
 ## Handoff Checklist
 
-Before marking designs as ready, work through this interactive checklist. Your progress is saved automatically and you can export it in various formats to share with your team.
+Before marking designs as "Ready for Dev," ensure you've covered the basics.
 
 <!-- visual-example: handoff-checklist-demo -->
 
@@ -326,29 +134,15 @@ Before marking designs as ready, work through this interactive checklist. Your p
 
 ### Exercise 1: File Cleanup
 
-Take an existing design file and prepare it for handoff:
-
-1. Name all layers properly
-2. Organize into logical groups
-3. Delete unused elements
-4. Add any missing states
+Open one of your existing design files. Audit it for handoff readiness. Rename layers to be descriptive. Group elements logically. Delete any unused "playground" elements. Ensure every text and color style is linked to a design token.
 
 ### Exercise 2: Handoff Documentation
 
-For a complex component:
-
-1. List all states it can be in
-2. Document all measurements
-3. Note any animations/interactions
-4. Export necessary assets
+Choose a complex component from your design. Create a documentation frame next to it. List every state (hover, active, disabled, error). Explicitly write out the spacing measurements. Describe any animations or interactions in plain English.
 
 ### Exercise 3: Token Mapping
 
-Create a token mapping document:
-
-1. List your design tokens (colours, spacing, typography)
-2. Propose corresponding CSS variable names
-3. Note any gaps or inconsistencies
+Create a simple table mapping your core design tokens to hypothetical CSS variables. List your primary colors, spacing scale, and typography styles on one side, and their proposed CSS variable names on the other.
 
 ## Test Your Understanding
 
@@ -391,14 +185,12 @@ Create a token mapping document:
 
 ## Key Takeaways
 
-- Handoff is where designs become (or fail to become) reality
-- Developers need: measurements, typography, colours, assets, states, responsive behaviour
-- Prepare files: clean layers, consistent components, applied tokens
-- Design edge cases: long content, empty states, errors, loading
-- Use design tokens for shared vocabulary between design and code
-- Leverage inspect mode but don't rely on it entirely
-- Communicate through reviews, comments, and documentation
-- Map design components to code components explicitly
+- Handoff is a continuous communication process, not a one-time event.
+- Developers need explicit details: measurements, tokens, states, edge cases, and responsive rules.
+- Prepare your files by organizing layers, applying tokens, and removing clutter.
+- Use design tokens to create a shared vocabulary between design and code.
+- Leverage Inspect mode, but supplement it with documentation and conversation.
+- Map your design components directly to code components to streamline implementation.
 
 ## Next Steps
 

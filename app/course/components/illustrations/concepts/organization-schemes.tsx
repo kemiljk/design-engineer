@@ -62,9 +62,9 @@ export function OrganizationSchemes() {
 
             {/* Type badge */}
             <rect
-              x={x - 22}
+              x={x - 28}
               y={startY + 2}
-              width={44}
+              width={56}
               height={14}
               fill={scheme.type === "Exact" ? ILLUSTRATION_COLORS.primary : ILLUSTRATION_COLORS.muted}
               rx={7}

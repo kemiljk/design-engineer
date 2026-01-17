@@ -11,341 +11,142 @@
 
 ## Principles of Component Architecture
 
-> *"Styles come and go. Good design is a language, not a style."* — Massimo Vignelli
+Building a component is easy. Building a *system* of components that doesn't collapse under its own weight is hard. Good architecture is about making the right trade-offs between flexibility and constraint.
 
 ### Single Responsibility
 
-Each component should do one thing well:
+The "Swiss Army Knife" is a bad metaphor for components. A component that tries to do everything usually does nothing well.
 
-**Good:** A Button component handles button rendering and interactions.
+**Bad:** A `Card` component that handles fetching data, formatting dates, tracking analytics, and positioning itself on the page.
+**Good:** A `Card` component that simply renders the content you give it.
 
-**Bad:** A Button component also handles form submission logic, analytics tracking, and tooltip positioning.
-
-If a component does too much, split it.
+If your component API has 30 props and half of them are mutually exclusive (e.g., `hasImage` and `isVideoMode`), you likely have two components trapped in one file. Split them up.
 
 ### Composability
 
-Components should combine to create larger patterns:
+The best components work like LEGO bricks. They don't know or care what they are connected to; they just snap together.
 
-```text
-Page
-├── Header
-│   ├── Logo
-│   ├── Navigation
-│   │   ├── NavItem
-│   │   └── NavItem
-│   └── UserMenu
-│       └── Avatar
-├── Main
-│   └── CardGrid
-│       ├── Card
-│       │   ├── CardImage
-│       │   ├── CardContent
-│       │   └── CardActions
-│       └── ...
-└── Footer
-```
-
-Each piece is independent but works together.
+Instead of building a `UserCard` that hard-codes a `UserAvatar` and `UserName` inside it, build a generic `Card` that accepts *any* content. This allows you to reuse the `Card` container for a `ProductCard`, a `NewsCard`, or a `SettingsPanel` without changing a line of code.
 
 ### Flexibility Without Bloat
 
-Components should handle real needs without becoming swiss-army-knife monsters.
+There is a tension between making a component flexible ("It can do anything!") and making it easy to use ("It just works!").
 
-**Too rigid:** Button only works one way.
-**Too flexible:** Button has 47 props, most unused.
-**Just right:** Button handles common cases elegantly, extends when needed.
-
-### Consistency
-
-Similar components should work similarly:
-
-- All interactive components have hover/active/focus states
-- All inputs handle error states the same way
-- All spacing uses the same scale
-
-Consistency reduces learning curve and maintenance burden.
+**Too Rigid:** A button that can only be blue and 40px high.
+**Too Flexible:** A button where you have to pass in the background color, text color, padding, and border radius every time you use it.
+**Just Right:** A button that offers a limited set of meaningful variants (`primary`, `secondary`, `danger`) but handles the visual details internally.
 
 ## Designing Component Variants
 
-Variants are predefined configurations for different use cases.
+Variants are predefined configurations of a component. They communicate intent.
 
 <!-- visual-example: component-variants-demo -->
 
-### Identifying Variants
+**Semantic Variants:**
+Don't name variants after their look (`BlueButton`, `RedButton`). Name them after their purpose (`Primary`, `Danger`). If you rebrand and the primary color changes to purple, `BlueButton` becomes a lie, but `Primary` remains true.
 
-Ask:
-- What are the common use cases?
-- What variations are semantically different?
-- What needs visual differentiation?
+**Hierarchy:**
+Most components need a hierarchy of emphasis:
+- **Primary:** The main action on the screen (Solid fill).
+- **Secondary:** Alternative actions (Outline or light fill).
+- **Ghost/Tertiary:** Low emphasis (Text only).
 
-**Button variants:**
-- Primary (main action)
-- Secondary (supporting action)
-- Ghost (low emphasis)
-- Danger (destructive action)
-
-**Card variants:**
-- Default (standard appearance)
-- Elevated (prominent, with shadow)
-- Outlined (bordered, no fill)
-
-### Variant vs. Prop
-
-Use variants for semantically different configurations:
-```tsx
-<Button variant="primary">  // This IS different
-<Button variant="danger">   // From this
-```
-
-Use props for customisation within a variant:
-```tsx
-<Button variant="primary" size="lg" disabled>
-```
-
-### Size Variants
-
-Most components need size variations:
-- **Small:** Dense UIs, secondary actions
-- **Medium:** Default size
-- **Large:** Prominent placement, touch targets
-
-Define sizes consistently across components:
-- Button small = Input small = same height
-- Icon sizes align with text sizes
+**Sizes:**
+Standardize your sizing. A "Small" button should align perfectly with a "Small" input field.
 
 ## Designing Component States
 
-States reflect the component's current condition.
+A component is a state machine. It doesn't just look one way; it morphs based on interaction and data.
 
 <!-- visual-example: component-states-demo -->
-
 <!-- illustration: component-states -->
 
-### Interactive States
+**Interactive States:**
+Every interactive element must provide feedback.
+- **Hover:** "I am clickable."
+- **Active/Pressed:** "I am being clicked."
+- **Focus:** "I am selected via keyboard." (Critical for accessibility)
+- **Disabled:** "I cannot be clicked right now."
 
-For interactive elements (buttons, links, inputs):
-
-**Default:** Normal resting state
-**Hover:** Mouse over (desktop)
-**Focus:** Keyboard focus (accessibility critical)
-**Active:** Being pressed/clicked
-**Disabled:** Cannot interact
-
-### Data States
-
-For data-displaying elements:
-
-**Empty:** No data to show
-**Loading:** Fetching data
-**Error:** Something went wrong
-**Success:** Operation completed
-**Partial:** Some data, loading more
-
-### Validation States
-
-For form inputs:
-
-**Default:** Normal state
-**Valid:** Input passed validation
-**Invalid:** Input failed validation
-**Warning:** Input is acceptable but concerning
-
-### State Combinations
-
-States can combine:
-- Disabled + hover (show it's disabled but hoverable)
-- Loading + disabled (prevent interaction while loading)
-
-Design for realistic combinations.
+**Data States:**
+Components often need to handle the lifecycle of data.
+- **Loading:** Show a skeleton or spinner.
+- **Empty:** Show a helpful message when there is no content.
+- **Error:** Show what went wrong and how to fix it.
 
 ## Composition Patterns
 
-### Slots
+How do you build complex components from simple ones?
 
-Define areas where content can be inserted:
-
-```text
-Card
-├── [Media slot]       ← Image, video, or graphic
-├── [Header slot]      ← Title, subtitle
-├── [Content slot]     ← Main content
-└── [Actions slot]     ← Buttons, links
-```
-
-Each slot is optional. The component adapts.
+### The Slot Pattern
+Instead of passing data strings (`title="Hello"`), pass components (`title={<h1>Hello</h1>}`). This gives the consumer full control over the rendering. They can pass an icon, a link, or a tooltip into that slot without the parent component needing to know about it.
 
 ### Compound Components
+This pattern links multiple components together to share state implicitly.
 
-Related components that work together:
-
-```tsx
+```jsx
 <Select>
-  <SelectTrigger />
-  <SelectContent>
-    <SelectItem>Option 1</SelectItem>
-    <SelectItem>Option 2</SelectItem>
-  </SelectContent>
+  <Select.Trigger />
+  <Select.Content>
+    <Select.Item value="1">Option 1</Select.Item>
+  </Select.Content>
 </Select>
 ```
 
-The parent provides context; children provide content.
+The `Select` parent manages the open/closed state, while the children handle the rendering. It provides great flexibility in layout while keeping the logic encapsulated.
 
 ### Layout Components
-
-Components that arrange other components:
-
-```tsx
-<Stack direction="vertical" gap="md">
-  <ComponentA />
-  <ComponentB />
-  <ComponentC />
-</Stack>
-```
-
-Layout components separate structure from content.
-
-### Render Props / Slots
-
-Let consumers customise rendering:
-
-```tsx
-<DataTable
-  data={items}
-  renderRow={(item) => (
-    <TableRow>
-      <TableCell>{item.name}</TableCell>
-      <TableCell>{item.status}</TableCell>
-    </TableRow>
-  )}
-/>
-```
-
-This provides flexibility without bloating the component.
+Separate layout from content. Instead of adding `margin-bottom` to your `Button`, wrap it in a `Stack` or `Box` component that handles the spacing. This makes the `Button` reusable in any context, whether it needs margin or not.
 
 ## Component API Design
 
-The "API" is how consumers interact with your component.
+The API (Application Programming Interface) is the "user interface" for developers using your component. It should be intuitive and predictable.
 
-### Props (Design Side: Properties)
+**Naming Props:**
+Use standard HTML attributes where possible. If it acts like an `onclick`, call it `onClick`, not `handlePress`. Use booleans for flags (`disabled`, `loading`) and enums for multiple choices (`size="sm" | "md" | "lg"`).
 
-**What can be customised?**
-- Variants
-- Sizes
-- States
-- Content
-- Behavior
-
-**How are they named?**
-- Consistent with other components
-- Intuitive meaning
-- Boolean for on/off, enum for choices
-
-### Default Values
-
-Set sensible defaults:
-- Most common usage should require minimal props
-- Defaults should be the "safe" option
-
-```text
-Button
-├── variant: "primary" (default)
-├── size: "medium" (default)
-├── disabled: false (default)
-└── loading: false (default)
-```
-
-### Required vs Optional
-
-- **Required:** Content that the component can't function without
-- **Optional:** Customizations that have reasonable defaults
+**Defaults:**
+Sensible defaults reduce boilerplate. A `Button` should probably default to `size="medium"` and `variant="primary"` (or secondary, depending on your system). The user should only have to specify what is *different* from the norm.
 
 ## Documentation Structure
 
-Each component needs documentation:
+A component without documentation is a black box. Good documentation includes:
 
-### Overview
-
-- What is this component?
-- When should you use it?
-- When should you use something else?
-
-### Usage Examples
-
-- Basic usage
-- With variants
-- With different content
-- In context with other components
-
-### Properties
-
-- Property name
-- Type (string, boolean, enum)
-- Default value
-- Description
-
-### Do's and Don'ts
-
-- Do: Use primary buttons for main actions
-- Don't: Use more than one primary button per section
-- Do: Always include accessible labels
-- Don't: Disable buttons without explanation
-
-### Accessibility
-
-- Keyboard behaviour
-- Screen reader announcements
-- Required ARIA attributes
-- Focus management
+1.  **Overview:** What is this and when should I use it?
+2.  **Examples:** Show, don't just tell. Live code examples are best.
+3.  **Props Table:** A clear list of every input the component accepts, its type, and its default value.
+4.  **Do's and Don'ts:** Guidelines on proper usage (e.g., "Don't use two Primary buttons on one page").
+5.  **Accessibility:** Notes on keyboard support and ARIA labels.
 
 ## Planning for Evolution
 
-Components will change. Plan for it:
+Your components will change. Plan for it.
 
-### Versioning Strategy
+**Extensibility:**
+Allow users to pass a `className` or `style` prop to override styles in edge cases (but warn them about using it).
 
-- Minor changes: Add props, add variants
-- Breaking changes: Major version bump
-
-### Deprecation Process
-
-1. Mark as deprecated (with warning)
-2. Provide migration path
-3. Remove in future major version
-
-### Extensibility Points
-
-Build in points where behaviour can be extended:
-- Custom styling hooks
-- Event callbacks
-- Render customisation
+**Versioning:**
+If you need to make a breaking change (like renaming a prop), consider if you can support both the old and new name for a while (deprecation) before removing the old one. This allows teams to upgrade at their own pace.
 
 ## Try It Yourself
 
 ### Exercise 1: Component Specification
-
-For a notification/toast component, specify:
-1. Variants (types of notifications)
-2. All possible states
-3. Required properties
-4. Optional properties
-5. Slots or customisation points
+Choose a "Notification Toast" component. Write a spec listing:
+- What variants does it need? (Success, Error, Info, Warning)
+- What states does it have? (Entering, Visible, Exiting)
+- What is its API? (title, description, duration, onClose...)
 
 ### Exercise 2: Composition Design
-
-Design a comment system using composition:
-1. Identify the smallest components (atoms)
-2. Combine into molecules
-3. Combine into the full comment thread organism
-4. Draw the hierarchy
+Sketch the hierarchy for a "Comment Section."
+- What are the atoms? (Avatar, Text, Timestamp, ReplyButton)
+- What are the molecules? (CommentHeader, CommentActions)
+- How do they compose into a CommentThread?
 
 ### Exercise 3: API Review
-
-Review an existing component in your project:
-1. Is the API consistent with similar components?
-2. Are defaults sensible?
-3. Is required/optional appropriate?
-4. What would you change?
+Look at a component in your current codebase.
+- Are the prop names clear?
+- Does it do too much?
+- Could it be simplified using composition?
 
 ## Test Your Understanding
 
@@ -388,13 +189,12 @@ Review an existing component in your project:
 
 ## Key Takeaways
 
-- Good architecture: single responsibility, composable, flexible, consistent
-- Variants are semantically different configurations
-- States reflect current conditions (interactive, data, validation)
-- Composition patterns: slots, compound components, layout components
-- API design: clear props, sensible defaults, minimal required
-- Documentation is essential: overview, examples, props, guidelines
-- Plan for evolution: versioning, deprecation, extensibility
+- Good components do one thing well (Single Responsibility).
+- Use **Composition** to build complex UIs from simple blocks.
+- **Variants** handle semantic differences; **Props** handle customization.
+- Design every **State** (Loading, Error, Empty, Disabled).
+- APIs should be intuitive: standard naming, sensible defaults.
+- Plan for the future with versioning and extensibility.
 
 ## Next Steps
 

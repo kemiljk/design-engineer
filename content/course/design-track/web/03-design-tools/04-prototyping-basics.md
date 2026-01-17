@@ -13,296 +13,98 @@
 
 > *"If a picture is worth a thousand words, a prototype is worth a thousand meetings."* — Tom and David Kelley, IDEO
 
-Static mockups only go so far. They can't show:
-- How navigation flows between screens
-- How interactions feel
-- What happens during state changes
-- Whether a user journey makes sense
+A static mockup is a promise; a prototype is a proof. Static screens cannot show how an interface *feels*. They don't show the transition from "Loading" to "Success." They don't reveal that a navigation flow is confusing or that a button is too hard to reach.
 
-Prototypes bridge this gap. They're interactive simulations that make designs tangible before code is written.
+Prototypes bridge the gap between imagination and reality. They allow stakeholders to "play" with the product before a single line of code is written. For developers, a prototype answers questions that specs cannot ("How fast should this slide out?", "Does it push the content or overlay it?").
 
-### Prototypes Are Communication
-
-For stakeholders: "This is what we're building"
-For users: "Is this what you expected?"
-For developers: "This is how it should behave"
-For yourself: "Does this actually work?"
-
-### Design Engineers and Prototyping
-
-Design Engineers have a superpower: they can prototype in *either* design tools or code.
-
-- **Design tool prototypes:** Fast for flows, screens, and basic interactions
-- **Code prototypes:** Better for complex interactions, real data, and production evolution
-
-This lesson covers design tool prototypes. Code prototyping is covered in the Convergence track.
+**Design Engineers have a superpower:** We can prototype in design tools (Figma) for speed, or in code (React/SwiftUI) for fidelity. This lesson focuses on the design tool approach—fast, low-cost, and essential for early validation.
 
 ## Fidelity Levels
 
-Not all prototypes are created equal. Choose fidelity based on your goals:
+Not all prototypes need to look like the final product. Choosing the right fidelity saves time.
 
 <!-- visual-example: fidelity-comparison-demo -->
 
-### Low Fidelity
+**Low Fidelity (Lo-Fi):**
+These are digital sketches. Gray boxes, squiggly lines for text, and simple click-throughs. Use these to test the *flow*. Does the user know to click "Checkout" after adding an item? If the flow is broken, beautiful buttons won't fix it. Lo-fi prototypes invite honest feedback because they don't look precious.
 
-**What:** Paper sketches, wireframes, basic clickable screens
-**Effort:** Minutes to hours
-**Use for:** Early exploration, concept validation, user flow testing
+**Medium Fidelity (Mid-Fi):**
+Here we have layout, real text, and basic components, but maybe no color or images. This is the sweet spot for usability testing. Users can read and interact without getting distracted by "I don't like that shade of blue."
 
-Low-fi prototypes focus on structure and flow, not visual polish. They invite feedback ("this is rough") and are cheap to throw away.
+**High Fidelity (Hi-Fi):**
+This looks and feels like the shipping app. It uses the design system, real imagery, and polished animations. Use this for stakeholder presentations and developer handoff. It removes ambiguity about the final result.
 
-### Medium Fidelity
+## Creating Prototypes
 
-**What:** Grayscale designs, basic interactions, realistic flows
-**Effort:** Hours to days
-**Use for:** User testing, stakeholder reviews, design iteration
+Prototyping in tools like Figma revolves around three concepts: Connections, Triggers, and Actions.
 
-Medium-fi balances speed with realism. Good for testing flows before investing in visual design.
+### Connections
+You create a prototype by drawing a literal wire from one frame to another. This wire represents a path the user can take. If you connect a "Settings" button to the "Settings Screen," you've created a path.
 
-### High Fidelity
+### Triggers
+The trigger is the event that starts the action.
+- **On Click / Tap:** The most common. The user taps a button.
+- **On Drag:** Good for carousels or swipe-to-delete actions.
+- **While Hovering:** Essential for desktop interactions (tooltips, button states).
+- **After Delay:** Useful for splash screens that automatically transition to the home screen.
 
-**What:** Pixel-perfect designs, polished interactions, near-production feel
-**Effort:** Days to weeks
-**Use for:** Final validation, developer handoff, presentations
+### Actions
+The action is what happens when the trigger fires.
+- **Navigate To:** Standard screen transition. Replaces the current view.
+- **Open Overlay:** Puts a frame *on top* of the current view. Perfect for modals, dropdowns, and dialogs.
+- **Swap Overlay:** Replaces one overlay with another (e.g., switching from a "Menu" to a "Sub-menu").
+- **Scroll To:** Jumps to a specific section on the same page.
 
-High-fi prototypes look like real products. They test whether the complete experience works.
+## Animation and Transitions
+
+Transitions are the glue between states.
+
+**Instant:** No animation. Good for tab switching or web-like navigation.
+**Dissolve:** A simple fade. Good for standard app navigation.
+**Move In / Push:** Simulates spatial movement. Use "Push" (slide left) when moving forward in a flow, and "Push" (slide right) when going back. This helps users build a mental map of where they are.
+
+**Smart Animate:**
+This is the magic wand. If you have a layer named `Card` on Screen A (small) and a layer named `Card` on Screen B (fullscreen), "Smart Animate" will automatically calculate the growth and movement between them. It creates complex, fluid animations without manual keyframing. Use this for state changes (like expanding a card or toggling a switch).
 
 ## Prototype Scope
 
-Beyond fidelity, decide what to prototype:
+Don't try to prototype the entire app at once. It becomes an unmaintainable mess of wires ("spaghetti code" for designers). Instead, scope your prototypes:
 
-### Task Flow Prototype
+**The Happy Path:**
+Prototype the ideal user journey. "User logs in, finds a song, and plays it." Ignore the error states and settings menus. This is for selling the vision.
 
-Follow a specific user task:
-- User lands on home page
-- Searches for a product
-- Views product details
-- Adds to cart
-- Proceeds to checkout
+**The Task Flow:**
+Focus on a specific, complex interaction. "The Checkout Flow" or "The Sign-Up Flow." Include error states and edge cases here to test robustness.
 
-Focused and quick to build. Tests one journey.
+**The Feature Prototype:**
+Prototype just one component, like a complex filter mechanism, to see if the interactions feel right.
 
-### Feature Prototype
+## Presenting and Sharing
 
-Show how a specific feature works:
-- Filtering options
-- Notification system
-- Onboarding flow
+A prototype is a communication tool. How you share it matters.
 
-Tests feature comprehension and usability.
+**Presentation Mode:**
+Use this for demos. It hides the UI of the design tool and frames the prototype in a device shell (like an iPhone frame). It immerses the viewer in the experience.
 
-### Comprehensive Prototype
+**Mirroring:**
+There is no substitute for holding the device. Use apps like Figma Mirror to run the prototype on your actual phone. Buttons that look big enough on a monitor often feel tiny under a thumb.
 
-Full app experience:
-- All major screens connected
-- Multiple user flows
-- Edge cases handled
-
-Time-intensive but provides complete picture.
-
-## Creating Prototypes in Design Tools
-
-Most design tools share similar prototyping concepts:
-
-### Connections
-
-Connect frames to create navigation:
-1. Select an element (button, link, area)
-2. Create a connection to another frame
-3. The element becomes a "hotspot"
-
-When viewing the prototype, clicking the hotspot navigates to the connected frame.
-
-### Triggers
-
-What starts the interaction:
-- **On click/tap:** User clicks the element
-- **On hover:** Mouse enters the element (desktop)
-- **On drag:** User drags the element
-- **While pressing:** While mouse/finger is down
-- **After delay:** Automatically after time passes
-
-### Actions
-
-What happens when triggered:
-- **Navigate to:** Go to another frame
-- **Open overlay:** Show a frame on top
-- **Close overlay:** Dismiss an overlay
-- **Swap with:** Replace this component with another variant
-- **Back:** Return to previous screen
-- **Scroll to:** Scroll to a specific position
-
-### Transitions
-
-How the action animates:
-- **Instant:** No animation
-- **Dissolve:** Fade between states
-- **Move in/out:** Slide in from direction
-- **Push:** Push current screen out while bringing new in
-- **Smart animate:** Animate matching elements
-
-## Common Interaction Patterns
-
-### Navigation
-
-Menu items connect to their destination screens:
-- Home → Home Screen
-- About → About Screen
-- Contact → Contact Screen
-
-Use consistent transitions (push from right, dissolve, etc.)
-
-### Buttons and CTAs
-
-Primary actions navigate forward:
-- "Get Started" → Sign Up Flow
-- "Learn More" → Details Page
-- "Submit" → Confirmation Screen
-
-### Modals and Overlays
-
-Overlays stack on top of the current screen:
-- Trigger: Click "Settings"
-- Action: Open overlay
-- Position: Centered (or wherever appropriate)
-- Background: Dim (if supported)
-
-Close button action: Close overlay (returns to underneath)
-
-### Tab Bars and Navigation
-
-Multiple tabs connecting to different frames:
-- Each tab links to its content frame
-- Consider showing selected state
-
-### Dropdown Menus
-
-Using component variants:
-1. Default state: Menu closed
-2. Open state: Menu visible
-3. Click trigger swaps to open state
-4. Clicking option navigates to destination
-
-### Form Flow
-
-Multi-step forms:
-- Step 1 → "Next" → Step 2
-- Step 2 → "Next" → Step 3
-- Step 3 → "Submit" → Confirmation
-
-Include "Back" connections for navigation.
-
-## Smart Animate
-
-Smart animate (or similar features) automatically animates between states where:
-- Elements have the same name
-- Elements exist in both frames
-- Properties change (position, size, colour, opacity)
-
-This creates smooth transitions without defining every animation manually.
-
-### Example: Card Expansion
-
-Frame 1: Card collapsed (small, shows title only)
-Frame 2: Card expanded (large, shows full content)
-
-Name the card layer the same in both frames. Smart animate handles the growth animation.
-
-### Limitations
-
-Smart animate is magic but not perfect:
-- Works best with simple property changes
-- Complex animations may need code
-- Some properties don't animate well
-
-## Presenting Prototypes
-
-A prototype is only useful if people can experience it.
-
-### Presentation Mode
-
-Design tools have presentation/play mode:
-- Full-screen display
-- Interactive hotspots work
-- No editing UI visible
-
-Use this for stakeholder demos and user testing.
-
-### Sharing Links
-
-Generate shareable links:
-- Anyone with the link can view
-- Set permissions (view only vs. comment)
-- Consider password protection for sensitive projects
-
-### Device Previews
-
-Some tools offer device preview apps:
-- View on real phones/tablets
-- Test touch interactions
-- More realistic experience
-
-### Recording
-
-Record prototype walkthroughs:
-- For async stakeholder review
-- For documentation
-- For social sharing
-
-## User Testing with Prototypes
-
-Prototypes enable testing before building:
-
-### Set Up the Test
-
-1. Define what you're testing (flow, comprehension, preference)
-2. Prepare the prototype (remove dead ends)
-3. Write task scenarios ("You want to change your password...")
-4. Recruit participants
-
-### During the Test
-
-1. Explain this is a test of the design, not them
-2. Ask them to think aloud
-3. Observe without guiding
-4. Note where they struggle or succeed
-
-### After the Test
-
-1. Identify patterns across participants
-2. Document issues and insights
-3. Prioritise fixes
-4. Iterate and retest
+**Recording:**
+Sometimes, you can't be there to demo it. Record a screencast of you walking through the prototype. Narrate your thinking: "Here, the user taps X, and expects Y..."
 
 ## Try It Yourself
 
-### Exercise 1: Simple Navigation
+### Exercise 1: The Simple Flow
+Create three screens: Home, Details, and Profile. Link them up using a standard Bottom Navigation Bar. Use "Dissolve" for the transition. Does it feel like a real app?
 
-Create a 3-screen prototype:
-1. Home screen with two navigation buttons
-2. About screen with back button
-3. Contact screen with back button
+### Exercise 2: The Modal
+Create a "Delete" button. When clicked, it should open a confirmation dialog. Use "Open Overlay" so the background dims but stays visible. Make the "Cancel" button close the overlay.
 
-Connect all navigation. Test in presentation mode.
-
-### Exercise 2: Modal Interaction
-
-Create a modal flow:
-1. Main screen with "Settings" button
-2. Settings modal that overlays the screen
-3. Close button that dismisses the modal
-
-Use overlay action (not navigate).
-
-### Exercise 3: Multi-State Component
-
-Create a dropdown menu:
-1. Closed state (just the trigger button)
-2. Open state (trigger + menu options)
-3. Clicking trigger opens menu
-4. Clicking option closes menu
-
-Use component variants and swap interactions.
+### Exercise 3: Smart Animate
+Create a toggle switch.
+- Frame 1: Switch is OFF (gray circle on the left).
+- Frame 2: Switch is ON (green circle on the right).
+- Connect them with "On Click" and "Smart Animate." Watch how the circle slides smoothly across.
 
 ## Test Your Understanding
 
@@ -345,13 +147,12 @@ Use component variants and swap interactions.
 
 ## Key Takeaways
 
-- Prototypes make designs interactive and testable
-- Choose fidelity (low, medium, high) based on goals
-- Design tool prototypes use connections, triggers, actions, and transitions
-- Common patterns: navigation, modals, tabs, dropdowns, forms
-- Smart animate creates smooth transitions automatically
-- Share prototypes via presentation mode and links
-- Use prototypes for user testing before building
+- Prototypes simulate the experience of using a product.
+- **Low-fi** tests concepts; **Hi-fi** tests details.
+- Use **Connections, Triggers, and Actions** to build interactivity.
+- **Smart Animate** is powerful for state transitions but requires consistent layer naming.
+- Always test your prototype on a real device to check touch targets and readability.
+- Scope your prototypes to specific flows rather than building a "mega-app."
 
 ## Next Steps
 

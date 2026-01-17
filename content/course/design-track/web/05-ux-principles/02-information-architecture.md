@@ -4,322 +4,114 @@
 
 ## What You'll Learn
 
-- What information architecture is and why it matters
+- What information architecture (IA) is and why it matters
 - Principles of organising information
 - Navigation patterns and systems
 - Techniques for planning IA
 
-## What is Information Architecture?
+## The Invisible Structure
 
-> *"Information architecture is the art and science of organising and labelling information to support usability."* — Richard Saul Wurman
+Information Architecture (IA) is the structural design of shared information environments. It is the art and science of organizing and labeling websites, intranets, online communities, and software to support usability and findability.
 
-Information architecture (IA) is the structural design of information:
-- How content is organised into categories
-- How categories relate to each other
-- How users navigate between areas
-- How content is labelled and described
-
-Good IA makes products intuitive. Users find what they need without thinking about where it might be.
-
-Bad IA makes products frustrating. Users search, scroll, and guess.
-
-## Why IA Matters
-
-Even beautiful interfaces fail with poor IA:
-- Users can't find features they need
-- Related content is scattered
-- Navigation is confusing
-- Mental model doesn't match system model
-
-IA is invisible when it works and painfully obvious when it doesn't.
+Think of IA as the blueprint of a building. You can paint the walls (visual design) and install the light switches (interaction design), but if the bathroom is only accessible through the kitchen, the house is fundamentally broken. IA ensures that the rooms are in the right place and the hallways lead where you expect them to.
 
 ## Mental Models
 
-A mental model is how users think information is organised.
+A **mental model** is the image of the world that a user carries in their head. When a user arrives at your site, they already have an expectation of how it should work based on their past experiences.
 
-Users have expectations based on:
-- Experience with similar products
-- Real-world analogies
-- Common conventions
-- Their own logic
+If you are designing a shopping site, users expect products to be categorized by type (Men, Women, Kids), not by color or date of manufacture. They expect the "Cart" to be in the top right. They expect clicking the logo to take them Home.
 
-Good IA matches user mental models. When the system works like users expect, it feels intuitive.
-
-**Example:** A shopping site.
-
-Users expect:
-- Products organised by category
-- Filters to narrow results
-- Cart accessible from anywhere
-- Checkout as a linear flow
-
-If the site organises by brand instead of category, users struggle—even if it makes sense to the business.
+Good IA aligns the system model (how it actually works) with the user's mental model (how they think it works). When these align, the interface feels "intuitive." When they clash, the user feels confused and frustrated.
 
 ## Organization Schemes
 
-How do you group information?
+How do you group a pile of 1,000 items? There are two main ways to approach this:
 
 ### Exact Schemes
-
-Clear, objective organisation:
-
-**Alphabetical:** A-Z listing
-- Good for: Directories, indexes, known-item search
-- Bad for: Discovery, browsing
-
-**Chronological:** By date/time
-- Good for: News, events, activity feeds
-- Bad for: Reference content
-
-**Geographical:** By location
-- Good for: Local services, store locators
-- Bad for: Non-location content
+These sort information objectively. There is only one "right" place for each item.
+- **Alphabetical:** Like a phone book. Good when the user knows the specific name they are looking for (e.g., a contact list).
+- **Chronological:** Like a blog or news feed. Good when "newness" is the primary value.
+- **Geographical:** Like a map. Good for physical locations.
 
 ### Ambiguous Schemes
+These sort information subjectively. Users might look for an item in multiple places.
+- **Topical:** Organizing by subject (e.g., News, Sports, Weather). This is the most common but the hardest to design because topics often overlap.
+- **Task-Based:** Organizing by what the user wants to do (e.g., "Pay Bill," "Change Plan"). Common in utility apps.
+- **Audience-Based:** Organizing by who the user is (e.g., "For Students," "For Teachers").
 
-Subjective, requires judgment:
+Most effective navigation systems use a hybrid approach—perhaps a topical primary navigation combined with a task-based utility menu.
 
-**By Topic:** Subject-based grouping
-- Good for: Content-heavy sites, documentation
-- Challenge: Topics overlap
-
-**By Task:** Organized around user goals
-- Good for: Service sites, applications
-- Challenge: Users have multiple goals
-
-**By Audience:** Segmented by user type
-- Good for: Products with distinct audiences
-- Challenge: Users may not self-identify
-
-**By Metaphor:** Mapped to familiar concept
-- Good for: Novel interfaces
-- Challenge: Metaphors break down
-
-Most products use hybrid schemes—topical navigation with task-based sections.
-
-<!-- illustration: organisation-schemes -->
+<!-- illustration: organization-schemes -->
 
 ## Navigation Patterns
 
-Navigation helps users move through information.
+Navigation is the set of controls that allow users to move through the IA structure.
 
 <!-- visual-example: nav-patterns-demo -->
-
 <!-- illustration: navigation-patterns -->
 
-### Global Navigation
+**Global Navigation:**
+This is your "North Star." It appears on every page (usually the top header or left sidebar) and provides access to the main sections of the site. It answers the question: "What are the big things I can do here?"
 
-Present on every page:
-- Primary nav (main categories)
-- Utility nav (account, search, help)
+**Local Navigation:**
+This appears within a specific section to help users move deeper. On a "Clothing" page, the local nav might be "Shirts, Pants, Shoes."
 
-**Patterns:**
-- Horizontal nav bar
-- Sidebar nav
-- Tab bar (mobile)
+**Contextual Navigation:**
+These are the links embedded within the content itself. "Related Articles," "You Might Also Like," or inline links in a paragraph. They support serendipitous discovery.
 
-### Local Navigation
-
-Context-specific to current section:
-- Sub-navigation within a category
-- Secondary tabs
-- In-page navigation
-
-### Contextual Navigation
-
-Related content within pages:
-- "Related articles"
-- "You might also like"
-- "Next/Previous"
-
-### Search
-
-Finding specific content:
-- Search box
-- Filters
-- Autocomplete
-
-Navigation and search are complementary. Some users browse; others search.
-
-### Breadcrumbs
-
-Show current location in hierarchy:
-```text
-Home > Products > Electronics > Cameras
-```
-
-Breadcrumbs help users:
-- Understand where they are
-- Navigate to parent sections
-- Understand content relationships
-
-### Footer Navigation
-
-Often overlooked but valuable:
-- Secondary links
-- Legal/policy pages
-- Sitemap for SEO
+**Breadcrumbs:**
+"Home > Products > Electronics > Cameras". Breadcrumbs show the user exactly where they are in the hierarchy and provide a one-click path back to safety. They are essential for deep sites.
 
 ## Hierarchy and Depth
 
-### How Deep Should Hierarchy Go?
+### Broad vs. Deep
+Is it better to have a menu with 10 items (Broad) or a menu with 3 items that each have sub-menus (Deep)?
 
-Traditional wisdom: "No more than 3 clicks." This is oversimplified.
+**Broad hierarchies** (flat) are generally better for discoverability. Users can see more options at a glance without clicking. However, too many options can lead to "choice paralysis."
 
-Better principle: Each step should feel like progress toward the goal.
+**Deep hierarchies** keep the interface clean but hide content. Users have to dig to find what they want, and if they go down the wrong rabbit hole, they have to backtrack.
 
-10 clear clicks beat 3 confusing ones.
+The "Three-Click Rule" (users should find anything in 3 clicks) is a myth. Users don't mind clicking 5 times if each click feels like progress ("Electronics" -> "Cameras" -> "DSLR" -> "Canon" -> "Model X"). They mind clicking once if they have no idea which button to push.
 
 <!-- visual-example: ia-hierarchy-depth-demo -->
-
-### Flat vs. Deep
-
-**Flat hierarchy:** Few levels, many items per level
-- Pros: Everything visible, fewer clicks
-- Cons: Overwhelming, hard to scan
-
-**Deep hierarchy:** Many levels, few items per level
-- Pros: Manageable choices at each level
-- Cons: More navigation, risk of getting lost
-
-**Balance:** Usually 2-4 levels for primary navigation, with 5-9 items per level.
-
 <!-- illustration: hierarchy-depth -->
 
 ## Labeling
 
-Labels are how you name things. Clear labels make IA work.
+Labeling is the art of naming things. It sounds simple, but it is often the point of failure.
 
-### Good Label Characteristics
+**Avoid internal jargon:** Don't call your help section "Knowledge Repository" if users are looking for "Help." Don't call your pricing page "Investment" if users are looking for "Cost."
 
-**Familiar:** Use language users know, not internal jargon.
-- ✗ "Modules" → ✓ "Features"
-- ✗ "Engagement Dashboard" → ✓ "Analytics"
+**Be specific:** "Resources" is a terrible label. It could mean anything. "Case Studies," "Whitepapers," or "Blog" are specific.
 
-**Specific:** Clearly indicate what's there.
-- ✗ "Resources" (what kind?) → ✓ "Help Articles"
-- ✗ "Tools" (which tools?) → ✓ "Writing Tools"
-
-**Consistent:** Similar things labelled similarly.
-- If "Settings" is here, don't call it "Preferences" there
-
-**Scannable:** Short enough to scan quickly.
-- Aim for 1-2 words for navigation labels
-
-### Testing Labels
-
-Labels that make sense to you might not make sense to users. Test with:
-
-**Card sorting:** Users group content and name groups.
-
-**Tree testing:** Users navigate a text-only hierarchy to find items.
-
-**First-click testing:** See where users click first for a given task.
+**Be consistent:** If you call it "My Account" in the header, don't call it "Profile" in the footer.
 
 ## IA Planning Techniques
 
+How do you actually create an IA? You don't start in Figma. You start with data.
+
 <!-- illustration: ia-hierarchy -->
 
-### Content Inventory
+**Content Inventory:** Before you can organize, you need to know what you have. A content inventory is a spreadsheet listing every page and piece of content on the current site. It is tedious, but necessary.
 
-List everything that exists or will exist:
-- Pages
-- Features
-- Content types
+**Card Sorting:** This is a user research method where you write topics on index cards and ask users to group them.
+- **Open Sort:** Users create their own group names. This reveals their mental model.
+- **Closed Sort:** Users sort items into pre-defined categories. This tests if your categories make sense.
 
-This reveals scope and overlap.
+**Tree Testing:** Once you have a proposed structure, you test it without visual design. You give users a simplified text-only version of your menu and ask them, "Where would you click to find a return policy?" If they fail in the text tree, they will fail in the final design.
 
-### Card Sorting
-
-Understand how users group content:
-1. Write content items on cards
-2. Ask users to sort into groups
-3. Ask users to name groups
-4. Look for patterns across users
-
-**Open card sort:** Users create their own groups
-**Closed card sort:** Users sort into predefined groups
-
-### Site Mapping
-
-Visualise the structure:
-```text
-Home
-├── Products
-│   ├── Category A
-│   │   ├── Product 1
-│   │   └── Product 2
-│   └── Category B
-├── About
-│   ├── Company
-│   └── Team
-└── Contact
-```
-
-Maps clarify relationships and reveal gaps.
-
-### Tree Testing
-
-Test navigation without visual design:
-1. Create text-only tree of navigation
-2. Give users tasks ("Find X")
-3. Record where they navigate
-4. Identify problem areas
-
-Validates IA before investing in design.
-
-## IA for Applications
-
-Web applications have different IA needs than content sites:
-
-### Feature Organization
-
-How are features grouped?
-- By workflow stage
-- By user type
-- By frequency of use
-- By object type
-
-### Object-Oriented IA
-
-Many apps organise around objects:
-- Projects → Tasks → Comments
-- Contacts → Deals → Activities
-- Courses → Lessons → Exercises
-
-Navigation helps users find and manipulate objects.
-
-### Dashboard vs. Task Flow
-
-**Dashboard:** Overview of multiple things
-**Task flow:** Linear progression through a process
-
-Most apps have both—dashboard for orientation, task flows for action.
+**Site Mapping:** Finally, you visualize the structure in a sitemap—a flowchart showing the hierarchy of pages and how they connect. This becomes the master document for the design phase.
 
 ## Try It Yourself
 
 ### Exercise 1: Mental Model Mapping
-
-For a product you're working on:
-1. How do you think content is organised?
-2. Interview 3 users—how do they think it's organised?
-3. Where do mental models differ?
+Pick a complex app you use (like Spotify or Amazon). Try to draw a map of how you *think* it is organized. Then, navigate through the app and draw the *actual* map. Where do they differ?
 
 ### Exercise 2: Quick Card Sort
-
-With sticky notes or index cards:
-1. Write 15-20 features/content items
-2. Ask 3-5 people to sort them into groups
-3. Ask them to name each group
-4. Note patterns and surprises
+Write down 20 features of a banking app (Check Balance, Transfer Money, Pay Bill, Order Checks, etc.) on sticky notes. Ask three friends to group them. Do they group "Pay Bill" with "Transfers" or as its own thing?
 
 ### Exercise 3: Navigation Audit
-
-For a website or app:
-1. Map out the navigation structure
-2. Identify: What's in global nav? Local nav? Contextual?
-3. Try to complete 3 common tasks. Was navigation helpful?
-4. What would you improve?
+Visit a university website (they often have complex IAs). Try to find the academic calendar. Count your clicks. Did the labels lead you there, or did you have to guess?
 
 ## Test Your Understanding
 
@@ -362,13 +154,12 @@ For a website or app:
 
 ## Key Takeaways
 
-- Information architecture is how content is organised, labelled, and connected
-- Good IA matches user mental models
-- Organization schemes: alphabetical, chronological, topical, task-based, audience-based
-- Navigation types: global, local, contextual, search, breadcrumbs
-- Balance hierarchy depth with clarity—each step should feel like progress
-- Labels should be familiar, specific, consistent, and scannable
-- Test IA with card sorting, tree testing, and first-click testing
+- IA is the blueprint of your product; design it before you draw pixels.
+- Use **Card Sorting** to discover how users group information.
+- Use **Tree Testing** to validate your structure.
+- Align your navigation with the user's **Mental Model**.
+- Good labels are specific, familiar, and consistent.
+- **Breadcrumbs** and **Global Navigation** provide necessary context and safety.
 
 ## Next Steps
 

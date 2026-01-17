@@ -11,192 +11,73 @@
 
 <!-- illustration: apple-device-family -->
 
-## The Apple Device Ecosystem
+## The Ecosystem Mindset
 
-### Why Multi-Device Matters
-Users expect apps to:
-- Work on all their Apple devices
-- Share data seamlessly
-- Feel familiar yet optimised
-- Take advantage of each form factor
+Designing for Apple platforms isn't just about resizing a rectangle. It's about understanding the context of use. A user holds an iPhone in one hand while walking. They prop an iPad on a desk for focused work. They glance at a Watch for two seconds while running.
 
-### Key Devices and Sizes
-
-| Device | Width (points) | Use Context |
-|--------|---------------|-------------|
-| iPhone SE | 375 | Compact, one-handed |
-| iPhone 15 | 393 | Standard one-handed |
-| iPhone 15 Pro Max | 430 | Two-handed, media |
-| iPad Mini | 744 | Reading, casual |
-| iPad Pro 11" | 834 | Productivity |
-| iPad Pro 12.9" | 1024 | Desktop replacement |
-| Apple Watch | 184-205 | Glances, quick actions |
+Your design must respect these contexts. The goal isn't to make the app look "the same" on every device; it's to make it feel "at home" on every device while sharing a common soul.
 
 ## Designing for iPhone
 
-### Compact Layouts
-iPhone designs prioritise:
-- **Single-column layouts** in portrait
-- **Thumb-reachable actions** at bottom
-- **Full-width content** usage
-- **Swipe navigation** over button taps
+The iPhone is the anchor. It is a personal, handheld device dominated by vertical scrolling.
 
-### Safe Areas
-Account for:
-- Status bar height
-- Home indicator
-- Notch/Dynamic Island
-- Rounded corners
+**Thumb-Driven Design:**
+Since phones are tall and hands are finite, the top of the screen is hard to reach. Place navigation (Tab Bar) and primary actions at the bottom. Use the top areas for content display and navigation hierarchy (Back buttons).
 
-### iPhone-Specific Patterns
-- Tab bar for main navigation
-- Navigation stack for hierarchy
-- Sheets for secondary content
-- Pull-to-refresh
+**The Stack Navigation:**
+iPhone apps rely heavily on the "Push" navigation model. You tap a list item, and a new screen slides in from the right. This creates a mental model of depth—you are drilling down into content. Don't fight this; it's how users know where they are.
 
 ## Designing for iPad
 
-### Expanded Layouts
-iPad designs can use:
-- **Multi-column layouts**
-- **Sidebars** for navigation
-- **Popovers** instead of full sheets
-- **Drag and drop** interactions
+The iPad is a chameleon. It can be a large phone (reading in bed), or it can be a laptop (attached to a Magic Keyboard).
 
-### Split View Considerations
-Apps run in different sizes:
-- Full screen (tablet layout)
-- 1/2 split (compact or regular)
-- 1/3 split (compact width)
-- Slide Over (compact overlay)
+**Sidebar Navigation:**
+On iPhone, we use tabs. On iPad, we use Sidebars. A sidebar takes advantage of the landscape width to show the navigation hierarchy *and* the content simultaneously. It flattens the app structure, making it faster to switch contexts.
 
-### iPad-Specific Patterns
-- Sidebars for primary navigation
-- Three-column layouts for content apps
-- Toolbars for contextual actions
-- Hover states for pointer support
+**Multi-Column Layouts:**
+A single column of text on an iPad is unreadable (the lines are too long). Use a multi-column approach. A list of emails on the left, the selected email in the middle, and the email details on the right. This "Master-Detail" view allows users to browse and consume without constantly navigating back and forth.
 
-### Pointer and Keyboard
-iPad users may have:
-- Magic Keyboard with trackpad
-- External mouse
-- Full keyboard shortcuts
-
-Design for these inputs:
-- Hover states on interactive elements
-- Keyboard navigation support
-- Cursor lift effects on buttons
+**Pointer Support:**
+iPad supports trackpads. When a user uses a trackpad, the cursor is a small circle that "snaps" to interactive elements. Your buttons should support this hover state. They should lift or glow when the cursor approaches, providing feedback that they are clickable.
 
 ## Designing for Apple Watch
 
-### Glanceable Design
-Watch interfaces must be:
-- **Instant to understand** (2-5 seconds)
-- **Minimal in content**
-- **High contrast** for outdoor use
-- **Large touch targets** (44pt minimum)
+The Watch is an exercise in extreme minimalism.
 
-### Watch Screen Sizes
-- **40/41mm:** 162pt width
-- **44/45mm:** 184pt width
-- **49mm Ultra:** 205pt width
+**The Two-Second Rule:**
+If a user can't get the value in two seconds, the design has failed. Text must be large and high-contrast. Backgrounds are usually black to blend with the bezel and save battery.
 
-### Watch-Specific Patterns
-- Vertical scrolling lists
-- Digital Crown interaction
-- Complications for quick info
-- Haptic feedback for confirmation
+**Complications:**
+The most valuable real estate on the Watch isn't the app; it's the Watch Face. "Complications" are tiny widgets that sit on the face (like a weather icon or activity ring). Designing a good complication is more important than designing a complex app UI.
 
-### What Works on Watch
-- Quick glances at information
-- Simple actions (approve, dismiss)
-- Notifications
-- Health and activity tracking
-
-### What Doesn't Work
-- Complex data entry
-- Long reading content
-- Multi-step workflows
-- Detailed visualisations
+**Action, not Consumption:**
+Don't make users read long articles on their wrist. Use the Watch for quick inputs (Log Water, Start Timer) or quick notifications (Uber Arriving).
 
 ## Creating Adaptive Designs
 
-### Shared Design Language
-Across all devices, maintain:
-- Consistent brand colours
-- Same typography scale (adjusted)
-- Familiar iconography
-- Unified navigation concepts
+How do you maintain sanity while designing for all these sizes?
 
-### Device-Optimized Experiences
-Don't just shrink or stretch:
-- Rethink information hierarchy
-- Adapt interaction patterns
-- Consider device context
-- Optimize for form factor
+**Shared Language:**
+Use the same color palette, typography scale (Dynamic Type), and iconography (SF Symbols) across all devices. This creates a visual thread that ties the ecosystem together.
 
-### Breakpoint Strategy
-Define how your design adapts:
+**Breakpoint Strategy:**
+Think in "Size Classes," not pixels.
+- **Compact Width:** iPhone Portrait, iPad Slide Over. Use Tabs and Single Columns.
+- **Regular Width:** iPhone Landscape, iPad Full Screen. Use Sidebars and Multi-Columns.
 
-**Compact Width (iPhone portrait, iPad 1/3)**
-- Single column
-- Tab bar navigation
-- Full-width components
-
-**Regular Width (iPhone landscape, iPad)**
-- Multi-column option
-- Sidebar navigation
-- Inline dialogs
-
-## Design File Organization
-
-### Structure for Multi-Device
-Organize your Figma/Sketch files:
-
-```text
-📁 App Name
-  📁 iPhone
-    - Home
-    - Detail
-    - Settings
-  📁 iPad
-    - Home (Sidebar)
-    - Detail (Multi-column)
-    - Settings
-  📁 Watch
-    - Home
-    - Notifications
-    - Complications
-  📁 Components
-    - Shared
-    - iPhone-specific
-    - iPad-specific
-    - Watch-specific
-```
-
-### Shared Components
-Create components that adapt:
-- Button (scales appropriately)
-- Card (adjusts padding)
-- List item (varies density)
+**Component Adaptation:**
+A "Card" component might stretch to full width on a phone, but have a fixed max-width on an iPad. A "Button" might be 44pt tall on a phone for touch, but smaller on Mac/iPad when used with a pointer. Design components that are aware of their container.
 
 ## Try It Yourself
 
-### Exercise 1: Device Audit
-
-Take one screen from your app:
-1. How would it work on iPhone SE?
-2. How would it expand on iPad?
-3. What would you show on Apple Watch?
-4. List the changes needed for each
+### Exercise 1: The Context Shift
+Take a simple "To-Do List" app.
+1.  **iPhone:** Design the list. How do you add an item? (Likely a floating + button or top-right Add).
+2.  **iPad:** Design the same view. Can you show the list on the left and the item details (notes, due date) on the right?
+3.  **Watch:** What is the ONE thing you need to do? (Check off an item). Design that single-focus screen.
 
 ### Exercise 2: Sidebar Adaptation
-
-Design a content app navigation:
-1. Tab bar version for iPhone
-2. Sidebar version for iPad
-3. List version for Watch
-4. Ensure visual consistency
+Redesign the Instagram home screen for iPad. instead of a bottom tab bar, move the navigation to a left sidebar. How does this change the feed? Can you show comments side-by-side with the photo?
 
 ## Test Your Understanding
 
@@ -239,11 +120,11 @@ Design a content app navigation:
 
 ## Key Takeaways
 
-- Each device has unique design requirements
-- iPhone: compact, thumb-friendly, single-column
-- iPad: expanded, pointer-aware, multi-column
-- Watch: glanceable, minimal, instant value
-- Maintain design consistency while optimising for form factor
+- iPhone is about vertical depth and thumb reachability.
+- iPad is about productivity, sidebars, and utilizing landscape width.
+- Watch is about glanceability and quick actions (2-second rule).
+- Use Size Classes (Compact vs. Regular) to adapt layouts logic.
+- Maintain a shared visual language (Type, Color, Icons) to keep the brand cohesive.
 
 ## Next Steps
 

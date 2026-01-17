@@ -1,6 +1,6 @@
 # Thinking in Components
 
-> **Quick Summary:** Component thinking is the foundation of modern design and development. It's about breaking interfaces into reusable, composable pieces.
+> **Quick Summary:** Component thinking is the foundation of modern design and development. It's about breaking interfaces into reusable, composable pieces rather than painting static screens.
 
 ## What You'll Learn
 
@@ -13,249 +13,111 @@
 
 > *"We're not designing pages, we're designing systems of components."* — Stephen Hay
 
-A component is a self-contained, reusable piece of UI. Instead of designing entire pages from scratch, you design building blocks that combine to create pages.
+Traditional graphic design often treats a page as a single canvas. You paint a header, a sidebar, and a footer. If you need a second page, you start another painting.
 
-This approach:
-- **Improves consistency:** The same button looks the same everywhere
-- **Speeds up design:** Reuse existing pieces instead of recreating
-- **Simplifies maintenance:** Change once, update everywhere
-- **Bridges design and code:** Components translate directly to code
+Component-based design flips this model. You don't build pages; you build a kit of parts. A page is simply a temporary arrangement of these parts. A `Button` is a component. A `Card` is a component. A `Header` is a component composed of a `Logo` and a `Navigation` component.
 
-If you've used any modern framework (React, Vue, SwiftUI), you're already thinking in components when coding. This lesson applies the same thinking to design.
+This approach aligns design with engineering. When a developer looks at your design, they don't see a picture; they see a tree of functional blocks (like React or Vue components). Adopting this mental model bridges the gap between how things look and how they are built.
 
 ## Atomic Design
 
-Brad Frost's Atomic Design provides a useful vocabulary for component hierarchy:
+Brad Frost's **Atomic Design** methodology provides a powerful vocabulary for describing this hierarchy. It draws a parallel between UI construction and chemistry.
 
 <!-- visual-example: atomic-design-demo -->
-
 <!-- illustration: atomic-design -->
 
 ### Atoms
+Atoms are the foundational building blocks of your interface. These elements cannot be broken down further without ceasing to be functional. Ideally, an atom corresponds to a single HTML tag.
 
-The smallest possible units. They can't be broken down further while remaining functional.
-
-**Examples:**
-- Button (single element)
-- Input field
-- Label
-- Icon
-- Avatar
-- Badge
-- Checkbox
-
-Atoms often map to single HTML elements or basic design tool components.
+Examples include a **Label**, an **Input**, or a **Button**. An atom by itself is rarely useful—a label floating in space means nothing—but it is the essential raw material for everything else.
 
 ### Molecules
+Molecules are groups of atoms bonded together to perform a specific function. They do one thing and do it well.
 
-Groups of atoms functioning together as a unit.
-
-**Examples:**
-- Form field (label + input + error message)
-- Search bar (input + button)
-- Navigation item (icon + text)
-- Card header (avatar + name + date)
-
-Molecules have a single, focused purpose.
+Take a **Search Form**. It is composed of a `Label` atom, an `Input` atom, and a `Button` atom. Combined, they form a functional unit that can be dropped anywhere in the application.
 
 ### Organisms
+Organisms are complex UI components composed of groups of molecules and/or atoms and/or other organisms. They form distinct sections of an interface.
 
-Complex components composed of molecules and atoms, forming distinct sections of UI.
-
-**Examples:**
-- Navigation header (logo + nav items + search + profile menu)
-- Card (header + content + footer + actions)
-- Form (multiple form fields + submit button)
-- Comment thread (comment + replies + actions)
-
-Organisms are substantial but still reusable.
+A **Header** organism might contain a `Logo` atom, a `Navigation` molecule, and a `Search Form` molecule. Organisms begin to look like recognizable parts of a webpage.
 
 ### Templates
-
-Page-level layouts showing how organisms combine. Focus on structure, not content.
-
-**Examples:**
-- Blog post template
-- Dashboard layout
-- Settings page structure
+Templates are page-level objects that place components into a layout and articulate the design's underlying content structure. They focus on the page's anatomy (grid, layout) rather than its specific content.
 
 ### Pages
-
-Specific instances of templates with real content. This is where you see the full design.
+Pages are specific instances of templates. This is where you pour real content into the structure to test its resilience. What happens if the headline is 50 words long? What if the user has no profile picture?
 
 ## Identifying Components
 
-When looking at a design, how do you break it into components?
+When you look at a mockup or a wireframe, how do you decide what should be a component?
 
-### Look for Repetition
+**Look for Repetition:**
+If you copy-paste an element more than twice, it's a candidate. If you have three cards that look identical except for the text, that's a `Card` component.
 
-Anything that appears multiple times is a component candidate:
-- Multiple cards with similar structure
-- Repeated navigation patterns
-- Consistent button styles
-- Similar form layouts
+**Look for Encapsulation:**
+Can this element exist on its own? A generic "Error Message" box makes sense anywhere. A specific paragraph of text describing your company's history probably doesn't need to be a reusable component.
 
-### Look for Independence
-
-Can this element exist on its own? Does it make sense outside its current context?
-
-A button makes sense anywhere. A specific error message might not.
-
-### Look for Encapsulation
-
-Does this element have clear boundaries? Can you draw a box around it?
-
-Components should have defined edges. If boundaries are fuzzy, the component might need rethinking.
-
-### Look for Variability
-
-What changes between instances? These become component variants or props:
-- Primary vs. secondary button (variant)
-- Different button text (prop)
-- With or without icon (option)
+**Look for Variability:**
+Identify what changes. If you have a blue button and a red button, you don't have two components; you have one `Button` component with a `variant` property.
 
 ## Component Properties
 
-Components aren't static. They adapt through properties:
+Components aren't static images; they are flexible tools. We define their flexibility through **properties** (often called "props").
 
-### Variants
+**Variants:**
+These are mutually exclusive visual styles. A button might be `Primary` (filled) or `Secondary` (outlined). It can't be both.
 
-Predefined variations with meaningful differences:
-- Button: Primary, Secondary, Ghost, Danger
-- Input: Default, Error, Disabled
-- Card: Default, Elevated, Outlined
+**States:**
+These describe interaction. Is the component `Hovered`? `Pressed`? `Disabled`? `Loading`? Every interactive component needs these states defined.
 
-Variants are finite options, not infinite customisation.
+**Content:**
+This is the data you pour into the component. The text inside a button, the image in an avatar, the title of a card.
 
-### States
-
-How the component responds to interaction:
-- Default
-- Hover
-- Active/Pressed
-- Focused
-- Disabled
-- Loading
-
-### Content
-
-The data that fills the component:
-- Button text
-- Card title and description
-- Avatar image
-
-### Options/Slots
-
-Optional additions or removals:
-- Icon (left, right, or none)
-- Badge count (shown or hidden)
-- Actions (included or not)
+**Options (Booleans):**
+These are simple on/off switches for features. `hasIcon` (true/false) or `isDismissible` (true/false).
 
 ## Naming Components
 
-Clear names make components findable and understandable:
+Naming is one of the hardest parts of design systems. A good name is descriptive, consistent, and—crucially—aligned with code.
 
-### Use Descriptive Names
+**Descriptive:** `PrimaryButton` is better than `BlueBox`. `UserCard` is better than `ProfileThing`.
 
-- ✓ `PrimaryButton`
-- ✓ `UserAvatar`
-- ✓ `NavigationHeader`
-- ✗ `Component1`
-- ✗ `BlueBox`
-- ✗ `NewThing`
+**Consistent:** If you call it a `Toggle` in one place, don't call it a `Switch` in another. Decide on a pattern (`NounAdjective` vs `AdjectiveNoun`) and stick to it.
 
-### Be Consistent
-
-Choose a naming pattern and stick with it:
-- `ButtonPrimary` or `PrimaryButton` — pick one
-- `UserCard` or `CardUser` — be consistent across components
-
-### Match Code Conventions
-
-If your codebase uses `Header`, don't call it `NavigationBar` in design. Alignment reduces confusion.
+**Code Alignment:** If your engineers call the top bar a `Header`, don't name your layer `TopNav`. Use the same language. This reduces friction during handoff.
 
 ## From Design to Code
 
-Design components should map clearly to code components.
+The ultimate goal of component thinking is a **1:1 mapping** between your design tool (Figma) and the codebase.
 
-### One-to-One Mapping
+Ideally, your `Button` component in Figma has a property named `variant` with values `primary` and `secondary`. The React code should look exactly the same:
 
-Ideally, every design component has a code equivalent:
-- Design: `Button/Primary` → Code: `<Button variant="primary">`
-- Design: `Card/Elevated` → Code: `<Card elevation={2}>`
-
-### Shared Language
-
-Use the same terminology:
-- Design calls it "variant," code calls it "variant"
-- Design has "hover state," code handles hover state
-- Design tokens match CSS variable names
-
-### Property Alignment
-
-Design component properties should match code props:
-
-```text
-Design:
-- Button
-  - Variant: Primary, Secondary
-  - Size: Small, Medium, Large
-  - Icon: Left, Right, None
-
-Code:
-<Button 
-  variant="primary"
-  size="medium"
-  icon={<Icon />}
-  iconPosition="left"
-/>
+```jsx
+<Button variant="primary">Click me</Button>
 ```
+
+When this alignment exists, "handoff" becomes trivial. You aren't handing off a drawing; you are handing off a set of instructions using a shared language.
 
 ## Component Documentation
 
-Components need documentation to be useful:
+A component library without documentation is just a sticker sheet. To make components usable, you need to explain *how* and *why* to use them.
 
-### What to Document
-
-- **Purpose:** What is this component for?
-- **Variants:** What variations exist and when to use each?
-- **States:** What states does it have?
-- **Do's and Don'ts:** Usage guidelines
-- **Accessibility:** Any special considerations?
-
-### Keep It Current
-
-Outdated documentation is worse than no documentation. As components evolve, update the docs.
+Document the **Purpose** (when to use this vs. something else), the **Anatomy** (what parts make it up), and the **Behavior** (what happens when I click it?). Good documentation turns a set of UI elements into a true Design System.
 
 ## Try It Yourself
 
 ### Exercise 1: Component Breakdown
+Take a screenshot of a popular app like Instagram or Twitter. Print it out or put it in Figma. Draw boxes around the **Atoms** (icons, text), **Molecules** (post header, action bar), and **Organisms** (the entire feed post).
 
-Take a complex page (like a social media feed or dashboard). Break it down into:
-1. Atoms (list at least 10)
-2. Molecules (list at least 5)
-3. Organisms (list at least 3)
+### Exercise 2: Defining Props
+Imagine a "Notification Toast" component. List the properties it needs.
+- **Content:** Title, Message
+- **Variant:** Success, Error, Warning, Info
+- **Option:** isDismissible (true/false)
+- **Action:** Button label (optional)
 
-Draw boxes around each level.
-
-### Exercise 2: Component Definition
-
-For a simple component (like a comment), define:
-1. Its sub-components (atoms/molecules it contains)
-2. Its variants (if any)
-3. Its states
-4. Its content properties
-5. Its optional elements
-
-### Exercise 3: Naming Exercise
-
-You have these components to name:
-- A button that opens a dropdown menu
-- A card showing a user profile
-- A toast notification for errors
-- A skeleton loader for content
-
-Propose clear, consistent names following a pattern.
+### Exercise 3: Naming
+Rename the layers in your current design file to match a strict component naming convention. Group related components (e.g., `Button/Primary`, `Button/Secondary`) to organize your system.
 
 ## Test Your Understanding
 
@@ -298,12 +160,11 @@ Propose clear, consistent names following a pattern.
 
 ## Key Takeaways
 
-- Components are reusable, self-contained UI pieces
-- Atomic design provides hierarchy: atoms → molecules → organisms → templates → pages
-- Identify components by looking for repetition, independence, and clear boundaries
-- Components have properties: variants, states, content, options
-- Clear naming and documentation make components usable
-- Design components should map directly to code components
+- Treat components as the fundamental unit of design, not pages.
+- Use **Atomic Design** (Atoms, Molecules, Organisms) to structure your hierarchy.
+- Identify components by looking for repetition and distinct functionality.
+- Define components using **Properties** (Variants, States, Content) rather than making unique copies.
+- Align your naming conventions with engineering to create a shared language.
 
 ## Next Steps
 
