@@ -13,13 +13,13 @@
 
 Users don't read manuals; they explore interfaces using a vocabulary of gestures they've learned from the system. If you break these expectations, your app feels broken.
 
-**The Tap** is the primary mechanism for selection. It requires instant, clear feedback (usually a visual highlight or state change) to confirm the system received the input.
+**The Tap** is the primary mechanism for selection. It requires instant, clear feedback—usually a visual highlight or state change—to confirm the system received the input. Without this, users will tap repeatedly, thinking the app has frozen.
 
-**The Swipe** is versatile. A swipe from the left edge acts as a "Back" button—this is universal on iOS. Swiping on list items typically reveals contextual actions (like "Delete" or "Archive"). Vertical swiping handles scrolling, but pulling down from the top of a scroll view triggers the standard "Pull to Refresh" action.
+**The Swipe** is versatile and directional. A swipe from the left edge acts as a universal "Back" button, a pattern deeply ingrained in iOS muscle memory. Swiping on list items typically reveals contextual actions like "Delete" or "Archive." While vertical swiping handles scrolling, pulling down from the top of a scroll view triggers the standard "Pull to Refresh" action.
 
-**The Long Press** (formerly Force Touch) reveals secondary options. It's the "right click" of iOS. Use it to show context menus, preview content (Peek and Pop), or enter edit modes (like reordering a list).
+**The Long Press** (formerly Force Touch) reveals secondary options, acting effectively as the "right click" of iOS. You should use it to show context menus, preview content (Peek and Pop), or enter edit modes, such as reordering a list.
 
-**Pinch and Rotate** are standard for manipulating media. Users expect to be able to pinch photos, maps, and documents to zoom.
+**Pinch and Rotate** are the standard manipulations for media. Users expect to be able to pinch photos, maps, and documents to zoom in and out, or rotate them with two fingers.
 
 ## Designing for Fingers
 
@@ -43,19 +43,13 @@ Touch screens have no hover state. You cannot rely on tooltips to explain crypti
 
 ## Thumb Zones
 
-Most users hold their phone in one hand, using their thumb to interact.
-
-*   **Easy Reach:** The bottom third of the screen. This is prime real estate for primary actions (tab bars, floating action buttons).
-*   **Stretch:** The middle of the screen. Okay for lists and content.
-*   **Hard Reach:** The top corners. This is why the "Back" button is often duplicated by a swipe gesture—reaching the top-left corner is physically difficult on modern, large phones.
+Most users hold their phone in one hand, using their thumb to interact. This creates natural zones of reachability. The bottom third of the screen is the **Easy Reach** zone, making it prime real estate for primary actions like tab bars and floating action buttons. The middle of the screen requires a slight stretch but is acceptable for lists and content. The top corners are the **Hard Reach** zones. This physical difficulty explains why the system "Back" button is duplicated by a swipe gesture—reaching the top-left corner on a large phone is uncomfortable.
 
 ## Haptic Feedback
 
-Haptics add a tactile layer to your design. Modern iPhones use the Taptic Engine to provide incredibly precise physical feedback.
+Haptics add a tactile layer to your design. Modern iPhones use the Taptic Engine to provide incredibly precise physical feedback that reinforces digital interactions.
 
-*   **Selection:** A light tick (like a clock) when scrolling through a picker.
-*   **Impact:** A solid tap when a snap-to-grid event happens or a switch toggles.
-*   **Notification:** Distinct patterns for Success (two light taps), Warning, and Error (a heavier double-tap).
+Different haptics communicate different meanings. A **Selection** haptic feels like a light tick, similar to a clock mechanism, and is perfect for scrolling through a picker. An **Impact** haptic provides a solid tap when a snap-to-grid event happens or a switch toggles. **Notification** haptics are more complex: a Success is two light taps, while an Error is a heavier double-tap that commands attention.
 
 Haptics should be subtle. Like sound design, if you notice it too much, it's probably overdone. Use them to reinforce important physical interactions, not to punctuate every single tap.
 
@@ -68,10 +62,10 @@ Take a screenshot of a design you're working on. Overlay a grid of 44x44 point s
 ### Exercise 2: Gesture Mapping
 
 Choose a complex interaction in your app (like organising a list). Map it to standard gestures:
-*   Tap to select
-*   Long press to lift/reorder
-*   Swipe to delete
-*   Tap-and-drag to move multiple items
+- Tap to select
+- Long press to lift/reorder
+- Swipe to delete
+- Tap-and-drag to move multiple items
 
 ## Test Your Understanding
 
@@ -114,11 +108,11 @@ Choose a complex interaction in your app (like organising a list). Map it to sta
 
 ## Key Takeaways
 
--   Respect the **44pt minimum touch target** rule, even for small icons.
--   Users expect standard gestures (swipe to back, pull to refresh) to work everywhere.
--   Your finger covers what you touch; design offset feedback to handle **occlusion**.
--   **No hover states** means affordances must be obvious at a glance.
--   Use **haptics** to give physical weight to digital interactions.
+- Respect the **44pt minimum touch target** rule, even for small icons.
+- Users expect standard gestures (swipe to back, pull to refresh) to work everywhere.
+- Your finger covers what you touch; design offset feedback to handle **occlusion**.
+- **No hover states** means affordances must be obvious at a glance.
+- Use **haptics** to give physical weight to digital interactions.
 
 ## Next Steps
 

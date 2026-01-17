@@ -14,85 +14,68 @@
 In the early days of digital design, we thought in pixels. On Android, a pixel is a meaningless unit of measurement because screen densities vary wildly. A 50-pixel button might be thumb-sized on an old screen and microscopic on a modern 4K display.
 
 **The Solution: dp (Density-independent Pixels)**
-You define sizes in `dp`. Android scales them at runtime based on the screen's density.
-*   **1 dp** ≈ 1/160th of an inch.
-*   **48 dp** ≈ 9mm (roughly the size of a fingertip touch target).
-
-When you design, you think in `dp`. The system handles the math.
+You define sizes in `dp`. Android scales them at runtime based on the screen's density. Mathematically, 1dp is roughly 1/160th of an inch. Practically, 48dp is about 9mm—roughly the size of a fingertip touch target. When you design, you think in `dp`, and the system handles the math.
 
 ## The Responsive Grid
 
-Material Design uses a flexible column grid to organize layouts. The number of columns changes based on the screen width.
+Material Design uses a flexible column grid to organize layouts. The number of columns changes based on the screen width, allowing content to scale naturally.
 
-### The 12-Column System
+**Mobile (Compact)** layouts use a 4-column grid with typical margins of 16dp. This simple structure works well for single-column content on phones.
 
-*   **Mobile (Compact):** 4 columns. Margins are typically 16dp.
-*   **Tablet (Medium):** 8 columns. Margins increase to 24dp.
-*   **Desktop/Large (Expanded):** 12 columns. Content is often constrained to a max-width to prevent lines of text from becoming unreadably long.
+**Tablet (Medium)** layouts expand to an 8-column grid with larger margins (24dp). This provides more granularity for placing elements side-by-side.
 
-**Gutters** (the space between columns) are typically 16dp but can be adjusted to create more or less separation.
+**Desktop/Large (Expanded)** layouts use a 12-column grid. On these wide screens, content is often constrained to a maximum width to prevent lines of text from becoming unreadably long.
+
+**Gutters**—the space between columns—are typically 16dp but can be adjusted to create more or less separation between elements.
 
 ## Window Size Classes
 
-Instead of designing for specific devices ("Samsung Galaxy S22" vs "Pixel 7 Pro"), Android categorizes screens into three buckets called **Window Size Classes**.
+Instead of designing for specific devices like "Samsung Galaxy S22" vs "Pixel 7 Pro," Android categorizes screens into three buckets called **Window Size Classes**.
 
 ### Compact Width (< 600dp)
-*   **Devices:** Most phones in portrait mode.
-*   **Layout:** Single column content.
-*   **Navigation:** Bottom Navigation Bar.
-*   **Strategy:** Stack content vertically. Use full-screen dialogs.
+This class covers most phones in portrait mode. Layouts here are primarily single-column and stack content vertically. Navigation is typically handled by a Bottom Navigation Bar, and flows often use full-screen dialogs to maintain focus.
 
 ### Medium Width (600dp - 840dp)
-*   **Devices:** Foldables (unfolded), small tablets, large phones in landscape.
-*   **Layout:** Can start to show two panes (e.g., a list and a detail view).
-*   **Navigation:** Navigation Rail (vertical bar on the left).
-*   **Strategy:** Utilize the extra width. Don't just stretch the phone layout.
+This class includes foldables (unfolded), small tablets, and large phones in landscape orientation. At this width, you can start to show two panes of content, such as a list alongside a detail view. The Navigation Rail (a vertical bar on the left) becomes the preferred navigation pattern, saving vertical space. The strategy here is to utilize the extra width rather than just stretching the phone layout.
 
 ### Expanded Width (> 840dp)
-*   **Devices:** Large tablets, Desktop mode.
-*   **Layout:** Multi-pane layouts are standard (List + Detail + Supporting Pane).
-*   **Navigation:** Navigation Drawer (permanently visible sidebar).
-*   **Strategy:** Avoid "wall of text." Use layouts that resemble desktop applications.
+This class encompasses large tablets and Desktop mode. Multi-pane layouts are standard here, often showing a list, a detail view, and a supporting pane simultaneously. A permanent Navigation Drawer is appropriate for navigation. The goal is to avoid a "wall of text" and create layouts that resemble desktop applications.
 
 ## Design Patterns for Large Screens
 
-When you have extra space, don't just fill it with whitespace. Use it to reduce friction.
+When you have extra space, don't just fill it with whitespace. Use it to reduce friction and improve the user's workflow.
 
 ### List-Detail View
 On a phone, tapping an email opens a new screen. On a tablet, the inbox list stays on the left (consuming 1/3 of the screen), and the email content opens on the right (2/3). This allows fast browsing without constant back-and-forth navigation.
 
 ### Supporting Pane
-Use the extra width to show context. If editing a document, the document takes the center stage, and a formatting palette or comments thread sits permanently on the right side.
+Use the extra width to show context. If a user is editing a document, the document takes the center stage, while a formatting palette or comments thread sits permanently on the right side.
 
 ## The Foldable Frontier
 
 Foldables introduce a new physical variable: **The Hinge**.
 
-### The Hinge/Fold
-It's a physical dead zone (on dual-screen devices) or a crease (on flexible screens). **Never place interactive controls or text directly on the fold.** It's hard to touch and hard to read.
+This hinge acts as a physical dead zone (on dual-screen devices) or a crease (on flexible screens). **Never place interactive controls or text directly on the fold**, as it is hard to touch and hard to read.
 
-### Postures
-Foldables change shape.
-*   **Tabletop Mode:** The device sits like a laptop. The bottom half becomes a control surface (keyboard, playback controls), and the top half becomes the display. Video apps use this perfectly.
-*   **Book Mode:** Held like a book. Great for dual-pane reading or multitasking.
+Foldables also introduce **Postures**. In **Tabletop Mode**, the device sits like a laptop; the bottom half becomes a control surface (keyboard, playback controls), and the top half becomes the display. Video apps use this perfectly. In **Book Mode**, the device is held like a book, which is excellent for dual-pane reading or multitasking.
 
 ## Try It Yourself
 
 ### Exercise 1: The Resizing Test
 
 Take a simple design (e.g., a music player). Sketch it in three states:
-1.  **Phone Portrait:** (Compact) Album art, controls below.
-2.  **Tablet Portrait:** (Medium) List of songs on left, Now Playing on right.
-3.  **Desktop Landscape:** (Expanded) Sidebar navigation, 3-column grid of albums.
+1.  **Phone Portrait (Compact):** Album art with controls below.
+2.  **Tablet Portrait (Medium):** List of songs on the left, "Now Playing" on the right.
+3.  **Desktop Landscape (Expanded):** Sidebar navigation and a 3-column grid of albums.
 
 ### Exercise 2: Grid Math
 
 Calculate the column width for a card on a **360dp** wide phone screen (standard Android width):
-*   Total width: 360dp
-*   Margins: 16dp x 2 = 32dp
-*   Gutters (3 gaps between 4 columns): 16dp x 3 = 48dp
-*   Available space for columns: 360 - 32 - 48 = 280dp
-*   One column width: 280 / 4 = **70dp**
+- Total width: 360dp
+- Margins: 16dp x 2 = 32dp
+- Gutters (3 gaps between 4 columns): 16dp x 3 = 48dp
+- Available space for columns: 360 - 32 - 48 = 280dp
+- One column width: 280 / 4 = **70dp**
 
 ## Test Your Understanding
 
@@ -135,10 +118,10 @@ Calculate the column width for a card on a **360dp** wide phone screen (standard
 
 ## Key Takeaways
 
--   Design in **dp**, not pixels.
--   Don't design for specific devices; design for **Window Size Classes**.
--   **Navigation adapts:** Bottom Bar → Nav Rail → Nav Drawer as screens get wider.
--   **Foldables** are not just big phones; they have postures (Tabletop, Book) that require unique layouts.
+- Design in **dp**, not pixels.
+- Don't design for specific devices; design for **Window Size Classes**.
+- **Navigation adapts:** Bottom Bar → Nav Rail → Nav Drawer as screens get wider.
+- **Foldables** are not just big phones; they have postures (Tabletop, Book) that require unique layouts.
 
 ## Next Steps
 

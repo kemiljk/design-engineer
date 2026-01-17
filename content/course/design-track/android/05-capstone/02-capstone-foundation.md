@@ -4,7 +4,7 @@ estimatedTime: 15
 
 # Capstone: Material Foundation
 
-> **Quick Summary:** Research Material 3, define your app, and create a complete colour scheme with dynamic colour support.
+> **Quick Summary:** Before drawing a single screen, establish your app's foundation. Research Material 3 guidelines, define your app's concept, and create a complete, accessible colour scheme that supports dynamic colour.
 
 **Time Estimate:** 2-3 hours
 
@@ -17,93 +17,58 @@ estimatedTime: 15
 
 ## Step 1: Research & Reference
 
-Before designing, understand Material 3:
-- Study Google's Material 3 guidelines
-- Review 5-10 Android apps with good Material implementation
-- Note patterns: navigation rails vs. bars, component usage
-- Screenshot effective Material 3 applications
+Don't guess at Material Design. It is a documented system.
+- **Study the Guidelines:** Read the [Material 3 spec](https://m3.material.io/). Understand the role of containers, the logic of elevation, and the spacing rules.
+- **App Audit:** Download 5-10 modern Android apps (Google and third-party). How do they handle navigation on large screens? How do they use colour?
+- **Collection:** Screenshot effective patterns. Look for the "List-Detail" pattern on tablets and the "Navigation Rail" on foldables.
 
 ## Step 2: Define Your App
 
-Establish the foundation:
-- **App name** (fictional is fine)
-- **Core purpose** (one sentence)
-- **Target user** (be specific)
-- **Key jobs to be done** (3-5 tasks)
-- **Personality** (playful, professional, expressive, etc.)
+A pretty interface without a purpose is just decoration.
+- **Name:** Give it a name. "TaskFlow," "ChefHelper," "BudgetBuddy."
+- **Purpose:** Write one sentence. "A meal planner that generates shopping lists automatically."
+- **User:** Who is this for? "Parents who are tired of deciding what to cook."
+- **Personality:** Is it vibrant and energetic (lots of primary colour)? Or utility-focused and calm (lots of surface colour)?
 
 ## Step 3: Create Material Colour Scheme
 
-Use Material Theme Builder or design manually:
+You don't pick hex codes randomly in Material 3. You build a tonal palette.
+Use the **Material Theme Builder** plugin in Figma.
+1.  **Seed Colour:** Input your primary brand colour.
+2.  **Generate:** Let the tool generate the full tonal range (0-100) for Primary, Secondary, Tertiary, Neutral, and Error.
+3.  **Roles:** Identify your Semantic Roles.
+    - **Primary:** High emphasis (FAB, active states).
+    - **Primary Container:** Medium emphasis (Selected states).
+    - **Surface:** Backgrounds.
+    - **Outline:** Borders.
 
-### Primary Colours
-
-| Token | Description |
-|-------|-------------|
-| Primary | Your brand colour |
-| On Primary | Text/icon on primary |
-| Primary Container | Lighter variant |
-| On Primary Container | Text on container |
-
-### Secondary & Tertiary
-
-| Token | Description |
-|-------|-------------|
-| Secondary | Supporting colour |
-| Tertiary | Accent colour |
-| Containers | Plus their container variants |
-
-### Surface & Background
-
-| Token | Description |
-|-------|-------------|
-| Surface | Main backgrounds |
-| Surface Variant | Card backgrounds |
-| Outline | Borders and dividers |
-
-**Create for both light and dark modes.**
+**Create schemes for both Light and Dark modes.**
 
 ## Step 4: Dynamic Colour Preparation
 
-Plan for Material You:
-- Test your design with different wallpaper extractions
-- Create 2-3 dynamic colour variations
-- Ensure design works with any extracted palette
-- Identify elements that should use dynamic vs. static colours
+Your app lives on a user's device, which has its own wallpaper.
+- **Test:** Use the Theme Builder to swap the seed colour. Does your layout break if the user loves neon green?
+- **Plan:** Decide which parts of your UI will be static (always your brand colour) and which will be dynamic (user's wallpaper colour). Usually, branding anchors like the logo stay static, while backgrounds and buttons adapt.
 
 ## Step 5: Typography with Roboto
 
-Apply Material type scale:
-
-| Style | Size | Weight |
-|-------|------|--------|
-| Display Large | 57sp | Regular |
-| Display Medium | 45sp | Regular |
-| Display Small | 36sp | Regular |
-| Headline Large | 32sp | Regular |
-| Headline Medium | 28sp | Regular |
-| Headline Small | 24sp | Regular |
-| Title Large | 22sp | Regular |
-| Title Medium | 16sp | Medium |
-| Title Small | 14sp | Medium |
-| Body Large | 16sp | Regular |
-| Body Medium | 14sp | Regular |
-| Body Small | 12sp | Regular |
-| Label Large | 14sp | Medium |
-| Label Medium | 12sp | Medium |
-| Label Small | 11sp | Medium |
+Stick to the system defaults unless you have a strong brand reason not to.
+- **Font:** Roboto (Sans-serif).
+- **Scale:** Map your styles to the Material Type Scale.
+    - **Headline Large (32sp):** Page Titles.
+    - **Title Medium (16sp):** Card Titles.
+    - **Body Medium (14sp):** Standard Text.
+    - **Label Large (14sp):** Buttons.
 
 ## Checkpoint
 
 Before moving on, verify:
 
-- [ ] App concept defined with clear purpose
-- [ ] Material 3 colour scheme created
-- [ ] Light and dark modes designed
-- [ ] Dynamic colour variations created
-- [ ] Typography scale applied
+- [ ] App concept is clear and documented.
+- [ ] You have a Figma file with the Material 3 Design Kit enabled.
+- [ ] Your Colour Styles are set up (Primary, Surface, etc.) for both Light and Dark modes.
+- [ ] You have tested your colours against a dynamic seed.
 
 ## Next Steps
 
 Continue to [Phase 2: Phone Screen Design](./03-capstone-screens.md) →
-

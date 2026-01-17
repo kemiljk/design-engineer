@@ -5,119 +5,95 @@
 ## What You'll Learn
 
 - Layout and grid systems
-- Color system architecture
+- Colour system architecture
 - Typography scale
 - Icon design principles
 
 ## Layout Grid
 
 ### Columns
-Material uses a responsive column grid:
-- Phone: 4 columns
-- Tablet: 8 columns
-- Desktop: 12 columns
+Material uses a responsive column grid to ensure consistency across devices.
+- **Phone:** 4 columns
+- **Tablet:** 8 columns
+- **Desktop:** 12 columns
 
 ### Margins and Gutters
-- Margins: Space on screen edges (16dp typical)
-- Gutters: Space between columns (16dp or 24dp)
+**Margins** are the space at the left and right edges of the screen, typically 16dp on mobile. **Gutters** are the spaces between columns, usually 16dp or 24dp. These spaces provide breathing room and structure to your content.
 
-### 8dp Grid
-All measurements align to 8dp:
-- Spacing: 8, 16, 24, 32, 40, 48...
-- Component sizes
-- Touch targets (48dp minimum)
+### The 8dp Grid
+Almost all measurements in Material Design align to an 8dp grid. This "magic number" reduces decision fatigue.
+- **Spacing:** Use multiples of 8 (8, 16, 24, 32, 48...).
+- **Touch Targets:** The minimum touch target size is 48x48dp, ensuring usability.
+- **Components:** Buttons, cards, and bars often have heights divisible by 8.
 
-## Color System
+## Colour System
 
-### Baseline Colors
-- **Primary:** Main brand colour
-- **Secondary:** Accent colour
-- **Tertiary:** Additional accent
-- **Error:** Error states
-- **Neutral:** Backgrounds and surfaces
+### Baseline Colours
+- **Primary:** The main brand colour, used for key components like FABs and active states.
+- **Secondary:** An accent colour for less prominent UI elements.
+- **Tertiary:** A third accent for balancing the palette or adding variety.
+- **Error:** Standard red for communicating failure or danger.
+- **Neutral:** Shades of grey used for backgrounds, surfaces, and text.
 
 ### Tonal Palettes
-Each colour generates a range of tones (0-100):
-- 0: Darkest
-- 50: Midpoint
-- 100: Lightest
+Each colour in Material 3 is not just a single hex code; it generates a tonal palette ranging from 0 (black) to 100 (white). For example, your "Primary" colour might be tone 40, while the text on top of it is tone 100. This system ensures accessible contrast ratios automatically.
 
-Use different tones for:
-- Text on backgrounds
-- State changes
-- Emphasis levels
+### Dynamic Colour (Material 3)
+On Android 12+, the system can extract colours from the user's wallpaper to generate a custom theme for your app. This allows your interface to feel personal and integrated with the user's device, while the tonal system ensures it remains accessible regardless of the specific hue.
 
-### Dynamic Color (Material 3)
-Colors extracted from user's wallpaper:
-- System generates harmonious palette
-- Your app adapts automatically
-- Maintains accessibility
-- Creates personal connection
-
-### Surface Colors
-Surfaces use neutral colours with tints:
-- Surface tint from primary colour
-- Higher elevation = more tint
-- Creates unified, harmonious feel
+### Surface Colours
+In Material 3, surface colours are often tints of the primary or neutral palettes. Higher elevation surfaces receive a stronger tint, replacing the shadow-heavy approach of previous versions with a more subtle, colour-based depth system.
 
 ## Typography
 
 ### Type Scale
-Material provides semantic roles:
-- **Display:** Large, expressive (3 sizes)
-- **Headline:** Section headings (6 sizes)
-- **Title:** Smaller titles (3 sizes)
-- **Body:** Paragraph text (3 sizes)
-- **Label:** Buttons, chips (3 sizes)
+Material provides a set of semantic roles to organize your text.
+- **Display:** Large, expressive text for splash screens or hero sections (3 sizes).
+- **Headline:** Section markings (6 sizes).
+- **Title:** Smaller headings for components like cards (3 sizes).
+- **Body:** The primary reading text (3 sizes).
+- **Label:** Compact text for UI elements like buttons and chips (3 sizes).
 
 ### Fonts
-Default system fonts:
-- Roboto: UI text
-- Google Sans: Headlines (Google apps)
-
-Custom fonts can be used following the type scale.
+The default system font is **Roboto**, a clean geometric sans-serif. Google apps often use **Google Sans** for headlines. You can replace these with your brand font, provided you map it correctly to the type scale roles.
 
 ### Line Height
-Generous line heights for readability:
-- Body: ~150% of font size
-- Headlines: ~120%
+Material enforces generous line heights to improve readability. Body text typically uses a line height of roughly 150% of the font size, while headlines are tighter at around 120%.
 
 ## Iconography
 
 ### System Icons
-- 24×24dp standard size
-- 2dp stroke weight
-- Geometric, consistent style
-- Filled and outlined variants
+System icons are functional graphics used for navigation and actions.
+- **Size:** Standard size is 24x24dp.
+- **Style:** Geometric, simple, and consistent.
+- **Stroke:** typically 2dp (can vary with optical sizing).
+- **Variants:** Filled (for active states) and Outlined (for inactive states).
 
 ### Product Icons
-- Unique brand expression
-- Simple, recognizable shapes
-- Follow icon grid (48×48)
-- Limited colour palette
+Product icons represent your app on the home screen. They are expressive and unique to your brand. They follow a 48x48dp keyline grid but allow for more creative freedom in shape and colour.
 
 ### Icon Usage
-- Use outlined for unselected states
-- Use filled for selected states
-- Maintain consistent sizing
-- Adequate padding
+- Use **Outlined** icons for unselected navigation items to reduce visual weight.
+- Use **Filled** icons for the active selection to draw focus.
+- Ensure all icons have adequate padding to meet the 48dp touch target requirement.
 
 ## Try It Yourself
 
 ### Exercise 1: Grid Setup
 
-Set up a Material layout grid in Figma:
-- 4 columns for phone
-- 16dp margins
-- 16dp gutters
+Set up a Material layout grid in Figma for a phone frame:
+- Width: 360dp
+- Columns: 4
+- Margins: 16dp
+- Gutters: 16dp
 
-### Exercise 2: Color Palette
+### Exercise 2: Colour Palette
 
-Create a Material 3 colour palette:
-- Primary with tonal range
-- Secondary and tertiary
-- Surface colours with tint
-- Error and success states
+Create a Material 3 colour palette for a fictional brand. Pick a primary seed colour and generate the tonal variations for:
+- Primary Container
+- On Primary Container
+- Surface
+- On Surface
 
 ## Test Your Understanding
 
@@ -138,15 +114,15 @@ Create a Material 3 colour palette:
     },
     {
       "id": "b",
-      "text": "Dynamic Color that can derive a full palette from a single seed colour or wallpaper",
+      "text": "Dynamic Colour that can derive a full palette from a single seed colour or wallpaper",
       "isCorrect": true,
-      "explanation": "Correct! Material 3 introduces Dynamic Color—a system that generates harmonious colour palettes from a source colour. On Android 12+, it can even adapt to the user's wallpaper."
+      "explanation": "Correct! Material 3 introduces Dynamic Colour—a system that generates harmonious colour palettes from a source colour. On Android 12+, it can even adapt to the user's wallpaper."
     },
     {
       "id": "c",
       "text": "Only primary and secondary colours can be customised",
       "isCorrect": false,
-      "explanation": "Dynamic Color generates an entire palette including surfaces, containers, and tonal variations."
+      "explanation": "Dynamic Colour generates an entire palette including surfaces, containers, and tonal variations."
     },
     {
       "id": "d",
@@ -160,11 +136,11 @@ Create a Material 3 colour palette:
 
 ## Key Takeaways
 
-- 8dp grid underlies all measurements
-- Tonal colour palettes enable flexibility
-- Dynamic colour personalizes the experience
-- Type scale provides semantic roles
-- Icons have consistent geometry and sizing
+- The **8dp grid** simplifies spacing and sizing decisions.
+- **Tonal palettes** separate hue from luminance, ensuring accessibility.
+- **Dynamic Colour** allows apps to adapt to the user's personal style.
+- The **Type Scale** provides a semantic hierarchy for all text.
+- **System Icons** should be simple and functional; **Product Icons** are expressive.
 
 ## Next Steps
 

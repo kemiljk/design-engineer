@@ -1,18 +1,17 @@
 # From Design to Compose
 
-> **Quick Summary:** Jetpack Compose is Android's modern UI toolkit. Understanding how designs translate to Compose helps you create more implementable work.
+> **Quick Summary:** Jetpack Compose is Android's modern, declarative UI toolkit. It is how modern Android apps are built. Understanding how your designs map to Compose primitives helps you create work that is developer-friendly and robust.
 
 ## What You'll Learn
 
-- How designs map to Compose
-- Compose thinking model
+- How designs map to Compose functions
+- The Compose mental model (Columns, Rows, Modifiers)
 - Design decisions that help developers
 - Preparing designs for handoff
 
 ## Compose Fundamentals
 
-Compose builds UIs from composable functions:
-
+Compose builds UIs by calling functions that emit UI elements.
 ```kotlin
 @Composable
 fun Greeting() {
@@ -24,136 +23,113 @@ fun Greeting() {
     }
 }
 ```
-
-Everything is a composable—building blocks that combine.
+Just like SwiftUI, everything is a component (called a **Composable**). The UI is described as a tree of these functions.
 
 ## Layout Translation
 
 ### Columns and Rows
-| Design Concept | Compose |
-|----------------|---------|
-| Vertical stack | Column |
-| Horizontal stack | Row |
-| Overlapping | Box |
-| Spacing | Arrangement.spacedBy() |
-| Alignment | Alignment parameter |
+In Figma, you use Auto Layout. In Compose, we use:
+- **Column:** Vertical stack (Figma Auto Layout ↓).
+- **Row:** Horizontal stack (Figma Auto Layout →).
+- **Box:** Z-stack for overlapping elements (Figma Group).
 
-### Design → Compose
-
-```text
-Design: Vertical, 16dp spacing, centred
-Compose: Column(
-    verticalArrangement = Arrangement.spacedBy(16.dp),
-    horizontalAlignment = Alignment.CenterHorizontally
-)
-```
+### Modifiers
+Modifiers are used to configure layouts.
+- **Padding:** `Modifier.padding(16.dp)` adds space around an element.
+- **Size:** `Modifier.size(50.dp)` sets fixed dimensions.
+- **Clickable:** `Modifier.clickable { }` makes any element interactive.
 
 ## Components → Composables
 
 ### Material Components
-Most Material components have Compose equivalents:
-- Button → Button, TextButton, OutlinedButton
-- Card → Card, ElevatedCard, OutlinedCard
-- TextField → TextField, OutlinedTextField
-- List → LazyColumn with items
+Most of your design elements map 1:1 to the Material Compose library:
+- **Button** → `Button`, `OutlinedButton`, `TextButton`
+- **Card** → `Card`, `ElevatedCard`
+- **Text Field** → `TextField`, `OutlinedTextField`
+- **List** → `LazyColumn` (Vertical), `LazyRow` (Horizontal)
 
 ### Custom Components
-Custom designs become custom composables:
+When you design a custom card, the developer creates a custom Composable function.
 ```kotlin
 @Composable
-fun CustomCard(
-    title: String,
-    subtitle: String
-) {
+fun ProductCard(title: String, price: String) {
     Card {
-        Column(Modifier.padding(16.dp)) {
-            Text(title, style = MaterialTheme.typography.titleMedium)
-            Text(subtitle, style = MaterialTheme.typography.bodySmall)
+        Column {
+            Image(...)
+            Text(title)
+            Text(price)
         }
     }
 }
 ```
+This means your design components should be modular and reusable, just like the code will be.
 
 ## Design Decisions That Help
 
 ### Use Material Theme Slots
-Reference semantic roles:
-- Typography: headline, body, label
-- Colors: primary, surface, onSurface
-- Shapes: small, medium, large
+Compose has a built-in theming engine. Reference semantic roles in your design:
+- **Typography:** Don't use "Inter 16px". Use `MaterialTheme.typography.bodyLarge`.
+- **Colors:** Don't use `#6200EE`. Use `MaterialTheme.colorScheme.primary`.
+- **Shapes:** Reference `MaterialTheme.shapes.medium`.
 
-Maps directly to MaterialTheme in Compose.
+This allows the entire app to support Dark Mode and Dynamic Colour automatically.
 
 ### Consistent Spacing
-Use values from a scale:
-- 4, 8, 12, 16, 24, 32dp
-- Developers can use consistent values
+Use an 8dp spacing scale. Developers often create spacing objects: `Spacing.medium` (16dp), `Spacing.large` (24dp). Random pixel values break this system.
 
 ### Clear Hierarchy
-Make component structure obvious:
-- Groups that are Columns
-- Rows within those groups
-- Clear nesting
-
-### Component Variants
-If a component has variants, make them explicit:
-- FilledButton, OutlinedButton
-- ElevatedCard, OutlinedCard
-- Naming matches code
+Structure your Figma layers to match the intended Compose structure.
+- Group elements that belong in a `Row` together.
+- Group vertical sections that belong in a `Column`.
+- Name your layers meaningfully.
 
 ## Responsive Design
 
 ### Weight-Based Layouts
+In Compose, we often use "weights" to distribute space.
 ```kotlin
 Row {
-    Box(Modifier.weight(1f)) { /* Flexible */ }
-    Box(Modifier.width(100.dp)) { /* Fixed */ }
+    Box(Modifier.weight(1f)) // Takes up 50%
+    Box(Modifier.weight(1f)) // Takes up 50%
 }
 ```
-
-Indicate when elements should be flexible vs. fixed.
+Indicate in your handoff if an element should "fill available space" or has a "fixed width".
 
 ### Adaptive Breakpoints
-Document what changes at size classes:
-- Compact: Single column
-- Expanded: Two columns
-- What moves where
+Compose handles adaptation easily. You can check the screen size and switch layouts.
+- **Compact:** Show a `LazyColumn`.
+- **Expanded:** Show a `LazyVerticalGrid` with 2 columns.
+Document this behavior: "At 600dp width, switch from List to Grid."
 
 ## Handoff Best Practices
 
 ### Annotate
-- Spacing values (in dp)
-- Typography styles (semantic names)
-- Colors (semantic names)
-- Component states
+- **Spacing:** "16dp padding."
+- **Tokens:** "Primary Container colour."
+- **Typography:** "Headline Medium."
 
 ### Document Interactions
-- All states
-- Transitions
-- Gestures
-- Error states
+- **State:** Show Default, Pressed, Disabled, and Error states.
+- **Transitions:** "This card expands to full screen."
+- **Gestures:** "Swipe to dismiss."
 
 ### Provide Assets
-- Custom icons as SVG
-- Images at appropriate densities
-- Custom illustrations
+- **Vectors:** Export icons as XML Vector Drawables (or SVGs that can be converted).
+- **Images:** Provide WebP or PNG assets at multiple densities.
 
 ## Try It Yourself
 
 ### Exercise 1: Compose Mapping
-
-Take a design and write pseudo-Compose:
-- What's a Column?
-- What's a Row?
-- What spacing values?
+Take a music player control bar. Write the pseudo-code:
+- Row (fill width, space between)
+  - Image (Album art)
+  - Column (Weight 1f)
+    - Text (Title)
+    - Text (Artist)
+  - Icon (Play/Pause)
 
 ### Exercise 2: Handoff Document
-
-Prepare a screen for development:
-- All spacing annotated
-- States documented
-- Typography named
-- Colors referenced
+Annotate a screen for a developer. Use strictly Material semantic names for all colours and fonts. Mark which elements are flexible and which are fixed.
 
 ## Test Your Understanding
 
@@ -196,11 +172,11 @@ Prepare a screen for development:
 
 ## Key Takeaways
 
-- Compose builds UIs from composable functions
-- Columns and Rows = stacks
-- Use Material semantic tokens
-- Consistent spacing helps translation
-- Clear documentation speeds development
+- **Compose** is declarative; UI is a function of state.
+- Map your layouts to **Rows, Columns, and Boxes**.
+- Use **Material Semantic Tokens** for colour and type.
+- Design for **flexibility** using weights and adaptive layouts.
+- **Annotate** thoroughly to bridge the gap between design and code.
 
 ## Congratulations!
 
@@ -208,8 +184,6 @@ You've completed the Android Design Track!
 
 **What's Next?**
 
-→ [Android Engineering Track](../../engineering-track/android/01-kotlin-basics/01-introduction-to-kotlin.md) to learn Compose implementation
-
-→ [Android Convergence Track](../../convergence/android/01-android-motion-and-animation/01-compose-animation.md) for advanced Android skills
-
-→ Return to the [Course Overview](/course) to explore other tracks
+→ [Android Engineering Track](../../engineering-track/android/01-kotlin-basics/01-introduction-to-kotlin.md) to learn Compose implementation.
+→ [Android Convergence Track](../../convergence/android/01-android-motion-and-animation/01-compose-animation.md) for advanced Android skills.
+→ Return to the [Course Overview](/course) to explore other tracks.

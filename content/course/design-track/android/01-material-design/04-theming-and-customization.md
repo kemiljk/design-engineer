@@ -12,131 +12,107 @@
 
 ## Material Theming
 
-Material provides building blocks; theming makes them yours:
+Material Design provides the building blocks, but theming is how you make them yours. It separates the **customisable** visual layer from the **consistent** behavioural layer.
 
 ### What's Customisable
-- Colour palette
-- Typography
-- Shape (corner radius)
-- Motion (with care)
+You can drastically change the look of your app by adjusting:
+- **Colour palette:** The hues and tones used across the UI.
+- **Typography:** The fonts and scale used for text.
+- **Shape:** The corner radius of components like cards and buttons.
+- **Motion:** The speed and style of animations (though care is needed here).
 
 ### What Stays Consistent
-- Component behaviour
-- Accessibility standards
-- Interaction patterns
-- Information architecture
+To ensure your app remains usable and "feels" like an Android app, you should maintain:
+- **Component behaviour:** A switch should still slide; a button should still ripple.
+- **Accessibility standards:** Contrast ratios and touch targets must remain compliant.
+- **Interaction patterns:** Swipe gestures and navigation flows should follow system norms.
 
 ## Colour Theming
 
 ### Baseline to Brand
-Start with Material's colour roles, apply your brand:
-- Primary → Your brand colour
-- Secondary → Complementary accent
-- Tertiary → Additional expression
+Start with Material's semantic roles and map your brand to them:
+- **Primary:** Use your main brand colour here.
+- **Secondary:** Use a complementary accent.
+- **Tertiary:** Use this for moments of surprise or specific expression.
 
 ### Generating Palettes
-Use Material Theme Builder:
-1. Input your brand colours
-2. System generates tonal palettes
-3. Ensure accessibility
-4. Export to code/design tools
+Don't just pick one hex code. Use the **Material Theme Builder** to generate a full tonal palette.
+1.  Input your brand colours.
+2.  The system generates all the necessary tones (containers, surfaces, on-colours).
+3.  Check the generated contrast ratios to ensure accessibility.
+4.  Export the theme to your codebase (Jetpack Compose or XML).
 
 ### Dark Theme
-Don't just invert—adjust:
-- Desaturate slightly
-- Ensure contrast ratios
-- Test readability
-- Elevations look different
+Theming for Dark Mode isn't just inversion.
+- **Desaturate:** Bright colours vibrate against dark backgrounds. Use softer, pastel versions of your brand colours.
+- **Surface Tones:** Dark surfaces often have a slight blue or violet tint in Material, rather than pure black, to create depth.
 
 ## Typography Theming
 
 ### Custom Fonts
-Replace default with your brand font:
-- Display: Expressive brand font
-- Body: Readable, possibly different font
-- Labels: Clear, functional
+You are not stuck with Roboto. Replacing the font is the single most impactful branding move you can make.
+- **Display:** Use an expressive, unique font for large headlines to capture your brand voice.
+- **Body:** Use a highly legible serif or sans-serif font for long-form reading.
+- **Labels:** Stick to a functional font (often the system default) for UI elements like buttons to ensure clarity.
 
 ### Adjusting Scale
-Modify sizes while keeping roles:
-- Maintain hierarchy relationships
-- Ensure readability
-- Test on devices
-- Consider accessibility
+You can tweak the default type scale. If your brand is bold and loud, increase the size and weight of your Headlines. If it's elegant and refined, use lighter weights and more generous letter spacing.
 
 ## Shape Theming
 
 ### Corner Radius
-Material supports different corner treatments:
-- Sharp: 0dp
-- Slightly rounded: 4dp
-- Rounded: 8-12dp
-- Very rounded: 16dp+
-- Full: Pill shapes
+Shape conveys personality. Material supports a wide range of corner treatments.
+- **Sharp (0dp):** Feels serious, precise, and professional.
+- **Slightly Rounded (4dp):** Feels traditional and safe.
+- **Rounded (8-12dp):** Feels modern and friendly.
+- **Fully Rounded (Pill):** Feels playful and casual.
 
 ### Applying Shape
-Different shapes for different components:
-- Small components: Buttons, chips (4-8dp)
-- Medium components: Cards, dialogs (12-16dp)
-- Large components: Sheets, backgrounds (16-28dp)
+You don't have to use one shape everywhere. You can mix them strategically.
+- **Small components** like buttons and chips often use full pill shapes (50% height radius).
+- **Medium components** like cards might use a 12dp radius.
+- **Large components** like bottom sheets might use a massive 28dp radius to signal they are separate surfaces.
 
 ### Brand Expression
-Shape communicates personality:
-- Sharp corners: Professional, precise
-- Rounded corners: Friendly, approachable
-- Mixed: Dynamic, intentional
+Your shape strategy communicates your brand values. A banking app might use sharp corners to convey stability. A dating app might use fully rounded shapes to convey approachability.
 
 ## Putting It Together
 
-### Example Theme
+### Example Theme: "EcoMarket"
 
 **Colour:**
-
-| Role | Value |
-|------|-------|
-| Primary | Brand blue |
-| Secondary | Warm coral |
-| Tertiary | Soft green |
+- **Primary:** Forest Green (Nature, growth)
+- **Secondary:** Earthy Brown (Stability)
+- **Tertiary:** Sunny Yellow (Optimism)
 
 **Typography:**
-
-| Role | Font |
-|------|------|
-| Display | Brand serif |
-| Body | System sans-serif |
-| Labels | System sans-serif |
+- **Display:** "Merriweather" (Serif, organic feel)
+- **Body:** "Lato" (Clean, modern sans-serif)
 
 **Shape:**
-
-| Size | Corner Radius |
-|------|---------------|
-| Small | 8dp |
-| Medium | 16dp |
-| Large | 24dp |
+- **Cards:** 16dp rounded corners (Soft, organic)
+- **Buttons:** Full pill shape (Friendly)
 
 ### Consistency
-- Apply theme uniformly
-- Document decisions
-- Create design tokens
-- Build component library
+Once you define these values, apply them uniformly. Use design tokens (variables) in your code so that changing `shape-medium` updates every card in your app instantly.
 
 ## Try It Yourself
 
 ### Exercise 1: Theme Creation
 
-Use Material Theme Builder to:
-- Input a brand colour
-- Generate palettes
-- Preview in components
-- Export values
+Use the Material Theme Builder (web tool or Figma plugin) to:
+1. Input a brand colour.
+2. See how it generates the full tonal palette.
+3. Preview the result on standard components.
+4. Export the values.
 
 ### Exercise 2: Shape Exploration
 
-Take a Material component and explore:
-- Sharp corners version
-- Rounded version
-- Full rounded version
-
-Which fits your brand?
+Take a standard card component and create three variants:
+1. **Strict:** 0dp corners.
+2. **Soft:** 12dp corners.
+3. **Playful:** 24dp top-left and bottom-right, 0dp others.
+Which one changes the "vibe" of the component the most?
 
 ## Test Your Understanding
 
@@ -179,11 +155,10 @@ Which fits your brand?
 
 ## Key Takeaways
 
-- Theming customises Material for your brand
-- Colour, typography, and shape are customisable
-- Behaviour and accessibility stay consistent
-- Use tools like Material Theme Builder
-- Document and systematise your theme
+- **Theming** allows you to brand Material Design without breaking usability.
+- **Colour, Typography, and Shape** are the three main levers you can pull.
+- **Tools** like Material Theme Builder automate the complex math of accessibility.
+- **Consistency** is key—apply your theme tokens globally, not locally.
 
 ## Next Steps
 

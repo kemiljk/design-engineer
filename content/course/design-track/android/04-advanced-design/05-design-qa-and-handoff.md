@@ -1,211 +1,104 @@
 # Design QA and Handoff for Android
 
-> **Quick Summary:** Bridge the gap between design and implementation. Learn how to prepare your designs for Compose developers and ensure pixel-perfect results.
-
-## What You'll Learn
-
-- Preparing designs for handoff
-- Compose-aware specifications
-- Design QA process
-- Effective designer-developer collaboration
-
-<!-- illustration: design-handoff-flow -->
+> **Quick Summary:** Bridge the gap between design and implementation. Learn how to prepare your designs for Compose developers, write clear specifications using Material tokens, and ensure pixel-perfect results through a rigorous QA process.
 
 ## Why Handoff Matters
 
-Design doesn't stop when you finish the mockup. In fact, the most critical phase often begins after the pixels are polished: transferring that vision to the engineering team.
-
-Poor handoff is a silent productivity killer. It manifests as visual inconsistencies that erode product quality over time, wasted hours spent on back-and-forth clarifications, and a frustrated relationship between design and engineering. When specs are unclear, developers are forced to guess, leading to delayed releases and "design debt" that is hard to fix later.
-
-Conversely, a robust handoff process acts as a force multiplier. It enables developers to implement features accurately on the first try, speeds up the overall development cycle, and fosters a collaborative environment where both disciplines feel supported.
+Design doesn't stop when you finish the mockup. The most critical phase is transferring that vision to engineering. Poor handoff leads to "design debt"—visual inconsistencies, wasted hours, and a frustrated team. Robust handoff acts as a force multiplier, enabling developers to implement features accurately on the first try.
 
 ## Preparing for Handoff
 
-The goal of preparation is to remove ambiguity. A developer opening your file should never have to wonder, "Is this the final version?" or "Which padding value did they mean?"
-
 ### Design File Organization
-
-Your file structure is the first signal of intent. A disorganized file suggests disorganized thinking. Structure your deliverables to separate final, approved work from explorations and work-in-progress.
-
-A clear hierarchy might look like this:
-
-```text
-📁 Feature Name
-  📁 Final Designs
-    - Light Theme
-    - Dark Theme
-    - Dynamic Color variants
-  📁 States
-    - Loading
-    - Empty
-    - Error
-    - Success
-  📁 Size Variations
-    - Compact (Phone)
-    - Medium (Tablet/Foldable)
-    - Expanded (Desktop/Large Tablet)
-  📁 Components
-    - Specs & Variants
-  📄 Handoff Notes
-```
+Structure your deliverables to separate final work from explorations.
+- **Pages:** Feature Name, States, Components, Archive.
+- **Frames:** Label them clearly (e.g., `Profile / Loaded`, `Profile / Empty`).
 
 ### Naming Conventions
-
-Naming is more than just housekeeping; it is a shared language. When you name a layer `PrimaryButton/Pressed`, you are giving the developer a mental map that aligns with their codebase. When you leave a layer as `Frame 234` or `Group Copy Copy`, you force them to translate visual blobs into logical components every time they inspect the file.
-
-Adopting a developer-friendly naming convention—like using PascalCase for components (`ProductCard`) or slash-notation for variants (`BottomSheet/Handle`)—reduces cognitive load and shows that you understand the implementation environment.
+Naming is a shared language.
+- Use **PascalCase** for components (`ProductCard`).
+- Use **slash-notation** for variants (`PrimaryButton/Pressed`).
+This matches the mental model of a codebase.
 
 ### Match Compose Thinking
-
-Jetpack Compose, Android's modern UI toolkit, is declarative. It builds UIs by stacking "Composables" (functions) rather than nesting XML views. Your layer structure should reflect this mental model. Group elements logically into Columns (vertical stacks), Rows (horizontal stacks), and Boxes (z-index stacks). Instead of manually positioning elements, use auto-layout to simulate how Compose handles constraints and spacing.
+Jetpack Compose is declarative. It builds UIs by stacking functions.
+- Group elements into **Columns** (vertical) and **Rows** (horizontal).
+- Use **Auto Layout** to simulate constraints.
+- Avoid random groups; make every container meaningful.
 
 ## Compose-Aware Specifications
 
-Standard CSS specs don't always translate 1:1 to Android. To be truly helpful, your specifications should speak the language of Material Design and Compose.
-
 ### Spacing Values
-
-Android developers don't typically use random pixel values. They rely on the Material Design spacing scale. By sticking to this scale, you ensure your design fits naturally into the system.
-
-| Name | Value | Use Case |
-|------|-------|----------|
-| xs | 4dp | Inline elements |
-| sm | 8dp | Related items |
-| md | 16dp | Section spacing |
-| lg | 24dp | Major sections |
-| xl | 32dp | Screen padding |
+Android developers rely on the Material Design spacing scale (4, 8, 16, 24dp). Avoid random values like 13px. Sticking to the 8dp grid ensures your design fits the system.
 
 ### Typography Mapping
-
-Similarly, type styles should map to the Material Type Scale. Avoid creating custom text styles unless absolutely necessary. Using the system roles ensures that font scaling and dynamic type work automatically.
-
-| Design | Material | Compose Implementation |
-|--------|----------|---------|
-| Display Large | displayLarge | `MaterialTheme.typography.displayLarge` |
-| Headline Medium | headlineMedium | `MaterialTheme.typography.headlineMedium` |
-| Body Large | bodyLarge | `MaterialTheme.typography.bodyLarge` |
-| Label Small | labelSmall | `MaterialTheme.typography.labelSmall` |
+Map your styles to the **Material Type Scale** (`displayLarge`, `headlineMedium`, `bodyLarge`). Avoid creating custom text styles unless necessary. This ensures font scaling works automatically.
 
 ### Color Documentation
-
-Hard-coded hex values are brittle. They break in dark mode and fail to support Dynamic Color. Instead, specify colors using **Material Color Roles**. This abstraction allows the system to swap the actual color values based on the user's theme or wallpaper while preserving the semantic meaning of the element.
-
-| Design Token | Compose Colour |
-|--------------|----------------|
-| Primary text | `MaterialTheme.colorScheme.onSurface` |
-| Secondary text | `MaterialTheme.colorScheme.onSurfaceVariant` |
-| Background | `MaterialTheme.colorScheme.surface` |
-| Accent | `MaterialTheme.colorScheme.primary` |
-| Error | `MaterialTheme.colorScheme.error` |
+Hard-coded hex values break in dark mode. Specify colors using **Material Color Roles**.
+- `colorScheme.primary` (Brand).
+- `colorScheme.surface` (Background).
+- `colorScheme.onSurface` (Text).
+This allows the system to swap values based on the theme or wallpaper (Dynamic Color).
 
 ### Component Specifications
-
-When specifying a component, go beyond just the visual properties. You need to define the logic of the component.
-
-**Visual Properties** define the look: corner radius (Shape), shadow depth (Elevation), border strokes, and background colors.
-
-**Sizing behaviors** tell the developer how the component adapts. Does it have a fixed width? Does it fill the available space? Does it wrap its content? Explicitly stating "Fill width, fixed height" prevents layout bugs on different screen sizes.
-
-**Content rules** handle the variable data. What happens if the text is too long? Does it truncate or wrap? How do icons align if the text is short?
+Define the logic, not just the look.
+- **Visual:** Shape, Elevation, Stroke.
+- **Sizing:** Fixed width? Fill width? Wrap content?
+- **Content:** What happens if text is too long? (Truncate vs. Wrap).
 
 ## Creating Spec Documents
 
-### Screen Specifications
-
-A visual mockup shows the "happy path," but a spec document explains the system. For each screen, provide a brief **Overview** covering its purpose, entry points, and how it adapts to different window size classes.
-
-Detail the **Layout Structure**, explaining which parts scroll, which are pinned, and how safe areas (like the notch or gesture bar) are handled. Finally, document the **Interactions**—where does tapping this button lead? What happens when the user swipes?
-
 ### Component Spec Template
-
-Here is an example of how to document a component thoroughly:
-
 ```markdown
 ## Filled Button
-
-### Visual
-- Shape: RoundedCornerShape(100)
-- Background: colorScheme.primary
-- Elevation: 0dp (resting), 2dp (pressed)
-
-### Sizing
-- Height: 40dp
-- Padding: 24dp horizontal, 0dp vertical
-- Min Width: 64dp
-
-### Typography
-- Style: labelLarge
-- Color: colorScheme.onPrimary
-
-### States
-- Enabled: Full opacity
-- Disabled: 38% content opacity
-- Pressed: StateLayerOpacity.Pressed overlay
-- Focused: StateLayerOpacity.Focus overlay
-
-### Accessibility
-- Min touch target: 48dp
-- Content description: Button text
-- Role: Button
+- **Shape:** RoundedCornerShape(100)
+- **Background:** colorScheme.primary
+- **Typography:** labelLarge
+- **Sizing:** Height 40dp, Min Width 64dp
+- **States:**
+  - Disabled: 38% opacity
+  - Pressed: Ripple overlay
+- **Accessibility:** Min touch target 48dp, Description="Button Text"
 ```
 
 ## Design QA Process
 
-Design Quality Assurance (QA) is the process of verifying that the implemented product matches the design intent. It is not just about finding bugs; it is about upholding the standard of quality.
-
 ### Pre-Development Review
-
-Before you even hand off designs, run a self-check. Have you designed all the states? Are both light and dark themes complete? Have you tested your layout against different window size classes? Handing off incomplete work shifts the burden of decision-making to the developer, which often leads to "programmer art" solutions for edge cases.
+Run a self-check before handoff. Have you designed all states (Empty, Error, Loading)? Have you tested Dark Mode? Handing off incomplete work forces developers to guess.
 
 ### The Verification Loop
-
-During development, establish a review loop. Don't wait until the feature is merged to look at it. Request early builds or screenshots.
-
-**Visual Accuracy:** Check that colors utilize the correct theme roles and that spacing aligns with the 8dp grid. Verify typography styles and icon weights.
-
-**Responsive Behavior:** Resize the window. Does the layout adapt gracefully from compact to medium to expanded? Do constraints hold up?
-
-**Theme Support:** Toggle dark mode. Does the interface remain legible? Do surfaces elevate correctly (becoming lighter rather than using shadows)?
-
-**Accessibility:** Turn on TalkBack. Are touch targets large enough? Are content descriptions present and meaningful?
+During development, request early builds.
+- **Visual Accuracy:** Does spacing align with the 8dp grid?
+- **Responsive Behavior:** Does the layout adapt from phone to tablet?
+- **Theme Support:** Does Dark Mode work?
+- **Accessibility:** Turn on TalkBack. Are touch targets large enough?
 
 ## Designer-Developer Collaboration
 
-The most effective tool for handoff is not a document, but a conversation.
-
 ### Speak the Language
-
-Learning the basics of Compose helps you communicate effectively. Understanding that a **Composable** is just a UI function, a **Modifier** is how you style it, and **State** is what drives data updates allows you to speak to developers in their own terms.
+Learn basic Compose concepts.
+- **Composable:** A UI function.
+- **Modifier:** How you style/layout a component.
+- **State:** What drives data updates.
+Using these terms earns you respect and clarity.
 
 ### Communication Best Practices
-
-When writing specs, use platform-standard units (dp, not px). Reference Material tokens rather than raw values. Most importantly, explain the **rationale**. Telling a developer *why* a button is placed at the bottom of the screen (e.g., "for reachability on tall devices") makes them a partner in the decision, rather than just an executioner of orders.
-
-In reviews, be specific. Instead of saying "this looks wrong," provide a side-by-side comparison or an overlay showing exactly where the padding is off. Prioritize your feedback—distinguish between P1 (blocking issues) and P3 (polish).
-
-### Regular Touchpoints
-
-Establish a rhythm of collaboration:
-1.  **Kickoff:** Walk through designs together before code is written.
-2.  **Check-ins:** Review progress mid-flight to catch misunderstandings early.
-3.  **QA Sessions:** A dedicated time for detailed review before release.
-4.  **Retrospective:** Discuss what went well and what could be improved for next time.
+- Explain the **Rationale**: "Button is at the bottom for reachability."
+- Be **Specific**: Use overlays to show exactly where padding is off.
+- Establish **Regular Touchpoints**: Kickoffs, Check-ins, QA Sessions.
 
 ## Tools for Handoff
-
-- **Figma Dev Mode:** Use this to inspect properties and view component props directly.
-- **Material Theme Builder:** Generate and export token files that developers can drop directly into the codebase.
-- **Relay:** For teams using Figma, Relay allows you to package UI components and generate production-ready Compose code.
+- **Figma Dev Mode:** Inspect properties directly.
+- **Material Theme Builder:** Export token files for developers.
+- **Relay:** Generate production-ready Compose code from Figma components.
 
 ## Try It Yourself
 
-### Exercise 1: Spec a Card Component
-
-Create a complete specification for a Card component. Don't just draw it—define it. List every visual property, every state (hover, pressed, disabled), and the sizing constraints. Explicitly note accessibility requirements like touch targets and content descriptions.
+### Exercise 1: Spec a Card
+Create a complete spec for a Card component. List every visual property, state, and sizing constraint. Note accessibility requirements.
 
 ### Exercise 2: QA Review
-
-Take a screenshot of an implemented screen and place it next to your design in Figma. Set the screenshot to 50% opacity and overlay it. Note every difference. List them out and categorize them by severity. This "pixel peeping" trains your eye to spot subtle regressions.
+Take a screenshot of an implemented screen. Overlay it on your design at 50% opacity. Note every difference. This "pixel peeping" trains your eye.
 
 ## Test Your Understanding
 
@@ -248,19 +141,14 @@ Take a screenshot of an implemented screen and place it next to your design in F
 
 ## Key Takeaways
 
-- Organization and naming are your first tools for communication.
-- Specifications must speak the language of Material Design (tokens, roles, scale).
-- Documentation should cover logic and behavior, not just visuals.
-- Design QA is a collaborative process of upholding quality.
-- The goal is a shared understanding between design and engineering.
+- **Naming** is your first tool for communication.
+- Specs must speak **Material Design** (tokens, roles).
+- Document **logic and behavior**, not just visuals.
+- **Design QA** is a collaborative process.
+- The goal is a **shared understanding** between design and engineering.
 
 ## Module Complete! 🎉
 
-You've completed the Advanced Design module for Android. You now have skills to:
-- Design accessible Android experiences
-- Create adaptive dark mode and dynamic colour designs
-- Use Material motion effectively
-- Design for phones, tablets, foldables, and watches
-- Collaborate with Compose developers
+You've completed the Advanced Design module for Android. You now have the skills to design accessible, adaptive, and production-ready Android apps.
 
 Return to [Course Home](/course) or continue with another track →

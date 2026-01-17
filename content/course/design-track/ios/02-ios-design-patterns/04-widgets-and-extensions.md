@@ -11,21 +11,21 @@
 
 ## Home Screen Widgets
 
-Widgets are windows into your app's content, placed directly on the Home Screen alongside app icons. They come in three standard sizes (Small, Medium, Large) plus an Extra Large size for iPad.
+Widgets are windows into your app's content, placed directly on the Home Screen alongside app icons. They come in three standard sizes (Small, Medium, Large), plus an Extra Large size for iPad.
 
 ### The Glanceable Mindset
 
 A widget is not a mini-app. It's a dashboard. Users view their Home Screen for seconds at a time. If your widget requires interaction to be useful, or if the text is too dense to read in a glance, it fails its primary purpose.
 
 **What works well:**
-*   **Current status:** Weather, stock prices, battery level.
-*   **Timely content:** Upcoming calendar events, reminders due today.
-*   **Personalised surfacing:** "On this day" photos, suggested playlists.
+- **Current status:** Weather, stock prices, battery level.
+- **Timely content:** Upcoming calendar events, reminders due today.
+- **Personalised surfacing:** "On this day" photos, suggested playlists.
 
 **What fails:**
-*   **Navigation menus:** Don't use a widget just to launch deep links.
-*   **Forms:** You can't type in a widget.
-*   **Scrollable content:** Widgets (mostly) don't scroll. You show a snapshot, not a feed.
+- **Navigation menus:** Don't use a widget just to launch deep links.
+- **Forms:** You can't type in a widget.
+- **Scrollable content:** Widgets generally don't scroll. You show a snapshot, not a feed.
 
 ### Interactivity
 
@@ -36,9 +36,9 @@ With iOS 17, widgets gained interactivity. You can now toggle a todo item, play/
 Introduced in iOS 16, these are even more constrained. They sit below the clock on the Lock Screen, always visible when the phone is raised.
 
 **Design Constraints:**
-*   **Monochrome:** They use a single colour (tinted by the user's wallpaper choice).
-*   **Tiny canvas:** You have circular slots (like Apple Watch complications) or small rectangular slots.
-*   **Legibility:** They must be readable at arm's length.
+- **Monochrome:** They use a single colour (tinted by the user's wallpaper choice).
+- **Tiny canvas:** You have circular slots (like Apple Watch complications) or small rectangular slots.
+- **Legibility:** They must be readable at arm's length.
 
 Think of these as "status indicators" rather than content containers. A fitness ring, a weather icon, or a next meeting time work perfectly. A news headline does not.
 
@@ -47,18 +47,18 @@ Think of these as "status indicators" rather than content containers. A fitness 
 Live Activities are a special class of notification that stays persistent on the Lock Screen (and in the Dynamic Island on supported devices). They are perfect for events with a defined start and end.
 
 **Perfect Use Cases:**
-*   **Ridesharing:** "Driver arriving in 3 mins."
-*   **Food Delivery:** "Order picked up."
-*   **Sports:** "Q4 02:30 - Score 88-92."
-*   **Timers:** "15:00 remaining."
+- **Ridesharing:** "Driver arriving in 3 mins."
+- **Food Delivery:** "Order picked up."
+- **Sports:** "Q4 02:30 - Score 88-92."
+- **Timers:** "15:00 remaining."
 
 ### Designing for the Island
 
 On iPhone 14 Pro and newer, Live Activities inhabit the Dynamic Island. This area expands and contracts.
 
-*   **Compact State:** The default pill shape. You have a "leading" (left) and "trailing" (right) area. Show the most critical data here (e.g., the score of a game).
-*   **Expanded State:** When a user long-presses the Island, it expands to show more detail. This is where you can show the play-by-play or driver details.
-*   **Minimal State:** If multiple apps are using the Island, yours might be reduced to a tiny circle. Ensure your most vital icon is recognisable even at this scale.
+- **Compact State:** The default pill shape. You have a "leading" (left) and "trailing" (right) area. Show the most critical data here (e.g., the score of a game).
+- **Expanded State:** When a user long-presses the Island, it expands to show more detail. This is where you can show the play-by-play or driver details.
+- **Minimal State:** If multiple apps are using the Island, yours might be reduced to a tiny circle. Ensure your most vital icon is recognisable even at this scale.
 
 ## Best Practices
 
@@ -75,9 +75,9 @@ Widgets don't update in real-time (except for Live Activities). The system gives
 ### Exercise 1: The Widget Hierarchy
 
 Take your app concept and design a **Small**, **Medium**, and **Large** widget.
-*   **Small:** Show *one* piece of data (e.g., "75°").
-*   **Medium:** Show that data plus context (e.g., "75°, High 82°, Low 60°").
-*   **Large:** Show the data, context, and a list of upcoming items (e.g., the 5-day forecast).
+- **Small:** Show *one* piece of data (e.g., "75°").
+- **Medium:** Show that data plus context (e.g., "75°, High 82°, Low 60°").
+- **Large:** Show the data, context, and a list of upcoming items (e.g., the 5-day forecast).
 
 ### Exercise 2: Live Activity Storyboard
 
@@ -128,11 +128,11 @@ Sketch the lifecycle of a Live Activity for a food delivery app.
 
 ## Key Takeaways
 
--   **Home Screen Widgets** are for glanceable, timely content. Interaction is limited.
--   **Lock Screen Widgets** are tiny, monochrome status indicators.
--   **Live Activities** handle real-time, ephemeral events (delivery, sports).
--   **Dynamic Island** integrates your Live Activity into the system status bar area.
--   Don't try to cram your whole app into a widget—focus on value per pixel.
+- **Home Screen Widgets** are for glanceable, timely content with limited interaction.
+- **Lock Screen Widgets** are tiny, monochrome status indicators.
+- **Live Activities** handle real-time, ephemeral events (delivery, sports).
+- **Dynamic Island** integrates your Live Activity into the system status bar area.
+- Don't try to cram your whole app into a widget—focus on value per pixel.
 
 ## Congratulations!
 

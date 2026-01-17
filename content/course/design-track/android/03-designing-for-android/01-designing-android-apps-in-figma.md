@@ -1,6 +1,6 @@
 # Designing Android Apps in Figma
 
-> **Quick Summary:** Set up your Figma files correctly for Android design with proper device sizes, Material components, and design tokens.
+> **Quick Summary:** Set up your Figma files correctly for Android design with proper device sizes, Material components, and design tokens. A well-structured file is the first step to a successful app.
 
 ## What You'll Learn
 
@@ -12,16 +12,17 @@
 ## File Setup
 
 ### Device Dimensions
-Common Android frame sizes (dp):
-- Compact phone: 360×800
-- Large phone: 412×915
-- Small tablet: 600×960
-- Large tablet: 840×1280
+Start with standard Android frame sizes. Remember to design in **dp** (density-independent pixels).
+- **Compact phone:** 360×800 dp (Standard starting point)
+- **Large phone:** 412×915 dp (Pixel Pro / large devices)
+- **Small tablet:** 600×960 dp
+- **Large tablet:** 840×1280 dp
 
 ### Page Organization
+Keep your file clean and navigable.
 ```text
 📄 Cover
-📄 Tokens & Styles
+📄 Tokens & Styles (Local definitions)
 📄 Components
 📄 Screens - Home
 📄 Screens - Detail
@@ -30,101 +31,83 @@ Common Android frame sizes (dp):
 ```
 
 ### Layout Grids
-Set up responsive grids:
-- Phone: 4 columns, 16dp margin, 16dp gutter
-- Tablet: 12 columns, 24dp margin, 24dp gutter
+Configure layout grids to match Material responsive guidance.
+- **Phone:** 4 columns, 16dp margin, 16dp gutter.
+- **Tablet:** 12 columns, 24dp margin, 24dp gutter.
+These grids ensure your content aligns correctly across different screen widths.
 
 ## Material Design Kit
 
 ### Official Resources
-Google provides Material Design 3 kits:
-- Figma Material Design Kit
-- Material Theme Builder
-- Component libraries
+Google provides the **Material Design 3 Kit** for Figma. Use it.
+- **Figma Community:** Search for "Material 3 Design Kit".
+- **Material Theme Builder:** A plugin that generates colour palettes and text styles automatically.
 
 ### Using the Kit
-1. Duplicate to your drafts
-2. Import as library
-3. Use instances of components
-4. Customize via themes
+1.  **Duplicate** the kit to your drafts or publish it as a library.
+2.  **Import** it into your project file.
+3.  **Use instances** of standard components like Top App Bars, Navigation Rails, and FABs.
+4.  **Customize** these instances using the Figma properties panel (e.g., toggle icons, change labels).
 
 ### Components Included
-- Buttons (all variants)
-- Navigation components
-- Selection controls
-- Lists and cards
-- Dialogs and sheets
-- All in light and dark modes
+The kit is comprehensive, covering Buttons (Filled, Tonal, Outlined, Text), Navigation (Bottom Bar, Rail, Drawer), Selection Controls (Switch, Checkbox, Radio, Chips), and Surfaces (Cards, Dialogs, Sheets).
 
 ## Typography Setup
 
 ### Roboto Font
-Default Android font:
-- Available in Figma
-- Multiple weights
-- Condensed variants
+**Roboto** is the standard system font for Android. It is clean, versatile, and legible. Figma has Google Fonts built-in, so you don't need to install it manually.
 
 ### Type Styles
-Create styles matching Material type scale:
-- Display Large/Medium/Small
-- Headline Large/Medium/Small
-- Title Large/Medium/Small
-- Body Large/Medium/Small
-- Label Large/Medium/Small
+Create text styles that map directly to the Material Type Scale.
+- **Display:** Large/Medium/Small (Hero headers)
+- **Headline:** Large/Medium/Small (Section headers)
+- **Title:** Large/Medium/Small (Component titles)
+- **Body:** Large/Medium/Small (Reading text)
+- **Label:** Large/Medium/Small (Button text, captions)
+ naming them strictly (e.g., "M3/Body/Large") ensures they map to code tokens.
 
 ## Color Setup
 
 ### Using Material Theme Builder
-1. Input brand colours
-2. Generate tonal palettes
-3. Export to Figma
-4. Apply as styles
+This plugin is your best friend.
+1.  Input your brand's primary colour.
+2.  The plugin generates the entire **Tonal Palette** (0-100) for primary, secondary, tertiary, neutral, and error colours.
+3.  It creates the semantic styles (Surface, On Surface, Primary Container) automatically.
+4.  It generates both **Light** and **Dark** modes.
 
 ### Color Styles Structure
-- Primary and on-Primary
-- Secondary and on-Secondary
-- Surface and on-Surface
-- Background and on-Background
-- Error and on-Error
-
-### Dark Theme
-Create parallel dark theme styles:
-- Surface colours adjusted
-- Text colours inverted
-- Primary colours adapted
+Avoid raw hex codes. Use the generated semantic tokens:
+- **Primary / On Primary:** High emphasis.
+- **Primary Container / On Primary Container:** Lower emphasis.
+- **Surface / On Surface:** Backgrounds and text.
+- **Outline:** Borders and dividers.
 
 ## Icon Resources
 
 ### Material Symbols
-Google's icon library:
-- Download from Google Fonts
-- Import SVGs to Figma
-- Multiple styles (outlined, rounded, sharp)
-- Variable weight
+Google's icon library is called **Material Symbols**.
+- **Variable:** They support variable weight (thin to black), fill (on/off), and optical size.
+- **Plugin:** Use the "Material Symbols" plugin in Figma to insert them directly.
+- **SVG:** If you download them, keep them as SVGs.
 
 ### Using Icons
-- 24dp standard size
-- Match weight to text
-- Outlined for unselected
-- Filled for selected
+- **Size:** Standard icon size is 24x24dp.
+- **Touch Target:** Always ensure the touch target is at least 48x48dp, even if the icon is smaller.
+- **Style:** Stick to one style (Outlined, Rounded, or Sharp) for consistency.
 
 ## Try It Yourself
 
 ### Exercise 1: File Setup
 
-Create a new Android project file:
-- Correct device frames
-- Layout grids configured
-- Material kit linked
-- Type styles created
+Create a new Figma file. Set up a phone frame (360x800). Configure a 4-column grid with 16dp margins. Link the Material 3 Design Kit.
 
 ### Exercise 2: First Screen
 
-Design a simple screen using:
-- Material navigation bar
-- Material cards
-- System icons
-- Proper type styles
+Design a simple "Dashboard" screen.
+1.  Place a **Top App Bar** with a title.
+2.  Add a **Card** containing a title and supporting text.
+3.  Add a **Floating Action Button** (FAB) in the bottom right corner.
+4.  Use the **Material Theme Builder** to apply a custom brand colour to the entire page.
 
 ## Test Your Understanding
 
@@ -167,11 +150,11 @@ Design a simple screen using:
 
 ## Key Takeaways
 
-- Start with correct device dimensions in dp
-- Use official Material Design kit
-- Set up semantic colour styles
-- Create type styles matching Material scale
-- Include both light and dark themes
+- Start with correct **dp dimensions** (360x800).
+- Use the **Material Design 3 Kit** to save time.
+- Use **Material Theme Builder** to generate accessible colour palettes.
+- Create semantic **Text Styles** that match the type scale.
+- Include **Light and Dark** modes from day one.
 
 ## Next Steps
 

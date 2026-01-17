@@ -1,145 +1,78 @@
 # Designing for Accessibility on iOS
 
-> **Quick Summary:** Accessible design isn't optional—it's essential. Learn how to design iOS apps that work beautifully with VoiceOver and other assistive technologies.
-
-## What You'll Learn
-
-- Understanding iOS accessibility features
-- Designing for VoiceOver users
-- Creating accessible touch targets
-- Testing accessibility in your designs
-
-<!-- illustration: ios-accessibility-focus -->
+> **Quick Summary:** Accessible design isn't optional—it's essential. Learn how to design iOS apps that work beautifully with VoiceOver and other assistive technologies, ensuring your product can be used by everyone.
 
 ## Why Accessibility Matters
 
-One in four adults has some form of disability. When you design for accessibility, you're:
-
-- **Reaching more users:** Over 1 billion people worldwide
-- **Improving usability for everyone:** Clear labels help all users
-- **Meeting legal requirements:** Many regions require accessible apps
-- **Following Apple's values:** Accessibility is core to iOS
+One in four adults has some form of disability. When you design for accessibility, you are not just ticking a legal box. You are reaching over 1 billion people worldwide. You are improving usability for everyone—clear labels and high contrast help tired users just as much as visually impaired ones. And critically, you are following Apple's core values; accessibility is deeply integrated into iOS, and your app should reflect that.
 
 ## iOS Accessibility Features
 
 ### VoiceOver
-Screen reader that speaks interface elements:
-- Reads labels, hints, and traits
-- Users navigate by swiping
-- Double-tap to activate elements
-- Rotor for quick navigation
+VoiceOver is a gesture-based screen reader that lets you enjoy using your iPhone even if you don't see the screen. It speaks interface elements, reading labels, hints, and traits. Users navigate by swiping to move focus and double-tapping to activate. Your job is to ensure the reading order makes sense and every element has a clear description.
 
 ### Dynamic Type
-System-wide text size adjustment:
-- Users choose their preferred size
-- Text scales from 82% to 310%
-- Your designs must accommodate this
+This system-wide feature allows users to choose their preferred text size. Text can scale from 82% to 310% of the default size. Your designs must accommodate this—layouts that break when text expands are broken layouts.
 
 ### Reduce Motion
-For users sensitive to animation:
-- Disables parallax effects
-- Simplifies transitions
-- Crossfade replaces zoom
+For users prone to motion sickness or vertigo, iOS offers a "Reduce Motion" setting. This replaces complex parallax and zoom effects with simple crossfades. You must design alternative transitions for these users.
 
 ### Increase Contrast
-Enhanced visual distinction:
-- Darker separators
-- Less transparency
-- Stronger text contrast
+This setting enhances visual distinction by darkening separators and reducing transparency. It ensures that text stands out sharply against backgrounds.
 
 ## Designing for VoiceOver
 
 ### Focus Order
-Elements are read in a logical sequence:
-
-1. **Top to bottom, left to right** (by default)
-2. **Group related elements** together
-3. **Skip decorative elements**
-4. **Ensure all interactive elements are reachable**
+VoiceOver reads elements in a logical sequence, typically top-to-bottom, left-to-right. However, you can group related elements so they are read together, reducing swipe fatigue. Ensure that decorative elements are skipped entirely to avoid noise.
 
 ### Meaningful Labels
-Every control needs a clear label:
-
+Every interactive control needs a label.
 **❌ Poor:** "Button", "Image"
 **✅ Good:** "Add to Cart", "Product photo of blue sneakers"
 
 ### Accessibility Hints
-Provide additional context when needed:
-
-**Label:** "Play"
-**Hint:** "Plays the selected podcast episode"
+Hints provide extra context. If the label is "Play," the hint might be "Plays the selected podcast episode." Use these sparingly for complex or non-standard interactions.
 
 ### Traits
-Tell VoiceOver what type of element it is:
-- Button
-- Link
-- Header
-- Selected/Not Selected
-- Adjustable (sliders)
+Traits tell VoiceOver what an element *is*. Is it a Button? A Link? Is it Selected? A trait like "Adjustable" tells the user they can swipe up or down to change a value (like a slider).
 
 ## Touch Target Guidelines
 
 ### Minimum Sizes
-Apple's Human Interface Guidelines specify:
-- **44×44 points** minimum touch target
-- Even if visual element is smaller
-- Padding counts toward touch area
+Apple's Human Interface Guidelines are strict: interactive elements must be at least **44x44 points**. This applies even if the visual icon is smaller. Add invisible padding to ensure users with motor impairments (or just large fingers) can tap accurately.
 
-### Spacing Between Targets
-Prevent accidental taps:
-- **8 points minimum** between targets
-- More space for critical actions
-- Consider motor impairments
+### Spacing
+Prevent accidental taps by leaving at least **8 points** between interactive targets. For critical or destructive actions, increase this spacing to prevent catastrophic errors.
 
 ## Color and Contrast
 
 ### Contrast Ratios
-WCAG guidelines for text:
-- **4.5:1** for normal text
-- **3:1** for large text (18pt+ or 14pt+ bold)
-- **3:1** for UI components
+Text must be legible. Follow WCAG guidelines:
+- **4.5:1** for normal text.
+- **3:1** for large text (18pt+ or 14pt+ bold).
+- **3:1** for UI components like inputs and buttons.
 
-### Don't Rely on Color Alone
-Always pair colour with another indicator:
-- Icons alongside coloured status
-- Text labels with coloured buttons
-- Patterns with coloured charts
+### Don't Rely on Colour Alone
+Never use colour as the only way to convey information. A red error message might look identical to a grey status text for a colour-blind user. Always pair colour with an icon or a clear text label.
 
 ## Designing for Dynamic Type
 
 ### Text Must Scale
-Your layouts should handle:
-- Extra small to accessibility XXL
-- Text wrapping and truncation
-- Responsive spacing
+Your layouts must be fluid. Containers should grow vertically as text expands. Avoid fixed-height rows that clip content.
 
-### Fixed vs. Scaling Elements
-- **Scale:** Body text, labels, buttons
-- **Consider:** Navigation, headers
-- **Careful:** Icons, images
+### Fixed vs. Scaling
+Most elements (Body text, labels, buttons) should scale. However, some elements like Tab Bars or Navigation Bars might stay fixed while the content inside them scales or truncates. Images and icons generally do not scale with text, but you should ensure they don't overlap expanding text.
 
-### Testing at Extreme Sizes
-Always preview designs at:
-- Smallest size (for density)
-- Largest size (for accessibility)
+### Testing
+Always preview your designs at the **Smallest** size (to check for awkward gaps) and the **Largest Accessibility Size** (to check for breaking layouts).
 
 ## Try It Yourself
 
 ### Exercise 1: Accessibility Audit
-
-Take a screen from your current project:
-1. Close your eyes and imagine using VoiceOver
-2. What would be read first? Last?
-3. Are all actions clearly labelled?
-4. Is the focus order logical?
+Take a screen you designed. Close your eyes. Describe the screen out loud element by element. Is the order logical? Did you miss anything? This simulates the VoiceOver experience.
 
 ### Exercise 2: Contrast Check
-
-Using a contrast checker tool:
-1. Test your primary text colour
-2. Test your secondary text colour
-3. Test button text against button background
-4. Ensure all meet minimum ratios
+Use a plugin like Stark or a web contrast checker. Test your primary text against your background. Test your button text against the button fill. Ensure every pair meets the 4.5:1 ratio.
 
 ## Test Your Understanding
 
@@ -182,11 +115,11 @@ Using a contrast checker tool:
 
 ## Key Takeaways
 
-- Accessibility benefits everyone, not just users with disabilities
-- Design for VoiceOver with clear labels and logical focus order
-- Maintain minimum 44×44pt touch targets
-- Ensure sufficient colour contrast (4.5:1 for text)
-- Test at all Dynamic Type sizes
+- **Accessibility** benefits everyone and is a core iOS value.
+- Design for **VoiceOver** by defining clear labels and logical order.
+- Respect the **44pt minimum touch target**.
+- Ensure **colour contrast** meets WCAG standards.
+- Test your app at **Dynamic Type** extremes.
 
 ## Next Steps
 

@@ -4,7 +4,7 @@ estimatedTime: 15
 
 # Capstone: iOS Design System
 
-> **Quick Summary:** Research similar apps, define your concept, and create iOS design tokens.
+> **Quick Summary:** Before designing a single screen, establish your app's foundation. Research similar apps, define your concept, and create a robust set of iOS-specific design tokens.
 
 **Time Estimate:** 2-3 hours
 
@@ -17,71 +17,60 @@ estimatedTime: 15
 
 ## Step 1: Research & Reference
 
-Before designing, understand the landscape:
-- Study 5-10 similar iOS apps
-- Review Apple's HIG for your app category
-- Note patterns: navigation choices, component usage
-- Screenshot specific elements that work well
+Great artists steal; great designers reference. Before you start drawing rectangles, understand the landscape.
+- **Competitor Audit:** Download 5-10 apps in your category. How do they handle navigation? What does their detail view look like?
+- **Pattern Matching:** Don't just look at features; look at *iOS patterns*. Do they use a modal for settings? Do they use a large title for the home screen?
+- **Collection:** Take screenshots. Annotate them. What works? What feels broken? This reference library will be your guide when you get stuck.
 
 ## Step 2: Define Your App
 
-Establish the foundation:
-- **App name** (fictional is fine)
-- **Core purpose** (one sentence)
-- **Target user** (be specific)
-- **Key jobs to be done** (3-5 tasks)
-- **Personality** (playful, professional, minimal, etc.)
+A pretty interface without a purpose is decoration. Define the soul of your app.
+- **Name:** Give it a name. It makes it real.
+- **Purpose:** Write one sentence that explains what it does. "A habit tracker that focuses on streaks."
+- **User:** Who is this for? "Busy professionals who forget to drink water."
+- **Personality:** Is it serious and data-heavy (Stocks)? Or playful and bouncy (Duolingo)? This dictates your visual choices.
 
 ## Step 3: Create iOS Tokens
 
-### Colour System
+Build your design system using iOS native values. Do not invent your own grid or type scale unless you have a very specific reason.
 
-| Token | Description |
-|-------|-------------|
-| Primary | Your brand colour + tints/shades |
-| Secondary | Accent colour if needed |
-| Background | System backgrounds for both modes |
-| Label | Text colours per HIG |
-| Semantic | Success, warning, destructive |
+### Colour System
+Define semantic tokens that support Light and Dark mode from day one.
+- **Primary:** Your brand colour. Define a `Light` version and a `Dark` version (usually lighter/desaturated).
+- **Backgrounds:** Use `System Background` (White/Black) and `Secondary Background` (Light Gray/Dark Gray).
+- **Labels:** Use `Label` (Black/White) and `Secondary Label` (Gray/Light Gray).
+- **Semantic:** define standard `Success` (Green), `Warning` (Orange), and `Destructive` (Red) states.
 
 ### Typography (SF Pro)
-
-| Style | Size | Weight |
-|-------|------|--------|
-| Large Title | 34pt | Bold |
-| Title 1 | 28pt | Bold |
-| Title 2 | 22pt | Bold |
-| Title 3 | 20pt | Semibold |
-| Headline | 17pt | Semibold |
-| Body | 17pt | Regular |
-| Callout | 16pt | Regular |
-| Subhead | 15pt | Regular |
-| Footnote | 13pt | Regular |
-| Caption | 12pt | Regular |
+Stick to the system styles. It guarantees accessibility.
+- **Large Title:** 34pt Bold (Page Headers)
+- **Title 2:** 22pt Bold (Section Headers)
+- **Headline:** 17pt Semibold (Important Text)
+- **Body:** 17pt Regular (Reading Text)
+- **Caption 1:** 12pt Regular (Metadata)
 
 ### Spacing
-
-Use iOS standard spacing: 8, 16, 20, 24, 32, 40, 64
+Use the 4pt grid, but rely heavily on the iOS standard values:
+- **8pt:** Tight spacing between related items.
+- **16pt:** Standard padding and margins.
+- **20-24pt:** Separating distinct sections.
 
 ## Step 4: Setup Light & Dark Mode
 
-Create colour styles that adapt:
-- Background colours for both modes
-- Text colours for both modes
-- System colours (iOS semantic colours)
-- Your brand colours in both modes
+Don't treat Dark Mode as an afterthought. Set up your Figma variables (or colour styles) now.
+- Create a "Mode" collection.
+- Map your semantic tokens (e.g., "Background/Primary") to values for both "Light" and "Dark".
+- Test it immediately by creating a frame and switching modes. If the text disappears, fix your tokens now.
 
 ## Checkpoint
 
 Before moving on, verify:
 
-- [ ] App concept defined with clear purpose
-- [ ] Reference research complete
-- [ ] Colour system with light/dark variants
-- [ ] Typography scale using SF Pro
-- [ ] Spacing scale defined
+- [ ] App concept is defined and clear.
+- [ ] You have a moodboard of reference screenshots.
+- [ ] Your Figma file has local styles for Colour and Typography.
+- [ ] You have tested swapping a frame between Light and Dark modes.
 
 ## Next Steps
 
 Continue to [Phase 2: Screen Design](./03-capstone-screens.md) →
-

@@ -1,6 +1,6 @@
 # iOS Colour and Materials
 
-> **Quick Summary:** iOS 26 introduces **Liquid Glass**, a dynamic material that unifies Apple's design language. Combined with system colours and standard materials, you can create beautiful, adaptive interfaces.
+> **Quick Summary:** iOS 26 introduces **Liquid Glass**, a dynamic material that unifies Apple's design language. Combined with semantic system colours and standard material layers, you can create interfaces that are beautiful, adaptive, and deeply integrated with the system.
 
 ## What You'll Learn
 
@@ -10,158 +10,96 @@
 - Dark mode considerations
 - Designing for accessibility
 
-## System Colors
+## System Colours
 
-Apple provides semantic colours that adapt automatically:
+Colour on iOS is not static. Apple provides a suite of semantic colours that adapt automatically to different environments, ensuring your app looks correct in Light Mode, Dark Mode, and various accessibility settings.
 
-### UI Element Colors
-- **Label:** Primary text
-- **Secondary Label:** Less prominent text
-- **Tertiary Label:** Disabled or placeholder text
-- **Separator:** Divider lines
-- **Background:** View backgrounds
+### UI Element Colours
 
-### Accent Colors
-- **System Blue:** Links, buttons
-- **System Green:** Success, positive
-- **System Red:** Destructive, errors
-- **System Orange:** Warnings
-- **System Yellow:** Highlights
-- **System Pink, Purple, Teal, Indigo:** Various accents
+Instead of picking a hex code for "black" text, you use **Label Color**. This ensures that when the device switches to Dark Mode, your text automatically turns white. The hierarchy is built-in:
+- **Label:** Primary text, fully opaque.
+- **Secondary Label:** Less prominent text, slightly transparent.
+- **Tertiary Label:** Disabled or placeholder text.
+- **Separator:** Divider lines that are barely visible but structurally important.
+- **System Background:** The base layer of your view.
 
-### Why System Colors?
-- Automatically adapt to light/dark mode
-- Respond to accessibility settings
-- Maintain consistency across iOS
-- Future-proof for new modes
+### Accent Colours
+
+Apple defines a palette of system tint colours—Blue, Green, Red, Orange, Yellow, Pink, Purple, Teal, and Indigo. These are not just "standard" RGB values; they are carefully tuned to remain vibrant and legible in both light and dark environments. Use **System Blue** for interactive elements like buttons and links, **System Red** for destructive actions, and **System Green** for success states.
+
+### Why Use System Colours?
+
+Using these semantic definitions future-proofs your app. If Apple introduces a "High Contrast Dark Mode" in a future update, your app will support it instantly without you writing a single line of code. It also ensures consistency; your "red" error message will match the "red" error message in the Settings app, creating a cohesive user experience.
 
 ## Dark Mode
 
-iOS apps should support both light and dark appearance:
-
-### What Changes
-- Background colours invert
-- Text colours adjust
-- System colours adapt
-- Elevation changes meaning
+Support for Dark Mode is mandatory for modern iOS apps. It isn't just a "night theme"; it's an aesthetic preference that many users utilize 24/7.
 
 ### Design Considerations
-- Don't just invert colours
-- Reduce contrast slightly in dark mode
-- Elevated surfaces get lighter (not darker)
-- Test both modes throughout design
 
-### Elevation in Dark Mode
-| Light Mode | Dark Mode |
-|------------|-----------|
-| Higher = more shadow | Higher = lighter background |
-| Base is white | Base is near-black |
+Dark Mode is not a simple inversion. You cannot just swap white for black.
+- **Contrast:** Pure black backgrounds can cause "smearing" on OLED screens when scrolling. Dark grey (System Background) is often better.
+- **Elevation:** In Light Mode, we use shadows to show depth. In Dark Mode, shadows are invisible. Instead, we use lightness. Higher surfaces are lighter grey; lower surfaces are darker grey.
+- **Saturation:** Bright, saturated colours can vibrate against dark backgrounds, causing eye strain. System colours automatically desaturate slightly in Dark Mode to remain comfortable.
 
 ## Materials
 
-iOS features two types of materials that help visually separate foreground elements from background content.
+iOS relies on translucency to convey depth. Materials allow background content to "shine through" foreground elements, maintaining context. iOS features two primary material systems.
 
 ### Liquid Glass (iOS 26+)
 
-**Liquid Glass** is the new dynamic material that forms a distinct functional layer for controls and navigation elements—floating above the content layer.
+**Liquid Glass** is the modern material for functional layers. It is used for navigation bars, tab bars, toolbars, and floating controls. It separates the "chrome" (interface) from the content.
 
 #### Characteristics
-- **Blurs content** behind it whilst maintaining legibility
-- **Reflects colour and light** from surrounding content
-- **Reacts to interactions** with fluid motion
-- **Morphs between states** during transitions
+Liquid Glass blurs the content behind it, but unlike older materials, it actively reflects the colour and light of the surroundings. It feels like a physical pane of glass. When you interact with a Liquid Glass control, it responds with fluid motion, morphing and shifting light.
 
-#### Where Liquid Glass Appears
-Liquid Glass automatically applies to:
-- Navigation bars and tab bars
-- Toolbars and sidebars
-- Sheets and popovers
-- Buttons and controls
-- Scroll edge effects
-
-#### Liquid Glass Variants
-
-| Variant | Use Case |
-|---------|----------|
-| **Regular** | Most components—maintains legibility for text, alerts, sidebars, popovers |
-| **Clear** | Floating above photos/videos—highly translucent for immersive media experiences |
+#### Variants
+**Regular Liquid Glass** is the workhorse. It maintains high legibility for text and icons, making it perfect for navigation bars and sidebars.
+**Clear Liquid Glass** is highly translucent. It is reserved for immersive media experiences—like a floating playback control over a full-screen video—where seeing the content is more important than the interface itself.
 
 #### Design Guidelines
-- **Don't overuse.** Reserve Liquid Glass for functional elements (controls, navigation). Overuse distracts from content.
-- **Separate content from navigation.** Establish a clear hierarchy with navigation floating above content.
-- **Let content infuse the material.** Be judicious with colour in controls so content can shine through.
-- **Test with accessibility settings.** Liquid Glass adapts when users enable Reduce Transparency or Reduce Motion.
+Use Liquid Glass sparingly. It is for the functional frame of your app, not the content itself. If you overuse it, the interface becomes noisy and difficult to read. Let the content infuse the material—don't force hard background colours onto your navigation bars.
 
 ### Standard Materials (Content Layer)
 
-Use standard materials within the content layer to create visual distinction:
-
-| Material | Transparency | Use Case |
-|----------|-------------|----------|
-| **Ultra Thin** | Most transparent | Subtle overlay |
-| **Thin** | High transparency | Light separation |
-| **Regular** | Balanced | Default choice |
-| **Thick** | Less transparent | Strong separation |
-
-### When to Use Each Type
-- **Liquid Glass:** Navigation and controls (floating layer)
-- **Standard Materials:** Content backgrounds, cards, and visual distinction within the content layer
+Within the content area itself (the scrollable part of your view), use Standard Materials to create separation. These range from **Ultra Thin** (subtle overlay) to **Thick** (strong separation). They are static and do not have the dynamic lighting properties of Liquid Glass, making them less distracting for reading.
 
 ## Vibrancy
 
-Text and symbols can interact with materials:
-
-### Vibrancy Types
-- **Label:** Primary text on materials
-- **Secondary Label:** Less prominent
-- **Tertiary Label:** Even more subtle
-- **Separator:** Divider lines
-
-Vibrant content appears to be part of the underlying material.
+Vibrancy is a technique where foreground content (text, icons) blends with the background material. Instead of painting text with a solid colour, the system uses a special blending mode that pulls colour from the blurred background and brightens it. This makes the text look like it is etched into the glass, ensuring perfect contrast and a premium feel.
 
 ## Accessibility
 
-### Color Contrast
-System colours maintain accessible contrast.
-Custom colours must meet:
-- 4.5:1 for normal text
-- 3:1 for large text
+### Colour Contrast
 
-### Increase Contrast
-iOS has an "Increase Contrast" setting:
-- System colours respond automatically
-- Test your app with this enabled
+Beauty cannot compromise usability. All custom text must maintain a contrast ratio of **4.5:1** against its background (or 3:1 for large text). System colours handle this automatically.
 
-### Don't Rely on Color Alone
-Pair colour with:
-- Icons
-- Text labels
-- Patterns or shapes
+### Adaptability
+
+iOS offers powerful accessibility settings like "Increase Contrast" and "Reduce Transparency."
+- When transparency is reduced, your beautiful Liquid Glass tab bar turns solid grey. This is intended behaviour. You must design your app to look good in this "flat" state as well.
+- When contrast is increased, light greys become dark greys. Ensure your visual hierarchy doesn't rely solely on subtle colour differences.
+
+### Don't Rely on Colour Alone
+
+Never use colour as the only indicator of state. A red circle might look identical to a green circle for a colour-blind user. Always pair colour with a secondary cue: an icon (check vs. x), a text label ("Success" vs. "Error"), or a shape change.
 
 ## Try It Yourself
 
 ### Exercise 1: Liquid Glass Audit
 
-Open Apple's built-in apps on iOS 26:
-1. Identify where Liquid Glass appears (navigation bars, tab bars, toolbars)
-2. Notice how content blurs behind Liquid Glass elements
-3. Observe how the material reflects surrounding colours
-4. Interact with controls and watch the fluid response
+Open Apple's built-in apps (Music, Maps, Safari) on iOS 26. Identify the boundary between the Liquid Glass layer and the content layer. Notice how the album art in Music blurs beautifully behind the playback controls. Interact with the buttons and observe the fluid lighting response.
 
 ### Exercise 2: Colour Palette
 
-Create a colour palette using system colours:
-- Background colours for the content layer
-- Text colours at different hierarchy levels
-- Accent colours (use sparingly with Liquid Glass)
-- Ensure both light and dark modes work
+Define a semantic colour palette for a new app. Choose a primary brand colour and define its Light and Dark variants. Create a "Success" state using System Green and an "Error" state using System Red. Test your palette against white (Light Mode) and dark grey (Dark Mode) backgrounds to ensure legibility.
 
 ### Exercise 3: Material Hierarchy
 
-Sketch a simple app screen showing:
-- The Liquid Glass layer (navigation, controls)
-- The content layer (using standard materials where needed)
-- Clear visual separation between layers
+Sketch a screen layout that uses depth correctly.
+1.  **Background:** Content layer.
+2.  **Middle:** A standard material card floating on the content.
+3.  **Top:** A Liquid Glass navigation bar floating above everything.
 
 ## Test Your Understanding
 
@@ -204,13 +142,12 @@ Sketch a simple app screen showing:
 
 ## Key Takeaways
 
-- **Liquid Glass** is the new material for navigation and controls in iOS 26
-- Use **Regular** variant for text-heavy elements, **Clear** variant for media experiences
-- **Standard Materials** are for the content layer—creating visual distinction
-- Use semantic system colours for automatic adaptation
-- Design for both light and dark modes
-- Don't overuse Liquid Glass—reserve for functional elements
-- Always test with accessibility settings (Reduce Transparency, Reduce Motion)
+- **Liquid Glass** creates a distinct functional layer for navigation and controls.
+- Use **Standard Materials** within the content layer to organize information.
+- **Semantic System Colours** adapt automatically to Light and Dark modes.
+- **Dark Mode** requires specific design choices; it is not just a colour inversion.
+- **Vibrancy** ensures text remains legible on translucent backgrounds.
+- Always design with **Accessibility** (contrast, transparency settings) in mind.
 
 ## Next Steps
 

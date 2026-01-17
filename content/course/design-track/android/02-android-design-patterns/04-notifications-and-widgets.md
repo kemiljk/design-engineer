@@ -13,17 +13,15 @@
 
 Notifications are an interruption. Your job is to ensure the value of the information outweighs the cost of the interruption.
 
-### The Good, The Bad, and The Spam
-
 **Good notifications** are:
-*   **Timely:** "Your driver has arrived." (Actionable now)
-*   **Personal:** "Alice commented on your photo." (About the user)
-*   **Actionable:** "Check-in for your flight." (Task-oriented)
+- **Timely:** "Your driver has arrived." (Actionable now)
+- **Personal:** "Alice commented on your photo." (About the user)
+- **Actionable:** "Check-in for your flight." (Task-oriented)
 
 **Bad notifications** are:
-*   **Vague:** "Check out what's new!" (Clickbait)
-*   **Passive:** "You haven't logged in for 3 days." (Guilt trip)
-*   **Marketing:** "10% off sale." (Unless explicitly opted-in)
+- **Vague:** "Check out what's new!" (Clickbait)
+- **Passive:** "You haven't logged in for 3 days." (Guilt trip)
+- **Marketing:** "10% off sale." (Unless explicitly opted-in)
 
 ### Notification Channels
 
@@ -39,15 +37,15 @@ A standard notification isn't just text; it's a rich surface.
 Contains the App Icon, App Name, and Timestamp. This establishes trust and context.
 
 ### The Content Area
-*   **Title:** Short and punchy. "New Message" or "Flight Delayed."
-*   **Text:** The detail. "Alice: Hey, are we still on for lunch?"
-*   **Large Icon (Optional):** An avatar or thumbnail on the right. Essential for messaging apps to show *who* is talking.
+- **Title:** Short and punchy. "New Message" or "Flight Delayed."
+- **Text:** The detail. "Alice: Hey, are we still on for lunch?"
+- **Large Icon (Optional):** An avatar or thumbnail on the right. Essential for messaging apps to show *who* is talking.
 
 ### The Expanded View
 Users can drag down on a notification to expand it. This is where you can show:
-*   **Big Picture Style:** A large photo preview.
-*   **Big Text Style:** The full email body.
-*   **Inbox Style:** A list of multiple new messages.
+- **Big Picture Style:** A large photo preview.
+- **Big Text Style:** The full email body.
+- **Inbox Style:** A list of multiple new messages.
 
 ### Actions
 You can add up to three action buttons at the bottom (e.g., "Reply," "Archive," "Mark as Read"). These are powerful because they let users complete tasks *without opening the app*.
@@ -57,20 +55,12 @@ You can add up to three action buttons at the bottom (e.g., "Reply," "Archive," 
 Widgets on Android are mini-applications on the home screen. They are more interactive than iOS widgets.
 
 ### Resizability
-
-Unlike iOS's fixed sizes, Android widgets are often resizable by the user. Your design must adapt fluidly.
-*   **2x1:** Might show just a weather icon and temperature.
-*   **4x2:** Shows the 3-day forecast.
-*   **4x4:** Shows the weekly forecast and a radar map.
+Unlike iOS's fixed sizes, Android widgets are often resizable by the user. Your design must adapt fluidly. A widget might start as a **2x1** tile showing just a weather icon, but if the user stretches it to **4x4**, it should reveal a weekly forecast and a radar map.
 
 ### Interactivity
-
-Android widgets support basic interactions:
-*   **Scrollable Lists:** Users can scroll through their email inbox or todo list directly on the home screen.
-*   **Control Buttons:** Play/Pause music, toggle lights, or check off items.
+Android widgets support basic interactions. Users can scroll through lists (like an email inbox) or tap buttons (like play/pause on a media player) directly on the home screen.
 
 ### Updates
-
 Widgets update periodically (usually every 30+ minutes) to save battery. Do not use widgets for second-by-second countdowns unless you are using a foreground service (like a media player), which has a higher battery cost.
 
 ## Try It Yourself
@@ -130,10 +120,10 @@ Sketch a "Notes" widget.
 
 ## Key Takeaways
 
--   **Notifications are a privilege.** Deliver value, or get blocked.
--   Use **Channels** to categorize your alerts.
--   **Actions** make notifications powerful productivity tools.
--   **Widgets** on Android can be scrollable and interactive; design for variable sizes.
+- **Notifications are a privilege.** Deliver value, or get blocked.
+- Use **Channels** to categorize your alerts.
+- **Actions** make notifications powerful productivity tools.
+- **Widgets** on Android can be scrollable and interactive; design for variable sizes.
 
 ## Congratulations!
 

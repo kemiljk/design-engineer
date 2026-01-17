@@ -87,9 +87,9 @@ Record a quick Loom or screen capture of you clicking through the prototype. See
 Before you submit:
 
 - [ ] **Design System:** Are colors, type, and spacing using tokens?
-- **Responsiveness:** Do you have Desktop, Tablet, and Mobile views?
-- **Prototype:** Is there a working flow from Hero to Signup?
-- **Documentation:** Is the file organized and labeled?
+- [ ] **Responsiveness:** Do you have Desktop, Tablet, and Mobile views?
+- [ ] **Prototype:** Is there a working flow from Hero to Signup?
+- [ ] **Documentation:** Is the file organized and labeled?
 
 ## What's Next
 

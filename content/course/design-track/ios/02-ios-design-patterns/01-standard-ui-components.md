@@ -54,9 +54,9 @@ Text fields come with built-in behaviours you should leverage. A **Secure** text
 Where the web might use a checkbox, iOS uses a **Switch** for binary on/off states. It provides clear visual feedback and a satisfying tactile interaction.
 
 For choosing between options, you have several tools:
-*   **Segmented Controls:** Best for 2-5 mutually exclusive options that change the view instantly (like "Map" vs "List").
-*   **Pickers:** Used for dates or selecting from long lists. Modern date pickers can be inline calendars or compact fields that expand.
-*   **Steppers:** Simple plus/minus controls for small integer adjustments.
+- **Segmented Controls:** Best for 2-5 mutually exclusive options that change the view instantly (like "Map" vs "List").
+- **Pickers:** Used for dates or selecting from long lists. Modern date pickers can be inline calendars or compact fields that expand.
+- **Steppers:** Simple plus/minus controls for small integer adjustments.
 
 ## Progress and Activity
 
@@ -75,10 +75,10 @@ One of the most common questions is: "Should I build a custom component?"
 ### The Case for Standard
 
 Standard components are "free" in many ways. They automatically support:
-*   **Dynamic Type:** Text resizes for users with visual impairments.
-*   **Dark Mode:** Colours adapt automatically.
-*   **Accessibility:** VoiceOver labels and traits are pre-configured.
-*   **Evolution:** When Apple updates the visual style of iOS, your standard components update automatically.
+- **Dynamic Type:** Text resizes for users with visual impairments.
+- **Dark Mode:** Colours adapt automatically.
+- **Accessibility:** VoiceOver labels and traits are pre-configured.
+- **Evolution:** When Apple updates the visual style of iOS, your standard components update automatically.
 
 ### The Case for Custom
 
@@ -137,10 +137,10 @@ Sketch a "Profile" screen for an app. Decide which list style (Plain or Inset Gr
 
 ## Key Takeaways
 
--   Use **Filled** buttons for primary actions and **Gray/Tinted** for secondary ones.
--   **Inset Grouped** lists are the standard for forms and settings; **Plain** lists for content.
--   Leverage native input behaviours like correct keyboard types and **Switches** instead of checkboxes.
--   Standard components give you accessibility and platform updates for free; custom components require you to build those features yourself.
+- Use **Filled** buttons for primary actions and **Gray/Tinted** for secondary ones.
+- **Inset Grouped** lists are the standard for forms and settings; **Plain** lists for content.
+- Leverage native input behaviours like correct keyboard types and **Switches** instead of checkboxes.
+- Standard components give you accessibility and platform updates for free; custom components require you to build those features yourself.
 
 ## Next Steps
 

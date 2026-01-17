@@ -1,189 +1,83 @@
 # Designing for Accessibility on Android
 
-> **Quick Summary:** Accessible design is inclusive design. Learn how to create Android apps that work seamlessly with TalkBack and other assistive technologies.
-
-## What You'll Learn
-
-- Understanding Android accessibility services
-- Designing for TalkBack users
-- Creating accessible touch targets
-- Using the Accessibility Scanner
-
-<!-- illustration: android-accessibility-focus -->
+> **Quick Summary:** Accessible design is inclusive design. Learn how to create Android apps that work seamlessly with TalkBack and other assistive technologies, ensuring your app can be used by anyone, anywhere.
 
 ## Why Accessibility Matters
 
-Accessible design benefits everyone:
-
-- **26% of US adults** have some form of disability
-- **Better usability** for all users in various contexts
-- **Legal compliance** in many markets
-- **Google Play requirements** for quality apps
+Accessible design isn't just about charity or compliance; it's about making a better product. Over **26% of US adults** live with some form of disability. When you design for accessibility, you improve usability for everyone—large touch targets help users with motor impairments *and* users carrying groceries. High contrast helps users with low vision *and* users in bright sunlight. Google Play also boosts the discoverability of high-quality, accessible apps.
 
 ## Android Accessibility Services
 
-### TalkBack
-Android's screen reader:
-- Speaks UI elements aloud
-- Linear navigation by swiping
-- Double-tap to activate
-- Explore by touch mode
+Android offers a robust suite of tools that change how users interact with their devices.
 
-### Select to Speak
-On-demand reading:
-- Tap to hear specific content
-- Useful for low-vision users
-- Works with any visible text
+**TalkBack** is Android's screen reader. It speaks UI elements aloud, allowing users to navigate without seeing the screen. Users swipe to move focus linearly and double-tap anywhere on the screen to activate the focused element.
 
-### Switch Access
-For users with motor impairments:
-- Navigate with external switches
-- Scanning mode for selection
-- Custom switch configuration
+**Select to Speak** is for users who can see the screen but might struggle with reading small text. They tap a specific paragraph or button to hear it read aloud.
 
-### Magnification
-Screen zoom features:
-- Triple-tap to zoom
-- Pinch to adjust level
-- Pan around zoomed screen
+**Switch Access** allows users with limited mobility to control their phone using external switches (like a button or a puff-sip device) instead of the touch screen.
+
+**Magnification** lets users zoom in on the screen to see details, requiring high-resolution assets that don't blur when enlarged.
 
 ## Designing for TalkBack
 
+Designing for a screen reader means designing the *structure* of your content, not just the pixels.
+
 ### Content Descriptions
-Every meaningful element needs a description:
-
-**❌ Poor:**
-- "Button"
-- "Image"
-- "Icon"
-
-**✅ Good:**
-- "Add to shopping cart"
-- "Product photo: Blue running shoes"
-- "Navigate back"
+Every meaningful element needs a description.
+**❌ Poor:** "Button", "Image", "Icon"
+**✅ Good:** "Add to shopping cart", "Product photo: Blue running shoes", "Navigate back"
 
 ### Traversal Order
-TalkBack reads elements in order:
-
-1. **Top to bottom, start to end** by default
-2. **Group related content** together
-3. **Skip decorative elements**
-4. **Ensure logical reading sequence**
+TalkBack reads elements in a linear sequence. By default, this is top-to-bottom, left-to-right (in LTR languages). You must ensure this order makes logical sense. Group related content (like a profile photo and name) so they are read as a single item ("Profile: Alice Smith") rather than two disjointed ones.
 
 ### Accessibility Actions
-Provide alternative interactions:
-- Custom actions for complex gestures
-- Multiple ways to accomplish tasks
-- Clear action labels
-
-### Live Regions
-Announce dynamic changes:
-- Error messages
-- Status updates
-- Timer changes
-- Content refreshes
+For complex interactions (like "swipe to delete"), provide a custom accessibility action. TalkBack can announce "Double-tap to open, double-tap and hold for more options," giving users a clear path to functionality that might otherwise be hidden behind a gesture.
 
 ## Touch Target Guidelines
 
-### Material Design Minimums
-- **48×48 dp** minimum touch target
-- Even if visual element is smaller
-- Include padding in touch area
+### Minimum Sizes
+Material Design guidelines are clear: interactive elements must be at least **48x48 dp**. This is slightly larger than iOS's 44pt standard. If your visual icon is smaller (e.g., 24dp), you must add invisible padding around it to meet this requirement.
 
-### Spacing Requirements
-- **8 dp minimum** between targets
-- Prevents accidental activation
-- Essential for motor accessibility
-
-### Visual vs. Touch Size
-The touch target can be larger than the visual element:
-- Small icon (24 dp) → Large target (48 dp)
-- Invisible padding extends touch area
-- Use `android:minWidth` and `android:minHeight`
+### Spacing
+Leave at least **8dp** between interactive targets. Tightly packed buttons are a nightmare for users with tremors or motor impairments, leading to frustrating accidental clicks.
 
 ## Color and Contrast
 
-### WCAG Contrast Requirements
-- **4.5:1** ratio for normal text
-- **3:1** ratio for large text (18sp+)
-- **3:1** ratio for UI components
-
-### Material Design Guidance
-- Use surface colours with appropriate text
-- Semantic colours maintain contrast
-- Test with Android's colour correction
+### Contrast Ratios
+Text must be legible. WCAG 2.1 standards require:
+- **4.5:1** for normal text.
+- **3:1** for large text (18sp+).
+- **3:1** for essential UI components (icons, input borders).
 
 ### Color Independence
-Never rely on colour alone:
-- Add icons to coloured status indicators
-- Include text with coloured buttons
-- Use patterns in charts and graphs
+Never use colour as the only signal. A green circle and a red circle look identical to someone with red-green colour blindness. Always use a secondary cue like an icon (check vs. X) or a text label.
 
 ## Testing Accessibility
 
 ### Accessibility Scanner
-Google's testing tool:
-1. Install from Play Store
-2. Enable in Accessibility settings
-3. Analyze your screens
-4. Review suggestions
-
-### Common Scanner Warnings
-- Touch target too small
-- Missing content description
-- Low text contrast
-- Text scaling issues
+Google provides a free tool called the **Accessibility Scanner**. You open your app, tap the scanner button, and it analyzes the screen. It highlights touch targets that are too small, text with low contrast, and missing content descriptions. It is an essential first pass for any designer.
 
 ### Manual TalkBack Testing
-1. Enable TalkBack in Settings
-2. Navigate your app by swiping
-3. Listen to what's announced
-4. Verify logical order
-5. Test all interactions
-
-### Accessibility Test Framework
-Automated testing in development:
-- Integrate with Espresso tests
-- Catch issues early
-- CI/CD integration
+The best test is reality. Enable TalkBack in your settings. Close your eyes. Try to navigate your app. Can you complete the primary user flow? If you get stuck or confused, your design needs work.
 
 ## Designing for Text Scaling
 
-### Font Sizes in sp
-Use sp (scale-independent pixels):
-- Respects user's font size preference
-- Scales with system settings
-- Essential for accessibility
-
-### Testing at Scale
-Test your layouts at:
-- Default (100%)
-- Large (130%)
-- Largest (200%)
+### Use `sp` for Text
+Always specify font sizes in **sp** (scale-independent pixels), not dp or px. This allows the text to scale up when the user adjusts their system font size setting.
 
 ### Layout Considerations
-- Text may wrap unexpectedly
-- Buttons may need more height
-- Cards may expand significantly
-- Scrolling may become necessary
+Your layout must be flexible. What happens if the user sets the font size to 200%?
+- **Don't** use fixed height containers that clip text.
+- **Do** allow containers to expand vertically.
+- **Do** wrap text to multiple lines rather than truncating it.
 
 ## Try It Yourself
 
 ### Exercise 1: TalkBack Walkthrough
-
-Enable TalkBack and navigate your app:
-1. Close your eyes
-2. Navigate using swipe gestures
-3. Can you complete key tasks?
-4. Note any confusing announcements
+Enable TalkBack. Navigate to the "Settings" app on your phone to learn the gestures. Now open your own design (if prototyped) or a similar app. Close your eyes. Can you navigate? Note every time the spoken description is confusing or missing.
 
 ### Exercise 2: Contrast Audit
-
-Check your colour contrast:
-1. Test primary text on background
-2. Test secondary text
-3. Test buttons and icons
-4. Fix any failures below 4.5:1
+Take a screenshot of your app. Run it through a color blindness simulator (like Sim Daltonism on Mac). Can you still distinguish error states from success states?
 
 ## Test Your Understanding
 
@@ -226,12 +120,12 @@ Check your colour contrast:
 
 ## Key Takeaways
 
-- Design for TalkBack with clear content descriptions
-- Maintain minimum 48×48 dp touch targets
-- Ensure 4.5:1 contrast ratio for text
-- Never rely on colour alone to convey information
-- Test with Accessibility Scanner and TalkBack
+- **Accessibility** is about structure and clarity, not just compliance.
+- **TalkBack** requires descriptive labels and logical grouping.
+- **48dp** is the magic number for touch targets.
+- **Contrast** must be checked against WCAG standards.
+- **Text scaling** (sp) is mandatory; fixed sizes break accessibility.
 
 ## Next Steps
 
-Continue to [Dark Mode and Dynamic Color](./02-dark-mode-and-dynamic-colour.md) →
+Continue to [Dark Mode and Dynamic Color](./02-dark-mode-and-dynamic-color.md) →

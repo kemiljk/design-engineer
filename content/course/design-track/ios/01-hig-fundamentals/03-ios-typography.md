@@ -11,109 +11,65 @@
 
 ## San Francisco Font Family
 
-### SF Pro
-Primary interface font:
-- Clean, modern sans-serif
-- Optimized for screens
-- Multiple weights (Ultralight to Black)
-- Variable font technology
+Apple designed San Francisco (SF) specifically for its platforms. It is a modern, clean sans-serif typeface optimized for legibility on screens. The family includes several variants tailored for specific contexts.
 
-### SF Pro Rounded
-Softer alternative:
-- Rounded terminals
-- Friendlier appearance
-- Same weights as SF Pro
-- Good for playful contexts
+**SF Pro** is the primary interface font. It is highly versatile, supporting a wide range of weights from Ultralight to Black. It uses variable font technology to adjust optical sizing automatically, ensuring that small text remains legible while large headlines look elegant.
 
-### SF Mono
-Monospaced variant:
-- For code and technical content
-- Tabular figures
-- Clear character distinction
+**SF Pro Rounded** offers a softer, friendlier alternative. It shares the same weights and metrics as SF Pro but features rounded terminals. This variant works well in playful or casual contexts, such as fitness apps or games.
 
-### New York
-Serif option:
-- Editorial and reading contexts
-- Variable optical sizes
-- Warmer, more traditional feel
+**SF Mono** is the monospaced variant, designed for code, technical content, and tabular data. It ensures clear character distinction and alignment, making it perfect for displaying snippets or data-heavy interfaces.
+
+**New York** is a serif companion to San Francisco. It provides a more traditional, editorial feel, making it an excellent choice for reading apps or contexts that require a touch of elegance. Like SF Pro, it features variable optical sizes to maintain readability at any scale.
 
 ## Text Styles
 
-Apple provides semantic text styles:
+Apple provides a set of semantic text styles that establish a clear visual hierarchy. Using these styles ensures consistency with the system and automatic support for Dynamic Type.
 
 ### Display Styles
-- **Large Title:** 34pt, navigation bar titles
-- **Title 1:** 28pt, page headings
-- **Title 2:** 22pt, section headings
-- **Title 3:** 20pt, subsection headings
+
+Display styles are reserved for the most prominent text on the screen. **Large Title** (34pt) is the standard for navigation bar titles in their expanded state. **Title 1** (28pt) typically serves as the main page heading, while **Title 2** (22pt) and **Title 3** (20pt) break content into logical sections and subsections.
 
 ### Body Styles
-- **Headline:** 17pt semibold, emphasized text
-- **Body:** 17pt, primary reading text
-- **Callout:** 16pt, secondary information
-- **Subheadline:** 15pt, supporting text
+
+The **Body** style (17pt) is the workhorse of iOS typography, used for the majority of reading text. **Headline** (17pt semibold) pairs with Body to emphasize key points or start paragraphs. **Callout** (16pt) distinguishes secondary information, and **Subheadline** (15pt) provides supporting context.
 
 ### Utility Styles
-- **Footnote:** 13pt, metadata
-- **Caption 1:** 12pt, labels
-- **Caption 2:** 11pt, fine print
+
+For metadata and fine print, use the utility styles. **Footnote** (13pt) works well for timestamps or disclaimers. **Caption 1** (12pt) and **Caption 2** (11pt) are the smallest legible sizes, suitable for labels on tab bars or intricate UI elements.
 
 ## Dynamic Type
 
-iOS users can adjust system text size. Your app should respond:
+One of the most powerful features of iOS typography is Dynamic Type. It allows users to adjust their preferred text size system-wide, and your app must respond accordingly.
 
-### Size Categories
-1. xSmall
-2. Small
-3. Medium (default)
-4. Large
-5. xLarge
-6. xxLarge
-7. xxxLarge
-8. Accessibility sizes (5 larger options)
+### How It Works
 
-### Implementation
-Use system text styles. They scale automatically:
-- In design tools: Use iOS text style names
-- In code: Use semantic styles, not fixed sizes
+The system defines a range of size categories, from xSmall to xxxLarge, with Medium being the default. Additionally, there are five Accessibility sizes that push the text even larger. When a user changes their settings, apps that use semantic text styles (like `.body` or `.headline`) scale their text automatically.
 
-### Best Practices
-- Test at multiple size categories
-- Ensure text doesn't truncate unexpectedly
-- Layouts should adapt to larger text
-- Use scrollable containers when needed
+### Implementation Best Practices
+
+To support Dynamic Type effectively, avoid defining fixed font sizes in your code. Instead, rely on the system styles. In your design tools, use the iOS text style names to ensure your mockups match reality.
+
+Layouts must be flexible. Containers should be able to expand vertically as text grows. If a label is constrained to a single line, it will truncate at larger sizes, breaking the user experience. Always test your designs at the largest standard size (xxxLarge) and the largest accessibility size to ensure your content remains readable and accessible.
 
 ## Hierarchy and Readability
 
 ### Line Length
-Optimal: 70-80 characters per line.
-- Too long: Hard to track to next line
-- Too short: Choppy reading
 
-### Line Height
-System styles have appropriate line heights.
-- Tighter for headings
-- More generous for body text
+Readable text requires a comfortable line length, typically between 70 and 80 characters. If the line is too long, the eye struggles to track back to the start of the next line. If it's too short, the reading rhythm becomes choppy.
 
-### Weight for Emphasis
-Use weight, not just size:
-- Semibold for emphasis
-- Regular for body
-- Avoid using only size for hierarchy
+### Line Height and Weight
+
+System text styles come with baked-in line heights that are optimized for readability—tighter for headings and more generous for body text. Use font weight to establish hierarchy rather than relying solely on size. A **Semibold** weight can draw attention to a headline without needing to be significantly larger than the surrounding text.
 
 ## Try It Yourself
 
 ### Exercise 1: Type Scale
 
-Create a type system using iOS text styles:
-- Large title
-- Section headers
-- Body text
-- Captions
+Create a type system for a mock news app using only iOS semantic styles. Assign appropriate styles to the article headline, author byline, body text, and image captions. Notice how the hierarchy forms naturally without custom sizing.
 
 ### Exercise 2: Dynamic Type Testing
 
-If you have an iOS device, change the text size setting. Open several apps and note which handle it well.
+If you have an iOS device, go to **Settings > Display & Brightness > Text Size** and change the slider to the maximum. Open several popular apps and observe how they handle the change. Which ones break? Which ones adapt gracefully?
 
 ## Test Your Understanding
 
@@ -156,12 +112,11 @@ If you have an iOS device, change the text size setting. Open several apps and n
 
 ## Key Takeaways
 
-- San Francisco is optimised for Apple devices
-- Use semantic text styles, not fixed sizes
-- Dynamic Type makes apps accessible
-- Test at multiple size categories
-- Let system styles handle line height
+- **San Francisco** is the native typeface, optimized for legibility across Apple devices.
+- **Semantic Text Styles** (like Body, Title 1) are the building blocks of iOS typography.
+- **Dynamic Type** is essential for accessibility; never use fixed sizes for text.
+- Allow your layout to **adapt** as text sizes change, avoiding truncation.
 
 ## Next Steps
 
-Continue to [iOS Color and Materials](./04-ios-colour-and-materials.md) →
+Continue to [iOS Colour and Materials](./04-ios-color-and-materials.md) →

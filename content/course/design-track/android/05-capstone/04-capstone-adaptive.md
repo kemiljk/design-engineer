@@ -4,7 +4,7 @@ estimatedTime: 10
 
 # Capstone: Adaptive Layouts
 
-> **Quick Summary:** Plan breakpoints and design tablet layouts with navigation rail and content adaptation.
+> **Quick Summary:** Android apps run on everything from 4-inch phones to 12-inch tablets. Prove your design is robust by adapting it to larger screens using the Window Size Class system.
 
 **Time Estimate:** 1-2 hours
 
@@ -17,44 +17,39 @@ estimatedTime: 10
 
 ## Step 1: Breakpoint Strategy
 
-Plan your responsive behaviour:
-- **Compact:** < 600dp (phones)
-- **Medium:** 600-840dp (tablets portrait, foldables)
-- **Expanded:** > 840dp (tablets landscape, desktop)
+You've designed for **Compact** width (<600dp). Now design for **Expanded** width (>840dp).
+- Don't just stretch the phone layout. A list of items stretching 800dp wide is unreadable.
+- Define your columns. Phone = 4 cols. Tablet = 12 cols.
 
 ## Step 2: Navigation Adaptation
 
-Plan how navigation transforms:
-- **Compact:** Bottom navigation bar
-- **Medium:** Navigation rail (side)
-- **Expanded:** Navigation rail with labels or drawer
+Navigation must move to remain ergonomic.
+- **Phone (Compact):** Bottom Navigation Bar. Best for thumbs.
+- **Tablet (Expanded):** Navigation Rail (Left side vertical bar). This saves vertical space for content and prevents the bottom bar buttons from spreading too far apart.
 
 ## Step 3: Content Adaptation
 
-Design layout transformations:
-- **List-Detail:** Side-by-side on large screens
-- **Grid Layouts:** More columns on larger screens
-- **Reading Width:** Constrain content for readability
-- **Supporting Panel:** Secondary content alongside primary
+How does your layout reflow?
+- **Grid:** A single-column list on phone should become a multi-column grid on tablet.
+- **Hero Image:** A full-width header on phone might become a side-panel image on tablet.
+- **Text:** Keep line lengths readable (approx 60 chars). Don't let text span the full width of a landscape tablet.
 
-## Step 4: Tablet/Large Screen Design
+## Step 4: The List-Detail View
 
-Create expanded layout:
-- At least one key flow at tablet size
-- Navigation rail implementation
-- Two-pane layout (if applicable)
-- Proper use of space (not just stretched phone)
+This is the gold standard for adaptive Android apps.
+- **Phone:** List Screen → (Tap) → Detail Screen.
+- **Tablet:** List Panel (Left) + Detail Panel (Right). Tapping the list updates the detail panel instantly.
+- *Action:* Design this view. Show how the user selects an item on the left and edits it on the right without leaving the screen.
 
 ## Checkpoint
 
 Before moving on, verify:
 
-- [ ] Breakpoints defined
-- [ ] Navigation adaptation planned
-- [ ] At least one tablet layout complete
-- [ ] Content reflows appropriately
+- [ ] You have a design for Compact (Phone) and Expanded (Tablet).
+- [ ] Navigation switches from Bottom Bar to Nav Rail.
+- [ ] Content reflows logically (using columns).
+- [ ] Line lengths are readable on the large screen.
 
 ## Next Steps
 
 Continue to [Phase 4: Motion & Prototype](./05-capstone-motion.md) →
-

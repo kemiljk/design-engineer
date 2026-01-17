@@ -4,7 +4,7 @@ estimatedTime: 10
 
 # Capstone: Device Adaptations
 
-> **Quick Summary:** Adapt your designs for multiple iPhone sizes, safe areas, and dark mode.
+> **Quick Summary:** An iOS app doesn't live on one screen. Adapt your designs for the reality of the ecosystem: multiple sizes, safe areas, and Dark Mode.
 
 **Time Estimate:** 1-2 hours
 
@@ -17,43 +17,42 @@ estimatedTime: 10
 
 ## Step 1: iPhone Sizes
 
-Design for multiple sizes:
-- **Standard:** iPhone 14/15 (390pt width)
-- **Pro Max:** iPhone 14/15 Pro Max (430pt width)
-- **SE:** iPhone SE (375pt width)
+You likely designed on the standard iPhone size (393pt). Now stress-test it.
+- **iPhone SE (375pt):** Does your content feel cramped? Do long titles truncate too early?
+- **iPhone Pro Max (430pt):** Does your content feel sparse? Can you show more information?
+*Action:* Create a frame for the SE size and adjust your layout constraints to prove it works.
 
 ## Step 2: Safe Areas
 
-Ensure proper safe area handling:
-- Dynamic Island/notch accommodation
-- Home indicator spacing
-- Landscape considerations (if applicable)
+The screen is not a rectangle.
+- **Top:** Ensure your navigation bar sits *below* the Dynamic Island/Notch, but your background colour extends *behind* it.
+- **Bottom:** Ensure your interactive elements (buttons, tab bar) are clear of the Home Indicator area.
+- **Clipping:** Check rounded corners. Is any content uncomfortably close to the physical edge radius?
 
 ## Step 3: Dark Mode
 
-Complete dark mode versions:
-- All screens in dark mode
-- Verify contrast and readability
-- Check elevated surfaces
-- Test vibrancy effects
+You set up the tokens in Phase 1. Now, apply them.
+- **Duplicate** your main screens.
+- **Switch** the mode to Dark.
+- **Audit:** Look for low contrast. Look for "muddy" shadows (which should be invisible). Look for overly bright large surfaces.
+- **Refine:** If a card border is invisible in Dark Mode, add a stroke or slightly lighten the card background colour.
 
-## Step 4: iPad (Optional but Impressive)
+## Step 4: iPad (Optional but Recommended)
 
-If time allows, consider iPad:
-- Sidebar navigation patterns
-- Split view layouts
-- Pointer/keyboard considerations
+If you want to shine, show how this scales to iPad.
+- **Split View:** Show how the List and Detail views can sit side-by-side.
+- **Sidebar:** Show the Tab Bar transforming into a Sidebar.
+- **Popovers:** Show a menu appearing as a popover instead of a bottom action sheet.
 
 ## Checkpoint
 
 Before moving on, verify:
 
-- [ ] Primary iPhone size complete
-- [ ] Size variations addressed
-- [ ] Safe areas handled correctly
-- [ ] Dark mode complete for all screens
+- [ ] Designs work on a small screen (SE).
+- [ ] Safe areas are respected (no content behind the notch).
+- [ ] Dark Mode looks polished and legible.
+- [ ] Contrast ratios pass accessibility standards in both modes.
 
 ## Next Steps
 
 Continue to [Phase 4: Interaction & Prototype](./05-capstone-prototype.md) →
-

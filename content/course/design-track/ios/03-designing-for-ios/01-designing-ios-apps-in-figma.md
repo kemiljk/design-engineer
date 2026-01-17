@@ -1,6 +1,6 @@
 # Designing iOS Apps in Figma
 
-> **Quick Summary:** Figma is the primary design tool for most teams. Learn how to set up files and use resources specifically for iOS design.
+> **Quick Summary:** Figma is the primary design tool for most modern teams. Learn how to set up your files, use official resources, and think in points to create designs that developers can actually build.
 
 ## What You'll Learn
 
@@ -11,123 +11,108 @@
 
 ## File Setup
 
+A clean file structure saves hours of headache later.
+
 ### Frame Sizes
-Start with common iPhone sizes:
-- iPhone 15/16: 393×852
-- iPhone 15/16 Pro Max: 430×932
-- iPhone SE: 375×667
+Start with the most common iPhone sizes. Designing at **1x** scale (points) is mandatory; never design at 2x or 3x pixel resolution.
+- **iPhone 15/16:** 393×852 points. This is your standard canvas.
+- **iPhone 15/16 Pro Max:** 430×932 points. Use this to check how layouts scale.
+- **iPhone SE:** 375×667 points. Use this to stress-test dense layouts.
 
 ### Page Organization
+Organize your Figma file to separate work-in-progress from final assets.
 ```text
 📄 Cover
-📄 Components
+📄 Components (Local definitions)
 📄 Screens - Home
 📄 Screens - Detail
 📄 Screens - Settings
-📄 Prototypes
-📄 Archive
+📄 Prototypes (Interaction flows)
+📄 Archive (Old iterations)
 ```
 
 ### Grid System
-iOS uses an 8pt grid. Set up layout grids:
-- 16pt margins
-- 8pt or 16pt gutters
-- Flexible columns
+iOS uses an **8pt grid**. Configure your layout grids in Figma to enforce this.
+- **Margins:** Typically 16pt or 20pt on the sides.
+- **Gutters:** 8pt or 16pt between items.
+- **Rows/Columns:** Use an 8pt square grid background to help align elements vertically and horizontally.
 
 ## iOS UI Kits
 
 ### Apple's Official Resources
-Apple provides official design resources:
-- Figma iOS 18 UI Kit (free from Apple)
-- Includes all standard components
-- Regularly updated with each iOS release
-
-### What's Included
-- Navigation bars
-- Tab bars
-- Lists and cells
-- Buttons and controls
-- System colours
-- Device frames
+Apple provides an official **Figma iOS 18 UI Kit**. Use it. Do not redraw system components yourself.
+- **Why:** It contains every standard component (nav bars, tab bars, keyboards, sheets) with correct constraints and variants.
+- **Updates:** Apple updates this kit with each iOS release, so your designs stay current.
 
 ### Using UI Kit Components
-1. Import the kit as a library
-2. Use instances, not copies
-3. Customize via properties
-4. Keep linked for updates
+1.  **Import** the kit as a library in Figma.
+2.  **Insert** components as instances (e.g., a Navigation Bar).
+3.  **Customize** using the component properties (change title, show/hide buttons).
+4.  **Never detach** unless absolutely necessary. Detaching breaks the link to the master library, meaning you won't get updates.
 
 ## SF Symbols
 
-Apple's icon system with 6,000+ symbols (SF Symbols 6):
+Apple's icon system, **SF Symbols 6**, includes over 6,000 consistent icons.
 
 ### Adding to Figma
-- Download SF Symbols app (Mac)
-- Export SVGs or copy to Figma
-- Use SF Symbols plugin for direct access
+Since Figma cannot read the system font file directly for icons, you need a workflow:
+1.  Download the **SF Symbols app** for Mac.
+2.  Find the symbol you need.
+3.  Copy it as an SVG and paste it into Figma.
+4.  Alternatively, use a community plugin like "SF Symbols" to browse and insert directly.
 
 ### Symbol Variants
-- Weights: Ultralight to Black
-- Scales: Small, Medium, Large
-- Rendering modes: Monochrome, Hierarchical, Palette, Multicolor
-
-### Best Practices
-- Use appropriate weight for context
-- Match symbol weight to text weight
-- Use semantic symbols when available
+SF Symbols are variable. When you copy one, you can often choose:
+- **Weight:** From Ultralight to Black. Match this to your text weight (e.g., Medium text gets a Medium icon).
+- **Scale:** Small, Medium, Large.
+- **Rendering Mode:** Monochrome (standard), Hierarchical (multi-tone), or Multicolor (full colour).
 
 ## Typography Setup
 
 ### Font Files
-SF Pro isn't in Figma by default:
-- Download from Apple Developer
-- Install locally
-- Use in your files
+Figma does not include **SF Pro** by default because it is a local system font.
+1.  Download the fonts from the Apple Developer website.
+2.  Install them on your Mac.
+3.  Use the Figma desktop app (or the font helper for the browser) to access them.
 
 ### Text Styles
-Create styles matching iOS text styles:
-- Large Title: SF Pro, 34pt, Bold
-- Title 1: SF Pro, 28pt, Bold
-- Title 2: SF Pro, 22pt, Bold
-- Body: SF Pro, 17pt, Regular
-- Caption 1: SF Pro, 12pt, Regular
+Don't use raw font values. Create Figma Text Styles that match the iOS system styles.
+- **Large Title:** SF Pro, 34pt, Bold
+- **Title 1:** SF Pro, 28pt, Bold
+- **Body:** SF Pro, 17pt, Regular
+- **Caption 1:** SF Pro, 12pt, Regular
+Naming them strictly (e.g., "iOS/Body", "iOS/Title 1") helps developers map them directly to code.
 
-## Color Styles
+## Colour Styles
 
-Create semantic colour styles:
-- Label, Secondary Label, Tertiary Label
-- System Background, Grouped Background
-- System colours (Blue, Green, Red, etc.)
-- Create light and dark mode versions
+Create semantic colour styles in Figma, not just raw hex codes.
+- **Label Colors:** Primary, Secondary, Tertiary.
+- **Backgrounds:** System Background, Secondary System Background.
+- **Accents:** System Blue, System Red, etc.
+- **Modes:** Use Figma's variable modes to define Light and Dark values for each colour. This allows you to switch your entire design from Light to Dark mode with one click.
 
 ## Device Frames
 
 ### For Presentation
-- Use device mockups for stakeholder presentations
-- Show apps in context
-- Multiple devices show responsiveness
+When showing work to stakeholders, put your designs inside realistic device frames. It provides scale and context. Show how the Dynamic Island interacts with your header, or how the rounded corners clip content.
 
 ### For Design Work
-- Work without frames for flexibility
-- Add frames for final presentation
-- Consider notch/Dynamic Island
+While designing, it is often easier to work on a raw rectangular frame (the "logical" screen size) to see your constraints clearly. Add the device bezel only when exporting or presenting.
 
 ## Try It Yourself
 
 ### Exercise 1: File Setup
 
-Create a new Figma file with:
-- Correct frame sizes
-- Layout grid configured
-- Apple UI kit linked
-- Text styles created
+Create a new Figma file. Set up an iPhone 15 frame (393x852). configure a layout grid with 16pt margins. Link the Apple UI Kit library and drag in a Tab Bar and a Navigation Bar.
 
 ### Exercise 2: First Screen
 
-Design a simple iOS screen using:
-- UI kit navigation bar
-- SF Symbols for icons
-- System colours
-- Proper text styles
+Design a simple "Settings" screen.
+1.  Use the **UI Kit** to place a Navigation Bar titled "Settings".
+2.  Create a list of rows using **Auto Layout**.
+3.  Use **SF Symbols** for the icons on the left.
+4.  Use **System Colours** (Label for text, System Background for the frame).
+5.  Ensure everything aligns to the **8pt grid**.
 
 ## Test Your Understanding
 
@@ -170,11 +155,11 @@ Design a simple iOS screen using:
 
 ## Key Takeaways
 
-- Start with correct device dimensions
-- Use Apple's official UI kit
-- SF Symbols provide consistent iconography
-- Set up semantic text and colour styles
-- Device frames are for presentation, not daily design
+- Design at **1x scale** (points), not pixels.
+- Use **Apple's official UI Kit** to save time and ensure accuracy.
+- **SF Symbols** are the standard for iconography; treat them like text.
+- Use **Figma Variables** for Light/Dark mode semantic colours.
+- **Auto Layout** in Figma mimics SwiftUI stacks—use it everywhere.
 
 ## Next Steps
 

@@ -13,10 +13,7 @@
 
 For decades, we designed for perfect rectangles. Coordinates like `(0,0)` meant the top-left corner. On modern iPhones, `(0,0)` is inside a rounded corner, possibly behind a status bar, or cut off by a camera housing.
 
-**Safe Areas** define the rectangular portion of the screen where it is guaranteed to be safe to place interactive content. Anything outside the safe area might be:
-*   Obscured by hardware (notch, Dynamic Island, corners)
-*   Covered by system UI (Home Indicator, Status Bar)
-*   Difficult to tap (edges of the screen)
+**Safe Areas** define the rectangular portion of the screen where it is guaranteed to be safe to place interactive content. Anything outside the safe area might be obscured by hardware (notch, Dynamic Island, corners), covered by system UI (Home Indicator, Status Bar), or be physically difficult to tap (edges of the screen).
 
 Critically, **backgrounds should ignore safe areas**. To create an immersive, premium feel, your background colours and images should extend to the physical edge of the device. Only your content—text, buttons, inputs—needs to be constrained.
 
@@ -36,32 +33,28 @@ Placing interactive elements like buttons or tab bars directly at the bottom edg
 
 ### The Side Insets
 
-In portrait orientation, side insets are usually zero. However, in landscape orientation, the notch or Dynamic Island sits on the *side* of the screen. To preventing content from being covered, the safe area insets increase on the left and right, effectively "letterboxing" your interactive content while allowing backgrounds to fill the width.
+In portrait orientation, side insets are usually zero. However, in landscape orientation, the notch or Dynamic Island sits on the *side* of the screen. To prevent content from being covered, the safe area insets increase on the left and right, effectively "letterboxing" your interactive content while allowing backgrounds to fill the width.
 
 ## Layout Best Practices
 
 ### Full-Bleed Design
 
 iOS apps should feel expansive. Avoid trapping your entire interface inside the safe area boundaries, which creates unsightly letterboxing.
-
-*   **Do:** Pin your background view to the `superview` (screen) edges.
-*   **Do:** Pin your content (text, buttons) to the **Safe Area Layout Guide**.
+- **Do:** Pin your background view to the `superview` (screen) edges.
+- **Do:** Pin your content (text, buttons) to the **Safe Area Layout Guide**.
 
 This creates the "full bleed" effect where headers and tab bars extend infinitely, but their icons and titles remain safely readable.
 
 ### Scrolling Content
 
-Scroll views have special behaviour. Their content should scroll *behind* the navigation bar and tab bar, not clip at their edges. This allows the user to see more context.
-
-The system automatically handles "content insets" for scroll views, ensuring that the last item in a list isn't hidden behind the Home Indicator when you scroll to the bottom.
+Scroll views have special behaviour. Their content should scroll *behind* the navigation bar and tab bar, not clip at their edges. This allows the user to see more context. The system automatically handles "content insets" for scroll views, ensuring that the last item in a list isn't hidden behind the Home Indicator when you scroll to the bottom.
 
 ### Designing for Variation
 
 You cannot hard-code dimensions. The "height of the status bar" is a variable, not a constant.
-
-*   **iPhone SE:** Rectangular screen, physical home button.
-*   **iPhone 15/16:** Rounded screen, Dynamic Island.
-*   **iPhone 15/16 Pro Max:** Larger layout, same constraints.
+- **iPhone SE:** Rectangular screen, physical home button.
+- **iPhone 15/16:** Rounded screen, Dynamic Island.
+- **iPhone 15/16 Pro Max:** Larger layout, same constraints.
 
 Your layout must adapt. Auto Layout (and SwiftUI's layout system) is built for this. By constraining views to the Safe Area guides rather than absolute constants, your app adapts to future devices (with potentially larger islands or different corners) without a single code change.
 
@@ -80,9 +73,9 @@ Observe how the red box always fills the screen, but the text moves around to st
 ### Exercise 2: Bottom Button Placement
 
 Design a screen with a "Confirm" button at the bottom.
-*   How does it look on an iPhone with a Home button?
-*   How does it look on an iPhone with Face ID?
-*   Does it look visually balanced in both cases? (Hint: You often need *more* padding than just the safe area to make it look right on Home button devices).
+- How does it look on an iPhone with a Home button?
+- How does it look on an iPhone with Face ID?
+- Does it look visually balanced in both cases? (Hint: You often need *more* padding than just the safe area to make it look right on Home button devices).
 
 ## Test Your Understanding
 
@@ -125,11 +118,11 @@ Design a screen with a "Confirm" button at the bottom.
 
 ## Key Takeaways
 
--   The screen is not a rectangle; safe areas define the usable interactive space.
--   **Backgrounds** should ignore safe areas (full bleed). **Content** must respect them.
--   Top and bottom insets vary dramatically between Touch ID and Face ID devices.
--   Never place interactive elements in the bottom 34pt of a Face ID device (the Home Indicator zone).
--   Use layout guides, not hard-coded numbers, to future-proof your design.
+- The screen is not a rectangle; safe areas define the usable interactive space.
+- **Backgrounds** should ignore safe areas (full bleed). **Content** must respect them.
+- Top and bottom insets vary dramatically between Touch ID and Face ID devices.
+- Never place interactive elements in the bottom 34pt of a Face ID device (the Home Indicator zone).
+- Use layout guides, not hard-coded numbers, to future-proof your design.
 
 ## Next Steps
 

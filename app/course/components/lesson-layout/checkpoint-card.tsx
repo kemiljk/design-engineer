@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Check, Undo as RotateCcw, CheckCircle as CheckCircle2 } from "iconoir-react";
 import { cn } from "@/lib/utils";
+import Markdown from "@/app/components/Markdown";
 
 interface CheckpointItem {
   id: string;
@@ -189,16 +190,19 @@ export function CheckpointCard({ items, storageKey, title = "Checklist" }: Check
                 onChange={() => toggleItem(item.id)}
                 className="sr-only"
               />
-              <span
+              <div
                 className={cn(
-                  "text-sm leading-relaxed transition-colors",
+                  "text-sm leading-relaxed transition-colors min-w-0 flex-1",
                   item.checked
-                    ? "text-neutral-400 line-through dark:text-neutral-500"
+                    ? "text-neutral-400 opacity-60 line-through dark:text-neutral-500"
                     : "text-neutral-700 dark:text-neutral-300"
                 )}
               >
-                {item.label}
-              </span>
+                <Markdown
+                  content={item.label}
+                  className="[&>*:first-child]:mt-0 [&>*:last-child]:mb-0 text-sm [&_p]:leading-relaxed"
+                />
+              </div>
             </label>
           ))}
         </div>

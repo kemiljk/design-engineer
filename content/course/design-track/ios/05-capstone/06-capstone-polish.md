@@ -4,7 +4,7 @@ estimatedTime: 10
 
 # Capstone: Polish & Documentation
 
-> **Quick Summary:** Create app icon, assets, and document your process.
+> **Quick Summary:** Finish strong. Design the app icon, create App Store assets, and document your process. This is what turns a project into a portfolio piece.
 
 **Time Estimate:** 1-2 hours
 
@@ -17,47 +17,41 @@ estimatedTime: 10
 
 ## Step 1: App Icon
 
-Design your app icon:
-- Follow Apple's icon grid
-- Works in light and dark mode (iOS 18+)
-- Readable at all sizes
-- No text (in most cases)
-- Create at 1024×1024
+The icon is the face of your app.
+- **Grid:** Use the Apple Icon Grid template.
+- **Simplicity:** Keep it bold. Avoid small text or complex photographic details.
+- **Background:** Unlike Android, the background mask is provided by the OS, but you design the full square.
+- **Assets:** Create the 1024x1024 version.
 
 ## Step 2: App Store Assets
 
-Create presentation materials:
-- App Store screenshots (6.5" and 5.5")
-- Screenshot captions/frames
-- Brief app description
+How do you sell your app?
+- **Screenshots:** Create a set of 3-5 screenshots.
+- **Captions:** Add a short, punchy sentence above each phone frame explaining the value ("Track your habits," "Stay focused").
+- **Sizes:** You ideally need a 6.5" version and a 5.5" version, but for this capstone, one size is sufficient.
 
 ## Step 3: Design Audit
 
-Review everything:
-- Consistent with HIG?
-- All states complete?
-- Spacing consistent?
-- Typography correct?
-- Colours accessible?
+Before you call it done, review your work.
+- **Consistency:** Are margins always 16pt?
+- **Typography:** Did you accidentally use a custom font size instead of a style?
+- **Contrast:** Does every text label meet AA standards?
+- **Content:** Is the placeholder text realistic? Replace "Lorem Ipsum" with real content.
 
 ## Step 4: Case Study
 
-Document your process:
-- **Challenge:** What problem does the app solve?
-- **Research:** What did you learn from studying iOS apps?
-- **Process:** How did you approach the design?
-- **Decisions:** Key design choices and rationale
-- **Results:** Final designs and prototype
+Document your thinking. A pretty picture isn't enough; hiring managers want to see your brain.
+- **Problem:** What were you solving?
+- **Solution:** How did you solve it?
+- **Process:** Show your wireframes, your bad ideas, and your final polish.
+- **Outcome:** What did you learn?
 
 ## Step 5: File Organisation
 
-Structure for portfolio:
-- Cover page
-- iOS design system
-- Light mode screens
-- Dark mode screens
-- Component library
-- Prototype documentation
+Clean up your Figma file.
+- **Delete** unused pages.
+- **Name** your layers.
+- **Thumbnail:** Add a "Cover" page with a nice thumbnail so it looks good in the file browser.
 
 ## Submission Checklist
 
@@ -96,25 +90,10 @@ Structure for portfolio:
 
 ## What's Next
 
-Congratulations on completing the iOS Design Track capstone!
-
-This project demonstrates:
-- Your mastery of HIG and iOS design patterns
-- Ability to design for light and dark mode
-- Understanding of iOS navigation paradigms
-- Skill in creating native-feeling interfaces
-
-### Portfolio Tips
-
-This iOS app design is valuable portfolio material. Consider:
-- Recording a prototype video walkthrough
-- Creating an App Store-style product page
-- Sharing on Dribbble with iOS-specific tags
-- Writing about your iOS design decisions
+Congratulations on completing the iOS Design Track capstone! This project is concrete proof of your ability to design native, high-quality iOS apps.
 
 ### Continue Your Journey
 
-- → [iOS Engineering Track](/course/engineering-track/ios) — Build this in SwiftUI
-- → [iOS Convergence Track](/course/convergence/ios) — Add animations and polish
-- → [Android Design Track](/course/design-track/android) — Apply skills to Material Design
-
+- → [iOS Engineering Track](/course/engineering-track/ios) — Learn to build this in SwiftUI.
+- → [iOS Convergence Track](/course/convergence/ios) — Add advanced animations and polish.
+- → [Android Design Track](/course/design-track/android) — Apply your skills to Material Design.

@@ -1,125 +1,88 @@
 # Adaptive Layouts
 
-> **Quick Summary:** iOS runs on many device sizes, from iPhone SE to iPad Pro. Adaptive layouts ensure your design works everywhere.
+> **Quick Summary:** iOS runs on a vast array of devices, from the pocket-sized iPhone SE to the massive 13-inch iPad Pro. Adaptive layouts ensure your design isn't just a blown-up phone interface, but a tailored experience for every screen.
 
 ## What You'll Learn
 
-- Size classes
-- iPhone vs. iPad design
+- Size classes (Compact vs. Regular)
+- iPhone vs. iPad design strategies
 - Multitasking on iPad
 - Designing adaptable interfaces
 
 ## Size Classes
 
-iOS uses size classes to describe available space:
+Instead of designing for specific devices (which changes every year), iOS uses abstract categories called **Size Classes**. These describe the available space in terms of width and height.
 
 ### Horizontal Size Class
-- **Compact:** iPhones in portrait, iPad Split View
-- **Regular:** iPad, iPhones in landscape (larger models)
+- **Compact:** Indicates a constrained width. Used by all iPhones in portrait mode and iPad Split View apps.
+- **Regular:** Indicates expansive width. Used by iPads and larger iPhones (Max models) in landscape mode.
 
 ### Vertical Size Class
-- **Compact:** iPhones in landscape
-- **Regular:** iPhones in portrait, iPad
+- **Compact:** Constrained height. Used by iPhones in landscape.
+- **Regular:** Expansive height. Used by all iPhones in portrait and all iPads.
 
 ### Common Combinations
-| Device | Portrait | Landscape |
-|--------|----------|-----------|
-| iPhone SE | Compact × Regular | Compact × Compact |
-| iPhone 15 | Compact × Regular | Compact × Compact |
-| iPhone 15 Pro Max | Compact × Regular | Regular × Compact |
-| iPad | Regular × Regular | Regular × Regular |
+- **iPhone Portrait:** Compact Width × Regular Height. This is the standard "mobile" layout.
+- **iPad Full Screen:** Regular Width × Regular Height. This is the "tablet" layout.
+- **iPad Split View:** Varies. An app taking up 1/3 of the screen behaves like an iPhone (Compact Width).
 
 ## iPhone Design
 
 ### Portrait (Primary)
-- Full-width layouts
-- Stacked navigation
-- Tab bars visible
-- Most common usage
+The portrait orientation is the dominant mode for iPhone use. Layouts stack vertically. Navigation is handled by a bottom Tab Bar or a stacked Navigation Controller. Content fills the width of the screen.
 
 ### Landscape
-- Consider if needed
-- Media apps benefit
-- Games often require
-- Many apps lock to portrait
+On smaller iPhones, landscape is cramped (Compact Height). Navigation bars shrink, and vertical scrolling becomes tedious. Many apps lock to portrait for this reason. However, on "Max" sized iPhones, landscape offers a Regular Width, allowing for split-view interfaces (like Mail showing a list on the left and an email on the right).
 
 ## iPad Design
 
-### Key Differences
-- More space = different layouts
-- Sidebar navigation common
-- Split views for master-detail
-- Multiple columns possible
+Designing for iPad is not just scaling up your iPhone app. It requires a fundamental shift in how you use space.
 
-### Layout Patterns
-- **Full Screen:** Some content (media, documents)
-- **Split View:** Master-detail pattern
-- **Column Layout:** Dashboard, email-style apps
+### Key Differences
+- **Sidebar Navigation:** Instead of a bottom Tab Bar, iPads often use a sidebar on the left. This lists top-level destinations and allows for quick switching without losing context.
+- **Multi-Column Layouts:** A single column of text on an iPad is unreadable (the lines are too long). Use split views (List + Detail) or masonry grids to utilize the horizontal space.
+- **Popovers:** Instead of full-screen modals, use popovers that point to the button that triggered them, maintaining context.
 
 ## iPad Multitasking
 
-Users can run multiple apps simultaneously:
+Users can run multiple apps simultaneously on iPad. This means your "iPad Design" might actually need to look like an "iPhone Design" at any moment.
 
 ### Split View
-Two apps side by side:
-- 50/50 split
-- 70/30 split
-- Your app could be either size
+Two apps can share the screen.
+- **50/50 Split:** Both apps get a narrow, but usable, interface.
+- **70/30 Split:** The smaller app behaves exactly like a mobile phone layout (Compact Width).
 
 ### Slide Over
-Floating app panel:
-- iPhone-width interface
-- Floats over full-screen app
+Your app can float in a narrow panel over another full-screen app. This is functionally identical to an iPhone layout.
 
-### Design Implications
-- Test at all multitasking sizes
-- Layouts must be flexible
-- Don't assume full screen
+**The Golden Rule:** Never assume your app is full screen. Your layout must respond to the *window size*, not the *device size*.
 
 ## Designing Adaptively
 
 ### In Figma
-Design for key breakpoints:
-1. iPhone SE (smallest)
-2. Standard iPhone
-3. iPhone Pro Max
-4. iPad (full width)
-5. iPad (split view)
+Don't design for every single device. Design for the key breakpoints:
+1.  **iPhone (393pt):** The standard mobile experience.
+2.  **iPad Split View (Small):** Validates that your adaptive mobile layout works on tablet.
+3.  **iPad Full Screen (Regular):** The expansive tablet experience with sidebars and multiple columns.
 
 ### Flexible Components
-- Use auto layout extensively
-- Define min/max widths
-- Create responsive variants
-- Document adaptation rules
-
-### What Changes
-- Number of columns
-- Navigation style (tabs vs. sidebar)
-- Image sizes
-- Information density
-
-### What Stays Same
-- Brand identity
-- Core interactions
-- Information hierarchy
-- Typography scale
+Use Auto Layout in Figma (and SwiftUI in code) to build components that flex.
+- **Cards:** Should have a minimum width (for phone) and a maximum width (to prevent looking stretched on tablet).
+- **Grids:** Should increase the number of columns as space increases (2 columns on phone → 4 columns on tablet).
+- **Text:** Should maintain readable line lengths (60-80 characters) regardless of screen width.
 
 ## Try It Yourself
 
 ### Exercise 1: Adaptive Screen
-
-Design a screen that works at:
-- iPhone width
-- iPad split view
-- iPad full width
-
-Document what changes at each breakpoint.
+Design a "Profile" screen.
+- **On iPhone:** Avatar is centered at the top. Details follow in a vertical list.
+- **On iPad:** Avatar moves to the left side. Details appear in a grid on the right.
+Document the constraints that cause this shift.
 
 ### Exercise 2: Navigation Shift
-
-Design a navigation pattern that uses:
-- Tab bar on iPhone
-- Sidebar on iPad
+Design a navigation pattern that transforms:
+- **iPhone:** A bottom Tab Bar with 4 icons.
+- **iPad:** A left Sidebar with the same 4 icons, plus text labels.
 
 ## Test Your Understanding
 
@@ -162,11 +125,10 @@ Design a navigation pattern that uses:
 
 ## Key Takeaways
 
-- Size classes describe available space
-- iPad requires different layout strategies
-- Design for multitasking sizes
-- Create flexible, adaptable components
-- Test at multiple sizes
+- **Size Classes** (Compact/Regular) allow one design to fit all screens.
+- **iPad** requires unique layouts (Sidebars, Multi-column) to feel native.
+- **Multitasking** means your iPad app must handle being resized to phone width.
+- Use **Auto Layout** constraints to build flexible components, not fixed artboards.
 
 ## Next Steps
 
