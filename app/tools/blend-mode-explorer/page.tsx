@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function BlendModeExplorerPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Blend Mode Explorer"
         description="Understand how each blend mode works and experiment with stacking them for beautiful effects."

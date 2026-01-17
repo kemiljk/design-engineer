@@ -327,7 +327,7 @@ export function FloatingNotesPanel({
                     <Link
                       href="/course/notes"
                       className="flex h-7 w-7 items-center justify-center text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
-                      title="Full view"
+                      aria-label="View all notes"
                     >
                       <ExternalLink className="h-3.5 w-3.5" />
                     </Link>
@@ -372,6 +372,7 @@ export function FloatingNotesPanel({
                   <div className="scrollbar-hide w-2/5 overflow-y-auto border-r border-neutral-100 dark:border-neutral-800">
                     <button
                       onClick={() => createNewNote()}
+                      aria-label="Create new note"
                       className="flex w-full items-center gap-2 border-b border-neutral-100 px-3 py-2.5 text-left text-sm text-swiss-red transition-colors hover:bg-swiss-red/5 dark:border-neutral-800 dark:hover:bg-neutral-800"
                     >
                       <Plus className="h-3.5 w-3.5" />
@@ -438,14 +439,14 @@ export function FloatingNotesPanel({
                                 ? "text-swiss-red"
                                 : "text-neutral-400"
                             )}
-                            title="Pin note"
+                            aria-label={activeNote.metadata.is_pinned ? "Unpin note" : "Pin note"}
                           >
                             <Pin className="h-3 w-3" />
                           </button>
                           <button
                             onClick={() => deleteNote(activeNote.id)}
                             className="p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
-                            title="Delete note"
+                            aria-label="Delete note"
                           >
                             <Trash className="h-3 w-3" />
                           </button>
@@ -456,7 +457,7 @@ export function FloatingNotesPanel({
                             updateNote(activeNote.id, { content: e.target.value })
                           }
                           placeholder="Write your note here..."
-                          className="flex-1 resize-none border-none bg-transparent p-3 text-sm focus:ring-0 dark:text-white"
+                          className="focus-ring flex-1 resize-none border-none bg-transparent p-3 text-sm dark:text-white"
                         />
                       </>
                     ) : (

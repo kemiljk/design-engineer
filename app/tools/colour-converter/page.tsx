@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ColourConverterPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Colour Converter"
         description="Convert colours between web and native formats. Explore variations and harmonies."

@@ -62,7 +62,7 @@ export default async function DashboardPage() {
   const pendingProjects = galleryProjects.filter((p) => p.metadata.status === "pending");
 
   return (
-    <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="container-page py-8">
         <Link
           href="/course"
@@ -111,11 +111,11 @@ export default async function DashboardPage() {
 
           <div className="grid gap-4 md:grid-cols-4">
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="text-3xl font-bold text-swiss-red">{stats.completedCount}</div>
+              <div className="text-3xl font-bold tabular-nums text-swiss-red">{stats.completedCount}</div>
               <div className="text-sm text-neutral-600 dark:text-neutral-400">Lessons Completed</div>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="text-3xl font-bold">{stats.completionPercentage}%</div>
+              <div className="text-3xl font-bold tabular-nums">{stats.completionPercentage}%</div>
               <div className="text-sm text-neutral-600 dark:text-neutral-400">Course Progress</div>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
@@ -126,7 +126,7 @@ export default async function DashboardPage() {
               <div className="text-sm text-neutral-600 dark:text-neutral-400">Time Invested</div>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="text-3xl font-bold">{certificates.length}</div>
+              <div className="text-3xl font-bold tabular-nums">{certificates.length}</div>
               <div className="text-sm text-neutral-600 dark:text-neutral-400">
                 Certificates Earned
               </div>
@@ -136,8 +136,8 @@ export default async function DashboardPage() {
           {/* Progress Bar */}
           <div className="mt-4">
             <div className="mb-2 flex items-center justify-between text-sm text-neutral-500">
-              <span>{stats.completedCount} of {stats.totalLessons} lessons</span>
-              <span>{stats.completionPercentage}% complete</span>
+              <span className="tabular-nums">{stats.completedCount} of {stats.totalLessons} lessons</span>
+              <span className="tabular-nums">{stats.completionPercentage}% complete</span>
             </div>
             <div className="h-2 w-full bg-neutral-200 dark:bg-neutral-700">
               <div

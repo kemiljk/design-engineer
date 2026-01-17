@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function SpringPhysicsPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Spring Physics Playground"
         description="Experiment with spring parameters to create organic animations. Export to code instantly."

@@ -57,7 +57,7 @@ export default function PreviewPage() {
   }, [token, router]);
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center p-4">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center p-4">
       <div className="max-w-md w-full rounded-none border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900 text-center">
         {status === "loading" && (
           <>

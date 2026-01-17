@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function GradientGeneratorPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Gradient Generator"
         description="Design linear, radial, and conic gradients with multiple colour stops. Export for web and mobile."

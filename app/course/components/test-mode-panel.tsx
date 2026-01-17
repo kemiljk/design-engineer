@@ -146,6 +146,7 @@ export function TestModePanel() {
             <button
               onClick={fetchDebugData}
               disabled={isLoading}
+              aria-label="Refresh debug data"
               className="rounded p-1 hover:bg-neutral-100 dark:hover:bg-neutral-700"
             >
               <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
@@ -235,7 +236,7 @@ export function TestModePanel() {
                         disabled={createStatus === "loading"}
                         className="rounded bg-swiss-red px-3 py-2 text-sm font-medium text-white hover:bg-red-600 disabled:opacity-50"
                       >
-                        {createStatus === "loading" ? "..." : "Create"}
+                        {createStatus === "loading" ? "…" : "Create"}
                       </button>
                     </div>
                     {debugData.enrollment?.id === "test-enrollment" && (
@@ -272,7 +273,7 @@ export function TestModePanel() {
                   className="w-full flex items-center justify-center gap-2 rounded border border-neutral-300 bg-neutral-100 px-3 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-200 disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700 dark:text-neutral-300"
                 >
                   <Trash className="h-3 w-3" />
-                  {cleanupStatus === "loading" ? "Cleaning..." : "Cleanup Old Progress Records"}
+                  {cleanupStatus === "loading" ? "Cleaning…" : "Cleanup Old Progress Records"}
                 </button>
                 {cleanupMessage && (
                   <p className={`text-xs ${cleanupStatus === "success" ? "text-green-600" : "text-red-500"}`}>

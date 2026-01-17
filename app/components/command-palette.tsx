@@ -218,7 +218,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
             open={open}
             onOpenChange={setOpen}
             label="Command Menu"
-            className="fixed inset-0 z-[99999]"
+            className="fixed inset-0 z-50"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -233,7 +233,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.98, y: -4 }}
               transition={{ duration: duration.normal, ease: ease.outQuint }}
-              className="fixed left-1/2 top-[20%] z-[100000] w-full max-w-lg -translate-x-1/2 overflow-hidden border border-neutral-200 bg-white shadow-2xl dark:border-neutral-800 dark:bg-neutral-900"
+              className="fixed left-1/2 top-[20%] z-50 w-full max-w-lg -translate-x-1/2 overflow-hidden border border-neutral-200 bg-white shadow-2xl dark:border-neutral-800 dark:bg-neutral-900"
             >
               {/* Mode Tabs - only show if signed in */}
               {isSignedIn && (
@@ -273,7 +273,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                 placeholder={
                   mode === "course"
                     ? "Search lessons…"
-                    : "Type a command or search..."
+                    : "Type a command or search…"
                 }
                 value={searchValue}
                 onValueChange={setSearchValue}
@@ -444,7 +444,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                             {courseData.totalCompleted} of{" "}
                             {courseData.totalAccessible} completed
                           </span>
-                          <span>
+                          <span className="tabular-nums">
                             {Math.round(
                               (courseData.totalCompleted /
                                 courseData.totalAccessible) *

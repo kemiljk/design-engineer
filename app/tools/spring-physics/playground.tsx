@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useId } from "react";
 import { motion } from "motion/react";
 import { RefreshDouble as RefreshCw } from "iconoir-react";
 import { clsx } from "clsx";
@@ -34,6 +34,9 @@ export default function SpringPhysicsPlayground() {
   const [activePreset, setActivePreset] = useState<string>("Bouncy");
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("framer");
   const [key, setKey] = useState(0);
+  const stiffnessId = useId();
+  const dampingId = useId();
+  const massId = useId();
 
   const handlePresetClick = (name: string) => {
     setConfig(PRESETS[name]);
@@ -158,12 +161,13 @@ animateFloatAsState(
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={stiffnessId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Stiffness
                 </label>
                 <span className="font-mono text-sm">{config.stiffness}</span>
               </div>
               <input
+                id={stiffnessId}
                 type="range"
                 min="1"
                 max="1000"
@@ -177,12 +181,13 @@ animateFloatAsState(
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={dampingId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Damping
                 </label>
                 <span className="font-mono text-sm">{config.damping}</span>
               </div>
               <input
+                id={dampingId}
                 type="range"
                 min="1"
                 max="100"
@@ -196,12 +201,13 @@ animateFloatAsState(
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={massId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Mass
                 </label>
                 <span className="font-mono text-sm">{config.mass}</span>
               </div>
               <input
+                id={massId}
                 type="range"
                 min="0.1"
                 max="10"
@@ -262,8 +268,8 @@ animateFloatAsState(
       <div className="relative flex min-h-[300px] flex-col items-center justify-center border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-800 dark:bg-neutral-950 sm:min-h-[400px] sm:p-8">
         <button
           onClick={() => setKey((prev) => prev + 1)}
+          aria-label="Replay animation"
           className="absolute right-4 top-4 rounded-none bg-white p-2 text-neutral-600 shadow-sm hover:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-          title="Replay Animation"
         >
           <RefreshCw className="h-4 w-4" />
         </button>

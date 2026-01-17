@@ -7,7 +7,7 @@ const AboutPage: React.FC = async () => {
   const about = await getAbout();
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="About"
         description="What is Design Engineer, and why does it exist?"

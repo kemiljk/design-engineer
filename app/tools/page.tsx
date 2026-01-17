@@ -224,7 +224,7 @@ const TOOL_SECTIONS: ToolSection[] = [
 
 export default function ToolsPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Tools"
         description="Utilities and generators to supercharge your design engineering workflow."

@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function BorderComparisonPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Border Comparison"
         description="See why semi-transparent borders often look better than solid grey borders on colourful backgrounds."

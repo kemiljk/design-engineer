@@ -58,7 +58,7 @@ export function ComingSoon() {
   ];
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title={
           <>

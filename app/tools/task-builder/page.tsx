@@ -45,7 +45,7 @@ export default async function TaskBuilderPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Task Builder"
         description="AI-powered tool to generate practice scenarios and interview tasks."
@@ -65,7 +65,7 @@ export default async function TaskBuilderPage() {
               {/* Tool Header */}
               <div className="border-b border-neutral-200 p-8 dark:border-neutral-800">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-gradient-to-br from-swiss-red to-red-600">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-swiss-red">
                     <Sparkles className="h-6 w-6 text-white" />
                   </div>
                   <div>

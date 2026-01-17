@@ -83,6 +83,9 @@
   /* Animation keyframes */
   --animate-in: enter 0.2s ease-out;
   --animate-out: exit 0.2s ease-in;
+
+  /* Z-index scale - fixed values for maintainability */
+  --z-60: 60;
 }
 
 /* Custom typography overrides */
@@ -242,11 +245,13 @@ h5, h6 {
 p {
   line-height: 1.55;
   letter-spacing: -0.01em;
+  text-wrap: pretty;
 }
 
 /* Lists inherit body styling */
 li {
   line-height: 1.55;
+  text-wrap: pretty;
 }
 
 /* Strong emphasis */

@@ -113,7 +113,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
           }
         }
       `}</style>
-      <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 pt-24 pb-12 print:bg-white print:pt-8">
+      <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950 pt-24 pb-12 print:bg-white print:pt-8">
         <div className="mx-auto max-w-2xl px-4">
           <div className="mb-6 flex items-center justify-between print:hidden">
             <Link

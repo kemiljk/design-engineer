@@ -222,7 +222,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
     ]);
 
     return (
-      <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+      <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
         <div className="container-readable py-8">
           <Link
             href={backLink.href}
@@ -289,7 +289,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
       const minutesRemaining = Math.ceil((rateLimit.resetAt - now) / 60000);
       
       return (
-        <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+        <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
           <div className="container-readable py-8">
             <Link
               href={backLink.href}
@@ -367,7 +367,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const isTrackIndex = slug.length === 1 && ["design-track", "engineering-track", "convergence"].includes(slug[0]);
 
   return (
-    <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="container-readable pt-8 pb-24 xl:pb-8">
         <div className="mb-8 flex items-center justify-between">
           <Link

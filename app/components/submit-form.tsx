@@ -70,6 +70,7 @@ export default function SubmitForm() {
               label="Your name"
               type="text"
               name="from_name"
+              autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -79,6 +80,7 @@ export default function SubmitForm() {
               type="email"
               label="Your email"
               name="reply_to"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -94,9 +96,10 @@ export default function SubmitForm() {
             />
             <Input
               size="md"
-              type="text"
+              type="url"
               label="Article URL"
               name="url"
+              autoComplete="url"
               value={url}
               onChange={(e) => setURL(e.target.value)}
               required

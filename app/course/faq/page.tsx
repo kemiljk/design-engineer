@@ -152,7 +152,7 @@ export default async function FAQPage() {
   const course = await getCourse();
   const faqs = getFaqs(course.totalLessons);
   return (
-    <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="container-readable py-12">
         <Link
           href="/course"

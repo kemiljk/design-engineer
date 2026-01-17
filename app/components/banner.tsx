@@ -76,7 +76,7 @@ export default function Banner({
   return (
     <div
       ref={bannerRef}
-      className="sticky top-0 z-[999999] flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 dark:border-neutral-200 dark:bg-white md:px-8"
+      className="sticky top-0 z-60 flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 dark:border-neutral-200 dark:bg-white md:px-8"
     >
       <div className="flex flex-1 items-center justify-center gap-4">
         <NextLink
@@ -96,7 +96,7 @@ export default function Banner({
       <button
         onClick={handleDismiss}
         aria-label="Close Banner"
-        className="flex h-8 w-8 items-center justify-center text-neutral-500 transition-colors hover:text-white motion-reduce:transition-none dark:hover:text-black"
+        className="flex size-8 items-center justify-center text-neutral-500 transition-colors hover:text-white motion-reduce:transition-none dark:hover:text-black"
       >
         <Xmark className="h-4 w-4" />
       </button>

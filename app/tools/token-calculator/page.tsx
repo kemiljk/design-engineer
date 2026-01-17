@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function TokenCalculatorPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Design Token Calculator"
         description="Create harmonious typography and spacing scales. Export directly to Tailwind, CSS, or SCSS."

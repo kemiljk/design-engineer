@@ -124,7 +124,8 @@ function Input({ label, value, onChange }) {
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
-                    className="relative z-10 w-full bg-transparent pt-3 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
+                    autoComplete="email"
+                    className="focus-ring relative z-10 w-full bg-transparent pt-3 text-base font-medium text-neutral-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -166,12 +167,14 @@ function Input({ label, value, onChange }) {
                     onChange={(e) => setPassword(e.target.value)}
                     onFocus={() => setFocusedField("password")}
                     onBlur={() => setFocusedField(null)}
-                    className="relative z-10 w-full bg-transparent pt-3 text-base font-medium text-neutral-900 focus:outline-none dark:text-white"
+                    autoComplete="current-password"
+                    className="focus-ring relative z-10 w-full bg-transparent pt-3 text-base font-medium text-neutral-900 dark:text-white"
                   />
                 </div>
                 <button
                   onClick={() => setShowPassword(!showPassword)}
-                  className="ml-2 text-neutral-400 hover:text-neutral-600 focus:outline-none dark:hover:text-neutral-200"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="focus-ring ml-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200"
                 >
                   {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
                 </button>

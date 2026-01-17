@@ -113,7 +113,7 @@ export default function BrandPage() {
 
   return (
     <main className={cn(
-      "min-h-screen transition-colors duration-300",
+      "min-h-dvh transition-colors duration-300",
       invertTheme ? "bg-black dark:bg-white" : "bg-white dark:bg-black"
     )}>
       {/* Hero Section - matches PageHeader structure */}

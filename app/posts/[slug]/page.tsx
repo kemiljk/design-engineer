@@ -101,7 +101,7 @@ export default async function Post(props: {
   const readingTime = getReadingTime(post.metadata?.content || "");
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title={post.title}
         description={post.metadata.snippet}

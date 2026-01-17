@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function SpectrumGeneratorPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Spectrum Generator"
         description="Generate a harmonious colour scale from any starting colour using perceptually uniform OKLCH."

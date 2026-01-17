@@ -323,7 +323,10 @@ function ToolsSection() {
             >
               <div className="mb-3 flex items-center justify-between">
                 <div className="group-hover:bg-swiss-red flex h-10 w-10 items-center justify-center bg-neutral-100 transition-colors dark:bg-neutral-800">
-                  <tool.icon className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400" />
+                  <tool.icon
+                    aria-hidden="true"
+                    className="h-5 w-5 text-neutral-600 transition-colors group-hover:text-white dark:text-neutral-400"
+                  />
                 </div>
                 <span className="text-xxs font-medium tracking-wider text-neutral-400 uppercase">
                   {tool.category}
@@ -505,7 +508,7 @@ function CourseSectionSkeleton() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full bg-white dark:bg-black">
+    <main className="min-h-dvh w-full bg-white dark:bg-black">
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection />
       </Suspense>

@@ -468,6 +468,7 @@ transition: transform 1s ${formatCubicBezier(points)};`;
               </button>
               <button
                 onClick={resetAnimation}
+                aria-label="Reset animation"
                 className="flex h-10 w-10 items-center justify-center border border-neutral-200/60 text-neutral-500 shadow-sm transition-all hover:bg-neutral-50 hover:text-neutral-900 active:scale-[0.98] dark:border-neutral-800/60 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
               >
                 <RotateCcw className="size-3.5" />

@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function EasingGeneratorPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Easing Generator"
         description="Fine-tune your animations with custom cubic-bezier curves."

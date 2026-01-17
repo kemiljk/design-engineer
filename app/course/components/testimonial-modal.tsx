@@ -116,7 +116,7 @@ export function TestimonialModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 p-4"
+            className="fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 p-4 overscroll-contain"
           >
             <div className="overflow-hidden border-2 border-neutral-900 bg-white shadow-2xl dark:border-neutral-100 dark:bg-neutral-900">
               {/* Header */}
@@ -129,6 +129,7 @@ export function TestimonialModal({
                 </div>
                 <button
                   onClick={onClose}
+                  aria-label="Close"
                   className="text-neutral-400 transition-colors hover:text-white dark:hover:text-neutral-900"
                 >
                   <Xmark className="h-5 w-5" />
@@ -164,6 +165,8 @@ export function TestimonialModal({
                       <img
                         src={userPhotoUrl}
                         alt={userName || "User"}
+                        width={40}
+                        height={40}
                         className="h-10 w-10 object-cover"
                       />
                     ) : (
@@ -192,7 +195,7 @@ export function TestimonialModal({
                       placeholder="What did you learn? How has the course helped you?"
                       rows={4}
                       maxLength={500}
-                      className="w-full resize-none rounded-none border border-neutral-300 bg-white px-4 py-3 text-sm focus:border-swiss-red focus:outline-none focus:ring-1 focus:ring-swiss-red dark:border-neutral-600 dark:bg-neutral-800"
+                      className="focus-ring w-full resize-none rounded-none border border-neutral-300 bg-white px-4 py-3 text-sm focus:border-swiss-red dark:border-neutral-600 dark:bg-neutral-800"
                     />
                     <div className="mt-1 flex justify-between text-xs text-neutral-500">
                       <span>{content.length < 10 ? `${10 - content.length} more characters needed` : "Looking good!"}</span>
@@ -212,7 +215,8 @@ export function TestimonialModal({
                         onChange={(e) => setRole(e.target.value)}
                         placeholder="e.g. Product Designer"
                         maxLength={50}
-                        className="w-full rounded-none border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-600 dark:bg-neutral-800"
+                        autoComplete="organization-title"
+                        className="focus-ring w-full rounded-none border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-swiss-red dark:border-neutral-600 dark:bg-neutral-800"
                       />
                     </div>
                     <div>
@@ -225,7 +229,8 @@ export function TestimonialModal({
                         onChange={(e) => setCompany(e.target.value)}
                         placeholder="e.g. Acme Inc"
                         maxLength={50}
-                        className="w-full rounded-none border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-swiss-red focus:outline-none dark:border-neutral-600 dark:bg-neutral-800"
+                        autoComplete="organization"
+                        className="focus-ring w-full rounded-none border border-neutral-300 bg-white px-3 py-2 text-sm focus:border-swiss-red dark:border-neutral-600 dark:bg-neutral-800"
                       />
                     </div>
                   </div>
@@ -251,7 +256,7 @@ export function TestimonialModal({
                       className="flex items-center gap-2 bg-swiss-red px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-swiss-red/90 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {isSubmitting ? (
-                        "Submitting..."
+                        "Submitting…"
                       ) : (
                         <>
                           <SendDiagonal className="h-4 w-4" />

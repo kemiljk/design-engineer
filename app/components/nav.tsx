@@ -83,7 +83,7 @@ function DesktopOverflowMenu({
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring flex h-9 w-9 items-center justify-center text-neutral-500 transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-white"
+        className="focus-ring flex size-9 items-center justify-center text-neutral-500 transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-white"
       >
         <MoreHorizontal className="h-5 w-5" />
       </button>
@@ -284,7 +284,7 @@ function DesktopNavLinks({
             type="button"
             aria-hidden="true"
             tabIndex={-1}
-            className="flex h-9 w-9 items-center justify-center"
+            className="flex size-9 items-center justify-center"
           >
             <MoreHorizontal className="h-5 w-5" />
           </button>

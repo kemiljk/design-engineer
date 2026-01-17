@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useId } from "react";
 import { motion } from "motion/react";
 import { clsx } from "clsx";
 import { CodeBlock } from "../components";
@@ -39,6 +39,12 @@ export default function ShadowGenerator() {
   const [config, setConfig] = useState<ShadowConfig>(PRESETS.Medium);
   const [activePreset, setActivePreset] = useState("Medium");
   const [platform, setPlatform] = useState<Platform>("css");
+  const offsetXId = useId();
+  const offsetYId = useId();
+  const blurId = useId();
+  const spreadId = useId();
+  const opacityId = useId();
+  const insetId = useId();
 
   const handlePresetClick = (name: string) => {
     setConfig(PRESETS[name]);
@@ -197,12 +203,13 @@ elevation: ${Math.round(config.blur / 2)},
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={offsetXId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Offset X
                 </label>
                 <span className="font-mono text-sm">{config.offsetX}px</span>
               </div>
               <input
+                id={offsetXId}
                 type="range"
                 min="-50"
                 max="50"
@@ -214,12 +221,13 @@ elevation: ${Math.round(config.blur / 2)},
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={offsetYId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Offset Y
                 </label>
                 <span className="font-mono text-sm">{config.offsetY}px</span>
               </div>
               <input
+                id={offsetYId}
                 type="range"
                 min="-50"
                 max="50"
@@ -231,12 +239,13 @@ elevation: ${Math.round(config.blur / 2)},
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={blurId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Blur
                 </label>
                 <span className="font-mono text-sm">{config.blur}px</span>
               </div>
               <input
+                id={blurId}
                 type="range"
                 min="0"
                 max="100"
@@ -248,12 +257,13 @@ elevation: ${Math.round(config.blur / 2)},
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={spreadId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Spread
                 </label>
                 <span className="font-mono text-sm">{config.spread}px</span>
               </div>
               <input
+                id={spreadId}
                 type="range"
                 min="-50"
                 max="50"
@@ -287,12 +297,13 @@ elevation: ${Math.round(config.blur / 2)},
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <label htmlFor={opacityId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                   Opacity
                 </label>
                 <span className="font-mono text-sm">{(config.opacity * 100).toFixed(0)}%</span>
               </div>
               <input
+                id={opacityId}
                 type="range"
                 min="0"
                 max="1"
@@ -304,8 +315,9 @@ elevation: ${Math.round(config.blur / 2)},
             </div>
           </div>
 
-          <label className="flex items-center gap-2">
+          <label htmlFor={insetId} className="flex items-center gap-2">
             <input
+              id={insetId}
               type="checkbox"
               checked={config.inset}
               onChange={(e) => handleChange("inset", e.target.checked)}

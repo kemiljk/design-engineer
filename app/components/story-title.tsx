@@ -40,7 +40,7 @@ export const StoryTitle = ({ story }: { story: Type.Story }) => {
   return (
     <div
       key={story.id}
-      className="sticky top-12 z-[9999999999] w-fit"
+      className="sticky top-12 z-30 w-fit"
       ref={ref}
     >
       <motion.div

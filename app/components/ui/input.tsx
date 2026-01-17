@@ -28,10 +28,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "peer w-full border border-neutral-200 bg-transparent px-3 py-2 text-foreground transition-colors motion-reduce:transition-none",
+            "focus-ring peer w-full border border-neutral-200 bg-transparent px-3 py-2 text-foreground transition-colors motion-reduce:transition-none",
             "placeholder:text-neutral-500",
             "hover:border-neutral-400 dark:hover:border-neutral-600",
-            "focus:border-swiss-red focus:outline-none dark:focus:border-swiss-red",
+            "focus:border-swiss-red dark:focus:border-swiss-red",
             "dark:border-neutral-800",
             sizeClasses[size],
             className
@@ -86,10 +86,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={textareaId}
           className={cn(
-            "peer w-full border border-neutral-200 bg-transparent px-3 pt-6 pb-2 text-foreground transition-colors motion-reduce:transition-none",
+            "focus-ring peer w-full border border-neutral-200 bg-transparent px-3 pt-6 pb-2 text-foreground transition-colors motion-reduce:transition-none",
             "placeholder:text-transparent",
             "hover:border-neutral-400 dark:hover:border-neutral-600",
-            "focus:border-swiss-red focus:outline-none dark:focus:border-swiss-red",
+            "focus:border-swiss-red dark:focus:border-swiss-red",
             "dark:border-neutral-800",
             "min-h-[100px] resize-y",
             className

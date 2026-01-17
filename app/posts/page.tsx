@@ -35,7 +35,7 @@ const PostsPage = async (props: {
   });
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Articles"
         description="Insights, tutorials, and perspectives on design engineering from our community."

@@ -11,7 +11,7 @@ const StoriesPage: React.FC = async () => {
   const stories = await getStories();
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Stories"
         description="Conversations with leading Design Engineers about their craft, career, and creative process."

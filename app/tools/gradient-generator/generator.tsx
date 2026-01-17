@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useId } from "react";
 import { motion } from "motion/react";
 import { Plus, Trash, Drag as GripVertical } from "iconoir-react";
 import { clsx } from "clsx";
@@ -83,6 +83,7 @@ export default function GradientGenerator() {
   ]);
   const [platform, setPlatform] = useState<Platform>("css");
   const [activePreset, setActivePreset] = useState<string | null>(null);
+  const angleId = useId();
 
   const handlePresetClick = (name: string) => {
     const preset = PRESETS[name];
@@ -298,12 +299,13 @@ Brush.radialGradient(
         {(gradientType === "linear" || gradientType === "conic") && (
           <div className="space-y-2">
             <div className="flex justify-between">
-              <label className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+              <label htmlFor={angleId} className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
                 Angle
               </label>
               <span className="font-mono text-sm">{angle}°</span>
             </div>
             <input
+              id={angleId}
               type="range"
               min="0"
               max="360"
@@ -325,6 +327,7 @@ Brush.radialGradient(
             </label>
             <button
               onClick={addStop}
+              aria-label="Add colour stop"
               className="flex items-center gap-1 rounded-none bg-neutral-100 px-2 py-1 text-xs font-medium text-neutral-600 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-400"
             >
               <Plus className="h-3 w-3" />
@@ -362,6 +365,7 @@ Brush.radialGradient(
                 <button
                   onClick={() => removeStop(stop.id)}
                   disabled={stops.length <= 2}
+                  aria-label={`Remove colour stop at ${stop.position}%`}
                   className="ml-auto p-1 text-neutral-400 hover:text-red-500 disabled:opacity-30 sm:ml-0"
                 >
                   <Trash className="h-4 w-4" />

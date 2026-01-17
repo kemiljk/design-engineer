@@ -6,7 +6,7 @@ import {
   Code as Code2,
   LayoutLeft as Layout,
   DoubleCheck as ArrowLeftRight,
-  Archery,
+  PriorityUp,
   Flash as Zap,
   CheckCircle as CheckCircle2,
 } from "iconoir-react";
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function DesignEngineeringPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <main className="min-h-dvh bg-white dark:bg-black">
       <PageHeader
         title="Design Engineering"
         description="The discipline that bridges design and development, and why it matters."
@@ -239,7 +239,7 @@ export default function DesignEngineeringPage() {
 
           <div className="my-6 space-y-4">
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
+              <PriorityUp className="text-swiss-red size-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Faster Iteration</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -250,7 +250,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
+              <PriorityUp className="text-swiss-red size-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Higher Quality Output</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -261,7 +261,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
+              <PriorityUp className="text-swiss-red size-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Better Communication</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -272,7 +272,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
+              <PriorityUp className="text-swiss-red size-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Design System Adoption</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">

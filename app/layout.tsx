@@ -45,7 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sans.variable} ${mono.variable} text-foreground dark:bg-background relative h-full min-h-screen w-full overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out`}
+        className={`${sans.variable} ${mono.variable} text-foreground dark:bg-background relative h-full min-h-dvh w-full overflow-x-hidden font-sans antialiased transition-colors duration-200 ease-in-out`}
       >
         <a
           href="#content"

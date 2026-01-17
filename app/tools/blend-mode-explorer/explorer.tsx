@@ -374,6 +374,7 @@ function SortableLayer({
           <button
             {...attributes}
             {...listeners}
+            aria-label="Drag to reorder"
             className="cursor-grab touch-none rounded p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 active:cursor-grabbing dark:hover:bg-neutral-800 dark:hover:text-neutral-300"
           >
             <GripVertical className="h-4 w-4" />
@@ -1219,6 +1220,7 @@ ${layerBoxes}
                       )}
                       <button
                         onClick={clearCustomImage}
+                        aria-label="Clear custom image"
                         className="p-1 text-neutral-400 hover:bg-neutral-200 hover:text-neutral-600 dark:hover:bg-neutral-800"
                       >
                         <X className="h-4 w-4" />

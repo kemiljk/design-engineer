@@ -94,7 +94,7 @@ function SpringCard() {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div 
-                className="flex h-32 w-32 items-center justify-center rounded-20 bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-xl transition-transform duration-300 ease-out will-change-transform group-hover:-translate-y-2 group-hover:scale-105 group-hover:rotate-3"
+                className="flex h-32 w-32 items-center justify-center rounded-20 bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-xl transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:scale-105 group-hover:rotate-3"
               >
                 <span className="font-bold">CSS</span>
               </div>

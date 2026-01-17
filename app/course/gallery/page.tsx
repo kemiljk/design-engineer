@@ -59,7 +59,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
   const showFeatured = !params.platform && !params.track && featuredProjects.length > 0;
 
   return (
-    <main className="min-h-screen bg-neutral-50 pt-24 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="container-page py-8">
         <Link
           href="/course"

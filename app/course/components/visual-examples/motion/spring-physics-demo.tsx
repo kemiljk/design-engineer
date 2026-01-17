@@ -372,6 +372,7 @@ export function SpringPhysicsDemo() {
             <div className="flex gap-2">
               <button
                 onClick={reset}
+                aria-label="Reset spring"
                 className="flex h-10 w-10 items-center justify-center border border-neutral-200/60 bg-white text-neutral-500 shadow-sm transition-all hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-800/60 dark:bg-neutral-900 dark:text-neutral-400"
               >
                 <RotateCcw className="size-4" />

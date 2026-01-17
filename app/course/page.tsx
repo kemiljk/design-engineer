@@ -128,7 +128,7 @@ export default async function CoursePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-neutral-50 to-white dark:from-black dark:to-neutral-900">
+    <main className="min-h-dvh bg-gradient-to-b from-neutral-50 to-white dark:from-black dark:to-neutral-900">
       {/* Test Mode Banner */}
       {course.testMode && (
         <div className="bg-yellow-500 px-4 py-2 text-center text-sm font-medium text-black">

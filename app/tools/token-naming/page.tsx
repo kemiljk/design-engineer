@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function TokenNamingPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+    <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
         title="Semantic Token Naming"
         description="Build consistent, well-structured design token names. Choose your naming convention, then generate complete token sets with variants and states."

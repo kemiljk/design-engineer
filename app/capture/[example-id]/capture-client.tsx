@@ -1090,7 +1090,7 @@ export function CaptureClient({ exampleId }: { exampleId: string }) {
 
   if (!ExampleComponent) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-neutral-950">
+      <div className="flex min-h-dvh items-center justify-center bg-neutral-950">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-white">Example Not Found</h1>
           <p className="mt-2 text-neutral-400">ID: {exampleId}</p>
@@ -1103,7 +1103,7 @@ export function CaptureClient({ exampleId }: { exampleId: string }) {
   }
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center overflow-hidden bg-neutral-100 p-16">
+    <div className="flex h-dvh w-screen items-center justify-center overflow-hidden bg-neutral-100 p-16">
       <div
         className="sr-only"
         data-capture-ready={isReady}
