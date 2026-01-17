@@ -123,7 +123,7 @@ export default function DesignEngineeringPage() {
 
           <div className="my-6 space-y-4">
             <div className="flex items-start gap-4">
-              <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Design System Development</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -134,7 +134,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">End-to-end Project Delivery</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -145,7 +145,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Prototyping</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -156,7 +156,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Implementation</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -167,7 +167,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">
                   Design-Engineering Translation
@@ -180,7 +180,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <CheckCircle2 className="text-swiss-red mt-0.5 h-5 w-5 shrink-0" />
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Tooling and Infrastructure</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -239,7 +239,7 @@ export default function DesignEngineeringPage() {
 
           <div className="my-6 space-y-4">
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red mt-0.5 h-6 w-6 shrink-0" />
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Faster Iteration</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -250,7 +250,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red mt-0.5 h-6 w-6 shrink-0" />
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Higher Quality Output</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -261,7 +261,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red mt-0.5 h-6 w-6 shrink-0" />
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Better Communication</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -272,7 +272,7 @@ export default function DesignEngineeringPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Archery className="text-swiss-red mt-0.5 h-6 w-6 shrink-0" />
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
                 <h4 className="mb-1 font-bold leading-tight">Design System Adoption</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
