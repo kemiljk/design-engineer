@@ -35,13 +35,13 @@ import {
 import SubmitArticle from "./components/submit-article";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
-import { HeroIllustration } from "./components/hero-illustration";
+import { HeroIllustrationWrapper } from "./components/hero-illustration-wrapper";
 import { FAQAccordion } from "./course/faq/faq-accordion";
 import { AnimatedSection } from "./components/animated-section";
 import { AnimatedGrid } from "./components/animated-grid";
 
-async function HeroSection() {
-  const home = await getHome();
+async function HeroSection({ homePromise }: { homePromise: ReturnType<typeof getHome> }) {
+  const home = await homePromise;
 
   return (
     <div className="w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
@@ -50,7 +50,7 @@ async function HeroSection() {
           {/* Illustration - top on mobile, right on desktop */}
           <div className="order-first flex items-center justify-center lg:order-last lg:col-span-5">
             <div className="w-full max-w-md lg:max-w-none">
-              <HeroIllustration />
+              <HeroIllustrationWrapper />
             </div>
           </div>
 
@@ -99,8 +99,8 @@ function HeroSkeleton() {
   );
 }
 
-async function PostsSection() {
-  const posts = await getPosts();
+async function PostsSection({ postsPromise }: { postsPromise: ReturnType<typeof getPosts> }) {
+  const posts = await postsPromise;
 
   return <RandomisedPosts posts={posts} count={3} />;
 }
@@ -118,8 +118,8 @@ function PostsSkeleton() {
   );
 }
 
-async function SponsorsSection() {
-  const sponsors = await getSponsors();
+async function SponsorsSection({ sponsorsPromise }: { sponsorsPromise: Promise<Awaited<ReturnType<typeof getSponsors>>> }) {
+  const sponsors = await sponsorsPromise;
 
   return (
     <AnimatedSection
@@ -384,11 +384,8 @@ function DesignEngineeringSection() {
   );
 }
 
-async function CourseSection() {
-  const [{ is_available: isCourseAvailable }, course] = await Promise.all([
-    getCourseAvailability(),
-    getCourse(),
-  ]);
+async function CourseSection({ coursePromise }: { coursePromise: Promise<[{ is_available: boolean }, Awaited<ReturnType<typeof getCourse>>]> }) {
+  const [{ is_available: isCourseAvailable }, course] = await coursePromise;
 
   const tracks = [
     {
@@ -507,16 +504,21 @@ function CourseSectionSkeleton() {
 }
 
 export default function Home() {
+  const homePromise = getHome();
+  const postsPromise = getPosts();
+  const sponsorsPromise = getSponsors();
+  const coursePromise = Promise.all([getCourseAvailability(), getCourse()]);
+
   return (
     <main className="min-h-dvh w-full bg-white dark:bg-black">
       <Suspense fallback={<HeroSkeleton />}>
-        <HeroSection />
+        <HeroSection homePromise={homePromise} />
       </Suspense>
 
       <DesignEngineeringSection />
 
       <Suspense fallback={<CourseSectionSkeleton />}>
-        <CourseSection />
+        <CourseSection coursePromise={coursePromise} />
       </Suspense>
 
       <ToolsSection />
@@ -540,7 +542,7 @@ export default function Home() {
         </AnimatedSection>
 
         <Suspense fallback={<PostsSkeleton />}>
-          <PostsSection />
+          <PostsSection postsPromise={postsPromise} />
         </Suspense>
 
         <AnimatedSection
@@ -551,7 +553,7 @@ export default function Home() {
         </AnimatedSection>
 
         <Suspense fallback={<SponsorsSkeleton />}>
-          <SponsorsSection />
+          <SponsorsSection sponsorsPromise={sponsorsPromise} />
         </Suspense>
       </div>
 

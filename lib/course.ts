@@ -1,5 +1,6 @@
 import "server-only";
 
+import { cache } from "react";
 import { cosmic } from "./cosmic";
 import * as Type from "./types";
 import { nanoid } from "nanoid";
@@ -180,9 +181,9 @@ export function canAccessLesson(
   return allowedPaths.some((allowedPath) => lessonPath.startsWith(allowedPath));
 }
 
-export async function getUserEnrollment(
+export const getUserEnrollment = cache(async (
   userId: string
-): Promise<Type.CourseEnrollment | null> {
+): Promise<Type.CourseEnrollment | null> => {
   // Check if this user should bypass test mode (e.g., owner testing real progress)
   const bypassTestMode = TEST_MODE_BYPASS_USER_IDS.has(userId);
   
@@ -250,7 +251,7 @@ export async function getUserEnrollment(
     console.error("Error fetching user enrollment:", error);
     return null;
   }
-}
+});
 
 export async function createEnrollment(
   data: Omit<Type.CourseEnrollment["metadata"], "status"> & { status?: string }
@@ -332,9 +333,9 @@ export async function deleteNote(noteId: string): Promise<void> {
 }
 
 // Get the single progress object for a user (new-style with lessons field)
-export async function getUserProgress(
+export const getUserProgress = cache(async (
   userId: string
-): Promise<Type.CourseProgress | null> {
+): Promise<Type.CourseProgress | null> => {
   try {
     const { objects } = await cosmic.objects
       .find({
@@ -360,9 +361,9 @@ export async function getUserProgress(
     console.error("Error fetching user progress:", error);
     return null;
   }
-}
+});
 
-export async function getCourseProgress(userId: string) {
+export const getCourseProgress = cache(async (userId: string) => {
   const progress = await getUserProgress(userId);
   if (!progress) {
     return { completedLessons: [], raw: null };
@@ -374,7 +375,7 @@ export async function getCourseProgress(userId: string) {
     .map(([path]) => path);
   
   return { completedLessons, raw: progress };
-}
+});
 
 export async function updateProgress(
   userId: string,
@@ -766,12 +767,12 @@ export async function getAdjacentLessonsAcrossModules(currentPath: string): Prom
 }
 
 // Get user's last activity (for "Continue where you left off")
-export async function getLastActivity(userId: string): Promise<{
+export const getLastActivity = cache(async (userId: string): Promise<{
   lessonPath: string;
   lessonTitle: string;
   status: string;
   timestamp: string;
-} | null> {
+} | null> => {
   const progress = await getUserProgress(userId);
   
   if (!progress || !progress.metadata.last_lesson_path) {
@@ -788,7 +789,7 @@ export async function getLastActivity(userId: string): Promise<{
     status: lessonData?.status || "in_progress",
     timestamp: progress.metadata.last_activity_at || progress.modified_at || progress.created_at,
   };
-}
+});
 
 // Get progress for a specific track/platform
 export async function getTrackProgress(

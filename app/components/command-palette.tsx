@@ -196,11 +196,19 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
     convergence: "Convergence",
   };
 
+  const preload = () => {
+    if (typeof window !== "undefined") {
+      void import("./command-palette");
+    }
+  };
+
   return (
     <>
       <button
         type="button"
         onClick={() => setOpen(true)}
+        onMouseEnter={preload}
+        onFocus={preload}
         aria-haspopup="dialog"
         aria-expanded={open}
         className="focus-ring hidden items-center gap-2 border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-500 transition-[background-color,border-color,transform] duration-150 ease-out hover:border-neutral-300 hover:bg-neutral-100 active:translate-y-px md:flex dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:border-neutral-700 dark:hover:bg-neutral-800 motion-reduce:transform-none motion-reduce:transition-none"
@@ -309,7 +317,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                               }
                             })
                           }
-                          className="focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
+                          className="command-item focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
                         >
                           <page.icon className="h-4 w-4 text-neutral-400" />
                           <span>{page.name}</span>
@@ -332,7 +340,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                             onSelect={() =>
                               runCommand(() => router.push(`/posts/${post.slug}`))
                             }
-                            className="focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
+                            className="command-item focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
                           >
                             <FileText className="h-4 w-4 text-neutral-400" />
                             <span className="line-clamp-1">{post.title}</span>
@@ -386,7 +394,7 @@ export function CommandPalette({ posts = [] }: CommandPaletteProps) {
                                     router.push(`/course/${lesson.path}`)
                                   )
                                 }
-                                className="focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
+                                className="lesson-item-large command-item focus-ring flex cursor-pointer items-center gap-3 border-l-2 border-transparent px-3 py-2 text-sm text-neutral-700 aria-selected:border-swiss-red aria-selected:bg-neutral-100 dark:text-neutral-300 dark:aria-selected:bg-neutral-800"
                               >
                                 {/* Track Icon */}
                                 {lesson.track === "introduction" ? (

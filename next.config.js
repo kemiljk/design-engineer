@@ -4,6 +4,9 @@ const nextConfig = {
     optimizePackageImports: [
       "iconoir-react",
       "date-fns",
+      "motion",
+      "cmdk",
+      "@clerk/nextjs",
     ],
   },
   images: {

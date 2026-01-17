@@ -4,10 +4,12 @@ import { getUserNotes, createNote, updateNote, deleteNote } from "@/lib/course";
 import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET(request: NextRequest) {
-  const unavailableResponse = await requireCourseAvailable();
+  const [unavailableResponse, { userId }] = await Promise.all([
+    requireCourseAvailable(),
+    auth(),
+  ]);
+  
   if (unavailableResponse) return unavailableResponse;
-
-  const { userId } = await auth();
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -22,10 +24,12 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const unavailableResponse = await requireCourseAvailable();
+  const [unavailableResponse, { userId }] = await Promise.all([
+    requireCourseAvailable(),
+    auth(),
+  ]);
+  
   if (unavailableResponse) return unavailableResponse;
-
-  const { userId } = await auth();
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -55,10 +59,12 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
-  const unavailableResponse = await requireCourseAvailable();
+  const [unavailableResponse, { userId }] = await Promise.all([
+    requireCourseAvailable(),
+    auth(),
+  ]);
+  
   if (unavailableResponse) return unavailableResponse;
-
-  const { userId } = await auth();
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -84,10 +90,12 @@ export async function PATCH(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-  const unavailableResponse = await requireCourseAvailable();
+  const [unavailableResponse, { userId }] = await Promise.all([
+    requireCourseAvailable(),
+    auth(),
+  ]);
+  
   if (unavailableResponse) return unavailableResponse;
-
-  const { userId } = await auth();
 
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

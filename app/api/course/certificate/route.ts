@@ -12,10 +12,12 @@ import type { CertificatePlatform, CertificateTrack } from "@/lib/types";
 import { requireCourseAvailable } from "@/lib/course-availability";
 
 export async function GET(request: NextRequest) {
-  const unavailableResponse = await requireCourseAvailable();
+  const [unavailableResponse, { userId }] = await Promise.all([
+    requireCourseAvailable(),
+    auth(),
+  ]);
+  
   if (unavailableResponse) return unavailableResponse;
-
-  const { userId } = await auth();
   
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -72,10 +74,12 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const unavailableResponse = await requireCourseAvailable();
+  const [unavailableResponse, { userId }] = await Promise.all([
+    requireCourseAvailable(),
+    auth(),
+  ]);
+  
   if (unavailableResponse) return unavailableResponse;
-
-  const { userId } = await auth();
   const user = await currentUser();
   
   if (!userId || !user) {

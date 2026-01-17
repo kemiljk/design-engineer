@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-import { ReactNode } from "react";
-import { ease, duration, viewportOnce } from "@/lib/motion";
+import { ReactNode, useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -17,15 +16,47 @@ export function AnimatedSection({
   delay = 0,
   as = "section",
 }: AnimatedSectionProps) {
-  const Component = motion[as];
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  const Component = as;
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setIsVisible(true);
+          }, delay * 1000);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [delay]);
 
   return (
     <Component
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={viewportOnce}
-      transition={{ duration: duration.slow + 0.1, ease: ease.outQuint, delay }}
+      ref={ref as never}
+      className={cn(
+        "transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-6 opacity-0",
+        className
+      )}
+      style={{
+        transitionDelay: delay > 0 ? `${delay * 1000}ms` : undefined,
+        transitionProperty: "opacity, transform",
+      }}
     >
       {children}
     </Component>

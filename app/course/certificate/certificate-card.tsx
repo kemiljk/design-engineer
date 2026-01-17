@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { Download, ShareIos as Share2, OpenNewWindow as ExternalLink, Medal as Award } from "iconoir-react";
-import { pdf } from "@react-pdf/renderer";
-import { CertificatePDF } from "./certificate-pdf";
 import type { Certificate } from "@/lib/types";
 
 interface CertificateCardProps {
@@ -29,6 +27,10 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
   const handleDownload = async () => {
     setIsDownloading(true);
     try {
+      const [{ pdf }, { CertificatePDF }] = await Promise.all([
+        import("@react-pdf/renderer"),
+        import("./certificate-pdf"),
+      ]);
       const blob = await pdf(<CertificatePDF certificate={certificate} />).toBlob();
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");

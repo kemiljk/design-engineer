@@ -99,7 +99,7 @@ export function ModuleJumper({ modules, currentModule, trackSlug, platformSlug }
                   href={`/course/${module.firstLessonPath}`}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 transition-colors",
+                    "module-item flex items-center gap-3 px-3 py-2.5 transition-colors",
                     isCurrent
                       ? "bg-swiss-red/10 text-swiss-red"
                       : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"

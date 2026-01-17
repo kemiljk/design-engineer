@@ -325,7 +325,7 @@ function CurriculumModal({
           {/* Modules grid */}
           <div className="grid gap-6 sm:grid-cols-2">
             {track.modules.map((module, index) => (
-              <div key={module.title}>
+              <div key={module.title} className="module-item">
                 <div className="mb-2 flex items-center gap-2">
                   <span className="flex h-5 w-5 items-center justify-center bg-neutral-100 text-xs font-bold text-neutral-500 dark:bg-neutral-800">
                     {index + 1}

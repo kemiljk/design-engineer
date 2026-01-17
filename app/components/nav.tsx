@@ -30,6 +30,12 @@ const CommandPalette = dynamic(
   },
 );
 
+const preloadCommandPalette = () => {
+  if (typeof window !== "undefined") {
+    void import("./command-palette");
+  }
+};
+
 function isExternalLink(href: string): boolean {
   return href.startsWith("http://") || href.startsWith("https://");
 }

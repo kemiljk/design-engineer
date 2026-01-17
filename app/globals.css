@@ -359,6 +359,22 @@ small {
   }
 
   /* 
+   * Content Visibility for Long Lists
+   * Defers rendering of off-screen items for better performance
+   */
+  .lesson-item,
+  .module-item,
+  .command-item {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 60px;
+  }
+  
+  .lesson-item-large {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 80px;
+  }
+
+  /* 
    * Design Testing Utility
    * Apply to a container to test if hierarchy works without colour
    * "Hierarchy should work in black and white first." — d×e
