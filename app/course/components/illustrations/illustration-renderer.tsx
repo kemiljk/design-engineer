@@ -147,7 +147,12 @@ export function IllustrationRenderer({
   type,
   caption,
 }: IllustrationRendererProps) {
-  const Component = ILLUSTRATION_MAP[type];
+  // Normalize British English spellings to American English for illustration names
+  const normalizedType = type
+    .replace(/^colour-/, "color-")
+    .replace(/^colour$/, "color");
+  
+  const Component = ILLUSTRATION_MAP[normalizedType] || ILLUSTRATION_MAP[type];
 
   if (!Component) {
     if (process.env.NODE_ENV === "development") {
