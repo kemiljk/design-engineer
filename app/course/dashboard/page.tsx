@@ -15,11 +15,12 @@ import {
   OpenNewWindow as ExternalLink,
   User,
 } from "iconoir-react";
-import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel } from "@/lib/course";
+import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel, getLastActivity } from "@/lib/course";
 import { getUserCertificates, checkCertificateEligibility } from "@/lib/certificate";
 import { getUserGalleryProjects } from "@/lib/cosmic";
 import { Button } from "@/app/components/ui";
 import { GalleryProjectCard } from "./gallery-project-card";
+import { ContinueLearning } from "../components/continue-learning";
 
 export const metadata = {
   title: "My Dashboard | Design Engineer Course",
@@ -34,12 +35,13 @@ export default async function DashboardPage() {
   }
 
   const user = await currentUser();
-  const [enrollment, progress, notes, certificates, galleryProjects] = await Promise.all([
+  const [enrollment, progress, notes, certificates, galleryProjects, lastActivity] = await Promise.all([
     getUserEnrollment(userId),
     getUserProgress(userId),
     getUserNotes(userId),
     getUserCertificates(userId),
     getUserGalleryProjects(userId),
+    getLastActivity(userId),
   ]);
 
   const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
@@ -93,6 +95,16 @@ export default async function DashboardPage() {
           </div>
         </div>
 
+        {/* Continue Learning Section */}
+        {lastActivity && lastActivity.status !== "completed" && (
+          <div className="mb-8">
+            <ContinueLearning
+              lessonPath={lastActivity.lessonPath}
+              lessonTitle={lastActivity.lessonTitle}
+            />
+          </div>
+        )}
+
         {/* Progress Overview */}
         <section className="mb-12 rounded-none border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="mb-6 flex items-center justify-between">
@@ -139,7 +151,7 @@ export default async function DashboardPage() {
               <span className="tabular-nums">{stats.completedCount} of {stats.totalLessons} lessons</span>
               <span className="tabular-nums">{stats.completionPercentage}% complete</span>
             </div>
-            <div className="h-2 w-full bg-neutral-200 dark:bg-neutral-700">
+            <div className="h-2 w-full rounded-none bg-neutral-200 dark:bg-neutral-700">
               <div
                 className="h-full bg-swiss-red transition-all"
                 style={{ width: `${stats.completionPercentage}%` }}

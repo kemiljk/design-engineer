@@ -39,13 +39,13 @@ export function ExampleWrapper({
         )}
       </div>
       
-      <div className="p-6 sm:p-8">{children}</div>
-      
       {controls && (
-        <div className="border-t border-neutral-200/60 bg-neutral-50/50 px-6 py-4 dark:border-neutral-800/60 dark:bg-neutral-950/30">
+        <div className="border-b border-neutral-200/60 bg-neutral-50/50 px-6 py-4 dark:border-neutral-800/60 dark:bg-neutral-950/30">
           {controls}
         </div>
       )}
+      
+      <div className="p-6 sm:p-8">{children}</div>
     </figure>
   );
 }
@@ -125,7 +125,7 @@ export function SliderControl({
           className="h-1.5 w-20 cursor-pointer appearance-none rounded-full bg-neutral-200 accent-neutral-900 sm:w-32 dark:bg-neutral-700 dark:accent-white"
         />
       </div>
-      <span className="min-w-[3rem] shrink-0 rounded-lg bg-white px-2 py-1 text-center font-mono text-xs text-neutral-600 shadow-sm ring-1 ring-neutral-200/50 sm:min-w-[3.5rem] dark:bg-neutral-800 dark:text-neutral-400 dark:ring-neutral-700/50">
+      <span className="min-w-8 shrink-0 rounded-lg bg-white px-2 py-1 text-center font-mono text-xs text-neutral-600 shadow-sm ring-1 ring-neutral-200/50 sm:min-w-10 dark:bg-neutral-800 dark:text-neutral-400 dark:ring-neutral-700/50">
         {value}{unit}
       </span>
     </div>

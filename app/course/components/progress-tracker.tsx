@@ -16,6 +16,19 @@ interface ProgressStats {
 export function ProgressTracker() {
   const [stats, setStats] = useState<ProgressStats | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   useEffect(() => {
     async function fetchProgress() {
@@ -57,7 +70,7 @@ export function ProgressTracker() {
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${stats.completionPercentage}%` }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.5, ease: "easeOut" }}
             className="h-full bg-swiss-red"
           />
         </div>

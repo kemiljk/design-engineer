@@ -102,9 +102,6 @@ export function MarkCompleteButton({
     );
   }
 
-  const timeRemaining = MIN_TIME_FOR_AUTO_COMPLETE - secondsElapsed;
-  const showTimer = !isCompleted && timeRemaining > 0;
-
   return (
     <motion.button
       onClick={handleClick}
@@ -127,11 +124,7 @@ export function MarkCompleteButton({
       ) : (
         <>
           <Check className="h-5 w-5" />
-          {showTimer ? (
-            <span>Mark Complete <span className="opacity-70 text-sm">({timeRemaining}s)</span></span>
-          ) : (
-            "Mark as Complete"
-          )}
+          Mark as Complete
         </>
       )}
     </motion.button>

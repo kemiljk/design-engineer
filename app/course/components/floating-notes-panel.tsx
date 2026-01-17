@@ -39,6 +39,8 @@ export function FloatingNotesPanel({
   const [isSaving, setIsSaving] = useState(false);
   const [viewMode, setViewMode] = useState<"lesson" | "all">("lesson");
   const containerRef = useRef<HTMLDivElement>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const editingContentRef = useRef(editingContent);
 
   const [debouncedContent] = useDebounceValue(editingContent, 1000);
@@ -97,12 +99,42 @@ export function FloatingNotesPanel({
       }
     };
 
+    const handleTabKey = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusableElements = dialogRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0] as HTMLElement;
+      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+      if (event.shiftKey) {
+        if (document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement?.focus();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleTabKey);
+
+    const firstFocusable = dialogRef.current?.querySelector(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    ) as HTMLElement;
+    firstFocusable?.focus();
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("keydown", handleTabKey);
+      triggerButtonRef.current?.focus();
     };
   }, [isOpen]);
 
@@ -306,6 +338,10 @@ export function FloatingNotesPanel({
             {isOpen ? (
               <motion.div
                 key="expanded"
+                ref={dialogRef}
+                role="dialog"
+                aria-modal="true"
+                aria-label="Notes panel"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -320,7 +356,9 @@ export function FloatingNotesPanel({
                       Notes
                     </span>
                     {isSaving && (
-                      <span className="text-xs text-neutral-400">Saving...</span>
+                      <span className="text-xs text-neutral-400" aria-live="polite" aria-atomic="true">
+                        Saving...
+                      </span>
                     )}
                   </div>
                   <div className="flex items-center gap-1">
@@ -408,7 +446,9 @@ export function FloatingNotesPanel({
                           )}
                           <div className="relative z-10 min-w-0 flex-1">
                             <p className="truncate text-xs font-medium text-neutral-900 dark:text-white">
-                              {note.metadata.content?.slice(0, 30) || "Empty note"}
+                              {note.metadata.content
+                                ? note.metadata.content.split(' ').slice(0, 5).join(' ') + (note.metadata.content.split(' ').length > 5 ? '...' : '')
+                                : "Empty note"}
                             </p>
                             <p className="mt-0.5 text-xxs text-neutral-400">
                               {new Date(note.created_at).toLocaleDateString()}
@@ -472,12 +512,13 @@ export function FloatingNotesPanel({
             ) : (
               <motion.button
                 key="collapsed"
+                ref={triggerButtonRef}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
                 onClick={() => setIsOpen(true)}
-                className="flex h-12 items-center gap-3 px-4"
+                className="flex h-12 items-center gap-3 px-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-swiss-red focus-visible:ring-offset-2 rounded-sm dark:focus-visible:ring-offset-neutral-900"
                 aria-label="Open notes"
                 aria-expanded={isOpen}
               >

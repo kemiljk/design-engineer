@@ -71,7 +71,7 @@ export function BreadcrumbNav({ slug }: BreadcrumbNavProps) {
               ) : (
                 <Link
                   href={href}
-                  className="whitespace-nowrap text-neutral-500 transition-colors hover:text-swiss-red"
+                  className="whitespace-nowrap text-neutral-500 transition-colors hover:text-swiss-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-swiss-red focus-visible:ring-offset-2 rounded-sm dark:focus-visible:ring-offset-neutral-900"
                 >
                   {formatBreadcrumb(segment)}
                 </Link>

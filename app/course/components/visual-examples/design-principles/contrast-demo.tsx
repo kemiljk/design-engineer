@@ -17,7 +17,7 @@ export function ContrastDemo() {
         const baseSize = 16;
         const largeSize = baseSize + (24 * factor);
         return {
-          primary: { fontSize: `${largeSize}px`, fontWeight: 600 },
+          primary: { fontSize: `${largeSize}px`, fontWeight: 600, lineHeight: "1.05" },
           secondary: { fontSize: `${baseSize}px`, fontWeight: 400 },
           tertiary: { fontSize: `${baseSize - 2}px`, fontWeight: 400 },
         };
@@ -34,7 +34,7 @@ export function ContrastDemo() {
         const secondaryOpacity = 0.3 + (0.3 * factor);
         const tertiaryOpacity = 0.2 + (0.2 * factor);
         return {
-          primary: { fontSize: "18px", fontWeight: 600, opacity: primaryOpacity },
+          primary: { fontSize: "18px", fontWeight: 600, opacity: primaryOpacity, },
           secondary: { fontSize: "16px", fontWeight: 400, opacity: secondaryOpacity },
           tertiary: { fontSize: "14px", fontWeight: 400, opacity: tertiaryOpacity },
         };

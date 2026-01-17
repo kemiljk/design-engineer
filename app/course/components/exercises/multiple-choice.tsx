@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "motion/react";
 import { CheckCircle as CheckCircle2, XmarkCircle as XCircle } from "iconoir-react";
 import { cn } from "@/lib/utils";
@@ -50,6 +50,19 @@ export function MultipleChoice({ exercise }: MultipleChoiceProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isComplete, setIsComplete] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const handleSubmit = () => {
     if (!selectedId) return;
@@ -94,8 +107,8 @@ export function MultipleChoice({ exercise }: MultipleChoiceProps) {
               key={option.id}
               onClick={() => !isComplete && setSelectedId(option.id)}
               disabled={isComplete}
-              whileHover={!isComplete ? { scale: 1.01 } : {}}
-              whileTap={!isComplete ? { scale: 0.99 } : {}}
+              whileHover={!isComplete && !prefersReducedMotion ? { scale: 1.01 } : {}}
+              whileTap={!isComplete && !prefersReducedMotion ? { scale: 0.99 } : {}}
               className={cn(
                 "flex w-full items-center gap-3 rounded-none border-2 p-4 text-left transition-colors",
                 !isComplete && isSelected && "border-neutral-900 bg-neutral-100 dark:border-neutral-100 dark:bg-neutral-800",
@@ -122,8 +135,9 @@ export function MultipleChoice({ exercise }: MultipleChoiceProps) {
         {/* Show explanation after completion */}
         {isComplete && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.2 }}
             className="mt-4 rounded-none border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800"
           >
             {shuffledOptions

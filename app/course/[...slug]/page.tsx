@@ -30,6 +30,7 @@ import { getProductWithPrice } from "@/lib/lemonsqueezy";
 import type { ProductKey } from "@/lib/types";
 import { TrackPlatformSelector } from "../components/track-platform-selector";
 import { LessonContent } from "./lesson-content";
+import { LessonKeyboardNav } from "../components/lesson-keyboard-nav";
 import { 
   watermarkContent, 
   checkRateLimit, 
@@ -320,9 +321,26 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 break and return in about {minutesRemaining} minute{minutesRemaining !== 1 ? 's' : ''}.
               </p>
               
-              <p className="text-sm text-amber-600 dark:text-amber-400">
+              <p className="mb-6 text-sm text-amber-600 dark:text-amber-400">
                 Access resets at {resetTime.toLocaleTimeString()}
               </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/course"
+                  className="inline-flex items-center gap-2 rounded-none border border-amber-300 bg-white px-4 py-2 text-sm font-medium text-amber-900 transition-colors hover:bg-amber-100 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-100 dark:hover:bg-amber-900/50"
+                >
+                  Browse Free Content
+                </Link>
+                {userId && (
+                  <Link
+                    href="/course/dashboard"
+                    className="inline-flex items-center gap-2 rounded-none border border-amber-300 bg-white px-4 py-2 text-sm font-medium text-amber-900 transition-colors hover:bg-amber-100 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-100 dark:hover:bg-amber-900/50"
+                  >
+                    View Dashboard
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </main>
@@ -368,6 +386,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   return (
     <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
+      <LessonKeyboardNav prevPath={prev?.path || null} nextPath={next?.path || null} />
       <div className="container-readable pt-8 pb-24 xl:pb-8">
         <div className="mb-8 flex items-center justify-between">
           <Link

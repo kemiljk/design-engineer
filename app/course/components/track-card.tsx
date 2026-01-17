@@ -79,11 +79,11 @@ export function TrackCard({
   return (
     <Link
       href={`/course/${id}`}
-      className="group relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red"
+      className="group relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors hover:border-swiss-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-swiss-red focus-visible:ring-offset-2 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red dark:focus-visible:ring-offset-neutral-900"
     >
       {/* Recommended Badge */}
       {isRecommended && (
-        <div className="absolute right-3 top-3 z-10 flex items-center gap-1 rounded bg-swiss-red px-2 py-1 text-xs font-medium text-white shadow-sm">
+        <div className="absolute right-3 top-3 z-10 flex items-center gap-1 rounded-none bg-swiss-red px-2 py-1 text-xs font-medium text-white shadow-sm">
           <Star className="h-3 w-3" />
           Recommended
         </div>
@@ -116,7 +116,7 @@ export function TrackCard({
               </span>
             )}
             {hasPaidAccess && (
-              <span className="ml-auto rounded bg-swiss-red/10 px-1.5 py-0.5 text-xs font-medium text-swiss-red">
+              <span className="ml-auto rounded-none bg-swiss-red/10 px-1.5 py-0.5 text-xs font-medium text-swiss-red">
                 Enrolled
               </span>
             )}
