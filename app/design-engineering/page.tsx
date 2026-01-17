@@ -6,7 +6,7 @@ import {
   Code as Code2,
   LayoutLeft as Layout,
   DoubleCheck as ArrowLeftRight,
-  Compass as Target,
+  Archery,
   Flash as Zap,
   CheckCircle as CheckCircle2,
 } from "iconoir-react";
@@ -122,10 +122,10 @@ export default function DesignEngineeringPage() {
           </h3>
 
           <div className="my-6 space-y-4">
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Design System Development</h4>
+                <h4 className="mb-1 font-bold leading-tight">Design System Development</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Building and maintaining component libraries that designers
                   can spec and engineers can implement. Ensuring design tokens
@@ -133,10 +133,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">End-to-end Project Delivery</h4>
+                <h4 className="mb-1 font-bold leading-tight">End-to-end Project Delivery</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Taking a project from idea to launch. Leading on design and
                   implementation, shaping the scope, and coordinating decisions
@@ -144,10 +144,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Prototyping</h4>
+                <h4 className="mb-1 font-bold leading-tight">Prototyping</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Creating high-fidelity, interactive prototypes in code to
                   validate interactions, animations, and user flows before full
@@ -155,10 +155,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Implementation</h4>
+                <h4 className="mb-1 font-bold leading-tight">Implementation</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Building production UIs with pixel-perfect attention to
                   detail. Not just &quot;close enough&quot;. Exactly as
@@ -166,10 +166,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">
+                <h4 className="mb-1 font-bold leading-tight">
                   Design-Engineering Translation
                 </h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -179,10 +179,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <CheckCircle2 className="text-swiss-red mt-1 h-5 w-5 shrink-0" />
+            <div className="flex items-start gap-4">
+              <CheckCircle2 className="text-swiss-red h-5 w-5 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Tooling and Infrastructure</h4>
+                <h4 className="mb-1 font-bold leading-tight">Tooling and Infrastructure</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Building internal tools that help designers and engineers work
                   better together, like design system documentation, Figma
@@ -238,10 +238,10 @@ export default function DesignEngineeringPage() {
           <h3 className="mt-8 mb-4 text-2xl font-bold">Business Impact</h3>
 
           <div className="my-6 space-y-4">
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-start gap-4">
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Faster Iteration</h4>
+                <h4 className="mb-1 font-bold leading-tight">Faster Iteration</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Design Engineers can validate ideas in production-quality
                   code, eliminating the slow back-and-forth of traditional
@@ -249,10 +249,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-start gap-4">
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Higher Quality Output</h4>
+                <h4 className="mb-1 font-bold leading-tight">Higher Quality Output</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   When the person implementing understands design intent deeply,
                   details don&apos;t get lost. Animations feel right. Spacing is
@@ -260,10 +260,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-start gap-4">
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Better Communication</h4>
+                <h4 className="mb-1 font-bold leading-tight">Better Communication</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Design Engineers speak both languages, reducing
                   miscommunication and helping teams understand each
@@ -271,10 +271,10 @@ export default function DesignEngineeringPage() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <Target className="text-swiss-red mt-1 h-6 w-6 shrink-0" />
+            <div className="flex items-start gap-4">
+              <Archery className="text-swiss-red h-6 w-6 shrink-0" />
               <div>
-                <h4 className="mb-1 font-bold">Design System Adoption</h4>
+                <h4 className="mb-1 font-bold leading-tight">Design System Adoption</h4>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   Design systems built by people who understand both design and
                   engineering are more likely to actually get used. They&apos;re
