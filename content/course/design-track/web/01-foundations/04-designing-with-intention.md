@@ -167,21 +167,25 @@ As a Design Engineer, you'll need to justify your choices to others. Here's how 
 ### Be Specific
 
 Bad: "I think this looks better."
+
 Good: "I increased the button contrast to meet accessibility standards and match our primary action pattern."
 
 ### Reference Principles
 
 Bad: "I just felt like this was right."
+
 Good: "I grouped these fields using proximity. Related items are closer together, unrelated items have more space."
 
 ### Tie to User Goals
 
 Bad: "This is the standard approach."
+
 Good: "Users scan forms top-to-bottom, so I placed the most important field first where they'll encounter it immediately."
 
 ### Acknowledge Tradeoffs
 
 Bad: "This is the only option."
+
 Good: "This approach prioritises scannability over density. If space becomes critical, we could reconsider, but current data shows users struggle to find information."
 
 ## Try It Yourself

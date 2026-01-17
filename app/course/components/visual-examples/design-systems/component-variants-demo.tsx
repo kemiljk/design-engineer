@@ -67,11 +67,12 @@ export function ComponentVariantsDemo() {
             <span>
               {variant === "danger" ? "Delete Item" : 
                variant === "outline" ? "Email Team" :
-               variant === "primary" ? "Create New" : 
-               "Button Label"}
+                  variant === "primary" ? "Create New" :
+                    variant === "secondary" ? "Learn More" :
+                      variant === "ghost" ? "View Details" : null}
             </span>
             
-            {variant === "ghost" && <ArrowRight width={size === "sm" ? 14 : size === "md" ? 16 : 18} height={size === "sm" ? 14 : size === "md" ? 16 : 18} />}
+            {variant === "ghost" && <ArrowRight width={size === "sm" ? 14 : size === "md" ? 16 : 18} height={size === "sm" ? 14 : size === "md" ? 16 : 18} className="text-neutral-600 dark:text-neutral-400" />}
           </button>
         </div>
 

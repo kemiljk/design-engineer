@@ -100,7 +100,7 @@ Each level has its own direction, gap, and padding.
 
 Children can behave differently when the container resizes. The interactive demo below lets you experiment with each sizing mode.
 
-<!-- visual-example: sizing-behaviours-demo -->
+<!-- visual-example: sizing-behaviors-demo -->
 
 ### Fixed Size
 

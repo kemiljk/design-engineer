@@ -86,7 +86,7 @@ export function ModuleJumper({ modules, currentModule, trackSlug, platformSlug }
         <div className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden border border-neutral-200 bg-white shadow-xl dark:border-neutral-800 dark:bg-neutral-900">
           <div className="border-b border-neutral-100 px-3 py-2 dark:border-neutral-800">
             <p className="text-xs font-medium text-neutral-500">
-              Jump to module <span className="text-neutral-400">(Alt+1-9)</span>
+              Jump to module
             </p>
           </div>
           <div className="max-h-80 overflow-y-auto p-1">

@@ -1,260 +1,87 @@
 # Usability Heuristics
 
-> **Quick Summary:** Usability heuristics are time-tested principles for evaluating and improving interface design. Think of them as a checklist for catching common usability issues.
+> **Quick Summary:** Heuristics are mental shortcuts. In design, they are a checklist of ten principles that, when followed, eliminate 90% of common usability problems. They turn "this feels wrong" into "this violates heuristic #4."
 
-## What You'll Learn
+## The Science of "Good" Design
 
-- Nielsen's 10 Usability Heuristics
-- How to apply each heuristic
-- Conducting heuristic evaluations
-- Balancing heuristics with other considerations
-
-## What Are Usability Heuristics?
-
-> *"A user interface is like a joke. If you have to explain it, it's not that good."* — Martin LeBlanc
-
-Heuristics are rules of thumb. Usability heuristics are established principles that predict usability problems.
-
-Jakob Nielsen's 10 Usability Heuristics (1994) remain the most influential framework. They're not laws, but guidelines that catch common issues.
-
-<!-- visual-example: heuristics-violations-demo -->
-
-<!-- illustration: heuristics-grid -->
+Why do some interfaces feel intuitive while others feel broken? It's not magic. In 1994, Jakob Nielsen distilled decades of usability research into ten general principles. These aren't laws of physics, but they are incredibly reliable predictors of user success.
 
 ## The 10 Heuristics
 
 ### 1. Visibility of System Status
+**The principle:** The system should always keep users informed about what is going on, through appropriate feedback within a reasonable time.
 
-The system should always keep users informed about what is going on, through appropriate feedback within reasonable time.
-
-**In practice:**
-- Loading indicators for operations
-- Progress bars for multi-step processes
-- Confirmation messages after actions
-- Current state visibility (logged in, selected, etc.)
-
-**Questions to ask:**
-- Does the user know what's happening?
-- Is there feedback for their action?
-- Do they know the current state?
+**In practice:** If a user clicks "Upload," don't just sit there. Show a spinner. If it takes longer than a second, show a progress bar. If they are logged in, show their avatar in the corner. Uncertainty causes anxiety; feedback builds trust.
 
 ### 2. Match Between System and Real World
+**The principle:** The system should speak the users' language, with words, phrases, and concepts familiar to the user, rather than system-oriented terms.
 
-The system should speak the users' language, with words, phrases, and concepts familiar to the user, rather than system-oriented terms.
-
-**In practice:**
-- Use everyday language, not jargon
-- Follow real-world conventions (calendar shows weeks)
-- Use familiar metaphors
-- Organize information in natural, logical order
-
-**Questions to ask:**
-- Would a non-technical user understand this?
-- Does the organisation match user expectations?
-- Are terms familiar to users (not just the team)?
+**In practice:** Don't say "Index 0" when you mean "First Item." Use metaphors that map to physical objects—folders, trash cans, shopping carts. If you are designing for stock traders, use their jargon ("Bull," "Bear"). If you are designing for everyone else, use plain English.
 
 ### 3. User Control and Freedom
+**The principle:** Users often choose system functions by mistake and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through an extended dialogue.
 
-Users often choose system functions by mistake and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through an extended dialogue.
-
-**In practice:**
-- Undo functionality
-- Cancel buttons on dialogs
-- Clear back navigation
-- Easy escape from modals
-- Don't trap users in flows
-
-**Questions to ask:**
-- Can users exit at any point?
-- Can they undo mistakes?
-- Are they ever trapped?
+**In practice:** Every modal needs a close button. Every destructive action needs an Undo. Users explore software by clicking things; if they feel trapped, they will leave. Give them a safe way back.
 
 ### 4. Consistency and Standards
+**The principle:** Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.
 
-Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.
-
-**In practice:**
-- Consistent terminology throughout
-- Same action = same result everywhere
-- Follow platform conventions
-- Consistent visual treatment for similar elements
-
-**Questions to ask:**
-- Are similar things styled and labelled consistently?
-- Does it follow platform conventions?
-- Would this surprise users based on expectations?
+**In practice:** If you use a magnifying glass icon for "Search" on one page, don't use it for "Zoom" on another. If iOS users expect a "Back" swipe, don't hijack that gesture for something else. Innovation is great, but not for basic navigation. Jakob's Law states: "Users spend most of their time on other sites." They expect your site to work like the ones they already know.
 
 ### 5. Error Prevention
+**The principle:** Even better than good error messages is a careful design which prevents a problem from occurring in the first place.
 
-Even better than good error messages is a careful design which prevents a problem from occurring in the first place.
-
-**In practice:**
-- Disable invalid actions
-- Confirmation for destructive operations
-- Sensible defaults
-- Constraints that prevent invalid input
-- Warnings before point of no return
-
-**Questions to ask:**
-- What could go wrong?
-- Can we prevent it through design?
-- Are destructive actions protected?
+**In practice:** Don't let a user type letters into a phone number field. Don't let them click "Submit" if the form is empty. Use sensible defaults. If a delete action is permanent, ask for confirmation. The best error message is the one you never have to show.
 
 ### 6. Recognition Rather Than Recall
+**The principle:** Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another.
 
-Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another.
-
-**In practice:**
-- Visible options rather than commands to remember
-- Recently used items
-- Search suggestions
-- Contextual help
-- Visible labels (don't rely solely on icons)
-
-**Questions to ask:**
-- Does the user need to remember something?
-- Are options visible or hidden?
-- Is help available in context?
+**In practice:** Humans are bad at remembering things. Don't make them remember a product code from the previous screen; show it to them. Use a "Recently Viewed" list so they don't have to search again. Show the search term they just typed. Recognition (seeing it) is cognitively cheaper than recall (remembering it).
 
 ### 7. Flexibility and Efficiency of Use
+**The principle:** Accelerators—unseen by the novice user—may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users.
 
-Accelerators (unseen by the novice user) may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users.
-
-**In practice:**
-- Keyboard shortcuts
-- Customizable workflows
-- Shortcuts for frequent actions
-- Power user features that don't complicate basic use
-
-**Questions to ask:**
-- Can experts work faster?
-- Are there shortcuts for common tasks?
-- Is the basic experience still simple?
+**In practice:** Novices use menus; experts use keyboard shortcuts (`Cmd+C`, `Cmd+V`). Novices click "Next" five times; experts want a "Skip to End" button. Good design has a low floor (easy to learn) but a high ceiling (fast to master).
 
 ### 8. Aesthetic and Minimalist Design
+**The principle:** Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.
 
-Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.
-
-**In practice:**
-- Remove unnecessary elements
-- Prioritise important information
-- Progressive disclosure for complexity
-- Clean, focused interfaces
-
-**Questions to ask:**
-- Is everything here necessary?
-- What could be removed?
-- What's competing for attention?
+**In practice:** This isn't about flat design or white space. It's about signal-to-noise ratio. If a screen has 50 elements, the user sees nothing. Remove everything that doesn't support the user's current goal. If it's not helping, it's hurting.
 
 ### 9. Help Users Recognize, Diagnose, and Recover from Errors
-
-Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
+**The principle:** Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
 
 **In practice:**
-- Clear, human-readable error messages
-- Specific about what went wrong
-- Helpful about how to fix it
-- Positioned near the problem
-
-**Questions to ask:**
-- Would a user understand this error?
-- Does it explain what went wrong?
-- Does it suggest how to fix it?
+*   **Bad:** "Error 500: Internal Server Error."
+*   **Good:** "We couldn't save your changes because of a connection issue. Please check your internet and try again."
+*   **Formula:** What happened + Why it happened + How to fix it.
 
 ### 10. Help and Documentation
+**The principle:** Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.
 
-Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.
+**In practice:** Contextual help is best. Don't force them to read a manual. Use tooltips for complex settings. Offer a "Quick Start" guide. If a feature is complex enough to require a manual, consider simplifying the feature first.
 
-**In practice:**
-- Contextual help (tooltips, info icons)
-- Searchable documentation
-- Task-focused tutorials
-- Progressive onboarding
+## Conducting a Heuristic Evaluation
 
-**Questions to ask:**
-- Is help available when needed?
-- Is it findable?
-- Is it actually helpful?
+You don't need a lab or 50 users to find usability problems. You can do a "Heuristic Evaluation" yourself in an afternoon.
 
-## Conducting Heuristic Evaluation
-
-Heuristic evaluation is a fast, cheap usability inspection method.
-
-### The Process
-
-1. **Define scope:** What are you evaluating? (Whole app? Single flow? Component?)
-
-2. **Walk through as user:** Go through the interface attempting real tasks.
-
-3. **Note issues:** For each problem, identify:
-   - What's the issue?
-   - Which heuristic(s) does it violate?
-   - How severe is it?
-
-4. **Rate severity:**
-   - 0: Not a usability problem
-   - 1: Cosmetic only. Fix if time.
-   - 2: Minor. Causes delay, low priority.
-   - 3: Major. Causes significant issues, important to fix.
-   - 4: Catastrophic. Blocks users, must fix.
-
-<!-- illustration: severity-scale -->
-
-5. **Compile findings:** Group by severity or heuristic.
-
-6. **Prioritise fixes:** Address highest severity first.
-
-### Tips for Evaluation
-
-- **Multiple evaluators:** 3-5 evaluators find more issues than one
-- **Independent first:** Evaluate independently before discussing
-- **Be specific:** "Button is confusing" → "Submit button doesn't indicate what will be submitted"
-- **Include positive notes:** What works well? Don't only critique.
-- **Consider context:** A violation might be justified in your context
-
-### Limitations
-
-Heuristic evaluation is useful but incomplete:
-- Evaluators aren't real users
-- Can't discover all issues
-- Subjective interpretation
-- Better at finding problems than solutions
-
-Combine with usability testing for comprehensive evaluation.
-
-## Balancing Heuristics
-
-Heuristics sometimes conflict:
-
-**Consistency vs. Optimization:** Standard pattern might be less efficient for specific use case.
-
-**Minimalism vs. Visibility:** Hiding options simplifies but requires recall.
-
-**Error prevention vs. Freedom:** Confirmations prevent errors but slow users down.
-
-Use judgment. Heuristics are guidelines, not rules. Context determines the right balance.
+1.  **Select the Flow:** Choose a critical path (e.g., "Sign Up" or "Checkout").
+2.  **Walk the Path:** Go through it step-by-step, acting as a user.
+3.  **Check the List:** At every screen, ask: "Does this violate any of the 10 heuristics?"
+4.  **Rate Severity:**
+    *   **0:** No problem.
+    *   **1:** Cosmetic problem only.
+    *   **2:** Minor usability problem (fix if time permits).
+    *   **3:** Major usability problem (important to fix).
+    *   **4:** Usability catastrophe (imperative to fix).
 
 ## Try It Yourself
 
-### Exercise 1: Quick Evaluation
+### Exercise 1: The Audit
+Open an app you find frustrating (we all have one). Pick one screen. Go through the 10 heuristics. Can you pinpoint exactly *why* it's frustrating? (e.g., "I can't tell if it saved my changes" -> Violation of #1 Visibility of System Status).
 
-Pick a website or app. Spend 15 minutes evaluating against the 10 heuristics:
-1. For each heuristic, note one example of adherence and one violation
-2. Rate the severity of violations
-3. Prioritise the top 3 issues to fix
-
-### Exercise 2: Error Message Audit
-
-Find 5 error messages in products you use:
-1. Does each follow heuristic #9? (Plain language, specific, suggests solution)
-2. Rewrite any that don't
-
-### Exercise 3: Flexibility Analysis
-
-For a product you use regularly:
-1. List all keyboard shortcuts you know
-2. What frequent actions don't have shortcuts?
-3. How could the product better serve expert users without complicating basic use?
+### Exercise 2: Error Message Rewrite
+Find a technical error message ("Invalid Input"). Rewrite it to follow Heuristic #9 (Plain language + specific problem + solution).
 
 ## Test Your Understanding
 
@@ -297,22 +124,10 @@ For a product you use regularly:
 
 ## Key Takeaways
 
-The 10 heuristics:
-1. Visibility of system status
-2. Match between system and real world
-3. User control and freedom
-4. Consistency and standards
-5. Error prevention
-6. Recognition rather than recall
-7. Flexibility and efficiency of use
-8. Aesthetic and minimalist design
-9. Help users recognise, diagnose, and recover from errors
-10. Help and documentation
-
-- Heuristic evaluation is fast and cheap for finding usability issues
-- Rate severity to prioritise fixes
-- Heuristics can conflict. Use judgement.
-- Combine with user testing for complete evaluation
+-   **Heuristics are tools, not laws.** Use them to identify likely problems, but trust user testing for the final verdict.
+-   **Consistency (#4) is powerful.** It reduces learning time.
+-   **Error prevention (#5) beats error handling.** Stop the mistake before it happens.
+-   **Recognition (#6) beats recall.** Don't make users memorize things.
 
 ## Next Steps
 

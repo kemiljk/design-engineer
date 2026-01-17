@@ -2,13 +2,6 @@
 
 > **Quick Summary:** Layout is how elements are arranged on a page. Good layout creates visual flow, establishes hierarchy, and makes content easy to consume.
 
-## What You'll Learn
-
-- Grid systems and how to use them
-- Common layout patterns for web
-- Responsive design principles
-- Composition techniques for visual balance
-
 ## The Purpose of Layout
 
 Layout answers fundamental questions:
@@ -31,13 +24,15 @@ Grids are invisible structures that organise content. They create consistency, e
 
 ### Anatomy of a Grid
 
-**Columns:** Vertical divisions where content sits. Common: 12 columns (divisible by 2, 3, 4, 6).
+A grid is composed of four key parts:
 
-**Gutters:** Spaces between columns. Typically 16-32px.
+**Columns** are the vertical divisions where your content lives. The most common system uses 12 columns because the number 12 is highly divisible (by 2, 3, 4, and 6), allowing for flexible layouts.
 
-**Margins:** Space between the grid and the screen edge.
+**Gutters** are the empty spaces between columns. They provide breathing room so that text in adjacent columns doesn't run together. Typical gutter widths range from 16px to 32px.
 
-**Container:** The maximum width of the content area.
+**Margins** are the spaces between the grid content and the edge of the screen. On mobile, these might be small (16px), while on large desktops, they can be expansive.
+
+**The Container** defines the maximum width of your content. Without a container, your text would stretch across the entire width of a 27-inch monitor, making it impossible to read.
 
 ### The 12-Column Grid
 
@@ -57,83 +52,25 @@ Grids are invisible structures that organise content. They create consistency, e
 
 > *"The grid is there so you know when to break it."* — d×e
 
-Grids are guides, not prisons. Break them intentionally for:
-- Emphasis (an element that spans "outside" feels important)
-- Visual interest (perfect grids can feel rigid)
-- Content requirements (some content doesn't fit neatly)
-
-But break rarely and deliberately.
+Grids are guides, not prisons. You might choose to break the grid for **emphasis** (an element that spans "outside" feels important) or **visual interest** (perfect grids can feel rigid). However, these breaks should be rare and deliberate.
 
 ## Common Layout Patterns
 
 ### Single Column
 
-The simplest layout: content in one vertical stack.
-
-**Best for:**
-- Long-form reading (articles, documentation)
-- Mobile layouts
-- Focused content (sign-up forms)
-
-**Considerations:**
-- Control line length (max-width)
-- Generous vertical spacing
-- Clear hierarchy within the column
+The simplest layout is a single vertical stack of content. This pattern works best for **long-form reading** (like articles or documentation) and **mobile interfaces**. When designing single-column layouts, pay close attention to line length—text should generally not exceed 75 characters per line for readability.
 
 ### Two Column
 
-Content split into two areas, often with different purposes.
-
-**Common patterns:**
-- Sidebar + main content
-- Content + form
-- Image + text
-
-**Best for:**
-- Dashboards
-- Documentation with navigation
-- Product pages
-
-**Considerations:**
-- Decide which column dominates
-- Consider column behaviour on mobile (stack or hide?)
+Splitting content into two areas allows you to present related information side-by-side. This is common for **dashboards** (sidebar + main content) or **product pages** (image + description). When using two columns, establish a clear hierarchy: one column should usually be dominant (e.g., a 2/3 and 1/3 split) to guide the user's focus.
 
 ### Multi-Column Grid
 
-Three or more columns of equal or varying widths.
-
-**Common patterns:**
-- Card grids (3-4 columns)
-- Feature lists
-- Portfolio galleries
-
-**Best for:**
-- Displaying many similar items
-- Comparison layouts
-- Dashboard widgets
-
-**Considerations:**
-- Items should have similar visual weight
-- Spacing between items matters
-- Consider odd numbers of items (partial rows)
+Three or more columns are useful for displaying collections of similar items, such as **card grids**, **feature lists**, or **galleries**. In these layouts, consistency is key: items should generally have similar visual weight and spacing to create a harmonious rhythm.
 
 ### Asymmetric Layouts
 
-Intentionally unbalanced for visual interest.
-
-**Common patterns:**
-- Hero sections with offset imagery
-- 2/3 + 1/3 content splits
-- Scattered/editorial layouts
-
-**Best for:**
-- Marketing pages
-- Creative portfolios
-- Editorial content
-
-**Considerations:**
-- Asymmetry should feel intentional, not accidental
-- Balance visual weight even if columns differ
+Asymmetric layouts feel dynamic and modern. They are often used in **marketing pages** or **editorial design** to create visual interest. For example, a hero section might offset an image to the right while keeping text on the left. The key is to balance the *visual weight* of elements so the page doesn't feel like it's tipping over.
 
 ## Responsive Layout
 
@@ -192,55 +129,23 @@ Beyond grid structure, composition is about visual arrangement and balance.
 
 ### The F-Pattern
 
-Eye-tracking research shows users scan in an F-pattern:
-1. Horizontal line across the top
-2. Down the left side
-3. Another horizontal scan lower
-
-**Implications:**
-- Put important content top-left
-- Left-align primary content
-- Front-load information in paragraphs
+Eye-tracking research shows users scan text-heavy pages in an F-pattern. They read a horizontal line across the top, then scan down the left side, and occasionally read across again. This implies that your most important content (headlines, key points) should be **top-left** or **left-aligned**.
 
 ### The Z-Pattern
 
-For less text-heavy pages, eyes follow a Z:
-1. Top-left to top-right
-2. Diagonal to bottom-left
-3. Bottom-left to bottom-right
-
-**Implications:**
-- Logo top-left
-- Navigation top-right
-- Call to action bottom-right
+For pages with less text (like landing pages), users often follow a Z-pattern. They scan from top-left to top-right (logo to navigation), then diagonally down to the bottom-left, and finally across to the bottom-right. This makes the **bottom-right corner** the ideal spot for your primary Call to Action (CTA).
 
 ### Visual Weight Distribution
 
-Elements have visual "weight" based on:
-- Size (larger = heavier)
-- Color (darker or more saturated = heavier)
-- Contrast (high contrast = heavier)
-- Complexity (more detail = heavier)
-
-Balance weight across the layout. A large image on the left might balance a text block and CTA on the right.
+Every element has "weight." Large, dark, or high-contrast elements feel heavier. A balanced composition distributes this weight evenly. For instance, a large, dark image on the left can be balanced by a block of text and a heavy button on the right.
 
 ### Rule of Thirds
 
-Divide the canvas into a 3×3 grid. Place important elements at intersections or along lines.
-
-This works for:
-- Hero image positioning
-- Call to action placement
-- Balancing whitespace
+If you divide your canvas into a 3×3 grid, the intersections of the grid lines are natural focal points. Placing key elements (like a hero image subject or a headline) at these intersections often creates a more dynamic and pleasing composition than centering everything.
 
 ### Above the Fold
 
-The area visible without scrolling is prime real estate. Place:
-- Value proposition
-- Primary action
-- Enough content to encourage scrolling
-
-But don't cram everything above the fold. Users scroll if you give them reason to.
+The area visible without scrolling is prime real estate. It should contain your **value proposition** and **primary action**. However, don't cram everything here; you just need enough interesting content to encourage the user to scroll down.
 
 ## Creating Visual Flow
 

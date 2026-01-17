@@ -429,4 +429,4 @@ Create a todo app that:
 
 ## Next Steps
 
-Continue to [Modern JavaScript](./08-modern-javascript.md) →
+Continue to [Destructuring and Spread](./08-destructuring-and-spread.md) →

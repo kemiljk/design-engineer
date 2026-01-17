@@ -139,9 +139,13 @@ Enable snapping for precision; disable for freedom.
 ### Shape Properties
 
 **Fill:** The inside colour (solid, gradient, or image)
+
 **Stroke:** The outline (colour, weight, style)
+
 **Corner radius:** For rounded corners
+
 **Shadow:** Drop shadow, inner shadow
+
 **Blur:** Gaussian blur, background blur
 
 ### Boolean Operations

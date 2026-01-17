@@ -1,282 +1,74 @@
 # User-Centered Thinking
 
-> **Quick Summary:** User-centred design means making decisions based on real user needs—not assumptions, personal preferences, or what's easiest to build.
+> **Quick Summary:** User-centred design (UCD) is a disciplined practice of making decisions based on real evidence rather than assumptions. It turns the design process from a guessing game into a problem-solving methodology.
 
-## What You'll Learn
+## The Core Shift
 
-- What user-centred design means in practice
-- How to develop empathy for users
-- Methods for understanding user needs
-- Applying user thinking to design decisions
+It is dangerously easy to design for yourself. You know how the product works, you know where the buttons are, and you have a high-end device with a fast connection.
 
-## The Shift in Perspective
+But **you are not your user.**
 
-> *"Design is not just what it looks like and feels like. Design is how it works."* — Steve Jobs
+Your users are tired, distracted, and possibly using a five-year-old phone with a cracked screen on a spotty subway connection. They don't care about your design system; they care about solving their problem. User-centred thinking is the deliberate act of stepping outside your own bubble.
 
-It's tempting to design for yourself. You understand your own preferences, and building for yourself is fast.
+## Why It Matters (Beyond Ideology)
 
-But you are not your user.
+This isn't just about "being nice." It's about business survival.
 
-Your users:
-- Have different goals
-- Have different contexts
-- Have different abilities
-- Have different technical comfort
-- Use your product differently than you imagine
-
-User-centred design is a deliberate practice of setting aside assumptions and designing for actual users.
-
-## Why User-Centered Design?
-
-Products built without user input tend to:
-- Solve the wrong problems
-- Use confusing language
-- Have unintuitive flows
-- Frustrate and alienate users
-- Fail in the market
-
-Products built with user input tend to:
-- Address real needs
-- Use familiar mental models
-- Match user expectations
-- Build loyalty and trust
-- Succeed
-
-This isn't ideology—it's pragmatism.
+Products built on assumptions fail because they solve the wrong problems. They use jargon users don't understand and create workflows that feel alien. In contrast, products built with user input fit into people's lives. They build trust because they feel familiar. This leads to higher retention, fewer support tickets, and better reviews.
 
 ## Developing Empathy
 
-Empathy is the foundation of user-centred design. It means understanding users' situations, needs, and frustrations.
+Empathy is a skill, not a feeling. You build it through specific actions.
 
-### Talk to Users
+### 1. Talk to Them
+There is no substitute for hearing a human voice. You don't need a formal lab. Just five conversations can reveal 80% of the major issues in your product. Ask open-ended questions: "Walk me through how you currently do X," rather than "Do you like this feature?"
 
-There's no substitute for direct contact:
-- User interviews
-- Support conversations
-- Usability testing
-- Customer feedback review
+### 2. Watch Them (Observation)
+Users lie. Not maliciously, but they will tell you what they think you want to hear, or they will misremember their own behaviour. Watching a user struggle to find a "Save" button is infinitely more valuable than them telling you "it's easy to use."
 
-Even a few conversations reveal insights you'd never have guessing.
+### 3. Eat Your Own Dogfood
+"Dogfooding" means using your product in real life. If you are building a to-do app, use it for your actual grocery list. You will instantly find the friction points—the buttons that are too small, the loading states that are too long, the features that are actually annoying.
 
-### Observe Users
+### 4. Mine Support Tickets
+Your support queue is a goldmine of pain points. Every ticket represents a failure of the product to explain itself or work correctly. Look for patterns. If 50 people ask "how do I reset my password?", you have a design problem, not a user education problem.
 
-Watching users interact with products (yours or competitors'):
-- What do they struggle with?
-- What do they skip?
-- What questions do they have?
-- What workarounds do they create?
+## Tools for Alignment
 
-Observation reveals behaviour that users might not report.
+Once you have data, you need to share it with your team.
 
-### Use the Product Yourself
+**Personas** are fictional characters that represent your key user segments. Instead of arguing about what "users" want, you can ask "Would 'Busy Bob' have time to read this onboarding tour?" Good personas are based on research, not stereotypes.
 
-Dogfooding means using your own product:
-- Complete real tasks
-- Use it in realistic conditions
-- Notice friction and confusion
+**Journey Maps** visualize the user's entire timeline, from realizing they have a problem to solving it with your product. This highlights the gaps—what happens *before* they open your app? What happens *after* they close it?
 
-But remember—your familiarity biases you. You know how it's supposed to work.
+## Applying the Mindset
 
-### Read Support Tickets
+User-centred thinking changes how you make daily decisions.
 
-Support requests reveal:
-- Common confusions
-- Missing features
-- Documentation gaps
-- Accessibility issues
+**When Prioritizing:**
+Don't just build what's cool or easy. Prioritise features that solve the biggest user pains. Ask: "Does this help the user achieve their goal, or does it just add clutter?"
 
-Pattern recognition across tickets identifies systemic problems.
+**When Designing:**
+Challenge your assumptions. You assume they know what that icon means. Do they? You assume they have a fast connection. Do they? Ask "What evidence do I have for this?"
 
-### Create User Personas
-
-Personas are fictional characters representing user types:
-- Name and background
-- Goals and motivations
-- Pain points and frustrations
-- Technical comfort level
-- Context of use
-
-**Example Persona:**
-
-<!-- visual-example: persona-card-demo -->
-
-### Journey Mapping
-
-Map the entire user experience:
-- How do they discover the product?
-- What's their first experience?
-- How do they accomplish core tasks?
-- What happens when things go wrong?
-- How do they return over time?
-
-Journey maps reveal touchpoints you might neglect.
-
-<!-- illustration: user-journey-map -->
-
-## Applying User Thinking
-
-Once you understand users, apply that understanding:
-
-### Question Assumptions
-
-When you think "users will..." stop and ask:
-- How do I know this?
-- What evidence supports it?
-- What would happen if I'm wrong?
-
-### Prioritise by User Impact
-
-Features that improve user outcomes should rank higher than:
-- Features you want to build
-- Features that are easy to build
-- Features competitors have
-
-### Design for the Struggle
-
-Users don't use products—they struggle with problems. Products help them struggle less.
-
-Ask:
-- What problem is the user trying to solve?
-- What's currently difficult about solving it?
-- How can we make it easier?
-
-### Consider Context
-
-Users exist in contexts that affect their experience:
-- Mobile on commute (distracted, one-handed)
-- Desktop at work (focused but interrupted)
-- Tablet at home (relaxed, exploring)
-
-Design for real contexts, not ideal ones.
-
-### Account for Diversity
-
-Users vary in:
-- Age and generation
-- Physical abilities
-- Technical expertise
-- Language and culture
-- Economic circumstances
-- Device and connection quality
-
-Designing for diversity improves the experience for everyone.
+**When Evaluating:**
+Don't ask "Do I like this?" Ask "Can the user do what they came here to do?"
 
 ## Common Traps
 
-### The False Consensus Effect
-
-Assuming others think like you do. Your preferences aren't universal.
-
-**Fix:** Gather diverse input. Challenge your assumptions.
-
-### The Curse of Knowledge
-
-Once you know something, it's hard to imagine not knowing it.
-
-**Fix:** Watch new users. Their confusion reveals your blind spots.
-
-### Designing for Edge Cases
-
-Spending disproportionate effort on rare scenarios while neglecting common ones.
-
-**Fix:** Prioritise by user impact and frequency.
-
-### Solving Your Problems
-
-Building features you want rather than users need.
-
-**Fix:** Validate needs before building. "Would I use this?" isn't sufficient validation.
-
-### Ignoring Negative Feedback
-
-Dismissing complaints as user error or unusual cases.
-
-**Fix:** Treat complaints as data. Patterns matter.
-
-<!-- illustration: ux-traps -->
-
-## User Research Basics
-
-You don't need a research team to practice user-centred design.
-
-### Quick User Interviews
-
-5-6 conversations can reveal major insights:
-1. Recruit users (existing, potential, or proxies)
-2. Prepare 5-7 open questions
-3. Listen more than talk
-4. Note patterns across conversations
-
-Sample questions:
-- "Walk me through how you currently do X."
-- "What's the hardest part about Y?"
-- "What would make this easier?"
-
-### Usability Testing
-
-Watch users attempt tasks:
-1. Define tasks to test
-2. Recruit 5 participants (5 users find ~80% of issues)
-3. Ask them to think aloud as they work
-4. Note where they struggle
-5. Resist the urge to help
-
-Usability testing reveals where your design fails users.
-
-### Feedback Analysis
-
-Mine existing feedback:
-- Support tickets
-- App store reviews
-- Social media mentions
-- Survey responses
-
-Categorize and quantify. What patterns emerge?
-
-## User-Centered Decision Making
-
-Apply user thinking to everyday decisions:
-
-**When designing a feature:**
-- Who will use this?
-- What are they trying to accomplish?
-- What will make this easy vs. hard?
-
-**When prioritising work:**
-- What causes the most user pain?
-- What would help the most users?
-- What matches user goals?
-
-**When evaluating designs:**
-- Can users accomplish their goals?
-- Is this intuitive for our users (not just us)?
-- What could go wrong?
+**The False Consensus Effect:** We assume everyone thinks like us. They don't.
+**The Curse of Knowledge:** Once you know how the product works, it is impossible to un-know it. This makes you blind to the confusion of a new user.
+**Designing for Edge Cases:** Don't ruin the experience for 99% of users to solve a problem for 1%. Handle the edge case gracefully, but optimize for the primary flow.
 
 ## Try It Yourself
 
-### Exercise 1: Assumption Audit
+### Exercise 1: The Assumption Audit
+Pick a feature you are working on. List three assumptions you are making about the user (e.g., "They know what 'API Key' means"). For each, ask: How could I prove or disprove this?
 
-For a feature you're working on, list:
-1. Three assumptions you're making about users
-2. Evidence for or against each assumption
-3. How you could validate each assumption
+### Exercise 2: The "Mom Test"
+Explain your product to a non-tech friend or family member. Don't sell it; just explain it. Watch their face. Where do they look confused? That confusion is a design flaw.
 
-### Exercise 2: Quick Interview
-
-Interview someone (friend, colleague, family) about a product they use:
-1. What do they use it for?
-2. What frustrates them?
-3. What would they change?
-
-Notice what surprised you.
-
-### Exercise 3: User Observation
-
-Watch someone use a website or app (not your product):
-1. Give them a task
-2. Observe without helping
-3. Note where they hesitate, backtrack, or express frustration
-4. Ask follow-up questions
+### Exercise 3: Friction Log
+Try to sign up for a new service you've never used. Write down every single moment of hesitation, confusion, or annoyance. "Why do they need my phone number?" "Where is the login button?" This is the mindset you need for your own product.
 
 ## Test Your Understanding
 
@@ -319,13 +111,10 @@ Watch someone use a website or app (not your product):
 
 ## Key Takeaways
 
-- User-centred design means making decisions based on real user needs
-- You are not your user—set aside assumptions
-- Develop empathy through conversations, observation, and research
-- Create personas and journey maps to align teams
-- Question assumptions and prioritise by user impact
-- Account for diverse users and contexts
-- Quick research (interviews, usability testing, feedback analysis) is valuable
+-   **You are not your user.** Your intuition is biased by your expertise.
+-   **Empathy is active.** It requires talking, watching, and listening.
+-   **Assumption is the enemy.** Validate your guesses with real-world input.
+-   **Design for context.** Users are distracted, impatient, and human.
 
 ## Next Steps
 

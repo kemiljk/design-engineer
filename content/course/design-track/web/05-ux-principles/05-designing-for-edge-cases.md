@@ -1,340 +1,108 @@
 # Designing for Edge Cases
 
-> **Quick Summary:** Edge cases—empty states, errors, extremes—are where products break. Designing for them separates polished products from frustrating ones.
-
-## What You'll Learn
-
-- Common edge cases and why they matter
-- Designing empty states effectively
-- Handling errors gracefully
-- Managing loading states
-- Dealing with content extremes
+> **Quick Summary:** The "happy path" is a myth. In reality, users encounter errors, weak connections, empty databases, and extreme inputs constantly. A robust design anticipates these failures and handles them with grace.
 
 ## The Edge Case Problem
 
-Designers naturally focus on the happy path—the ideal scenario where everything works perfectly. But users spend significant time in edge cases:
+It's easy to design a perfect interface when you assume the user has a short name, a fast internet connection, and perfect data. But reality is messy.
 
-- First-time use (nothing to show yet)
-- Errors (something went wrong)
-- Loading (waiting for data)
-- Content extremes (too much or too little)
-- Permission states (can't do something)
+*   **Empty States:** What does the screen look like when there's nothing to show?
+*   **Errors:** What happens when the server fails?
+*   **Loading:** What does the user see while waiting?
+*   **Extremes:** What if the user's name is 50 characters long?
+*   **Permissions:** What if the user says "No" to camera access?
 
-Products that handle edge cases well feel polished and trustworthy. Products that don't feel broken.
+Designing for edge cases isn't "extra credit"—it's the difference between a fragile prototype and a resilient product.
 
 ## Empty States
 
-Empty states occur when there's no content to display.
+An empty state is a screen with no data. This often happens on first launch, or when a search returns no results.
 
-<!-- visual-example: empty-states-demo -->
+### The Problem with Blank
 
-<!-- illustration: empty-state-anatomy -->
+A blank screen is confusing. It tells the user "nothing is here," but it doesn't explain *why* or *how to fix it*. It feels broken.
 
-### When Empty States Happen
+### The Solution: Educate and prompt
 
-- **First use:** User hasn't created anything yet
-- **No results:** Search or filter returns nothing
-- **Cleared content:** User deleted everything
-- **Permission lack:** User can't see content
-- **No activity:** Nothing has happened yet
+A good empty state is an opportunity to onboard the user.
+1.  **Explain the "Why":** "You haven't created any projects yet."
+2.  **Guide the Action:** "Create a project to start tracking your tasks."
+3.  **Provide the Button:** Place the primary "Create" button right there in the center.
 
-### Empty State Anatomy
-
-Good empty states include:
-
-**1. What:** Explain the situation
-> "No projects yet"
-
-**2. Why:** Provide context
-> "You haven't created any projects"
-
-**3. What next:** Guide to action
-> "Create your first project to get started"
-
-**4. Action:** Provide the means
-> [Create Project] button
-
-### Empty State Principles
-
-**Be helpful, not apologetic.** "No data found 😞" is unhelpful. "No matching results—try different filters" is actionable.
-
-**Educate when appropriate.** First-use empty states can explain features.
-
-**Maintain visual quality.** Empty states are still part of the product experience.
-
-**Don't be annoying.** If users will see this state frequently, keep it subtle.
-
-### Examples
-
-**First-use:**
-```text
-Welcome to Inbox!
-You'll see messages here once you receive them.
-In the meantime, why not send your first message?
-
-[Send a Message]
-```
-
-**No results:**
-```text
-No matches found
-Try adjusting your search or filters.
-
-[Clear Filters]
-```
-
-**No activity:**
-```text
-All quiet...
-No activity in the last 7 days.
-```
+**Example: Search Results**
+Instead of just saying "No results found," try:
+"We couldn't find anything for 'X'. Try adjusting your filters or checking for typos."
+*(And provide a "Clear Filters" button).*
 
 ## Error States
 
-Errors happen. Good design handles them gracefully.
+Errors are inevitable. How you handle them defines your user experience.
 
-### Error Types
+### The Anatomy of a Good Error Message
 
-**Validation errors:** User input is invalid
-**System errors:** Server failed, network issues
-**Permission errors:** Not authorized
-**Not found errors:** Resource doesn't exist
-**Timeout errors:** Operation took too long
+**Bad:** "Error 500" or "Something went wrong."
+**Good:** "We couldn't save your changes because you are offline. Please check your connection."
 
-### Error Message Principles
+A good error message answers three questions:
+1.  **What happened?** (Plain language description)
+2.  **Why did it happen?** (Context)
+3.  **What can I do about it?** (Actionable next step)
 
-**Be clear:** Explain what went wrong in plain language.
-- ✗ "Error 422"
-- ✓ "Email address is invalid"
+### Placement Matters
 
-**Be specific:** Tell users exactly what's wrong.
-- ✗ "There was a problem"
-- ✓ "Password must be at least 8 characters"
-
-**Be helpful:** Suggest how to fix it.
-- ✗ "Invalid input"
-- ✓ "Enter a valid email address, like name@example.com"
-
-**Be positioned:** Show errors near the problem.
-- Form errors next to fields
-- Page errors at the top
-- Action errors near the action
-
-**Be appropriately alarming:** Match severity to importance.
-- Validation: Subtle, near field
-- Payment failed: More prominent
-- Data loss risk: Very prominent
-
-### Error State Design
-
-Visual treatment matters:
-- Use colour thoughtfully (red isn't always necessary)
-- Include icons for scanability
-- Don't overuse bold/caps
-- Keep actionable when possible
-
-### Error Prevention vs. Error Handling
-
-Prevention is better than handling:
-- Disable impossible actions
-- Constrain inputs to valid values
-- Confirm destructive operations
-- Warn before problems
-
-But when errors happen anyway, handle them well.
-
-<!-- visual-example: error-states-demo -->
+*   **Form Errors:** Place the message directly below the invalid field. Don't make the user hunt for it at the top of the page.
+*   **System Errors:** Use a global toast or banner for things like "Connection Lost."
+*   **Critical Errors:** Use a modal or a full-page state only if the app is unusable (e.g., "Server Down").
 
 ## Loading States
 
-Loading states appear while waiting for data or processing.
+Speed is a feature, but perceived performance is just as important.
 
-<!-- visual-example: loading-states-demo -->
+### The 100ms Rule
+*   **< 100ms:** Instant. No feedback needed.
+*   **100ms - 1s:** The user feels a delay. A small spinner or loader is appropriate.
+*   **1s - 10s:** The user's mind starts to wander. Use a skeleton screen or a progress bar to show that *something* is happening.
+*   **> 10s:** You risk losing the user completely. Provide a time estimate or allow them to background the task.
 
-<!-- illustration: loading-duration -->
+### Skeleton Screens vs. Spinners
 
-### Loading Duration Guidelines
-
-**< 100ms:** No indicator needed. Feels instant.
-
-**100ms - 1s:** Show subtle feedback. Spinner, progress indicator.
-
-**1s - 10s:** Show clear progress. Progress bar, skeleton screens.
-
-**> 10s:** Keep user informed. Percentage, time estimate, background option.
-
-### Loading Patterns
-
-**Spinners:** Simple, universal, but uninformative.
-
-**Progress bars:** Show completion percentage. Better for known durations.
-
-**Skeleton screens:** Show layout structure while loading content. Feels faster.
-
-**Progressive loading:** Show what you have while loading more.
-
-**Optimistic UI:** Show expected result immediately, update if wrong.
-
-### Loading State Principles
-
-**Show something fast.** Even if content takes time, show structure immediately.
-
-**Indicate progress.** If possible, show how much remains.
-
-**Keep users oriented.** Don't blank the screen unnecessarily.
-
-**Allow cancellation.** For long operations, let users abandon.
-
-**Handle failure.** Loading can fail—design for that too.
-
-### Skeleton Screens
-
-Skeleton screens show content layout while data loads:
-- Gray shapes where content will appear
-- Maintains page structure
-- Feels faster than empty space + spinner
-- Reduces layout shift when content loads
+Spinners focus attention on the *waiting*. Skeleton screens focus attention on the *content* that is about to appear. Skeletons (gray placeholder shapes) make the app feel faster because they lay out the structure immediately, preventing jarring layout shifts when the real data arrives.
 
 ## Content Extremes
 
-Content doesn't always fit nicely. Plan for extremes.
+Data is rarely uniform.
 
-### Long Content
-
-What if text is longer than expected?
-
-**Truncation:** Cut off with ellipsis
-- Good for: Lists, cards, previews
-- Risk: Important info hidden
-
-**Wrapping:** Let text flow to multiple lines
-- Good for: Full content, descriptions
-- Risk: Layout breaks, uneven rows
-
-**Scroll:** Contain in scrollable area
-- Good for: Fixed-height regions
-- Risk: Content buried, missed
-
-**Expansion:** Show more on demand
-- Good for: Variable importance
-- Risk: Extra interaction required
-
-<!-- illustration: content-extremes -->
-
-### Short Content
-
-What if there's less content than expected?
-
-- Cards that look empty
-- Tables with one row
-- Charts with one data point
-- Names that are one character
-
-Design with minimum viable content in mind.
-
-### Missing Content
-
-What if expected content is missing?
-
-- Avatar without photo
-- User without name
-- Product without image
-- Article without body
-
-Default gracefully:
-- Initials for missing avatars
-- "Untitled" for missing titles
-- Placeholder images
+### The Long and the Short of It
+*   **Long Content:** What happens if a headline runs for three lines? Does it truncate (`...`) or wrap? Truncation saves space but hides information. Wrapping preserves information but breaks alignment. Choose based on importance.
+*   **Short Content:** What if a "Top 10" list only has one item? Does the layout look broken?
+*   **Missing Content:** What if a user doesn't have an avatar? Use a fallback (initials or a generic icon) rather than a broken image link.
 
 ### Numerical Extremes
-
-- Zero items
-- One item (singular vs. plural)
-- 99+ (badges, counts)
-- Very large numbers (formatting, abbreviation)
-- Negative numbers (if possible)
+*   **Zero:** "0 items" (or "No items").
+*   **One:** "1 item" (Singular).
+*   **Many:** "1,234 items" (Comma formatting).
+*   **Too Many:** "99+" (Badges shouldn't explode with width).
 
 ## Permission States
 
-Users can't always do everything.
+Mobile apps often need access to the Camera, Location, or Photos.
 
-### Permission Scenarios
-
-- **Not logged in:** Feature requires authentication
-- **Not authorized:** Feature requires different role
-- **Not available:** Feature locked, trial expired
-- **Not applicable:** Feature doesn't apply to this item
-
-### Handling Permissions
-
-**Hide vs. disable vs. explain:**
-- **Hide:** Removes clutter but users don't know it exists
-- **Disable:** Shows existence but can frustrate
-- **Explain:** Helps but adds visual complexity
-
-<!-- illustration: permission-states -->
-
-Context determines the right approach.
-
-**Explain why:** If showing disabled/locked state, explain how to unlock.
-> "Upgrade to Pro to export reports"
-
-**Provide path forward:** Don't just say no—offer next steps.
-> "Sign in to save your progress" [Sign In]
-
-## The Edge Case Checklist
-
-For each feature/component, consider:
-
-**Empty states:**
-- [ ] First use (never had content)
-- [ ] No results (search/filter returned nothing)
-- [ ] Cleared (content was removed)
-
-**Errors:**
-- [ ] Validation errors (invalid input)
-- [ ] System errors (server/network failure)
-- [ ] Permission errors (not authorized)
-
-**Loading:**
-- [ ] Initial load (page/view)
-- [ ] Action processing (form submission)
-- [ ] Refresh (pulling new data)
-
-**Content:**
-- [ ] Minimum content (very short/few)
-- [ ] Maximum content (very long/many)
-- [ ] Missing content (expected but absent)
-
-**Permissions:**
-- [ ] Not authenticated
-- [ ] Wrong role/permissions
-- [ ] Feature locked/unavailable
+**The "Deny" Loop:**
+If a user denies permission, the feature breaks. Don't just fail silently. Show a specific state:
+"We need access to your camera to scan QR codes. Please enable it in Settings."
+Provide a button that deep-links directly to the App Settings.
 
 ## Try It Yourself
 
 ### Exercise 1: Empty State Design
+Design the "My Orders" screen for an e-commerce app for a user who has never bought anything. How do you turn this empty screen into a sales opportunity?
 
-Design empty states for:
-1. A to-do list with no tasks
-2. A search with no results
-3. A social feed with no activity
-
-Include: explanation, guidance, and action.
-
-### Exercise 2: Error Message Rewrite
-
-Find 5 error messages in products you use. Rewrite each to be:
-- Clear about what happened
-- Specific about the problem
-- Helpful about how to fix it
-
-### Exercise 3: Edge Case Inventory
-
-For a feature you're working on:
-1. List all possible edge cases using the checklist
-2. Prioritise by likelihood and impact
-3. Design the top 3 most important edge cases
+### Exercise 2: The "Bad Data" Stress Test
+Take a card component you designed. Fill it with:
+*   A 100-character title.
+*   A missing image.
+*   A price of $1,000,000.00.
+Does it break? Fix the CSS/Layout to handle these extremes gracefully.
 
 ## Test Your Understanding
 
@@ -377,13 +145,11 @@ For a feature you're working on:
 
 ## Key Takeaways
 
-- Edge cases are where products often break—they deserve design attention
-- Empty states should explain, guide, and enable action
-- Error messages should be clear, specific, and helpful
-- Loading states should appear appropriate to duration
-- Design for content extremes: too long, too short, missing
-- Handle permission states with explanation and next steps
-- Use the edge case checklist to ensure coverage
+-   **The "Happy Path" is rare.** Most users encounter edge cases.
+-   **Empty states are onboarding opportunities.** Don't just say "empty."
+-   **Errors should be actionable.** Tell the user how to fix it.
+-   **Loaders manage perception.** Use skeletons to make the app feel faster.
+-   **Stress test your designs.** Use long text, short text, and missing data.
 
 ## Next Steps
 

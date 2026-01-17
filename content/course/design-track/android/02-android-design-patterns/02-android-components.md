@@ -1,126 +1,111 @@
 # Android Components
 
-> **Quick Summary:** Material Design provides a comprehensive component library. Knowing when and how to use each component is essential.
+> **Quick Summary:** Material Design 3 provides a robust library of components that are adaptive, accessible, and expressive. Choosing the right component isn't just about aesthetics—it's about communicating hierarchy and interaction models correctly.
 
 ## What You'll Learn
 
-- Buttons and actions
-- Selection components
-- Containment components
-- Communication components
+- The hierarchy of buttons (Filled, Tonal, Outlined, Text)
+- When to use the Floating Action Button (FAB)
+- Selection controls: Chips vs. Radios vs. Checkboxes
+- Using containment surfaces like Cards and Bottom Sheets
 
-## Buttons
+## Buttons and Actions
 
-### Button Types (Emphasis)
-- **Filled:** Highest emphasis, primary actions
-- **Tonal:** Medium emphasis
-- **Outlined:** Medium emphasis, alternative
-- **Text:** Lowest emphasis, tertiary actions
+Material Design offers a clear hierarchy of buttons to guide user attention without overwhelming them.
 
-### FAB (Floating Action Button)
-- Single primary action per screen
-- Floats above content
-- Usually bottom-right
-- Standard, small, or extended
+### The Button Hierarchy
 
-### Icon Buttons
-- Action without label
-- Toolbar actions
-- Toggle states
-- Need adequate touch target
+1.  **Filled Button:** The highest emphasis. Use this for the single most important action in a linear flow (e.g., "Next", "Submit", "Buy").
+2.  **Tonal Button:** A middle ground. It uses a secondary container colour. Perfect for high-priority actions that shouldn't distract from the main content.
+3.  **Outlined Button:** Medium emphasis. Use these for secondary actions that pair with a primary button (e.g., "Cancel" next to "Submit").
+4.  **Text Button:** Lowest emphasis. Used for less important actions or within cards and dialogs.
 
-## Selection Components
+### The Floating Action Button (FAB)
 
-### Checkboxes
-- Multiple selection from list
-- Independent options
-- Binary state (checked/unchecked)
+The FAB is the signature element of Material Design. It represents the primary action of the screen.
 
-### Radio Buttons
-- Single selection from list
-- Mutually exclusive options
-- Always in groups
+*   **Standard FAB:** An icon in a circle. Ideally used for constructive actions like "New Message," "Add Item," or "Play."
+*   **Extended FAB:** Includes a text label. Use this when the icon alone is ambiguous or you have plenty of screen space.
+*   **Design Rule:** Only one FAB per screen. If you have two primary actions, neither is primary.
 
-### Switches
-- Immediate on/off toggle
-- Settings and controls
-- Clear binary state
+## Selection Controls
 
 ### Chips
-- Filter, input, or action
-- Can be dismissible
-- Compact selection method
 
-## Containment
+Chips are versatile, compact elements that represent an input, attribute, or action. They look like rounded pills.
+*   **Input Chips:** Represent complex information in a compact form (like a contact in an email "To" field).
+*   **Filter Chips:** Allow users to refine content (e.g., "Price: Low to High," "Open Now").
+*   **Action Chips:** Trigger actions related to primary content (e.g., "Play Trailer," "Get Directions").
+
+### Checkboxes, Radios, and Switches
+
+*   **Checkboxes:** For selecting multiple items from a list.
+*   **Radio Buttons:** For selecting exactly one item from a list.
+*   **Switches:** For binary on/off settings that take effect immediately (like "Airplane Mode").
+
+**Pro Tip:** Don't use a switch for a "Submit" action. Switches imply immediate system state change.
+
+## Containment and Surfaces
 
 ### Cards
-- Related content and actions
-- Clearly bounded
-- Various layouts
-- Tappable as unit or with internal actions
 
-### Dialogs
-- Require attention/decision
-- Modal, blocking
-- Simple, alert, or full-screen
-- Use sparingly
+Cards contain content and actions about a single subject. They are versatile containers that can hold images, text, and buttons.
+*   **Elevated Card:** Has a shadow. Good for separating content from a patterned background.
+*   **Filled Card:** Has a subtle background fill. Good for visual separation without shadows.
+*   **Outlined Card:** Has a border. Good for clean, high-density layouts.
 
 ### Bottom Sheets
-- Additional content/actions
-- Slides up from bottom
-- Modal or persistent
-- Can be full-screen
 
-### Lists
-- Groups of related items
-- Various item layouts
-- Supporting text/actions
-- Section headers
+Bottom sheets slide up from the bottom of the screen. They are safer and more flexible than dialogs because they don't necessarily block the user's view of the context.
+*   **Standard Bottom Sheet:** Co-exists with main content (like a music player mini-bar).
+*   **Modal Bottom Sheet:** Blocks interaction with the rest of the screen. Excellent for complex menus or deep-linking details without leaving the context.
+
+### Dialogs
+
+Dialogs are disruptive. They appear in the center of the screen and require a decision before the user can proceed. Use them sparingly—only for critical decisions like confirming a deletion or accepting permissions.
 
 ## Communication
 
 ### Snackbars
-- Brief feedback messages
-- Bottom of screen
-- Optional action
-- Auto-dismiss
+
+Snackbars provide brief feedback about an operation. They appear at the bottom of the screen and disappear automatically. They can contain a single text action (e.g., "Undo").
+*   **Use for:** "Message sent," "Item deleted."
+*   **Don't use for:** Critical errors that must be acknowledged (use a Dialog).
 
 ### Progress Indicators
-- Linear: Determinate or indeterminate
-- Circular: Loading states
-- Show system working
 
-### Badges
-- Status indicators
-- On icons or avatars
-- Notification counts
+*   **Linear:** Great for filling headers or indicating page loads.
+*   **Circular:** Perfect for "pull to refresh" or loading specific small elements.
 
-## Component States
+## States
 
-All interactive components have states:
-- Enabled (default)
-- Hovered
-- Focused
-- Pressed
-- Dragged
-- Disabled
+Every interactive component in Android has standard visual states:
+*   **Enabled:** The resting state.
+*   **Disabled:** Visually grayed out (opacity 38%).
+*   **Pressed:** A ripple effect overlay confirms the touch.
+*   **Focused:** Important for keyboard/controller navigation (e.g., on TV or tablets).
 
-Design all states for custom components.
+Designing custom components means designing *all* these states, not just the resting one.
 
 ## Try It Yourself
 
-### Exercise 1: Component Selection
+### Exercise 1: Action Hierarchy
 
-For these scenarios, which component?
-1. User needs to agree to terms
-2. Primary action on a form
-3. Filter a product list
-4. Show upload progress
-5. Confirm a deletion
+Design a "Checkout" screen footer. It needs:
+*   A "Pay Now" button
+*   A "Cancel Order" button
+*   A "Add Discount Code" button
 
-### Exercise 2: State Design
+Assign the correct button style (Filled, Outlined, Text) to each based on priority.
 
-Design a custom card with all interactive states.
+### Exercise 2: Selection Logic
+
+You are designing a filter menu for a shopping app. Users can filter by:
+*   **Category:** (Men, Women, Kids) - Mutually exclusive.
+*   **Size:** (S, M, L, XL) - Multiple selection allowed.
+*   **On Sale:** (Yes/No) - Immediate toggle.
+
+Which component do you choose for each?
 
 ## Test Your Understanding
 
@@ -131,31 +116,31 @@ Design a custom card with all interactive states.
   "title": "Android Components",
   "description": "Test your understanding of Material components.",
   "difficulty": "easy",
-  "question": "What visual feedback do Material components provide on touch?",
+  "question": "What is the primary difference between a Switch and a Checkbox?",
   "options": [
     {
       "id": "a",
-      "text": "Color change only",
+      "text": "Switches are round, checkboxes are square",
       "isCorrect": false,
-      "explanation": "Material uses a distinctive feedback mechanism beyond simple colour change."
+      "explanation": "While visually true, the functional difference is more important."
     },
     {
       "id": "b",
-      "text": "A ripple effect that emanates from the touch point",
+      "text": "Switches imply immediate activation (like a light switch); checkboxes imply selection for later submission (like a form)",
       "isCorrect": true,
-      "explanation": "Correct! Material components use ripple animations that radiate from the touch point, providing spatial feedback that connects the user's action to the response."
+      "explanation": "Correct! Use switches for settings that apply instantly. Use checkboxes for forms where the user must click 'Save' or 'Submit' later."
     },
     {
       "id": "c",
-      "text": "No feedback, the result is the feedback",
+      "text": "Checkboxes allow multiple selection; switches only allow single selection",
       "isCorrect": false,
-      "explanation": "Immediate touch feedback is important for perceived responsiveness."
+      "explanation": "Both allow independent toggling of options."
     },
     {
       "id": "d",
-      "text": "A bounce animation",
+      "text": "Switches are for mobile, checkboxes are for desktop",
       "isCorrect": false,
-      "explanation": "Bounce is more characteristic of iOS springs than Material ripples."
+      "explanation": "Both components are used across all form factors."
     }
   ]
 }
@@ -163,11 +148,11 @@ Design a custom card with all interactive states.
 
 ## Key Takeaways
 
-- Button types indicate emphasis level
-- Selection components match selection model
-- Dialogs block; bottom sheets supplement
-- All components have multiple states
-- Use standard components when possible
+-   Use the **Button Hierarchy** to guide users: Filled > Tonal > Outlined > Text.
+-   **FABs** are for the single most important constructive action.
+-   **Bottom Sheets** are often a better choice than **Dialogs** for menus and details.
+-   **Switches** are for immediate settings; **Checkboxes** are for form data.
+-   Don't forget to design the **Pressed** (ripple) state.
 
 ## Next Steps
 

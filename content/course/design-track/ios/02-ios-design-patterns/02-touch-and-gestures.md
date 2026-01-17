@@ -1,116 +1,77 @@
 # Touch and Gestures
 
-> **Quick Summary:** iOS is built for touch. Understanding gestures and designing for fingers (not cursors) is essential for natural-feeling apps.
+> **Quick Summary:** iOS is a direct-manipulation interface. Unlike a mouse-based system where you look at a screen and move a device on a desk, on iOS you touch the content itself. Designing for fingers requires understanding specific constraints like precision, occlusion, and standard gesture expectations.
 
 ## What You'll Learn
 
-- Standard iOS gestures
-- Touch target sizing
-- Designing for fingers
-- Haptic feedback
+- The vocabulary of standard iOS gestures
+- Designing for the physical reality of fingers
+- Haptic feedback as a design layer
+- Handling the lack of hover states
 
-## Standard Gestures
+## The Standard Gesture Vocabulary
 
-### Tap
-- Primary selection/activation
-- Expected everywhere
-- Clear feedback required
+Users don't read manuals; they explore interfaces using a vocabulary of gestures they've learned from the system. If you break these expectations, your app feels broken.
 
-### Long Press
-- Secondary actions
-- Context menus
-- Preview content
+**The Tap** is the primary mechanism for selection. It requires instant, clear feedback (usually a visual highlight or state change) to confirm the system received the input.
 
-### Swipe
-- Navigate back (edge swipe)
-- List actions
-- Delete, archive, etc.
+**The Swipe** is versatile. A swipe from the left edge acts as a "Back" button—this is universal on iOS. Swiping on list items typically reveals contextual actions (like "Delete" or "Archive"). Vertical swiping handles scrolling, but pulling down from the top of a scroll view triggers the standard "Pull to Refresh" action.
 
-### Scroll
-- Move through content
-- Pull to refresh
-- Momentum scrolling
+**The Long Press** (formerly Force Touch) reveals secondary options. It's the "right click" of iOS. Use it to show context menus, preview content (Peek and Pop), or enter edit modes (like reordering a list).
 
-### Pinch
-- Zoom in/out
-- Photos, maps, documents
-
-### Rotate
-- Rotate content
-- Usually paired with pinch
-
-### Drag
-- Move items
-- Reorder lists
-- Drag and drop
-
-## Touch Targets
-
-### Minimum Size
-- 44×44 points minimum
-- Even if visual element is smaller
-- Especially important for icons
-
-### Spacing
-- Adequate gaps between targets
-- Prevent accidental taps
-- More space = fewer errors
-
-### Thumb Zones
-Consider one-handed use:
-- Bottom of screen: Easy reach
-- Top of screen: Hard to reach
-- Edges: Can be awkward
+**Pinch and Rotate** are standard for manipulating media. Users expect to be able to pinch photos, maps, and documents to zoom.
 
 ## Designing for Fingers
 
-### Precision
-Fingers are imprecise compared to cursors:
-- Larger targets
-- Forgiving hit areas
-- Clear feedback
+A cursor is precise—a single pixel. A finger is a blunt instrument that changes shape as it presses.
 
-### Occlusion
-Finger covers what you're touching:
-- Show feedback above finger
-- Preview before commit
-- Consider touch location
+### The 44-Point Rule
+
+Apple's Human Interface Guidelines famously recommend a minimum touch target size of **44x44 points**. This roughly corresponds to the physical size of a fingertip (about 7-10mm).
+
+Critically, the *visible* element can be smaller than the *touch* target. A standard toolbar icon might be visually 24x24 points, but its invisible tappable area extends to 44x44 points. If you place two small buttons closer than 44 points apart, you guarantee frustration as users accidentally tap the wrong one.
+
+### The Problem of Occlusion
+
+When you touch a screen, your hand covers part of the interface. This is occlusion.
+
+If you design a drag-and-drop interaction, the item being dragged shouldn't be directly under the finger—it should "lift" and offset slightly so the user can see where they are dropping it. Similarly, when pressing a button, the visual feedback needs to be visible *around* the finger, not just directly underneath it.
 
 ### No Hover State
-Touch has no hover:
-- States: Default, Pressed, Selected
-- Don't hide information in hover
-- Make affordances obvious
+
+Touch screens have no hover state. You cannot rely on tooltips to explain cryptic icons, or hover effects to signal interactiveness. Every interactive element must look interactive by default. Affordances—visual clues like colour, depth, or icons—must communicate "tap me" without a cursor hover.
+
+## Thumb Zones
+
+Most users hold their phone in one hand, using their thumb to interact.
+
+*   **Easy Reach:** The bottom third of the screen. This is prime real estate for primary actions (tab bars, floating action buttons).
+*   **Stretch:** The middle of the screen. Okay for lists and content.
+*   **Hard Reach:** The top corners. This is why the "Back" button is often duplicated by a swipe gesture—reaching the top-left corner is physically difficult on modern, large phones.
 
 ## Haptic Feedback
 
-iOS devices provide tactile feedback:
+Haptics add a tactile layer to your design. Modern iPhones use the Taptic Engine to provide incredibly precise physical feedback.
 
-### Feedback Types
-- **Selection:** Light tick when selecting
-- **Impact:** Physical tap sensation
-- **Notification:** Success, warning, error
+*   **Selection:** A light tick (like a clock) when scrolling through a picker.
+*   **Impact:** A solid tap when a snap-to-grid event happens or a switch toggles.
+*   **Notification:** Distinct patterns for Success (two light taps), Warning, and Error (a heavier double-tap).
 
-### When to Use
-- Confirming actions
-- Reinforcing interactions
-- Indicating state changes
-- Adding polish and delight
-
-### Best Practices
-- Subtle, not overwhelming
-- Meaningful, not gratuitous
-- Consistent with visual feedback
+Haptics should be subtle. Like sound design, if you notice it too much, it's probably overdone. Use them to reinforce important physical interactions, not to punctuate every single tap.
 
 ## Try It Yourself
 
-### Exercise 1: Gesture Map
+### Exercise 1: Touch Target Audit
 
-Map all gestures in a complex app. Which are standard? Which are custom?
+Take a screenshot of a design you're working on. Overlay a grid of 44x44 point squares. Are any of your interactive elements (buttons, links, icons) smaller than a square? Are any two targets occupying the same square?
 
-### Exercise 2: Touch Target Audit
+### Exercise 2: Gesture Mapping
 
-Check your designs against the 44pt minimum. Are all targets reachable?
+Choose a complex interaction in your app (like organising a list). Map it to standard gestures:
+*   Tap to select
+*   Long press to lift/reorder
+*   Swipe to delete
+*   Tap-and-drag to move multiple items
 
 ## Test Your Understanding
 
@@ -121,31 +82,31 @@ Check your designs against the 44pt minimum. Are all targets reachable?
   "title": "Touch and Gestures",
   "description": "Test your understanding of iOS touch interactions.",
   "difficulty": "easy",
-  "question": "What is the minimum recommended touch target size for iOS?",
+  "question": "Why is it important to design visual feedback that extends beyond the bounds of the element itself?",
   "options": [
     {
       "id": "a",
-      "text": "24x24 points",
+      "text": "It looks more modern",
       "isCorrect": false,
-      "explanation": "This is too small for comfortable tapping."
+      "explanation": "While aesthetics matter, there is a functional reason related to the physics of touch."
     },
     {
       "id": "b",
-      "text": "44x44 points",
+      "text": "Because the user's finger occludes (covers) the element while pressing it",
       "isCorrect": true,
-      "explanation": "Correct! Apple recommends at least 44x44pt for touch targets. This ensures comfortable tapping without accidental triggers on nearby elements."
+      "explanation": "Correct! Since the finger covers the button during the press, feedback restricted to the button's interior might be completely hidden. Expanding the feedback ensures the user knows the tap was registered."
     },
     {
       "id": "c",
-      "text": "64x64 points",
+      "text": "To make the touch target larger",
       "isCorrect": false,
-      "explanation": "This is larger than necessary—44pt is the minimum."
+      "explanation": "Visual feedback doesn't change the hit-test area."
     },
     {
       "id": "d",
-      "text": "There's no standard, it depends on the app",
+      "text": "It isn't important; standard button states are sufficient",
       "isCorrect": false,
-      "explanation": "Apple provides specific guidance on minimum touch target sizes."
+      "explanation": "Standard states often do this automatically (like the glow or dimming), but custom components need to account for occlusion manually."
     }
   ]
 }
@@ -153,11 +114,11 @@ Check your designs against the 44pt minimum. Are all targets reachable?
 
 ## Key Takeaways
 
-- Standard gestures set user expectations
-- 44×44 points is the minimum touch target
-- Design for finger imprecision and occlusion
-- No hover state on touch devices
-- Haptics add polish when used thoughtfully
+-   Respect the **44pt minimum touch target** rule, even for small icons.
+-   Users expect standard gestures (swipe to back, pull to refresh) to work everywhere.
+-   Your finger covers what you touch; design offset feedback to handle **occlusion**.
+-   **No hover states** means affordances must be obvious at a glance.
+-   Use **haptics** to give physical weight to digital interactions.
 
 ## Next Steps
 

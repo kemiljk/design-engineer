@@ -2,70 +2,80 @@
 
 > **Quick Summary:** Accessibility ensures everyone can use your interface—it's not optional, it's essential. And it often improves the experience for everyone.
 
-## What You'll Learn
-
-- What accessibility means and why it matters
-- Who benefits from accessibility
-- The business and legal case
-- Accessibility as a Design Engineering practice
-
 ## What Is Accessibility?
 
 > *"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."* — Tim Berners-Lee
 
-Web accessibility (a11y) means designing and building interfaces that work for everyone, including people with:
-- **Visual impairments:** Blindness, low vision, colour blindness
-- **Motor impairments:** Limited fine motor control, inability to use mouse
-- **Hearing impairments:** Deafness, hard of hearing
-- **Cognitive differences:** ADHD, dyslexia, autism
+Web accessibility (often abbreviated as **a11y**) is the inclusive practice of ensuring there are no barriers that prevent interaction with, or access to, websites on the World Wide Web by people with physical disabilities, situational disabilities, and socio-economic restrictions on bandwidth and speed.
 
-## Who Benefits?
-
-Accessibility helps more people than you might think:
-- Permanent disabilities
-- Temporary impairments (broken arm, eye infection)
-- Situational limitations (bright sunlight, loud environment, one-handed)
-- Aging-related changes
-- Slow internet connections
-
-When you design for accessibility, you often improve the experience for everyone.
+It involves designing for:
+*   **Visual impairments:** Blindness, low vision, colour blindness.
+*   **Motor impairments:** Limited fine motor control, tremors, inability to use a mouse.
+*   **Hearing impairments:** Deafness, hard of hearing.
+*   **Cognitive differences:** ADHD, dyslexia, autism, memory limitations.
 
 ## The Curb Cut Effect
 
-Curb cuts (ramps in sidewalks) were designed for wheelchairs. They also help:
-- Parents with strollers
-- Delivery workers with carts
-- Travelers with luggage
-- Anyone with temporary mobility issues
+Accessibility is not a zero-sum game. Features designed for people with disabilities often benefit everyone. This is known as the **Curb Cut Effect**.
 
-Web accessibility features have similar benefits. Captions help in noisy environments. Keyboard navigation helps power users. High contrast helps in sunlight.
+Curb cuts (the ramps at street corners) were originally created for wheelchair users. But they also help:
+*   Parents pushing strollers.
+*   Travelers pulling wheeled luggage.
+*   Cyclists entering the sidewalk safely.
+*   Delivery workers with hand trucks.
+
+Similarly, **Video Captions** were designed for the deaf, but they are used by people in noisy bars, quiet libraries, or those learning a new language. **High Contrast** modes help people with low vision, but also people using their phones in bright sunlight.
+
+## Who Benefits?
+
+Accessibility supports a spectrum of needs:
+
+1.  **Permanent:** A person who is blind.
+2.  **Temporary:** A person with a broken arm (who can't use a mouse for 6 weeks).
+3.  **Situational:** A person holding a baby (who needs to navigate with one hand).
+
+By designing for the permanent constraint, you solve for the temporary and situational ones for free.
 
 ## Design Engineer Responsibility
 
-As a Design Engineer, you touch both design and code, the two areas where accessibility is determined:
+As a Design Engineer, you bridge the gap between intent and implementation. You are the last line of defense for accessibility.
 
 ### In Design
-- Color contrast
-- Touch target sizes
-- Visual hierarchy
-- Focus indication
+Your decisions in Figma determine the baseline accessibility of the product.
+*   **Colour Contrast:** Ensuring text is legible against its background.
+*   **Touch Targets:** Making buttons large enough to tap (minimum 44px).
+*   **Visual Hierarchy:** Using size and spacing to guide the eye logically.
+*   **Focus States:** Designing clear indicators for keyboard users.
 
 ### In Code
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- Focus management
+Your implementation ensures that the visual design translates into a machine-readable structure.
+*   **Semantic HTML:** Using `<button>` instead of `<div onclick="...">`.
+*   **ARIA Labels:** Providing text alternatives for icons (`aria-label="Close"`).
+*   **Keyboard Navigation:** Ensuring the Tab key moves through the page in a logical order.
+*   **Focus Management:** Moving the focus to a modal when it opens, and trapping it there.
 
-You're positioned to catch accessibility issues before they ship and implement accessible solutions.
+## Assistive Technologies
+
+Users access the web using diverse tools. Understanding them helps you build better products.
+
+*   **Screen Readers:** Software that reads the screen content aloud (e.g., VoiceOver, NVDA, JAWS). It relies entirely on the semantic structure of your HTML.
+*   **Switch Devices:** Buttons or sip-and-puff devices that allow users with limited motor control to navigate by scanning through interactive elements.
+*   **Screen Magnifiers:** Tools that zoom in on portions of the screen. They require high-resolution assets and responsive layouts that don't break when zoomed to 200% or 400%.
+*   **Voice Control:** Software that allows users to navigate and type using voice commands.
 
 ## WCAG Guidelines
 
-The Web Content Accessibility Guidelines (WCAG) define success criteria at three levels:
-- **A:** Minimum accessibility
-- **AA:** Target for most sites (legal requirement in many places)
-- **AAA:** Enhanced accessibility
+The **Web Content Accessibility Guidelines (WCAG)** are the international standard for web accessibility. They are organized into three levels of conformance:
 
-WCAG 2.2 (released October 2023) is the current version, adding important criteria for mobile accessibility, cognitive accessibility, and users with low vision.
+*   **Level A:** Essential accessibility features. Without these, the site is unusable for many.
+*   **Level AA:** The global standard for most public websites and legal requirements. It addresses the most common barriers.
+*   **Level AAA:** The highest standard, often required for specialized government or healthcare sites.
+
+**WCAG 2.2** is the current standard, focusing on four principles (POUR):
+1.  **Perceivable:** Information must be presentable to users in ways they can perceive (sight, sound, touch).
+2.  **Operable:** User interface components and navigation must be operable (keyboard accessible, no keyboard traps).
+3.  **Understandable:** Information and the operation of the user interface must be understandable (predictable patterns, clear error messages).
+4.  **Robust:** Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies.
 
 ## Test Your Understanding
 
@@ -100,7 +110,7 @@ WCAG 2.2 (released October 2023) is the current version, adding important criter
       "id": "d",
       "text": "Accessible sites load faster",
       "isCorrect": false,
-      "explanation": "Accessibility and performance are separate concerns."
+      "explanation": "While clean code can help performance, accessibility and performance are separate concerns."
     }
   ]
 }
@@ -108,10 +118,10 @@ WCAG 2.2 (released October 2023) is the current version, adding important criter
 
 ## Key Takeaways
 
-- Accessibility benefits everyone, not just those with disabilities
-- Design Engineers influence accessibility in both design and code
-- WCAG provides concrete standards to follow
-- Accessibility is a professional responsibility
+- Accessibility is about universality and inclusion.
+- The **Curb Cut Effect** means accessible design benefits everyone.
+- Design Engineers control both the visual (Contrast, Hierarchy) and technical (HTML, ARIA) aspects of a11y.
+- **WCAG** is the rulebook; **POUR** is the philosophy.
 
 ## Next Steps
 

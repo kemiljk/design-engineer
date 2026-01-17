@@ -2,14 +2,6 @@
 
 > **Quick Summary:** Colour isn't just aesthetic preference. It's a powerful communication tool that affects perception, accessibility, and usability.
 
-## What You'll Learn
-
-- Colour theory fundamentals and terminology
-- Colour psychology and its impact on design
-- Building effective colour palettes
-- Ensuring accessibility with colour
-- Implementing dark mode
-
 ## The Language of Colour
 
 > *"Colour is a power which directly influences the soul."* — Wassily Kandinsky
@@ -20,26 +12,23 @@ Before diving into application, let's establish the vocabulary:
 
 ### Colour Properties
 
-**Hue:** The colour itself (red, blue, green, etc.). What most people mean when they say "colour."
+**Hue** is the colour family itself (red, blue, green, etc.). When people ask "what colour is this?", they are usually asking about the hue.
 
-**Saturation:** How pure or intense the colour is. High saturation = vivid; low saturation = muted/grey.
+**Saturation** defines the intensity or purity of the colour. A highly saturated colour looks vivid and rich, while a low saturation colour looks muted or grey.
 
-**Lightness/Value:** How light or dark the colour is. High lightness = closer to white; low lightness = closer to black.
+**Lightness (or Value)** describes how light or dark the colour is. High lightness approaches white; low lightness approaches black.
 
 ### Colour Models
 
-**RGB (Red, Green, Blue):** Additive colour for screens. All colours at full intensity = white.
+**RGB (Red, Green, Blue)** is an additive model used for screens. It mixes light to create colour. `rgb(255, 255, 255)` is white.
 
-**HSL (Hue, Saturation, Lightness):** More intuitive for design. Easier to create variations by adjusting one property.
+**HSL (Hue, Saturation, Lightness)** is a more intuitive model for design because it aligns with how we perceive colour. It makes it much easier to create palette variations programmatically.
 
-**Hex codes:** Shorthand for RGB values (#FF5733 = R:255, G:87, B:51).
+**Hex codes** are just a shorthand for RGB values (e.g., `#FF5733`).
 
 ### Why HSL Matters
 
-HSL is more useful for creating palettes because you can:
-- Keep hue constant, adjust saturation/lightness for variants
-- Maintain consistent saturation across different hues
-- Create predictable dark/light versions
+HSL is superior for creating systematic palettes. By keeping the **Hue** constant and adjusting **Lightness**, you can create a perfect monochromatic scale. By keeping **Lightness** constant and changing **Hue**, you can create distinct colours that share the same visual weight.
 
 ```css
 /* Base colour */
@@ -54,235 +43,129 @@ HSL is more useful for creating palettes because you can:
 
 ## Colour Psychology
 
-Colours carry associations, some universal, some cultural. Understanding these helps you choose colours intentionally.
+Colours carry deep associations that vary by culture and context. Understanding these helps you choose colours that support your message rather than fighting it.
 
 ### Common Associations
 
-**Red:** Urgency, danger, passion, energy
-- Use for: Errors, critical actions, sale badges
-- Caution: Can feel aggressive or alarming
+**Red** is the colour of urgency and passion. It naturally draws the eye and signals importance. In UI, it is the standard for **errors**, **destructive actions**, and **alerts**. Be careful not to overuse it, or your interface will feel stressful.
 
-**Orange:** Enthusiasm, creativity, warmth
-- Use for: CTAs, highlights, friendly interactions
-- Caution: Can feel unserious or cheap
+**Orange** radiates energy and creativity. It is friendlier than red but still commands attention. It works excellently for **calls to action** or **highlights**, but can feel "cheap" if not balanced with neutrals.
 
-**Yellow:** Optimism, warning, attention
-- Use for: Alerts, highlights, optimistic messaging
-- Caution: Low contrast with white, can feel harsh
+**Yellow** is the most visible colour. It signifies optimism and caution. Use it for **warnings** or to highlight essential information. Note that yellow often has poor contrast against white backgrounds, so you may need a darker mustard shade for text.
 
-**Green:** Success, growth, nature, safety
-- Use for: Success states, confirmation, environmental themes
-- Caution: Too many shades can feel unbalanced
+**Green** signifies growth, success, and safety. It is the universal signal for **success states**, **confirmation**, and **financial positive trends**.
 
-**Blue:** Trust, professionalism, calm
-- Use for: Corporate, finance, technology, healthcare
-- Caution: Can feel cold or generic
+**Blue** represents trust, calm, and intelligence. It is the most common favourite colour and the standard for **corporate**, **tech**, and **healthcare** brands. Its ubiquity makes it a safe, if sometimes generic, choice.
 
-**Purple:** Luxury, creativity, mystery
-- Use for: Premium products, creative industries
-- Caution: Can feel pretentious if overused
+**Purple** is associated with luxury, creativity, and mystery. It is often used in **premium products** or **creative tools** to signal sophistication.
 
-**Neutral (grey, black, white):** Sophistication, balance, modernity
-- Use for: Content, UI chrome, professional applications
-- Caution: Too neutral can feel boring or empty
+**Neutrals (Grey, Black, White)** are the workhorses of your palette. They provide structure and balance. A good design relies on neutrals for 60-80% of the interface to let the accent colours shine.
 
 ### Cultural Considerations
 
-Colour meanings vary by culture:
-- White = purity in Western cultures, mourning in some Eastern cultures
-- Red = luck in China, danger in Western contexts
-- Green = Islam in some cultures, environmental in others
-
-For international products, research your audience's colour associations.
+Always remember that colour meaning is not universal. In Western cultures, **White** represents purity; in some Eastern cultures, it represents mourning. **Red** can mean danger in the US but luck and prosperity in China. Research your target audience.
 
 ## Building Colour Palettes
 
-A colour palette provides the colours for your entire product. Building one intentionally prevents random colour choices.
+A professional palette isn't just a random collection of colours. It's a system.
 
 ### Anatomy of a UI Palette
 
 <!-- illustration: colour-palette -->
 
-**Primary colour:** Your brand colour. Used for key actions, branding elements.
+**Primary Colour:** Your main brand colour. Used for primary buttons, active states, and key branding moments.
 
-**Secondary colour:** Supports the primary. Often a complement or analogous colour.
+**Secondary Colour:** Supports the primary. Often an analogous or complementary shade used for variety.
 
-**Accent colour:** For highlighting special elements. Should be attention-grabbing.
+**Accent Colour:** A high-contrast colour used sparingly for emphasis (like a notification dot).
 
-**Semantic colours:** Status indicators with fixed meanings:
-- Error/Danger: Red
-- Warning: Yellow/Orange
-- Success: Green
-- Info: Blue
+**Semantic Colours:** Functional colours with fixed meanings (Success Green, Error Red, Warning Yellow, Info Blue). These should be distinct from your brand colours to avoid confusion.
 
-**Neutral colours:** Greys for text, backgrounds, borders. You'll need more neutral shades than any other colour.
+**Neutral Colours:** A scale of greys for text, backgrounds, and borders. You will need way more greys than you think (usually 8-10 shades).
 
 ### The 60-30-10 Rule
 
-A guideline for colour distribution:
-- **60%** Neutral/background colours
-- **30%** Secondary colours
-- **10%** Accent/primary colours
+A classic interior design rule that works for UI:
+*   **60%** of your interface should be your neutral/background colour.
+*   **30%** should be your secondary/brand colour.
+*   **10%** should be your accent colour.
 
 <!-- visual-example: colour-60-30-10-demo -->
 
-This creates visual balance without overwhelming users.
+This distribution creates hierarchy and visual balance.
 
 ### Creating Palette Variations
 
-Each colour needs variations for different contexts:
+You need more than one shade of each colour. A button needs a hover state (lighter) and an active state (darker). A background needs subtle borders.
 
-| Scale | Usage |
-|-------|-------|
-| 50 | Lightest (backgrounds) |
-| 100 | Light (hover states) |
-| 200-400 | Intermediate tints |
-| 500 | Base (primary use) |
-| 600 | Slightly dark |
-| 700 | Dark (pressed states) |
-| 800-900 | Darkest (high contrast) |
-
-Tools like Tailwind CSS use this 50-900 scale. It provides predictable variations.
+A robust scale typically runs from **50 (lightest)** to **900 (darkest)**.
+*   **50-100:** Background tints.
+*   **200-300:** Borders and dividers.
+*   **400-500:** Enabled elements (buttons, icons).
+*   **600-700:** Hover and pressed states.
+*   **800-900:** High-contrast text.
 
 ### Generating Variations
 
-Use HSL to create consistent variations:
-1. Pick your base colour (500 level)
-2. For lighter variants: Increase lightness, slightly decrease saturation
-3. For darker variants: Decrease lightness, slightly increase saturation
-
-Or use tools:
-- Tailwind CSS colour generator
-- Coolors.co
-- Adobe Colour
-- Huemint
+Don't guess. Use HSL math or tools like the [Tailwind Color Generator](https://uicolors.app/create) or [Coolors.co](https://coolors.co/) to generate mathematically consistent scales.
 
 ## Colour in UI
 
 ### Text Colour
 
-**Primary text:** Near-black on light backgrounds, near-white on dark.
-- Light mode: `hsl(0, 0%, 10%)` — not pure black (softer on eyes)
-- Dark mode: `hsl(0, 0%, 90%)` — not pure white (less strain)
+Never use pure black (`#000000`) on pure white. It creates eye strain.
+*   **Primary Text:** Dark Grey (e.g., `hsl(0, 0%, 10%)`).
+*   **Secondary Text:** Medium Grey (e.g., `hsl(0, 0%, 45%)`) for subtitles.
+*   **Disabled Text:** Light Grey (e.g., `hsl(0, 0%, 65%)`).
 
-**Secondary text:** Reduced contrast for less important information.
-- Light mode: `hsl(0, 0%, 45%)`
-- Dark mode: `hsl(0, 0%, 60%)`
-
-**Disabled text:** Further reduced contrast.
-- Light mode: `hsl(0, 0%, 65%)`
-- Dark mode: `hsl(0, 0%, 40%)`
+In Dark Mode, invert this logic: off-white for text (`#F5F5F5`) on dark grey backgrounds.
 
 ### Background Colours
 
-Layer backgrounds to create depth:
-
-| Surface | Value (Light Mode) |
-|---------|-------------------|
-| Page background | hsl(0, 0%, 98%) |
-| Card background | hsl(0, 0%, 100%) |
-| Elevated element | hsl(0, 0%, 100%) + shadow |
+Use lightness to create depth.
+*   **Page Background:** Light grey (`#F9FAFB`).
+*   **Card Background:** Pure white (`#FFFFFF`).
+*   **Elevated Elements:** White with a shadow.
 
 ### Interactive States
 
-Colours communicate interaction possibilities:
-
-**Default:** Base colour
-**Hover:** Slightly darker (or lighter on dark backgrounds)
-**Active/Pressed:** Darker still
-**Disabled:** Desaturated, reduced contrast
-**Focus:** Often shown with outline rather than colour change
-
-### Status Colours
-
-Maintain consistent semantic meaning:
-
-```text
-Success: green variants
-Warning: yellow/orange variants  
-Error: red variants
-Info: blue variants
-```
-
-Each needs a:
-- Background tint (very light version)
-- Border colour (medium version)
-- Icon/text colour (dark version)
+Colour communicates state.
+*   **Default:** The base colour (e.g., Blue-500).
+*   **Hover:** Slightly darker (Blue-600).
+*   **Pressed:** Even darker (Blue-700).
+*   **Disabled:** Desaturated and light (Grey-300).
 
 ## Accessibility and Colour
 
 ### Contrast Requirements
 
-WCAG guidelines specify minimum contrast ratios:
-
-**Normal text (under 18px):** 4.5:1 contrast ratio
-**Large text (18px+ or 14px bold):** 3:1 contrast ratio
-**UI components and graphics:** 3:1 contrast ratio
+Accessibility isn't optional. The WCAG guidelines require specific contrast ratios between text and background:
+*   **Normal Text:** 4.5:1 ratio.
+*   **Large Text (18px+):** 3:1 ratio.
+*   **UI Components:** 3:1 ratio.
 
 <!-- visual-example: contrast-checker-demo -->
 
 ### Testing Contrast
 
-Tools to check contrast:
-- WebAIM Contrast Checker
-- Figma Stark plugin
-- Chrome DevTools (Accessibility pane)
+Use tools like the **WebAIM Contrast Checker** or Figma plugins like **Stark** to verify every colour combination in your system.
 
 ### Beyond Contrast: Colour Blindness
 
-8% of men and 0.5% of women have some form of colour blindness. Don't rely on colour alone to convey meaning.
-
-**Bad:** "Red fields have errors" (colourblind users can't see the red)
-
-**Good:** Red colour + error icon + error message text
-
-**Patterns:**
-- Use icons alongside colour
-- Include text descriptions
-- Use patterns or textures for charts
-- Test with colourblind simulation tools
+About 1 in 12 men are colour blind. If you rely *only* on colour to convey meaning (e.g., a red border for error), they will miss it.
+**The Fix:** Always pair colour with a secondary indicator like an icon or text label.
+*   **Bad:** Just a red outline on an input.
+*   **Good:** Red outline + "Invalid email" text + Warning icon.
 
 ## Dark Mode
 
-Dark mode isn't just inverted colours. It requires thoughtful adjustment.
+Dark mode is not just "invert colours." It's a separate design system.
 
 ### Dark Mode Principles
 
-**True black is harsh:** Use dark greys instead of pure black for backgrounds.
-```css
---bg-dark: hsl(220, 15%, 10%); /* Not hsl(0, 0%, 0%) */
-```
-
-**Reduce saturation:** Bright colours on dark backgrounds feel glaring.
-```css
---primary-light: hsl(220, 65%, 50%);
---primary-dark: hsl(220, 55%, 55%); /* Reduced saturation, adjusted lightness */
-```
-
-**Elevation through lightness:** In dark mode, "raised" elements are lighter (opposite of light mode shadows).
-
-**Lower contrast text:** Pure white on dark grey is harsh. Soften to off-white.
-```css
---text-dark: hsl(0, 0%, 88%); /* Not hsl(0, 0%, 100%) */
-```
-
-### Implementing Dark Mode
-
-Use CSS custom properties for easy switching:
-
-```css
-:root {
-  --bg: hsl(0, 0%, 98%);
-  --text: hsl(0, 0%, 10%);
-  --primary: hsl(220, 65%, 50%);
-}
-
-[data-theme="dark"] {
-  --bg: hsl(220, 15%, 10%);
-  --text: hsl(0, 0%, 88%);
-  --primary: hsl(220, 55%, 60%);
-}
-```
+1.  **Avoid Pure Black:** Pure black (`#000000`) can cause "smearing" on OLED screens. Use dark grey (`#121212`) instead.
+2.  **Desaturate Colours:** Bright, saturated colours vibrate uncomfortably against dark backgrounds. Mute your primary colours (lower the saturation) for dark mode.
+3.  **Elevation via Lightness:** In light mode, shadows create depth. In dark mode, lighter surfaces are "closer" to the user. A modal should be lighter grey than the background.
 
 ## Try It Yourself
 

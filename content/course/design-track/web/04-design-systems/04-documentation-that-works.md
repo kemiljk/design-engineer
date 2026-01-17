@@ -1,357 +1,141 @@
 # Documentation That Works
 
-> **Quick Summary:** Documentation is the interface between your design system and its users. Without good docs, even great components go unused.
-
-## What You'll Learn
-
-- Why documentation matters for adoption
-- What to document and how
-- Writing for different audiences
-- Keeping documentation current
+> **Quick Summary:** Documentation is the interface between your design system and its users. Without good docs, even great components go unused. Your goal is to answer the user's question before they have to ask it.
 
 ## The Documentation Problem
 
-Many design systems fail not because the components are bad, but because people can't figure out how to use them.
+Many design systems fail not because the components are broken, but because nobody knows how to use them correctly.
 
-Signs of documentation problems:
-- Repeated questions about basic usage
-- People recreating existing components
-- Inconsistent usage across teams
-- Abandonment in favour of custom solutions
+**Signs of a documentation problem:**
+*   Designers keep detaching instances because they "can't find the right variant."
+*   Developers constantly message you: "Which button should I use here?"
+*   Teams recreate existing patterns because they didn't know they existed.
 
-Good documentation is a competitive advantage. It's the difference between "we have a design system" and "we use a design system."
+Good documentation is a competitive advantage. It scales your decision-making so you don't have to be in every meeting.
 
-## Audiences and Their Needs
+## Writing for Your Audiences
 
-Documentation serves multiple audiences with different needs:
+Documentation usually fails because it tries to be everything to everyone in a single paragraph. You have distinct audiences with distinct needs.
 
-### Designers
+### 1. The Designer
+Designers are visual. They need to know *when* to use a component and *how* to manipulate it in Figma.
+*   **Needs:** Visual examples, variant lists, "Do's and Don'ts," and clear links to the Figma library.
+*   **Format:** Show, don't just tell. Use screenshots comparing correct vs. incorrect usage.
 
-**What they need:**
-- When to use each component
-- What variants exist
-- How to find and use in design tools
-- Guidelines for proper usage
+### 2. The Developer
+Developers are functional. They need to get the code working quickly.
+*   **Needs:** Installation commands, API references (props/types), copy-pasteable code snippets, and accessibility implementation details.
+*   **Format:** Code blocks, props tables, and live playgrounds.
 
-**How to serve them:**
-- Visual examples
-- Do's and don'ts with images
-- Links to design tool assets
-- Design rationale
-
-### Developers
-
-**What they need:**
-- How to install and import
-- API reference (props, types)
-- Code examples
-- Accessibility requirements
-
-**How to serve them:**
-- Copy-able code snippets
-- Prop tables
-- Implementation notes
-- Framework-specific guidance
-
-### Product Managers / Stakeholders
-
-**What they need:**
-- What's available
-- What's coming
-- System status
-
-**How to serve them:**
-- Component overview pages
-- Roadmap visibility
-- Release notes
+### 3. The Stakeholder
+Product managers need to know what is available to put on their roadmap.
+*   **Needs:** A high-level catalog of capabilities and the current status (Alpha, Beta, Stable).
+*   **Format:** Component gallery grids and status dashboards.
 
 ## What to Document
 
-### Component Documentation
+A blank page is intimidating. Use this checklist for every component you document.
 
-Each component needs:
+### The "Why" (Overview)
+Start with the purpose. "The Button triggers an action." is useless. "Use the Primary Button for the main call-to-action on a screen; use Secondary Buttons for everything else" is helpful guidance.
 
-**Overview**
-- What is this component?
-- When should you use it?
-- What problem does it solve?
+### The "How" (Usage Guidelines)
+This is the meat of your documentation.
+*   **Placement:** Where does this component belong?
+*   **Content:** How should we write labels for it? (e.g., "Use title case for headers, sentence case for body").
+*   **Interaction:** What happens on hover, click, or error?
 
-**Examples**
-- Basic usage
-- All variants
-- Common configurations
-- Real-world contexts
+### The "What" (API & Specs)
+For developers, list every prop.
+*   `variant`: "primary" | "secondary" (default: "primary")
+*   `isDisabled`: boolean
+*   `onClick`: function
 
-**Properties / API**
-- Property names
-- Types
-- Default values
-- Descriptions
-
-**Guidelines**
-- Do's and don'ts
-- Best practices
-- Common mistakes
-
-**Accessibility**
-- Keyboard interaction
-- Screen reader behaviour
-- ARIA requirements
-- Focus management
-
-**Related Components**
-- Alternatives to consider
-- Components that work together
-- Migration from deprecated components
-
-### Token Documentation
-
-For design tokens:
-
-**Value Reference**
-- All token names and values
-- Visual swatches for colours
-- Examples for spacing
-
-**Usage Guidelines**
-- When to use which token
-- How tokens relate (semantic references primitive)
-- Theming implications
-
-### Pattern Documentation
-
-For patterns (solutions to common problems):
-
-**Problem Statement**
-- What challenge does this pattern address?
-
-**Solution**
-- How the pattern works
-- Components involved
-- Layout and structure
-
-**Examples**
-- Live examples or prototypes
-- Different applications
-
-**Considerations**
-- When to use
-- When not to use
-- Accessibility implications
-
-## Writing Effective Documentation
-
-### Be Scannable
-
-Users skim. Make it easy:
-- Clear headings
-- Bullet points
-- Tables for structured data
-- Highlighted key information
-
-**Bad:**
-> The Button component can be configured with several different variants including primary which should be used for main actions, secondary which works well for supporting actions, ghost for very low emphasis situations, and danger for destructive actions.
-
-**Good:**
-> **Variants:**
-> - **Primary:** Main actions
-> - **Secondary:** Supporting actions  
-> - **Ghost:** Low emphasis
-> - **Danger:** Destructive actions
-
-### Show, Don't Tell
-
-Visual examples communicate faster than descriptions:
-- Interactive examples where possible
-- Screenshots when interactive isn't feasible
-- Before/after comparisons
-- Do/don't side-by-sides
-
-### Start with Why
-
-Before explaining how, explain when:
-
-**Before:**
-> To create a primary button, pass `variant="primary"` to the Button component.
-
-**After:**
-> Use primary buttons for the main action on a page. There should typically be only one primary button visible at a time.
->
-> `<Button variant="primary">Save Changes</Button>`
-
-### Provide Context
-
-Don't just document components in isolation. Show them working together:
-
-```jsx
-<Card>
-  <CardHeader>
-    <Avatar src={user.photo} />
-    <CardTitle>{user.name}</CardTitle>
-  </CardHeader>
-  <CardContent>
-    {user.bio}
-  </CardContent>
-  <CardActions>
-    <Button variant="primary">Follow</Button>
-    <Button variant="ghost">Message</Button>
-  </CardActions>
-</Card>
-```
-
-### Address Common Questions
-
-Documentation should answer questions before they're asked:
-- "What if my content is longer than expected?"
-- "How does this work on mobile?"
-- "What happens when I combine these props?"
-
-FAQ sections or inline notes help.
+For designers, list the Figma variants (Size, State, Icon).
 
 ## Documentation Formats
 
-### Component Pages
+Where should this documentation live?
 
-Dedicated pages per component:
-- All information in one place
-- Deep dives possible
-- Searchable
+**1. The dedicated documentation site**
+Tools like Storybook, Zeroheight, or custom websites (built with Nextra or Docusaurus) are the gold standard. They allow you to render live code alongside design guidelines, acting as the single source of truth.
 
-### Storybook (or Similar)
+**2. In-tool documentation**
+Don't make users leave their tool if you can help it.
+*   **Figma:** Use component descriptions and annotation layers directly in the sticker sheet.
+*   **Code:** Use JSDoc/TSDoc comments so developers see the documentation when they hover over the component in their IDE.
 
-Living documentation with interactive examples:
-- See real components
-- Try different props
-- View code
-- Test responsiveness
+## Keeping It Alive
 
-### API Reference
+Outdated documentation is worse than no documentation—it breaks trust.
 
-Generated documentation from code:
-- Always accurate (generated from source)
-- Complete prop coverage
-- Type information
+*   **Make it part of the definition of "Done".** A component isn't finished until the docs are updated.
+*   **Automate what you can.** Use tools that generate props tables automatically from your TypeScript types. You should never have to manually type out API tables.
+*   **Listen to questions.** Every time someone asks you a question about the system, it means the documentation failed. Answer the question, then update the docs so the next person doesn't have to ask.
 
-### Wiki / Knowledge Base
+## Example: A Great Component Page
 
-Guidelines and decisions:
-- Design principles
-- Contribution guidelines
-- ADRs (Architecture Decision Records)
+Instead of a generic template, here is what a high-quality documentation page looks like for a standard **Button** component. Notice how it guides the user.
 
-## Keeping Docs Current
-
-Outdated documentation is worse than no documentation—it misleads.
-
-### Documentation as Part of Process
-
-- PRs don't merge without doc updates
-- Component changes include doc changes
-- "Done" includes "documented"
-
-### Review and Audit
-
-- Regular review cycles
-- Check for deprecated content
-- Verify examples still work
-- Update screenshots
-
-### User Feedback Loop
-
-- Track documentation questions
-- Identify gaps from support requests
-- Let users suggest improvements
-
-### Automate What You Can
-
-- Generate API docs from types
-- Test code examples in CI
-- Flag broken links
-- Detect outdated screenshots
-
-## Documentation Structure
-
-### Site Organization
-
-```text
-/
-├── Getting Started
-│   ├── Introduction
-│   ├── Installation
-│   └── Usage
-├── Foundation
-│   ├── Colors
-│   ├── Typography
-│   ├── Spacing
-│   └── Icons
-├── Components
-│   ├── Button
-│   ├── Input
-│   ├── Card
-│   └── ...
-├── Patterns
-│   ├── Forms
-│   ├── Navigation
-│   └── ...
-└── Resources
-    ├── Design Assets
-    ├── Release Notes
-    └── Contributing
-```
-
-### Component Page Structure
-
-```text
+```markdown
 # Button
 
-Overview paragraph
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Usage
+
+Use buttons for important actions like submitting a form, canceling a process, or creating a new item.
+
+**Do not use buttons for navigation.** Use Links for that.
 
 ## Examples
-[Interactive examples]
 
-## Usage Guidelines
-When to use, when not to use
+<!-- visual-example: button-usage-demo -->
 
-## Properties
-[Props table]
+## Anatomy
+
+<!-- visual-example: button-anatomy-demo -->
 
 ## Variants
-[Variant examples]
+
+### Primary
+Used for the most important action on the page. There should rarely be more than one Primary Button per screen.
+<!-- visual-example: button-primary-demo -->
+
+### Secondary
+Used for secondary actions or to reduce visual weight when next to a Primary Button.
+<!-- visual-example: button-secondary-demo -->
+
+### Ghost
+Used for low-priority actions, often in toolbars or cards.
+<!-- visual-example: button-ghost-demo -->
+
+## API Reference
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| variant | 'primary' \| 'secondary' \| 'ghost' | 'primary' | Controls the visual style |
+| size | 'sm' \| 'md' \| 'lg' | 'md' | Controls height and padding |
+| isLoading | boolean | false | Shows a spinner and disables clicks |
+| leftIcon | ReactNode | undefined | Adds an icon before the label |
 
 ## Accessibility
-[A11y requirements]
 
-## Related
-[Related components]
+- **Keyboard:** Users can trigger the button with `Enter` or `Space`.
+- **Focus:** The button receives a visible focus ring when tabbed to.
+- **Labels:** If the button contains only an icon, you must provide an `aria-label`.
 ```
 
 ## Try It Yourself
 
-### Exercise 1: Documentation Audit
+### Exercise 1: Audit an Existing Component
+Pick a component in your current project. Read its documentation (if it exists).
+*   Does it explain *when* to use it?
+*   Are the code snippets accurate?
+*   Does it mention accessibility?
 
-Review documentation for a component in an existing system:
-1. Is it clear when to use this component?
-2. Are all variants documented?
-3. Are there code examples?
-4. Is accessibility covered?
-5. What's missing?
-
-### Exercise 2: Write Component Docs
-
-Document a simple component (like a Badge) including:
-1. Overview (50 words)
-2. When to use / when not to use
-3. All variants with examples
-4. Properties table
-5. One "Do" and one "Don't"
-
-### Exercise 3: Improve Existing Docs
-
-Take documentation you've written or own. Apply the principles from this lesson:
-1. Make it more scannable
-2. Add a visual example
-3. Lead with "why"
-4. Address a common question
+### Exercise 2: Write a "Do and Don't"
+For a **Modal** component, write three "Do" rules and three "Don't" rules regarding its usage. (e.g., "Don't: Use a modal for a complex workflow requiring navigation.")
 
 ## Test Your Understanding
 
@@ -394,12 +178,10 @@ Take documentation you've written or own. Apply the principles from this lesson:
 
 ## Key Takeaways
 
-- Documentation is critical for adoption—without it, systems go unused
-- Different audiences (designers, developers, PMs) need different things
-- Document: overview, examples, API, guidelines, accessibility, related
-- Write scannably, show don't tell, start with why, provide context
-- Keep docs current: integrate into process, review regularly, automate
-- Structure documentation for both discovery and reference
+-   Documentation bridges the gap between the system and the user.
+-   Address specific audiences: Designers need visuals; Developers need code; Managers need status.
+-   Automate technical docs (API tables) to keep them in sync with code.
+-   Treat documentation questions as bugs in the docs.
 
 ## Next Steps
 

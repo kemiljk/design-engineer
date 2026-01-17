@@ -8,8 +8,8 @@ export function LayersDemo() {
   const [activeLayer, setActiveLayer] = useState<string | null>(null);
 
   const layers = [
-    { id: "text", name: "Text Layer", color: "bg-blue-500", zIndex: 30, offset: { x: 40, y: 40 } },
-    { id: "image", name: "Image", color: "bg-purple-500", zIndex: 20, offset: { x: 20, y: 20 } },
+    { id: "text", name: "Text Layer", color: "bg-swiss-red", zIndex: 30, offset: { x: 40, y: 40 } },
+    { id: "image", name: "Image", color: "bg-neutral-500", zIndex: 20, offset: { x: 20, y: 20 } },
     { id: "bg", name: "Background", color: "bg-neutral-200 dark:bg-neutral-700", zIndex: 10, offset: { x: 0, y: 0 } },
   ];
 
@@ -22,14 +22,14 @@ export function LayersDemo() {
         
         {/* The visual representation */}
         <div className="relative w-64 h-64 perspective-1000 group">
-          <div className="relative w-full h-full transform-style-3d group-hover:rotate-y-[-20deg] group-hover:rotate-x-[20deg] transition-transform duration-500 ease-out">
+          <div className="relative w-full h-full transform-style-3d group-hover:rotate-y-[-20deg] group-hover:rotate-x-20 transition-transform duration-500 ease-out">
             {layers.map((layer) => (
               <div
                 key={layer.id}
                 className={cn(
-                  "absolute w-40 h-40 rounded-xl shadow-lg border border-white/20 flex items-center justify-center transition-all duration-300",
+                  "absolute w-40 h-40 rounded-none shadow-lg border border-white/20 flex items-center justify-center transition-all duration-300",
                   layer.color,
-                  activeLayer === layer.id ? "scale-105 ring-4 ring-yellow-400 z-50" : ""
+                  activeLayer === layer.id ? "scale-105 ring-4 ring-black dark:ring-white z-50" : ""
                 )}
                 style={{
                   top: "20%",

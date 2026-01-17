@@ -453,4 +453,4 @@ Create a component that:
 
 ## Next Steps
 
-Continue to [Transitions and Animations](./08-transitions-and-animations.md) →
+Continue to [CSS Transitions](./08-css-transitions.md) →

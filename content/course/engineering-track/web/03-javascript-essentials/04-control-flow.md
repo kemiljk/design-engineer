@@ -401,4 +401,4 @@ getNestedValue(user, 'settings.theme'); // undefined
 
 ## Next Steps
 
-Continue to [DOM Manipulation](./05-dom-manipulation.md) →
+Continue to [Selecting and Reading the DOM](./05-selecting-the-dom.md) →

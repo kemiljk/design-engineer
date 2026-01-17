@@ -155,6 +155,45 @@ Write as an **experienced practitioner teaching a colleague**—not as generic A
 
 ---
 
+## Structural Anti-Patterns (CRITICAL)
+
+These patterns downgrade the quality of the course. **Avoid them entirely.**
+
+### 1. The "Outline-as-Content" Pattern
+Do not write lessons that look like expanded lecture notes.
+
+❌ **Bad (Formulaic Outline):**
+> ### Accessibility
+> Accessibility is important:
+> - Screen readers need it
+> - It helps SEO
+> - It's the law
+> 
+> Use semantic HTML to fix this.
+
+✅ **Good (Prose):**
+> ### Designing for Everyone
+> Accessibility isn't just a legal requirement; it's the foundation of a robust web. When you use semantic HTML, you aren't just helping screen readers interpret your page—you're also improving your SEO ranking and ensuring your site works on future devices.
+
+### 2. Sparse Definitions
+Do not use bold terms followed by single sentence fragments as a substitute for explanation.
+
+❌ **Bad (Glossary Style):**
+> **Flexbox:** A one-dimensional layout method.
+> **Grid:** A two-dimensional layout method.
+> **Float:** An older method for positioning.
+
+✅ **Good (Contextual Explanation):**
+> **Flexbox** handles one-dimensional layouts (rows or columns) and is perfect for aligning items within a component. For larger page structures that require control over both rows and columns simultaneously, use **CSS Grid**. While **floats** were once common, they are now largely obsolete for layout.
+
+### 3. Placeholder Content
+Never leave brackets or generic instructions in the content.
+
+❌ **Bad:** `[Insert screenshot of Figma here]` or `[Explain the why]`
+✅ **Good:** Either insert the actual content or describe the visual clearly if the asset is missing.
+
+---
+
 ## Technical Writing Standards
 
 ### Code Examples
@@ -342,6 +381,9 @@ Before completing an edit:
 - [ ] All prose in British English
 - [ ] All code in American English (properties, keywords)
 - [ ] No AI tells or formulaic transitions
+- [ ] **No "Outline-as-Content" (bullets replacing prose)**
+- [ ] **No "Sparse Definitions" (bold term + sentence fragment)**
+- [ ] **No placeholder content**
 - [ ] Voice is confident and authentic
 - [ ] Examples are concrete and realistic
 - [ ] Technical information is accurate
@@ -413,4 +455,4 @@ This document should evolve as we discover new patterns or needs. When making ch
 3. Run consistency check across existing content
 4. Update .cursorrules if needed
 
-Last updated: 29 December 2024
+Last updated: 17 January 2026

@@ -473,7 +473,7 @@ React offers two approaches:
 <input value={formData.email} onChange={handleChange} />
 ```
 
-**Uncontrolled**: DOM holds the state, access via refs
+**Uncontrolled components** rely on the DOM to handle form data. Instead of using an event handler for every state update, you use a **ref** to get the value from the DOM when you need it (e.g., when the form is submitted). This is closer to traditional HTML.
 ```jsx
 const emailRef = useRef();
 // Access: emailRef.current.value

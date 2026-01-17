@@ -2,13 +2,6 @@
 
 > **Quick Summary:** Six core principles (hierarchy, balance, contrast, repetition, alignment, and proximity) form the foundation of all effective visual design.
 
-## What You'll Learn
-
-- The six fundamental design principles and why they matter
-- How to recognise each principle in existing designs
-- How to apply these principles to improve interfaces
-- The relationship between principles and usability
-
 ## The Framework
 
 > *"Contrast is the essence of communication."* — Jan Tschichold
@@ -61,11 +54,11 @@ Balance is the distribution of visual weight across a design. Balanced designs f
 
 ### Types of Balance
 
-**Symmetrical Balance**: Elements are mirrored across an axis. Feels formal, stable, traditional.
+**Symmetrical Balance** occurs when elements are mirrored across a central axis. This creates a formal, stable, and traditional feel. Think of a classic wedding invitation or a government building.
 
-**Asymmetrical Balance**: Different elements balance each other through size, colour, or position. Feels dynamic, modern, interesting.
+**Asymmetrical Balance** is achieved when different elements balance each other through size, colour, or position rather than mirroring. A large image on the left might be balanced by a block of text and a heavy button on the right. This feels dynamic, modern, and interesting.
 
-**Radial Balance**: Elements radiate from a central point. Less common in UI, more common in logos and graphics.
+**Radial Balance** happens when elements radiate from a central point. While less common in standard UI layouts, it is often used in logos, dashboards, or loading states to focus attention inward.
 
 ### Balance in Practice
 

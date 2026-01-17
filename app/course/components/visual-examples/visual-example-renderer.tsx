@@ -25,6 +25,13 @@ import { AutoLayoutDemo, SizingBehaviorsDemo, ConstraintsDemo, HandoffChecklistD
 
 // Design Systems
 import { TokenExplorerDemo, ComponentVariantsDemo, ComponentStatesDemo } from "./design-systems";
+import { 
+  ButtonUsageDemo, 
+  ButtonAnatomyDemo, 
+  ButtonPrimaryDemo, 
+  ButtonSecondaryDemo, 
+  ButtonGhostDemo 
+} from "./design-systems/documentation-demos";
 
 // UX
 import { PersonaCardDemo, NavPatternsDemo, IAHierarchyDepthDemo, AffordancesSignifiersDemo, InteractionFeedbackDemo, HeuristicsViolationsDemo } from "./ux";
@@ -155,6 +162,11 @@ export const VISUAL_EXAMPLE_MAP: Record<string, React.ComponentType> = {
   "token-explorer-demo": TokenExplorerDemo,
   "component-variants-demo": ComponentVariantsDemo,
   "component-states-demo": ComponentStatesDemo,
+  "button-usage-demo": ButtonUsageDemo,
+  "button-anatomy-demo": ButtonAnatomyDemo,
+  "button-primary-demo": ButtonPrimaryDemo,
+  "button-secondary-demo": ButtonSecondaryDemo,
+  "button-ghost-demo": ButtonGhostDemo,
   
   // UX
   "persona-card-demo": PersonaCardDemo,

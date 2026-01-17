@@ -36,54 +36,51 @@ export function SizingBehaviorsDemo() {
         {/* Live Preview */}
         <div className="rounded-lg border border-neutral-200 bg-white p-4 dark:border-neutral-700 dark:bg-neutral-900">
           <motion.div
+            layout
             className="mx-auto flex items-center gap-3 overflow-hidden rounded border border-dashed border-neutral-300 bg-neutral-50 p-3 dark:border-neutral-600 dark:bg-neutral-800"
-            animate={{ width: `${containerWidth}%` }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            style={{ width: `${containerWidth}%` }}
+            transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
           >
             {/* Label */}
             <motion.div
+              layout
               className={cn(
-                "flex h-9 shrink-0 items-center justify-center rounded px-3 text-xs font-medium",
-                "bg-swiss-red/10 text-swiss-red"
+                "flex h-9 items-center justify-center rounded px-3 text-xs font-medium",
+                "bg-swiss-red/10 text-swiss-red",
+                labelSizing === "fixed" && "w-20 shrink-0",
+                labelSizing === "hug" && "shrink-0",
+                labelSizing === "fill" && "flex-1"
               )}
-              animate={{
-                width: labelSizing === "fixed" ? 80 : "auto",
-                flexGrow: labelSizing === "fill" ? 1 : 0,
-                flexShrink: labelSizing === "hug" ? 0 : (labelSizing === "fill" ? 1 : 0),
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
             >
               Label
             </motion.div>
 
             {/* Input */}
             <motion.div
+              layout
               className={cn(
-                "flex h-9 items-center rounded border border-neutral-300 bg-white px-3 text-xs text-neutral-400 dark:border-neutral-600 dark:bg-neutral-900"
+                "flex h-9 items-center rounded border border-neutral-300 bg-white px-3 text-xs text-neutral-400 dark:border-neutral-600 dark:bg-neutral-900",
+                inputSizing === "fixed" && "w-[120px] shrink-0",
+                inputSizing === "hug" && "shrink-0 min-w-20",
+                inputSizing === "fill" && "flex-1"
               )}
-              animate={{
-                width: inputSizing === "fixed" ? 120 : "auto",
-                flexGrow: inputSizing === "fill" ? 1 : 0,
-                flexShrink: inputSizing === "hug" ? 0 : (inputSizing === "fill" ? 1 : 0),
-                minWidth: inputSizing === "hug" ? 80 : 0,
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
             >
               {inputSizing === "fill" ? "Fills remaining space..." : "Input"}
             </motion.div>
 
             {/* Button */}
             <motion.div
+              layout
               className={cn(
-                "flex h-9 shrink-0 items-center justify-center rounded px-4 text-xs font-medium",
-                "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
+                "flex h-9 items-center justify-center rounded px-4 text-xs font-medium",
+                "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900",
+                buttonSizing === "fixed" && "w-[100px] shrink-0",
+                buttonSizing === "hug" && "shrink-0",
+                buttonSizing === "fill" && "flex-1"
               )}
-              animate={{
-                width: buttonSizing === "fixed" ? 100 : "auto",
-                flexGrow: buttonSizing === "fill" ? 1 : 0,
-                flexShrink: buttonSizing === "hug" ? 0 : (buttonSizing === "fill" ? 1 : 0),
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
             >
               Submit
             </motion.div>

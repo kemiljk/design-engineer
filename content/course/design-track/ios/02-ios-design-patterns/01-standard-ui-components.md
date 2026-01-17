@@ -1,111 +1,100 @@
 # Standard UI Components
 
-> **Quick Summary:** iOS provides a rich set of standard components. Using them correctly ensures familiarity and accessibility for users.
+> **Quick Summary:** iOS provides a rich set of standard components that balance consistency with flexibility. Understanding how to use these native elements ensures your app feels at home on the platform while maintaining accessibility and familiarity.
 
 ## What You'll Learn
 
-- Buttons and controls
-- Lists and tables
-- Forms and input
-- When to customise vs. use standard
+- The hierarchy and usage of standard button styles
+- Structuring content with lists and tables
+- Input patterns specific to iOS
+- When to leverage standard components versus building custom ones
 
-## Buttons
+## Buttons and Actions
 
-### Button Types
-- **Filled:** High emphasis, primary actions
-- **Gray:** Medium emphasis
-- **Tinted:** Subtle emphasis
-- **Plain:** Text-only, low emphasis
-- **Bordered:** Clear boundaries
+Buttons on iOS are more than just rectangles. The system provides a hierarchy of styles to communicate importance without cluttering the interface.
 
-### Button Sizes
-- Large: 50pt height
-- Medium: 44pt height (default)
-- Small: 34pt height
-- Mini: 28pt height
+### Visual Hierarchy
 
-### Best Practices
-- Clear, action-oriented labels
-- One primary button per view
-- Appropriate size for context
-- 44pt minimum touch target
+Your primary action should typically use the **Filled** style—a solid colour that draws the eye. For example, the "Save" button in a form or "Book Now" in a travel app.
 
-## Lists and Tables
+Secondary actions often use the **Gray** or **Tinted** styles. These have a background but are less visually dominant, making them perfect for "Cancel" buttons or secondary options.
+
+For the lowest emphasis, **Plain** buttons (text only) or **Bordered** buttons work well. These are common in toolbars, navigation bars, or grouped lists where a filled button would be visually overwhelming.
+
+### Sizing Targets
+
+While buttons vary in visual weight, their touch targets must remain consistent. The standard height for a button is 44 points, though larger variants (50 points) are often used for prominent calls to action at the bottom of the screen. Even smaller buttons (like those in navigation bars) maintain a large invisible touch target to ensure they're easily tappable.
+
+## Lists and Collections
+
+Most content on iOS is presented in lists. UIKit and SwiftUI provide powerful list components that handle scrolling, selection, and layout automatically.
 
 ### List Styles
-- **Plain:** Simple list, no grouping
-- **Grouped:** Sections with headers
-- **Inset Grouped:** Rounded sections
-- **Sidebar:** Navigation lists
 
-### Row Types
-- Standard: Title only
-- Subtitle: Title + secondary text
-- Value: Title + right-aligned value
-- Custom: Your own layout
+The **Plain** style is a simple list of rows, commonly used for long lists of similar content like contacts or messages. It's efficient and space-saving.
 
-### Swipe Actions
-- Leading: Less common actions
-- Trailing: Delete, common actions
-- Full swipe: Primary action
+**Grouped** and **Inset Grouped** styles are better for settings screens or forms. They separate content into logical sections with headers and footers. The Inset Grouped style, with its rounded corners and padding, has become the modern standard for system settings and many productivity apps.
 
-## Forms
+### Row Content
 
-### Text Fields
-- Standard: Single line input
-- Secure: Password entry
-- Search: Magnifying glass icon
+Within a list, rows follow standard patterns. A **Standard** row has just a title. **Subtitle** rows add a second line of text for context. **Value** rows place a title on the left and a detail on the right, perfect for settings like "Wi-Fi: Connected".
 
-### Pickers
-- Date Picker: Inline, compact, or wheels
-- Segmented Control: Few mutually exclusive options
-- Stepper: Increment/decrement values
-- Slider: Continuous value selection
+Lists also support interactions natively. **Swipe actions** allow users to perform tasks like deleting or flagging items without opening them. Standard convention places destructive actions (like Delete) on the trailing edge (swiping left) and positive actions (like Mark Unread) on the leading edge.
 
-### Toggles
-- Switch: Binary on/off
-- Checkbox: Not standard iOS (use Switch)
+## Data Entry and Forms
 
-## Selection
+iOS forms have specific conventions that differ from the web.
 
-### Single Selection
-- Checkmark in list rows
-- Segmented control for few options
-- Picker for many options
+### Text Input
 
-### Multiple Selection
-- Edit mode with checkmarks
-- Chips/tags for selected items
+Text fields come with built-in behaviours you should leverage. A **Secure** text field automatically hides passwords. A **Search** field includes the magnifying glass icon and clear button. Configuring the correct keyboard type (email, number pad, URL) is arguably the most important "design" decision you make for a form—it dramatically improves the user experience.
+
+### Selection Controls
+
+Where the web might use a checkbox, iOS uses a **Switch** for binary on/off states. It provides clear visual feedback and a satisfying tactile interaction.
+
+For choosing between options, you have several tools:
+*   **Segmented Controls:** Best for 2-5 mutually exclusive options that change the view instantly (like "Map" vs "List").
+*   **Pickers:** Used for dates or selecting from long lists. Modern date pickers can be inline calendars or compact fields that expand.
+*   **Steppers:** Simple plus/minus controls for small integer adjustments.
 
 ## Progress and Activity
 
-- **Activity Indicator:** Indeterminate spinner
-- **Progress Bar:** Determinate progress
-- **Pull to Refresh:** Update content
+When the app is working, users need feedback.
 
-## When to Customize
+For indeterminate wait times (like a network request), use an **Activity Indicator** (the spinning gear). It tells users "something is happening, please wait."
 
-### Use Standard When
-- Standard behaviour matches your need
-- Users expect standard interaction
-- Accessibility is critical
-- Development time is limited
+For determinate tasks (like a download), use a **Progress Bar** to show exactly how much is left. This reduces anxiety by giving a clear endpoint.
 
-### Customize When
-- Standard doesn't fit your brand
-- Unique interaction is needed
-- You can maintain accessibility
-- The customisation adds value
+The **Pull to Refresh** control is a standard pattern for updating content lists. It's so ingrained in iOS culture that users will instinctively pull down on any list they expect to update.
+
+## The Customisation Trade-off
+
+One of the most common questions is: "Should I build a custom component?"
+
+### The Case for Standard
+
+Standard components are "free" in many ways. They automatically support:
+*   **Dynamic Type:** Text resizes for users with visual impairments.
+*   **Dark Mode:** Colours adapt automatically.
+*   **Accessibility:** VoiceOver labels and traits are pre-configured.
+*   **Evolution:** When Apple updates the visual style of iOS, your standard components update automatically.
+
+### The Case for Custom
+
+You should build custom components when the standard ones fundamentally don't solve your problem, or when brand identity is the primary goal (like in a game or a highly branded lifestyle app).
+
+If you do build custom, you inherit the responsibility for all the "free" features listed above. You must manually implement accessibility, dynamic sizing, and theme adaptation.
 
 ## Try It Yourself
 
-### Exercise 1: Component Inventory
+### Exercise 1: Component Audit
 
-List all components needed for an app idea. Which are standard? Which need customisation?
+Open the Settings app on your iPhone. Identify at least five different standard components (lists, switches, buttons, navigation links). Note how they are grouped and how they interact.
 
 ### Exercise 2: List Design
 
-Design a list view using appropriate row types, swipe actions, and section styling.
+Sketch a "Profile" screen for an app. Decide which list style (Plain or Inset Grouped) fits best. Plan the rows: which should be simple navigation? Which need toggles? Which need value styles?
 
 ## Test Your Understanding
 
@@ -116,31 +105,31 @@ Design a list view using appropriate row types, swipe actions, and section styli
   "title": "iOS Standard Components",
   "description": "Test your understanding of iOS UI components.",
   "difficulty": "easy",
-  "question": "Why should you use standard iOS components when possible?",
+  "question": "Why is the Inset Grouped list style commonly used for settings screens?",
   "options": [
     {
       "id": "a",
-      "text": "They're the only components Apple allows",
+      "text": "It fits more content on the screen than a plain list",
       "isCorrect": false,
-      "explanation": "Custom components are allowed, but standards have benefits."
+      "explanation": "Inset lists actually use more space due to padding and margins."
     },
     {
       "id": "b",
-      "text": "Users already know how they work, they handle accessibility, and they update with iOS",
+      "text": "It visually separates distinct sections of related options, making complex forms easier to scan",
       "isCorrect": true,
-      "explanation": "Correct! Standard components provide familiarity, built-in accessibility support, and automatic updates with new iOS features and styles."
+      "explanation": "Correct! The visual separation of rounded groups helps users digest complex sets of options."
     },
     {
       "id": "c",
-      "text": "They're faster to render than custom components",
+      "text": "It is the only style that supports switches",
       "isCorrect": false,
-      "explanation": "Performance isn't the main benefit—consistency and user expectations are."
+      "explanation": "Any list style can contain switches."
     },
     {
       "id": "d",
-      "text": "Custom components aren't allowed in the App Store",
+      "text": "It loads faster than other list styles",
       "isCorrect": false,
-      "explanation": "Many apps successfully use custom components."
+      "explanation": "Performance is identical across list styles."
     }
   ]
 }
@@ -148,11 +137,10 @@ Design a list view using appropriate row types, swipe actions, and section styli
 
 ## Key Takeaways
 
-- iOS has extensive standard components
-- Buttons have types and sizes for different emphasis
-- Lists are highly configurable
-- Forms use specific iOS patterns (switches, not checkboxes)
-- Customize thoughtfully, not by default
+-   Use **Filled** buttons for primary actions and **Gray/Tinted** for secondary ones.
+-   **Inset Grouped** lists are the standard for forms and settings; **Plain** lists for content.
+-   Leverage native input behaviours like correct keyboard types and **Switches** instead of checkboxes.
+-   Standard components give you accessibility and platform updates for free; custom components require you to build those features yourself.
 
 ## Next Steps
 

@@ -1,111 +1,85 @@
 # From Design to Prototype
 
-> **Quick Summary:** Translating static designs into interactive prototypes requires making decisions the design didn't specify. This is where Design Engineers shine.
+> **Quick Summary:** A design file is a map, not the territory. Translating static pixels into living software requires you to make hundreds of small decisions that the designer never specified. This interpretation layer is where Design Engineers provide immense value.
 
-## What You'll Learn
+## The Gap Between Figma and Reality
 
-- Reading designs with implementation in mind
-- Making interaction decisions
-- Handling what designs don't show
-- Rapid implementation techniques
+Static design tools lie. They show perfect data, ideal usernames, and happy paths. They freeze time, ignoring the awkward transitions between states.
 
-## Reading Designs Critically
+When you sit down to build a prototype from a design file, you aren't just "coding the design." You are interpreting intent. You are answering questions the designer hasn't even thought to ask yet.
 
-When you receive a design, ask:
-- What happens between these states?
-- How does this respond to user input?
-- What's the loading experience?
-- What happens at different screen sizes?
-- What are the error states?
+## Reading Critically
 
-Designs typically show ideal states. Your job is to fill in the gaps.
+Don't just measure pixels. Interrogate the design.
 
-## Making Interaction Decisions
+*   **The In-Between:** How does this modal appear? Does it fade? Slide? Grow?
+*   **The Response:** When I click this button, does it load instantly? If not, what do I see for the 500ms while it processes?
+*   **The Constraints:** What happens if this title is 200 characters long? What happens on a screen that is 320px wide?
 
-Designs often don't specify:
-- **Timing** - How fast should this animate?
-- **Easing** - What's the motion curve?
-- **Feedback** - What happens on hover/press?
-- **Sequencing** - What order do things happen?
+If these answers aren't in the file (and they usually aren't), it's your job to propose them through your prototype.
 
-This is your creative opportunity. Make decisions that:
-- Feel natural and expected
-- Match the product's personality
-- Don't surprise users
+## Making Decisions in Code
+
+When you encounter a gap, don't stop. Fill it with a reasonable default.
+
+### 1. Motion and Timing
+If no animation is specified, default to "snappy."
+*   **Transitions:** 150ms-200ms `ease-out`.
+*   **Entrances:** 200ms-300ms `ease-out`.
+*   **Exits:** 150ms `ease-in` (faster than entrances).
+
+### 2. Feedback States
+Every interaction needs feedback. If the design doesn't show a hover state, add a subtle opacity change (`opacity: 0.9`) or a background darkening. If a button clicks, add a `transform: scale(0.98)` on active. These small details make the prototype feel "real" even without high-fidelity specs.
+
+### 3. Sequencing
+Designs show "State A" and "State B." They don't show that "Image A" fades out *before* "Image B" slides in. You decide the choreography. Try to make events flow logically—don't have everything change at the exact same millisecond.
 
 ## Rapid Prototyping Techniques
 
-### Start with Structure
+The goal of a prototype is to answer a question, not to write production code. Optimize for speed.
+
+### Start with Structure (HTML)
+Ignore the colors. Get the boxes on the screen.
 ```html
-<!-- Get the bones in place first -->
-<div class="modal">
-  <div class="modal-header">Title</div>
-  <div class="modal-body">Content</div>
-  <div class="modal-footer">Actions</div>
+<div class="card">
+  <div class="image"></div>
+  <h3>Title</h3>
+  <button>Action</button>
 </div>
 ```
 
-### Add Minimal Styling
-```css
-/* Just enough to see what you're building */
-.modal {
-  background: white;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  max-width: 500px;
-}
-```
+### Add "Good Enough" Styles (CSS)
+Don't fuss over the exact shade of grey yet. Use CSS variables or a utility library to get the spacing and layout roughly right. The goal is to make it recognizable, not pixel-perfect.
 
-### Make It Interactive
+### Interaction First (JS)
+This is the most important part. Hook up the click handlers. Make the state change.
 ```javascript
-// Get the interaction working
-openButton.addEventListener('click', () => {
-  modal.classList.add('open');
+button.addEventListener('click', () => {
+  card.classList.add('expanded');
 });
 ```
 
 ### Polish Last
-Only add visual polish once the interaction works.
+Only once the interaction works should you go back and fine-tune the corner radius or the shadow blur. If the interaction feels wrong, the visual polish won't save it.
 
 ## Handling Unknowns
 
-When the design doesn't specify something:
-1. **Make a decision** - Pick something reasonable
-2. **Document your choice** - Note it for discussion
-3. **Test it** - See if it feels right
-4. **Iterate** - Adjust based on feedback
+You will hit roadbloacks. "I don't know what this error state looks like."
 
-Don't block on missing specs. Prototype your best guess.
+**Do not block.**
+1.  **Improvise:** Create a simple red banner with text.
+2.  **Document:** Add a comment in the code: `// TODO: Design pending for error state`.
+3.  **Review:** Show the designer your improvised solution. "I put this here for now—does this work?"
 
-## Tools for Speed
-
-### HTML/CSS/JS Sandboxes
-- CodePen / CodeSandbox for quick iterations
-- No build setup required
-- Easy sharing for feedback
-
-### Component Libraries
-- Use existing components as starting points
-- shadcn/ui, Radix, Headless UI
-- Focus on interaction, not rebuilding basics
-
-### Placeholder Content
-- Lorem ipsum for text
-- placeholder.com for images
-- Don't wait for real content
+It is always better to show a working prototype with a placeholder than to show nothing because you were waiting for a pixel-perfect comp.
 
 ## Try It Yourself
 
-### Exercise 1: Design Audit
+### Exercise 1: The "Ghost" Audit
+Take a static design file. List 5 things that are *implied* but not *shown*. (e.g., "The navigation drawer slides in from the left.")
 
-Take a design mockup and list:
-- 5 things the design doesn't specify
-- Your decision for each
-- Why you made that choice
-
-### Exercise 2: Speed Build
-
-Find a Dribbble shot you like. Set a 1-hour timer and build a working prototype of it. Focus on the core interaction, skip the details.
+### Exercise 2: The 1-Hour Sprint
+Find a UI animation on Dribbble or Twitter. Set a timer for 60 minutes. Recreate just that interaction in CodePen. Don't worry about the specific icons or text—focus entirely on the *feel* of the movement.
 
 ## Test Your Understanding
 
@@ -148,11 +122,10 @@ Find a Dribbble shot you like. Set a 1-hour timer and build a working prototype 
 
 ## Key Takeaways
 
-- Designs show ideal states; prototypes explore transitions
-- Make interaction decisions confidently
-- Start with structure, add polish last
-- Use tools that minimize setup time
-- Don't wait for perfect specs—prototype your assumptions
+-   **Design files are incomplete.** Your job is to fill the gaps.
+-   **Default to standard motion.** Use established timing (150-300ms) when in doubt.
+-   **Build the bones first.** Structure -> Interaction -> Visual Polish.
+-   **Improvise and iterate.** Don't wait for permission to solve a problem.
 
 ## Next Steps
 
