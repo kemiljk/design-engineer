@@ -8,14 +8,7 @@ In this lesson, you will discover the anatomy of effective micro-interactions an
 
 ## Anatomy of a Micro-interaction
 
-Every micro-interaction has four parts:
-
-<!-- illustration: micro-interaction-anatomy -->
-
-1. **Trigger** - What initiates it (click, hover, scroll, system event)
-2. **Rules** - What happens when triggered
-3. **Feedback** - The visual/audio response
-4. **Loops & Modes** - Repeating behaviour or state changes
+Every effective micro-interaction consists of four distinct parts that work together to create a seamless experience. First, the **Trigger** initiates the action, which can be user-initiated (like a click or hover) or system-initiated (like a notification). Once triggered, the **Rules** determine exactly what happens next. The **Feedback** then provides immediate visual or auditory confirmation to the user, and finally, **Loops & Modes** determine whether the interaction repeats or changes the system's state over time.
 
 ## Button Interactions
 
@@ -249,29 +242,15 @@ Every micro-interaction has four parts:
 
 ### Exercise 1: Button States
 
-Create a button with:
-
-- Hover lift effect
-- Active press effect
-- Loading spinner state
-- Success checkmark state
+For this exercise, you will create a multi-state button that guides the user through a process. Start by implementing a subtle lift effect on hover and a scale-down effect on press to provide tactile feedback. Then, add a loading state that replaces the text with a spinning indicator, and finally, transition to a success state with a checkmark animation to confirm the action was completed.
 
 ### Exercise 2: Like Button
 
-Build a like button that:
-
-- Scales up on click
-- Changes colour (heart fill)
-- Shows a small particle burst
+Build a "like" button that provides instant gratification. When clicked, the button should scale up significantly before settling back to its original size, while simultaneously changing from an outline to a filled colour. To add extra delight, implement a small particle burst effect around the icon to celebrate the user's engagement.
 
 ### Exercise 3: Form Field
 
-Create an input with:
-
-- Floating label
-- Focus ring
-- Error shake animation
-- Success checkmark
+Create a robust input field that handles various states gracefully. Implement a floating label that moves out of the way when the user focuses the field or adds content. Add a distinct focus ring to highlight the active state, an error shake animation to provide immediate feedback for invalid input, and a satisfying success checkmark when valid data is entered.
 
 ## Test Your Understanding
 

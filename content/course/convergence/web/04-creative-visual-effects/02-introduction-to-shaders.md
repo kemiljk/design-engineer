@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- What shaders actually are
-- The two types: vertex and fragment shaders
-- Key terminology: uniforms, varyings, and more
-- How to think in parallel
-- Setting up your first shader
+In this lesson, you will demystify the core concepts of shader programming, shifting your mental model from sequential CPU logic to parallel GPU processing. We'll define the distinct roles of vertex and fragment shaders, explain key terminology like uniforms and varyings, and walk through the practical setup of your very first GLSL shading program.
 
 ## What Is a Shader?
 
@@ -48,7 +44,7 @@ void main() {
 }
 ```
 
-The output `gl_FragColor` is a vector of four values: Red, Green, Blue, Alpha—each ranging from 0.0 to 1.0.
+The output `gl_FragColor` is a vector containing four values: Red, Green, Blue, and Alpha. Each of these components is a floating-point number ranging from `0.0` (none) to `1.0` (full intensity).
 
 ## The GLSL Language
 
@@ -83,8 +79,7 @@ float clamped = clamp(value, 0.0, 1.0);
 | `sampler2D` | Texture reference | Used for images |
 
 ### Swizzling
-
-GLSL lets you access vector components flexibly:
+One of GLSL's most powerful features is **swizzling**, which allows you to access and rearrange vector components in any order using dot notation. You can read components as colours (`r`, `g`, `b`, `a`) or coordinates (`x`, `y`, `z`, `w`) interchangeably.
 
 ```glsl
 vec4 colour = vec4(1.0, 0.5, 0.25, 1.0);
@@ -195,10 +190,7 @@ void main() {
 ```
 
 This shader:
-1. Gets the pixel's position as UV coordinates (0 to 1)
-2. Calculates a gradient value based on position
-3. Adds subtle animation using the time uniform
-4. Outputs a colour based on that gradient
+This shader performs four key steps. First, it normalises the pixel's position into UV coordinates ranging from 0 to 1. Second, it calculates a base gradient value derived from that position. Third, it adds a subtle, time-based sine wave oscillation to animate the value. Finally, it constructs a four-channel colour vector from the calculated gradient and outputs it to the screen.
 
 ## Setting Up Shaders in the Browser
 
@@ -275,7 +267,7 @@ Create a radial gradient that's brightest in the centre and fades to black at th
 
 ### Exercise 3: Animated Pulse
 
-Make the circular gradient pulse by multiplying the distance by a time-based sine wave.
+Take the circular gradient you just created and make it feel alive. Multiply the distance calculation by a time-based sine wave `sin(u_time)` to make the circle expand and contract rhythmically like a heartbeat.
 
 ## Test Your Understanding
 
@@ -318,11 +310,7 @@ Make the circular gradient pulse by multiplying the distance by a time-based sin
 
 ## Key Takeaways
 
-- Shaders are GPU programs that run in parallel on every pixel
-- Fragment shaders determine pixel colours—that's where we'll focus
-- GLSL is a C-like language with vector types and math functions
-- Uniforms pass data from JavaScript to shaders (same for all pixels)
-- Think in formulas, not loops—describe what any pixel should be
+Shaders are massively parallel GPU programs where you write a single mathematical formula that determines the colour of every pixel simultaneously. While vertex shaders handle geometry, as a UI engineer you will focus primarily on fragment shaders using GLSL, a C-like language. Remember that you must use "uniforms" to pass constant data (like time or mouse position) from your JavaScript application to the shader, and always think in terms of mathematical relationships rather than sequential loops.
 
 ## Next Steps
 

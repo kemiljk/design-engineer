@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- What polish means in practice
-- The polish checklist
-- Edge cases and error handling
-- The 1% that makes 100% difference
+In this final lesson, you will explore the concept of "polish"—the accumulation of small details that separates good products from great ones. We'll walk through a comprehensive polish checklist (covering visual consistency, empty states, and error handling) and learn how to identify and refine the edge cases that often get overlooked but make a huge difference in user trust.
 
 ## What Is Polish?
 
@@ -15,55 +12,29 @@
 
 <!-- illustration: polish-checklist -->
 
-Polish isn't any single thing—it's the accumulation of small decisions:
-- Consistent spacing
-- Smooth animations
-- Thoughtful empty states
-- Graceful error handling
-- Attention to edge cases
+Polish isn't any single feature; it's the accumulation of hundreds of small decisions. It's consistent 8px spacing, smooth 200ms animations, thoughtful empty states that guide the user, graceful error handling that offers recovery paths, and meticulous attention to edge cases like long text or slow networks.
 
 Users may not consciously notice polish, but they feel it.
 
 ## The Polish Checklist
 
 ### Visual Consistency
-- [ ] Spacing follows a system (8px grid)
-- [ ] Colours are from the design system
-- [ ] Typography is consistent
-- [ ] Icons are the same style/weight
-- [ ] Border radiuses match
+Visual polish begins with rigorous consistency. Ensure your **spacing** strictly follows your system (e.g., an 8px grid), all **colours** are tokenised values from your design system, **typography** uses consistent scales, **icons** share the same stroke weight and style, and **border radii** match across components of similar size.
 
 ### Interaction Polish
-- [ ] All interactive elements have hover states
-- [ ] Focus states are visible
-- [ ] Buttons respond to press
-- [ ] Transitions are smooth
-- [ ] No layout shifts
+Every interactive element must provide feedback. Verify that all buttons and links have distinct **hover states** and visible **focus states** for accessibility. Ensure buttons typically have a "pressed" state (like `scale(0.98)`), transitions are smooth (avoiding instant jumps), and there are no jarring **layout shifts** when content loads.
 
 ### Loading States
-- [ ] Skeleton screens for content
-- [ ] Spinners for actions
-- [ ] Progress for long operations
-- [ ] Optimistic updates where appropriate
+Never leave the user wondering if something is working. Use **skeleton screens** for initial content loading to reduce perceived wait time, **spinners** within buttons for specific actions, linear **progress bars** for long-running operations, and **optimistic updates** to make interactions feel instant whenever possible.
 
 ### Empty States
-- [ ] Helpful messaging
-- [ ] Clear next action
-- [ ] Appropriate illustration/icon
-- [ ] Not just "No data"
+An empty list is an opportunity, not a dead end. Provide **helpful messaging** that explains what will appear here, offer a **clear next action** (e.g., "Create your first item"), and use an appropriate **illustration** to add personality. Never simply display "No data."
 
 ### Error States
-- [ ] Clear error messaging
-- [ ] Recovery instructions
-- [ ] Retry options
-- [ ] Non-blocking where possible
+Errors should be helpful, not scary. Provide clear **messaging** explaining what went wrong, offer specific **recovery instructions** or a direct **retry option**, and ensure error states are **non-blocking** where possible so the user isn't trapped.
 
 ### Edge Cases
-- [ ] Very long text handled
-- [ ] Very short text looks okay
-- [ ] Missing images have fallbacks
-- [ ] Slow connections handled
-- [ ] Offline state considered
+Your design must hold up under stress. Check how **long text** wraps or truncates, ensure **short text** doesn't break layout balance, provide **fallbacks** for missing images, and verify that the interface remains usable on **slow connections** or when completely **offline**.
 
 ## Examples of Polish
 
@@ -177,11 +148,7 @@ Add graceful error handling to an API call with retry capability.
 
 ## Key Takeaways
 
-- Polish is the accumulation of small details
-- Users feel polish even if they don't notice it
-- Use checklists to ensure consistency
-- Test edge cases: empty, error, loading, overflow
-- Small improvements compound into great experiences
+Polish is not a single feature but the sum of consistent spacing, smooth interactions, and thoughtful handling of every possible state. Users may not consciously notice every detail, but they build trust based on the overall feeling of quality. By rigorously testing edge cases—empty lists, errors, loading screens, and overflow text—you ensure that your experience holds up even when things go wrong.
 
 ## Congratulations!
 

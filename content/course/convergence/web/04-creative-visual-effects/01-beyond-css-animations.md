@@ -4,38 +4,17 @@
 
 ## What You'll Learn
 
-- The limitations of CSS and JavaScript animations
-- What the GPU can do that the CPU cannot
-- When to consider shader-based effects
-- The Design Engineer's creative toolkit
+In this lesson, you will discover the inherent mathematical and performance limitations of traditional CSS and JavaScript animations, and learn exactly why the GPU's parallel processing power is required for the next generation of visual effects. We'll identify specific use cases where shader-based techniques are superior and explore how mastering this "Design Engineer's creative toolkit" allows you to build interfaces that feel alive in ways standard web technologies cannot achieve.
 
 ## The Animation Spectrum
 
-You've learned CSS transitions, keyframe animations, and JavaScript libraries like Motion. These tools handle most UI animation needs beautifully. But there's a tier above—effects that feel *alive* in ways traditional animations cannot achieve.
+You've learned CSS transitions, keyframe animations, and JavaScript libraries like Motion. These tools handle most UI animation needs beautifully. But there is a tier of quality above this—effects that feel physically present and alive in ways typically reserved for high-end native applications or games.
 
-Consider:
-- A background that flows like liquid
-- Noise textures that shift organically
-- Images that distort on hover like ripples in water
-- Gradients that move with mathematical precision at 60fps
-
-These aren't just "fancy effects." They're the difference between a good interface and one that feels crafted by someone who truly understands visual quality.
+Consider a background that flows liquid, noise textures that shift organically like film grain, or images that distort on hover as if they were made of water. These aren't just "fancy effects"; they are the result of mathematical precision at 60fps that simply cannot be calculated by the CPU-bound layout engine of a browser.
 
 ## Why CSS Has Limits
 
-CSS animations operate on a frame-by-frame basis. You define keyframes, and the browser interpolates between them. This works brilliantly for:
-
-- Moving elements (transform)
-- Changing colours (background, color)
-- Adjusting opacity
-- Scaling and rotating
-
-But CSS cannot:
-
-- Calculate complex mathematical functions per-pixel
-- Create organic noise or randomness
-- Process every pixel independently in real-time
-- Respond to continuous input (like mouse position) with per-pixel effects
+CSS animations operate on a frame-by-frame interpolation basis. This architectural choice makes CSS incredibly efficient for moving elements, changing colours, or adjusting opacity and scale. However, because it relies on the CPU (mostly) and pre-defined properties, CSS cannot calculate complex mathematical functions for every individual pixel, nor can it generate organic noise or respond to continuous mouse input with fluid, per-pixel distortion.
 
 ```css
 /* CSS can animate this */
@@ -83,22 +62,11 @@ The animated backgrounds on Vercel's marketing pages use shaders to create depth
 
 ## When to Reach for Shaders
 
-### Good Use Cases
+### Good Use Cases for Shaders
+Shaders excel where standard DOM manipulation fails. They are perfect for **interactive hero sections** that need to make a strong first impression, **generative art** backgrounds that are unique every time, and **data visualisation** where thousands of points need to be animated simultaneously. They are also the only way to achieve complex **image effects** like liquid distortion or colour manipulation on hover.
 
-- **Hero sections** — First impressions matter; shader backgrounds set a premium tone
-- **Loading states** — Unique, branded loading animations
-- **Interactive backgrounds** — Mouse-following effects, scroll-reactive visuals
-- **Image effects** — Hover distortions, colour manipulation, blur effects
-- **Generative art** — Unique visuals that differ each time
-- **Data visualisation** — Complex, animated charts and graphs
-
-### When CSS/JS Is Better
-
-- Simple hover states
-- Page transitions
-- List item animations
-- Most micro-interactions
-- Anywhere simplicity wins
+### When to Stick to CSS
+Conversely, you should avoid shaders for standard UI interactions. **Page transitions**, simple **button hover states**, and **list item animations** are far better handled by CSS or Motion. Using WebGL for a simple dropdown menu is overkill and introduces unnecessary complexity and accessibility challenges.
 
 > **Rule of thumb:** If CSS can do it smoothly, use CSS. Reach for shaders when you need effects CSS literally cannot achieve.
 
@@ -116,12 +84,7 @@ This is exactly what Design Engineering is about: expanding what's possible by m
 
 ## What's Coming
 
-In this module, you'll learn:
-
-1. **How shaders work** — The mental model and core concepts
-2. **Fragment shader basics** — Writing your first GPU program
-3. **Practical patterns** — Noise, gradients, distortion, mouse interaction
-4. **Performance and fallbacks** — Making shaders production-ready
+In this module, we will demystify the GPU. You will learn the mental model of **how shaders work**, write your first **fragment shader**, build a library of **practical patterns** like noise and gradients, and finally, master the **performance strategies** needed to ship these effects to production without killing your users' battery life.
 
 By the end, you'll have a new creative superpower—and several portfolio-worthy effects.
 
@@ -129,12 +92,7 @@ By the end, you'll have a new creative superpower—and several portfolio-worthy
 
 ### Exercise 1: Effect Hunting
 
-Visit three websites known for premium visual design (Stripe, Linear, Vercel, Apple). Identify effects that likely use shaders vs CSS. Look for:
-
-- Organic, flowing movement
-- Per-pixel effects
-- Mathematical patterns
-- Effects that respond to the mouse with no visible DOM elements
+Visit three websites known for premium visual design (such as Stripe, Linear, Vercel, or Apple). Scrutinize their interactions and background effects. Can you identify which ones are likely using WebGL shaders? Look for tell-tale signs like organic, non-linear fluid movement, per-pixel noise textures, or complex mathematical patterns that don't repeat simply.
 
 ### Exercise 2: Limitation Test
 
@@ -181,11 +139,7 @@ Try to recreate a flowing noise gradient using only CSS. Notice what's missing�
 
 ## Key Takeaways
 
-- CSS and JavaScript handle most animation needs excellently
-- Shaders unlock effects that are impossible with traditional web tech
-- The GPU processes millions of pixels in parallel—that's the superpower
-- Premium sites use shaders for that "extra 1%" of visual quality
-- Learning shaders is a Design Engineer differentiator
+While CSS and JavaScript handle the vast majority of interface animation needs effectively, shaders unlock a tier of visual quality—such as organic fluids and per-pixel distortion—that is simply impossible with traditional technologies. The secret lies in the GPU's ability to process millions of pixels in parallel, allowing for complex mathematical visualisation at 60fps. Ultimately, learning to use shaders for that "extra 1%" of polish is a key differentiator for top-tier Design Engineers.
 
 ## Next Steps
 

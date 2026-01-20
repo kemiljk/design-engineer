@@ -4,18 +4,11 @@
 
 ## What You'll Learn
 
-- Perceived vs. actual performance
-- Skeleton screens and loading states
-- Optimistic UI patterns
-- Progress indication strategies
+In this lesson, you will explore the critical difference between actual load times and how fast an interface feels to the user. We'll examine techniques like skeleton screens and optimistic UI patterns that can mask latency, and identify strategies for effective progress indication that keep users engaged even during unavoidable delays.
 
 ## Perception vs. Reality
 
-Users don't measure milliseconds. They measure feelings:
-
-- "That felt instant"
-- "That was slow"
-- "I'm not sure if it's working"
+Users do not measure performance in milliseconds; they measure it in feelings. A site that loads in 2 seconds but provides no feedback will feel slower than a site that loads in 3 seconds but immediately shows a skeleton screen. Users might say "That felt instant" purely because the interface reacted immediately to their touch, or conversely, "I'm not sure if it's working" if a button press hangs for even 200ms without a state change.
 
 Two interfaces with identical load times can feel dramatically different based on how they handle the wait.
 
@@ -58,11 +51,7 @@ Replace empty space with content-shaped placeholders:
 }
 ```
 
-Skeleton screens work because:
-
-- Users see the page structure immediately
-- Attention is directed to where content will appear
-- The shimmer suggests activity
+Skeleton screens are effective because they communicate the page structure instantly, reducing cognitive load. By directing attention to where content will eventually appear and using a shimmering animation to suggest activity, they make the wait feel active rather than passive.
 
 ## Optimistic UI
 
@@ -85,11 +74,7 @@ async function likePost(postId) {
 }
 ```
 
-Best for:
-
-- Actions that rarely fail
-- Low-risk operations
-- Frequent interactions (likes, saves, toggles)
+Optimistic UI is best suited for low-risk actions that rarely fail, such as "liking" a post, toggling a bookmark, or adding an item to a list. These frequent interactions benefit immensely from feeling instantaneous, and the cost of rolling back the UI in the rare event of an error is low.
 
 ## Progress Indication
 
@@ -188,11 +173,7 @@ Build a like button with optimistic updates and error rollback.
 
 ## Key Takeaways
 
-- Perceived speed matters more than actual speed
-- Skeleton screens show structure immediately
-- Optimistic UI assumes success
-- Every interaction needs instant feedback
-- Show progress when waits are unavoidable
+Perceived speed often matters far more than actual millisecond execution time. By using skeleton screens to provide immediate visual structure and implementing optimistic UI to assume success before server confirmation, you can make your application feel instantaneous. Remember that every interaction deserves immediate feedback, and when waits are unavoidable, always provide clear progress indication to maintain user trust.
 
 ## Next Steps
 

@@ -4,20 +4,11 @@
 
 ## What You'll Learn
 
-- How screen readers work
-- Testing with screen readers
-- Common screen reader issues
-- Writing effective alternative text
+In this lesson, you will demystify how screen readers interpret your code by parsing the accessibility tree rather than the visual interface. We'll walk through the process of testing your own work with VoiceOver or NVDA, identify common pitfalls like missing labels or redundant text, and master the art of writing effective alternative text for images and dynamic content updates.
 
 ## How Screen Readers Work
 
-Screen readers:
-1. Parse the accessibility tree (derived from DOM)
-2. Announce element names, roles, and states
-3. Provide navigation shortcuts
-4. Allow interaction with focusable elements
-
-They don't "see" the visual design—only the semantic structure.
+Screen readers do not "see" the visual design of your page; instead, they parse the **accessibility tree**, a semantic structure derived from your DOM. They announce the names, roles, and current states of interactive elements, provide robust navigation shortcuts for jumping between sections, and allow users to interact with focusable elements using keyboard commands.
 
 ## What Gets Announced
 
@@ -37,12 +28,7 @@ They don't "see" the visual design—only the semantic structure.
 
 ## Common Screen Readers
 
-- **VoiceOver** (macOS/iOS) - Built-in, Cmd+F5 to toggle
-- **NVDA** (Windows) - Free, popular
-- **JAWS** (Windows) - Commercial, widely used
-- **TalkBack** (Android) - Built-in
-
-For testing, start with VoiceOver or NVDA.
+There are several major screen readers you should be aware of. **VoiceOver** is built directly into macOS and iOS (toggled with Cmd+F5), making it the most accessible tool for Mac users. On Windows, **NVDA** is a popular free option, while **JAWS** remains a widely used commercial standard. Android users typically rely on the built-in **TalkBack** service. For your testing purposes, start with VoiceOver or NVDA.
 
 ## Testing Basics
 
@@ -55,11 +41,7 @@ For testing, start with VoiceOver or NVDA.
 
 ### What to Check
 
-- [ ] Can you navigate by headings?
-- [ ] Are images described?
-- [ ] Do form fields have labels?
-- [ ] Are buttons and links announced correctly?
-- [ ] Do state changes get announced?
+When testing your interface, focus on these key checklist items: ensure you can navigate the entire page structure by headings alone and that all images have appropriate descriptions. Verify that every form form field has a properly associated label, that links and buttons are announced clearly with their purpose, and that any dynamic state changes (like opening a modal) are immediately announced to the user.
 
 ## Alternative Text
 
@@ -154,17 +136,11 @@ For dynamic content updates:
 
 ### Exercise 1: Screen Reader Testing
 
-Turn on VoiceOver (Mac) or NVDA (Windows). Navigate a page you built:
-- Use heading navigation
-- Tab through interactive elements
-- Note anything confusing or missing
+Turn on VoiceOver (Mac) or NVDA (Windows) and attempt to navigate a page you have built without looking at the screen. Use heading navigation shortcuts to jump through content sections, tab through every interactive element to ensure logical order, and take note of any components that are confusing, silent, or impossible to reach.
 
 ### Exercise 2: Fix Issues
 
-Based on your testing, fix:
-- Missing alt text
-- Unlabelled form fields
-- Missing ARIA for dynamic content
+Using the insights from your testing session, return to your code to fix the identified issues. This typically involves adding missing alt text to informative images, ensuring every form input has a clear label, and adding appropriate ARIA live regions to announce dynamic content updates that were previously silent.
 
 ## Test Your Understanding
 
@@ -207,11 +183,7 @@ Based on your testing, fix:
 
 ## Key Takeaways
 
-- Screen readers parse the accessibility tree, not the visual design
-- Semantic HTML provides the foundation
-- All images need alt text (even if empty for decorative)
-- Dynamic changes need live regions
-- Test with real screen readers
+Screen readers rely entirely on the semantic structure of your code (the accessibility tree) rather than your visual design, making semantic HTML the critical foundation of your work. You must ensure all images have appropriate alt text—even if it is empty for decorative elements—and use live regions to announce dynamic content changes. most importantly, the only way to verify your work is to test it with real screen readers like VoiceOver or NVDA.
 
 ## Next Steps
 

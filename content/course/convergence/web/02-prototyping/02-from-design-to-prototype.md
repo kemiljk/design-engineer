@@ -16,9 +16,9 @@ When you sit down to build a prototype from a design file, you aren't just "codi
 
 Don't just measure pixels. Interrogate the design.
 
-*   **The In-Between:** How does this modal appear? Does it fade? Slide? Grow?
-*   **The Response:** When I click this button, does it load instantly? If not, what do I see for the 500ms while it processes?
-*   **The Constraints:** What happens if this title is 200 characters long? What happens on a screen that is 320px wide?
+*   **The In-Between:** How does this modal appear on the screen? Does it fade in gently, slide up from the bottom, or grow from the centre?
+*   **The Response:** When a user clicks this button, what is the immediate feedback? Does it load instantly, or do we need a loading state for the 500ms processing time?
+*   **The Constraints:** What happens if the user's name is 200 characters long? How does this layout Reflow on a narrow 320px mobile screen?
 
 If these answers aren't in the file (and they usually aren't), it's your job to propose them through your prototype.
 
@@ -27,10 +27,7 @@ If these answers aren't in the file (and they usually aren't), it's your job to 
 When you encounter a gap, don't stop. Fill it with a reasonable default.
 
 ### 1. Motion and Timing
-If no animation is specified, default to "snappy."
-*   **Transitions:** 150ms-200ms `ease-out`.
-*   **Entrances:** 200ms-300ms `ease-out`.
-*   **Exits:** 150ms `ease-in` (faster than entrances).
+If no animation is specified, default to "snappy" values that feel responsive. For transitions, try **150ms-200ms** with an `ease-out` curve. For entrances, a slightly longer **200ms-300ms** `ease-out` works well, while exits should be faster, around **150ms** `ease-in`, to clear the UI quickly.
 
 ### 2. Feedback States
 Every interaction needs feedback. If the design doesn't show a hover state, add a subtle opacity change (`opacity: 0.9`) or a background darkening. If a button clicks, add a `transform: scale(0.98)` on active. These small details make the prototype feel "real" even without high-fidelity specs.
@@ -71,9 +68,9 @@ Only once the interaction works should you go back and fine-tune the corner radi
 You will hit roadblocks. "I don't know what this error state looks like."
 
 **Do not block.**
-1.  **Improvise:** Create a simple red banner with text.
-2.  **Document:** Add a comment in the code: `// TODO: Design pending for error state`.
-3.  **Review:** Show the designer your improvised solution. "I put this here for now—does this work?"
+1.  **Improvise:** Create a simple red banner with clear text explaining the error.
+2.  **Document:** Add a comment in your code, such as `// TODO: Design pending for error state`, so it isn't forgotten.
+3.  **Review:** Show the designer your improvised solution and ask, "I put this here for now—does this work?"
 
 It is always better to show a working prototype with a placeholder than to show nothing because you were waiting for a pixel-perfect comp.
 

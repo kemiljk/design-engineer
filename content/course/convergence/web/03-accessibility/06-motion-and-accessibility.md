@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Vestibular disorders and motion sensitivity
-- Prefers-reduced-motion media query
-- Safe vs. problematic motion
-- Implementing accessible animations
+In this lesson, you will discover why motion can be physically problematic for users with vestibular disorders and learn how to identify safe versus risky animation patterns. We'll explore how to implement the `prefers-reduced-motion` media query to automatically adapt your experience for users who need it, ensuring that your site remains engaging without causing discomfort.
 
 ## Who Is Affected by Motion?
 
@@ -227,12 +224,7 @@ Add reduced motion support to:
 
 ## Key Takeaways
 
-- Motion can cause real physical discomfort
-- Use `prefers-reduced-motion` media query
-- Opacity fades are generally safe
-- Parallax and large movements are risky
-- Provide alternatives, don't just remove motion
-- Test with reduced motion enabled
+Motion can cause real physical discomfort for a significant number of users, so it is essential to support the `prefers-reduced-motion` media query in your CSS and JavaScript. While opacity fades are generally safe, avoid parallax effects and large movement animations, and always provide reduced alternatives rather than simply removing all motion. Finally, make it a habit to test your site with reduced motion enabled to ensure the experience remains functional and polished.
 
 ## Congratulations!
 

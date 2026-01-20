@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- Mouse-interactive effects
-- Image distortion techniques
-- Blur and depth effects
-- Scroll-driven shader animations
-- Combining multiple effects
+In this lesson, you will build a library of production-ready shader patterns that solve common UI design challenges. We'll implement interactive mouse-following effects that add depth, create sophisticated image distortion and blur techniques for transitions, and explore how to layer multiple effects—like grain, noise, and spotlights—to produce rich, scroll-driven visual experiences.
 
 ## Mouse-Following Effects
 
@@ -385,24 +381,15 @@ float circle(vec2 uv, vec2 center, float radius) {
 
 ### Exercise 1: Interactive Card
 
-Create a card component with a shader background that:
-- Shows a subtle spotlight following the mouse
-- Has gentle noise animation
-- Intensifies on hover
+Challenge yourself to build a complete interactive card component. The background should feature a subtle spotlight that tracks the mouse position, overlaid with a gentle, generated noise texture that adds filmic grain. On hover, increase the intensity of the spotlight to create a "lifting" effect.
 
 ### Exercise 2: Image Hover Effect
 
-Build an image gallery where:
-- Images have a slight distortion effect on hover
-- The distortion follows the mouse position
-- Transitions smoothly in and out
+Create an immersive image gallery where hovering over a thumbnail triggers a custom distortion effect. Instead of a simple CSS scale, use a displacement map or coordinate distortion that bulges the image slightly towards the mouse cursor, with a smooth transition in and out of the hover state.
 
 ### Exercise 3: Scroll Hero
 
-Create a hero section where:
-- The background colour shifts as you scroll
-- Noise intensity increases towards the bottom
-- A reveal effect shows content
+Design a hero section that responds to the user's scroll depth. As the user scrolls down, shift the background colour scheme from a morning sky to a sunset palette. Simultaneously, increase the intensity of a noise overlay to simulate signal degradation, and use a smoothstep function to reveal the main headline content.
 
 ## Test Your Understanding
 
@@ -445,11 +432,7 @@ Create a hero section where:
 
 ## Key Takeaways
 
-- Mouse interaction creates magical, engaging effects
-- Image distortion adds depth to hover states
-- Combine multiple layers for rich, premium visuals
-- Build a utility library of reusable shader functions
-- Connect shaders to scroll for dynamic, reactive pages
+Mouse interactions and scroll-driven animations are powerful ways to make shader effects feel reactive and magical, transforming static pages into living environments. By combining multiple techniques—such as image distortion for hover states and layered noise for background texture—you can create deep, premium visuals. The most efficient workflow involves building a personal utility library of reusable shader functions that you can quickly drop into any project.
 
 ## Next Steps
 

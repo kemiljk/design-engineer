@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- WCAG contrast requirements
-- Testing contrast ratios
-- Designing for colour blindness
-- Beyond colour for meaning
+During this lesson, you will learn the precise WCAG contrast requirements for text and UI components and how to verify them using professional testing tools. We'll explore how to design for various forms of colour blindness to ensure your interface remains usable for the 8% of men who experience vision deficiencies, and examine strategies for using patterns and icons to convey meaning beyond colour alone.
 
 ## WCAG Contrast Requirements
 
@@ -23,8 +20,7 @@
 - Large text: 4.5:1
 
 ### What Counts as Large Text?
-- 18pt (24px) regular weight
-- 14pt (18.66px) bold
+According to WCAG standards, "large text" is defined as at least **18pt (24px)** for regular weight fonts, or **14pt (18.66px)** for bold text. Because larger text is easier to read, it has a slightly more lenient contrast requirement (3:1) compared to body text.
 
 ## Understanding Contrast Ratios
 
@@ -38,12 +34,10 @@ Where L1 is the lighter colour's luminance and L2 is the darker.
 ## Testing Tools
 
 ### Browser DevTools
-Chrome: Inspect element → Color picker → Shows contrast ratio
+**Browser DevTools**: In Chrome, you can inspect any element and click its colour swatch. The picker will show the contrast ratio against the background and indicate if it passes AA or AAA standards.
 
 ### Online Tools
-- WebAIM Contrast Checker
-- Colour Contrast Analyser
-- Stark (Figma plugin)
+**Online Tools**: Websites like the WebAIM Contrast Checker are excellent for quick validation. For a workflow integrated directly into your design process, plugins like Stark for Figma or the Colour Contrast Analyser app can check your entire screen.
 
 ### Quick Test
 
@@ -59,10 +53,7 @@ Chrome: Inspect element → Color picker → Shows contrast ratio
 8% of men and 0.5% of women have some form of colour blindness.
 
 ### Types
-- **Protanopia:** Red blindness
-- **Deuteranopia:** Green blindness
-- **Tritanopia:** Blue blindness
-- **Achromatopsia:** Complete colour blindness
+There are several distinct types of colour blindness to consider. **Protanopia** (red blindness) and **Deuteranopia** (green blindness) are the most common forms of red-green colour deficiency. **Tritanopia** causes blue-yellow confusion, while **Achromatopsia** results in complete colour blindness, where the user sees only in shades of grey.
 
 ### Design Implications
 
@@ -81,8 +72,8 @@ Don't rely on colour alone:
 ```
 
 ### Testing
-- Chrome DevTools: Rendering → Emulate vision deficiencies
-- Stark, Color Oracle, or Sim Daltonism
+### Testing
+You can simulate these conditions directly in your browser. In Chrome DevTools, go to the **Rendering** tab and use the "Emulate vision deficiencies" dropdown. Alternatively, apps like plain **Stark**, **Color Oracle**, or **Sim Daltonism** allow you to simulate these filters over your entire screen to catch issues early.
 
 ## Patterns and Icons
 
@@ -132,16 +123,11 @@ Pure white (#fff) on pure black (#000) can be harsh—soften both.
 
 ### Exercise 1: Contrast Audit
 
-Check your project's colour palette:
-- Text on background colours
-- Button text on button backgrounds
-- Icon colours on backgrounds
+Conduct an audit of your project's colour palette. Specifically check all text against its background colour, ensure button labels have sufficient contrast against their containers, and verify that all icons are legible against their respective backgrounds.
 
 ### Exercise 2: Colour Blindness Test
 
-View your interface with simulated colour blindness:
-- Can you distinguish all elements?
-- Is meaning clear without colour?
+View your interface using a simulation tool like Chrome's "Emulate vision deficiencies." As you navigate, ask yourself if you can clearly distinguish all UI elements and if the state changes (like errors or success messages) are understandable without relying on colour perception.
 
 ## Test Your Understanding
 
@@ -184,11 +170,7 @@ View your interface with simulated colour blindness:
 
 ## Key Takeaways
 
-- Minimum 4.5:1 contrast for normal text
-- Large text and UI components need 3:1
-- Test with actual tools, not just eyeballing
-- 8% of men have colour blindness
-- Never use colour alone to convey meaning
+To ensure legibility, you must meet the minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text and UI components, verifying these values with proper testing tools. Remember that approximately 8% of men have some form of colour blindness, so you should never rely on colour alone to convey meaning—always supplement it with icons, text labels, or patterns to ensure your message is clear to everyone.
 
 ## Next Steps
 

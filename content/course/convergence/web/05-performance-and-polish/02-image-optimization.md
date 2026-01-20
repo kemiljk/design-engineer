@@ -4,22 +4,15 @@
 
 ## What You'll Learn
 
-- Modern image formats
-- Responsive images
-- Lazy loading
-- Image CDNs and optimisation services
+Throughout this lesson, you will master the art of reducing asset weight without sacrificing visual quality. We'll compare modern image formats like WebP and AVIF, explore how to serve responsive images that adapt to different viewports, and implement lazy loading and image CDNs to ensure your site performs optimally on any connection.
 
 ## Modern Image Formats
 
 ### WebP
-- 25-35% smaller than JPEG at same quality
-- Supports transparency (like PNG)
-- Wide browser support (95%+)
+WebP is a versatile modern format that typically produces files **25-35% smaller** than comparable JPEGs at the same visual quality. Crucially, it also supports transparency, making it a superior replacement for PNGs in many cases. It is supported by over 95% of browsers.
 
 ### AVIF
-- 50% smaller than JPEG
-- Growing browser support
-- Best quality-to-size ratio
+AVIF offers even greater efficiency, often creating files **50% smaller** than JPEG. While it currently has slightly less browser support than WebP, it provides the best quality-to-size ratio available today and should be your preferred format where supported.
 
 ### Format Selection
 
@@ -48,9 +41,7 @@ Serve appropriate sizes for different screens:
 >
 ```
 
-- `srcset`: Available image sizes
-- `sizes`: How much viewport the image occupies
-- Browser picks the best match
+The `srcset` attribute provides a comma-separated list of available image files along with their inherent widths (e.g., `400w`). The `sizes` attribute then tells the browser how much screen space the image will occupy at different breakpoints. The browser uses this information to mathematically calculate and download the single best image file for the user's specific screen resolution.
 
 ## Lazy Loading
 
@@ -93,11 +84,7 @@ Services like Cloudinary, imgix, or Vercel Image Optimization:
 <img src="https://res.cloudinary.com/demo/image/upload/w_400,f_auto,q_auto/sample.jpg">
 ```
 
-Benefits:
-- Automatic format selection
-- On-the-fly resizing
-- Quality optimisation
-- Global CDN delivery
+Using an image CDN provides significant advantages. These services handle **automatic format selection** (serving AVIF to Chrome and JPEG to older Safari), perform **on-the-fly resizing** to match your layout dimensions, apply intelligent **quality optimisation** that reduces file size without visible degradation, and deliver assets via a global network for low latency.
 
 ## Next.js Image Component
 
@@ -167,11 +154,7 @@ Implement responsive images for a hero section with appropriate breakpoints.
 
 ## Key Takeaways
 
-- Use modern formats (WebP, AVIF) with fallbacks
-- Serve responsive images with srcset
-- Lazy load below-the-fold images
-- Always specify dimensions
-- Consider image CDNs for automatic optimisation
+Using modern formats like WebP and AVIF (with appropriate fallbacks) can significantly reduce your bandwidth usage. Combine this with `srcset` for responsive sizing and lazy loading for off-screen content, and you will dramatically improve initial load times. Finally, always specify explicit width and height attributes to prevent layout shifts, and consider using image CDNs for automated, on-the-fly optimisation.
 
 ## Next Steps
 

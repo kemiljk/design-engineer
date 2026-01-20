@@ -4,28 +4,17 @@
 
 ## What You'll Learn
 
-- Why shaders can hurt performance (and how to prevent it)
-- Optimisation techniques
-- Graceful degradation for older browsers
-- Respecting reduced motion preferences
-- Testing across devices
+During this final lesson of the module, you will learn to identify and prevent the performance bottlenecks that can turn beautiful shaders into battery-draining liabilities. We'll examine specific optimisation techniques like reducing complexity and throttling updates, implement graceful degradation strategies for older browsers, and ensure your effects respect user accessibility preferences for reduced motion across all devices.
 
 ## The Performance Paradox
 
 Shaders run on the GPU—shouldn't they always be fast? Not quite.
 
 ### When Shaders Are Fast
-- Simple calculations per pixel
-- Few texture samples
-- Static or slowly animating effects
-- Reasonable canvas sizes
+Shaders perform best when they are limited to simple per-pixel calculations with minimal texture samples. They excel at rendering static or slowly animating effects on reasonably sized canvases where the GPU workload is predictable and contained.
 
 ### When Shaders Slow Down
-- Complex mathematical operations (many sin/cos, noise octaves)
-- Many texture samples per pixel
-- Very large canvases (4K displays, full-screen effects)
-- Mobile GPUs with limited power
-- Running alongside heavy JavaScript
+Performance issues typically arise when shaders attempt complex mathematical operations (such as calculating multiple octaves of noise) or perform many texture lookups per pixel. Very large canvases, such as full-screen effects on 4K displays or high-density mobile screens, can quickly overwhelm the GPU fill rate, especially when running alongside heavy JavaScript computations.
 
 ## Measuring Shader Performance
 
@@ -334,14 +323,7 @@ useFrame(({ clock }) => {
 
 Before shipping shader effects:
 
-- [ ] Test on Chrome, Firefox, Safari
-- [ ] Test on iOS Safari (notoriously picky with WebGL)
-- [ ] Test on low-end Android devices
-- [ ] Test with reduced motion enabled
-- [ ] Test with WebGL disabled (fallback works?)
-- [ ] Monitor frame rate during interaction
-- [ ] Check memory usage doesn't grow over time
-- [ ] Verify effects degrade gracefully on resize
+Before shipping any shader effect, rigorous testing is essential. Verify your work across all major browsers (Chrome, Firefox, Safari) and pay special attention to iOS Safari, which can be restrictive with WebGL resources. Test on low-end Android devices to ensure acceptable frame rates, and confirm that the experience degrades gracefully when `prefers-reduced-motion` is enabled or when WebGL is partially supported. Finally, monitor memory usage over time to catch leaks and check that the effect handles window resizing correctly.
 
 ## Try It Yourself
 
@@ -408,11 +390,7 @@ Create two versions of a shader effect:
 
 ## Key Takeaways
 
-- Measure performance before assuming shaders are "fast"
-- Optimise: reduce complexity, lower resolution, throttle updates
-- Always provide fallbacks for browsers without WebGL
-- Respect `prefers-reduced-motion`—it's about user wellbeing
-- Test on real devices, especially mobile
+Never assume shaders are performant by default; you must actively measure and optimise them by reducing complexity, resolution, and update frequency. It is critical to provide solid CSS fallbacks for environments without WebGL and to strictly respect the `prefers-reduced-motion` preference, as animation can cause physical harm to some users. Finally, always test your effects on real mobile devices to ensure they deliver a smooth experience under constrained resources.
 
 ## Congratulations
 

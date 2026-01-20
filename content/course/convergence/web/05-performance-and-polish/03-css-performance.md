@@ -4,28 +4,18 @@
 
 ## What You'll Learn
 
-- Layout, paint, and composite
-- Avoiding layout thrashing
-- Efficient animations
-- Critical CSS strategies
+In this lesson, you will dive into the browser rendering pipeline to understand how style changes affect layout, paint, and composite stages. We'll identify how to avoid expensive layout thrashing, create smooth 60fps animations by restricting changes to transform and opacity, and implement critical CSS strategies to optimize the rendering path.
 
 ## The Rendering Pipeline
 
-1. **Style** - Calculate computed styles
-2. **Layout** - Calculate positions and sizes
-3. **Paint** - Fill in pixels
-4. **Composite** - Layer and display
+The rendering pipeline consists of four distinct stages. First, **Style** calculations determine the final computed styles for every element. Next, **Layout** calculates the exact position and size of each box. Then, **Paint** fills in the pixels for backgrounds, borders, and text. Finally, **Composite** layers these painted parts together to display the final frame on the screen.
 
 Changing certain properties triggers different stages:
-- Layout properties (width, height, top) → Everything reruns
-- Paint properties (colour, background) → Paint + Composite
-- Composite properties (transform, opacity) → Only Composite
+Different properties trigger different parts of this pipeline. Layout properties like `width`, `height`, or `top` are the most expensive because they force the browser to re-calculate the entire geometry. Paint properties like `colour` or `background` are cheaper but still require re-painting pixels. Composite properties like `transform` and `opacity` are the most efficient because they skip layout and paint entirely, handled solely by the GPU.
 
 ## Composite-Only Animations
 
-For smooth 60fps animations, only animate:
-- `transform`
-- `opacity`
+To achieve silky smooth 60fps animations, you should strictly limit your transitions to just two properties: `transform` (for moving, scaling, and rotating) and `opacity` (for fading). These are the only properties that can be handled purely by the compositor thread without triggering layout or paint operations.
 
 ```css
 /* Bad: triggers layout */
@@ -173,12 +163,7 @@ Enable "Paint flashing" in DevTools. Navigate your site and note unexpected pain
 
 ## Key Takeaways
 
-- Animate only transform and opacity for 60fps
-- Batch DOM reads and writes
-- Use will-change sparingly
-- Keep selectors simple
-- Consider critical CSS for above-the-fold
-- Use contain to isolate rendering
+To achieve smooth 60fps animations, you should restrict your transitions to `transform` and `opacity` properties, which run on the compositor thread. Be mindful of layout thrashing by batching your DOM reads and writes, and keep your selectors simple to reduce calculation costs. Finally, consider inlining critical CSS for above-the-fold content and using the `contain` property to isolate complex components from the rest of the page layout.
 
 ## Next Steps
 

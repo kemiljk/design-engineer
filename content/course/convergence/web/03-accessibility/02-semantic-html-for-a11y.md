@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Why semantic HTML matters for accessibility
-- Choosing the right elements
-- ARIA: when and why
-- Common accessibility patterns
+In this lesson, you will discover why semantic HTML is the non-negotiable foundation of an accessible web experience and how choosing the correct native elements provides functionality "for free." We'll explore the proper use of ARIA attributes to fill gaps where HTML falls short, and identify common semantic patterns that ensure your interfaces are machine-readable and navigable for assistive technologies.
 
 ## The Power of Native Elements
 
@@ -50,10 +47,7 @@ Screen reader users can jump between landmarks.
   <h2>Section</h2>
 ```
 
-Rules:
-- One `<h1>` per page
-- Don't skip levels
-- Use for structure, not styling
+There are three strict rules for using headings. First, use only one `<h1>` per page to define the main topic. Second, do not skip heading levels (e.g., jumping from `<h2>` to `<h4>`), as this confuses screen reader navigation. Finally, never use headings purely for visual styling; use CSS classes for that instead.
 
 ## Form Accessibility
 
@@ -74,10 +68,7 @@ Rules:
 </form>
 ```
 
-Key patterns:
-- `<label>` with matching `for` and `id`
-- Hint text with `aria-describedby`
-- Error messages with `role="alert"`
+There are three key patterns to follow here. First, always link your `<label>` to its input using matching `for` and `id` attributes. Second, associate helper text using `aria-describedby` so it is announced when the field is focused. Third, for error messages, use `role="alert"` to ensure the screen reader announces the problem immediately.
 
 ## When to Use ARIA
 
@@ -133,19 +124,11 @@ Don't use ARIA if native HTML works.
 
 ### Exercise 1: Semantic Audit
 
-Take a page you've built. Replace any:
-- `<div>` that should be `<button>`
-- `<span>` that should be `<a>`
-- Missing landmarks
-- Missing form labels
+Review a page you have recently built and identify non-semantic elements. Replace any `<div>`s that function as buttons with actual `<button>` tags, swap `<span>`s acting as links for `<a>` tags, and ensure your page has proper landmark regions and clear form labels.
 
 ### Exercise 2: Form Accessibility
 
-Build a form with:
-- Proper labels
-- Hint text
-- Error messages
-- Required field indication
+Create a robust form that includes properly associated labels for every input. Add hint text linked via `aria-describedby`, implement error messages that use `role="alert"`, and clearly mark required fields both visually and programmatically.
 
 ## Test Your Understanding
 
@@ -188,11 +171,7 @@ Build a form with:
 
 ## Key Takeaways
 
-- Native HTML elements have built-in accessibility
-- Use landmarks to structure pages
-- Headings create navigable hierarchy
-- Labels are required for form inputs
-- ARIA supplements HTML but doesn't replace it
+Native HTML elements should always be your first choice because they come with built-in accessibility behavioral features that significantly reduce development effort. By using landmarks to structure your pages and headings to create a navigable hierarchy, you ensure users can find what they need quickly. Always remember that labels are required for all form inputs and that ARIA should only be used to supplement HTML when native elements cannot achieve the desired result—it is never a replacement for good markup.
 
 ## Next Steps
 

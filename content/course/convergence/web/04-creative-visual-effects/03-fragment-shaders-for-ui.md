@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Creating smooth, animated gradients
-- Generating noise and organic textures
-- Building common UI shader effects
-- Integrating shaders with your design system
+Throughout this lesson, you will learn to construct practical, design-system-aware shader effects that elevate your user interfaces without overwhelming them. We'll explore how to generate smooth, animated gradients and organic noise textures, build reusable UI shader patterns, and seamlessly integrate these GPU-powered visuals into your existing component architecture.
 
 ## The UI Shader Mindset
 
@@ -338,11 +335,7 @@ Create a glow effect that follows the mouse cursor, suitable for a hero section 
 
 ## Key Takeaways
 
-- UI shaders should enhance, not overwhelm—subtlety is key
-- Noise functions create organic, smooth randomness
-- Grain adds warmth and premium feel to dark interfaces
-- Mesh gradients create trendy, organic colour blends
-- Pass design system values as uniforms for consistency
+Effective UI shaders should always prioritise subtlety and integration, enhancing the design rather than distracting from it. By mastering noise functions to create organic randomness and using mesh gradients for trendy, fluid visuals, you can add a premium feel to your work. Always remember to pass your design system's values (like theme colours) as uniforms to ensure consistency between your standard DOM elements and your WebGL effects.
 
 ## Next Steps
 

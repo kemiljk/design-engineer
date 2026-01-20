@@ -4,19 +4,11 @@
 
 ## What You'll Learn
 
-- Main thread and responsiveness
-- Debouncing and throttling
-- Efficient DOM updates
-- Code splitting basics
+Throughout this lesson, you will learn how to keep the main thread unblocked to ensure your interface remains responsive to user input. We'll examine patterns for debouncing and throttling high-frequency events, explore techniques for batching DOM updates efficiently, and discuss code splitting strategies to load JavaScript only when it's truly needed.
 
 ## The Main Thread
 
-JavaScript runs on the main thread, the same thread that:
-- Handles user input
-- Runs animations
-- Paints the screen
-
-Long-running JavaScript blocks everything else.
+JavaScript runs on the main thread, which is the single path responsible for everything the user sees and interacts with. This thread handles user input events, calculates and runs animations, and paints the screen. If a long-running JavaScript task occupies this thread, it blocks all other activities, causing the interface to freeze.
 
 ## Debouncing
 
@@ -41,10 +33,7 @@ input.addEventListener('input', (e) => {
 });
 ```
 
-Use for:
-- Search inputs
-- Window resize handlers
-- Form validation
+Debouncing is ideal for events where you only care about the final result, such as **search inputs** (wait until the user stops typing), **window resize** calculations (wait until the resize is finished), or **form validation** (check only after the user pauses).
 
 ## Throttling
 
@@ -70,10 +59,7 @@ const handleScroll = throttle(() => {
 window.addEventListener('scroll', handleScroll);
 ```
 
-Use for:
-- Scroll events
-- Mouse move tracking
-- Continuous updates
+Throttling is best for continuous events that fire rapidly but need regular updates. Use it for **scroll events** (e.g., updating a progress bar), **mouse movement** tracking, or any scenario where you need intermediate updates but cannot afford to run logic 60 times per second.
 
 ## Efficient DOM Updates
 
@@ -204,13 +190,7 @@ Create a scroll listener with throttling and measure the difference without.
 
 ## Key Takeaways
 
-- JavaScript blocks the main thread
-- Debounce for "when activity stops"
-- Throttle for "at most X times per second"
-- Batch DOM updates
-- Use requestAnimationFrame for animations
-- Event delegation reduces listener count
-- Code splitting loads code on demand
+JavaScript executes on the main thread, meaning long-running tasks can freeze the entire interface. To prevent this, use debouncing for actions that should wait for inactivity (like search) and throttling for continuous events (like scroll). Additionally, batch your DOM updates to avoid unnecessary reflows, delegate events to reduce memory usage, and use code splitting to ensure you are not sending unused code to the client.
 
 ## Next Steps
 

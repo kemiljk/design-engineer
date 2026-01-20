@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Focus management fundamentals
-- Tab order and focus trapping
-- Visible focus indicators
-- Skip links and navigation shortcuts
+Throughout this lesson, you will master the fundamentals of focus management to ensure your applications are fully navigable without a mouse. We'll examine how to control tab order and create robust focus traps for modal dialogs, and explore the critical importance of visible focus indicators and skip links in creating an efficient, power-user-friendly experience.
 
 ## Who Uses Keyboard Navigation?
 
@@ -204,11 +201,7 @@ Build a modal with proper focus trapping:
 
 ## Key Takeaways
 
-- Many users rely on keyboard navigation
-- Focusable elements: links, buttons, inputs, tabindex="0"
-- Never remove focus styles without replacement
-- Modals must trap focus
-- Skip links help users bypass repetitive content
+A significant portion of your users rely on keyboard navigation, so you must ensure that all interactive elements—links, buttons, and inputs—are reachable and usable via the Tab key. Never remove default focus styles without providing a clearer replacement, as visible focus is essential for navigation. Finally, ensure that modals trap focus to prevent users from getting lost, and implement skip links to allow users to bypass repetitive navigation content efficiently.
 
 ## Next Steps
 
