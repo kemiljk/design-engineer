@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Prototypes as communication tools
-- Presenting to different audiences
-- Building organizational buy-in
-- Strategic prototype deployment
+In this lesson, you will explore the powerful role of prototypes as persuasive communication tools and learn how to tailor your presentations for different audiences, from engineers to executives. We'll examine practical techniques for building organisational buy-in and dive into the strategic deployment of prototypes to kill flawed ideas early, unlock necessary resources, and build consensus across multidisciplinary teams.
 
 ## The Power of "Show, Don't Tell"
 
@@ -124,7 +121,7 @@ Share a prototype and gather feedback:
     },
     {
       "id": "c",
-      "text": "Prototypes can't be criticized like mockups can",
+      "text": "Prototypes can't be criticised like mockups can",
       "isCorrect": false,
       "explanation": "Prototypes invite feedback—that's part of their value."
     },
@@ -140,11 +137,7 @@ Share a prototype and gather feedback:
 
 ## Key Takeaways
 
-- Prototypes are communication tools, not just technical artifacts
-- Tailor presentations to your audience
-- Set expectations about fidelity and scope
-- Use prototypes strategically to build buy-in
-- Listen to feedback, even when it challenges your idea
+Prototypes are primarily communication tools that must be tailored to their specific audience to effectively demonstrate vision and value. By setting clear expectations about fidelity and focusing on a specific research question, you can use interactive models to build strategic buy-in and alignment. Most importantly, remain open to feedback—especially when it challenges your original assumptions—as the ultimate goal is to uncover the best solution for the user.
 
 ## Next Steps
 

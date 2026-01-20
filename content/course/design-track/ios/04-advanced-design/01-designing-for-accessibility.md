@@ -113,7 +113,7 @@ Use a plugin like Stark or a web contrast checker. Test your primary text agains
 
 ## Key Takeaways
 
-Accessible design is a core iOS value that benefits all users by ensuring information is clear and navigatable. This requires designing for **VoiceOver** with logical focus orders and meaningful labels, respecting the **44pt minimum touch target**, and maintaining **colour contrast** that meets WCAG standards. Finally, testing your interface at **Dynamic Type** extremes ensures your layout remains functional for users with varying visual preferences.
+Accessible design is a core iOS value that benefits all users by ensuring information is clear and navigable. This requires designing for **VoiceOver** with logical focus orders and meaningful labels, respecting the **44pt minimum touch target**, and maintaining **colour contrast** that meets WCAG standards. Finally, testing your interface at **Dynamic Type** extremes ensures your layout remains functional for users with varying visual preferences.
 
 ## Next Steps
 

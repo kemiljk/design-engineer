@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Why the rectangular screen concept doesn't apply to modern iOS
-- How safe areas adapt to different devices and orientations
-- Strategies for edge-to-edge content design
-- Handling the Dynamic Island and Home Indicator
+Throughout this module, you will discover why the concept of a perfectly rectangular screen no longer applies to modern iOS devices and learn how to use safe areas to protect your interactive content. We'll explore strategies for achieving immersive "full-bleed" designs while managing system-reserved zones like the Dynamic Island, Home Indicator, and rounded display corners to ensure your app remains functional and elegant in all orientations.
 
 ## The Death of the Rectangle
 
@@ -81,7 +78,7 @@ Design a screen with a "Confirm" button at the bottom.
   "title": "Safe Areas and Layout",
   "description": "Test your understanding of iOS safe areas.",
   "difficulty": "medium",
-  "question": "When designing a custom navigation bar with a background color, how should you configure its constraints?",
+  "question": "When designing a custom navigation bar with a background colour, how should you configure its constraints?",
   "options": [
     {
       "id": "a",

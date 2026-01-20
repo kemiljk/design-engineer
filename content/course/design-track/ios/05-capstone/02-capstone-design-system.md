@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Researching iOS design patterns
-- Defining app concept and purpose
-- Creating iOS-specific design tokens
-- Setting up light and dark mode
+During this initial phase of the capstone, you will explore the essential research and reference gathering techniques required to define a robust iOS app concept. We'll examine exactly how to establish a consistent app purpose and personality, set up a comprehensive system of iOS-specific design tokens, and implement a foundation for light and dark mode that ensures your interface remains accessible and native from the start.
 
 ## Step 1: Research & Reference
 

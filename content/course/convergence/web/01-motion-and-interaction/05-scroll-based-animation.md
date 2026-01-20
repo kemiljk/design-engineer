@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Scroll-triggered animations
-- Scroll-linked animations
-- CSS Scroll-Driven Animations API
-- Performance considerations
+In this lesson, you will master the two primary categories of scroll-driven motion: scroll-triggered reveals and scroll-linked progress effects. We'll explore the cutting-edge CSS Scroll-Driven Animations API along with traditional fallback methods using Intersection Observer and dive into the essential performance and accessibility considerations required to keep your scrolling experiences smooth and inclusive.
 
 ## Types of Scroll Animation
 
@@ -227,11 +224,7 @@ Create a hero section with a background image that scrolls at a different rate t
 
 ## Key Takeaways
 
-- Scroll animations can be triggered or linked to scroll position
-- CSS Scroll-Driven Animations API is the future
-- Intersection Observer offers good browser support
-- Only animate transform and opacity for performance
-- Respect reduced motion preferences
+Scroll animations should be used intentionally to reveal content or provide progress indicators, preferably leveraging the performant CSS Scroll-Driven Animations API where available. When using fallbacks like Intersection Observer, you must limit your animations to transform and opacity properties to ensure hardware acceleration and smooth frame rates. Most importantly, always respect reduced motion preferences and test your scroll effects across both desktop and mobile devices to ensure consistency.
 
 ## Next Steps
 

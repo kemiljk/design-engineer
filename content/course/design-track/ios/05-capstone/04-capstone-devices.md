@@ -10,10 +10,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Designing for multiple iPhone sizes
-- Handling safe areas properly
-- Completing dark mode versions
-- (Optional) iPad considerations
+In this phase, you will master the art of adapting your designs for various iPhone dimensions, specifically focusing on stress-testing your layouts for the smallest and largest displays. We'll examine how to handle safe areas effectively across multiple device generations, apply your semantic tokens to create polished dark mode versions, and explore optional strategies for transforming your interface for the iPad.
 
 ## Step 1: iPhone Sizes
 

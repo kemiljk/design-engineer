@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- San Francisco font family
-- Text styles and hierarchy
-- Dynamic Type
-- Typography best practices
+Throughout this module, you will explore the San Francisco font family and the structured text styles that define the iOS interface. We'll examine the principles of typography hierarchy and dive into the implementation of Dynamic Type to ensure your app remains readable and accessible for all users regardless of their preferred text size.
 
 ## San Francisco Font Family
 
@@ -59,7 +56,7 @@ Readable text requires a comfortable line length, typically between 70 and 80 ch
 
 ### Line Height and Weight
 
-System text styles come with baked-in line heights that are optimized for readability—tighter for headings and more generous for body text. Use font weight to establish hierarchy rather than relying solely on size. A **Semibold** weight can draw attention to a headline without needing to be significantly larger than the surrounding text.
+System text styles come with baked-in line heights that are optimised for readability—tighter for headings and more generous for body text. Use font weight to establish hierarchy rather than relying solely on size. A **Semibold** weight can draw attention to a headline without needing to be significantly larger than the surrounding text.
 
 ## Try It Yourself
 

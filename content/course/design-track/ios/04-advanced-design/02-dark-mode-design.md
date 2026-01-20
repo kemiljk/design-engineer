@@ -10,7 +10,7 @@ Since iOS 13, users have had the choice. Many use Dark Mode 24/7 for comfort or 
 
 ### System Colours
 iOS provides semantic colours that automatically adapt.
-System colors like **System Background**, **Label**, and **System Blue** automatically adapt to the user's appearance settings, ensuring consistent contrast and legibility across Light and Dark modes.
+System colours like **System Background**, **Label**, and **System Blue** automatically adapt to the user's appearance settings, ensuring consistent contrast and legibility across Light and Dark modes.
 
 ### Why Use Them?
 Using semantic colours like `Color.label` or `Color.systemBackground` means your app supports Dark Mode instantly with zero extra code. It also ensures consistency with the rest of the OS.

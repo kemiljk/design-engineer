@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Timing and duration guidelines
-- Easing functions and their uses
-- Choreography and sequencing
-- Motion design principles from Disney
+During this lesson, you will master the fundamental guidelines for animation timing and duration, ensuring your UI remains responsive and fluid. We'll explore the various easing functions and their appropriate use cases, dive into the choreography of complex multi-element sequences, and examine how classic animation principles from Disney can be adapted to create sophisticated web-based motion.
 
 ## Timing and Duration
 
@@ -201,11 +198,7 @@ Create a list that animates in with staggered delays. Experiment with:
 
 ## Key Takeaways
 
-- Duration: 100-300ms for most interactions
-- Use ease-out for entrances, ease-in for exits
-- Choreograph multiple animations with staggers and hierarchy
-- Apply Disney principles subtly for natural-feeling motion
-- Always test animations at different speeds
+Professional UI motion relies on careful duration management, typically staying within the 100-300ms range for most interactions, and choosing the correct easing functions—such as ease-out for entrances and ease-in for exits. By choreographing multiple elements using staggers and hierarchical delays, and subtly applying Disney's animation principles for weight and momentum, you can create natural-feeling transitions. Always remember to test your animations at varying speeds to ensure they remain helpful and never become a hurdle for the user.
 
 ## Next Steps
 

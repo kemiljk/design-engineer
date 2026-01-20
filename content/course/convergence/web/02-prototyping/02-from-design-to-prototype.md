@@ -2,6 +2,10 @@
 
 > **Quick Summary:** A design file is a map, not the territory. Translating static pixels into living software requires you to make hundreds of small decisions that the designer never specified. This interpretation layer is where Design Engineers provide immense value.
 
+## What You'll Learn
+
+In this lesson, you will learn how to look beyond static design files to identify the 'implied' logic and interaction requirements that define softare behaviour. We'll explore exactly how to make confident decisions regarding motion, feedback states, and choreography when the specifications are incomplete, and master rapid prototyping techniques that allow you to build functional experiences without getting bogged down in visual polish.
+
 ## The Gap Between Figma and Reality
 
 Static design tools lie. They show perfect data, ideal usernames, and happy paths. They freeze time, ignoring the awkward transitions between states.
@@ -64,7 +68,7 @@ Only once the interaction works should you go back and fine-tune the corner radi
 
 ## Handling Unknowns
 
-You will hit roadbloacks. "I don't know what this error state looks like."
+You will hit roadblocks. "I don't know what this error state looks like."
 
 **Do not block.**
 1.  **Improvise:** Create a simple red banner with text.
@@ -122,10 +126,7 @@ Find a UI animation on Dribbble or Twitter. Set a timer for 60 minutes. Recreate
 
 ## Key Takeaways
 
--   **Design files are incomplete.** Your job is to fill the gaps.
--   **Default to standard motion.** Use established timing (150-300ms) when in doubt.
--   **Build the bones first.** Structure -> Interaction -> Visual Polish.
--   **Improvise and iterate.** Don't wait for permission to solve a problem.
+Successful prototyping requires you to recognise that design files are often incomplete and that your role is to proactively fill the gaps with reasonable defaults for motion and feedback. By focusing on a "bones-first" approach—building structure and interaction before visual polish—you can solve problems faster and iterate more effectively. Most importantly, improvise when you hit unknowns and use your prototypes as a primary tool for moving the project forward.
 
 ## Next Steps
 

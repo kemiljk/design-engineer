@@ -2,6 +2,10 @@
 
 > **Quick Summary:** Apple's Human Interface Guidelines (HIG) are not just a rulebook; they are a philosophy built on clarity, deference, and depth. With iOS 26, this philosophy evolves through **Liquid Glass**, a revolutionary design language that combines the optical properties of glass with fluid, physics-based motion.
 
+## What You'll Learn
+
+During this lesson, you will explore the three enduring themes that form the foundation of Apple's design philosophy: Clarity, Deference, and Depth. We'll examine exactly how these principles guide the iOS experience and dive into the revolutionary Liquid Glass design language introduced in iOS 26. You'll also learn how system-wide materials, typography, and colour work together to create a premium, native feel.
+
 ## The Three Themes
 
 Apple's design philosophy is grounded in three enduring themes. Understanding these is more valuable than memorising component dimensions, as they guide every design decision you will make.

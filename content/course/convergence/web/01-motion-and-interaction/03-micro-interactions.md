@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- What makes a good micro-interaction
-- Common micro-interaction patterns
-- Implementing micro-interactions in CSS
-- Balancing delight with utility
+In this lesson, you will discover the anatomy of effective micro-interactions and explore the common patterns that make digital interfaces feel responsive and alive. We'll dive into the practical implementation of these small-scale animations using modern CSS and examine exactly how to balance visual delight with functional utility to ensure your interactions remain helpful without becoming distracting.
 
 ## Anatomy of a Micro-interaction
 
@@ -317,11 +314,7 @@ Create an input with:
 
 ## Key Takeaways
 
-- Micro-interactions provide immediate feedback
-- Keep animations brief (100-300ms)
-- Match interaction to expected behaviour
-- Use subtle transforms over colour changes alone
-- Test with reduced motion preference
+Successful micro-interactions are subtle and purposeful, providing immediate visual feedback that matches the user's expected behaviour without demanding excessive attention. By keeping animations brief (100-300ms) and prioritising transforms over simple colour changes, you can guide users through an interface with intuitive cues. Finally, ensuring your interactions respect reduced motion preferences will keep your refined experience accessible to all users.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The vocabulary of standard iOS gestures
-- Designing for the physical reality of fingers
-- Haptic feedback as a design layer
-- Handling the lack of hover states
+During this lesson, you will explore the vocabulary of standard iOS gestures—including taps, swipes, and long presses—and learn how to design for the physical realities of direct human interaction. We'll examine exactly how to handle the lack of hover states by using clear visual affordances and dive into the implementation of haptic feedback to add a sophisticated tactile layer to your user experience.
 
 ## The Standard Gesture Vocabulary
 

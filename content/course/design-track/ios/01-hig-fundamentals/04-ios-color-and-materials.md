@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- The two types of iOS materials: Liquid Glass and Standard Materials
-- Liquid Glass variants (Regular and Clear)
-- System colours and semantic colours
-- Dark mode considerations
-- Designing for accessibility
+In this lesson, you will discover the foundational materials and colour systems of iOS, specifically focusing on the new Liquid Glass design language and its various functional layers. We'll examine how semantic system colours adapt to light and dark modes while exploring the critical considerations for building accessible, vibrant, and deeply integrated user interfaces.
 
 ## System Colours
 
@@ -16,7 +12,7 @@ Colour on iOS is not static. Apple provides a suite of semantic colours that ada
 
 ### UI Element Colours
 
-Instead of picking a hex code for "black" text, you use **Label Color**. This ensures that when the device switches to Dark Mode, your text automatically turns white. The hierarchy is built-in:
+Instead of picking a hex code for "black" text, you use **Label Colour**. This ensures that when the device switches to Dark Mode, your text automatically turns white. The hierarchy is built-in:
 Standard text roles include **Label** for primary opaque text, **Secondary Label** for less prominent information, and **Tertiary Label** for disabled or placeholder content. These are supported by **Separators** for structural division and **System Background** roles for the base layout layer.
 
 ### Accent Colours
@@ -29,7 +25,7 @@ Using these semantic definitions future-proofs your app. If Apple introduces a "
 
 ## Dark Mode
 
-Support for Dark Mode is mandatory for modern iOS apps. It isn't just a "night theme"; it's an aesthetic preference that many users utilize 24/7.
+Support for Dark Mode is mandatory for modern iOS apps. It isn't just a "night theme"; it's an aesthetic preference that many users utilise 24/7.
 
 ### Design Considerations
 

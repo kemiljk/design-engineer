@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Spring animations vs. Bezier curves
-- iOS motion principles (Responsive, Meaningful, Coherent)
-- Transitions and timing
-- Designing with motion
+During this lesson, you will explore why iOS animations feel so distinct, specifically focusing on the shift from standard curves to sophisticated spring physics. We'll examine the three core principles of native motion—responsive, meaningful, and coherent—and learn exactly how to specify transitions and timing that create a tactile, physically real experience for your users.
 
 ## Spring Animations
 

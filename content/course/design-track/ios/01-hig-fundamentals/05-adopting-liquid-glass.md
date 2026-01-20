@@ -50,7 +50,7 @@ One subtle but powerful effect is the "Background Extension." If you have a beau
 
 ## Menus and Toolbars
 
-**Grouping:** Liquid Glass emphasizes grouping. Related actions in a toolbar shouldn't just sit next to each other; they should share a common glass container. This visual grouping helps users parse complex interfaces by chunking related tasks.
+**Grouping:** Liquid Glass emphasise grouping. Related actions in a toolbar shouldn't just sit next to each other; they should share a common glass container. This visual grouping helps users parse complex interfaces by chunking related tasks.
 
 **Icons vs Text:** Space is premium. Wherever possible, use SF Symbols instead of text labels in toolbars. The system applies specific weights and scales to these symbols to ensure they remain legible even on translucent backgrounds.
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- How designs map to SwiftUI Views
-- Translating layout concepts (Stacks vs. Auto Layout)
-- Design decisions that help developers
-- Preparing designs for handoff
+In this final lesson, you will discover how your design components map directly to SwiftUI views and core layout concepts like vertical, horizontal, and depth stacks. We'll explore the specific design decisions—such as consistent spacing and semantic naming—that help developers build more robust interfaces and dive into the best practices for preparing your Figma files for a seamless handoff process.
 
 ## SwiftUI Fundamentals
 
@@ -86,7 +83,7 @@ Don't assume the developer knows your intent.
 - **Interaction:** "This row should highlight on tap."
 
 ### Group Logically
-Organize your Figma layers to match the intended component structure. If your layer tree is a mess of groups and un-named frames, the developer has to reverse-engineer your layout logic.
+Organise your Figma layers to match the intended component structure. If your layer tree is a mess of groups and un-named frames, the developer has to reverse-engineer your layout logic.
 
 ### Provide Assets
 - **Icons:** Export as PDFs or SVGs (for vectors).

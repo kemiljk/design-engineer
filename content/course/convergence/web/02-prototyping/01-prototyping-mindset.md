@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- What prototyping really means
-- Why Design Engineers excel at prototyping
-- The prototype spectrum
-- Overcoming perfectionism
+In this lesson, you will discover the true meaning of prototyping as a tool for learning rather than production and learn why Design Engineers are uniquely suited to excel in this experimental phase. We'll examine the full spectrum of prototype fidelity—from paper sketches to high-fidelity code—and explore practical strategies for overcoming perfectionism to maintain a rapid, iterative workflow.
 
 ## What Is a Prototype?
 
@@ -148,11 +145,7 @@ Compare what you learned from each.
 
 ## Key Takeaways
 
-- Prototypes are for learning, not shipping
-- Choose fidelity based on what you need to learn
-- Design Engineers can create high-fidelity prototypes quickly
-- Speed and iteration beat perfection
-- It's okay to throw prototypes away
+To master a prototyping mindset, you must remember that prototypes are built for learning and validating hypotheses, not for shipping final code. By choosing the appropriate fidelity for your specific question and leveraging your ability as a Design Engineer to create high-fidelity experiences quickly, you can iterate with speed. Ultimately, embrace the idea that speed and quantity often beat perfection in this phase, and never be afraid to throw a prototype away once it has served its purpose.
 
 ## Next Steps
 

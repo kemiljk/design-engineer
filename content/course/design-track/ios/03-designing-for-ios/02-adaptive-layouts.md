@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Size classes (Compact vs. Regular)
-- iPhone vs. iPad design strategies
-- Multitasking on iPad
-- Designing adaptable interfaces
+Throughout this lesson, you will explore the foundational system of iOS size classes and learn how to design adaptive interfaces that shift fluidly between compact and regular environments. We'll examine the specific strategies required to bridge the gap between iPhone and iPad experiences, ensuring your app takes full advantage of larger canvases and system-wide multitasking capabilities without compromising on native feel.
 
 ## Size Classes
 
@@ -40,7 +37,7 @@ Designing for iPad is not just scaling up your iPhone app. It requires a fundame
 
 ### Key Differences
 - **Sidebar Navigation:** Instead of a bottom Tab Bar, iPads often use a sidebar on the left. This lists top-level destinations and allows for quick switching without losing context.
-- **Multi-Column Layouts:** A single column of text on an iPad is unreadable (the lines are too long). Use split views (List + Detail) or masonry grids to utilize the horizontal space.
+- **Multi-Column Layouts:** A single column of text on an iPad is unreadable (the lines are too long). Use split views (List + Detail) or masonry grids to utilise the horizontal space.
 - **Popovers:** Instead of full-screen modals, use popovers that point to the button that triggered them, maintaining context.
 
 ## iPad Multitasking
@@ -75,7 +72,7 @@ Use Auto Layout in Figma (and SwiftUI in code) to build components that flex.
 
 ### Exercise 1: Adaptive Screen
 Design a "Profile" screen.
-- **On iPhone:** Avatar is centered at the top. Details follow in a vertical list.
+- **On iPhone:** Avatar is centred at the top. Details follow in a vertical list.
 - **On iPad:** Avatar moves to the left side. Details appear in a grid on the right.
 Document the constraints that cause this shift.
 

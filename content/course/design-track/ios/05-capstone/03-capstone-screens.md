@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Planning information architecture
-- Choosing navigation patterns
-- Designing core screens
-- Using iOS-standard components
+Throughout this design phase, you will learn how to map out a clear information architecture and choose the navigation patterns that best suit your app's content hierarchy. We'll dive into the specific requirements for designing core iOS screens—from dashboards to detail views—and explore exactly how to leverage standard system components to create a recognizable and user-friendly experience.
 
 ## Step 1: Information Architecture
 
@@ -30,7 +27,7 @@ Utilise a **Tab Bar** for primary sections, consider a **Sidebar** for iPad adap
 Design the 5-7 screens that define your app.
 
 **1. Home / Dashboard:**
-This is the anchor. It should summarize the app's state. Use large titles to establish context.
+This is the anchor. It should summarise the app's state. Use large titles to establish context.
 
 **2. List View:**
 Most apps display collections. Design a standard cell (image + title + subtitle). Consider edge cases: what if the title is long?

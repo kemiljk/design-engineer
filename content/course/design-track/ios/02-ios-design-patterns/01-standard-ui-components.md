@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The hierarchy and usage of standard button styles
-- Structuring content with lists and tables
-- Input patterns specific to iOS
-- When to leverage standard components versus building custom ones
+In this lesson, you will explore the extensive library of standard components that form the backbone of the iOS user experience, specifically focusing on the hierarchy of button styles and the various ways to structure content using lists and tables. We'll identify exactly when to choose native UI elements over custom builds and examine the specific input patterns—such as switches and pickers—that make data entry on iOS feel efficient and accessible.
 
 ## Buttons and Actions
 

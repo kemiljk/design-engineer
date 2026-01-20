@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Prototyping tool categories
-- When to use each approach
-- Speed techniques
-- Building your prototyping toolkit
+During this lesson, you will master the various categories of prototyping tools—from design software to code sandboxes—and learn exactly when to deploy each approach for maximum impact. We'll explore essential speed techniques, including the use of boilerplates and component libraries, and examine how to build a personal, production-ready prototyping toolkit that allows you to move from idea to interactive model in record time.
 
 ## Tool Categories
 
@@ -158,11 +155,7 @@ Create your ideal prototype starter:
 
 ## Key Takeaways
 
-- Different tools serve different purposes
-- Speed comes from preparation (templates, libraries)
-- Hybrid approaches often work best
-- Build a personal toolkit you can deploy instantly
-- The best tool is the one that answers your question fastest
+Mastering a variety of prototyping tools allows you to choose the fastest method to answer a specific design or technical question, whether through a quick Figma flow or a high-fidelity code sandbox. Speed comes from preparation—having a personal toolkit of templates, libraries, and deployment scripts ready for instant use. Ultimately, the best tool is the one that facilitates the fastest cycle of iteration and learning for your specific project needs.
 
 ## Congratulations!
 

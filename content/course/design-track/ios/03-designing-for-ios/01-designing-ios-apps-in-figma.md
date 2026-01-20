@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- iOS design file setup
-- Using iOS UI kits
-- SF Symbols in Figma
-- Device frames and presentation
+In this lesson, you will master the essential setup for iOS design files in Figma, including frame sizes, grid systems, and efficient page organisation. We'll explore exactly how to leverage official Apple UI kits and SF Symbols to maintain platform consistency and dive into the specific typography and colour styles required to create professional-grade, developer-friendly interfaces.
 
 ## File Setup
 
@@ -19,8 +16,8 @@ Start with the most common iPhone sizes. Designing at **1x** scale (points) is m
 - **iPhone 15/16 Pro Max:** 430×932 points. Use this to check how layouts scale.
 - **iPhone SE:** 375×667 points. Use this to stress-test dense layouts.
 
-### Page Organization
-Organize your Figma file to separate work-in-progress from final assets.
+### Page Organisation
+Organise your Figma file to separate work-in-progress from final assets.
 ```text
 📄 Cover
 📄 Components (Local definitions)
@@ -47,7 +44,7 @@ Apple provides an official **Figma iOS 18 UI Kit**. Use it. Do not redraw system
 ### Using UI Kit Components
 1.  **Import** the kit as a library in Figma.
 2.  **Insert** components as instances (e.g., a Navigation Bar).
-3.  **Customize** using the component properties (change title, show/hide buttons).
+3.  **Customise** using the component properties (change title, show/hide buttons).
 4.  **Never detach** unless absolutely necessary. Detaching breaks the link to the master library, meaning you won't get updates.
 
 ## SF Symbols
@@ -83,7 +80,7 @@ Naming them strictly (e.g., "iOS/Body", "iOS/Title 1") helps developers map them
 ## Colour Styles
 
 Create semantic colour styles in Figma, not just raw hex codes.
-Semantic definitions should include **Label Colours** for text hierarchy, **Backgrounds** for layout layers, and **Accents** for interactive system colours like Blue and Red. Using Figma's variable modes allows you to switch your entire design between Light and Dark values with a single click. This allows you to switch your entire design from Light to Dark mode with one click.
+Semantic definitions should include **Label Colours** for text hierarchy, **Backgrounds** for layout layers, and **Accents** for interactive system colours like Blue and Red. Using Figma's variable modes allows you to switch your entire design between Light and Dark values with a single click.
 
 ## Device Frames
 

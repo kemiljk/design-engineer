@@ -10,9 +10,9 @@ A poor handoff creates a cascade of inefficiencies. Visual discrepancies frustra
 
 ## Preparing for Handoff
 
-### Design File Organization
+### Design File Organisation
 Your file is a map. If it's cluttered, developers get lost.
-Ensure your file is organized by deleting explorations, structuring pages logically into specs and flows, and naming all layers semantically to help developers map them to code.
+Ensure your file is organised by deleting explorations, structuring pages logically into specs and flows, and naming all layers semantically to help developers map them to code.
 
 ### Component Structure
 Think like a developer. SwiftUI builds views using stacks.
