@@ -40,7 +40,7 @@ Before choosing a path, honestly assess your current skills. Rate each skill fro
       "skills": [
         "Visual design principles (hierarchy, contrast, spacing)",
         "Typography selection and pairing",
-        "Color theory and palette creation",
+        "Colour theory and palette creation",
         "Design tool proficiency (Figma, Sketch, etc.)",
         "Creating and using design systems",
         "Understanding user experience patterns"

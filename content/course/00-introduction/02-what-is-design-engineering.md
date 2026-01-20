@@ -87,9 +87,9 @@ Design Engineers break this cycle. They understand both design intent and implem
 
 Companies value Design Engineers because they:
 
-**Ship faster.** Less back-and-forth between design and engineering. Fewer "it doesn't match the mockup" tickets. More iteration, less waiting.
+**Ship faster.** You'll experience less back-and-forth between design and engineering, and fewer "it doesn't match the mockup" tickets. This leads to more iteration and less waiting.
 
-**Ship better.** Details don't get lost in handoff. Animations get implemented. Edge cases get designed. The gap between mockup and reality shrinks.
+**Ship better.** Details don't get lost in handoff. Animations get implemented, edge cases get designed, and the gap between mockup and reality shrinks.
 
 **Bridge teams.** In large organizations, design and engineering can become silos. Design Engineers create connections, reduce friction, and help teams understand each other.
 

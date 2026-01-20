@@ -296,11 +296,32 @@ export type CourseEnrollment = {
     purchased_at?: string;
     expires_at?: string;
     email_domain?: string; // For company logos feature
+    is_temporary?: boolean; // For temporary access codes
+    temporary_source?: string; // Source temporary access code
     status: "active" | "expired" | "refunded";
   };
 };
 
 export type AccessLevel = CourseEnrollment["metadata"]["access_level"];
+
+// Temporary Access Code Types
+export type TemporaryAccessCode = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: string;
+  metadata: {
+    code: string;
+    access_level: "full"; // Always full for temporary access
+    expires_at: string;
+    created_at: string;
+    used_at?: string;
+    used_by_user_id?: string;
+    status: "active" | "used" | "expired";
+  };
+};
+
+export type TemporaryAccessCodeStatus = "active" | "used" | "expired";
 
 export type CourseLesson = {
   slug: string;
@@ -316,8 +337,8 @@ export type CourseLesson = {
 
 // Certificate Types
 
-export type CertificatePlatform = 'web' | 'ios' | 'android';
-export type CertificateTrack = 'design' | 'engineering' | 'convergence';
+export type CertificatePlatform = "web" | "ios" | "android";
+export type CertificateTrack = "design" | "engineering" | "convergence";
 
 // Track Certificate - awarded for completing a single track
 export type TrackCertificate = {
@@ -408,9 +429,13 @@ export type ProductWithPrice = {
 
 // Gallery Project Types
 
-export type GalleryProjectPlatform = 'web' | 'ios' | 'android';
-export type GalleryProjectTrack = 'design' | 'engineering' | 'convergence';
-export type GalleryProjectStatus = 'pending' | 'approved' | 'featured' | 'rejected';
+export type GalleryProjectPlatform = "web" | "ios" | "android";
+export type GalleryProjectTrack = "design" | "engineering" | "convergence";
+export type GalleryProjectStatus =
+  | "pending"
+  | "approved"
+  | "featured"
+  | "rejected";
 
 export type GalleryProject = {
   id: string;
@@ -438,7 +463,11 @@ export type GalleryProject = {
 
 // Testimonial Types
 
-export type TestimonialStatus = 'pending' | 'approved' | 'featured' | 'rejected';
+export type TestimonialStatus =
+  | "pending"
+  | "approved"
+  | "featured"
+  | "rejected";
 
 export type Testimonial = {
   id: string;

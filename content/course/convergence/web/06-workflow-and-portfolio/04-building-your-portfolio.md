@@ -70,7 +70,7 @@ DE-specific things to highlight:
 - Micro-interactions
 - Responsive behaviour
 - Accessibility considerations
-- Performance optimizations
+- Performance optimisations
 
 ### Include the Code
 Link to the source:

@@ -113,7 +113,7 @@ Compare speed, fidelity, and learning from each.
 
 Create your ideal prototype starter:
 - Boilerplate code
-- Favorite libraries installed
+- Favourite libraries installed
 - Common components ready
 - Deploy script configured
 

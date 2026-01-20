@@ -69,7 +69,7 @@ document.startViewTransition(() => {
 });
 ```
 
-### CSS Customization
+### CSS Customisation
 
 ```css
 ::view-transition-old(root) {

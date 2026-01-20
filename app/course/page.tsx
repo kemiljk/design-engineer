@@ -30,6 +30,8 @@ import { TrackLogo } from "@/app/components/track-logo";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { CurriculumPreview } from "./components/curriculum-preview";
 import { CourseApproach } from "./components/course-approach";
+import { TemporaryAccessRedeem } from "./components/temporary-access-redeem";
+import { TemporaryAccessStatus } from "./components/temporary-access-status";
 
 export const metadata = {
   title: "Design Engineer Course",
@@ -53,21 +55,28 @@ export default async function CoursePage() {
   let introCompleted = false;
   let accessLevel: string | null = null;
   let filteredCompletedCount = 0;
+  let enrollment: Awaited<ReturnType<typeof getUserEnrollment>> = null;
 
   if (userId) {
-    const [progressData, lastActivityData, enrollment, userProgress] = await Promise.all([
-      getCourseProgress(userId),
-      getLastActivity(userId),
-      getUserEnrollment(userId),
-      getUserProgress(userId),
-    ]);
+    const [progressData, lastActivityData, enrollmentData, userProgress] =
+      await Promise.all([
+        getCourseProgress(userId),
+        getLastActivity(userId),
+        getUserEnrollment(userId),
+        getUserProgress(userId),
+      ]);
+
+    enrollment = enrollmentData;
 
     progress = progressData;
     lastActivity = lastActivityData;
     accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level);
 
     // Get filtered stats based on actual access level
-    const stats = await getProgressStats(userProgress, (accessLevel || "free") as AccessLevel);
+    const stats = await getProgressStats(
+      userProgress,
+      (accessLevel || "free") as AccessLevel,
+    );
     filteredCompletedCount = stats.completedCount;
 
     // Check if all intro lessons are completed
@@ -88,7 +97,14 @@ export default async function CoursePage() {
       title: "Design Track",
       description:
         "For engineers. Learn typography, colour, and layout. Develop the design taste to ship interfaces you're proud of.",
-      icon: <TrackLogo track="design" showLayer="track" size={28} className="text-neutral-900 dark:text-white" />,
+      icon: (
+        <TrackLogo
+          track="design"
+          showLayer="track"
+          size={28}
+          className="text-neutral-900 dark:text-white"
+        />
+      ),
       color: "bg-swiss-red",
       stats: {
         lessons: course.tracks.design.totalLessons,
@@ -102,7 +118,14 @@ export default async function CoursePage() {
       title: "Engineering Track",
       description:
         "For designers. Go beyond Vibe Coding and actually understand HTML, CSS, and JavaScript. Build it yourself.",
-      icon: <TrackLogo track="engineering" showLayer="track" size={28} className="text-neutral-900 dark:text-white" />,
+      icon: (
+        <TrackLogo
+          track="engineering"
+          showLayer="track"
+          size={28}
+          className="text-neutral-900 dark:text-white"
+        />
+      ),
       color: "bg-neutral-900 dark:bg-neutral-100",
       stats: {
         lessons: course.tracks.engineering.totalLessons,
@@ -116,7 +139,14 @@ export default async function CoursePage() {
       title: "Convergence: All-Access",
       description:
         "Starting your career, or want both skillsets? Everything included, plus exclusive content on motion, prototyping, and accessibility.",
-      icon: <TrackLogo track="convergence" showLayer="track" size={28} className="text-neutral-900 dark:text-white" />,
+      icon: (
+        <TrackLogo
+          track="convergence"
+          showLayer="track"
+          size={28}
+          className="text-neutral-900 dark:text-white"
+        />
+      ),
       color: "bg-neutral-500",
       stats: {
         lessons: course.totalLessons,
@@ -157,7 +187,7 @@ export default async function CoursePage() {
           </div>
           {!hasPaidAccess && (
             <div className="flex items-center gap-2">
-              <Gift className="h-4 w-4 text-swiss-red" />
+              <Gift className="text-swiss-red h-4 w-4" />
               <span>Free intro modules</span>
             </div>
           )}
@@ -166,20 +196,30 @@ export default async function CoursePage() {
       </PageHeader>
 
       {/* Progress Section */}
-      {userId && progress && (
+      {userId && (
         <div className="border-b border-neutral-200 bg-neutral-50 py-12 dark:border-neutral-800 dark:bg-neutral-900/50">
           <div className="container-page">
-            <div className="mx-auto max-w-5xl">
-              <div className="mb-8 flex items-center justify-between">
-                <h2 className="heading-subsection">Your Progress</h2>
-                <div className="flex items-center gap-2 text-sm text-neutral-500">
-                  <Trophy className="text-swiss-red h-4 w-4" />
-                  <span>
-                    {filteredCompletedCount} lessons completed
-                  </span>
+            <div className="mx-auto max-w-5xl space-y-6">
+              {/* Temporary Access Status */}
+              {enrollment?.metadata.is_temporary && (
+                <div className="mb-4">
+                  <TemporaryAccessStatus enrollment={enrollment} />
                 </div>
-              </div>
-              <ProgressTracker />
+              )}
+
+              {/* Progress Tracker */}
+              {progress && (
+                <>
+                  <div className="mb-8 flex items-center justify-between">
+                    <h2 className="heading-subsection">Your Progress</h2>
+                    <div className="flex items-center gap-2 text-sm text-neutral-500">
+                      <Trophy className="text-swiss-red h-4 w-4" />
+                      <span>{filteredCompletedCount} lessons completed</span>
+                    </div>
+                  </div>
+                  <ProgressTracker />
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -214,7 +254,7 @@ export default async function CoursePage() {
 
               <Link
                 href="/course/00-introduction/01-welcome"
-                className="group flex items-start gap-6 border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:border-swiss-red dark:border-neutral-700 dark:bg-neutral-800/50 dark:hover:border-swiss-red"
+                className="group hover:border-swiss-red dark:hover:border-swiss-red flex items-start gap-6 border border-neutral-200 bg-neutral-50 p-6 transition-colors dark:border-neutral-700 dark:bg-neutral-800/50"
               >
                 <div className="bg-swiss-red/10 flex h-12 w-12 shrink-0 items-center justify-center">
                   <DiamondIcon className="text-swiss-red h-6 w-6" />
@@ -301,9 +341,12 @@ export default async function CoursePage() {
                   ? "The first module of each track is completely free. Start learning—no credit card required."
                   : "The Introduction and first module of each track are completely free. Understand what Design Engineering is and start learning—no credit card required."}
               </p>
-              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-swiss-red/20 bg-swiss-red/[0.025] px-4 py-2 text-sm text-swiss-red dark:border-swiss-red/30 dark:bg-swiss-red/5">
+              <div className="border-swiss-red/20 bg-swiss-red/[0.025] text-swiss-red dark:border-swiss-red/30 dark:bg-swiss-red/5 mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm">
                 🎓 Students get 30% off -{" "}
-                <Link href="/course/pricing" className="font-medium underline hover:no-underline">
+                <Link
+                  href="/course/pricing"
+                  className="font-medium underline hover:no-underline"
+                >
                   learn more
                 </Link>
               </div>
@@ -320,7 +363,9 @@ export default async function CoursePage() {
                 <Button
                   href="/course/design-track/web/01-foundations/01-what-is-visual-design"
                   variant="outline"
-                  startContent={<TrackLogo track="design" platform="web" size={16} />}
+                  startContent={
+                    <TrackLogo track="design" platform="web" size={16} />
+                  }
                   className="px-4 py-2 text-sm font-medium"
                 >
                   Start Design (Web)
@@ -328,12 +373,25 @@ export default async function CoursePage() {
                 <Button
                   href="/course/engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal"
                   variant="outline"
-                  startContent={<TrackLogo track="engineering" platform="web" size={16} />}
+                  startContent={
+                    <TrackLogo track="engineering" platform="web" size={16} />
+                  }
                   className="px-4 py-2 text-sm font-medium"
                 >
                   Start Engineering (Web)
                 </Button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Temporary Access Code Redemption - only show for non-enrolled users */}
+      {(!accessLevel || accessLevel === "free") && (
+        <div className="border-b border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50">
+          <div className="container-page">
+            <div className="mx-auto max-w-2xl">
+              <TemporaryAccessRedeem />
             </div>
           </div>
         </div>
@@ -345,7 +403,9 @@ export default async function CoursePage() {
           <div className="container-page">
             <div className="mx-auto max-w-4xl">
               <div className="mb-8 text-center">
-                <h2 className="heading-subsection mb-2">Simple, Transparent Pricing</h2>
+                <h2 className="heading-subsection mb-2">
+                  Simple, Transparent Pricing
+                </h2>
                 <p className="text-neutral-600 dark:text-neutral-400">
                   One-time payment. Lifetime access. No subscriptions.
                 </p>
@@ -354,7 +414,7 @@ export default async function CoursePage() {
               <div className="grid gap-6 md:grid-cols-3">
                 {/* Design Full */}
                 <div className="rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50">
-                  <div className="mb-1 text-xs font-medium uppercase tracking-wider text-swiss-red">
+                  <div className="text-swiss-red mb-1 text-xs font-medium tracking-wider uppercase">
                     Design Track
                   </div>
                   <h3 className="mb-2 text-lg font-bold">Full Access</h3>
@@ -366,7 +426,9 @@ export default async function CoursePage() {
                     <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <li>✓ {course.tracks.design.totalLessons}+ design lessons</li>
+                    <li>
+                      ✓ {course.tracks.design.totalLessons}+ design lessons
+                    </li>
                     <li>✓ All 3 platforms</li>
                     <li>✓ Lifetime access</li>
                   </ul>
@@ -374,7 +436,7 @@ export default async function CoursePage() {
 
                 {/* Engineering Full */}
                 <div className="rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50">
-                  <div className="mb-1 text-xs font-medium uppercase tracking-wider text-neutral-500">
+                  <div className="mb-1 text-xs font-medium tracking-wider text-neutral-500 uppercase">
                     Engineering Track
                   </div>
                   <h3 className="mb-2 text-lg font-bold">Full Access</h3>
@@ -386,26 +448,31 @@ export default async function CoursePage() {
                     <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <li>✓ {course.tracks.engineering.totalLessons}+ engineering lessons</li>
+                    <li>
+                      ✓ {course.tracks.engineering.totalLessons}+ engineering
+                      lessons
+                    </li>
                     <li>✓ All 3 platforms</li>
                     <li>✓ Lifetime access</li>
                   </ul>
                 </div>
 
                 {/* Convergence */}
-                <div className="rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-6 dark:bg-swiss-red/5">
+                <div className="border-swiss-red bg-swiss-red/[0.025] dark:bg-swiss-red/5 rounded-none border-2 p-6">
                   <div className="mb-1 flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-swiss-red">
+                    <span className="text-swiss-red text-xs font-bold tracking-wider uppercase">
                       Best Value
                     </span>
-                    <Crown className="h-3 w-3 text-swiss-red" />
+                    <Crown className="text-swiss-red h-3 w-3" />
                   </div>
                   <h3 className="mb-2 text-lg font-bold">Convergence</h3>
                   <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
                     Everything — Design + Engineering + exclusive content
                   </p>
                   <div className="mb-4">
-                    <span className="text-3xl font-bold text-swiss-red">£599</span>
+                    <span className="text-swiss-red text-3xl font-bold">
+                      £599
+                    </span>
                     <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
@@ -425,7 +492,8 @@ export default async function CoursePage() {
                   View All Pricing Options
                 </Button>
                 <p className="mt-4 text-sm text-neutral-500">
-                  14-day money-back guarantee • Individual platform tracks from £99
+                  14-day money-back guarantee • Individual platform tracks from
+                  £99
                 </p>
               </div>
             </div>
@@ -442,7 +510,9 @@ export default async function CoursePage() {
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-8 md:grid-cols-3">
               <div>
-                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">Course</h3>
+                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">
+                  Course
+                </h3>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li>
                     <Link
@@ -503,7 +573,9 @@ export default async function CoursePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">Support</h3>
+                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">
+                  Support
+                </h3>
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li>
                     <Link href="/course/faq" className="hover:text-swiss-red">
@@ -550,7 +622,9 @@ export default async function CoursePage() {
                 </ul>
               </div>
               <div>
-                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">Guarantee</h3>
+                <h3 className="heading-eyebrow mb-3 text-neutral-900 dark:text-white">
+                  Guarantee
+                </h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   14-day money-back guarantee. If you&apos;re not satisfied with
                   the course, contact us within 14 days for a full refund—no

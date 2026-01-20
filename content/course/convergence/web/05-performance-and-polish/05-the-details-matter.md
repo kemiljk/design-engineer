@@ -28,7 +28,7 @@ Users may not consciously notice polish, but they feel it.
 
 ### Visual Consistency
 - [ ] Spacing follows a system (8px grid)
-- [ ] Colors are from the design system
+- [ ] Colours are from the design system
 - [ ] Typography is consistent
 - [ ] Icons are the same style/weight
 - [ ] Border radiuses match

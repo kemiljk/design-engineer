@@ -39,7 +39,7 @@ Designs show "State A" and "State B." They don't show that "Image A" fades out *
 The goal of a prototype is to answer a question, not to write production code. Optimize for speed.
 
 ### Start with Structure (HTML)
-Ignore the colors. Get the boxes on the screen.
+Ignore the colours. Get the boxes on the screen.
 ```html
 <div class="card">
   <div class="image"></div>

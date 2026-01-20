@@ -18,7 +18,7 @@ Animation duration depends on purpose and distance:
 ### Quick Feedback (100-200ms)
 - Button hover states
 - Checkbox toggles
-- Color transitions
+- Colour transitions
 
 ### Standard Interactions (200-300ms)
 - Dropdown menus

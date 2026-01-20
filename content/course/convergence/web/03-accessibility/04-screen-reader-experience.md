@@ -163,7 +163,7 @@ Turn on VoiceOver (Mac) or NVDA (Windows). Navigate a page you built:
 
 Based on your testing, fix:
 - Missing alt text
-- Unlabeled form fields
+- Unlabelled form fields
 - Missing ARIA for dynamic content
 
 ## Test Your Understanding

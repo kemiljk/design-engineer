@@ -1,6 +1,6 @@
-# Color and Contrast
+# Colour and Contrast
 
-> **Quick Summary:** Color contrast affects readability for everyone and is critical for users with visual impairments. Learn the standards and how to meet them.
+> **Quick Summary:** Colour contrast affects readability for everyone and is critical for users with visual impairments. Learn the standards and how to meet them.
 
 ## What You'll Learn
 
@@ -54,7 +54,7 @@ Chrome: Inspect element → Color picker → Shows contrast ratio
 --text-on-white: #9ca3af;      /* grey-400: 2.9:1 ✗ */
 ```
 
-## Color Blindness
+## Colour Blindness
 
 8% of men and 0.5% of women have some form of colour blindness.
 
@@ -137,7 +137,7 @@ Check your project's colour palette:
 - Button text on button backgrounds
 - Icon colours on backgrounds
 
-### Exercise 2: Color Blindness Test
+### Exercise 2: Colour Blindness Test
 
 View your interface with simulated colour blindness:
 - Can you distinguish all elements?
@@ -149,7 +149,7 @@ View your interface with simulated colour blindness:
 {
   "id": "colour-contrast-quiz",
   "type": "multiple-choice",
-  "title": "Color and Contrast",
+  "title": "Colour and Contrast",
   "description": "Test your understanding of accessible colour usage.",
   "difficulty": "medium",
   "question": "What is the minimum contrast ratio for normal text according to WCAG AA?",

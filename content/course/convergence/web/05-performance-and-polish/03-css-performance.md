@@ -151,7 +151,7 @@ Enable "Paint flashing" in DevTools. Navigate your site and note unexpected pain
     },
     {
       "id": "b",
-      "text": "background-colour (triggers paint)",
+      "text": "background-color (triggers paint)",
       "isCorrect": false,
       "explanation": "Paint is cheaper than layout but still requires redrawing."
     },

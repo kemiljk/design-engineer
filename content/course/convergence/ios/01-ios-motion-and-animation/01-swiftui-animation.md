@@ -60,7 +60,7 @@ Use `.animation` modifier:
 
 ```swift
 Circle()
-    .fill(isActive ? .blue : .grey)
+    .fill(isActive ? .blue : .gray)
     .scaleEffect(isActive ? 1.2 : 1)
     .animation(.spring(), value: isActive)
 ```

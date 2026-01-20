@@ -85,7 +85,7 @@ document.querySelectorAll('.reveal').forEach(el => {
 .button {
     position: relative;
     padding: var(--space-sm) var(--space-lg);
-    background: var(--color-primary);
+    background: var(--colour-primary);
     color: white;
     border: none;
     border-radius: 6px;

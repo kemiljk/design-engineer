@@ -21,7 +21,7 @@ Accessibility is not a zero-sum game. Features designed for people with disabili
 Curb cuts (the ramps at street corners) were originally created for wheelchair users. But they also help:
 *   Parents pushing strollers.
 *   Travelers pulling wheeled luggage.
-*   Cyclists entering the sidewalk safely.
+*   Cyclists entering the pavement safely.
 *   Delivery workers with hand trucks.
 
 Similarly, **Video Captions** were designed for the deaf, but they are used by people in noisy bars, quiet libraries, or those learning a new language. **High Contrast** modes help people with low vision, but also people using their phones in bright sunlight.
