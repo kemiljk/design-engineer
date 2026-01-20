@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Optimising images for the web
-- CSS performance techniques
-- JavaScript optimisation
-- Measuring Core Web Vitals
+In this phase, you will tackle performance holistically. You will learn techniques for **optimising images** for the web, applying **CSS performance** best practices to avoid layout thrashing, **optimising JavaScript** execution, and measuring your success using **Core Web Vitals**.
 
 ## Step 1: Image Optimisation
 
@@ -118,21 +115,11 @@ animateHero().then(() => {
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Images are optimised with modern formats (WebP)
-- [ ] Images use responsive srcset
-- [ ] CSS uses GPU-accelerated properties for animations
-- [ ] JavaScript is lazy-loaded where appropriate
-- [ ] Lighthouse performance score > 90
-- [ ] Core Web Vitals are passing
+Before finalising, verify that all images are optimised and served in modern formats like **WebP**, utilizing responsive `srcset` attributes. Check that your CSS employs **GPU-accelerated properties** for motion, and that non-critical JavaScript is **lazy-loaded**. Confirm that your **Lighthouse performance score** is above 90 and all **Core Web Vitals** are passing.
 
 ## Try It Yourself
 
-1. Run Lighthouse audit
-2. Check Core Web Vitals in Chrome DevTools
-3. Profile animations to ensure 60fps
-4. Verify total page weight meets budget
+Run a full **Lighthouse audit** to identify remaining issues. Open the **Performance** tab in Chrome DevTools to check your Core Web Vitals and profile your animations for dropped frames. Finally, verify that your total page weight is within the budget you set in the concept phase.
 
 ## Next Steps
 

@@ -10,9 +10,7 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-- Creating semantic HTML structure
-- Setting up CSS with design tokens
-- Building JavaScript utilities for animations and accessibility
+In this foundation phase, you will structure your document using **semantic HTML** landmarks. You will set up a robust **CSS architecture** based on design tokens, and build essential **JavaScript utilities** that handle animations and accessibility requirements efficiently.
 
 ## Step 1: Semantic HTML Structure
 
@@ -296,23 +294,11 @@ Refer to the [Creative Visual Effects module](../04-creative-visual-effects/02-i
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Semantic HTML structure with proper landmarks
-- [ ] CSS architecture with design tokens
-- [ ] Reduced motion media query in place
-- [ ] Focus styles defined
-- [ ] Skip link implemented
-- [ ] JavaScript utilities ready
-- [ ] Hero shader gradient implemented with CSS fallback
+Before processing, verify that your **HTML structure** is semantic and uses proper landmarks. Confirm that your **CSS architecture** is token-based and scalable. Ensure the **reduced motion** media query is correctly implemented, **focus styles** are clearly defined, and the **skip link** functions as expected. Finally, check that your **JavaScript utilities** are ready and the **hero shader** is rendering with a solid CSS fallback.
 
 ## Try It Yourself
 
-1. Build out your full HTML structure
-2. Implement all CSS tokens
-3. Add the hero shader gradient with CSS fallback
-4. Test keyboard navigation
-5. Verify skip link works
+Start by building out your full HTML document structure. Implement all your CSS tokens to establish the design language. Add the hero shader gradient, ensuring the CSS fallback works when JavaScript is disabled. Finally, testing keyboard navigation and verifying the skip link's functionality.
 
 ## Next Steps
 

@@ -14,34 +14,22 @@
 > *"The best designers understand technology and the best technologists understand design."* — John Maeda
 
 Common problems when design and engineering are siloed:
-- "That's not what I designed"
-- "That's technically impossible"
-- "We didn't know about this constraint"
-- "Why does this feel different?"
+When design and engineering teams are siloed, common problems inevitably arise. Designers often feel that the implementation doesn't match their vision ("That's not what I designed"), while engineers might push back with "That's technically impossible." Constraints are discovered too late ("We didn't know about this"), and the final product often suffers from inconsistent feel ("Why does this feel different?").
 
 These problems waste time and hurt quality.
 
 ## Where Friction Happens
 
 ### Design → Engineering Handoff
-- Missing states in designs
-- Unclear interaction specifications
-- Unrealistic timelines
-- Technical constraints discovered late
+Handoff is notoriously difficult. Common issues include designs that are missing critical states (like error or loading states), interaction specifications that are unclear or ambiguous, timelines that don't account for complexity, and technical constraints that are discovered only after the design is "final."
 
 ### Engineering → Design Feedback
-- Changes needed for technical reasons
-- Performance trade-offs
-- Platform limitations
-- Edge cases discovered during implementation
+Feedback loops can also be friction-filled. Engineers may request changes for purely technical reasons or performance trade-offs that designers don't fully understand. Platform limitations might force a redesign, or critical edge cases might be discovered during implementation that break the proposed layout.
 
 ## Communication Strategies
 
 ### Be in Both Channels
-- Join design critiques
-- Attend engineering standups
-- Be in both Slack channels
-- Cross-pollinate context
+To bridge the gap, you must be present in both worlds. Join design critiques to understand the "why" behind decisions, and attend engineering standups to understand the "how." Be active in both Slack channels and actively cross-pollinate context between the two groups so everyone stays aligned.
 
 ### Translate, Don't Just Relay
 Don't just pass messages—translate:
@@ -49,31 +37,19 @@ Don't just pass messages—translate:
 - To Engineer: "We need a spring animation with 0.8 damping ratio"
 
 ### Surface Issues Early
-See a problem coming? Raise it before it's costly:
-- "This parallax effect will be hard to make performant"
-- "This layout won't work well on these screen sizes"
+### Surface Issues Early
+If you see a problem coming, raise it before it becomes expensive to fix. If a proposed parallax effect will be hard to make performant, or if a layout won't adapt well to certain screen sizes, speak up during the design phase, not the implementation phase.
 
 ## Building Shared Understanding
 
 ### Shared Vocabulary
-Establish terms both sides understand:
-- Component names
-- State names
-- Animation descriptions
-- Breakpoint names
+Establish a common language that both sides understand. Ensure that component names, state definitions, animation descriptions, and breakpoint names are consistent across design files and the codebase to reduce confusion.
 
 ### Living Documentation
-Maintain artifacts both sides reference:
-- Design system documentation
-- Component libraries with visual examples
-- Animation libraries
-- Pattern libraries
+Maintain artifacts that serve as a single source of truth for everyone. This includes comprehensive design system documentation, component libraries with live visual examples, animation libraries, and pattern libraries that both designers and engineers reference daily.
 
 ### Joint Sessions
-Bring teams together:
-- Design reviews with engineers
-- Technical feasibility discussions with designers
-- Retrospectives including both
+Actively bring the teams together. Host design reviews that include engineers, invite designers to technical feasibility discussions, and ensure retrospectives include members from both disciplines to foster a culture of shared ownership.
 
 ## Being an Effective Bridge
 

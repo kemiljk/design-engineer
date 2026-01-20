@@ -10,10 +10,7 @@ estimatedTime: 25
 
 ## What You'll Learn
 
-- Implementing entrance animations
-- Creating scroll-based reveals
-- Building micro-interactions
-- Handling forms with feedback
+This phase focuses on bringing your design to life. You will learn to implement smooth **entrance animations** that welcome users, create immersive **scroll-based reveals** that guide reading flow, build delightful **micro-interactions** for interactive elements, and handle **form interactions** with clear, accessible feedback.
 
 ## Step 1: Entrance Animations
 
@@ -169,20 +166,11 @@ function validateInput(input) {
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Entrance animations work smoothly
-- [ ] Scroll-based reveals trigger correctly
-- [ ] Micro-interactions feel responsive
-- [ ] Form interactions provide feedback
-- [ ] All animations respect reduced motion preference
+Before proceeding, ensure that **entrance animations** play smoothly upon load. Verify that **scroll-based reveals** trigger at the appropriate scroll positions. Check that all **micro-interactions** feel responsive and snappy, and that **form interactions** provide clear visual and auditory feedback. Crucially, verify that all animations respect the user's **reduced motion** preferences.
 
 ## Try It Yourself
 
-1. Implement all animations from your motion inventory
-2. Test with reduced motion enabled
-3. Verify animations are smooth at 60fps
-4. Test all interactive states
+Implement every animation defined in your motion inventory. Rigorously test your work with the `prefers-reduced-motion` setting enabled to ensure accessibility. Profile your animations in the browser DevTools to verify they maintain a smooth **60fps**, and manually test every interactive state (hover, focus, active, disabled).
 
 ## Next Steps
 

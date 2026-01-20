@@ -8,12 +8,7 @@ estimatedTime: 20
 
 **Time Estimate:** 3-4 hours
 
-## What You'll Learn
-
-- Defining project scope and goals
-- Creating a motion inventory
-- Planning accessibility from the start
-- Setting a performance budget
+In this phase, you will define your project's scope and core goals. You will create a detailed **motion inventory** to plan your animations, establish an **accessibility strategy** from the very beginning, and set a strict **performance budget** to guide your technical decisions.
 
 ## Step 1: Define Your Project
 
@@ -65,10 +60,7 @@ Plan your animations purposefully:
 | Cards | Hover | Lift, shadow | Interactivity |
 
 ### Reduced Motion Fallbacks
-
-- Replace motion with opacity fades
-- Instant state changes
-- Static alternatives
+For users who prefer reduced motion, plan graceful degradations. Replace large movements with subtle opacity fades, use instant state changes for layout shifts, or provide static alternatives for complex decorative effects.
 
 ## Step 3: Accessibility Checklist
 
@@ -129,19 +121,11 @@ Set performance constraints:
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Project concept defined with clear goals
-- [ ] Motion inventory created with purposeful animations
-- [ ] Accessibility checklist ready
-- [ ] Performance budget set
+Before moving on, verify that you have clearly defined the **project concept** with specific goals. Ensure the **motion inventory** is populated with purposeful animations, the **accessibility checklist** is ready to use, and a concrete **performance budget** has been set.
 
 ## Try It Yourself
 
-1. Complete all documentation above
-2. Share your plan with someone for feedback
-3. Adjust scope if needed based on time constraints
-4. Begin gathering inspiration and assets
+Start by completing all the documentation sections above. Share your detailed plan with a peer or mentor to get early feedback. If the timeline looks tight, adjust your scope now—it is better to ship a small, polished project than an incomplete large one. Finally, begin gathering your visual inspiration and assets.
 
 ## Next Steps
 

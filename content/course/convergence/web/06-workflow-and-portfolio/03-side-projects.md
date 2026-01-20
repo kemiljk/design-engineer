@@ -13,78 +13,38 @@
 
 > *"Stay hungry, stay foolish."* — Stewart Brand
 
-At work, you're constrained by:
-- Existing tech stack
-- Team conventions
-- Business priorities
-- Timelines
-
-Side projects let you:
-- Explore new technologies
-- Take creative risks
-- Build what interests you
-- Learn from failure safely
+At work, you are often constrained by the existing tech stack, rigid team conventions, shifting business priorities, and tight timelines. Side projects, however, offer freedom. They allow you to explore new technologies, take creative risks without fear of failure, build exactly what interests you, and learn valuable lessons from mistakes in a safe environment.
 
 ## Choosing Projects
 
 ### Follow Curiosity
-What do you want to learn?
-- New animation techniques → Build something motion-heavy
-- Backend skills → Build a full-stack app
-- Mobile → Build a React Native app
+Ask yourself what you genuinely want to learn. If you're interested in new animation techniques, build something motion-heavy. If you want to improve your backend skills, build a full-stack app. If mobile development intrigues you, try building a React Native app.
 
 ### Solve Your Problems
-Personal tools are highly motivating:
-- Task manager that works how you think
-- Design tool for a specific workflow
-- Utility that saves you time
+Building tools for yourself is highly motivating. Create a task manager that works exactly how your brain does, a design tool for a specific workflow you find tedious, or a utility that saves you time in your daily life.
 
 ### Remake What You Love
-Take something you admire and rebuild it:
-- Recreate an interaction you love
-- Build a feature from your favourite app
-- Improve on something that frustrated you
+Take something you admire and rebuild it to understand how it works. Recreate a complex interaction you love, build a specific feature from your favourite app, or improve upon a piece of software that has always frustrated you.
 
 ## Scoping for Completion
 
 The graveyard of side projects is full of overscoped ideas.
 
-### Start Tiny
-- Not a full app → one feature
-- Not a design system → one component
-- Not a platform → one page
+The graveyard of side projects is full of overscoped ideas. To succeed, start tiny: don't set out to build a full app, build one feature. Don't build an entire design system, build one perfect component. Don't build a platform, build one page.
 
 ### Define "Done"
-Before starting, write down:
-- What does finished look like?
-- What's explicitly out of scope?
-- When will I stop?
+Before you write a single line of code, define your constraints. Write down exactly what "finished" looks like, list what is explicitly out of scope, and decide on a firm stopping point to prevent scope creep.
 
 ### Ship Early
-Put it online, even if imperfect:
-- Vercel/Netlify for instant deploys
-- Share the link
-- Move on to the next thing
+Get your work online as soon as possible, even if it is imperfect. Use services like Vercel or Netlify for instant deployment, share the link with a few friends for feedback, and then be willing to move on to the next thing.
 
 ## Learning in Public
 
 ### Benefits of Sharing
-- Accountability to finish
-- Feedback from others
-- Portfolio building
-- Network expansion
+Sharing your work creates accountability to finish and invites valuable feedback from others. It also builds your portfolio and expands your professional network.
 
-### Where to Share
-- Twitter/X for quick updates
-- Blog posts for deep dives
-- GitHub for source code
-- CodePen for experiments
-
-### What to Share
-- Work in progress
-- Lessons learned
-- Failures and pivots
-- Behind-the-scenes process
+### Where and What to Share
+Different platforms serve different purposes. Use Twitter/X for quick visual updates, write blog posts for technical deep dives, publish source code to GitHub, and use CodePen for isolated experiments. Share your work in progress, the lessons you've learned, your failures and pivots, and the behind-the-scenes process.
 
 ## Try It Yourself
 

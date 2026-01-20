@@ -13,91 +13,46 @@
 
 > *"Talk is cheap. Show me the code."* — Linus Torvalds
 
-Design portfolios show process and outcomes.
-Engineering portfolios show code and systems.
-
-DE portfolios show both—plus the bridge between them:
-- Visual design quality
-- Interaction polish
-- Technical implementation
-- The thinking behind decisions
+Design portfolios traditionally show process and visual outcomes, while engineering portfolios demonstrate code quality and system architecture. A Design Engineer's portfolio must do both, bridging the gap by showcasing visual design quality, interaction polish, technical implementation details, and the strategic thinking behind every decision.
 
 ## What to Include
 
 ### Live Projects
-Deployed, interactive work:
-- Side projects
-- Experiments
-- Client work (if allowed)
-- Open source contributions
+Prioritise deployed, interactive work that users can touch. This includes side projects, small experiments, client work (if permitted), and any open source contributions you have made.
 
 ### Case Studies
-Deeper dives into select projects:
-- The problem and context
-- Your design approach
-- Technical decisions
-- Outcome and learnings
+Select a few key projects for deep dives. Explain the problem and context, outline your design approach and technical decisions, and discuss the final outcome and what you learned from the process.
 
 ### Code Samples
-Evidence of engineering skill:
-- GitHub profile with active repos
-- Clean, documented code
-- Component libraries
-- Open source work
+Provide evidence of your engineering skill. Maintain a GitHub profile with active repositories, ensuring your code is clean and documented. Highlight component libraries and open source work.
 
 ### Writing (Optional but Powerful)
-Demonstrates thinking:
-- Technical tutorials
-- Design rationale articles
-- Industry perspectives
+Writing demonstrates your thinking process. Consider including technical tutorials, articles explaining design rationale, or perspectives on industry trends.
 
 ## Presenting Projects Effectively
 
 ### Lead with the Work
-Don't make people hunt:
-- Live demo first
-- Video if interaction matters
-- Screenshots if necessary
+Don't make visitors hunt for your content. Lead with a live demo whenever possible. If the project isn't live, use high-quality video to demonstrate interactions, or screenshots as a last resort.
 
 ### Tell the Story
-- What problem were you solving?
-- What constraints existed?
-- What decisions did you make and why?
-- What was the outcome?
+Narrate the journey of the project. clearly state what problem you were solving, what constraints existed, the specific decisions you made (and why), and the final outcome.
 
 ### Show the Details
-DE-specific things to highlight:
-- Micro-interactions
-- Responsive behaviour
-- Accessibility considerations
-- Performance optimisations
+Highlight the specific skills of a Design Engineer: intricate micro-interactions, responsive behaviour across devices, accessibility considerations, and performance optimisations.
 
 ### Include the Code
-Link to the source:
-- Component architecture
-- Animation implementation
-- State management approach
+Always link to the source code where possible. Highlight interesting component architecture, complex animation implementations, or your approach to state management.
 
 ## Portfolio Platforms
 
 ### Personal Site (Recommended)
-Build it yourself to show your skills:
-- Custom domain
-- Your own design
-- Your own code
-- Full control
+Building your own site is the best way to prove your skills. It gives you a custom domain, full control over the design and code, and serves as a portfolio piece in itself.
 
 ### GitHub Pages / Vercel / Netlify
-Easy deployment options:
-- Free hosting
-- Custom domains
-- Automatic deploys
+These platforms offer easy deployment options with free hosting, support for custom domains, and automatic deployments from your repository.
 
 ### Figma Sites / Layers / Notion
-Lower friction options:
-- Quick to set up
-- Professional appearance
-- Less differentiation
+These are lower-friction options that are quick to set up and look professional, but they offer less differentiation and don't demonstrate your coding ability.
 
 ## Common Mistakes
 

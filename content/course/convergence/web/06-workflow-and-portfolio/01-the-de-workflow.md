@@ -20,71 +20,44 @@ You're not just a translator—you're a participant in both worlds.
 ## Stages of Involvement
 
 ### Discovery & Ideation
-- **Contribution:** Technical feasibility, interaction ideas
-- **Activities:** Brainstorming, rapid prototypes, technical constraints
-- **Value:** Ground ideas in what's possible
+During the early discovery phase, your primary contribution is assessing technical feasibility and generating interaction ideas. You actively participate in brainstorming sessions, build rapid prototypes to test hypotheses, and identify technical constraints early, providing value by grounding wild ideas in what is actually possible.
 
 ### Design
-- **Contribution:** Interactive prototypes, implementation considerations
-- **Activities:** Prototype animations, test interactions, review specs
-- **Value:** Find issues before development
+In the design phase, you shift focus to creating interactive prototypes and identifying implementation considerations. Your key activities include animating prototypes, testing complex interactions, and reviewing specifications, which provides immense value by catching potential issues before development even begins.
 
 ### Development
-- **Contribution:** Component implementation, design fidelity, polish
-- **Activities:** Build UI, review for design accuracy, add micro-interactions
-- **Value:** Ship design as intended
+When development starts, you take charge of component implementation, ensuring high design fidelity and adding final polish. You build the actual UI, review implemented screens for design accuracy, and add those critical micro-interactions, ensuring the final product ships exactly as the design intended.
 
 ### Launch & Iteration
-- **Contribution:** Performance optimisation, user feedback response
-- **Activities:** Monitor, iterate, polish based on real usage
-- **Value:** Continuous improvement
+Post-launch, you focus on performance optimisation and responding to user feedback. You monitor the live application, iterate on features based on real usage data, and add additional polish, driving continuous improvement of the product experience.
 
 ## End-to-End Ownership
 
 The DE superpower is owning features from concept to polish:
 
-1. Participate in design discussions
-2. Build prototypes to validate ideas
-3. Implement the production UI
-4. Polish until it feels right
-5. Iterate based on feedback
+The true superpower of a Design Engineer is the ability to own a feature from the initial concept all the way to the final polish. This means you participate in early design discussions, build validation prototypes, implement the production-ready UI yourself, polish it until it feels perfect, and then iterate based on user feedback.
 
 This reduces handoff friction and improves quality.
 
 ## Working with Designers
 
 ### What Designers Need from You
-- Technical perspective (not limitations)
-- Prototype capabilities
-- Implementation partnership
-- Design system stewardship
+Designers look to you for a technical perspective that empowers rather than limits them. They need you to demonstrate prototype capabilities that bring their static ideas to life, partner with them on implementation details, and act as a steward for the design system they have created.
 
 ### Building Trust
-- Respect their expertise
-- Explain constraints constructively
-- Collaborate, don't gate-keep
-- Deliver on design intent
+Trust is built by respecting their domain expertise and explaining technical constraints constructively, rather than just saying "no." Collaborate openly instead of gate-keeping the code, and most importantly, consistently deliver on the design intent they have specified.
 
 ## Working with Engineers
 
 ### What Engineers Need from You
-- Clear, implementable specs
-- Component architecture guidance
-- Animation implementation details
-- Performance considerations
+Engineers rely on you to provide clear, implementable specifications and guidance on component architecture. They need detailed instructions on how animations should behave and consideration for performance impacts, ensuring that the visual flair doesn't compromise the application's speed.
 
 ### Building Trust
-- Write quality code
-- Understand their constraints
-- Don't over-engineer visuals
-- Be pragmatic about trade-offs
+You build trust with engineers by writing high-quality, maintainable code and demonstrating that you understand their technical constraints. Avoid over-engineering visual effects where simple solutions suffice, and be pragmatic about trade-offs when deadlines are tight.
 
 ## Daily Practices
 
-- **Morning:** Check design files for updates, review PRs
-- **Coding time:** Deep work on components, features
-- **Collaboration:** Design reviews, pair programming
-- **End of day:** Document decisions, update tickets
+A typical day involves a mix of disciplines. You might start your morning by checking design files for updates and reviewing pull requests. The bulk of your day is often spent in deep work coding components or features, punctuated by collaboration sessions like design reviews or pair programming. Finally, you wrap up by documenting key decisions and updating ticket status.
 
 ## Try It Yourself
 

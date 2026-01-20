@@ -14,95 +14,54 @@
 Check out [designengineer.io](https://designengineer.io/) for a curated job board dedicated to Design Engineer roles.
 
 ### Companies with DE Roles
-- Product companies with design systems
-- Design-forward startups
-- Agencies doing high-end work
-- Companies with dedicated prototyping teams
+Design Engineer roles are most common at product companies that maintain sophisticated design systems, design-forward startups that value polish, agencies known for high-end creative work, and large companies with dedicated prototyping or "creative technology" teams.
 
 ### Industries
-- Tech (especially B2C)
-- Finance (trading platforms, fintech)
-- Media and entertainment
-- E-commerce
+You will frequently find these roles in the tech sector (especially B2C), finance (particularly modern trading platforms and fintech), media and entertainment, and high-end e-commerce.
 
 ### Team Structures
-- Design systems teams
-- Product teams with design focus
-- Creative technology teams
-- Platform/infrastructure teams
+DEs typically sit within design systems teams, product teams with a heavy design focus, creative technology groups, or platform infrastructure teams.
 
 ## Job Titles to Watch For
 
-The role has many names:
-- Design Engineer
-- UI Engineer
-- Frontend Designer
-- Creative Developer
-- Design Technologist
-- UX Engineer
-- Product Designer (with technical focus)
-- Frontend Engineer (design systems)
+The role goes by many names. You might see it listed as Design Engineer, UI Engineer, Frontend Designer, Creative Developer, Design Technologist, UX Engineer, or even Product Designer (with technical requirements) or Frontend Engineer (with styling focus). Always read the description rather than relying on the title alone.
 
 Read descriptions, not just titles.
 
 ## What to Look For
 
 ### Good Signs
-- Design systems mentioned
-- Prototyping responsibilities
-- Animation/motion focus
-- Cross-functional collaboration
-- Both Figma and code in requirements
+Look for job descriptions that mention design systems, prototyping responsibilities, and a focus on animation or motion. It's a positive sign if cross-functional collaboration is emphasized and if proficiency in both Figma and code is required.
 
 ### Warning Signs
-- Heavy backend requirements
-- No mention of design collaboration
-- Pure pixel pushing
-- Siloed team structure
+Be wary of roles with heavy backend requirements, no mention of design collaboration, or descriptions that sound like pure "pixel pushing" within a siloed team structure.
 
 ## Making the Case
 
 Sometimes the role doesn't exist yet. Create it:
 
 ### To Your Current Company
-"I can do both design and development. Let me show you the value of working across both."
+Start the conversation by demonstrating your unique value: "I can do both design and development. Let me show you the value of working across both."
 
 ### Building Evidence
-- Ship work that demonstrates DE value
-- Document the impact
-- Show reduced handoff friction
-- Quantify time saved
+Ship work that clearly demonstrates Design Engineering value. Document the impact of your contributions, show how you reduced handoff friction, and quantify the time saved for both designers and engineers.
 
 ### The Pitch
-- Identify pain points you can solve
-- Propose a trial period
-- Deliver quick wins
-- Expand scope gradually
+Identify specific pain points you can solve, and propose a trial period to prove the value. Focus on delivering quick wins to build trust, and then gradually expand your scope.
 
 ## Interview Preparation
 
 ### Portfolio Review
-- Have 2-3 projects ready to discuss in depth
-- Practice explaining decisions
-- Prepare for "why" questions
-- Show both design and code
+Have 2-3 key projects ready to discuss in depth. Practice explaining your decisions and be prepared to answer the "why" behind them, showing both your design thinking and code implementation.
 
 ### Technical Assessment
-Likely to include:
-- CSS layout challenges
-- Animation implementation
-- Component building
-- Design system thinking
+Assessments often include CSS layout challenges, animation implementation tasks, component building exercises, and questions about design system thinking.
 
 ### Design Questions
-- How would you approach X problem?
-- Walk me through your design process
-- How do you handle design feedback?
+Be ready to answer questions like "How would you approach this problem?" or "Walk me through your design process." You should also be prepared to discuss how you handle design feedback.
 
 ### Cultural Fit
-- How do you work with designers?
-- How do you prioritise fidelity vs. speed?
-- Tell me about a conflict you resolved
+Interviewers will want to know how you work with designers, how you prioritise design fidelity versus development speed, and how you resolve conflicts when they arise.
 
 ## Try It Yourself
 

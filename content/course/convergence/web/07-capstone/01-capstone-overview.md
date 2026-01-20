@@ -8,25 +8,13 @@ estimatedTime: 5
 
 ## Why This Project?
 
-A design engineer portfolio piece demonstrates the unique intersection of design and engineering:
-
-- **Motion design sensibility** — Purposeful, delightful animations
-- **Accessibility-first thinking** — Inclusive by default
-- **Performance awareness** — Fast and smooth
-- **Ability to ship** — Polished, production-ready work
-- **Design-to-code fluency** — Seamless translation
+A design engineer portfolio piece demonstrates the unique intersection of design and engineering. It showcases your **motion design sensibility** through purposeful animations, your **accessibility-first thinking** by being inclusive by default, your **performance awareness** through fast load times, and your **ability to ship** polished, production-ready work. Ultimately, it proves your **design-to-code fluency** and seamless translation between disciplines.
 
 **Total Time Estimate:** 15-20 hours across all phases
 
 ## What You'll Create
 
-By the end of this capstone, you'll have:
-
-1. **Interactive Experience** — A polished, responsive web project with thoughtful motion
-2. **Accessibility Excellence** — WCAG 2.1 AA compliant with keyboard nav and screen reader support
-3. **Performance Optimised** — Fast load, 60fps animations, Core Web Vitals passing
-4. **Case Study** — Process documentation and design decisions explained
-5. **Live Deployment** — Deployed to production with GitHub repository
+By the end of this capstone, you will have built a **interactive experience** that is polished and responsive. It will demonstrate **accessibility excellence** by strictly adhering to WCAG 2.1 AA standards. The project will be **performance optimised** to ensure fast load times and 60fps animations. You will also create a detailed **case study** documenting your decisions and publish a **live deployment** with a public GitHub repository.
 
 ## Choose Your Project
 

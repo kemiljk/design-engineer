@@ -10,82 +10,39 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-- Writing a compelling case study
-- Creating project documentation
-- Deploying to production
-- Final testing checklist
+In this final phase, you will document your journey by writing a compelling **case study** and creating comprehensive **project documentation**. You will proceed to **deploy your project** to a production environment and conduct a rigorous **final testing** pass to ensure everything is perfect.
 
 ## Step 1: Case Study Document
 
 Create a case study document with these sections:
 
 ### Overview
-- **Project:** Your project name
-- **Role:** Design Engineer
-- **Timeline:** How long it took
-- **Live URL:** Link to deployed site
+Begin with key project details: the name of your project, your role as Design Engineer, the total timeline, and a direct link to the live URL.
 
 ### The Challenge
-What problem were you solving? What constraints did you face?
+Clearly articulate the problem you were solving. Describe the specific constraints you faced, whether they were time-based, technical, or self-imposed.
 
 ### Process
-
-**Research & Planning**
-- What did you learn?
-- How did you approach the problem?
-
-**Design Decisions**
-- Motion design rationale
-- Accessibility considerations
-- Performance trade-offs
-
-**Technical Implementation**
-- Architecture choices
-- Interesting solutions
-- Challenges overcome
+Break down your journey. In **Research & Planning**, explain your approach and what you learned. Under **Design Decisions**, clarify your motion design rationale, accessibility considerations, and how you navigated performance trade-offs. For **Technical Implementation**, highlight architecture choices, interesting solutions to complex problems, and challenges you overcame.
 
 ### Results
-- Performance metrics achieved
-- Accessibility compliance
-- User feedback (if any)
+Quantify your success. List the performance metrics you achieved, your level of accessibility compliance, and any user feedback you received.
 
 ### Learnings
-- What would you do differently?
-- What are you proud of?
-- What did you learn?
-
-### Screenshots & Videos
-Include visual documentation of your project in action.
+Reflect on the experience. Discuss what you would do differently next time, what specific aspects you are most proud of, and the key skills you acquired.
 
 ## Step 2: README Documentation
 
 Your README should include:
 
-### Project header
-- Project name and brief description
-- Feature highlights with emojis
-- Link to live demo
+### Project Header
+Start with the project name and a brief, engaging description. Highlight key features using emojis for scanability and include a prominent link to the live demo.
 
-### Technical details
-- Performance metrics (LCP, FID, CLS scores)
-- Accessibility compliance (WCAG 2.1 AA, keyboard nav, screen reader tested)
-- Built with (HTML5, CSS Custom Properties, Vanilla JS)
+### Technical Details
+Showcase your engineering standards. List achieved performance metrics (LCP, FID, CLS), confirm accessibility compliance (WCAG 2.1 AA, keyboard navigation, screen reader testing), and specify the tech stack used (HTML5, CSS Custom Properties, Vanilla JS).
 
-### Local development instructions
-
-```bash
-# Clone the repository
-git clone https://github.com/username/project.git
-
-# Navigate to directory
-cd project
-
-# Start local server
-npx serve
-```
-
-### Author section
-- Your name and relevant links (GitHub, portfolio, social)
+### Author Section
+Conclude with your name and links to your GitHub profile, portfolio, and relevant social media channels.
 
 ## Step 3: Deploy
 
@@ -107,54 +64,33 @@ Enable in repository Settings → Pages.
 ## Step 4: Final Testing
 
 ### Functionality
-- [ ] All features work
-- [ ] No console errors
-- [ ] Forms submit correctly
+Verify that all core features work as intended. Check the console for any errors and ensure that all forms submit data correctly and provide feedback.
 
 ### Accessibility
-- [ ] Keyboard navigation complete
-- [ ] Screen reader tested
-- [ ] Colour contrast verified
-- [ ] Reduced motion works
+Conduct a full audit. Ensure keyboard navigation is complete and logical, test the entire site with a screen reader, verify that colour contrast meets AA standards, and confirm that the site respects reduced motion preferences.
 
 ### Performance
-- [ ] Lighthouse score > 90
-- [ ] Core Web Vitals passing
-- [ ] No layout shifts
+Run a final lighthouse audit to ensure a score above 90. Confirm that Core Web Vitals are passing and that there are no visible layout shifts during loading or interaction.
 
 ### Cross-Browser
-- [ ] Chrome tested
-- [ ] Firefox tested
-- [ ] Safari tested
-- [ ] Mobile tested
+Don't rely on just one browser. Test your site in Chrome, Firefox, and Safari, and verify the experience on a mobile device.
 
 ## Submission Checklist
 
 ### Interactive Experience
-- [ ] Polished, complete project
-- [ ] Thoughtful motion design
-- [ ] Responsive across devices
+Ensure you have a polished, complete project with thoughtful motion design that is responsive across all devices.
 
 ### Accessibility
-- [ ] WCAG 2.1 AA compliant
-- [ ] Full keyboard navigation
-- [ ] Screen reader optimised
-- [ ] Reduced motion support
+Confirm WCAG 2.1 AA compliance, full keyboard navigation, screen reader optimisation, and proper support for reduced motion.
 
 ### Performance
-- [ ] Lighthouse performance > 90
-- [ ] Core Web Vitals passing
-- [ ] Optimised assets
+Verify Lighthouse performance scores > 90, passing Core Web Vitals, and fully optimised assets.
 
 ### Documentation
-- [ ] README with setup instructions
-- [ ] Case study document
-- [ ] Code comments where helpful
+Include a comprehensive README with setup instructions, a detailed case study document, and code comments where helpful.
 
 ### Deployment
-- [ ] Live URL accessible
-- [ ] GitHub repository public
-- [ ] Portfolio-ready presentation
+Ensure the live URL is accessible, the GitHub repository is public, and the project is presented in a portfolio-ready manner.
 
 ## What's Next
 
