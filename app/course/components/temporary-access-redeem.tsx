@@ -6,7 +6,7 @@ import { Input } from "@/app/components/ui/input";
 import { Badge } from "@/app/components/ui/badge";
 import { Card } from "@/app/components/ui/card";
 import { toast } from "sonner";
-import { Clock, Gift, CheckCircle } from "lucide-react";
+import { Clock, Gift, CheckCircle } from "iconoir-react";
 
 interface TemporaryAccessRedeemProps {
   onRedeemSuccess?: () => void;

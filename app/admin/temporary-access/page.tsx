@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/components/ui/table";
-import { Copy, RefreshCw, CheckCircle, XCircle, Users } from "lucide-react";
+import { Copy, Refresh, CheckCircle, XmarkCircle, User } from "iconoir-react";
 
 // Admin user ID
 const ADMIN_USER_ID = "user_2YfwsgLf6sxplrtpJw2z3n805R3";
@@ -141,14 +141,14 @@ export default function TemporaryAccessAdmin() {
       case "used":
         return (
           <Badge variant="default">
-            <Users className="mr-1 h-3 w-3" />
+            <User className="mr-1 h-3 w-3" />
             Used
           </Badge>
         );
       case "expired":
         return (
           <Badge variant="accent">
-            <XCircle className="mr-1 h-3 w-3" />
+            <XmarkCircle className="mr-1 h-3 w-3" />
             Expired
           </Badge>
         );
@@ -199,11 +199,11 @@ export default function TemporaryAccessAdmin() {
         </div>
         <div className="flex gap-2">
           <Button onClick={cleanupExpired} variant="outline" size="sm">
-            <RefreshCw className="mr-2 h-4 w-4" />
+            <Refresh className="mr-2 h-4 w-4" />
             Cleanup Expired
           </Button>
           <Button onClick={fetchCodes} variant="outline" size="sm">
-            <RefreshCw className="mr-2 h-4 w-4" />
+            <Refresh className="mr-2 h-4 w-4" />
             Refresh
           </Button>
         </div>

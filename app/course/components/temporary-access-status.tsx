@@ -2,7 +2,7 @@
 
 import { Badge } from "@/app/components/ui/badge";
 import { Card } from "@/app/components/ui/card";
-import { Clock, AlertCircle, CheckCircle } from "lucide-react";
+import { Clock, WarningCircle, CheckCircle } from "iconoir-react";
 import type { CourseEnrollment } from "@/lib/types";
 
 interface TemporaryAccessStatusProps {
@@ -52,7 +52,7 @@ export function TemporaryAccessStatus({
     if (isExpired) {
       return (
         <Badge variant="accent">
-          <AlertCircle className="mr-1 h-3 w-3" />
+          <WarningCircle className="mr-1 h-3 w-3" />
           Expired
         </Badge>
       );
