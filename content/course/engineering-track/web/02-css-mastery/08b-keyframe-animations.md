@@ -8,11 +8,7 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- Creating keyframe animations
-- Animation properties and timing
-- Common animation patterns
-- Performance optimisation
-- Accessibility considerations
+In this lesson, we will explore the process of creating keyframe animations and investigate the various animation properties and timing options available. You will learn about common animation patterns, performance optimisation techniques to ensure smooth movement, and the critical accessibility considerations for users who may be sensitive to motion.
 
 ## What Are Keyframe Animations?
 
@@ -35,43 +31,7 @@ While transitions animate between two states, keyframes define multi-stage anima
 
 ## Defining Keyframes
 
-### From/To Syntax
-
-```css
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-```
-
-### Percentage Syntax
-
-For more complex sequences:
-
-```css
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-```
-
-### Multiple Stops
-
-```css
-@keyframes colorPulse {
-  0%, 100% { background: blue; }
-  25% { background: purple; }
-  50% { background: red; }
-  75% { background: orange; }
-}
-```
+Keyframes can be defined using simple `from` and `to` syntax for two-stage animations, or a percentage-based approach for more complex sequences with multiple stops. This flexibility allows you to precisely control properties like scale, translation, and background colour at any point throughout the animation’s duration.
 
 ## Animation Properties
 
@@ -99,18 +59,7 @@ For more complex sequences:
 
 ### Fill Mode
 
-Controls what happens before and after the animation:
-
-```css
-.element {
-  animation-fill-mode: none;      /* Return to original state */
-  animation-fill-mode: forwards;  /* Keep final keyframe state */
-  animation-fill-mode: backwards; /* Apply first keyframe during delay */
-  animation-fill-mode: both;      /* Both forwards and backwards */
-}
-```
-
-**Most common:** Use `forwards` when you want the element to stay in its final animated state.
+The `animation-fill-mode` property controls the state of an element before and after its animation. While `none` will return the element to its original state, using `forwards` ensures it retains the final keyframe’s styles. You can also use `backwards` to apply the first keyframe’s styles during an animation delay, or `both` to combine these behaviours.
 
 ## Common Animation Patterns
 
@@ -192,22 +141,7 @@ Controls what happens before and after the animation:
 
 ## Transform Property
 
-Transforms are the most performant properties to animate:
-
-```css
-.element {
-  transform: translateX(100px);  /* Move horizontally */
-  transform: translateY(50px);   /* Move vertically */
-  transform: translate(100px, 50px);
-  
-  transform: scale(1.5);         /* Enlarge */
-  transform: scaleX(2);          /* Stretch horizontally */
-  
-  transform: rotate(45deg);      /* Rotate */
-  
-  transform: skew(10deg);        /* Skew */
-}
-```
+The `transform` property is one of the most efficient ways to animate elements. It allows you to move items horizontally or vertically with `translate`, adjust their size with `scale`, or apply rotations and skews without triggering expensive layout recalculations in the browser.
 
 ### Multiple Transforms
 
@@ -229,49 +163,11 @@ Transforms are the most performant properties to animate:
 
 ## Performance
 
-Not all properties animate efficiently.
-
-### Performant Properties
-
-These animate on the GPU (compositor layer):
-- `transform`
-- `opacity`
-
-These are "cheap" to animate and won't cause jank.
-
-### Expensive Properties
-
-These trigger layout recalculation:
-- `width`, `height`
-- `top`, `left`, `right`, `bottom`
-- `margin`, `padding`
-- `font-size`
-
-These cause reflow and are much slower.
+Not all CSS properties are equal when it comes to animation performance. Properties like `transform` and `opacity` are highly performant because they can be handled by the GPU on the compositor layer, avoiding jank. In contrast, "expensive" properties such as `width`, `height`, `margin`, and `font-size` trigger layout recalculations and reflows, which are much slower and can lead to a less fluid experience.
 
 ### Best Practice
 
-Prefer `transform` over changing position/size:
-
-```css
-/* Expensive - causes layout recalculation */
-.bad {
-  left: 0;
-  transition: left 0.3s;
-}
-.bad:hover {
-  left: 100px;
-}
-
-/* Performant - GPU accelerated */
-.good {
-  transform: translateX(0);
-  transition: transform 0.3s;
-}
-.good:hover {
-  transform: translateX(100px);
-}
-```
+Whenever possible, you should prefer using `transform` over properties that alter an element's position or size. For example, using `translateX` rather than the `left` property ensures that the browser uses GPU acceleration, resulting in a much smoother animation that remains performant even on limited devices.
 
 ### will-change
 
@@ -287,65 +183,21 @@ Hint to browser about upcoming animations:
 
 ## Accessibility
 
-### Reduced Motion
-
-Some users experience motion sickness or distraction from animations. Respect their preferences:
-
-```css
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-```
-
-Or be more selective:
-
-```css
-@media (prefers-reduced-motion: reduce) {
-  .decorative-animation {
-    animation: none;
-  }
-  
-  .functional-transition {
-    transition-duration: 0.1s;  /* Reduce but keep functional */
-  }
-}
-```
-
-### Essential vs Decorative Motion
-
-- **Essential:** Provides feedback, indicates state changes
-- **Decorative:** Pure visual flair
-
-Essential motion can be kept (perhaps reduced). Decorative motion should respect the preference completely.
+For many users, excessive or fast motion can cause distraction or even physical discomfort. It is essential to respect user preferences by using the `prefers-reduced-motion` media query to significantly reduce or entirely disable decorative animations. While essential motion that provides functional feedback can often remain in a reduced state, any purely decorative flair should be omitted to ensure a comfortable and accessible experience for everyone.
 
 ## Try It Yourself
 
 ### Exercise 1: Loading Spinner
 
-Create a CSS-only loading spinner with:
-- Circular shape (border with transparent sides)
-- Infinite rotation animation
-- `linear` timing function
+Build a CSS-only loading spinner using a circular shape and an infinite rotation animation. Ensure the movement is smooth by applying a `linear` timing function to the sequence.
 
 ### Exercise 2: Card Entrance
 
-Create cards that animate in when the page loads:
-- Fade in from below
-- Stagger the delay for each card
-- Use `forwards` fill mode
+Create a series of cards that animate into view when the page loads. You should implement a fade-in effect from below, stagger the delay for each individual card, and use the `forwards` fill mode to ensure they remain in their final state.
 
 ### Exercise 3: Notification
 
-Create a notification that:
-- Slides in from the right
-- Has a subtle pulse to draw attention
-- Can be dismissed (slides out)
+Develop a notification component that slides in from the right of the screen. Add a subtle pulse effect to draw the user's attention and ensure the notification can be dismissed by sliding it back out of view.
 
 ## Test Your Understanding
 
@@ -388,24 +240,11 @@ Create a notification that:
 
 ## Key Takeaways
 
-- Keyframe animations define multi-stage sequences with `@keyframes`
-- Use `animation-fill-mode: forwards` to keep final state
-- `transform` and `opacity` are the most performant properties
-- Always respect `prefers-reduced-motion` for accessibility
-- Keep animations purposeful—feedback and guidance, not just decoration
+To conclude, keyframe animations allow you to define elaborate, multi-stage sequences that go beyond simple state transitions. For the best performance, always prioritise using `transform` and `opacity` as they are less taxing on the browser. Ensure that you use the correct `animation-fill-mode` to manage the element's final state, and always respect user motion preferences to maintain high accessibility standards.
 
 ## Next Steps
 
-Congratulations! You've completed the CSS Mastery module.
-
-You now understand:
-- How CSS works (cascade, specificity, inheritance)
-- Selectors and pseudo-elements
-- The box model
-- Layout with Flexbox and Grid
-- Responsive design
-- Custom properties
-- Transitions and animations
+By reaching this stage, you have gained a comprehensive understanding of how CSS works, including the mechanics of the cascade, specificity, and inheritance. You've mastered advanced selectors, the box model, and modern layout techniques like Flexbox and Grid. Furthermore, you are now equipped to build responsive designs, leverage custom properties for efficient styling, and create polished transitions and animations that bring your interfaces to life.
 
 Continue to [JavaScript Essentials: What is JavaScript](../03-javascript-essentials/01-what-is-javascript.md) →
 

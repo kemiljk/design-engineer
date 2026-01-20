@@ -18,16 +18,12 @@ estimatedTime: 15
 ## Step 1: Information Architecture
 
 Before pushing pixels, map the flow.
-- **Sitemap:** What are the top-level destinations? (e.g., Home, Search, Library).
-- **Hierarchy:** How deep does the navigation go? (List → Detail → Edit).
-- **Primary Actions:** What is the most important thing a user does on each screen? Make that action accessible.
+Define a sitemap to identify top-level destinations, establish a navigation hierarchy that moves logically from lists to details, and clearly identify the primary action for each screen.
 
 ## Step 2: Navigation Pattern
 
 Choose the navigation model that fits your depth.
-- **Tab Bar:** Use this for 3-5 top-level sections that need equal access. This is the most common iOS pattern.
-- **Sidebar:** If designing for iPad, consider how your tab bar transforms into a sidebar.
-- **Modals:** Use sheets for temporary tasks (like "Add New Item") that interrupt the main flow.
+Utilise a **Tab Bar** for primary sections, consider a **Sidebar** for iPad adaptations, and use **Modals** for temporary tasks that should not take the user away from their current context.
 
 ## Step 3: Core Screens
 
@@ -51,9 +47,7 @@ A standard list of grouped rows. This is a great place to practice using system 
 ## Step 4: Component Usage
 
 Don't reinvent the wheel. Use the iOS UI Kit.
-- **Navigation Bars:** Ensure they have the correct height and transparency settings.
-- **Tab Bars:** Use SF Symbols for icons. Ensure the active state is filled and the inactive state is outlined.
-- **Inputs:** Use standard text fields and toggles. They are recognizable and accessible.
+Leverage standard **Navigation Bars** with correct heights, use **Tab Bars** with SF Symbols in consistent active and inactive states, and implement standard **Inputs** like text fields and toggles to ensure a recognizable interface.
 
 ## Checkpoint
 

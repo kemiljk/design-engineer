@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- How to pass data to components with props
-- Destructuring props for cleaner code
-- Default props and prop patterns
-- The children prop for composition
-- Component communication patterns
+In this lesson, we will explore how to pass data to components using props and how to destructure them for cleaner, more readable code. You will learn about default prop values and common prop patterns, discover the power of the `children` prop for composition, and understand how components communicate with each other.
 
 ## What Are Props?
 
@@ -53,12 +49,8 @@ function App() {
 ```
 
 **Prop types:**
-- Strings: `name="Alex"` (quotes)
-- Numbers: `followers={1234}` (curly braces)
-- Booleans: `verified={true}` or just `verified` for true
-- Objects: `style={{ color: 'blue' }}`
-- Arrays: `items={['a', 'b', 'c']}`
-- Functions: `onClick={handleClick}`
+
+When passing props, strings are enclosed in quotes (`name="Alex"`), while other data types require curly braces. This includes numbers (`followers={1234}`), booleans (`verified={true}` or simply `verified` for a true value), objects (`style={{ color: 'blue' }}`), arrays (`items={['a', 'b', 'c']}`), and functions (`onClick={handleClick}`).
 
 ## Receiving Props
 
@@ -96,10 +88,7 @@ function UserCard({ name, role, avatar, followers }) {
 }
 ```
 
-Benefits:
-- Clear which props the component uses
-- Shorter code (no `props.` prefix)
-- Easier to add defaults
+Destructuring offers several benefits: it makes it immediately clear which props a component uses, results in shorter code by eliminating the `props.` prefix, and simplifies the process of adding default values.
 
 ## Default Props
 
@@ -252,10 +241,8 @@ function TodoList() {
 ```
 
 **The pattern:**
-1. Parent defines the function
-2. Parent passes function as prop
-3. Child calls the function with data
-4. Parent updates state
+
+This communication pattern follows a clear sequence: the parent component defines the function, then passes it to the child as a prop. The child calls this function with the relevant data, and the parent uses this data to update its state.
 
 ## Spreading Props
 
@@ -480,11 +467,7 @@ Build an `Alert` component with:
 
 ### Exercise 3: Avatar with Fallback
 
-Create an `Avatar` component:
-- Shows an image if `src` provided
-- Shows initials from `name` if no image
-- Accepts `size` prop for different sizes
-- Has optional `status` indicator (online/offline)
+Develop an `Avatar` component that displays an image if a `src` is provided and shows initials derived from the `name` prop if no image is available. It should accept a `size` prop for different dimensions and include an optional `status` indicator to show online or offline state.
 
 ## Test Your Understanding
 
@@ -527,13 +510,7 @@ Create an `Avatar` component:
 
 ## Key Takeaways
 
-- Props are how components receive data from parents
-- Use destructuring for cleaner prop access
-- Provide default values for optional props
-- `children` enables powerful composition patterns
-- Props are read-only; never mutate them
-- Pass functions as props for child-to-parent communication
-- Component composition creates flexible, reusable systems
+To recap, props are the mechanism through which components receive data from their parents. Using destructuring leads to cleaner prop access, and providing default values handles optional props gracefully. The `children` prop enables powerful composition patterns, but it is crucial to remember that props are read-only and should never be mutated directly. Child components communicate with parents by calling callback functions passed as props, and well-designed component composition creates flexible, reusable systems.
 
 ## Next Steps
 

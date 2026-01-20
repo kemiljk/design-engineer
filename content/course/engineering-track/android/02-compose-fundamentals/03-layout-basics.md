@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Column, Row, Box layouts
-- Arrangement and alignment
-- Weight and sizing
-- Nested layouts
+During this module, you will learn to use Column, Row, and Box layouts as the primary building blocks for your application's interface. We'll examine exactly how to manage arrangement and alignment within these containers, while exploring the use of weight and sizing to create sophisticated nested layouts.
 
 ## Column
 
@@ -81,19 +78,10 @@ Box(modifier = Modifier.size(200.dp)) {
 ## Arrangement
 
 ### Horizontal (Row)
-- `Arrangement.Start`
-- `Arrangement.End`
-- `Arrangement.Center`
-- `Arrangement.SpaceBetween`
-- `Arrangement.SpaceAround`
-- `Arrangement.SpaceEvenly`
-- `Arrangement.spacedBy(8.dp)`
+Arrange elements horizontally within a row using standard alignment tokens such as start, end, or centre. You can also utilize more complex spacing options like space between, space around, and space evenly, or apply a specific fixed gap between every child using the `spacedBy` function.
 
 ### Vertical (Column)
-- `Arrangement.Top`
-- `Arrangement.Bottom`
-- `Arrangement.Center`
-- Same space options
+Similarly, vertical arrangements within a column can be set to the top, bottom, or centre, and you have access to the same flexible spacing choices used for horizontal rows to ensure consistent layout behaviour across your entire app.
 
 ## Spacer
 
@@ -150,10 +138,7 @@ Column {
 
 ### Exercise 1: Profile Row
 
-Create a row with:
-- Avatar on left
-- Name/subtitle column
-- Action button on right
+Practise your layout skills by creating a profile row that features an avatar on the far left and a central column for the name and subtitle. You should also include a primary action button on the right, ensuring all elements are properly aligned and spaced.
 
 ### Exercise 2: Card Grid
 
@@ -200,11 +185,7 @@ Build a 2-column grid using nested Rows and Columns.
 
 ## Key Takeaways
 
-- Column = vertical, Row = horizontal, Box = stacked
-- Arrangement controls spacing between children
-- Alignment controls cross-axis positioning
-- Weight distributes available space
-- Spacer creates flexible gaps
+To build robust layouts in Compose, you must use Column for vertical orientation, Row for horizontal, and Box for stacking elements on top of one another. Remember that arrangement controls the spacing between child elements while alignment manages their cross-axis positioning. Finally, leverage weights to distribute available space proportionally and use Spacers to create flexible gaps that adapt to different screen sizes.
 
 ## Next Steps
 

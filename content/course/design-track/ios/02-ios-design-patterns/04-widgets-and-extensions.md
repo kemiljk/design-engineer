@@ -18,14 +18,10 @@ Widgets are windows into your app's content, placed directly on the Home Screen 
 A widget is not a mini-app. It's a dashboard. Users view their Home Screen for seconds at a time. If your widget requires interaction to be useful, or if the text is too dense to read in a glance, it fails its primary purpose.
 
 **What works well:**
-- **Current status:** Weather, stock prices, battery level.
-- **Timely content:** Upcoming calendar events, reminders due today.
-- **Personalised surfacing:** "On this day" photos, suggested playlists.
+Widgets excel at surfacing **current status** like weather or battery levels, **timely content** such as upcoming calendar events, and **personalised** recommendations like photos or playlists.
 
 **What fails:**
-- **Navigation menus:** Don't use a widget just to launch deep links.
-- **Forms:** You can't type in a widget.
-- **Scrollable content:** Widgets generally don't scroll. You show a snapshot, not a feed.
+However, they are not suited for deep **navigation menus**, interactive **forms**, or **scrollable content**, as they are intended for snapshots rather than full feeds.
 
 ### Interactivity
 
@@ -36,9 +32,7 @@ With iOS 17, widgets gained interactivity. You can now toggle a todo item, play/
 Introduced in iOS 16, these are even more constrained. They sit below the clock on the Lock Screen, always visible when the phone is raised.
 
 **Design Constraints:**
-- **Monochrome:** They use a single colour (tinted by the user's wallpaper choice).
-- **Tiny canvas:** You have circular slots (like Apple Watch complications) or small rectangular slots.
-- **Legibility:** They must be readable at arm's length.
+Lock Screen widgets are highly constrained, requiring a **monochrome** aesthetic that remains legible at arm's length within a very **tiny canvas** (such as circular or small rectangular slots).
 
 Think of these as "status indicators" rather than content containers. A fitness ring, a weather icon, or a next meeting time work perfectly. A news headline does not.
 
@@ -47,18 +41,13 @@ Think of these as "status indicators" rather than content containers. A fitness 
 Live Activities are a special class of notification that stays persistent on the Lock Screen (and in the Dynamic Island on supported devices). They are perfect for events with a defined start and end.
 
 **Perfect Use Cases:**
-- **Ridesharing:** "Driver arriving in 3 mins."
-- **Food Delivery:** "Order picked up."
-- **Sports:** "Q4 02:30 - Score 88-92."
-- **Timers:** "15:00 remaining."
+Live Activities are ideal for events with distinct temporal boundaries, such as tracking **ridesharing** arrivals, **food delivery** progress, live **sports** scores, or active **timers**.
 
 ### Designing for the Island
 
 On iPhone 14 Pro and newer, Live Activities inhabit the Dynamic Island. This area expands and contracts.
 
-- **Compact State:** The default pill shape. You have a "leading" (left) and "trailing" (right) area. Show the most critical data here (e.g., the score of a game).
-- **Expanded State:** When a user long-presses the Island, it expands to show more detail. This is where you can show the play-by-play or driver details.
-- **Minimal State:** If multiple apps are using the Island, yours might be reduced to a tiny circle. Ensure your most vital icon is recognisable even at this scale.
+In the Dynamic Island, activities adapt from a **compact** default pill shape for critical data to an **expanded** view for deeper detail, or a **minimal** circle when multiple apps are active.
 
 ## Best Practices
 
@@ -128,11 +117,7 @@ Sketch the lifecycle of a Live Activity for a food delivery app.
 
 ## Key Takeaways
 
-- **Home Screen Widgets** are for glanceable, timely content with limited interaction.
-- **Lock Screen Widgets** are tiny, monochrome status indicators.
-- **Live Activities** handle real-time, ephemeral events (delivery, sports).
-- **Dynamic Island** integrates your Live Activity into the system status bar area.
-- Don't try to cram your whole app into a widget—focus on value per pixel.
+Dynamic iOS presence extends through **Home Screen Widgets** for timely snapshots, tiny **Lock Screen Widgets** for status indicators, and **Live Activities** for real-time events in the Dynamic Island. Successful designs focus on providing maximum value through glanceable content that respects the native system aesthetic rather than trying to replicate the full app experience.
 
 ## Congratulations!
 

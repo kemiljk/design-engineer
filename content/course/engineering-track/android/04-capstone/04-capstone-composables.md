@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Creating reusable Compose components
-- Building custom modifiers
-- Designing Material 3 styled components
-- Creating empty state composables
+During this module, you will learn to create reusable Compose components from scratch and build your own custom modifiers. We'll examine the design of Material 3 styled elements and explore the development of effective empty state composables to handle missing data gracefully.
 
 ## Custom Card Component
 
@@ -194,19 +191,11 @@ fun Modifier.shimmer(): Modifier = composed {
 
 Before moving on, verify:
 
-- [ ] TaskCard (or equivalent) component extracted
-- [ ] PriorityBadge/status component created
-- [ ] Empty state component ready
-- [ ] Custom modifiers work
-- [ ] Components are reusable across screens
-- [ ] All components use Material 3 theming
+Before proceeding to the final phase, you should verify that your core card components have been properly extracted and that your status badges or priority indicators are functional. Confirm that your empty state component is ready for use, that your custom modifiers are behaving correctly, and that all components are fully reusable across your various screens while strictly following Material 3 theming guidelines.
 
 ## Try It Yourself
 
-1. Identify repeated UI patterns in your screens
-2. Extract them into separate composable files
-3. Create modifiers for common styling
-4. Test components with previews
+Practise your modular design skills by identifying repeated UI patterns across your screens and extracting them into their own dedicated composable files. You should also create custom modifiers to encapsulate common styling logic and thoroughly test every new component using integrated previews to ensure visual accuracy.
 
 ## Next Steps
 

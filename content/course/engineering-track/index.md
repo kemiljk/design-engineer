@@ -9,10 +9,6 @@ Build the skills to implement any design. This track covers the technical founda
 
 ## What You'll Learn
 
-- **Web Fundamentals** — Semantic HTML, modern CSS, and vanilla JavaScript
-- **Mobile Development** — Swift/SwiftUI for iOS, Kotlin/Compose for Android
-- **Component Architecture** — Building reusable, accessible UI components
-- **Design Systems in Code** — Implementing tokens and component APIs
-- **Best Practices** — Performance, accessibility, and maintainability
+During this track, you will master the web fundamentals of semantic HTML, modern CSS, and vanilla JavaScript, while simultaneously developing your mobile expertise with Swift and SwiftUI for iOS, alongside Kotlin and Jetpack Compose for Android. We'll examine robust component architectures for building reusable and accessible UI elements, and explore the implementation of design systems in code through tokens and component APIs. Finally, you will establish a high standard of best practices for performance, accessibility, and long-term maintainability in all your engineering projects.
 
 ## Choose Your Platform

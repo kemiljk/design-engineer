@@ -18,31 +18,25 @@ estimatedTime: 10
 ## Step 1: iPhone Sizes
 
 You likely designed on the standard iPhone size (393pt). Now stress-test it.
-- **iPhone SE (375pt):** Does your content feel cramped? Do long titles truncate too early?
-- **iPhone Pro Max (430pt):** Does your content feel sparse? Can you show more information?
+Ensure your content remains legible on the **iPhone SE** by checking for truncation and over-crowding, and verify that the **iPhone Pro Max** doesn't feel overly sparse.
 *Action:* Create a frame for the SE size and adjust your layout constraints to prove it works.
 
 ## Step 2: Safe Areas
 
 The screen is not a rectangle.
-- **Top:** Ensure your navigation bar sits *below* the Dynamic Island/Notch, but your background colour extends *behind* it.
-- **Bottom:** Ensure your interactive elements (buttons, tab bar) are clear of the Home Indicator area.
-- **Clipping:** Check rounded corners. Is any content uncomfortably close to the physical edge radius?
+Place navigation bars below the notch while extending background colours behind it, ensure interactive elements are clear of the Home Indicator, and check that content is not clipped by the screen's rounded corners.
 
 ## Step 3: Dark Mode
 
 You set up the tokens in Phase 1. Now, apply them.
 - **Duplicate** your main screens.
 - **Switch** the mode to Dark.
-- **Audit:** Look for low contrast. Look for "muddy" shadows (which should be invisible). Look for overly bright large surfaces.
-- **Refine:** If a card border is invisible in Dark Mode, add a stroke or slightly lighten the card background colour.
+Audit your dark mode screens for low contrast or "muddy" shadows, ensuring that large surfaces aren't overly bright and that card borders remain visible by adding a subtle stroke or adjusting the background colour.
 
 ## Step 4: iPad (Optional but Recommended)
 
 If you want to shine, show how this scales to iPad.
-- **Split View:** Show how the List and Detail views can sit side-by-side.
-- **Sidebar:** Show the Tab Bar transforming into a Sidebar.
-- **Popovers:** Show a menu appearing as a popover instead of a bottom action sheet.
+Demonstrate platform mastery by showing how views transform into a **Split View** or **Sidebar** on iPad, and utilise **Popovers** for menus that would otherwise be modal sheets on iPhone.
 
 ## Checkpoint
 

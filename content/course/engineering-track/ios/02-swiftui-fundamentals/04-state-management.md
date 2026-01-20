@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- @State for local state
-- @Binding for child views
-- Source of truth concept
-- Observable objects for shared state
+During this module, you will learn to use `@State` for managing local view properties and explore the role of `@Binding` in connecting child views to their parents. We'll examine the critical "source of truth" concept and walk through the implementation of observable objects for managing complex shared state across your application.
 
 ## @State
 
@@ -28,9 +25,7 @@ struct CounterView: View {
 ```
 
 ### When to Use @State
-- Simple value types (Int, String, Bool)
-- State owned by this view
-- Private to the view
+You should use `@State` specifically for simple value types like integers, strings, and booleans that are owned by and private to a single view. This ensures that the state remains encapsulated while allowing SwiftUI to handle UI updates automatically whenever the underlying value changes.
 
 ## @Binding
 
@@ -69,9 +64,7 @@ struct SettingsView: View {
 
 ### Single Source
 Every piece of state should have one owner:
-- Parent owns state
-- Children receive bindings
-- Changes flow back up automatically
+To maintain a reliable application flow, every piece of state must have a single owner who acts as the primary source of truth. Children should receive bindings to this state, allowing changes to flow back up to the parent automatically without creating redundant copies of the data.
 
 ### Example Flow
 ```text
@@ -144,15 +137,12 @@ struct ProfileView: View {
 ### Exercise 1: Toggle State
 
 Create a view with:
-- A toggle that shows/hides content
-- @State for the toggle value
+Practise your state management skills by creating a view with a toggle that dynamically shows or hides content based on the user's selection. Use the `@State` property wrapper to track the toggle's value and ensure the interface updates correctly.
 
 ### Exercise 2: Parent-Child Binding
 
 Create:
-- Parent with @State text
-- Child TextField with @Binding
-- Display text updates in parent
+Implement a parent-child relationship where the parent owns a piece of text state and passes a binding to a child's text field. Verify that any updates made within the child component are immediately reflected in the parent's display.
 
 ## Test Your Understanding
 
@@ -195,11 +185,7 @@ Create:
 
 ## Key Takeaways
 
-- @State for view-local state
-- @Binding for child view connections
-- Single source of truth principle
-- @Observable for complex state
-- Environment for deep sharing
+To build dynamic and responsive SwiftUI applications, you must effectively use `@State` for local view management and `@Binding` to connect dependencies between parent and child components. Adhering to the single source of truth principle will prevent data inconsistencies, while leveraging `@Observable` classes and the environment will allow you to share complex state across your entire view hierarchy with minimal effort.
 
 ## Next Steps
 

@@ -4,21 +4,11 @@
 
 ## What You'll Learn
 
-- Button variants and states
-- Accessible button implementation
-- Styling interactive states
-- Component API design
+In this lesson, we will explore button variants and the various states a button can occupy. You will learn how to implement accessible buttons, style interactive states properly, and design a clean component API.
 
 ## Button Fundamentals
 
-A button seems simple, but proper implementation requires attention to:
-
-<!-- visual-example: button-showcase-demo -->
-
-- Semantic HTML
-- Accessibility
-- All interactive states
-- Visual variants
+A button seems simple, but proper implementation requires attention to semantic HTML, accessibility, all interactive states, and visual variants.
 
 ## Semantic HTML
 
@@ -324,37 +314,21 @@ export default Button;
 
 ### Why React is Better for Components
 
-1. **Declarative:** Describe what to render, not how to create it
-2. **Reactive:** UI updates automatically when props/state change
-3. **Composable:** Pass components as children (`{children}`)
-4. **Type-safe:** TypeScript integration catches errors at build time
-5. **Testable:** Easy to unit test with React Testing Library
+React excels here for several reasons: it is declarative, allowing you to describe what to render rather than how to create it; it is reactive, so the UI updates automatically when props or state change; it is composable, letting you pass components as children via `{children}`; it is type-safe with TypeScript integration that catches errors at build time; and it is easily testable with tools like React Testing Library.
 
 ## Try It Yourself
 
 ### Exercise 1: Build the Button
 
-Create a complete button component with:
-
-- All variants (primary, secondary, ghost, danger)
-- All sizes (small, medium, large)
-- All states (hover, focus, active, disabled)
+Create a complete button component featuring all variants (primary, secondary, ghost, danger), all sizes (small, medium, large), and all states (hover, focus, active, disabled).
 
 ### Exercise 2: Icon Buttons
 
-Create buttons with icons:
-
-- Icon + text
-- Icon only (with aria-label)
-- Text + icon (icon on right)
+Create buttons with icons in different configurations: icon paired with text, icon-only (ensuring you include an `aria-label`), and text with the icon positioned on the right.
 
 ### Exercise 3: Loading State
 
-Implement a loading button that:
-
-- Shows a spinner
-- Disables interaction
-- Announces "loading" to screen readers
+Implement a loading button that shows a spinner, disables user interaction while loading, and announces the loading state to screen readers.
 
 ## Test Your Understanding
 
@@ -397,14 +371,7 @@ Implement a loading button that:
 
 ## Key Takeaways
 
-- Use semantic `<button>` elements
-- Style all states: hover, focus, active, disabled
-- Create variants through modifier classes
-- Always consider accessibility
-- Loading states need visual and accessible feedback
-- React components accept props for configuration
-- TypeScript adds type safety to component APIs
-- `{children}` enables flexible content composition
+To recap, always use semantic `<button>` elements for actions and style all states including hover, focus, active, and disabled. Create variants through modifier classes and always consider accessibility. Loading states require both visual feedback and accessible announcements. In React, components accept props for configuration, and TypeScript adds type safety to component APIs. The special `{children}` prop enables flexible content composition.
 
 ## Next Steps
 

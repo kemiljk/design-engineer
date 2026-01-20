@@ -5,10 +5,7 @@
 ## The Purpose of Layout
 
 Layout answers fundamental questions:
-- Where does content go?
-- How does content relate spatially?
-- How does the eye move through the page?
-- How does the layout adapt to different screens?
+Layout determines the spatial relationship between elements, directing how the eye moves through the page while ensuring that content adapts seamlessly across different screen sizes.
 
 Without intentional layout, content sprawls chaotically. With it, even complex pages feel organised.
 
@@ -129,11 +126,11 @@ Beyond grid structure, composition is about visual arrangement and balance.
 
 ### The F-Pattern
 
-Eye-tracking research shows users scan text-heavy pages in an F-pattern. They read a horizontal line across the top, then scan down the left side, and occasionally read across again. This implies that your most important content (headlines, key points) should be **top-left** or **left-aligned**.
+Eye-tracking research shows users scan text-heavy pages in an F-pattern, reading horizontally across the top before scanning down the left side and occasionally reading across again. Consequently, your most important content—such as headlines and key points—should be placed in the top-left area or be strictly left-aligned.
 
 ### The Z-Pattern
 
-For pages with less text (like landing pages), users often follow a Z-pattern. They scan from top-left to top-right (logo to navigation), then diagonally down to the bottom-left, and finally across to the bottom-right. This makes the **bottom-right corner** the ideal spot for your primary Call to Action (CTA).
+For landing pages and other areas with less text, users follow a Z-pattern by scanning from the top-left to top-right, moving diagonally down to the bottom-left, and finally across to the bottom-right. This natural movement makes the bottom-right corner the ideal position for your primary call to action.
 
 ### Visual Weight Distribution
 
@@ -153,24 +150,13 @@ Good layouts guide the eye through content in logical order.
 
 ### Techniques for Flow
 
-**Size progression:** Large elements first, smaller supporting elements after.
-
-**Directional cues:** Images of people looking toward content, arrows, diagonal lines.
-
-**Whitespace channels:** Empty space creates paths the eye follows.
-
-**Repetition:** Repeating elements create rhythm that pulls you through.
+Visual flow is established through size progression, moving from large elements to smaller supporting ones, and by using directional cues like images of people looking toward content. Furthermore, whitespace channels and repeating patterns create invisible paths that pull the user's eye naturally through the information.
 
 ### Common Flow Patterns
 
-**Hero → Features → Social Proof → CTA**
-Classic marketing page flow. Interest → Details → Trust → Action.
+A classic marketing page flow moves from the hero section to features, followed by social proof and a final call to action to move users through interest, details, trust, and action.
 
-**Problem → Solution → How it Works → Pricing**
-Product page flow. Empathy → Answer → Clarity → Conversion.
-
-**Navigation → Main Content → Related → Footer**
-App/document flow. Orient → Engage → Explore → Navigate.
+Product pages often follow a problem-solution-pricing sequence to build empathy and clarity before conversion, while apps orient users through navigation before engaging them with main content and related information.
 
 ## Layout Anti-Patterns
 
@@ -268,13 +254,7 @@ Sketch each breakpoint.
 
 ## Key Takeaways
 
-- Grids create consistency and simplify decision-making
-- 12-column grids are flexible and widely used
-- Common patterns: single column, two column, multi-column, asymmetric
-- Design mobile-first, enhance for larger screens
-- Composition techniques (F-pattern, Z-pattern, rule of thirds) guide visual flow
-- Balance visual weight for harmonious layouts
-- Avoid walls of sameness, random placement, and overcrowding
+Effective layout uses grids to create consistency and simplify spatial decision-making, with 12-column systems providing the flexibility needed for common patterns like single or multi-column grids. By designing mobile-first and applying composition techniques like the F and Z-patterns, you can guide visual flow and balance weight to avoid walls of sameness or overcrowding in your interfaces.
 
 ## Next Steps
 

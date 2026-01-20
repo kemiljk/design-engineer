@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- Additional React hooks: useRef, useContext, useMemo, useCallback
-- Custom hooks for reusable logic
-- Rules of hooks
-- Performance optimisation patterns
-- Common mistakes and how to avoid them
+In this lesson, we will explore additional React hooks including `useRef`, `useContext`, `useMemo`, and `useCallback`. You will learn how to create custom hooks for reusable logic, understand the rules that govern hook usage, discover performance optimisation patterns, and see common mistakes along with how to avoid them.
 
 ## Quick Hooks Reference
 
@@ -186,15 +182,12 @@ function Card() {
 ### When to Use Context
 
 **Good uses:**
-- Theme (light/dark mode)
-- Current user authentication
-- Locale/language settings
-- UI state (sidebar open, modal visible)
+
+Context is well-suited for theming (light/dark mode), current user authentication, locale and language settings, and global UI state such as whether a sidebar is open or a modal is visible.
 
 **Avoid for:**
-- Frequently changing data (causes many re-renders)
-- Data that only a few components need
-- Everything (not a replacement for all state)
+
+However, context is not ideal for frequently changing data since it causes many re-renders, nor for data that only a few components need. It is not a replacement for all state management.
 
 ## useMemo: Memoizing Calculations
 
@@ -222,12 +215,7 @@ function FilteredList({ items, filter }) {
 
 ### When to Use useMemo
 
-Use it for:
-- Expensive calculations (sorting large arrays, complex filtering)
-- Creating objects/arrays passed to optimised children
-- Values that shouldn't change reference unnecessarily
-
-Don't overuse it. The memoisation itself has a cost.
+Use `useMemo` when you have expensive calculations such as sorting large arrays or performing complex filtering, when creating objects or arrays that are passed to optimised child components, or when you have values whose reference should not change unnecessarily. However, take care not to overuse it, as the memoisation itself adds overhead.
 
 ## useCallback: Memoizing Functions
 
@@ -315,10 +303,7 @@ function Counter() {
 
 ### When to Use useReducer
 
-- Multiple related state values
-- Next state depends on previous state
-- Complex update logic
-- You want to pass `dispatch` down instead of callbacks
+Consider `useReducer` when you have multiple related state values, when the next state depends on the previous state, when you have complex update logic, or when you prefer to pass `dispatch` down through the component tree instead of individual callback functions.
 
 ## Custom Hooks
 
@@ -590,30 +575,17 @@ useEffect(() => {
 const fullName = `${firstName} ${lastName}`;
 ```
 
-## Try It Yourself
-
 ### Exercise 1: useLocalStorage Hook
 
-Create a `useLocalStorage` hook that:
-- Stores value in localStorage
-- Syncs with localStorage on changes
-- Handles JSON serialisation
-- Has a fallback for SSR
+Create a `useLocalStorage` hook that stores a value in localStorage, synchronises with localStorage whenever the value changes, handles JSON serialisation automatically, and includes a fallback for server-side rendering.
 
 ### Exercise 2: Click Outside Hook
 
-Build `useClickOutside` that:
-- Takes a ref and callback
-- Calls callback when clicking outside the ref element
-- Cleans up event listener
+Build a `useClickOutside` hook that accepts a ref and a callback function, calls that callback when the user clicks outside the referenced element, and properly cleans up its event listener.
 
 ### Exercise 3: Theme Context
 
-Create a complete theme system:
-- ThemeContext with light/dark themes
-- useTheme hook
-- Theme toggle component
-- Persistence in localStorage
+Create a complete theme system that includes a `ThemeContext` with light and dark themes, a `useTheme` hook for consuming the context, a theme toggle component, and persistence of the user's preference to localStorage.
 
 ## Test Your Understanding
 
@@ -656,14 +628,7 @@ Create a complete theme system:
 
 ## Key Takeaways
 
-- `useRef` stores mutable values and accesses DOM elements without triggering re-renders
-- `useContext` shares state globally, avoiding prop drilling
-- `useMemo` caches expensive calculations; `useCallback` caches functions
-- `useReducer` handles complex state with reducer pattern
-- Custom hooks extract and share stateful logic between components
-- Follow the Rules of Hooks: top-level only, React functions only
-- Don't over-optimise; measure before adding memoisation
-- Name custom hooks starting with "use" so React knows they're hooks
+To recap, `useRef` stores mutable values and provides access to DOM elements without triggering re-renders, while `useContext` enables you to share state globally and avoid prop drilling. For performance, `useMemo` caches expensive calculations and `useCallback` caches functions to maintain stable references. When state logic becomes complex, `useReducer` offers the familiar reducer pattern. Custom hooks allow you to extract and share stateful logic between components. Always follow the Rules of Hooks—call them only at the top level and only in React functions. Avoid over-optimisation by measuring before adding memoisation, and remember to name your custom hooks starting with "use" so React can identify them.
 
 ## What's Next?
 

@@ -16,29 +16,13 @@ This course is tested with the following versions (January 2026). Newer versions
 
 ## What You'll Learn
 
-- What package managers are and why they matter
-- How to install Homebrew (Mac) or Chocolatey (Windows)
-- Installing Node.js and npm
-- Understanding global vs local packages
-- Installing your first development tools
+During this module, you will learn exactly what package managers are and why they are essential for modern development workflows. We'll examine how to install Homebrew on Mac or Chocolatey on Windows and walk through the setup of Node.js and npm. You will also explore the differences between global and local packages and successfully install your very first development tools.
 
 ## The Package Manager Concept
 
 A package manager is like an App Store for developer tools, accessed through the terminal.
 
-Instead of:
-1. Opening a browser
-2. Searching for software
-3. Finding the download page
-4. Downloading an installer
-5. Running the installer
-6. Clicking through installation steps
-
-You type:
-
-```bash
-brew install node
-```
+A package manager simplifies the installation process by allowing you to bypass the traditional manual steps of opening a browser, searching for software, and running individual installers. Instead of clicking through numerous installation prompts, you can simply type a single command such as `brew install node` to have the manager handle everything from downloading and installing to managing future updates automatically.
 
 The package manager handles everything: downloading, installing, and managing updates.
 
@@ -107,11 +91,7 @@ Node.js is a JavaScript runtime that lets you run JavaScript outside of browsers
 
 ### Why Designers Need Node.js
 
-- **Build tools:** Bundlers, compilers, and optimisers run on Node
-- **Development servers:** Live preview whilst you code
-- **Design tools:** Many design-to-code tools use Node
-- **Frameworks:** React, Vue, Next.js all require Node
-- **Package management:** npm (Node Package Manager) comes with Node
+As a designer, you will find Node.js indispensable for running modern build tools, compilers, and image optimisers. It enables the use of development servers for live previews whilst you code and is a prerequisite for popular frameworks like React and Next.js. Furthermore, many design-to-code tools and the npm package manager itself rely on Node to function effectively within your development environment.
 
 ### Installing Node.js
 
@@ -151,8 +131,7 @@ You should see the npm version too.
 
 Node.js has multiple versions. The important ones:
 
-- **LTS (Long Term Support):** Stable, recommended for most uses
-- **Current:** Latest features, might have bugs
+Node.js offers two primary version streams: the Long Term Support (LTS) version, which is stable and recommended for most users, and the Current version, which features the latest updates but may contain bugs. For most learning purposes, the LTS version is excellent, and both Homebrew and Chocolatey will install this stable version by default.
 
 For learning, LTS is perfect. Homebrew and Chocolatey install the latest LTS by default.
 
@@ -206,8 +185,7 @@ This creates a `node_modules` folder in your project with the package.
 
 ### When to Use Which
 
-- **Global:** CLI tools you use across projects (rare)
-- **Local:** Project dependencies (common)
+Global packages are typically reserved for CLI tools that you use across multiple projects, though this practice is becoming increasingly rare. Modern development favours local packages, as they are installed per project and listed in your `package.json`, allowing anyone to easily recreate your exact setup.
 
 Modern practice favours local packages. They're listed in `package.json` so anyone can recreate your setup.
 
@@ -426,11 +404,7 @@ npm info tailwindcss
 
 ## Key Takeaways
 
-- Package managers (Homebrew/Chocolatey) simplify installing developer tools
-- Node.js and npm are essential for modern web development
-- Use global installs (`-g`) sparingly. Local packages are preferred.
-- Keep your tools updated with `brew upgrade` or `choco upgrade`
-- Most installation problems are PATH-related. Restart your terminal first.
+To maintain an efficient web development environment, you should leverage package managers like Homebrew or Chocolatey to simplify the installation of essential tools like Node.js and Git. While global installations have their place, you should generally prefer local packages for better project consistency and keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`. Finally, if you encounter any initial setup issues, remember that most are related to your PATH configuration and can often be resolved by simply restarting your terminal.
 
 ## Next Steps
 

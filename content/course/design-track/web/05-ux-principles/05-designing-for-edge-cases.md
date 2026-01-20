@@ -6,11 +6,7 @@
 
 It's easy to design a perfect interface when you assume the user has a short name, a fast internet connection, and perfect data. But reality is messy.
 
-*   **Empty States:** What does the screen look like when there's nothing to show?
-*   **Errors:** What happens when the server fails?
-*   **Loading:** What does the user see while waiting?
-*   **Extremes:** What if the user's name is 50 characters long?
-*   **Permissions:** What if the user says "No" to camera access?
+Designing for a resilient product requires anticipating messy realities like empty states with nothing to show, server failures that trigger errors, and the necessary loading indicators that fill the gap while users wait. It also means handling content extremes like fifty-character names and managing permission states when users decline access to necessary hardware like cameras.
 
 Designing for edge cases isn't "extra credit"—it's the difference between a fragile prototype and a resilient product.
 
@@ -22,12 +18,7 @@ An empty state is a screen with no data. This often happens on first launch, or 
 
 A blank screen is confusing. It tells the user "nothing is here," but it doesn't explain *why* or *how to fix it*. It feels broken.
 
-### The Solution: Educate and prompt
-
-A good empty state is an opportunity to onboard the user.
-1.  **Explain the "Why":** "You haven't created any projects yet."
-2.  **Guide the Action:** "Create a project to start tracking your tasks."
-3.  **Provide the Button:** Place the primary "Create" button right there in the center.
+A good empty state serves as an onboarding opportunity by explaining why no data is present, such as "You haven't created any projects yet," and guiding the user's next action with a prompt like "Create a project to start tracking your tasks." Placing the primary action button directly in the centre of the screen makes the solution immediate and clear.
 
 **Example: Search Results**
 Instead of just saying "No results found," try:
@@ -43,45 +34,31 @@ Errors are inevitable. How you handle them defines your user experience.
 **Bad:** "Error 500" or "Something went wrong."
 **Good:** "We couldn't save your changes because you are offline. Please check your connection."
 
-A good error message answers three questions:
-1.  **What happened?** (Plain language description)
-2.  **Why did it happen?** (Context)
-3.  **What can I do about it?** (Actionable next step)
+A good error message uses plain language to describe what happened, provides necessary context for why it occurred, and offers an actionable next step so the user knows exactly how to proceed.
 
 ### Placement Matters
 
-*   **Form Errors:** Place the message directly below the invalid field. Don't make the user hunt for it at the top of the page.
-*   **System Errors:** Use a global toast or banner for things like "Connection Lost."
-*   **Critical Errors:** Use a modal or a full-page state only if the app is unusable (e.g., "Server Down").
+Strategic placement involves positioning form errors directly below invalid fields, using global toasts for system-wide alerts like lost connections, and reserving heavy-handed modals or full-page states for critical failures that make the entire application unusable.
 
 ## Loading States
 
 Speed is a feature, but perceived performance is just as important.
 
-### The 100ms Rule
-*   **< 100ms:** Instant. No feedback needed.
-*   **100ms - 1s:** The user feels a delay. A small spinner or loader is appropriate.
-*   **1s - 10s:** The user's mind starts to wander. Use a skeleton screen or a progress bar to show that *something* is happening.
-*   **> 10s:** You risk losing the user completely. Provide a time estimate or allow them to background the task.
+Feedback threshold varies by duration: interactions under 100ms feel instant and need no indicator, while delays up to one second benefit from a small spinner. For waits between one and ten seconds, skeleton screens or progress bars are necessary to show continued activity, and anything exceeding ten seconds requires time estimates or the ability for users to background the task.
 
 ### Skeleton Screens vs. Spinners
 
-Spinners focus attention on the *waiting*. Skeleton screens focus attention on the *content* that is about to appear. Skeletons (gray placeholder shapes) make the app feel faster because they lay out the structure immediately, preventing jarring layout shifts when the real data arrives.
+Spinners focus attention on the *waiting*. Skeleton screens focus attention on the *content* that is about to appear. Skeletons (grey placeholder shapes) make the app feel faster because they lay out the structure immediately, preventing jarring layout shifts when the real data arrives.
 
 ## Content Extremes
 
 Data is rarely uniform.
 
 ### The Long and the Short of It
-*   **Long Content:** What happens if a headline runs for three lines? Does it truncate (`...`) or wrap? Truncation saves space but hides information. Wrapping preserves information but breaks alignment. Choose based on importance.
-*   **Short Content:** What if a "Top 10" list only has one item? Does the layout look broken?
-*   **Missing Content:** What if a user doesn't have an avatar? Use a fallback (initials or a generic icon) rather than a broken image link.
+Design for content variability by deciding whether long headlines should wrap to preserve info or truncate to save space, and ensure the layout doesn't look broken when lists only contain a single item. Always provide fallback icons or initials for missing content like avatars rather than leaving broken image links.
 
 ### Numerical Extremes
-*   **Zero:** "0 items" (or "No items").
-*   **One:** "1 item" (Singular).
-*   **Many:** "1,234 items" (Comma formatting).
-*   **Too Many:** "99+" (Badges shouldn't explode with width).
+Handle numerical extremes by correctly formatting zero, singular, and plural counts, and ensure badges use overflow signals like "99+" to prevent them from expanding excessively across the layout.
 
 ## Permission States
 
@@ -98,10 +75,7 @@ Provide a button that deep-links directly to the App Settings.
 Design the "My Orders" screen for an e-commerce app for a user who has never bought anything. How do you turn this empty screen into a sales opportunity?
 
 ### Exercise 2: The "Bad Data" Stress Test
-Take a card component you designed. Fill it with:
-*   A 100-character title.
-*   A missing image.
-*   A price of $1,000,000.00.
+Stress test your card components by filling them with extreme data, such as a hundred-character title, a missing image, or a million-pound price point, to ensure the CSS and layout handle these cases without breaking.
 Does it break? Fix the CSS/Layout to handle these extremes gracefully.
 
 ## Test Your Understanding
@@ -145,22 +119,14 @@ Does it break? Fix the CSS/Layout to handle these extremes gracefully.
 
 ## Key Takeaways
 
--   **The "Happy Path" is rare.** Most users encounter edge cases.
--   **Empty states are onboarding opportunities.** Don't just say "empty."
--   **Errors should be actionable.** Tell the user how to fix it.
--   **Loaders manage perception.** Use skeletons to make the app feel faster.
--   **Stress test your designs.** Use long text, short text, and missing data.
+Designing for the rare "happy path" is insufficient since most users encounter edge cases that require actionable errors to guide them. By treating empty states as onboarding opportunities, using loaders to manage performance perception, and stress-testing designs with diverse data extremes, you can build a more resilient and professional user experience.
 
 ## Next Steps
 
 Congratulations! You've completed the Design Track for Web.
 
 You now understand:
-- Visual design fundamentals
-- Typography, colour, spacing, and layout
-- Design tools and workflows
-- Design systems and components
-- UX principles and user-centred thinking
+By completing this track, you have gained a comprehensive understanding of visual design fundamentals, including typography, colour, spacing, and layout. You have also mastered essential design tools and workflows, developed a deep knowledge of design systems and component architecture, and learned to apply UX principles and user-centred thinking to every project.
 
 **Where to go next:**
 

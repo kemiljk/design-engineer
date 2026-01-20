@@ -4,28 +4,13 @@
 
 ## What You'll Learn
 
-- How to set up a React project
-- JSX syntax and how it differs from HTML
-- Creating and composing components
-- The component mental model
+In this lesson, we will walk through the process of setting up a new React project using modern tooling. You will learn the key differences between JSX and standard HTML, understand how to create and compose your own components, and develop a strong mental model for thinking about React applications.
 
 ## Setting Up React
 
 ### Quick Start with Vite
 
-Vite is the fastest way to start a React project:
-
-```bash
-npm create vite@latest my-app -- --template react
-cd my-app
-npm install
-npm run dev
-```
-
-This creates a project with:
-- React and React DOM
-- Development server with hot reload
-- Build tooling configured
+Vite is the fastest way to start a React project. The setup process is straightforward and creates a project with React and React DOM included, a development server with hot reloading, and all the necessary build tooling pre-configured.
 
 ### Project Structure
 
@@ -44,9 +29,8 @@ my-app/
 ```
 
 **Key files:**
-- `main.jsx`: Entry point that renders the root component
-- `App.jsx`: Your main component
-- `index.html`: The single HTML page React mounts to
+
+The most important files in your project are `main.jsx`, which serves as the entry point that renders the root component; `App.jsx`, your main application component; and `index.html`, the single HTML page that React mounts to.
 
 ### The Entry Point
 
@@ -244,9 +228,8 @@ function Greeting() {
 ```
 
 **Rules for components:**
-- Name must start with a capital letter (`Greeting`, not `greeting`)
-- Must return JSX (or `null`)
-- One component per concern
+
+When creating components, remember that the name must start with a capital letter (for example, `Greeting` rather than `greeting`). Every component must return JSX or `null`, and you should aim for one component to handle one concern.
 
 ### Using Components
 
@@ -550,10 +533,7 @@ npm run dev
 
 ### Exercise 2: Create Components
 
-Build these components:
-1. A `Logo` component that displays an image
-2. A `NavLink` component that renders a link
-3. A `Header` component that composes `Logo` and multiple `NavLink`s
+Practise your component-building skills by creating a `Logo` component that displays an image, a `NavLink` component that renders a styled link, and a `Header` component that composes your `Logo` and multiple `NavLink` instances together.
 
 ### Exercise 3: List Rendering
 
@@ -608,12 +588,7 @@ const features = [
 
 ## Key Takeaways
 
-- React components are functions that return JSX
-- JSX looks like HTML but has key differences (className, camelCase, expressions)
-- Components must return a single root element (use Fragments when needed)
-- Composition: build complex UIs from simple components
-- Lists require unique `key` props for efficient updates
-- One component per file keeps code organised
+To recap, React components are simply functions that return JSX, a syntax that looks like HTML but has key differences such as `className` for classes, camelCase for attributes, and curly braces for JavaScript expressions. Components must return a single root element, so you should use Fragments when you do not want to add extra nodes to the DOM. Composition is the key pattern, allowing you to build complex UIs from simple, reusable pieces. When rendering lists, always provide unique `key` props to enable efficient updates, and organise your project with one component per file.
 
 ## Next Steps
 

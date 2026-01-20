@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The mobile-first approach
-- Media queries and breakpoints
-- Fluid layouts and typography
-- Modern responsive techniques
+In this lesson, we will explore the mobile-first approach to design and how to effectively use media queries and breakpoints to manage different screen sizes. You will learn the principles of fluid layouts and typography, and we'll cover modern responsive techniques that ensure your interfaces are robust and adaptable.
 
 ## The Responsive Mindset
 
@@ -44,10 +41,7 @@ Start with mobile styles, then enhance for larger screens:
 
 ### Why Mobile-First?
 
-1. **Mobile constraints force focus:** Limited space means prioritising what matters.
-2. **Progressive enhancement:** Add features for capable devices, not remove for limited ones.
-3. **Performance:** Mobile users don't download desktop styles.
-4. **More users:** Mobile traffic often exceeds desktop.
+Adopting a mobile-first strategy forces you to focus on the most critical content due to the limited space available on smaller screens. This approach encourages progressive enhancement, where you add complexity for more capable devices rather than trying to strip it away for limited ones. Furthermore, it significantly improves performance for mobile users who won't need to download unnecessary desktop styles, and it aligns with the reality that mobile traffic now frequently exceeds desktop usage.
 
 ## Media Queries
 
@@ -81,17 +75,7 @@ Media queries apply styles conditionally:
 
 ### Common Breakpoints
 
-There's no universal standard, but common breakpoints:
-
-| Breakpoint | Target |
-|------------|--------|
-| 480px | Large phones |
-| 768px | Tablets |
-| 1024px | Laptops |
-| 1280px | Desktops |
-| 1536px | Large desktops |
-
-Choose breakpoints based on your content, not devices.
+While there is no universal standard for breakpoints, common industry targets include 480px for large phones, 768px for tablets, and 1024px for laptops, with larger screens typically targeting 1280px or 1536px. However, you should always choose your breakpoints based on the specific needs of your content rather than trying to target individual devices.
 
 ### Other Media Features
 
@@ -102,8 +86,8 @@ Choose breakpoints based on your content, not devices.
 /* Hover capability */
 @media (hover: hover) { }
 
-/* Color scheme preference */
-@media (prefers-colour-scheme: dark) { }
+/* Colour scheme preference */
+@media (prefers-color-scheme: dark) { }
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) { }
@@ -134,50 +118,19 @@ Container queries enable truly reusable components.
 
 ### Fluid Typography
 
-Instead of fixed sizes at breakpoints, scale smoothly:
-
-```css
-/* Using clamp() */
-h1 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  /* Minimum | Preferred | Maximum */
-}
-```
-
-`clamp()` ensures text never gets too small or too large.
+Instead of relying on fixed font sizes that jump at specific breakpoints, fluid typography allow your text to scale smoothly between a minimum and maximum size. Using the `clamp()` function, you can define a preferred font size in viewport units, ensuring that your headings and body text remain legible and aesthetically pleasing on any device.
 
 ### Fluid Spacing
 
-```css
-.section {
-  padding: clamp(2rem, 5vw, 6rem);
-}
-```
+The same `clamp()` logic can be applied to spacing, allowing your margins and padding to contract on smaller screens and expand on larger ones. This creates a more balanced and professional feel for your layout as the viewport width changes.
 
 ### Viewport Units
 
-```css
-/* Viewport width */
-.hero { font-size: 5vw; }
-
-/* Viewport height */
-.full-height { min-height: 100vh; }
-
-/* Dynamic viewport (accounts for mobile browser chrome) */
-.full-height { min-height: 100dvh; }
-```
+Viewport units allow you to size elements relative to the dimensions of the browser window. While `vw` and `vh` are standard for width and height, you should consider using dynamic viewport units like `dvh` for full-height elements to correctly account for mobile browser interfaces that can change as the user scrolls.
 
 ### Container Units
 
-```css
-.card-container {
-  container-type: inline-size;
-}
-
-.card-title {
-  font-size: 5cqi; /* Container query inline size */
-}
-```
+When using container queries, you can also utilise container-relative units like `cqi` to size elements based on their immediate parent's dimensions. This ensures that a component’s internal typography and spacing remain proportional to the space it actually occupies on the page.
 
 ## Responsive Images
 
@@ -216,59 +169,9 @@ This prevents images from overflowing containers.
 </picture>
 ```
 
-## Responsive Patterns
+### Responsive Patterns
 
-### Stack to Horizontal
-
-Mobile: stacked. Desktop: side-by-side.
-
-```css
-.layout {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .layout {
-    flex-direction: row;
-  }
-}
-```
-
-### Grid Auto-Flow
-
-```css
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-```
-
-Automatically adjusts columns based on space.
-
-### Hide/Show Elements
-
-```css
-.mobile-menu {
-  display: block;
-}
-
-.desktop-nav {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .mobile-menu {
-    display: none;
-  }
-  
-  .desktop-nav {
-    display: flex;
-  }
-}
-```
+A common responsive pattern is to transition from a single-column stack on mobile to a horizontal row on desktop using flexbox. You can also leverage CSS Grid's `auto-fit` and `minmax()` functions to create columns that automatically adjust to the available width without requiring any media queries. For components like navigation, you may need to hide certain elements on smaller screens and switch to a different interface, such as a hamburger menu, to maintain a clean layout.
 
 ### Responsive Table
 
@@ -315,11 +218,7 @@ Dev tools simulate, but real devices reveal:
 
 ### Common Issues
 
-- Text too small
-- Touch targets too small (minimum 44px)
-- Horizontal scroll
-- Fixed widths breaking layout
-- Content cut off
+When reviewing your responsive designs, be on the lookout for common pitfalls such as text that is too small to read or touch targets that fall below the minimum recommended size of 44px. You should also ensure that your layout does not trigger horizontal scrolling and that fixed-width elements are not inadvertently breaking the responsive flow on smaller viewports.
 
 ## Modern CSS for Responsive
 
@@ -362,28 +261,15 @@ Maintain proportions:
 
 ### Exercise 1: Mobile-First Layout
 
-Build a page layout that:
-- Single column on mobile
-- Two columns (sidebar + main) on tablet
-- Three columns (nav, main, aside) on desktop
-
-Use mobile-first media queries.
+Build a page layout that starts as a single column on mobile, transitions to a two-column sidebar structure on tablets, and expands to a three-column desktop layout. You should use mobile-first media queries to progressively enhance the experience as the screen width increases.
 
 ### Exercise 2: Fluid Typography
 
-Create a heading that:
-- Is 1.5rem at minimum
-- Scales with viewport width
-- Never exceeds 3rem
-
-Use `clamp()`.
+Create a heading that uses the `clamp()` function to scale smoothly with the viewport width. Set a minimum size of 1.5rem and ensure the text never exceeds 3rem, providing a consistent typographic experience across all resolutions.
 
 ### Exercise 3: Responsive Navigation
 
-Build navigation that:
-- Shows a hamburger menu on mobile
-- Expands to horizontal links on desktop
-- Has appropriate touch targets
+Develop a navigation component that displays a hamburger menu on mobile devices and expands into a horizontal list of links on desktop. Pay close attention to the touch targets on the mobile version to ensure they are easy to interact with.
 
 ## Test Your Understanding
 
@@ -426,13 +312,7 @@ Build navigation that:
 
 ## Key Takeaways
 
-- Mobile-first: Start with mobile styles, enhance for larger screens
-- Use `min-width` media queries for mobile-first
-- Choose breakpoints based on content, not devices
-- Container queries enable component-level responsiveness
-- `clamp()` creates fluid sizing without breakpoints
-- Always test on real devices
-- Modern CSS (logical properties, aspect-ratio) simplifies responsive work
+To recap, a mobile-first approach involves writing your base styles for smaller screens and using `min-width` media queries to add complexity for larger devices. You should choose your breakpoints based on the content's needs rather than specific devices and leverage modern tools like container queries and the `clamp()` function for fluid, robust designs. Always remember to test your interfaces on real devices to understand the true user experience, including touch interactions and performance constraints.
 
 ## Next Steps
 

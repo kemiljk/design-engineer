@@ -8,11 +8,7 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- JavaScript classes and inheritance
-- Getters, setters, and private fields
-- Optional chaining for safe property access
-- Nullish coalescing for default values
-- Modern object and array methods
+In this lesson, we will explore the syntax and benefits of using JavaScript classes, including inheritance, getters, and setters. You will learn how to use optional chaining for safe property access and nullish coalescing to provide reliable default values. Furthermore, we will cover modern object and array methods that allow you to process data more expressively and write more robust code.
 
 ## Classes
 
@@ -120,50 +116,11 @@ counter.#count;  // SyntaxError: Private field
 
 ## Optional Chaining
 
-Safely access nested properties without checking each level:
-
-```javascript
-// Without optional chaining
-const city = user && user.address && user.address.city;
-
-// With optional chaining
-const city = user?.address?.city;
-```
-
-Works with:
-
-```javascript
-// Property access
-const city = user?.address?.city;
-
-// Array access
-const first = arr?.[0];
-
-// Method calls
-const result = obj?.method?.();
-
-// Combined
-const name = response?.data?.users?.[0]?.name;
-```
-
-Returns `undefined` if any part is `null` or `undefined`.
+Optional chaining allows you to safely access deeply nested object properties without having to manually check that each level of the structure exists. If any part of the chain—whether it is a property, an array element, or even a method call—is `null` or `undefined`, the entire expression will simply return `undefined` instead of throwing a runtime error. This makes your code considerably more robust when dealing with potentially incomplete data from external APIs.
 
 ## Nullish Coalescing
 
-Provide defaults only for `null` or `undefined`:
-
-```javascript
-// Problem with ||
-const count = 0;
-const result = count || 10;  // 10 (wrong! 0 is valid)
-
-// Solution with ??
-const result = count ?? 10;  // 0 (correct!)
-```
-
-The difference:
-- `||` triggers on any falsy value (`0`, `''`, `false`, `null`, `undefined`)
-- `??` triggers only on `null` and `undefined`
+The nullish coalescing operator (`??`) provides a safe way to specify default values, particularly when you only want to override `null` or `undefined`. Unlike the traditional OR (`||`) operator, which triggers on any "falsy" value—including zero or an empty string—the nullish coalescing operator allows these valid values to persist, ensuring that your application's logic remains precise and predictable.
 
 ```javascript
 // Common pattern for optional config
@@ -278,29 +235,11 @@ Object.assign({}, obj1, obj2);  // Merged (prefer spread)
 
 ### Exercise: Class Creation
 
-Create a `TodoList` class with:
-- Private `#items` array
-- `add(text)` method that adds an item with `id`, `text`, and `completed: false`
-- `remove(id)` method
-- `toggle(id)` method that toggles `completed`
-- `items` getter that returns a copy of the items
+Develop a `TodoList` class that incorporates a private `#items` array to store tasks. You should implement methods for adding new items, removing them by ID, and toggling their completion status. Additionally, provide a getter for the `items` property that returns a safe copy of the current list to prevent accidental modification from outside the class.
 
 ### Exercise: Safe Access
 
-Given this potentially incomplete data:
-
-```javascript
-const user = {
-  profile: {
-    name: 'Alice',
-    // address might be missing
-  }
-};
-```
-
-Write code that safely gets:
-1. The user's city (default to 'Unknown')
-2. The first letter of their postcode (default to null)
+Working with a potentially incomplete user profile object, write a script that uses optional chaining and nullish coalescing to retrieve the user's city and the first letter of their postcode. Your code should ensure that sensible default values, such as "Unknown" or `null`, are returned if the requested data is missing from the profile.
 
 ## Test Your Understanding
 
@@ -343,12 +282,7 @@ Write code that safely gets:
 
 ## Key Takeaways
 
-- Classes provide cleaner OOP syntax with `constructor`, methods, and `extends`
-- Private fields (`#field`) are truly encapsulated
-- Optional chaining (`?.`) safely accesses nested properties
-- Nullish coalescing (`??`) provides defaults only for `null`/`undefined`
-- Object shorthand makes code more concise
-- Modern array/object methods (`find`, `includes`, `entries`) simplify data work
+To recap, JavaScript classes provide a modern and clean syntax for object-oriented programming, allowing for true encapsulation through private fields. By combining optional chaining and nullish coalescing, you can safely navigate complex data structures and provide reliable defaults for missing values. Finally, mastering modern object and array methods will enable you to process data more efficiently and write code that is both expressive and maintainable.
 
 ## Next Steps
 

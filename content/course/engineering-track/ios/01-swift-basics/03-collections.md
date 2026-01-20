@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Arrays for ordered collections
-- Dictionaries for key-value pairs
-- Sets for unique values
-- Common operations
+During this module, you will learn to use arrays for managing ordered collections and explore dictionaries for efficient key-value pair storage. We'll examine the benefits of using sets for unique value management and walk through the most common operations for manipulating these standard collection types.
 
 ## Arrays
 
@@ -129,16 +126,12 @@ let difference = a.subtracting(b)     // [1]
 ### Exercise 1: Array Manipulation
 
 Create an array of numbers and:
-- Add numbers to both ends
-- Filter for even numbers
-- Calculate the average
+Practise your array manipulation skills by creating an initial array of numbers and appending new values to both ends. You should then apply a filter to extract only the even numbers and implement a calculation to find the average value of the resulting collection.
 
 ### Exercise 2: Dictionary
 
 Create a contacts dictionary:
-- Add several contacts
-- Look up a contact safely
-- List all names
+Create a contacts dictionary and populate it with several entries. Once your data is ready, practise looking up a specific contact safely and generate a listing of all names stored within the dictionary.
 
 ## Test Your Understanding
 
@@ -181,11 +174,7 @@ Create a contacts dictionary:
 
 ## Key Takeaways
 
-- Arrays: Ordered, indexed, allow duplicates
-- Dictionaries: Key-value pairs, fast lookup
-- Sets: Unique values, unordered, set operations
-- All collections are generic (typed)
-- Dictionary values are optionals
+To manage data effectively in Swift, you must understand that arrays are ordered and indexed collections that permit duplicates, while dictionaries are ideal for fast key-value lookup. Sets should be utilised for unordered unique values and efficient membership testing. Remember that all Swift collections are strongly typed and that dictionary lookups always return optional values which must be handled safely.
 
 ## Next Steps
 

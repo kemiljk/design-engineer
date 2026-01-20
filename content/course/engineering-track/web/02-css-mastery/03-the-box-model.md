@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The four parts of the box model
-- The difference between content-box and border-box
-- How margins collapse
-- Practical box model techniques
+In this lesson, we will examine the four distinct parts of the CSS box model and explore the critical differences between the `content-box` and `border-box` sizing methods. We'll also cover the phenomenon of margin collapse and investigate practical box model techniques that you can apply immediately to your layouts.
 
 ## Every Element is a Box
 
@@ -30,16 +27,7 @@ The actual content—text, images, child elements:
 
 ### Padding
 
-Space between content and border:
-
-```css
-.box {
-  padding: 20px;           /* All sides */
-  padding: 10px 20px;      /* Vertical | Horizontal */
-  padding: 10px 20px 30px; /* Top | Horizontal | Bottom */
-  padding: 10px 20px 30px 40px; /* Top | Right | Bottom | Left */
-}
-```
+Padding creates space between your content and the border of the element. You can use shorthand values to set padding for all sides at once, or define different values for vertical and horizontal sides. For more granular control, you can specify individual values for the top, right, bottom, and left sides in a single declaration.
 
 Individual sides:
 ```css
@@ -53,17 +41,7 @@ Individual sides:
 
 ### Border
 
-The visible edge of the element:
-
-```css
-.box {
-  border: 1px solid black;  /* Shorthand */
-  
-  border-width: 1px;
-  border-style: solid;      /* solid, dashed, dotted, double, none */
-  border-color: black;
-}
-```
+The border represents the visible edge of your element. You can use shorthand notation to define the width, style, and colour in one line, or specify each property individually if you prefer more explicit control. Common border styles include `solid`, `dashed`, `dotted`, and `double`.
 
 Individual sides:
 ```css
@@ -106,35 +84,11 @@ The critical question: what does `width` mean?
 
 ### content-box (Default)
 
-Width and height apply to content only. Padding and border add to total size.
-
-```css
-.box {
-  box-sizing: content-box;  /* Default */
-  width: 200px;
-  padding: 20px;
-  border: 1px solid black;
-}
-/* Total width: 200 + 40 + 2 = 242px */
-```
-
-This is counterintuitive and causes layout math headaches.
+Under the default `content-box` model, the width and height you specify apply only to the content area itself. Any padding and borders you add are then calculated on top of these dimensions, which can lead to counterintuitive results and complex layout mathematics.
 
 ### border-box (Recommended)
 
-Width and height include padding and border. Content shrinks to fit.
-
-```css
-.box {
-  box-sizing: border-box;
-  width: 200px;
-  padding: 20px;
-  border: 1px solid black;
-}
-/* Total width: 200px (content shrinks to 158px) */
-```
-
-This is how most designers think about sizing.
+In contrast, the `border-box` model includes padding and border within the specified width and height. This means the content area automatically shrinks to accommodate them, which aligns much more closely with how most designers naturally think about sizing.
 
 ### Global Border-Box Reset
 
@@ -163,15 +117,7 @@ Two paragraphs have 20px between them, not 40px. The larger margin wins.
 
 ### When Margins Collapse
 
-- Adjacent siblings (most common)
-- Parent and first/last child (if no padding/border/content between)
-- Empty blocks
-
-### Preventing Collapse
-
-- Add padding or border between elements
-- Use `overflow: hidden` or `overflow: auto` on parent
-- Use flexbox or grid (margins don't collapse in these contexts)
+Margin collapse most commonly occurs between adjacent siblings, but you may also encounter it between a parent and its first or last child if there is no padding, border, or content separating them. Empty blocks can also experience this behaviour. To prevent margins from collapsing, you can add padding or a border between elements, use the `overflow` property on the parent, or switch to a flexbox or grid layout context, where margins do not collapse.
 
 ### Example
 
@@ -206,49 +152,19 @@ The `display` property affects box behaviour:
 
 ### Block Elements
 
-Take full width, stack vertically:
-
-```css
-.block {
-  display: block;
-}
-/* Default for: div, p, h1-h6, section, header, etc. */
-```
+Block-level elements, such as `div`, `p`, and headings, naturally take up the full width available and stack vertically on the page.
 
 ### Inline Elements
 
-Flow with text, only as wide as content:
-
-```css
-.inline {
-  display: inline;
-}
-/* Default for: span, a, strong, em, etc. */
-```
-
-Inline elements ignore width, height, and vertical margins.
+Inline elements flow alongside text and are only as wide as their content. Elements like `span` and `anchor` tags fall into this category, and they typically ignore any width, height, or vertical margins you attempt to apply.
 
 ### Inline-Block
 
-Inline flow, but respects width, height, and all margins:
-
-```css
-.inline-block {
-  display: inline-block;
-}
-```
-
-Useful for things like buttons in a row.
+The `inline-block` value provides the best of both worlds by allowing elements to flow in a row like inline items while still respecting the width, height, and all margin settings. This is particularly useful for creating items like buttons that need to sit side-by-side.
 
 ### None
 
-Removes from layout entirely:
-
-```css
-.hidden {
-  display: none;
-}
-```
+Setting `display: none` removes an element from the layout entirely, meaning it will no longer occupy any space on the page.
 
 ## Width and Height
 
@@ -382,24 +298,15 @@ Individual axes:
 
 ### Exercise 1: Box Model Visualisation
 
-Create a box and use browser dev tools to inspect:
-- Content dimensions
-- Padding
-- Border
-- Margin
-
-Change values and observe how total size changes.
+Create a simple box element and use your browser’s developer tools to inspect its dimensions. Pay close attention to how the content, padding, border, and margin values are represented, and experiment with changing these values to see how they impact the total size.
 
 ### Exercise 2: Content-Box vs Border-Box
 
-Create two identical boxes, one with `content-box`, one with `border-box`. Give both the same width, padding, and border. Observe the difference.
+Develop two identical boxes, applying `content-box` to one and `border-box` to the other. Use the same width, padding, and border values for both to gain a clear visual understanding of how these two sizing models differ in practice.
 
 ### Exercise 3: Margin Collapse
 
-Create scenarios demonstrating margin collapse:
-1. Adjacent siblings
-2. Parent-child
-3. Fix the collapse with padding
+Set up a few different scenarios to demonstrate margin collapse, including both adjacent siblings and parent-child structures. Once you have observed the collapse in action, try to fix it by applying padding to the containers.
 
 ## Test Your Understanding
 
@@ -442,12 +349,7 @@ Create scenarios demonstrating margin collapse:
 
 ## Key Takeaways
 
-- Box model: content → padding → border → margin
-- Use `box-sizing: border-box` everywhere
-- Vertical margins collapse—be aware when debugging
-- Block elements stack; inline elements flow
-- Use `overflow` to handle content that exceeds the box
-- Width and height behave differently depending on `box-sizing`
+To recap, the CSS box model consists of four layers: content, padding, border, and margin. For a more intuitive and predictable design experience, you should apply `box-sizing: border-box` to all elements in your project. Be mindful that vertical margins can collapse in certain contexts, though this behaviour is absent in flexbox and grid layouts. Finally, remember that the `display` property significantly alters box behaviour, and you can use the `overflow` property to manage any content that exceeds its container's dimensions.
 
 ## Next Steps
 

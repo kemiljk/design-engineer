@@ -8,10 +8,7 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- What HTML is and why it matters
-- How HTML provides semantic structure
-- The relationship between HTML, CSS, and JavaScript
-- Why semantic HTML matters for Design Engineers
+During this module, you will learn exactly what HTML is and why it remains the essential foundation of the web. We'll examine how HTML provides semantic structure to your content and explore the critical relationship between HTML, CSS, and JavaScript. You will also discover why mastering semantic HTML is particularly important for Design Engineers in creating accessible and performant interfaces.
 
 ## The Foundation of the Web
 
@@ -19,10 +16,7 @@ estimatedTime: 12
 
 Every website you've ever visited is built on HTML. When you load a page, your browser receives HTML—a text document that describes the content and structure of that page.
 
-HTML stands for **HyperText Markup Language**:
-- **HyperText:** Text with links to other text (the "web" in World Wide Web)
-- **Markup:** Tags that describe content
-- **Language:** A standardised way of writing these tags
+HTML stands for **HyperText Markup Language**. The "HyperText" part refers to text containing links to other text, which forms the basis of the "web" in the World Wide Web. "Markup" refers to the tags used to describe the content, while "Language" indicates that there is a standardised way of writing these tags for browsers to interpret.
 
 HTML isn't a programming language—it's a markup language. It doesn't perform logic or calculations. It describes content: "this is a heading," "this is a paragraph," "this is a link."
 
@@ -32,9 +26,7 @@ Think of a document like a human body:
 
 <!-- illustration: html-css-js-layers -->
 
-- **HTML** is the skeleton: the structure that holds everything together
-- **CSS** is the appearance—skin, clothing, style
-- **JavaScript** is the behaviour—movement, actions, responses
+Think of a web document as a human body where **HTML** serves as the skeleton, providing the essential structure that holds everything together. **CSS** acts as the appearance—the skin, clothing, and style—whilst **JavaScript** represents the behaviour, enabling movement, actions, and interactive responses.
 
 Without HTML, there's nothing to style or animate. It's the foundation.
 
@@ -47,10 +39,7 @@ HTML uses tags to mark up content:
 ```
 
 Let's break this down:
-- `<p>` is the **opening tag**
-- `This is a paragraph of text.` is the **content**
-- `</p>` is the **closing tag**
-- The whole thing is an **element**
+In this example, `<p>` represents the **opening tag** and `</p>` is the **closing tag**, with the text "This is a paragraph of text" serving as the **content**. Together, these components form what is known as an **element**.
 
 Tags can have **attributes** that provide additional information:
 
@@ -78,12 +67,7 @@ The simplest HTML document:
 ```
 
 What's happening here:
-- `<!DOCTYPE html>` tells browsers this is HTML5
-- `<html>` contains everything
-- `<head>` contains metadata (title, linked files)
-- `<body>` contains visible content
-- `<h1>` is a top-level heading
-- `<p>` is a paragraph
+This structure includes the `<!DOCTYPE html>` declaration to inform browsers that the document is HTML5, whilst the `<html>` element contains the entire page content. The `<head>` section stores metadata such as the page title and linked files, and the `<body>` contains all visible content, including top-level headings like `<h1>` and paragraphs defined by `<p>`.
 
 ## Semantic HTML
 
@@ -104,11 +88,7 @@ Semantic HTML uses tags that describe the meaning of content, not just its appea
 ```
 
 Both might look the same with CSS, but semantic HTML:
-- Communicates meaning to browsers and assistive technologies
-- Improves accessibility (screen readers understand the structure)
-- Helps search engines understand content
-- Makes code more readable
-- Provides default behaviours (forms, links)
+Whilst both semantic and non-semantic code might appear identical once styled with CSS, using semantic HTML is superior because it communicates clear meaning to browsers and assistive technologies. It significantly improves accessibility by helping screen readers understand a page's structure and assists search engines in accurately indexing your content. Furthermore, semantic HTML makes your code much more readable and provides essential default behaviours for interactive elements like forms and links.
 
 ## Why Semantic HTML Matters for Design Engineers
 
@@ -131,9 +111,7 @@ Semantic HTML is self-documenting. `<article>` clearly means "this is an article
 ### Default Behaviours
 
 Semantic elements come with built-in behaviours:
-- `<button>` is keyboard accessible by default
-- `<a>` provides navigation
-- `<form>` handles submission
+Semantic elements also come with powerful built-in behaviours that would otherwise require significant JavaScript to recreate. For instance, a `<button>` is inherently keyboard accessible, an `<a>` tag provides native navigation, and the `<form>` element handles data submission automatically. By using these elements correctly, you ensure your interface is robust and functional for all users with minimal extra effort.
 
 Recreating these with `<div>` requires significant JavaScript.
 
@@ -258,11 +236,7 @@ Take a design you've created (or a page you like). List:
 
 ## Key Takeaways
 
-- HTML is the structural foundation of every web page
-- It uses tags to mark up content with meaning
-- Semantic HTML describes what content is, not how it looks
-- Semantic HTML improves accessibility, SEO, and maintainability
-- Understanding HTML helps Design Engineers make better design decisions
+To build high-quality web interfaces, you must remember that HTML is the structural foundation of every page and uses tags to mark up content with genuine meaning. Prioritising semantic HTML ensures that your work is accessible, searchable, and maintainable, whilst also helping you make more informed design decisions that are easier to implement in code.
 
 ## Next Steps
 

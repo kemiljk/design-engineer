@@ -20,7 +20,7 @@ A mature design system consists of several distinct layers, each building on the
 These are the foundational beliefs that guide decision-making. Principles like "Clarity over Cleverness" or "Accessibility is not Optional" act as tie-breakers when the system's rules don't cover a specific edge case. They align the team on *why* we are building things this way.
 
 ### 2. Design Tokens
-Tokens are the atomic values of your visual style—colors, spacing, typography, shadows, and border radii. Instead of hard-coding `#3b82f6`, you use a token like `color-primary`. This abstraction allows you to change your entire brand or support theming (like Dark Mode) by updating a single file.
+Tokens are the atomic values of your visual style—colours, spacing, typography, shadows, and border radii. Instead of hard-coding `#3b82f6`, you use a token like `colour-primary`. This abstraction allows you to change your entire brand or support theming (like Dark Mode) by updating a single file.
 
 ### 3. Components
 These are the tangible building blocks. They range from basic atoms (buttons, checkboxes) to complex organisms (data tables, date pickers). Components encapsulate design decisions and code quality, ensuring that every time a developer needs a button, they get the best possible version of it.
@@ -48,19 +48,13 @@ Organisations don't invest in design systems just to make designers happy. They 
 
 Not every project needs a full design system. If you are a solo developer building an MVP, a simple component library is likely enough.
 
-You should consider investing in a system when:
-*   **Scale increases:** You have multiple teams building the same UI.
-*   **Fragmentation hurts:** You notice different buttons or inconsistent colors across your product.
-*   **Reinvention slows you down:** Designers and developers are spending time debating basic UI decisions instead of solving user problems.
+You should consider investing in a system as your scale increases and multiple teams begin building the same user interfaces, or if you notice fragmentation where inconsistent colours and buttons hurt the brand. Furthermore, if designers and developers find themselves repeatedly reinventing and debating basic UI decisions rather than solving unique user problems, a formal system is likely overdue.
 
 ## Famous Examples
 
 Learning from established systems is the best way to understand these concepts in practice.
 
-*   **Material Design (Google):** The gold standard for comprehensive documentation and cross-platform principles. It focuses heavily on interaction models and motion.
-*   **Human Interface Guidelines (Apple):** Less of a "system" you can download and more of a philosophy for platform-native design. It focuses on integrating deeply with the OS.
-*   **Carbon (IBM):** An excellent example of an enterprise-grade system with a strong focus on accessibility and technical precision.
-*   **Polaris (Shopify):** A content-first system that prioritizes the merchant experience. Its voice and tone guidelines are industry-leading.
+Google's **Material Design** serves as a gold standard for comprehensive documentation and cross-platform interaction models, while Apple's **Human Interface Guidelines** focus more on a platform-native design philosophy. Other enterprise examples include IBM's **Carbon**, which excels in technical precision and accessibility, and Shopify's **Polaris**, which leverages industry-leading voice and tone guidelines to prioritise the merchant experience.
 
 ## Design Engineers and Systems
 
@@ -72,9 +66,7 @@ If you enjoy bridging the gap between "how it looks" and "how it works," buildin
 
 ### Exercise 1: System Audit
 Pick a product you use every day (e.g., Spotify, Slack, Airbnb). Look closely at the UI.
-*   Can you identify the **Design Tokens**? (What are the core 5-6 colors? Is there a spacing scale?)
-*   What **Components** are reused most often?
-*   Can you spot any inconsistencies where the system might have broken down?
+During your audit, try to identify the core design tokens by looking for consistent colours and spacing scales, and take note of which components are reused most frequently. Finally, look for areas where the system might have broken down, resulting in visual or functional inconsistencies.
 
 ### Exercise 2: Defining Principles
 Imagine you are building a banking app. Write three design principles that would guide your team.
@@ -121,10 +113,7 @@ Imagine you are building a banking app. Write three design principles that would
 
 ## Key Takeaways
 
--   A **Design System** is a product that serves other products. It includes assets, rules, and processes.
--   **Design Tokens** allow you to scale visual design decisions across code and design tools.
--   **Governance** is what keeps a system from rotting; you need a process for change.
--   Investing in a system pays off through **consistency, efficiency, and scalability**.
+A design system is effectively a product that serves other products, encompassing assets, rules, and governance processes that prevent the system from degrading over time. By scaling visual design decisions through tokens and maintaining clear change processes, organisations can drastically improve consistency, efficiency, and scalability across their entire product suite.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Why prototyping matters for Design Engineers
-- Types of prototypes and when to use each
-- Creating interactive prototypes in design tools
-- Presenting and sharing prototypes effectively
+By progressing through this lesson, you will understand why prototyping is a vital skill for Design Engineers and explore the various fidelity levels required for different testing phases. You will also learn to create interactive prototypes using triggers and actions within your design tools and develop effective methods for presenting and sharing your work with stakeholders.
 
 ## Why Prototype?
 
@@ -25,14 +22,7 @@ Not all prototypes need to look like the final product. Choosing the right fidel
 
 <!-- visual-example: fidelity-comparison-demo -->
 
-**Low Fidelity (Lo-Fi):**
-These are digital sketches. Gray boxes, squiggly lines for text, and simple click-throughs. Use these to test the *flow*. Does the user know to click "Checkout" after adding an item? If the flow is broken, beautiful buttons won't fix it. Lo-fi prototypes invite honest feedback because they don't look precious.
-
-**Medium Fidelity (Mid-Fi):**
-Here we have layout, real text, and basic components, but maybe no color or images. This is the sweet spot for usability testing. Users can read and interact without getting distracted by "I don't like that shade of blue."
-
-**High Fidelity (Hi-Fi):**
-This looks and feels like the shipping app. It uses the design system, real imagery, and polished animations. Use this for stakeholder presentations and developer handoff. It removes ambiguity about the final result.
+Prototypes range from low-fidelity digital sketches used to test initial flows without the distraction of visual polish, to high-fidelity versions that look and feel like a shipping application. Medium-fidelity prototypes serve as a sweet spot for usability testing by including layout and real text, while the high-fidelity final versions remove ambiguity during developer handoff and stakeholder presentations.
 
 ## Creating Prototypes
 
@@ -43,25 +33,17 @@ You create a prototype by drawing a literal wire from one frame to another. This
 
 ### Triggers
 The trigger is the event that starts the action.
-- **On Click / Tap:** The most common. The user taps a button.
-- **On Drag:** Good for carousels or swipe-to-delete actions.
-- **While Hovering:** Essential for desktop interactions (tooltips, button states).
-- **After Delay:** Useful for splash screens that automatically transition to the home screen.
+Triggers define the event that starts an action, ranging from common clicks and taps to more specific interactions like dragging for carousels or swiping to delete. Desktop-specific prototypes often leverage hover triggers for tooltips and button states, while delayed triggers are used to automate transitions for elements like splash screens.
 
 ### Actions
 The action is what happens when the trigger fires.
-- **Navigate To:** Standard screen transition. Replaces the current view.
-- **Open Overlay:** Puts a frame *on top* of the current view. Perfect for modals, dropdowns, and dialogs.
-- **Swap Overlay:** Replaces one overlay with another (e.g., switching from a "Menu" to a "Sub-menu").
-- **Scroll To:** Jumps to a specific section on the same page.
+When a trigger fires, it can initiate various actions such as navigating to a new screen, opening a modal or dropdown via an overlay, or swapping one overlay for another. Prototypes can also use scroll actions to jump directly to specific sections on the same page.
 
 ## Animation and Transitions
 
 Transitions are the glue between states.
 
-**Instant:** No animation. Good for tab switching or web-like navigation.
-**Dissolve:** A simple fade. Good for standard app navigation.
-**Move In / Push:** Simulates spatial movement. Use "Push" (slide left) when moving forward in a flow, and "Push" (slide right) when going back. This helps users build a mental map of where they are.
+Transitions provide the visual glue between states, using instant changes for tab switching, simple dissolves for standard navigation, and spatial "Push" animations to help users build a mental map of their movement through the application.
 
 **Smart Animate:**
 This is the magic wand. If you have a layer named `Card` on Screen A (small) and a layer named `Card` on Screen B (fullscreen), "Smart Animate" will automatically calculate the growth and movement between them. It creates complex, fluid animations without manual keyframing. Use this for state changes (like expanding a card or toggling a switch).
@@ -70,27 +52,13 @@ This is the magic wand. If you have a layer named `Card` on Screen A (small) and
 
 Don't try to prototype the entire app at once. It becomes an unmaintainable mess of wires ("spaghetti code" for designers). Instead, scope your prototypes:
 
-**The Happy Path:**
-Prototype the ideal user journey. "User logs in, finds a song, and plays it." Ignore the error states and settings menus. This is for selling the vision.
-
-**The Task Flow:**
-Focus on a specific, complex interaction. "The Checkout Flow" or "The Sign-Up Flow." Include error states and edge cases here to test robustness.
-
-**The Feature Prototype:**
-Prototype just one component, like a complex filter mechanism, to see if the interactions feel right.
+Focus your prototyping efforts on specific scopes, such as the "happy path" for selling a vision, detailed task flows for testing the robustness of complex interactions like checkout, or feature-specific prototypes to refine the feel of individual components.
 
 ## Presenting and Sharing
 
 A prototype is a communication tool. How you share it matters.
 
-**Presentation Mode:**
-Use this for demos. It hides the UI of the design tool and frames the prototype in a device shell (like an iPhone frame). It immerses the viewer in the experience.
-
-**Mirroring:**
-There is no substitute for holding the device. Use apps like Figma Mirror to run the prototype on your actual phone. Buttons that look big enough on a monitor often feel tiny under a thumb.
-
-**Recording:**
-Sometimes, you can't be there to demo it. Record a screencast of you walking through the prototype. Narrate your thinking: "Here, the user taps X, and expects Y..."
+Present your work effectively by using immersion modes that frame the interface in a device shell, mirroring the prototype onto real hardware to check touch targets, or recording narrated walk-throughs to explain your thinking for asynchronous reviews.
 
 ## Try It Yourself
 
@@ -147,12 +115,7 @@ Create a toggle switch.
 
 ## Key Takeaways
 
-- Prototypes simulate the experience of using a product.
-- **Low-fi** tests concepts; **Hi-fi** tests details.
-- Use **Connections, Triggers, and Actions** to build interactivity.
-- **Smart Animate** is powerful for state transitions but requires consistent layer naming.
-- Always test your prototype on a real device to check touch targets and readability.
-- Scope your prototypes to specific flows rather than building a "mega-app."
+Prototypes are essential for simulating the user experience, with low-fidelity versions testing core concepts and high-fidelity versions refining specific details. By building interactivity through connections and triggers, and leveraging tools like Smart Animate and real-device testing, you can validate specific flows and ensure that every transition feels intuitive before moving to production.
 
 ## Next Steps
 

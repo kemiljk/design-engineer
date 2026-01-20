@@ -19,19 +19,12 @@ Hierarchy establishes the order of importance in a design. It answers: "What sho
 ### How Hierarchy Works
 
 Your eyes are drawn to certain elements before others based on:
-- **Size**: Larger elements attract attention first
-- **Weight**: Bold elements stand out from regular weight
-- **Color**: Brighter or more saturated colours pop forward
-- **Position**: Top and left elements (in left-to-right languages) are scanned first
-- **Space**: Elements with more surrounding whitespace feel important
+Elements attract attention based on their **size**, where larger items are noticed first, and their **weight**, where bold elements stand out against regular ones. Furthermore, **colour** saturation and brightness help elements pop forward, while their **position** (typically top and left) and the amount of surrounding **whitespace** also establish clear importance.
 
 ### Hierarchy in Practice
 
 Consider a typical blog post page:
-1. **Title** (largest, boldest) — noticed first
-2. **Author/date** (smaller, lighter) — supporting info
-3. **Body text** (readable size, regular weight) — main content
-4. **Sidebar links** (smaller, subdued) — secondary actions
+A typical blog post page demonstrates this through a large, bold **title** that is noticed first, followed by smaller and lighter **author metadata**. The **body text** is styled for readability as the main content, while **sidebar links** are kept small and subdued as secondary actions.
 
 Without clear hierarchy, every element competes for attention and nothing wins. Users don't know where to start.
 
@@ -39,10 +32,7 @@ Without clear hierarchy, every element competes for attention and nothing wins. 
 
 > *"If you have to explain the hierarchy, there isn't one."* — d×e
 
-- **Everything is bold**: When everything is emphasised, nothing is
-- **Too many sizes**: Creates visual chaos
-- **Competing focal points**: Multiple elements fighting for attention
-- **Flat hierarchy**: All elements feel equally important
+Common hierarchy failures include making **everything bold**, which results in no emphasis at all, or using **too many sizes** and competing focal points that create visual chaos and a flat, confusing hierarchy.
 
 ## Balance
 
@@ -70,9 +60,7 @@ The sides aren't identical, but they feel balanced because the visual weight is 
 
 ### Common Balance Mistakes
 
-- **Lopsided layouts**: All content cramped on one side
-- **Heavy footers/headers**: Top or bottom dominates
-- **Ignoring whitespace**: Empty space has visual weight too
+Lopsided layouts, heavy headers or footers, and a failure to account for the visual weight of whitespace often result in unbalanced and unsettling designs.
 
 ## Contrast
 
@@ -82,33 +70,23 @@ Contrast is the difference between elements. It creates visual interest, establi
 
 ### Types of Contrast
 
-- **Size contrast**: Large vs. small
-- **Color contrast**: Dark vs. light, complementary colours
-- **Weight contrast**: Bold vs. regular, thick vs. thin
-- **Shape contrast**: Rounded vs. angular, organic vs. geometric
-- **Texture contrast**: Smooth vs. rough (less common in UI)
+Contrast is achieved through differences in **size**, **colour**, and **weight**, as well as through variations in **shape** and **texture** to create emphasis and interest.
 
 ### Contrast in Practice
 
 A call-to-action button uses contrast to stand out:
-- **Color**: Bright against a neutral background
-- **Size**: Larger than surrounding text
-- **Shape**: Rounded corners when nearby elements are angular
+A call-to-action button leverages **colour** to pop against neutral backgrounds, **size** to be larger than surrounding text, and **shape** to stand out through rounded corners.
 
 Without contrast, the button blends in and users miss it.
 
 ### The 60-30-10 Rule
 
 A helpful guideline for colour contrast:
-- **60%**: Dominant colour (usually background/neutral)
-- **30%**: Secondary colour (supporting elements)
-- **10%**: Accent colour (calls to action, key highlights)
+A helpful guideline is the **60-30-10 Rule**, where 60% of the design uses a dominant neutral colour, 30% uses a secondary supporting colour, and 10% is reserved for an accent colour for key highlights.
 
 ### Common Contrast Mistakes
 
-- **Low contrast text**: Hard to read, accessibility issues
-- **Everything high contrast**: Nothing stands out because everything does
-- **Random contrast**: Elements differ arbitrarily without meaning
+Common contrast mistakes include low contrast text that harms accessibility, or having too many high-contrast elements that compete for attention without meaning.
 
 ## Repetition
 
@@ -118,11 +96,7 @@ Repetition creates consistency through recurring visual elements. It helps users
 
 ### What Gets Repeated
 
-- **Colors**: Consistent palette throughout
-- **Typography**: Same fonts, sizes, styles for similar elements
-- **Spacing**: Consistent margins, padding, gaps
-- **Components**: Buttons, cards, icons that look the same everywhere
-- **Patterns**: Grid structures, alignment, layout approaches
+Consistency is built by repeating **colours**, **typography**, and **spacing** throughout the interface, while reusing **components** and **grid patterns** to help users learn and predict behaviour.
 
 ### Repetition in Practice
 
@@ -136,9 +110,7 @@ Design systems are essentially codified repetition. They define how elements sho
 
 ### Common Repetition Mistakes
 
-- **Inconsistency**: Similar elements styled differently
-- **Reinventing wheels**: Creating new patterns when existing ones work
-- **Too much variation**: "Creative" choices that break patterns unnecessarily
+Inconsistency in styling and reinventing wheels for common patterns creates unnecessary variation that breaks the user's mental model.
 
 ## Alignment
 
@@ -150,16 +122,12 @@ Alignment is the placement of elements relative to each other. It creates visual
 
 ### Types of Alignment
 
-- **Edge alignment**: Elements share a left, right, top, or bottom edge
-- **Center alignment**: Elements share a center axis
-- **Grid alignment**: Elements snap to an underlying grid structure
+Different types of alignment include **edge alignment** along common borders, **centre alignment** along a shared axis, and **grid alignment** where elements snap to an underlying structure.
 
 ### Alignment in Practice
 
 In a form:
-- All labels left-align
-- All inputs left-align (and align with labels)
-- The submit button aligns with inputs
+In a well-aligned form, all labels and inputs share a clean left-aligned edge, while the submit button aligns with the input fields to create a clear visual path for the user.
 
 This creates invisible lines that guide the eye and make the form feel organised.
 
@@ -171,9 +139,7 @@ We'll cover grids in depth in later lessons.
 
 ### Common Alignment Mistakes
 
-- **Arbitrary positioning**: Elements placed "wherever"
-- **Mixing alignments**: Some left-aligned, some centred, without reason
-- **Near-alignment**: Almost aligned is worse than obviously different
+Arbitrary positioning and mixing alignments without a logical reason often result in a near-alignment that feels accidental and messy.
 
 ## Proximity
 
@@ -184,36 +150,25 @@ Proximity uses space to indicate relationships. Elements that are close together
 ### Proximity in Practice
 
 A form groups related fields:
-- First name and last name are close together
-- A gap separates personal info from address info
-- Another gap separates address from payment info
+Forms often use proximity to group first and last name fields closely together, while using larger gaps to separate personal information from address and payment details.
 
 Without these groupings, users see a wall of fields rather than logical sections.
 
 ### The Law of Proximity
 
 This is one of the Gestalt principles (which we'll cover next lesson). The human brain automatically groups nearby elements. You can use this to:
-- Group related content without boxes or lines
-- Separate distinct sections without heavy dividers
-- Create visual hierarchy through spacing alone
+The Law of Proximity allows you to group related content and separate distinct sections without the need for heavy boxes or lines, creating visual hierarchy through spacing alone.
 
 ### Common Proximity Mistakes
 
-- **Equal spacing everywhere**: No grouping, flat layout
-- **Too tight**: Elements crammed together feel cluttered
-- **Too loose**: Elements feel disconnected, relationships unclear
+Equal spacing everywhere results in a flat layout with no grouping, while overly tight or loose spacing can make interfaces feel either cluttered or disconnected.
 
 ## Principles Working Together
 
 These principles don't operate in isolation. Every good design uses all six:
 
 A well-designed card might:
-- Use **hierarchy** to emphasize the title over description
-- Apply **contrast** to make the CTA button stand out
-- Maintain **alignment** so text and images form clean lines
-- Show **proximity** by grouping title and subtitle together
-- Use **repetition** to match other cards on the page
-- Create **balance** between image and text content
+A well-designed card emphasizes the title over the description through **hierarchy**, uses **contrast** on the button, and maintains internal **alignment** and **proximity** while matching other cards through **repetition** to create overall **balance**.
 
 When you learn to see these principles, you start to see design differently.
 
@@ -222,10 +177,7 @@ When you learn to see these principles, you start to see design differently.
 ### Exercise 1: Principle Identification
 
 Find a web page or app you admire. Identify how it uses:
-1. Hierarchy: What's most important? How do you know?
-2. Contrast: What stands out? Why?
-3. Alignment: What invisible lines connect elements?
-4. Proximity: What's grouped together? What's separated?
+Identify how hierarchy establishes importance, how contrast creates differentiation, and how invisible lines of alignment and proximity group elements effectively.
 
 ### Exercise 2: Improvement Analysis
 
@@ -282,14 +234,7 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
 
 ## Key Takeaways
 
-- Six principles guide all visual design: hierarchy, balance, contrast, repetition, alignment, proximity
-- Hierarchy establishes order of importance
-- Balance distributes visual weight
-- Contrast creates differentiation and interest
-- Repetition builds consistency and learnability
-- Alignment creates organisation through positioning
-- Proximity groups related elements through spacing
-- These principles work together in every effective design
+The six foundational principles—hierarchy, balance, contrast, repetition, alignment, and proximity—work together to establish importance, distribute visual weight, and build consistency. By using these tools to create differentiation through contrast and organisation through alignment and proximity, you can ensure that every design is effective and intuitive for the user.
 
 ## Next Steps
 

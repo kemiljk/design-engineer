@@ -4,34 +4,11 @@
 
 ## What You'll Learn
 
-- What UI frameworks are and why they exist
-- The major players: React, Vue, Svelte, Angular
-- How frameworks differ in philosophy and approach
-- Why React dominates the industry
+In this lesson, we will explore what UI frameworks are and the problems they were designed to solve. You will gain an understanding of the major players in the ecosystem, including React, Vue, Svelte, and Angular, and learn how their underlying philosophies and approaches differ. Finally, we will examine why React has come to dominate the industry and what that means for your career as a Design Engineer.
 
 ## Beyond Vanilla JavaScript
 
-In the previous module, you learned to manipulate the DOM with vanilla JavaScript:
-
-```javascript
-const button = document.querySelector('.counter-button');
-const display = document.querySelector('.count');
-let count = 0;
-
-button.addEventListener('click', () => {
-  count++;
-  display.textContent = count;
-});
-```
-
-This works fine for simple interactions. But as applications grow, vanilla JavaScript becomes unwieldy:
-
-- **Manual DOM updates:** You must track every element and update it manually
-- **State synchronisation:** When data changes, you must remember to update all affected elements
-- **Event handling overhead:** Managing listeners across dynamic content gets complex
-- **Code organisation:** No built-in patterns for structuring large applications
-
-UI frameworks solve these problems.
+In the previous module, you learned to manipulate the DOM directly with vanilla JavaScript. While this approach works perfectly well for simple interactions, it quickly becomes unwieldy as applications grow in complexity. Manual DOM updates require you to meticulously track every element that needs changing, and keeping the UI in sync with your application's state becomes a significant burden. Managing event listeners across dynamic content adds further complexity, and without built-in patterns, organising a large codebase can feel overwhelming. UI frameworks exist precisely to solve these problems.
 
 ## What UI Frameworks Do
 
@@ -97,10 +74,8 @@ function Counter() {
 ```
 
 **Key characteristics:**
-- JSX: HTML-like syntax in JavaScript
-- Hooks: Functions for state and effects
-- Virtual DOM: Efficiently diffs and updates
-- Unopinionated: Choose your own routing, state management, etc.
+
+React introduced JSX, an HTML-like syntax that lives directly within JavaScript. It relies on hooks for state and side effects, uses a virtual DOM for efficient updates, and remains largely unopinionated, allowing you to choose your own routing and state management solutions.
 
 ### Vue
 
@@ -122,10 +97,8 @@ const count = ref(0);
 ```
 
 **Key characteristics:**
-- HTML-based templates with directives
-- Single-file components (.vue files)
-- Reactive system tracks dependencies automatically
-- More "batteries included" than React
+
+Vue uses HTML-based templates with special directives for reactivity and organises code into single-file components (`.vue` files). Its reactive system automatically tracks dependencies, and it comes with more built-in features than React, making it feel more "batteries included" from the start.
 
 ### Svelte
 
@@ -144,10 +117,8 @@ Created by Rich Harris in 2016, Svelte takes a radically different approach.
 ```
 
 **Key characteristics:**
-- Compiles to vanilla JavaScript
-- No runtime framework code shipped to browser
-- Simpler syntax, less boilerplate
-- Smaller bundle sizes
+
+Svelte compiles your code into highly optimised vanilla JavaScript, meaning there is no framework runtime shipped to the browser. This results in simpler syntax, less boilerplate, and significantly smaller bundle sizes, making it an excellent choice for performance-critical applications.
 
 ### Angular
 
@@ -171,10 +142,8 @@ export class CounterComponent {
 ```
 
 **Key characteristics:**
-- TypeScript by default
-- Dependency injection
-- RxJS for reactive programming
-- Opinionated structure and tooling
+
+Angular defaults to TypeScript and uses dependency injection as a core pattern. It incorporates RxJS for reactive programming and provides an opinionated structure and tooling that promotes consistency across large teams.
 
 ## Comparing Approaches
 
@@ -271,31 +240,13 @@ export class TodoItemComponent {
 | **Ecosystem** | Massive | Large | Growing | Large |
 | **Backing** | Meta | Independent | Independent | Google |
 
-### When to Choose What
+**Choose React when** you want maximum job opportunities, need the largest ecosystem of libraries, are building large and complex applications, or your team already has React experience.
 
-**Choose React when:**
-- You want maximum job opportunities
-- You need the largest ecosystem of libraries
-- You're building large, complex applications
-- Your team already knows React
+**Choose Vue when** you prefer HTML-based templates, want a gentler learning curve, appreciate a more opinionated structure, or are working on smaller to medium-sized projects.
 
-**Choose Vue when:**
-- You prefer HTML-based templates
-- You want a gentler learning curve
-- You appreciate a more opinionated structure
-- You're working on smaller to medium projects
+**Choose Svelte when** bundle size is critical, you want the simplest possible syntax, are building performance-critical UIs, or enjoy trying innovative approaches.
 
-**Choose Svelte when:**
-- Bundle size is critical
-- You want the simplest syntax
-- You're building performance-critical UIs
-- You enjoy trying innovative approaches
-
-**Choose Angular when:**
-- You're building enterprise applications
-- You want everything included
-- Your team is comfortable with TypeScript and OOP
-- Consistency across a large team is paramount
+**Choose Angular when** you are building enterprise applications, want everything included out of the box, your team is comfortable with TypeScript and OOP, or consistency across a large team is paramount.
 
 ## Why React Dominates
 
@@ -344,15 +295,7 @@ React isn't going anywhere:
 
 ## Framework-Agnostic Skills
 
-Regardless of which framework you use, these skills transfer:
-
-- **Component thinking:** Breaking UIs into reusable pieces
-- **State management:** Understanding data flow
-- **Props and events:** Component communication patterns
-- **Lifecycle awareness:** Knowing when things happen
-- **Performance optimisation:** Avoiding unnecessary updates
-
-Learn these concepts well, and switching frameworks becomes straightforward.
+Regardless of which framework you ultimately choose, certain fundamental skills will transfer across all of them. These include component thinking, which involves breaking UIs into reusable pieces; state management, which is understanding how data flows through your application; props and events, the patterns for communication between components; lifecycle awareness, knowing when things initialise, update, and are destroyed; and performance optimisation, avoiding unnecessary re-renders. Master these concepts well, and switching between frameworks becomes a straightforward exercise.
 
 ## Try It Yourself
 
@@ -425,12 +368,7 @@ Look at the todo item examples above. For each framework, identify:
 
 ## Key Takeaways
 
-- UI frameworks manage state and DOM updates automatically
-- React, Vue, Svelte, and Angular are the major players
-- Each framework has different philosophies and tradeoffs
-- React dominates due to job market, ecosystem, and industry adoption
-- Core concepts (components, state, props) transfer between frameworks
-- Learning React provides maximum career flexibility
+To recap, UI frameworks automate the management of state and DOM updates, freeing you from tedious manual synchronisation. While React, Vue, Svelte, and Angular are the major players, each comes with its own unique philosophy and set of tradeoffs. React dominates the industry primarily due to its enormous job market presence, unparalleled ecosystem, and widespread industry adoption. The core concepts of components, state, and props transfer directly between all frameworks, so learning React provides maximum career flexibility.
 
 ## Next Steps
 

@@ -4,20 +4,13 @@
 
 ## What You'll Learn
 
-- What Liquid Glass is and how it works
-- Applying Liquid Glass effects with `.glassEffect()`
-- Configuring shapes, tints, and interactivity
-- Combining effects with `GlassEffectContainer`
-- Creating smooth morphing transitions between views
+During this module, you will learn exactly what Liquid Glass is and how it functions as a core design element. We'll examine the process of applying Liquid Glass effects using the `.glassEffect()` modifier and walk through the configuration of shapes, tints, and interactivity. You will also explore how to combine multiple effects with `GlassEffectContainer` and create smooth, morphing transitions between your views.
 
 ## Introduction to Liquid Glass
 
 Liquid Glass is a dynamic material that unifies Apple platform design. It combines the optical properties of glass with a sense of fluidity:
 
-- **Blurs content** behind it
-- **Reflects colour and light** from surrounding content
-- **Reacts to touch and pointer interactions** in real time
-- **Morphs and flows** between states during transitions
+Liquid Glass functions by blurring the content behind it while simultaneously reflecting the subtle colours and light from its surroundings. It reacts dynamically to touch and pointer interactions in real time and can morph or flow between different states during interface transitions to create a sense of organic continuity.
 
 Standard SwiftUI components automatically adopt Liquid Glass—navigation bars, tab bars, buttons, and controls all use this material by default. You can also apply these effects to custom views.
 
@@ -172,26 +165,15 @@ When `showDetail` toggles with an animation, the glass effect morphs smoothly be
 
 ## Best Practices
 
-### Do
+To ensure a high-quality user experience, you should always use standard components where possible as they adopt Liquid Glass automatically. When building custom controls, apply these effects sparingly to only the most important elements and always test your designs with accessibility settings like Reduce Transparency and Reduce Motion. Finally, allow the background content to infuse the material naturally and be judicious with your use of additional colours.
 
-- **Use standard components** where possible—they adopt Liquid Glass automatically
-- **Apply sparingly** to the most important custom controls
-- **Test with accessibility settings** (Reduce Transparency, Reduce Motion)
-- **Let content infuse the material**—be judicious with colours
-
-### Don't
-
-- **Overuse glass effects**—too many compete for attention
-- **Override system backgrounds** in navigation bars and tab bars
-- **Apply to every element**—reserve for functional, interactive components
-- **Forget fallbacks**—ensure the interface works when effects are reduced
+You should avoid overusing glass effects to prevent multiple elements from competing for the user's attention. Do not override system backgrounds in navigation bars or tab bars, and refrain from applying these effects to every element on the screen. Always remember to provide functional fallbacks to ensure your interface remains usable even when transparency effects are reduced.
 
 ## Accessibility Considerations
 
 Liquid Glass adapts automatically when users enable accessibility settings:
 
-- **Reduce Transparency** removes translucency effects
-- **Reduce Motion** simplifies or disables morphing animations
+Liquid Glass remains accessible by adapting to system settings, such as removing translucency when Reduce Transparency is enabled. It also simplifies or entirely disables complex morphing animations when the user has turned on the Reduce Motion setting to ensure a comfortable experience for everyone.
 
 When building custom components with glass effects, ensure they remain usable when these settings are enabled.
 
@@ -221,9 +203,7 @@ struct GlassButton: View {
 
 Create a toolbar where buttons morph together when selected:
 
-1. Use `GlassEffectContainer` to wrap toolbar items
-2. Apply `.glassEffectUnion()` to group selected items
-3. Animate the selection state with `withAnimation`
+Construct a sophisticated toolbar where individual buttons appear to morph together as they are selected. You should wrap your toolbar items in a `GlassEffectContainer` and use `.glassEffectUnion()` to logically group the selected items, ensuring all state changes are wrapped in a `withAnimation` block for a smooth transition.
 
 ### Exercise 3: Floating Panel
 
@@ -282,13 +262,7 @@ struct FloatingPanel<Content: View>: View {
 
 ## Key Takeaways
 
-- Liquid Glass combines translucency, reflection, and fluid motion
-- Use `.glassEffect()` to apply glass to custom views
-- Configure shape, tint, and interactivity with the `Glass` structure
-- `GlassEffectContainer` enables smooth blending and morphing
-- Use `.glassEffectUnion()` to group views into unified glass regions
-- Use `.glassEffectID()` to coordinate morphing transitions
-- Apply glass effects sparingly—reserve for important functional elements
+To master Liquid Glass in SwiftUI, you must understand how it combines translucency, reflection, and fluid motion to create a unified design language. Use the `.glassEffect()` modifier to apply these effects to custom views and leverage `GlassEffectContainer` alongside `.glassEffectUnion()` for smooth blending and grouped regions. Coordinate your transitions with `.glassEffectID()` to achieve beautiful morphing results, but always remember to apply these powerful effects sparingly to maintain focus on the most important functional elements.
 
 ## Next Steps
 

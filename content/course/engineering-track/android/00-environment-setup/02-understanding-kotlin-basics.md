@@ -4,20 +4,13 @@
 
 ## What You'll Learn
 
-- Kotlin fundamentals without overwhelming detail
-- Variables, types, and null safety
-- Functions and lambdas
-- Classes and data classes
-- How Kotlin concepts appear in Jetpack Compose
+Throughout this lesson, you will learn the fundamentals of Kotlin without being overwhelmed by excessive detail. We'll examine variables, types, and the language's robust null safety features, alongside practical introductions to functions, lambdas, classes, and data classes, focusing specifically on how these concepts appear within Jetpack Compose.
 
 ## Kotlin for Designers
 
 You don't need to become a Kotlin expert to use Jetpack Compose effectively. But understanding the basics helps you:
 
-- Read and modify existing code
-- Understand error messages
-- Build more sophisticated UIs
-- Communicate with Android developers
+Understanding the basics of Kotlin allows you to read and modify existing code with confidence, while also helping you decipher complex error messages more easily. This foundational knowledge empowers you to build more sophisticated user interfaces and communicate far more effectively with your Android development team.
 
 This lesson focuses on what you'll actually encounter when building interfaces.
 
@@ -465,11 +458,7 @@ fun ProfileCard(
 }
 ```
 
-Can you identify:
-- The function parameters (with defaults)?
-- Named parameters in function calls?
-- The conditional?
-- String usage?
+As you review the code above, try to identify the specific function parameters and their default values, as well as the use of named parameters within the function calls. Look for the conditional logic that determines visibility and observe how string templates are utilized to display data.
 
 ## Common Patterns in Compose
 
@@ -602,12 +591,7 @@ fun getThemeLabel(theme: Theme): String = when (theme) {
 
 ## Key Takeaways
 
-- Use `val` for immutable values, `var` for mutable
-- Kotlin has strong null safety with `?`, `?.`, and `?:`
-- Data classes are perfect for holding UI state
-- Lambdas are compact functions—essential for Compose
-- Named parameters make code readable
-- `when` expressions handle multiple conditions elegantly
+To master Kotlin for Android, you must use `val` for immutable values and `var` specifically for those that need to change, while leveraging the language's strong null safety through operators like `?`, `?.`, and `?:`. Remember that data classes are ideal for managing UI state and that lambdas are the essential building blocks for Compose. Finally, utilizing named parameters will significantly improve code readability, while `when` expressions provide an elegant way to handle multiple logical conditions.
 
 ## Next Steps
 

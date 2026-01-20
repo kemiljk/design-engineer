@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Component extraction
-- Generic components
-- View configuration
-- Preview-driven development
+During this module, you will learn the best practices for component extraction and explore the power of using generics to build flexible UI containers. We'll examine robust methods for view configuration and walk through the benefits of preview-driven development to ensure your components work perfectly across all possible states.
 
 ## Extracting Components
 
@@ -168,16 +165,12 @@ struct ProfileHeader: View {
 ### Exercise 1: Avatar Component
 
 Build an Avatar component:
-- Shows image or initials fallback
-- Multiple sizes (small, medium, large)
-- Optional status indicator
+Practise your component architecture skills by building a versatile Avatar component that displays either a user image or an initials fallback. Your implementation should support multiple predefined sizes—such as small, medium, and large—and include an optional status indicator for real-time presence.
 
 ### Exercise 2: Empty State
 
 Create an EmptyState component:
-- Icon, title, description
-- Optional action button
-- Reusable across screens
+Develop an EmptyState component that effectively communicates a lack of content using an icon, title, and descriptive text. Ensure the component is designed to be reusable across various screens and includes an optional action button to guide the user's next steps.
 
 ## Test Your Understanding
 
@@ -220,11 +213,7 @@ Create an EmptyState component:
 
 ## Key Takeaways
 
-- Extract repeated patterns into components
-- Use generics for flexible containers
-- Configure via initializer or environment
-- Write previews for different states
-- Keep components focused and composable
+To build a maintainable and scalable SwiftUI application, you should always extract repeated patterns into dedicated components and use generics to create flexible view containers. Configure your components efficiently through initialisers or the environment and prioritise writing comprehensive previews to account for different states. By keeping your components focused and composable, you can ensure a consistent and high-quality user experience across your entire codebase.
 
 ## Congratulations!
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Material Design principles
-- The material metaphor
-- What makes Android feel like Android
-- Material Design 3 (Material You) and Expressive Design
+During this lesson, you will explore the foundational principles of Material Design and the core material metaphor that defines the platform. We'll identify exactly what makes an Android app feel native and dive into the latest expressive design features of Material Design 3 and Material You.
 
 ## The Material Metaphor
 
@@ -25,7 +22,7 @@ Material Design is built on three pillars:
 We use the physics of the real world to make the digital world intuitive. Objects have weight. They don't teleport; they move. They don't pass through each other. Light comes from a consistent source (usually top-left), casting shadows that explain the spatial relationship between layers.
 
 **2. Bold, Graphic, Intentional**
-Material Design borrows from print design. It emphasizes grid-based layouts, responsive animations and transitions, padding, and depth effects such as lighting and shadows. Typography is large and confident. Color is used deliberately to guide attention, not just to decorate.
+Material Design borrows from print design. It emphasises grid-based layouts, responsive animations and transitions, padding, and depth effects such as lighting and shadows. Typography is large and confident. Colour is used deliberately to guide attention, not just to decorate.
 
 **3. Motion Provides Meaning**
 Motion is not decoration. It describes spatial relationships, functionality, and intention. When you tap a card and it expands to fill the screen, the motion tells you that the new screen *is* the card. It preserves the user's context.
@@ -36,31 +33,26 @@ In 2021, Google introduced Material Design 3, also known as "Material You." This
 
 Previous design systems were rigid: "This is the Google look, and everyone must use it." Material You is personal. It asks: "What if form didn't follow function, but followed feeling?"
 
-**Dynamic Color:**
-This is the headline feature. The system extracts colors from the user's wallpaper and generates a unique, harmonious color palette for the entire OS. If you have a forest wallpaper, your buttons become sage green. If you have a sunset wallpaper, they become warm coral. Your app doesn't just sit on the phone; it becomes *part* of the phone.
+**Dynamic Colour:**
 
-**Personalization:**
+This is the headline feature. The system extracts colours from the user's wallpaper and generates a unique, harmonious colour palette for the entire OS. If you have a forest wallpaper, your buttons become sage green. If you have a sunset wallpaper, they become warm coral. Your app doesn't just sit on the phone; it becomes *part* of the phone.
+
+**Personalisation:**
+
 Shapes became more playful. The rigid rectangles softened into varied rounded corners. Layouts became more adaptive to different screen sizes, from foldable phones to tablets.
 
 ## Material 3 Expressive
 
 The latest evolution (2024+) pushes this even further. "Expressive" design isn't just about looking fun; it's about usability.
 
-Google's research found that users actually complete tasks faster and make fewer errors when interfaces use **bold shapes** and **playful motion**. Why? Because expressive elements are distinct. A standardized, boring list blends together. A list where the active item pops out with a spring animation grabs your attention immediately.
+Google's research found that users actually complete tasks faster and make fewer errors when interfaces use **bold shapes** and **playful motion**. Why? Because expressive elements are distinct. A standardised, boring list blends together. A list where the active item pops out with a spring animation grabs your attention immediately.
 
 **Key changes in Expressive:**
-- **Motion:** Spring-based physics that feel bouncy and organic.
-- **Typography:** Even bolder, more editorial type scales.
-- **Shape Morphing:** Containers that fluidly change shape (e.g., a square FAB morphing into a rectangular menu) to show state changes.
+The latest expressive updates introduce motion driven by spring-based physics for a more organic feel, alongside even bolder editorial type scales. Perhaps most notably, shape morphing now allows containers to fluidly change their geometry to communicate state changes, such as a square Floating Action Button morphing into a rectangular menu.
 
 ## Android Identity
 
-What makes an app feel "Android"?
-
-It's not just using the Roboto font. It's respecting the platform's patterns.
-- **Navigation:** Using the Bottom Navigation Bar or Navigation Drawer.
-- **Gestures:** Supporting the universal "Back" gesture (swiping from the edge).
-- **Feedback:** Using "Ripples" (the ink-spread effect) when elements are touched.
+What makes an app feel "Android"? It is not just about using the Roboto font; it is about respecting the platform's core patterns and expectations. This includes using standard navigation components like the Bottom Navigation Bar or Navigation Drawer, supporting the universal "Back" gesture by swiping from the edge, and providing tactile feedback through "Ripples" (the ink-spread effect) when elements are touched.
 
 When you design for Android, you are a guest in the user's ecosystem. If you try to force an iOS design pattern (like a top-left back button or a bottom sheet that doesn't behave correctly), it feels like a foreign object.
 
@@ -68,9 +60,7 @@ When you design for Android, you are a guest in the user's ecosystem. If you try
 
 ### Exercise 1: Material Analysis
 Open Google Maps or Gmail on an Android device. Look for the metaphor.
-- Identify the "Base" surface (the background).
-- Identify the "Elevated" surfaces (the search bar, the FAB).
-- Watch the shadows. Do they look realistic?
+Start by identifying the base surface of the application (the background) and then look for elevated surfaces like the search bar or Floating Action Button. Observe the shadows carefully to see if they appear realistic and consistent with the platform's material metaphor.
 
 ### Exercise 2: Metaphor Application
 Cut out a few pieces of paper. Write "Header," "Card," and "Button" on them. Arrange them on your desk. Stack them. Shine a light on them.
@@ -105,7 +95,7 @@ Cut out a few pieces of paper. Write "Header," "Card," and "Button" on them. Arr
       "id": "c",
       "text": "Flat design with no depth or shadows",
       "isCorrect": false,
-      "explanation": "Material Design emphasizes depth through elevation and shadows."
+      "explanation": "Material Design emphasises depth through elevation and shadows."
     },
     {
       "id": "d",
@@ -119,11 +109,7 @@ Cut out a few pieces of paper. Write "Header," "Card," and "Button" on them. Arr
 
 ## Key Takeaways
 
-- Material Design treats pixels like physical paper (1dp thick).
-- **Elevation** (z-axis) is the primary tool for hierarchy.
-- **Material You** personalizes the UI color scheme based on user wallpaper.
-- Motion must be intentional: it explains where things come from and go to.
-- Designing native Android means respecting system patterns (Back gesture, Ripples).
+Material Design treats pixels as if they were physical paper with a distinct (1dp) thickness, using elevation along the z-axis as the primary tool for establishes functional hierarchy. With Material You, the entire UI colour scheme can be personalised based on a user's wallpaper, while intentional motion explains where elements originate and where they are going. Designing native Android simply means respecting these system patterns, from the universal back gesture to the tactile ripple effects on touch.
 
 ## Next Steps
 

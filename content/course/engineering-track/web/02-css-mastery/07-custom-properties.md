@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Defining and using custom properties
-- Scope and inheritance
-- Dynamic values with JavaScript
-- Theming with custom properties
+In this lesson, we will cover the essentials of defining and using CSS custom properties across different scopes. You will learn how to leverage inheritance to create clean stylesheets, use JavaScript to manage dynamic values at runtime, and implement robust theming systems that can adapt to user preferences or brand requirements.
 
 ## What Are Custom Properties?
 
@@ -74,58 +71,11 @@ Names must start with `--`.
 
 ### Fallback Values
 
-If the property isn't defined:
-
-```css
-.button {
-  background: var(--color-primary, blue);
-  /* Use blue if --color-primary isn't defined */
-}
-```
-
-### Multiple Fallbacks
-
-```css
-.button {
-  background: var(--theme-primary, var(--color-primary, blue));
-}
-```
+To ensure your design remains robust, you can provide fallback values within the `var()` function. These values will be used if the specified custom property is either undefined or invalid. You can even nest multiple fallbacks to create a hierarchy of default settings, ensuring that your elements always have a sensible style to fall back on.
 
 ## Scope and Inheritance
 
-Custom properties inherit like other CSS properties.
-
-### Inheritance
-
-```css
-:root {
-  --text-color: black;
-}
-
-/* All descendants inherit --text-color */
-body {
-  color: var(--text-color);
-}
-```
-
-### Local Scope
-
-Override for specific elements:
-
-```css
-:root {
-  --spacing: 1rem;
-}
-
-.compact {
-  --spacing: 0.5rem;
-}
-
-.section {
-  padding: var(--spacing);
-  /* Uses 1rem normally, 0.5rem inside .compact */
-}
-```
+Custom properties inherit their values from their parent elements, much like standard CSS properties. This means that a property defined on `:root` is available to every element in the document, while a property defined on a specific class will only be accessible to that element and its descendants. You can take advantage of this by defining global tokens for your design system while still retaining the ability to override those values with local scope for specific components or sections of your page.
 
 ### Component-Scoped Properties
 
@@ -289,118 +239,35 @@ spacingSlider.addEventListener("input", (e) => {
 
 ## Design Token System
 
-Organize custom properties as design tokens:
-
-```css
-:root {
-  /* Primitive tokens */
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-900: #111827;
-
-  /* Semantic tokens */
-  --color-primary: var(--color-blue-500);
-  --color-primary-hover: var(--color-blue-600);
-  --color-background: var(--color-neutral-100);
-  --color-text: var(--color-neutral-900);
-
-  /* Component tokens */
-  --button-bg: var(--color-primary);
-  --button-bg-hover: var(--color-primary-hover);
-}
-```
-
-This hierarchy enables:
-
-- Primitive tokens stay constant
-- Semantic tokens change per theme
-- Component tokens can be overridden locally
+A professional way to organise your custom properties is by using a design token hierarchy. This system Typically consists of primitive tokens that stay constant, semantic tokens that describe their purpose and can change based on the current theme, and component tokens used for granular overrides. This structure allows you to maintain a consistent design language while making major updates—like changing your primary brand colour or switching between light and dark modes—remarkably simple.
 
 ## Common Patterns
 
 ### Spacing Scale
 
-```css
-:root {
-  --space-1: 0.25rem; /* 4px */
-  --space-2: 0.5rem; /* 8px */
-  --space-3: 0.75rem; /* 12px */
-  --space-4: 1rem; /* 16px */
-  --space-5: 1.25rem; /* 20px */
-  --space-6: 1.5rem; /* 24px */
-  --space-8: 2rem; /* 32px */
-  --space-10: 2.5rem; /* 40px */
-  --space-12: 3rem; /* 48px */
-  --space-16: 4rem; /* 64px */
-}
-```
+By defining a dedicated spacing scale as custom properties, you can ensure that margins and padding remain consistent across your entire application. This makes it easy to adjust the overall density of your interface by simply modifying the scale values in one location.
 
 ### Typography Scale
 
-```css
-:root {
-  --font-xs: 0.75rem;
-  --font-sm: 0.875rem;
-  --font-base: 1rem;
-  --font-lg: 1.125rem;
-  --font-xl: 1.25rem;
-  --font-2xl: 1.5rem;
-  --font-3xl: 1.875rem;
-  --font-4xl: 2.25rem;
-}
-```
+Establishing a typography scale with custom properties allows you to manage font sizes systematically. This approach ensures that your headings and body text maintain a clear hierarchy, which is essential for both readability and professional aesthetic.
 
 ### Responsive Custom Properties
 
-```css
-:root {
-  --container-padding: 1rem;
-}
-
-@media (min-width: 768px) {
-  :root {
-    --container-padding: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --container-padding: 3rem;
-  }
-}
-
-.container {
-  padding: var(--container-padding);
-}
-```
+You can also use custom properties to manage responsiveness more effectively by redefining them within media queries. Instead of rewriting complex padding or layout rules multiple times, you can simply update the value of your custom property, and every element that uses that variable will automatically adapt to the new screen size.
 
 ## Try It Yourself
 
 ### Exercise 1: Token System
 
-Create a custom property system with:
-
-- Colour primitives (grey scale, brand colour)
-- Semantic colour tokens
-- Spacing scale
-- Apply to a simple card component
+Create a comprehensive custom property system that includes colour architectural primitives for a greyscale and brand palette, along with associated semantic colour tokens and a standard spacing scale. Apply these tokens to build a simple card component that remains consistent with your design system.
 
 ### Exercise 2: Theme Switcher
 
-Build a page with:
-
-- Light and dark themes using custom properties
-- A toggle button that switches themes
-- System preference detection with `prefers-color-scheme`
+Build a page that natively supports light and dark themes using CSS custom properties. You should include a toggle button that switches between these themes and use `prefers-color-scheme` to automatically detect and apply the user's system-level preference.
 
 ### Exercise 3: Dynamic Component
 
-Create a component that:
-
-- Has customizable properties (colours, spacing)
-- Can be styled differently by overriding custom properties
-- Works with different themes
+Develop a component that features several customisable properties, such as background colours and internal spacing. Ensure that the component can be easily restyled by overriding those custom properties locally, and verify that it works correctly across your different site themes.
 
 ## Test Your Understanding
 
@@ -443,13 +310,7 @@ Create a component that:
 
 ## Key Takeaways
 
-- Custom properties are defined with `--name` and used with `var(--name)`
-- They inherit like other CSS properties
-- Scope them globally on `:root` or locally on components
-- Provide fallback values: `var(--color, blue)`
-- They enable easy theming (light/dark mode, brand variants)
-- JavaScript can read and write custom properties
-- Organize as primitive → semantic → component tokens
+To recap, CSS custom properties are defined using the `--name` prefix and accessed through the `var()` function. They support full inheritance across the document, allowing you to define global tokens on `:root` or create locally scoped overrides for specific components. By providing fallback values, you can build more resilient styles, and the ability to integrate with JavaScript makes them a vital tool for dynamic theming and user-driven interface changes.
 
 ## Next Steps
 

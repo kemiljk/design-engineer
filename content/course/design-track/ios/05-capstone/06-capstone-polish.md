@@ -18,40 +18,27 @@ estimatedTime: 10
 ## Step 1: App Icon
 
 The icon is the face of your app.
-- **Grid:** Use the Apple Icon Grid template.
-- **Simplicity:** Keep it bold. Avoid small text or complex photographic details.
-- **Background:** Unlike Android, the background mask is provided by the OS, but you design the full square.
-- **Assets:** Create the 1024x1024 version.
+When designing your app icon, use the Apple Icon Grid to maintain simplicity and a bold appearance. While the OS provides the final mask, you should design the full square assets at 1024x1024 to ensure high quality.
 
 ## Step 2: App Store Assets
 
 How do you sell your app?
-- **Screenshots:** Create a set of 3-5 screenshots.
-- **Captions:** Add a short, punchy sentence above each phone frame explaining the value ("Track your habits," "Stay focused").
-- **Sizes:** You ideally need a 6.5" version and a 5.5" version, but for this capstone, one size is sufficient.
+Create a set of three to five screenshots with punchy captions highlighting the app's value, ensuring you have at least one size that translates well across modern iPhone displays.
 
 ## Step 3: Design Audit
 
 Before you call it done, review your work.
-- **Consistency:** Are margins always 16pt?
-- **Typography:** Did you accidentally use a custom font size instead of a style?
-- **Contrast:** Does every text label meet AA standards?
-- **Content:** Is the placeholder text realistic? Replace "Lorem Ipsum" with real content.
+Conduct a final audit to ensure consistent 16pt margins and system typography styles, verifying that all text meets AA contrast standards and replacing any placeholder text with realistic content.
 
 ## Step 4: Case Study
 
 Document your thinking. A pretty picture isn't enough; hiring managers want to see your brain.
-- **Problem:** What were you solving?
-- **Solution:** How did you solve it?
-- **Process:** Show your wireframes, your bad ideas, and your final polish.
-- **Outcome:** What did you learn?
+Your case study should clearly articulate the problem you solved, the final design solution, and the iterative process including wireframes and key decisions that led to the final outcome.
 
 ## Step 5: File Organisation
 
 Clean up your Figma file.
-- **Delete** unused pages.
-- **Name** your layers.
-- **Thumbnail:** Add a "Cover" page with a nice thumbnail so it looks good in the file browser.
+Finalise your file by deleting unused explorations, naming all layers semantically, and adding a clear cover thumbnail for easy identification in Figma.
 
 ## Submission Checklist
 

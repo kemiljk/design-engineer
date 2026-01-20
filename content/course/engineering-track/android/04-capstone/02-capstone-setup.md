@@ -10,18 +10,11 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Setting up an Android Studio project for Compose
-- Adding essential dependencies
-- Defining data models with Room
-- Organising project files effectively
+During this module, you will learn to set up a new Android Studio project specifically for Jetpack Compose and add all the essential dependencies. We'll examine how to define robust data models with Room and establish a logical project structure to keep your files effectively organised.
 
 ## Step 1: Create Android Studio Project
 
-1. File → New → New Project
-2. Empty Activity (Compose)
-3. Language: Kotlin
-4. Minimum SDK: API 26
-5. Build configuration language: Kotlin DSL
+Begin by navigating to File, then New, and select New Project. Choose the "Empty Activity (Compose)" template to ensure you have the correct boilerplate. Set the language to Kotlin and ensure your minimum SDK is at least API 26 to support modern features, while choosing the Kotlin DSL for your build configuration language.
 
 ## Step 2: Add Dependencies
 
@@ -134,18 +127,11 @@ app/src/main/java/com/yourpackage/
 
 Before moving on, verify:
 
-- [ ] Android Studio project created with Compose
-- [ ] Dependencies configured (Compose, Room, Navigation)
-- [ ] Data models defined with Room annotations
-- [ ] Project structure organised into logical packages
-- [ ] App runs without errors
+Before proceeding to the next phase, you should verify that your Android Studio project is correctly configured for Compose and that all necessary dependencies for Room and Navigation have been added. Ensure your data models are properly annotated and that the project structure follows a logical package organisation. Finally, confirm that the application builds and runs without errors.
 
 ## Try It Yourself
 
-1. Create the models for your chosen app type
-2. Set up the folder structure
-3. Run the app to ensure it builds
-4. Create the Room database and DAO
+Get started by creating the specific data models required for your chosen application type and setting up the folder structure accordingly. Once your project is organised, run the app to ensure it builds correctly before creating your Room database and corresponding Data Access Objects.
 
 ## Next Steps
 

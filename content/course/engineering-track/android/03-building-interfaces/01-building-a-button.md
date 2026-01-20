@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Material 3 button types
-- Custom button styling
-- Loading and disabled states
-- Accessibility
+During this module, you will learn to navigate the various Material 3 button types and explore techniques for custom button styling. We'll examine how to implement loading and disabled states effectively while ensuring your components adhere to strict accessibility standards.
 
 ## Material 3 Buttons
 
@@ -138,17 +135,11 @@ IconButton(
 
 ### Exercise 1: Button Set
 
-Create a row of buttons:
-- Primary action (filled)
-- Secondary action (outlined)
-- Tertiary action (text)
+Practise your UI composition by creating a cohesive row of buttons that demonstrates the hierarchy of actions. Include a primary filled button for high emphasis, an outlined secondary action for medium emphasis, and a simple text button for tertiary actions.
 
 ### Exercise 2: Async Button
 
-Build a button that:
-- Shows loading spinner during action
-- Disables while loading
-- Shows success state briefly
+Further develop your interactive elements by building an asynchronous button that manages its own loading state. The component should show a loading spinner during the action, disable itself to prevent multiple clicks, and briefly transition to a success state upon completion.
 
 ## Test Your Understanding
 
@@ -191,10 +182,7 @@ Build a button that:
 
 ## Key Takeaways
 
-- Use appropriate button type for emphasis
-- ButtonDefaults for customising colours
-- Handle loading and disabled states
-- Always provide content descriptions for icon buttons
+To build effective buttons in Compose, you must select the appropriate type to reflect the correct level of functional emphasis and use `ButtonDefaults` to customising colours and shapes. Always handle loading and disabled states to provide a responsive user experience and ensure that every icon button includes an accurate content description for accessibility.
 
 ## Next Steps
 

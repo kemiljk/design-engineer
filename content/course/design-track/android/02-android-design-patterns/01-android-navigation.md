@@ -4,36 +4,17 @@
 
 ## What You'll Learn
 
-- The core navigation components: Bottom Bar, Navigation Rail, and Drawer
-- The crucial difference between "Back" and "Up"
-- Managing hierarchies with the Navigation Component
-- Designing for predictable flow
+During this lesson, you will master the core navigation components of the Android platform, including the Bottom Bar, Navigation Rail, and Drawer. We will clarify the crucial functional differences between the "Back" gesture and the "Up" button while learning to manage complex screen hierarchies for a predictable user flow.
 
 ## Primary Navigation Structures
 
-Android offers three main ways to handle top-level navigation. Your choice depends heavily on screen size and the complexity of your application.
-
-### Bottom Navigation Bar
-
-This is the standard for mobile apps on portrait screens. It holds three to five top-level destinations that require direct access. The labels are persistent, and the active state is clearly highlighted. Bottom navigation implies that the destinations are peers—one isn't more important than another. It's excellent for thumb reachability on tall phones.
-
-### Navigation Rail
-
-On tablets, foldables, and landscape orientations, the bottom bar can waste vertical space. The Navigation Rail moves these destinations to a vertical column on the left edge. This is the responsive evolution of the bottom bar—it uses the same destinations but places them better for wide screens, allowing the content to expand.
-
-### Navigation Drawer
-
-When you have more than five destinations, or when your destinations are secondary utilities rather than primary views, a Drawer is the standard pattern. It slides in from the left and can hold a long vertical list of items.
+Modern Android apps typically use one of three primary navigation structures depending on the device context. The **Bottom Navigation Bar** is the standard for mobile portrait screens, providing persistent labels and thumb-friendly access to three to five peer destinations. For larger screens like tablets and foldables, or in landscape orientations, the **Navigation Rail** moves these destinations to a vertical column on the left edge to preserve vertical space. When an application requires more than five destinations or secondary utility views, the **Navigation Drawer** provides a dismissible or permanent side menu for extended navigation options.
 
 **Design Tip:** Avoid combining a Bottom Bar and a Drawer if possible. It splits the user's mental model of "where things are." If you must use both, ensure the Drawer contains only secondary items (Settings, About, Account) that don't compete with the primary flow in the Bottom Bar.
 
 ## Secondary Navigation
 
-### Tabs
-
-Tabs organise related content at the same hierarchy level. Unlike bottom navigation, tabs are often context-specific, such as "Songs, Albums, Artists" within a Music Library screen.
-
-Material Design tabs are versatile. **Fixed Tabs** display all tabs at once and are ideal for groups of two or three items. **Scrollable Tabs** work better for longer lists of categories, allowing users to swipe the tab bar itself. Critically, tabs on Android allow users to swipe the *content area* to switch tabs, a gesture that adds fluid interactivity not found in standard iOS tabs.
+Tabs are used to organise related content at the same hierarchy level, such as "Songs, Albums, Artists" within a music library. Material Design provides **Fixed Tabs** for small groups of items and **Scrollable Tabs** for longer categorised lists. A key Android interaction pattern is that tabs allow users to swipe the content area to switch between views, providing a fluid and interactive experience.
 
 ### The Top App Bar
 
@@ -55,17 +36,7 @@ This is the arrow in the Top App Bar. It moves **upward in hierarchy**, staying 
 
 ## Navigation Patterns
 
-### Stack Navigation
-
-This is the standard flow. You tap an item, and a new screen slides or fades in, pushing onto the stack. Pressing back pops it off. It mimics a physical pile of cards.
-
-### Hub and Spoke
-
-A central "Hub" (Dashboard) leads to distinct "Spokes" (features). Users typically return to the Hub to switch tasks. This pattern is common in banking or utility apps where tasks are distinct and separate.
-
-### Lateral Navigation
-
-Moving between sibling screens, like swiping through emails, is lateral navigation. This often conflicts with the system Back gesture, so you must provide clear visual cues—like pagination dots or tabs—to indicate that swiping changes the content, not the history.
+Common movement patterns include **Stack Navigation**, where new screens are pushed onto a pile and popped off by the back gesture, and **Hub and Spoke** flows, where a central dashboard leads to distinct tasks. **Lateral Navigation** allows movement between sibling content (like swiping through emails) and requires clear visual cues to distinguish it from system-level gestures.
 
 ## Best Practices
 
@@ -82,17 +53,12 @@ Android handles intents heavily. Your navigation structure must handle a user "p
 ### Exercise 1: Responsive Navigation
 
 Sketch a navigation scheme for a music app. Define how it adapts across devices:
-- **Mobile:** Use a Bottom Bar for Home, Search, and Library.
-- **Tablet:** Switch to a Navigation Rail.
-- **Drawer:** Use this for secondary items like Settings, Account, and Help.
-- **Transition:** Draw how the layout shifts when you rotate a tablet from portrait to landscape.
+Sketch a navigation scheme for a music app that uses a Bottom Bar for primary destinations on mobile and switches to a Navigation Rail for tablet layouts. Use a Navigation Drawer specifically for secondary items like Settings and help, and finish by drawing how the entire layout shifts transitionally when a tablet rotates from portrait to landscape.
 
 ### Exercise 2: The Deep Link Test
 
 Imagine a user taps a notification for "New Message from Alice."
-1.  They land on the **Message Detail** screen.
-2.  They tap **Back**. Ideally, they go to the Home screen or exit the app, depending on their previous history.
-3.  They tap **Up**. They must go to the **Inbox List**, preserving the app's hierarchy.
+Imagine a user lands on a Message Detail screen via a notification and then taps either the system Back gesture or the Up button. If they tap Back, they should ideally return to their previous screen or exit the app, whereas tapping Up must always move them hierarchically to the Inbox List to ensure they are never stranded.
 
 ## Test Your Understanding
 
@@ -135,10 +101,7 @@ Imagine a user taps a notification for "New Message from Alice."
 
 ## Key Takeaways
 
-- Use **Bottom Navigation** for mobile and **Navigation Rail** for tablet/desktop.
-- Remember that **System Back** moves through history (time) while **Up** moves through hierarchy (structure).
-- Reserve **Drawers** for secondary destinations, not the primary flow.
-- Handle **deep links** carefully by managing the Up stack to prevent stranding users.
+For optimal navigation, use the Bottom Bar on mobile devices and the Navigation Rail for tablets while reserving Drawers for secondary destinations outside the primary flow. It is vital to remember that System Back navigates through a user's chronological history while the Up button moves strictly through the app's structural hierarchy, which is essential for handling deep links without stranding the user.
 
 ## Next Steps
 

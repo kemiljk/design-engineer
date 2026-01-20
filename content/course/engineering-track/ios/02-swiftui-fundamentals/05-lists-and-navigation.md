@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Creating lists
-- NavigationStack and NavigationLink
-- Detail views
-- List styling
+During this module, you will learn to create high-performance scrolling lists and master the use of `NavigationStack` and `NavigationLink` for hierarchical app navigation. We'll examine how to build effective detail views and walk through the various styling options available for customising your list interfaces.
 
 ## Basic Lists
 
@@ -104,7 +101,7 @@ struct DetailView: View {
 ### Sections
 ```swift
 List {
-    Section("Favorites") {
+    Section("Favourites") {
         ForEach(favourites) { item in
             Text(item.name)
         }
@@ -148,15 +145,11 @@ List {
 ### Exercise 1: Contact List
 
 Create a list of contacts with:
-- Name and avatar
-- Navigation to detail view
-- Sections by first letter
+Practise your navigation skills by creating a contacts list that displays names alongside avatars and enables seamless navigation to a dedicated detail view. You should also organise the list into sections based on the first letter of each contact's name for improved usability.
 
 ### Exercise 2: Swipe to Delete
 
-Implement swipe actions:
-- Delete on trailing swipe
-- Favorite on leading swipe
+Enhance your list interactions by implementing custom swipe actions. Configure a destructive delete action for trailing swipes and a favourite action for leading swipes to provide a modern and efficient user experience.
 
 ## Test Your Understanding
 
@@ -199,11 +192,7 @@ Implement swipe actions:
 
 ## Key Takeaways
 
-- List efficiently displays scrolling content
-- Items need Identifiable conformance
-- NavigationStack manages navigation
-- NavigationLink pushes detail views
-- Sections organise list content
+To build sophisticated iOS applications, you must use the `List` component as it efficiently manages scrolling content, provided your items conform to the `Identifiable` protocol. Leverge `NavigationStack` to handle your app's hierarchy and use `NavigationLink` to push detailed content as needed. Finally, employ sections to organise your list data logically and provide a clear structure for your users.
 
 ## Next Steps
 

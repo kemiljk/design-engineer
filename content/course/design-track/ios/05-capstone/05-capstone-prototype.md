@@ -18,30 +18,22 @@ estimatedTime: 15
 ## Step 1: Interaction States
 
 Every interactive element needs feedback. Design these states as component variants.
-- **Buttons:** Normal, Pressed (scale down to 96%), Disabled.
-- **Inputs:** Normal, Focused (active border/cursor), Filled, Error.
-- **List Items:** Normal, Highlighted (grey background on tap), Selected.
+Design component variants for buttons in their normal, pressed, and disabled states, and ensure that inputs and list items provide clear visual feedback during interaction, such as a grey background highlight on tap.
 
 ## Step 2: Transitions
 
 Define how screens connect. Don't just use "Instant" or "Dissolve." Use native patterns.
-- **Push:** Use "Move In" from the right for hierarchical navigation (List → Detail).
-- **Modal:** Use "Move In" from the bottom for task-based flows (Add Item, Settings).
-- **Tab Switch:** Use "Dissolve" or "Instant". Tabs do not slide.
+Apply a **Push** transition for hierarchical navigation, use **Modal** sheets for temporary tasks, and ensure that tab switches remain instant without sliding.
 
 ## Step 3: Build Prototype
 
 Connect your screens in Figma.
-- **Happy Path:** Build the primary flow first. Ensure the user can complete the main task.
-- **Back Navigation:** Don't forget the back buttons! The prototype shouldn't be a dead end.
-- **Scroll Areas:** Set up vertical scrolling for your lists and content pages.
+Map the primary "happy path" flow to ensure the main task can be completed, verify that back buttons are functional to prevent dead ends, and set up vertical scroll areas for all lists and content pages.
 
 ## Step 4: Micro-interactions
 
 Add the polish that makes it feel like iOS.
-- **Toggles:** Make the switch knob slide smoothly.
-- **Checkmarks:** Animate the success state.
-- **Haptics:** You can't feel them in Figma, but annotate where they should happen (e.g., "Light impact on toggle").
+Polishing the experience involves making toggle switches slide smoothly, animating success states for checkmarks, and annotating where haptic feedback should occur for key interactions.
 
 ## Checkpoint
 

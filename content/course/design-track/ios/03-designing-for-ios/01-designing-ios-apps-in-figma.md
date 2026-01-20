@@ -77,19 +77,13 @@ Figma does not include **SF Pro** by default because it is a local system font.
 
 ### Text Styles
 Don't use raw font values. Create Figma Text Styles that match the iOS system styles.
-- **Large Title:** SF Pro, 34pt, Bold
-- **Title 1:** SF Pro, 28pt, Bold
-- **Body:** SF Pro, 17pt, Regular
-- **Caption 1:** SF Pro, 12pt, Regular
+To maintain system consistency, assign standard styles such as **Large Title** (34pt Bold), **Title 1** (28pt Bold), **Body** (17pt Regular), and **Caption 1** (12pt Regular). Naming these styles strictly according to the iOS hierarchy helps developers map them directly to code.
 Naming them strictly (e.g., "iOS/Body", "iOS/Title 1") helps developers map them directly to code.
 
 ## Colour Styles
 
 Create semantic colour styles in Figma, not just raw hex codes.
-- **Label Colors:** Primary, Secondary, Tertiary.
-- **Backgrounds:** System Background, Secondary System Background.
-- **Accents:** System Blue, System Red, etc.
-- **Modes:** Use Figma's variable modes to define Light and Dark values for each colour. This allows you to switch your entire design from Light to Dark mode with one click.
+Semantic definitions should include **Label Colours** for text hierarchy, **Backgrounds** for layout layers, and **Accents** for interactive system colours like Blue and Red. Using Figma's variable modes allows you to switch your entire design between Light and Dark values with a single click. This allows you to switch your entire design from Light to Dark mode with one click.
 
 ## Device Frames
 
@@ -155,11 +149,7 @@ Design a simple "Settings" screen.
 
 ## Key Takeaways
 
-- Design at **1x scale** (points), not pixels.
-- Use **Apple's official UI Kit** to save time and ensure accuracy.
-- **SF Symbols** are the standard for iconography; treat them like text.
-- Use **Figma Variables** for Light/Dark mode semantic colours.
-- **Auto Layout** in Figma mimics SwiftUI stacks—use it everywhere.
+To create professional iOS designs in Figma, you must always work at **1x scale** (points) and leverage **Apple's official UI Kit** to ensure component accuracy and consistency. Integrating **SF Symbols** as your iconography standard and using **Figma Variables** for semantic Light/Dark mode accessibility will further align your work with system standards. Finally, building with **Auto Layout** ensures your designs mimic the behaviour of native SwiftUI stacks, making the transition to development seamless.
 
 ## Next Steps
 

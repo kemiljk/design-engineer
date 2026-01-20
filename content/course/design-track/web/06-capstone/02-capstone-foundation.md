@@ -10,40 +10,19 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- How to gather and organise design inspiration
-- Defining brand personality and voice
-- Creating a complete design token system
+Throughout this phase, you will learn how to gather and organise design inspiration into a cohesive resource, define a distinct brand personality and voice, and create a comprehensive design token system that provides a robust foundation for your landing page project.
 
 ## Step 1: Research and Moodboard
 
-Before designing, gather inspiration:
-
-### Finding Inspiration
-
-- Find 5-10 landing pages in your chosen category
-- Screenshot specific elements you admire:
-  - Hero sections that grab attention
-  - Typography pairings that work well
-  - Colour combinations you like
-  - Layout patterns that feel right
-  - Micro-interactions and details
+Begin by gathering inspiration from 5-10 landing pages in your chosen category, taking screenshots of specific elements that grab your attention, such as effective hero sections, successful typography pairings, and compelling colour combinations. Pay close attention to layout patterns that feel intuitive and the subtle micro-interactions that add a layer of polish to the user experience.
 
 ### Analysing What Works
 
-As you collect inspiration, note patterns:
-- **Layouts:** How do they structure information?
-- **Typography:** What fonts are popular? What sizes?
-- **Colour:** Bold and saturated or subtle and muted?
-- **Imagery:** Photography, illustration, or abstract?
-- **Tone:** Professional, playful, technical, warm?
+As you collect inspiration, analyse what makes these designs successful by noting recurring patterns in layout structure, font selections, and the use of bold versus muted colour palettes. Consider whether the imagery is photographic, illustrative, or abstract, and identify the overall tone—whether it feels professional, playful, technical, or warm.
 
 ### Creating Your Moodboard
 
-In Figma, create a moodboard page:
-- Arrange screenshots in a grid
-- Add notes about what you like
-- Identify common patterns
-- Star the 2-3 most inspiring examples
+Document these findings in Figma by creating a moodboard page where you can arrange your screenshots in a grid, add detailed notes on specific features you admire, and star the most inspiring examples to guide your own design process.
 
 ## Step 2: Define Your Brand
 
@@ -67,11 +46,7 @@ Establish the personality before you design:
 
 ### Why This Matters
 
-These decisions inform everything:
-- **Value proposition** → Hero headline and messaging
-- **Target audience** → Visual style and complexity
-- **Brand attributes** → Colour, typography, imagery choices
-- **Tone of voice** → Copy style and personality
+These foundational brand decisions inform every aspect of the project, from how the value proposition drives the hero messaging to how the target audience influences the visual style and complexity. Your brand attributes will directly guide your choices for colour, typography, and imagery, while the tone of voice ensures that your copy maintains a consistent and engaging personality.
 
 ## Step 3: Create Design Tokens
 
@@ -81,9 +56,7 @@ Now translate your brand into a systematic design language.
 
 Create a structured colour palette:
 
-**Primary & Secondary** — Each needs a full scale from 50 (lightest) to 900 (darkest), with 500 as the main colour.
-
-**Neutral (Grays)** — Same 50-900 scale, where 50 is near white and 900 is near black.
+Create a structured colour palette where your primary and secondary colours each have a full scale from light to dark, with 500 as the main functional colour. Include a corresponding neutral scale for greys, moving from near-white at 50 to near-black at 900.
 
 **Semantic colours:**
 
@@ -95,18 +68,13 @@ Create a structured colour palette:
 | Info | Blue |
 
 **Tips:**
-- Use a tool like [Coolors](https://coolors.co) or [Realtime Colors](https://realtimecolors.com)
-- Test your primary colour at different tints
-- Ensure sufficient contrast for accessibility
-- Document your colour decisions
+When developing your palette, utilise tools like Coolors or Realtime Colors to test your primary colour across various tints while ensuring sufficient contrast for accessibility. Document each colour decision carefully to maintain system integrity.
 
 ### Typography Scale
 
 Choose fonts and define your type scale:
 
-**Font Selection:**
-- **Heading font:** (e.g., Inter, Space Grotesk, Playfair Display)
-- **Body font:** (often the same, or a complementary serif/sans)
+When selecting fonts, choose heading and body typefaces (such as Inter, Space Grotesk, or Playfair Display) that complement each other and align with your brand's personality, whether you're using a single robust family or a pairing of serif and sans-serif fonts.
 
 **Type Scale:**
 
@@ -138,10 +106,7 @@ Define consistent spacing values:
 | 4xl | 96px | Hero/footer breathing room |
 
 **Usage guidelines:**
-- 4px-8px: Within components
-- 16px-24px: Between components
-- 32px-64px: Between sections
-- 96px+: Major page divisions
+Apply these spacing tokens consistently across your design, using tight 4px-8px gaps within components and larger 16px-24px spacing between separate elements. Major page divisions and transitions between hero and footer sections should utilise breathing room of 96px or more to maintain a clean and professional hierarchy.
 
 ### Border Radius
 
@@ -171,23 +136,13 @@ Define elevation levels:
 
 Before moving on, verify:
 
-- [ ] Moodboard created with 5-10 examples
-- [ ] Notes on what you admire in each
-- [ ] Brand identity defined (name, proposition, audience, attributes, tone)
-- [ ] Colour tokens documented in Figma
-- [ ] Typography scale established with font choices
-- [ ] Spacing scale defined
-- [ ] Border radius and shadow tokens set
+Before proceeding to the layout phase, verify that you have created a moodboard with detailed notes on inspiring examples, defined a complete brand identity, and documented all necessary colour, typography, spacing, border radius, and shadow tokens within Figma.
 
 ## Try It Yourself
 
 Complete all steps above in your Figma file:
 
-1. Create a "Tokens" page
-2. Document all your colours as named styles
-3. Create text styles for your typography scale
-4. Add spacing, radius, and shadow documentation
-5. Take a screenshot for your case study
+Finalise your foundational work by documenting all colours as named styles, creating text styles for your typography scale, and establishing documentation for your spacing, radius, and shadows. Be sure to take a screenshot of your completed tokens page for inclusion in your final case study.
 
 ## Next Steps
 

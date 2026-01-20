@@ -4,51 +4,15 @@
 
 ## What You'll Learn
 
-- Declaring variables with `const`, `let`, and `var`
-- JavaScript's data types
-- Working with strings, numbers, booleans, arrays, and objects
-- Type checking and conversion
+In this lesson, we will cover the different ways to declare variables using `const`, `let`, and `var`. You will explore JavaScript's core data types, learn how to work effectively with strings, numbers, booleans, arrays, and objects, and understand the essential techniques for type checking and conversion.
 
 ## Declaring Variables
 
 <!-- illustration: js-data-types -->
 
-### const (Constants)
+## Declaring Variables
 
-Use `const` for values that won't be reassigned:
-
-```javascript
-const name = 'Design Engineer';
-const pi = 3.14159;
-const isActive = true;
-
-name = 'Developer'; // Error! Can't reassign const
-```
-
-`const` is your default choice.
-
-### let (Variables)
-
-Use `let` for values that will change:
-
-```javascript
-let count = 0;
-count = 1; // OK
-count = count + 1; // OK
-
-let score;  // Declared but undefined
-score = 100;
-```
-
-### var (Avoid)
-
-The old way. Has quirky scoping behaviour:
-
-```javascript
-var oldStyle = 'avoid this';
-```
-
-Prefer `const` and `let` in modern JavaScript.
+In modern JavaScript, you have two primary ways to declare variables: `const` and `let`. You should use `const` as your default choice for any values that will not be reassigned, as this makes your code more predictable and prevents accidental changes. If you know a value will need to be updated later—such as a counter or a toggled state—use `let`. While you may still encounter the older `var` keyword in legacy code, it is generally best avoided due to its quirky scoping behaviours.
 
 ### Naming Conventions
 
@@ -60,100 +24,11 @@ const UserComponent = () => {};  // PascalCase for components/classes
 
 ## Primitive Types
 
-### String
-
-Text data:
-
-```javascript
-const single = 'Hello';
-const double = "World";
-const template = `Hello, ${name}!`;  // Template literal
-
-// Common string methods
-'hello'.toUpperCase();     // "HELLO"
-'hello'.length;            // 5
-'hello'.includes('ell');   // true
-'hello'.split('');         // ["h", "e", "l", "l", "o"]
-```
-
-### Number
-
-All numbers (integers and decimals):
-
-```javascript
-const integer = 42;
-const decimal = 3.14;
-const negative = -10;
-
-// Math operations
-10 + 5;   // 15
-10 - 5;   // 5
-10 * 5;   // 50
-10 / 5;   // 2
-10 % 3;   // 1 (remainder)
-10 ** 2;  // 100 (power)
-
-// Common methods
-Math.round(3.7);    // 4
-Math.floor(3.7);    // 3
-Math.ceil(3.2);     // 4
-Math.random();      // 0-1 random
-Math.max(1, 5, 3);  // 5
-```
-
-### Boolean
-
-True or false:
-
-```javascript
-const isVisible = true;
-const isDisabled = false;
-
-// Boolean operations
-!true;         // false (NOT)
-true && false; // false (AND)
-true || false; // true (OR)
-```
-
-### Undefined and Null
-
-```javascript
-let noValue;          // undefined - no value assigned
-const empty = null;   // null - intentionally empty
-```
-
-### Symbol and BigInt
-
-Less common:
-
-```javascript
-const sym = Symbol('id');
-const big = 9007199254740991n;  // BigInt for huge numbers
-```
+JavaScript features several primitive data types that form the building blocks of your code. Strings are used for text data and can be defined using single quotes, double quotes, or backticks for template literals. Numbers cover both integers and decimals and allow for standard mathematical operations. Booleans represent simple true or false values, which are essential for logic and control flow. Additionally, you will encounter `undefined` for variables that have been declared but not assigned a value, and `null` for values that are intentionally empty.
 
 ## Arrays
 
-Ordered lists of values:
-
-```javascript
-const colours = ['red', 'green', 'blue'];
-
-// Access by index (0-based)
-colours[0];  // "red"
-colours[2];  // "blue"
-
-// Array methods
-colours.length;           // 3
-colours.push('yellow');   // Add to end
-colours.pop();            // Remove from end
-colours.includes('red');  // true
-colours.indexOf('green'); // 1
-
-// Iteration
-colours.forEach(colour => console.log(colour));
-colours.map(colour => colour.toUpperCase());
-colours.filter(colour => colour.length > 3);
-```
+Arrays are ordered lists of values that allow you to store multiple items in a single variable. You can access individual elements by their zero-based index and use a wide variety of built-in methods to add or remove items, check for the presence of specific values, and iterate over the entire collection to transform or filter your data.
 
 ### Destructuring Arrays
 
@@ -164,26 +39,7 @@ const [first, second, ...rest] = colours;
 
 ## Objects
 
-Collections of key-value pairs:
-
-```javascript
-const user = {
-  name: 'Alice',
-  age: 30,
-  isAdmin: false
-};
-
-// Access properties
-user.name;        // "Alice"
-user['age'];      // 30
-
-// Modify
-user.age = 31;
-user.email = 'alice@example.com';  // Add new property
-
-// Check if property exists
-'name' in user;   // true
-```
+Objects are collections of key-value pairs, making them ideal for representing more complex data structures like a user profile or a product's details. You can access properties using either dot notation or bracket notation, and it is easy to modify existing values or add entirely new properties to an object after it has been created.
 
 ### Destructuring Objects
 
@@ -210,57 +66,11 @@ Object.entries(user); // [["name", "Alice"], ["age", 30], ...]
 
 ## Type Checking
 
-### typeof Operator
-
-```javascript
-typeof 'hello';    // "string"
-typeof 42;         // "number"
-typeof true;       // "boolean"
-typeof undefined;  // "undefined"
-typeof null;       // "object" (historical bug)
-typeof [];         // "object"
-typeof {};         // "object"
-```
-
-### Array.isArray()
-
-```javascript
-Array.isArray([1, 2, 3]);  // true
-Array.isArray('hello');    // false
-```
+To determine the type of a value at runtime, you can use the `typeof` operator, which returns a string indicating whether a value is a string, number, boolean, or object. While `typeof` is generally reliable, keep in mind that it treats both arrays and `null` as objects; in these cases, you should use more specific methods like `Array.isArray()` to correctly identify your arrays.
 
 ## Type Conversion
 
-### To String
-
-```javascript
-String(123);        // "123"
-(123).toString();   // "123"
-`${123}`;           // "123"
-```
-
-### To Number
-
-```javascript
-Number('123');      // 123
-Number('hello');    // NaN (Not a Number)
-parseInt('123px');  // 123
-parseFloat('3.14'); // 3.14
-```
-
-### To Boolean
-
-```javascript
-Boolean(1);         // true
-Boolean(0);         // false
-Boolean('');        // false
-Boolean('hello');   // true
-Boolean(null);      // false
-Boolean(undefined); // false
-
-// Falsy values: 0, '', null, undefined, NaN, false
-// Everything else is truthy
-```
+JavaScript allows you to convert values between types when necessary. You can use the `String()` and `Number()` functions to explicitly change a value’s type, or rely on `parseInt()` and `parseFloat()` for more nuanced number conversion from strings. When converting to booleans, remember that values like `0`, empty strings, `null`, and `undefined` are considered "falsy", while almost everything else is treated as "truthy".
 
 ## Template Literals
 
@@ -304,25 +114,15 @@ const objCopy = { ...obj1 };
 
 ### Exercise 1: User Object
 
-Create a user object with:
-- name (string)
-- age (number)
-- hobbies (array of strings)
-- address (nested object with city and country)
-
-Access and log various properties.
+Create a comprehensive user object that includes their name, age, a list of hobbies, and a nested address object. Once created, practise accessing and logging these different properties to ensure you understand how to navigate nested data structures.
 
 ### Exercise 2: Array Operations
 
-Given `const numbers = [1, 2, 3, 4, 5]`:
-1. Add 6 to the end
-2. Create a new array with each number doubled
-3. Filter to only even numbers
-4. Find the sum of all numbers
+Working with an array of numbers from one to five, try adding a new number to the end, creating a separate array where each value is doubled, and filtering the list to include only the even numbers. You should also attempt to find the total sum of all numbers in the array.
 
 ### Exercise 3: Template Literals
 
-Create a function that takes user data and returns an HTML string for a profile card using template literals.
+Develop a function that accepts user data and uses a template literal to return a formatted HTML string, which could be used to display a profile card on a webpage.
 
 ## Test Your Understanding
 
@@ -365,12 +165,7 @@ Create a function that takes user data and returns an HTML string for a profile 
 
 ## Key Takeaways
 
-- Use `const` by default, `let` when reassignment is needed
-- Primitive types: string, number, boolean, undefined, null
-- Arrays are ordered lists; objects are key-value collections
-- Destructuring extracts values from arrays/objects
-- Template literals enable string interpolation
-- Spread operator (`...`) copies and combines
+To recap, you should use `const` for variable declarations by default and only switch to `let` when you specifically need to reassign a value. JavaScript includes several primitive types like strings and booleans, alongside more complex structures such as arrays and objects for managing collections of data. You can use destructuring and template literals to work more efficiently with these values, and the spread operator provides a clean way to copy or combine your data structures.
 
 ## Next Steps
 

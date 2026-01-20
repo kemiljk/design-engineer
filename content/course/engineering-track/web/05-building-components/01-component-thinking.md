@@ -4,20 +4,13 @@
 
 ## What You'll Learn
 
-- The component mental model
-- Breaking designs into components
-- Component anatomy and structure
-- Planning before building
+In this lesson, we will introduce the component mental model and show you how to break designs into individual components. You will learn the anatomy and structure of a component, and how to plan effectively before you start building.
 
 ## The Component Model
 
 Modern frontend development is component-based. Instead of building pages, you build components that compose into pages.
 
-A component is:
-- **Self-contained:** Has its own HTML, CSS, and behaviour
-- **Reusable:** Can be used in multiple places
-- **Composable:** Can contain other components
-- **Configurable:** Adapts through properties
+A component is self-contained, meaning it encapsulates its own HTML, CSS, and behaviour. It is reusable, so it can be employed in multiple places across your application. It is composable, allowing it to contain and work alongside other components. Finally, it is configurable, adapting through properties that you pass in.
 
 ## Vanilla JS vs. React Components
 
@@ -29,15 +22,9 @@ Throughout this module, we'll show you both approaches:
 
 ### Why Both?
 
-Understanding vanilla implementation helps you:
-- Debug framework issues
-- Work with legacy code
-- Appreciate what frameworks do for you
+Understanding vanilla implementation helps you debug framework issues, work with legacy code, and truly appreciate what frameworks do on your behalf.
 
-Using React helps you:
-- Build faster with less code
-- Manage complex state automatically
-- Create truly reusable component libraries
+Using React helps you build faster with less code, manage complex state automatically, and create truly reusable component libraries.
 
 In production, most teams use React (or Vue, Svelte, etc.). But knowing the underlying principles makes you a better developer regardless of which framework you choose.
 
@@ -59,11 +46,7 @@ ProductGrid (organism)
 
 ### Identifying Components
 
-Look for:
-- **Repetition:** Same structure repeated = component
-- **Independence:** Can exist on its own = component
-- **Reusability:** Used elsewhere = component
-- **Complexity:** Getting complex = break into smaller components
+Look for these signals: repetition (the same structure appearing multiple times), independence (something that can exist on its own), reusability (an element used in other contexts), and complexity (when an area is getting too complex, break it into smaller pieces).
 
 ## Component Anatomy
 
@@ -84,30 +67,20 @@ How the component receives data and configuration.
 ## Component Categories
 
 ### UI Components (Atoms)
-Basic building blocks:
-- Buttons
-- Inputs
-- Labels
-- Icons
+
+Basic building blocks such as buttons, inputs, labels, and icons.
 
 ### Composite Components (Molecules)
-Combinations of atoms:
-- Form fields (label + input + error)
-- Search bars (input + button)
-- Navigation items (icon + text)
+
+Combinations of atoms such as form fields (label + input + error), search bars (input + button), and navigation items (icon + text).
 
 ### Feature Components (Organisms)
-Complete features:
-- Navigation headers
-- Comment threads
-- Product cards
-- Modal dialogs
+
+Complete features such as navigation headers, comment threads, product cards, and modal dialogs.
 
 ### Layout Components
-Structure without content:
-- Page layouts
-- Grid containers
-- Stack components
+
+Components that provide structure without content, including page layouts, grid containers, and stack components.
 
 ## Planning Components
 
@@ -176,25 +149,15 @@ In the following lessons, we'll build each component both ways so you understand
 
 ### Exercise 1: Component Decomposition
 
-Take a complex UI (Twitter feed, Amazon product page):
-1. Identify all components
-2. Categorise as atom/molecule/organism
-3. Draw the component tree
+Take a complex UI such as a Twitter feed or an Amazon product page, identify all the components, categorise each as an atom, molecule, or organism, and draw the component tree.
 
 ### Exercise 2: Component Planning
 
-For a "user profile card" component, plan:
-1. Required data
-2. Optional data
-3. All possible states
-4. Variations needed
+For a "user profile card" component, plan out the required data, optional data, all possible states, and any variations that might be needed.
 
 ### Exercise 3: Naming
 
-Practise naming components. Names should be:
-- Descriptive
-- Consistent
-- Following conventions
+Practise naming components. Names should be descriptive, consistent, and follow established conventions.
 
 ## Test Your Understanding
 
@@ -237,13 +200,7 @@ Practise naming components. Names should be:
 
 ## Key Takeaways
 
-- Components are self-contained, reusable UI pieces
-- Break interfaces into atoms, molecules, and organisms
-- Plan before building: data, states, variations
-- Good component design enables composition and reuse
-- Naming matters for maintainability
-- Vanilla JS teaches fundamentals; React provides declarative, composable patterns
-- Understanding both makes you a more versatile developer
+To recap, components are self-contained, reusable UI pieces. You should break interfaces into atoms, molecules, and organisms, and plan before building by considering data, states, and variations. Good component design enables composition and reuse, and naming matters greatly for maintainability. Vanilla JS teaches you the fundamentals, while React provides declarative, composable patterns—understanding both makes you a more versatile developer.
 
 ## Next Steps
 

@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- How to audit and polish your designs
-- Adding micro-interactions and prototyping
-- Documenting your process professionally
-- Preparing work for your portfolio
+By progressing through this lesson, you will learn how to audit and polish your designs for maximum impact, adding sophisticated micro-interactions and prototyping to bring your work to life. You will also master the art of documenting your process professionally and preparing your final work for a high-quality portfolio presentation.
 
 ## Step 1: The Design Audit
 
@@ -38,8 +35,7 @@ Don't just change the color on hover. Consider a subtle lift (shadow increase) o
 **Focus States:**
 For keyboard users, the focus ring is their cursor. Make sure every interactive element has a visible, clear focus state. This isn't just polish; it's accessibility.
 
-**Card Hover:**
-If a card is clickable, give it a "lift" on hover. This affords interactivity. A slight `translate-y` combined with a shadow growth creates a convincing 3D effect.
+Any clickable card should convey its interactivity through a subtle lift on hover, achieved by combining a slight vertical translation with an increase in shadow depth to create a convincing three-dimensional effect.
 
 ## Step 3: Prototyping
 
@@ -48,11 +44,7 @@ A prototype is worth a thousand meetings. Static screens leave too much to the i
 **Tell a Story:**
 Don't just link every button to every page. prototype a specific "Happy Path." Imagine a user who wants to sign up. Connect the "Get Started" button to the Signup form. Connect the "Submit" button to a Success message. This narrative approach makes your prototype demoworthy.
 
-**Transitions:**
-Avoid the default "Instant" transition for everything.
-- **Smart Animate:** Use this for state changes (like a toggle switching).
-- **Push/Slide:** Use this for navigation (entering a new page).
-- **Overlay:** Use this for modals and dropdown menus.
+Enhance your prototype's narrative by moving beyond default transitions, using "Smart Animate" for fluid state changes like toggles, while reserving push or slide effects for page navigation and overlays for modals and dropdown menus.
 
 ## Step 4: File Organization
 
@@ -61,8 +53,7 @@ A messy design file is a red flag to potential employers. Treat your Figma file 
 **Structure:**
 Create a dedicated "Cover" page with a thumbnail that looks good in the file browser. Separate your "Playground" (messy explorations) from your "Final Designs" (clean, approved work).
 
-**Naming:**
-Rename your layers. `Frame 192` tells us nothing. `Hero Section` tells us everything. Group related elements logically. This shows you understand how code is structured.
+Success requires a disciplined approach to file naming; rename every layer so that a description like "Hero Section" replaces generic internal tags, and group related elements logically to reflect an understanding of technical structure.
 
 ## Step 5: The Case Study
 
@@ -84,12 +75,7 @@ Record a quick Loom or screen capture of you clicking through the prototype. See
 
 ## Submission Checklist
 
-Before you submit:
-
-- [ ] **Design System:** Are colors, type, and spacing using tokens?
-- [ ] **Responsiveness:** Do you have Desktop, Tablet, and Mobile views?
-- [ ] **Prototype:** Is there a working flow from Hero to Signup?
-- [ ] **Documentation:** Is the file organized and labeled?
+Before submitting your final project, ensure that your design system is fully tokenised for colours, typography, and spacing, and that you have established responsive views for desktop, tablet, and mobile. Verify that your prototype includes a working flow from the hero section to signup and that your entire Figma file is organised and clearly labelled.
 
 ## What's Next
 
@@ -97,8 +83,4 @@ Congratulations on completing the Design Track capstone! You have taken a concep
 
 This project is now a cornerstone of your portfolio. It demonstrates not just that you can make things look pretty, but that you can build systems, think about users, and execute with precision.
 
-### Continue Your Journey
-
-- → [Engineering Track](/course/engineering-track/web) — Build this design in code
-- → [Convergence Track](/course/convergence/web) — Add motion and polish
-- → [iOS Design Track](/course/design-track/ios) — Apply your skills to mobile
+Continue your journey by heading to the Engineering Track to build your design in code, exploring the Convergence Track for advanced motion and polish, or applying your skills to mobile in the iOS Design Track.

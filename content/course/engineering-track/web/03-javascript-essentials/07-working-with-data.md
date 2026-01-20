@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Asynchronous JavaScript basics
-- Promises and async/await
-- The Fetch API for HTTP requests
-- Working with JSON data
+In this lesson, we will explore the fundamental concepts of asynchronous JavaScript and understand how to manage future values using promises and the modern `async`/`await` syntax. You will learn how to use the Fetch API to make HTTP requests, work effectively with JSON data, and implement robust error handling for your data operations.
 
 ## Synchronous vs Asynchronous
 
@@ -87,9 +84,7 @@ promise
 
 ### Promise States
 
-- **Pending:** Initial state
-- **Fulfilled:** Operation completed successfully
-- **Rejected:** Operation failed
+A Promise always exists in one of three states: pending, which is the initial state before any outcome; fulfilled, which indicates that the operation has completed successfully; or rejected, meaning the operation has failed. By chaining promises with `.then()` and `.catch()`, you can handle these different outcomes cleanly and avoid the complexities of deeply nested callbacks.
 
 ### Chaining Promises
 
@@ -122,9 +117,7 @@ async function getData() {
 
 ### Rules
 
-- `await` only works inside `async` functions
-- `await` pauses execution until Promise resolves
-- `async` functions always return Promises
+When using `async` and `await`, it is important to remember that `await` can only be used inside functions declared with the `async` keyword. The `await` expression pauses the execution of the function until the returned promise is resolved, and since `async` functions always return a promise themselves, they can easily be integrated into larger asynchronous workflows.
 
 ### Parallel Execution
 
@@ -356,26 +349,15 @@ localStorage.clear();
 
 ### Exercise 1: User Fetcher
 
-Fetch and display a user from JSONPlaceholder API:
-```text
-https://jsonplaceholder.typicode.com/users/1
-```
-
-Include loading and error states.
+Practise using the Fetch API by retrieving and displaying user information from the JSONPlaceholder API. Your implementation should include clear loading indicators and robust error handling to ensure a smooth user experience even when network issues occur.
 
 ### Exercise 2: Search with Debounce
 
-Create a search input that fetches results as you type:
-- Debounce requests (wait 300ms after typing stops)
-- Show loading state
-- Display results
+Develop a search input that dynamically fetches results as the user types. You should implement a debounce function to wait at least 300 milliseconds after typing stops before making a request, and ensure that your interface clearly displays the loading state and subsequent results.
 
 ### Exercise 3: Todo App with Persistence
 
-Create a todo app that:
-- Stores todos in localStorage
-- Adds, removes, and toggles todos
-- Persists across page refreshes
+Create a basic todo application that stores all tasks in the browser's `localStorage`. Your application should allow users to add, remove, and toggle tasks, ensuring that all data persists correctly even after the page is refreshed.
 
 ## Test Your Understanding
 
@@ -418,14 +400,7 @@ Create a todo app that:
 
 ## Key Takeaways
 
-- Async operations don't block code execution
-- Promises represent future values; use `.then()` and `.catch()`
-- `async`/`await` makes async code readable
-- `fetch()` makes HTTP requests; returns Promises
-- Always check `response.ok` for errors
-- Use `JSON.parse()` and `JSON.stringify()` for JSON
-- Handle loading, error, and success states in UI
-- `localStorage` persists data in the browser
+To recap, asynchronous operations are essential for modern web development, allowing you to perform network requests and other time-consuming tasks without blocking the user interface. By mastering promises and `async`/`await`, you can write clean and readable code that handles data effectively. It is vital to always check the response status when using `fetch()`, manage your application's loading and error states in the UI, and utilise `localStorage` for simple data persistence within the browser.
 
 ## Next Steps
 

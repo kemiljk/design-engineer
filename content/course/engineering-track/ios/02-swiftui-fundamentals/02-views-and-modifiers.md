@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- How modifiers work
-- Common modifiers
-- Modifier order matters
-- Creating custom modifiers
+During this module, you will learn how modifiers function within the SwiftUI framework and explore a wide range of common modifiers used in daily development. We'll examine why the order of modifiers is critical for achieving the desired interface results and walk through the process of creating your own custom modifiers for better code reuse.
 
 ## How Modifiers Work
 
@@ -138,17 +135,12 @@ Some modifiers are environment modifiers, affecting descendants.
 ### Exercise 1: Styled Button
 
 Create a button with:
-- Padding
-- Background colour
-- Rounded corners
-- Shadow
+Practise your styling skills by creating a button that incorporates consistent padding and a vibrant background colour. You should also apply rounded corners and a subtle shadow to ensure the element feels tactile and elevated.
 
 ### Exercise 2: Custom Modifier
 
 Create a `tagStyle()` modifier that:
-- Adds horizontal padding
-- Has a coloured background
-- Has fully rounded corners
+Develop a custom `tagStyle()` modifier that adds horizontal padding to a view while applying a coloured background. Ensure the tags have fully rounded corners to follow modern design aesthetics.
 
 ## Test Your Understanding
 
@@ -191,11 +183,7 @@ Create a `tagStyle()` modifier that:
 
 ## Key Takeaways
 
-- Modifiers return new views
-- Order matters significantly
-- Chain modifiers for complex styling
-- Environment modifiers affect children
-- Custom modifiers enable reuse
+To build sophisticated interfaces, you must remember that modifiers always return new views and that their specific order of application is significant. Chain modifiers together for complex styling and leverage environment modifiers to apply consistent properties to entire view hierarchies. Finally, use custom modifiers to encapsulate repeated styling logic, ensuring your codebase remains clean and maintainable.
 
 ## Next Steps
 

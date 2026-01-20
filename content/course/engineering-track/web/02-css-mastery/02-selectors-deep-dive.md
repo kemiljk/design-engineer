@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- All major selector types
-- Combinators for targeting related elements
-- Pseudo-classes for states and patterns
-- Pseudo-elements for generated content
+In this lesson, we will dive deep into all major selector types and explore how to use combinators to target related elements within your document. We'll examine pseudo-classes for managing states and patterns, and cover how to use pseudo-elements for generating content directly through CSS.
 
 ## Basic Selectors
 
@@ -66,49 +63,9 @@ h1, h2, h3 {
 
 ## Attribute Selectors
 
-Target elements by their attributes:
+Attribute selectors allow you to target elements based on the attributes they possess and the specific values they contain. You can style an element simply because it **has an attribute**, such as `[title]` to add a help cursor, or target an **exact match** like `[target="_blank"]` for links that open in new tabs.
 
-### Has Attribute
-
-```css
-/* Elements with a title attribute */
-[title] { cursor: help; }
-```
-
-### Exact Match
-
-```css
-/* Links opening in new tab */
-[target="_blank"] { ... }
-```
-
-### Contains Word
-
-```css
-/* Class containing the word "btn" as a whole word */
-[class~="btn"] { ... }
-```
-
-### Starts With
-
-```css
-/* Links starting with https */
-[href^="https"] { ... }
-```
-
-### Ends With
-
-```css
-/* PDF links */
-[href$=".pdf"] { ... }
-```
-
-### Contains
-
-```css
-/* Links containing "example" anywhere */
-[href*="example"] { ... }
-```
+For more flexibility, you can target an attribute that **contains a specific word** using `[class~="btn"]`, or check if an attribute **starts with** a certain string, such as `[href^="https"]` for secure links. Similarly, you can target elements where an attribute **ends with** a specific pattern, like `[href$=".pdf"]` for documents, or simply **contains** a substring anywhere within the value using `[href*="example"]`.
 
 ### Practical Uses
 
@@ -132,43 +89,7 @@ input[required] {
 
 ## Combinators
 
-Combinators express relationships between elements.
-
-### Descendant Combinator (space)
-
-Targets elements anywhere inside another:
-
-```css
-/* Any p inside .article, no matter how deep */
-.article p { line-height: 1.6; }
-```
-
-### Child Combinator (>)
-
-Targets direct children only:
-
-```css
-/* Only immediate children, not nested ones */
-.nav > li { display: inline-block; }
-```
-
-### Adjacent Sibling (+)
-
-Targets the element immediately after:
-
-```css
-/* Paragraph immediately after h1 */
-h1 + p { font-size: 1.25rem; }
-```
-
-### General Sibling (~)
-
-Targets all siblings after:
-
-```css
-/* All paragraphs after h1 (same parent level) */
-h1 ~ p { margin-left: 1rem; }
-```
+Combinators express the specific relationships between elements in your HTML structure. The **descendant combinator**, represented by a space, targets elements located anywhere inside another, regardless of how deep they are nested. In contrast, the **child combinator** (`>`) targets only immediate children, ensuring that nested instances remain unaffected. For sibling relationships, the **adjacent sibling** combinator (`+`) targets an element that immediately follows another, while the **general sibling** combinator (`~`) targets all siblings that come after a specific element at the same level.
 
 ### Combinator Examples
 
@@ -203,18 +124,7 @@ Pseudo-classes target elements in specific states or patterns.
 
 ### User Action States
 
-```css
-/* Mouse over */
-a:hover { color: blue; }
-
-/* Keyboard focus */
-a:focus { outline: 2px solid blue; }
-
-/* Being clicked */
-button:active { transform: scale(0.98); }
-
-/* Focus visible (keyboard only) */
-button:focus-visible { outline: 2px solid blue; }
+Pseudo-classes allow you to style elements based on user interaction. Common states include `:hover` for when the mouse is over an element, `:focus` for when an element receives keyboard focus, and `:active` for the brief moment an element is being clicked. To improve the experience for keyboard users, you can use `:focus-visible` to apply styles only when focus is triggered by the keyboard.
 ```
 
 ### Link States
@@ -241,29 +151,7 @@ input:placeholder-shown { ... }
 
 ### Structural Pseudo-Classes
 
-```css
-/* First/last child */
-li:first-child { ... }
-li:last-child { ... }
-
-/* By position */
-li:nth-child(2) { ... }      /* Second child */
-li:nth-child(odd) { ... }    /* 1st, 3rd, 5th... */
-li:nth-child(even) { ... }   /* 2nd, 4th, 6th... */
-li:nth-child(3n) { ... }     /* Every third */
-li:nth-child(3n+1) { ... }   /* 1st, 4th, 7th... */
-
-/* From the end */
-li:nth-last-child(2) { ... } /* Second to last */
-
-/* By type */
-p:first-of-type { ... }
-p:last-of-type { ... }
-p:nth-of-type(2) { ... }
-
-/* Only child */
-p:only-child { ... }
-p:only-of-type { ... }
+Structural pseudo-classes target elements based on their position within the document. You can easily style the `:first-child` or `:last-child` of a container, or use `:nth-child()` to target elements at specific positions, such as the second child (`:nth-child(2)`), alternating rows (`:nth-child(odd)` or `:nth-child(even)`), or every third element (`:nth-child(3n)`). You can also target elements from the end of a container using `:nth-last-child()`. When children of different types are present, you can use type-specific selectors like `:first-of-type`, `:last-of-type`, or `:nth-of-type()`, and target elements that are the `:only-child` or `:only-of-type` within their parent.
 ```
 
 ### Negation
@@ -298,70 +186,7 @@ section:target { background: yellow; }
 
 ## Pseudo-Elements
 
-Pseudo-elements create virtual elements for styling.
-
-### Before and After
-
-Create content before or after an element:
-
-```css
-.required-field::before {
-  content: "* ";
-  color: red;
-}
-
-.external-link::after {
-  content: " ↗";
-}
-```
-
-`content` is required for `::before` and `::after` to appear.
-
-### First Line and First Letter
-
-```css
-p::first-line {
-  font-weight: bold;
-}
-
-p::first-letter {
-  font-size: 2em;
-  float: left;
-}
-```
-
-### Selection
-
-Style selected text:
-
-```css
-::selection {
-  background: yellow;
-  color: black;
-}
-```
-
-### Placeholder
-
-Style input placeholders:
-
-```css
-input::placeholder {
-  color: #999;
-  font-style: italic;
-}
-```
-
-### Marker
-
-Style list markers:
-
-```css
-li::marker {
-  color: blue;
-  font-weight: bold;
-}
-```
+Pseudo-elements allow you to create and style virtual elements that are not part of the original HTML. The `::before` and `::after` elements allow you to insert generated content before or after an element’s actual content, provided you include the `content` property. You can also target parts of the text using `::first-line` or `::first-letter`, style the user's current selection with `::selection`, or customise the appearance of input placeholders and list markers using `::placeholder` and `::marker` respectively.
 
 ## Selector Strategies
 
@@ -380,27 +205,9 @@ Block-Element-Modifier convention:
 - `.block__element` — Part of component
 - `.block--modifier` — Variation
 
-### Low Specificity
+### Selector Strategies
 
-Keep specificity low for flexibility:
-
-```css
-/* Avoid */
-#sidebar .widget ul li a { }
-
-/* Prefer */
-.widget-link { }
-```
-
-### Utility Classes
-
-Single-purpose classes:
-
-```css
-.text-center { text-align: center; }
-.mt-4 { margin-top: 1rem; }
-.hidden { display: none; }
-```
+To keep your styles organised and flexible, you should follow established naming conventions and strategies. BEM (Block-Element-Modifier) is a popular methodology that uses names like `.card__title` and `.card--featured` to clarify relationships between your components and their variations. Always strive to keep your specificity low by preferring single class selectors over deeply nested rules, and consider using utility classes for single-purpose duties such as centring text or hiding elements.
 
 ## CSS Nesting
 
@@ -485,23 +292,15 @@ Keep nesting shallow (2-3 levels max) to maintain readability and avoid specific
 
 ### Exercise 1: Zebra Striping
 
-Use `nth-child` to create alternating row colours in a table without adding classes to HTML.
+Create a table and use the `nth-child` pseudo-class to apply alternating row colours without adding any additional classes to your HTML structure.
 
 ### Exercise 2: Form Validation Styling
 
-Style a form so that:
-- Required fields have a left border
-- Invalid fields have red borders
-- Valid fields have green borders
-- Focused fields have blue outlines
+Design a form styling system where required fields feature a distinct left border, and the border colour of all fields dynamically updates to green or red based on their validation status. Ensure that focused fields remain clearly identifiable with a blue outline.
 
 ### Exercise 3: Navigation Styling
 
-Create navigation where:
-- All links have base styles
-- Current page link is highlighted
-- Dropdowns appear on hover
-- Focus states are visible
+Develop a navigation component where all links share a consistent base style, but the current page link is clearly highlighted. Implement a dropdown menu that appears on hover and ensure that all focus states are fully visible for accessibility.
 
 ## Test Your Understanding
 
@@ -544,14 +343,7 @@ Create navigation where:
 
 ## Key Takeaways
 
-- Basic selectors: type, class, ID, universal
-- Attribute selectors target by attribute values
-- Combinators express relationships: descendant, child, sibling
-- Pseudo-classes target states: `:hover`, `:focus`, `:nth-child()`
-- Pseudo-elements create virtual elements: `::before`, `::after`
-- Native CSS nesting with `&` is now baseline (2024)
-- Keep selectors simple and specificity low
-- `:has()` is a powerful parent selector (modern browsers)
+To master CSS selectors, remember to use basic type, class, and ID selectors appropriately while leveraging attribute selectors for more specific targeting based on metadata. Use combinators to express the relationships between descendants, children, and siblings, and apply pseudo-classes to manage interaction states and structural patterns. You can also use pseudo-elements to generate content and style specific parts of your text. With the introduction of native CSS nesting and the powerful `:has()` parent selector, you have all the tools necessary to maintain simple, low-specificity stylesheets that are easy to manage and scale.
 
 ## Next Steps
 

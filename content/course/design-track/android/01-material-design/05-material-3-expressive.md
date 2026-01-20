@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- The research behind M3 Expressive
-- Expressive colour and typography
-- Shape language and containers
-- Motion and interaction patterns
-- Platform-specific considerations (Wear OS, phones, tablets)
+During this lesson, you will examine the rigorous research that powers the Material 3 Expressive evolution and learn how to apply its core principles to your colour and typography systems. We will also explore the use of dynamic shape and motion, while considering the unique platform requirements for Wear OS, phones, and tablets.
 
 ## The Science of Expressive Design
 
@@ -16,9 +12,7 @@ Material 3 Expressive isn't just about making things look good—it's backed by 
 
 ### Key Findings
 
-**Visual Recognition:** Users locate visual elements **up to 4x faster** in expressive designs compared to standard ones.
-**Preference:** Among 18-24 year olds, **87%** preferred the expressive variants.
-**Perception:** Expressive designs were rated **34% more modern** and **30% bolder**.
+Google's research demonstrated that users locate visual elements up to 4x faster in expressive designs, with an 87% preference rate among younger users who rated these interfaces as 34% more modern and 30% bolder than standard variants.
 
 ### The Age Equaliser
 
@@ -35,19 +29,14 @@ Participants with varying movement and visual abilities found M3 Expressive desi
 M3 Expressive expands the colour system. It introduces a wider set of tokens and deeper tonal palettes, allowing for more variation within a single hue. This enables you to create subtle gradients or rich, multi-tone backgrounds that feel vibrant.
 
 ### Colour Guidelines
-- **Do** use colour to draw attention to key actions, like a giant FAB or a primary button.
-- **Do** leverage system colours so your expressive choices adapt to Light and Dark modes.
-- **Don't** apply colour everywhere; if everything is bold, nothing is.
-- **Don't** rely on colour alone for meaning; always use labels or icons.
+When applying expressive colour, you should use it purposefully to draw attention to key actions—such as a large Floating Action Button—and ensure your choices adapt to the system's light and dark modes. However, you must avoid applying bold colours everywhere, as this can dilute their effectiveness, and never rely on hue alone to convey meaning without supporting labels or icons.
 
 ## Expressive Typography
 
 ### Variable Fonts
 
 M3 Expressive embraces variable fonts (like **Roboto Flex**). Unlike static fonts with fixed weights (Regular, Bold), variable fonts have continuous axes.
-- **Weight:** Can be animated smoothly from 400 to 700.
-- **Width:** Can expand to fill space or contract to fit dense data.
-- **Optical Size:** Adjusts the letter shapes for readability at tiny or huge sizes.
+Variable fonts like Roboto Flex allow for continuous adjustments across several axes beyond fixed weights. Designers can animate **weight** smoothly, expand or contract **width** to fit data densities, and adjust **optical size** to maintain legibility across different display scales.
 
 ### Dynamic Typography in Motion
 
@@ -62,8 +51,7 @@ For wearable interfaces, new type roles support specific patterns like **Arc Tex
 ### Flexible Container Shapes
 
 Shape is no longer static. M3 Expressive uses shape to define relationships.
-- **Corner Radius Variety:** A primary container might have a large 24dp radius, while the items inside it have a smaller 8dp radius. This nesting visually explains the hierarchy.
-- **Shape Morphing:** Containers can fluidly change shape. A square FAB might morph into a rectangular menu when tapped.
+Shape is no longer static in Material Expressive; it defines relationships through corner radius variety and fluid shape morphing. For instance, a primary container might have a larger radius than the items nested inside it to explain hierarchy, while interactive elements can transition from one shape to another, such as a FAB morphing into a menu.
 
 ### Grouped Containers
 
@@ -74,8 +62,7 @@ Component containers use flexible layouts. They might distribute space evenly fo
 ### Motion as Feedback
 
 Interactions become more delightful.
-- **Spring Physics:** Animations use spring-based curves that feel bouncy and organic, rather than mechanical linear tweens.
-- **Choreography:** Transitions tell a story. When you open a card, the content doesn't just appear; the card expands, the image hero grows, and the text fades in sequentially.
+Expressive motion uses spring-based curves that feel bouncy and organic, replacing mechanical linear transitions. This is often choreographed to tell a story; when a user opens a card, the container expands and content fades in sequentially to guide the eye through the transition.
 
 ### Loading Animations
 
@@ -95,8 +82,7 @@ Context matters. Expressive design is perfect for **consumer apps** (media, soci
 
 However, use restraint for **Banking**, **Medical**, and **Enterprise** tools. In safety-critical interfaces, clarity and predictability outweigh delight. You don't want your bank transfer button to "bounce" playfully; you want it to look secure and stable.
 
-**Anti-patterns:**
-Google's research found that **unstructured layouts** (scattering items artistically) and **removing text labels** hurt usability. Expressive design should enhance established patterns, not break them.
+Context is vital when applying expressive principles. While appropriate for consumer and entertainment apps, safety-critical sectors like banking and enterprise tools require more restraint to maintain a sense of stability. Anti-patterns like unstructured layouts or removing essential text labels should be avoided, as they can significantly degrade usability.
 
 ## Try It Yourself
 
@@ -107,8 +93,7 @@ Open Google apps like Gmail or Photos. Identify where colour is used purely for 
 ### Exercise 2: Before/After Comparison
 
 Take a standard list screen.
-1.  **Standard:** Uniform rows, grey dividers, small icons.
-2.  **Expressive:** Colourful containers for each item, varied corner radii, larger typography.
+Compare a standard list screen—featuring uniform rows, grey dividers, and small icons—with an expressive version that uses colourful containers, varied corner radii, and much larger typography. Note which version feels easier to scan and identify the specific visual cues that contribute to a friendlier user experience.
 Compare them. Which feels easier to scan? Which feels friendlier?
 
 ## Test Your Understanding
@@ -152,10 +137,7 @@ Compare them. Which feels easier to scan? Which feels friendlier?
 
 ## Key Takeaways
 
-- M3 Expressive is **research-backed**: users find elements faster and prefer the look.
-- It **equalises age differences** in usability.
-- **Variable fonts** and **shape morphing** enable dynamic, living interfaces.
-- **Context is king**: use expression for consumer apps, restraint for critical tools.
+Material 3 Expressive is a research-backed system that helps users find elements faster by effectively equalising age-based differences in usability. Through the use of variable fonts, shape morphing, and dynamic interaction patterns, you can create living interfaces that adapt to their context—using full expression for consumer apps while exercising necessary restraint for more critical, safety-sensitive tools.
 
 ## Next Steps
 

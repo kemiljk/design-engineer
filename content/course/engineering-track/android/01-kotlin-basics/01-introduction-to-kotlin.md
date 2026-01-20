@@ -4,24 +4,15 @@
 
 ## What You'll Learn
 
-- What Kotlin is and why it matters
-- Basic syntax overview
-- Kotlin vs Java
-- Getting started
+During this module, you will learn why Kotlin matters as a platform and explore a comprehensive overview of its basic syntax. We'll examine the relationship between Kotlin and Java and get you started with your first lines of modern Android code.
 
 ## What Is Kotlin?
 
 Kotlin is:
-- Developed by JetBrains
-- Official language for Android (since 2019)
-- Runs on JVM (interoperable with Java)
-- Also compiles to JavaScript and Native
+Developed by JetBrains, Kotlin has been the official language for Android development since 2019. It runs on the Java Virtual Machine (JVM) for full interoperability with Java, while also possessing the capability to compile to JavaScript and various native platforms.
 
 ### Why Kotlin?
-- **Concise:** Less boilerplate
-- **Safe:** Null safety built-in
-- **Expressive:** Modern language features
-- **Interoperable:** Works with existing Java code
+Kotlin is preferred because it is concise, significantly reducing boilerplate code, and safe because of its built-in null safety. Its expressive, modern language features make it a pleasure to work with, while its full interoperability ensures it works seamlessly with existing Java codebases.
 
 ## Basic Syntax
 
@@ -117,17 +108,11 @@ Same functionality, fraction of the code.
 
 ### Exercise 1: Hello Kotlin
 
-Write a function that:
-1. Takes a name parameter
-2. Returns a greeting string
-3. Call it and print the result
+Practice your skills by writing a function that takes a name parameter and returns a personalised greeting string. Finally, call this function and print the result to the console to verify your implementation.
 
 ### Exercise 2: Calculator
 
-Create functions:
-- add, subtract, multiply, divide
-- Each takes two numbers
-- Returns the result
+Expand your experience by creating a set of calculator functions for addition, subtraction, multiplication, and division. Each function should take two numbers as input and return the corresponding mathematical result.
 
 ## Test Your Understanding
 
@@ -170,11 +155,7 @@ Create functions:
 
 ## Key Takeaways
 
-- Use `val` for constants, `var` for variables
-- Types are inferred but can be explicit
-- String templates use `$variable` or `${expression}`
-- Functions use `fun` keyword
-- Single expressions can omit braces and return
+To build a strong foundation in Kotlin, you must remember to use `val` for constants and `var` for variables while taking advantage of the language's ability to infer types. Utilise string templates for easy variable and expression insertion into text and use the `fun` keyword to define your functions. For added efficiency, remember that single-expression functions can often omit braces and the explicit return keyword entirely.
 
 ## Next Steps
 

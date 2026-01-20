@@ -4,58 +4,34 @@
 
 ## What You'll Learn
 
-- The hierarchy of buttons (Filled, Tonal, Outlined, Text)
-- When to use the Floating Action Button (FAB)
-- Selection controls: Chips vs. Radios vs. Checkboxes
-- Using containment surfaces like Cards and Bottom Sheets
+Throughout this lesson, you will learn to navigate the functional hierarchy of Android buttons, from high-emphasis filled variants to low-emphasis text styles. We'll identify exactly when to employ the Floating Action Button and how to select the correct controls for chips, radio buttons, and checkboxes, while mastering containment surfaces like cards and bottom sheets.
 
 ## Buttons and Actions
 
 Buttons on Android are part of a strict hierarchy designed to guide user attention.
 
-### The Button Hierarchy
-
-1.  **Filled Button:** This is your high-emphasis workhorse. Use it for the primary action in a flow, like "Next," "Submit," or "Buy." It demands attention.
-2.  **Tonal Button:** A middle ground between filled and outlined. It uses a secondary container colour. It's perfect for high-priority actions that shouldn't distract from the main content or compete with a FAB.
-3.  **Outlined Button:** Use this for medium-emphasis actions, often paired with a primary button (e.g., a "Cancel" button next to a "Submit" button).
-4.  **Text Button:** The lowest emphasis. These are used for less important actions or within cards and dialogs where you don't want to clutter the interface with containers.
+Android buttons follow a strict priority system. The **Filled Button** is the high-emphasis primary choice for main actions like "Submit," while the **Tonal Button** offers a secondary alternative using lighter container colours. **Outlined Buttons** serve medium-emphasis needs, often paired as secondary choices, and **Text Buttons** are for low-emphasis actions within larger components like cards or dialogs.
 
 ### The Floating Action Button (FAB)
 
 The FAB is the signature element of Material Design. It represents the primary constructive action of the screen.
-- **Standard FAB:** An icon in a circle. Ideal for actions like "New Message" or "Play."
-- **Extended FAB:** Includes a text label. Use this when the icon alone is ambiguous or when you have plenty of screen space (like on a tablet).
-- **Design Rule:** Generally, limit yourself to one FAB per screen. If you have two "primary" actions, neither is truly primary.
+The FAB represents the primary constructive action of the screen. It can be a **Standard FAB** with only an icon for common actions like "New Message," or an **Extended FAB** that includes a text label for clarity or larger screen contexts. To maintain a clear hierarchy, you should generally limit yourself to one FAB per screen.
 
 ## Selection Controls
 
-### Chips
-
-Chips are versatile, compact elements.
-- **Input Chips:** Represent complex information, like a contact in an email "To" field.
-- **Filter Chips:** Allow users to refine content (e.g., "Price: Low to High," "Open Now").
-- **Action Chips:** Trigger actions related to primary content, like "Play Trailer."
-
-### Checkboxes, Radios, and Switches
-
-- **Checkboxes:** Use these when users can select multiple items from a list.
-- **Radio Buttons:** Use these when users must select exactly one item from a list.
-- **Switches:** Use these for binary on/off settings that take effect immediately (like "Airplane Mode"). **Pro Tip:** Never use a switch for a "Submit" action; switches imply immediate system state change.
+Chips are compact elements used for information input, filtering content, or triggering context-specific actions. Selection is managed through **Checkboxes** for multiple items, **Radio Buttons** for mutually exclusive choices, and **Switches** for immediate binary settings like "Airplane Mode." Note that switches should never replace a "Submit" button as they imply an instant system state change.
 
 ## Containment and Surfaces
 
 ### Cards
 
 Cards contain content and actions about a single subject.
-- **Elevated Card:** Has a shadow. Good for separating content from a patterned background.
-- **Filled Card:** Has a subtle background fill. Good for visual separation without the noise of shadows.
-- **Outlined Card:** Has a border. Good for clean, high-density layouts.
+Cards organise content into a single subject using **Elevated**, **Filled**, or **Outlined** styles depending on the desired level of visual separation and container noise.
 
 ### Bottom Sheets
 
 Bottom sheets slide up from the bottom of the screen. They are safer and more flexible than dialogs because they often leave context visible.
-- **Standard Bottom Sheet:** Co-exists with main content (like a music player mini-bar).
-- **Modal Bottom Sheet:** Blocks interaction with the background. Excellent for complex menus or deep-linking details.
+**Standard Bottom Sheets** co-exist with main content, whereas **Modal Bottom Sheets** block interaction to focus on specific menus or detail views.
 
 ### Dialogs
 
@@ -69,26 +45,16 @@ Snackbars provide brief feedback about an operation ("Message sent," "Item delet
 
 ### Progress Indicators
 
-- **Linear:** Great for filling headers or indicating page loads.
-- **Circular:** Perfect for "pull to refresh" or loading specific small elements.
+Visual feedback for loading can be **Linear**, which is ideal for page transitions, or **Circular**, for small elements or "pull to refresh" interactions.
 
-## States
-
-Every interactive component in Android has standard visual states that you must design for:
-- **Enabled:** The resting state.
-- **Disabled:** Visually grayed out (opacity 38%).
-- **Pressed:** A ripple effect overlay confirms the touch.
-- **Focused:** Essential for keyboard/controller navigation (e.g., on TV or tablets).
+Every interactive component in Android has standard visual states that must be designed for accessibility and feedback. This starts with the **Enabled** resting state, which transitions to a **Disabled** state—visually greyed out at 38% opacity—when an action is unavailable. User interaction is confirmed through the **Pressed** state with a ripple effect overlay, while the **Focused** state ensures usability for keyboard and controller navigation on devices like TVs and tablets.
 
 ## Try It Yourself
 
 ### Exercise 1: Action Hierarchy
 
 Design a "Checkout" screen footer. It needs:
-- A "Pay Now" button
-- A "Cancel Order" button
-- A "Add Discount Code" button
-Assign the correct button style (Filled, Outlined, Text) to each based on priority.
+Design a footer for a checkout screen that includes a "Pay Now" button, a "Cancel Order" action, and an option to "Add Discount Code." You must assign the correct button style—Filled, Outlined, or Text—to each element based on its priority within the user's hierarchy of needs.
 
 ### Exercise 2: Selection Logic
 
@@ -135,11 +101,7 @@ You are designing a filter menu. Users can filter by **Category** (Mutually excl
 
 ## Key Takeaways
 
-- Follow the **Button Hierarchy** (Filled > Tonal > Outlined > Text).
-- **FABs** are for the single most important action.
-- **Bottom Sheets** are often better than **Dialogs**.
-- **Switches** = Immediate; **Checkboxes** = Form Data.
-- Always design the **Pressed** (ripple) state.
+To build effective Android interfaces, you must strictly follow the established button hierarchy and reserve the FAB for the single most important action on a screen. Bottom sheets are generally preferred over disruptive dialogs, and you should always distinguish between switches for immediate activation and checkboxes for form data, while ensuring every interactive element includes a robust pressed ripple state.
 
 ## Next Steps
 

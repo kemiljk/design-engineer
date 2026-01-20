@@ -8,10 +8,7 @@ estimatedTime: 8
 
 ## What You'll Learn
 
-- What this course will help you achieve
-- Who this course is for
-- The mindset shift that makes Design Engineers effective
-- How to get the most out of your learning journey
+Throughout this course, you will learn exactly what you can achieve as a design engineer, identifying the core mindset shifts that make these individuals effective. We'll explore who this journey is designed for and provide practical strategies to ensure you get the absolute most from your learning experience.
 
 ## Welcome, Future Design Engineer
 
@@ -29,19 +26,13 @@ This course welcomes two types of students:
 
 You've got the eye. You understand hierarchy, spacing, colour, and composition. But when it comes to implementation, you're dependent on someone else. You want to:
 
-- Prototype your ideas in code, not just in Figma
-- Understand what's possible (and what's expensive) before you design it
-- Ship side projects on your own
-- Have more productive conversations with engineers
+Designers move from static mocks to dynamic reality by learning to prototype their ideas in code rather than just Figma. By understanding what is technically possible—and what might be expensive to build—you can have more productive conversations with engineers and ultimately ship your own side projects independently.
 
 ### Engineers Learning to Design
 
 You can build anything—but "anything" sometimes looks like it was designed by a developer. You want to:
 
-- Develop taste and a critical eye
-- Understand the principles behind good design decisions
-- Create work that's polished without needing a designer's review
-- Move faster by handling both sides yourself
+Engineers develop a critical eye for aesthetics and a deep understanding of the principles behind strong design decisions. This allows you to create polished work that doesn't always require a designer's review, enabling you to move faster by handling both sides of the development cycle yourself.
 
 If you're somewhere in between, even better. This course meets you where you are.
 
@@ -69,9 +60,7 @@ They care about the details most people won't notice but everyone feels. The ani
 
 By the end of this course, depending on your path, you'll be able to:
 
-- **Design confidently**: Apply visual design principles, build in design tools, create and maintain design systems
-- **Build fluently**: Write HTML, CSS, and JavaScript (or Swift/Kotlin) that brings designs to life
-- **Bridge the gap**: Prototype ideas, implement motion design, ensure accessibility, and ship polished work
+By the end of your chosen track, you will be able to design confidently by applying visual principles within professional design tools and creating robust systems. You'll move fluently between design and code, writing the HTML, CSS, and JavaScript—or Swift and Kotlin—needed to bring your interfaces to life while implementing motion design and ensuring total accessibility.
 
 You won't just learn theory. Every module includes hands-on exercises, real examples, and projects that build your portfolio.
 
@@ -134,10 +123,7 @@ Your journey to becoming a Design Engineer starts now.
 
 ## Key Takeaways
 
-- Design Engineering bridges the gap between design and code
-- This course welcomes both designers learning to build and engineers learning to design
-- The DE mindset values curiosity, iteration, empathy, and craftsmanship
-- Active practice is essential. Build as you learn.
+Design engineering is the art of bridging the gap between design and code, and it welcome's both designers learning to build and engineers developing their eye. Success in this field requires a mindset that values curiosity, iteration, empathy, and craftsmanship, all of which are best developed through active practice and building as you learn.
 
 ## Next Steps
 

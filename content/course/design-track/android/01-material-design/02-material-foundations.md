@@ -4,36 +4,25 @@
 
 ## What You'll Learn
 
-- Layout and grid systems
-- Colour system architecture
-- Typography scale
-- Icon design principles
+Throughout this lesson, you will master the principles of layout and responsive grid systems unique to the Android ecosystem. We will explore the architecture of the Material colour system, the structured typography scale, and the core design principles for creating functional and expressive iconography.
 
 ## Layout Grid
 
 ### Columns
 Material uses a responsive column grid to ensure consistency across devices.
-- **Phone:** 4 columns
-- **Tablet:** 8 columns
-- **Desktop:** 12 columns
+Material uses a responsive column grid to ensure consistency across devices, beginning with 4 columns for mobile phones, 8 columns for tablets, and 12 columns for desktop environments.
 
 ### Margins and Gutters
 **Margins** are the space at the left and right edges of the screen, typically 16dp on mobile. **Gutters** are the spaces between columns, usually 16dp or 24dp. These spaces provide breathing room and structure to your content.
 
 ### The 8dp Grid
 Almost all measurements in Material Design align to an 8dp grid. This "magic number" reduces decision fatigue.
-- **Spacing:** Use multiples of 8 (8, 16, 24, 32, 48...).
-- **Touch Targets:** The minimum touch target size is 48x48dp, ensuring usability.
-- **Components:** Buttons, cards, and bars often have heights divisible by 8.
+ MEASUREMENTS in Material Design should align to multiples of 8, such as 16, 24, or 48dp, to ensure consistent spacing across the interface. This includes meeting the minimum touch target requirement of 48x48dp for all interactive elements and designing component heights for buttons, cards, and bars that are divisible by this magic number.
 
 ## Colour System
 
 ### Baseline Colours
-- **Primary:** The main brand colour, used for key components like FABs and active states.
-- **Secondary:** An accent colour for less prominent UI elements.
-- **Tertiary:** A third accent for balancing the palette or adding variety.
-- **Error:** Standard red for communicating failure or danger.
-- **Neutral:** Shades of grey used for backgrounds, surfaces, and text.
+Material Design specifies several semantic roles for colour to ensure clarity and accessibility. The **Primary** colour serves as the main brand expression for key components like FABs and active states, while **Secondary** and **Tertiary** colours provide accents for less prominent UI elements or moments of variety. Standard **Error** colours (typically red) communicate failure or danger, and **Neutral** shades of grey are used for backgrounds, surfaces, and text.
 
 ### Tonal Palettes
 Each colour in Material 3 is not just a single hex code; it generates a tonal palette ranging from 0 (black) to 100 (white). For example, your "Primary" colour might be tone 40, while the text on top of it is tone 100. This system ensures accessible contrast ratios automatically.
@@ -48,11 +37,7 @@ In Material 3, surface colours are often tints of the primary or neutral palette
 
 ### Type Scale
 Material provides a set of semantic roles to organize your text.
-- **Display:** Large, expressive text for splash screens or hero sections (3 sizes).
-- **Headline:** Section markings (6 sizes).
-- **Title:** Smaller headings for components like cards (3 sizes).
-- **Body:** The primary reading text (3 sizes).
-- **Label:** Compact text for UI elements like buttons and chips (3 sizes).
+The type scale is organised into semantic roles to help users understand information hierarchy. This starts with large, expressive **Display** text for hero sections, followed by **Headline** sizes for section markings and **Title** styles for component headings. **Body** text handles the primary reading experience, while **Label** roles provide compact text for UI elements like buttons and chips.
 
 ### Fonts
 The default system font is **Roboto**, a clean geometric sans-serif. Google apps often use **Google Sans** for headlines. You can replace these with your brand font, provided you map it correctly to the type scale roles.
@@ -64,36 +49,25 @@ Material enforces generous line heights to improve readability. Body text typica
 
 ### System Icons
 System icons are functional graphics used for navigation and actions.
-- **Size:** Standard size is 24x24dp.
-- **Style:** Geometric, simple, and consistent.
-- **Stroke:** typically 2dp (can vary with optical sizing).
-- **Variants:** Filled (for active states) and Outlined (for inactive states).
+System icons are functional graphics that should be geometric, simple, and consistent. They use a standard 24x24dp size with a typically 2dp stroke, though this can vary with optical sizing. Icons are provided in both **Filled** variants for active states and **Outlined** variants for inactive or default states.
 
 ### Product Icons
 Product icons represent your app on the home screen. They are expressive and unique to your brand. They follow a 48x48dp keyline grid but allow for more creative freedom in shape and colour.
 
 ### Icon Usage
-- Use **Outlined** icons for unselected navigation items to reduce visual weight.
-- Use **Filled** icons for the active selection to draw focus.
-- Ensure all icons have adequate padding to meet the 48dp touch target requirement.
+When implementing icons, use outlined variants for unselected items to reduce visual weight, while employing filled versions for active selections to draw the user's focus. You must also ensure that all icons have adequate padding to maintain the required 48dp touch target for accessibility.
 
 ## Try It Yourself
 
 ### Exercise 1: Grid Setup
 
 Set up a Material layout grid in Figma for a phone frame:
-- Width: 360dp
-- Columns: 4
-- Margins: 16dp
-- Gutters: 16dp
+To set up a Material layout grid in Figma, use a 360dp phone frame with 4 columns, 16dp margins, and 16dp gutters to provide consistent structure.
 
 ### Exercise 2: Colour Palette
 
 Create a Material 3 colour palette for a fictional brand. Pick a primary seed colour and generate the tonal variations for:
-- Primary Container
-- On Primary Container
-- Surface
-- On Surface
+Pick a primary seed colour for a fictional brand and use it to generate a full Material 3 tonal palette. Your palette should clearly define variations for the primary container, its corresponding high-contrast content, the background surface, and the text that sits upon it.
 
 ## Test Your Understanding
 
@@ -110,7 +84,7 @@ Create a Material 3 colour palette for a fictional brand. Pick a primary seed co
       "id": "a",
       "text": "Fixed colour palettes that can't be changed",
       "isCorrect": false,
-      "explanation": "Material 3 is highly customizable through dynamic colour."
+      "explanation": "Material 3 is highly customisable through dynamic colour."
     },
     {
       "id": "b",
@@ -126,7 +100,7 @@ Create a Material 3 colour palette for a fictional brand. Pick a primary seed co
     },
     {
       "id": "d",
-      "text": "Colors must be approved by Google before use",
+      "text": "Colours must be approved by Google before use",
       "isCorrect": false,
       "explanation": "There's no approval process—Material Design is flexible."
     }
@@ -136,11 +110,7 @@ Create a Material 3 colour palette for a fictional brand. Pick a primary seed co
 
 ## Key Takeaways
 
-- The **8dp grid** simplifies spacing and sizing decisions.
-- **Tonal palettes** separate hue from luminance, ensuring accessibility.
-- **Dynamic Colour** allows apps to adapt to the user's personal style.
-- The **Type Scale** provides a semantic hierarchy for all text.
-- **System Icons** should be simple and functional; **Product Icons** are expressive.
+The 8dp grid acts as a fundamental guide that significantly simplifies spacing and sizing decisions across any interface. By separating hue from luminance into tonal palettes, Material ensures total accessibility, while the dynamic colour system allows your app to adapt seamlessly to a user's personal style. Finally, the type scale provides a robust semantic hierarchy for all text, and iconography is divided between simple system functional and expressive product graphics.
 
 ## Next Steps
 

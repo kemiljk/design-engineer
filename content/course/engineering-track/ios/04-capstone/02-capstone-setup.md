@@ -10,18 +10,11 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Setting up an Xcode project for SwiftUI
-- Defining data models with SwiftData
-- Organising project files effectively
-- Configuring the app entry point
+During this module, you will learn how to properly set up an Xcode project for SwiftUI and define robust data models using SwiftData. We'll examine effective ways to organise your project files and walk through the configuration of the main app entry point.
 
 ## Step 1: Create Xcode Project
 
-1. File → New → Project
-2. iOS → App
-3. Interface: SwiftUI
-4. Language: Swift
-5. Storage: SwiftData
+To begin, create a new Xcode project by navigating to **File** → **New** → **Project** and selecting the **iOS App** template. Ensure that you choose **SwiftUI** for the interface and **Swift** as the primary language, while also selecting **SwiftData** for the storage mechanism.
 
 ## Step 2: Define Data Model
 
@@ -136,18 +129,11 @@ YourApp/
 
 Before moving on, verify:
 
-- [ ] Xcode project created with SwiftUI
-- [ ] Data models defined with SwiftData
-- [ ] Project structure organised into logical folders
-- [ ] SwiftData container configured in App struct
-- [ ] App runs without errors
+Before proceeding to the next phase, verify that your Xcode project has been correctly created with SwiftUI and that your data models are fully defined using SwiftData. You should also ensure that your project structure is organised into logical folders and that the SwiftData container is properly configured in your main App struct, resulting in an application that runs without any errors.
 
 ## Try It Yourself
 
-1. Create the models for your chosen app type
-2. Set up the folder structure
-3. Run the app to ensure it builds
-4. Add some sample data to test persistence
+Finalise your project setup by creating the necessary data models for your chosen application type and establishing a clean folder structure. Once these elements are in place, run the application to ensure it builds successfully and add some sample data to verify that your persistence layer is functioning as expected.
 
 ## Next Steps
 

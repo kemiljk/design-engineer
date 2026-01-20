@@ -12,48 +12,36 @@ A poor handoff creates a cascade of inefficiencies. Visual discrepancies frustra
 
 ### Design File Organization
 Your file is a map. If it's cluttered, developers get lost.
-- **Clean Up:** Delete explorations. Keep only the "Source of Truth."
-- **Structure:** Organize pages logically (e.g., "Specs," "Flows," "Archive").
-- **Naming:** Name layers semantically (`PrimaryButton/Pressed`, not `Frame 42`). This helps developers map layers to code components.
+Ensure your file is organized by deleting explorations, structuring pages logically into specs and flows, and naming all layers semantically to help developers map them to code.
 
 ### Component Structure
 Think like a developer. SwiftUI builds views using stacks.
-- Group vertical elements into **Auto Layout Frames** (VStacks).
-- Group horizontal elements into Auto Layout Frames (HStacks).
+Think in stacks by grouping vertical elements into **VStacks** and horizontal elements into **HStacks** to validate your layout logic.
 This validates that your layout logic is actually buildable.
 
 ## SwiftUI-Aware Specifications
 
 ### Spacing Values
 iOS relies on a consistent grid. Stick to the system token scale:
-- **4pt:** Tiny spacing.
-- **8pt:** Standard spacing between related items.
-- **16pt:** Standard padding.
-- **24pt+:** Section breaks.
+Adhere to the system token scale: **4pt** for tiny spacing, **8pt** for related items, **16pt** for standard padding, and **24pt** or more for section breaks.
 
 ### Typography Specs
 Never just specify "SF Pro 17pt". Specify the **Text Style** (e.g., `.body`, `.headline`). This ensures the app supports Dynamic Type automatically.
 
 ### Colour Documentation
 Use semantic tokens.
-- `Color.primary` (Black in Light, White in Dark).
-- `Color.systemBackground` (Base layer).
-- `Color.accentColor` (Your brand colour).
+Document semantic tokens like **primary colour**, **system background**, and your **accent colour** to prevent hard-coded values that break in Dark Mode.
 Documenting these tokens prevents hard-coded hex values that break in Dark Mode.
 
 ### Component Specs
 For every component, document:
-- **Visual:** Radius, Border, Shadow.
-- **Layout:** Fixed width? Flexible width? Min/Max constraints?
-- **Interactive:** Touch target size (44pt+), Pressed state, Disabled state.
+For every component, document the visual properties like radius and shadow, the layout constraints, and interactive details like touch targets and states.
 
 ## Creating a Spec Document
 
 ### Essential Information
 For each screen, provide:
-- **Overview:** The purpose of the screen.
-- **Flow:** Where does the user come from? Where do they go?
-- **Edge Cases:** Empty states, Loading states, Error states. What happens if the text is too long?
+Provide an overview of the screen's purpose, the intended user flow, and critical edge cases like empty or error states.
 
 ### Example Component Spec
 ```markdown
@@ -74,9 +62,7 @@ Before writing code, walk through the design with the developer. Identify tricky
 
 ### During Development
 As features are built, check the implementation.
-- **Visual:** Does the spacing match the grid?
-- **Interactive:** Do the animations feel right?
-- **Accessibility:** Does it work with VoiceOver? Does Dynamic Type break the layout?
+As features are built, verify visual accuracy against the grid, ensure animations feel right, and test accessibility with VoiceOver and Dynamic Type.
 
 ### QA Checklist
 - [ ] Visual accuracy (Colours, Fonts, Spacing).
@@ -91,9 +77,7 @@ As features are built, check the implementation.
 Learn the basics of SwiftUI concepts (Views, Modifiers, Stacks). You don't need to code, but knowing the vocabulary helps you explain your intent.
 
 ### Feedback Loops
-- **Kickoff:** Align on goals.
-- **Desk Checks:** Quick, informal reviews of work-in-progress.
-- **Bug Bash:** Dedicated time to find and fix visual polish issues before release.
+Establish feedback loops through kickoff alignment, informal desk checks, and dedicated bug bashes to fix visual polish issues.
 
 ## Tools for Handoff
 - **Figma Dev Mode:** The industry standard for inspection.
@@ -149,11 +133,7 @@ Take an existing app screen. Compare it to the design. Note every discrepancy. P
 
 ## Key Takeaways
 
-- **Organize** design files with developer-friendly naming.
-- **Specify** values using iOS conventions (points, semantic tokens).
-- **Document** all states, appearances, and edge cases.
-- **QA** rigorously on real devices.
-- **Collaborate** by speaking the language of SwiftUI.
+A professional handoff involves **organising** design files with semantically named layers and **specifying** values using points and semantic tokens that align with iOS conventions. By thoroughly **documenting** all interaction states and edge cases, you enable a rigorous **QA** process on real devices, while active **collaboration** ensures the final product speaks the native language of SwiftUI.
 
 ## Module Complete! 🎉
 

@@ -14,23 +14,17 @@ Icons are the shorthand of UI. They represent actions (Search, Edit), objects (F
 
 ### The Clarity Test
 An icon has failed if the user has to guess what it means.
-*   **Universal Icons:** A magnifying glass for Search, a gear for Settings, a trash can for Delete. You can use these without labels.
-*   **Ambiguous Icons:** A star (Favorite? Rate? Feature?). A heart (Like? Save? Health?). These require labels.
+Universal icons like the magnifying glass for search, the gear for settings, and the trash can for delete can often be used without labels. However, ambiguous icons such as stars or hearts require accompanying labels because their meaning—whether they denote favouriting, saving, or a health status—is not immediately clear.
 
 **When in doubt, use a label.** The combination of Icon + Text is the gold standard for usability. It provides quick recognition (via the icon) and certainty (via the text).
 
 ### Visual Consistency
 Icons in a set must look like they came from the same family.
-*   **Stroke Weight:** If your "Home" icon has a 2px stroke, your "User" icon cannot have a 1px stroke.
-*   **Corner Radius:** Sharp corners vs. rounded corners. Pick one style.
-*   **Perspective:** Don't mix 2D flat icons with 3D isometric icons.
-*   **Fill vs. Outline:** Use one style consistently, or use them to denote state (e.g., Outline for inactive, Filled for active).
+Maintain visual consistency by ensuring icons share the same stroke weight and corner radius while avoiding mixed perspectives, such as combining 2D flat icons with 3D isometric ones. You should also stick to a single style for fills and outlines, or use them deliberately to indicate different functional states.
 
 ### Optical Sizing
 You cannot just shrink a large icon. A 24px icon scaled down to 16px becomes a blurry blob.
-*   **Micro (16px):** Extremely simplified. No details. Used in dense data tables.
-*   **Standard (24px):** The workhorse size for buttons and navigation.
-*   **Display (48px+):** More detailed. Used for empty states or feature highlights.
+Standardise icon usage across different sizes by using simplified 16px micro-icons for dense data tables, standard 24px icons for primary navigation and buttons, and detailed display icons for empty states or feature highlights.
 
 Use a library like **Heroicons**, **Lucide**, or **Phosphor** that provides pre-optimized sizes.
 
@@ -40,14 +34,10 @@ While icons are functional, images are emotional. They prove your product is rea
 
 ### The Authenticity Problem
 Stock photos kill trust. Users have "banner blindness" for generic images of "business people shaking hands" or "smiling support agent with headset."
-*   **Better:** Show the actual product UI.
-*   **Better:** Show real people using the product (even if the lighting isn't studio-perfect).
-*   **Better:** Use high-quality illustrations that match your brand voice.
+Generic stock photos often kill user trust, so it is better to show the actual product interface or high-quality illustration that matches the brand voice. Authenticity is further enhanced by showing real people using the product in natural environments, even if the lighting is not studio-perfect.
 
 ### Technical Hygiene
-*   **Aspect Ratio:** Define aspect ratios (16:9, 4:3, 1:1) in your design system. Don't let random image sizes break your grid.
-*   **Cropping:** Focus on the subject. A photo of a person should focus on their face, not the empty wall behind them.
-*   **Text Overlay:** Never put text directly on an image without a scrim (a semi-transparent gradient overlay). It destroys readability.
+Adhere to technical hygiene by defining standard aspect ratios in your design system to prevent random image sizes from breaking the grid. Ensure cropping focuses tightly on the subject and avoid placing text directly on images without a semi-transparent gradient scrim to maintain readability.
 
 ## Illustrations
 
@@ -62,9 +52,7 @@ Illustrations can explain complex concepts (like "Cloud Syncing") that are hard 
 ## Accessibility
 
 Visuals are invisible to screen readers.
-*   **Decorative Images:** (e.g., a background pattern). Use `alt=""` so the screen reader skips it.
-*   **Informative Images:** (e.g., a chart). Describe the *content*, not the appearance. "Sales chart showing 20% growth," not "Blue bar chart."
-*   **Icons:** If an icon is a button (like "X" to close), it needs an `aria-label="Close"`.
+Visuals must be accessible to screen readers, meaning decorative patterns should use empty alt attributes while informative images like charts must describe their specific content rather than their appearance. Any icon used as a button requires an explicit aria-label to ensure its function is communicated to all users.
 
 ## Try It Yourself
 
@@ -118,18 +106,11 @@ Find a stock photo for a "Team" page. Now, find a *better* alternative that feel
 
 ## Key Takeaways
 
--   **Labels save lives.** Icon + Text is almost always better than Icon alone.
--   **Consistency is quality.** Stick to one icon set, one stroke weight, one illustration style.
--   **Authenticity wins.** Real photos beat stock photos. Specific illustrations beat generic ones.
--   **Accessibility is mandatory.** Every meaningful visual needs a text alternative.
+Icon and text combinations are almost always superior to standalone icons, as consistency in stroke weight and illustration style creates a sense of high quality. By prioritising authentic imagery over generic stock photos and ensuring that every meaningful visual has a text alternative, you can build a professional and accessible interface.
 
 ## Next Steps
 
 You've completed the Visual Design Deep Dive module! You now understand:
-- Typography fundamentals and hierarchy
-- Color theory, palettes, and accessibility
-- Spacing systems and vertical rhythm
-- Layout grids and composition
-- Iconography and imagery best practices
+You have now completed the Visual Design Deep Dive module, gaining a comprehensive understanding of typography hierarchy, colour palettes, spacing systems, layout grids, and the strategic use of iconography and imagery.
 
 Continue to [Design Tools: Thinking in Components](../03-design-tools/01-thinking-in-components.md) →

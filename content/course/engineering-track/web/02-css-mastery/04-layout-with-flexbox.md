@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Flex container and flex item concepts
-- Main axis and cross axis alignment
-- Growing, shrinking, and sizing flex items
-- Common flexbox patterns
+In this lesson, we will explore the core concepts of flex containers and flex items, and how to manage alignment across both the main and cross axes. You will learn the mechanics of growing, shrinking, and sizing flex items, and we'll walk through several common flexbox patterns that are essential for modern web layout.
 
 ## What is Flexbox?
 
@@ -52,12 +49,7 @@ Which direction items flow:
 
 ### Main Axis and Cross Axis
 
-Flexbox has two axes:
-
-<!-- illustration: flexbox-axes -->
-
-**Main axis:** The direction items flow (`flex-direction`)
-**Cross axis:** Perpendicular to main axis
+Flexbox operates along two primary axes. The **main axis** follows the direction defined by your `flex-direction` setting, while the **cross axis** runs perpendicular to it. Understanding the relationship between these two axes is fundamental to mastering flexbox alignment.
 
 ```text
 flex-direction: row
@@ -88,59 +80,19 @@ flex-direction: column
 
 ### Justify Content (Main Axis)
 
-Distributes space along the main axis:
-
-```css
-.container {
-  justify-content: flex-start; /* Default: pack at start */
-  justify-content: flex-end; /* Pack at end */
-  justify-content: center; /* Center items */
-  justify-content: space-between; /* Equal space between */
-  justify-content: space-around; /* Equal space around */
-  justify-content: space-evenly; /* Equal space everywhere */
-}
-```
+The `justify-content` property distributes space along the main axis. By default, items are packed at the start of the container with `flex-start`, but you can also pack them at the end with `flex-end` or centre them using `center`. To manage the spacing between items, you can use `space-between` for equal gaps between elements, or `space-around` and `space-evenly` for more balanced distribution across the entire container.
 
 ### Align Items (Cross Axis)
 
-Aligns items on the cross axis:
-
-```css
-.container {
-  align-items: stretch; /* Default: fill container height */
-  align-items: flex-start; /* Align to start */
-  align-items: flex-end; /* Align to end */
-  align-items: center; /* Center */
-  align-items: baseline; /* Align text baselines */
-}
-```
+To align items on the cross axis, you can use the `align-items` property. Most browsers default to `stretch`, causing items to fill the container's height, but you can also align them to the `flex-start` or `flex-end`. Other common values include `center` for vertical centring in a row and `baseline` to ensure that the text within your items aligns perfectly.
 
 ### Align Content (Multiple Lines)
 
-When items wrap, distributes lines:
-
-```css
-.container {
-  flex-wrap: wrap;
-  align-content: flex-start;
-  align-content: center;
-  align-content: space-between;
-  /* Same options as justify-content */
-}
-```
+When you allow items to wrap onto multiple lines, the `align-content` property determines how those rows or columns are distributed within the container. It offers the same distribution options as `justify-content`, allowing you to pack lines at the start, centre them, or space them out evenly.
 
 ### Gap
 
-Space between items:
-
-```css
-.container {
-  gap: 1rem; /* Row and column gap */
-  gap: 1rem 2rem; /* Row gap | Column gap */
-  row-gap: 1rem;
-  column-gap: 2rem;
-}
-```
+The `gap` property provides a modern and clean way to manage the space between your items without needing to apply margins to the items themselves. You can set a single value for both row and column gaps, or specify them individually using `row-gap` and `column-gap` for more complex layouts.
 
 `gap` is cleaner than margins on items.
 
@@ -150,52 +102,19 @@ Properties on the children (items):
 
 ### Flex Grow
 
-How much an item grows relative to siblings:
-
-```css
-.item {
-  flex-grow: 0; /* Default: don't grow */
-  flex-grow: 1; /* Grow to fill space */
-}
-```
-
-If one item has `flex-grow: 2` and another `flex-grow: 1`, the first gets twice the extra space.
+The `flex-grow` property determines how much an item should expand relative to its siblings to fill any remaining space. By default, items do not grow, but setting this to `1` allows an item to take up its share of the free space. If you assign `flex-grow: 2` to one item and `1` to another, the first item will receive twice as much of the extra space.
 
 ### Flex Shrink
 
-How much an item shrinks when space is tight:
-
-```css
-.item {
-  flex-shrink: 1; /* Default: shrink equally */
-  flex-shrink: 0; /* Don't shrink */
-}
-```
+Conversely, `flex-shrink` defines how items should behave when the container is too small to fit them all. While most items shrink equally by default, you can set this to `0` to prevent a specific item from shrinking at all, preserving its original size.
 
 ### Flex Basis
 
-Starting size before growing/shrinking:
-
-```css
-.item {
-  flex-basis: auto; /* Default: use width/height */
-  flex-basis: 200px; /* Start at 200px */
-  flex-basis: 0; /* Ignore content size */
-}
-```
+The `flex-basis` property sets the initial size of an item before any growing or shrinking occurs. While the default `auto` setting instructs the browser to use the item's defined width or height, you can also specify a fixed pixel value or set it to `0` to ignore the natural content size entirely.
 
 ### Flex Shorthand
 
-Combine grow, shrink, basis:
-
-```css
-.item {
-  flex: 0 1 auto; /* Default: don't grow, can shrink, auto size */
-  flex: 1; /* flex: 1 1 0 — grow equally */
-  flex: auto; /* flex: 1 1 auto — grow based on content */
-  flex: none; /* flex: 0 0 auto — fixed size */
-}
-```
+For efficiency, you can combine grow, shrink, and basis into the `flex` shorthand property. This allows you to quickly define whether items should grow equally, scale based on their content, or maintain a fixed size that ignores the flex container's distribution logic.
 
 Common patterns:
 
@@ -213,45 +132,15 @@ Common patterns:
 
 ### Align Self
 
-Override alignment for one item:
-
-```css
-.item {
-  align-self: auto; /* Use container's align-items */
-  align-self: flex-start;
-  align-self: center;
-  align-self: flex-end;
-  align-self: stretch;
-}
-```
+You can override the container's alignment for an individual item using the `align-self` property. This gives you the flexibility to centre a single item while others are stretched, or align one specific element to the end of the cross axis.
 
 ### Order
 
-Change visual order without changing HTML:
-
-```css
-.item {
-  order: 0;
-} /* Default */
-.item-first {
-  order: -1;
-} /* Move to start */
-.item-last {
-  order: 1;
-} /* Move to end */
-```
+The `order` property allows you to change the visual sequence of your items without altering the underlying HTML structure. By assigning negative or positive values, you can easily move specific elements to the start or end of the row.
 
 ## Flex Wrap
 
-By default, items stay on one line and shrink:
-
-```css
-.container {
-  flex-wrap: nowrap; /* Default: single line */
-  flex-wrap: wrap; /* Wrap to new lines */
-  flex-wrap: wrap-reverse; /* Wrap upward */
-}
-```
+By default, flex items attempt to stay on a single line even if they have to shrink. You can change this behavior using `flex-wrap`, which allows items to wrap onto new lines or even wrap in reverse, ensuring that your layout remains responsive on smaller screens.
 
 ## Common Patterns
 
@@ -383,28 +272,15 @@ By default, items stay on one line and shrink:
 
 ### Exercise 1: Navigation Bar
 
-Create a nav bar with:
-
-- Logo on the left
-- Links in the center
-- Login button on the right
-
-Use flexbox with `margin-left: auto` to separate sections.
+Create a navigation bar that features a logo on the left, primary links in the centre, and a login button on the right. You should use flexbox for the overall layout and leverage `margin-left: auto` to push the login button to the far right.
 
 ### Exercise 2: Card Grid
 
-Create a row of 3 equal-width cards that:
-
-- Have equal widths
-- Have consistent gap
-- Center their content vertically
+Develop a row containing three equal-width cards. Ensure that they maintain a consistent gap between them and that the content within each card is centred vertically regardless of its length.
 
 ### Exercise 3: Modal
 
-Create a full-page modal overlay with:
-
-- Content centred both horizontally and vertically
-- Modal box that doesn't stretch to fill
+Create a full-page modal overlay where the content box remains perfectly centred both horizontally and vertically. The modal box itself should not stretch to fill the entire viewport, but rather wrap its content neatly.
 
 ## Test Your Understanding
 
@@ -447,14 +323,7 @@ Create a full-page modal overlay with:
 
 ## Key Takeaways
 
-- `display: flex` creates a flex container
-- `flex-direction` sets the main axis
-- `justify-content` aligns on main axis; `align-items` on cross axis
-- `gap` creates space between items
-- `flex: 1` makes items grow equally
-- `flex: 0 0 200px` creates fixed-width items
-- `margin-left: auto` pushes items right
-- Flexbox is one-dimensional—use Grid for two-dimensional layouts
+To build powerful layouts with flexbox, you must first create a flex container using `display: flex` and define the main axis with `flex-direction`. Use `justify-content` and `align-items` to manage alignment across the axes, and take advantage of the `gap` property for clean spacing between your items. By mastering the `flex` shorthand property, you can control how items grow and shrink, while `order` and `align-self` provide granular control over individual elements. Finally, remember that flexbox is a one-dimensional system, meaning it is most effective when arranging items in either a row or a column.
 
 ## Next Steps
 

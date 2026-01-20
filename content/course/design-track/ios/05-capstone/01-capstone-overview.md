@@ -10,11 +10,7 @@ estimatedTime: 5
 
 iOS apps are highly visible portfolio pieces. They showcase:
 
-- **HIG understanding** — Navigation, components, patterns
-- **Platform expertise** — iOS-specific design language
-- **Dark mode mastery** — Essential for modern iOS
-- **Device adaptation** — iPhone sizes, potentially iPad
-- **Polish and attention to detail** — The iOS standard
+Designing for iOS requires a deep understanding of standard navigation patterns and components, a mastery of modern design languages, and a thorough command of dark mode. Your work must demonstrate clear device adaptation across various iPhone sizes while maintaining the high standard of visual polish and attention to detail expected in the ecosystem.
 
 **Total Time Estimate:** 8-12 hours across all phases
 
@@ -22,11 +18,7 @@ iOS apps are highly visible portfolio pieces. They showcase:
 
 By the end of this capstone, you'll have:
 
-1. **Complete iOS App Design** — 5-7 core screens with light and dark mode
-2. **iOS Component Library** — Navigation, inputs, content components
-3. **Interactive Prototype** — Navigation flows and transitions
-4. **App Icon & Assets** — App icon and App Store previews
-5. **Case Study Documentation** — Process and decisions explained
+Throughout this capstone, you will build a complete iOS app design featuring five to seven core screens in both light and dark mode, supported by a comprehensive component library of navigation and input elements. You will also develop an interactive prototype to demonstrate transitions, design the necessary app icon and Store assets, and document your decision-making process in a formal case study.
 
 ## Choose Your App
 
@@ -83,12 +75,7 @@ Study these iOS apps:
 
 ## Tips for Success
 
-1. **Use SF Symbols** — Apple's icon library ensures consistency
-2. **Reference HIG constantly** — Keep Apple's documentation open
-3. **Design real content** — Realistic data makes better designs
-4. **Test dark mode early** — Don't leave it until the end
-5. **Mind the details** — iOS users notice fit and finish
-6. **Prototype thoroughly** — Navigation feel matters on iOS
+To ensure success, use SF Symbols for consistent iconography, refer to the Human Interface Guidelines constantly, and populate your designs with realistic content. You should also test dark mode early in the process, pay close attention to granular visual details, and thoroughly prototype your navigation to ensure it feels native to the platform.
 
 ## Get Started
 

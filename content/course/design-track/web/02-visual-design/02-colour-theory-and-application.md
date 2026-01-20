@@ -86,9 +86,7 @@ A professional palette isn't just a random collection of colours. It's a system.
 ### The 60-30-10 Rule
 
 A classic interior design rule that works for UI:
-*   **60%** of your interface should be your neutral/background colour.
-*   **30%** should be your secondary/brand colour.
-*   **10%** should be your accent colour.
+Following the 60-30-10 rule for colour distribution ensures a balanced interface, with 60% of the surface area dedicated to your neutral background, 30% to your secondary brand colour, and a final 10% reserved for high-impact accent colours.
 
 <!-- visual-example: colour-60-30-10-demo -->
 
@@ -99,50 +97,37 @@ This distribution creates hierarchy and visual balance.
 You need more than one shade of each colour. A button needs a hover state (lighter) and an active state (darker). A background needs subtle borders.
 
 A robust scale typically runs from **50 (lightest)** to **900 (darkest)**.
-*   **50-100:** Background tints.
-*   **200-300:** Borders and dividers.
-*   **400-500:** Enabled elements (buttons, icons).
-*   **600-700:** Hover and pressed states.
-*   **800-900:** High-contrast text.
+A robust color scale runs from a 50 level for background tints up to a 900 level for high-contrast text. Intermediate values between 100 and 700 are used for borders, enabled elements like buttons and icons, and their various hover and pressed states.
 
 ### Generating Variations
 
-Don't guess. Use HSL math or tools like the [Tailwind Color Generator](https://uicolors.app/create) or [Coolors.co](https://coolors.co/) to generate mathematically consistent scales.
+Don't guess. Use HSL math or tools like the [Tailwind Colour Generator](https://uicolors.app/create) or [Coolors.co](https://coolors.co/) to generate mathematically consistent scales.
 
 ## Colour in UI
 
 ### Text Colour
 
 Never use pure black (`#000000`) on pure white. It creates eye strain.
-*   **Primary Text:** Dark Grey (e.g., `hsl(0, 0%, 10%)`).
-*   **Secondary Text:** Medium Grey (e.g., `hsl(0, 0%, 45%)`) for subtitles.
-*   **Disabled Text:** Light Grey (e.g., `hsl(0, 0%, 65%)`).
+Avoid pure black on white to reduce eye strain, instead using dark grey for primary text, medium grey for subtitles, and light grey for disabled states.
 
 In Dark Mode, invert this logic: off-white for text (`#F5F5F5`) on dark grey backgrounds.
 
 ### Background Colours
 
 Use lightness to create depth.
-*   **Page Background:** Light grey (`#F9FAFB`).
-*   **Card Background:** Pure white (`#FFFFFF`).
-*   **Elevated Elements:** White with a shadow.
+Leverage lightness to create depth by using light grey for page backgrounds, pure white for cards, and white with subtle shadows for elevated elements.
 
 ### Interactive States
 
 Colour communicates state.
-*   **Default:** The base colour (e.g., Blue-500).
-*   **Hover:** Slightly darker (Blue-600).
-*   **Pressed:** Even darker (Blue-700).
-*   **Disabled:** Desaturated and light (Grey-300).
+Interactive states are communicated through logical colour shifts, moving from a base colour to slightly darker shades for hover and pressed states, while using desaturated light greys for disabled elements.
 
 ## Accessibility and Colour
 
 ### Contrast Requirements
 
 Accessibility isn't optional. The WCAG guidelines require specific contrast ratios between text and background:
-*   **Normal Text:** 4.5:1 ratio.
-*   **Large Text (18px+):** 3:1 ratio.
-*   **UI Components:** 3:1 ratio.
+Adhere to WCAG guidelines by maintaining a 4.5:1 contrast ratio for normal text, a 3:1 ratio for large text over 18px, and a 3:1 ratio for essential UI components.
 
 <!-- visual-example: contrast-checker-demo -->
 
@@ -154,8 +139,7 @@ Use tools like the **WebAIM Contrast Checker** or Figma plugins like **Stark** t
 
 About 1 in 12 men are colour blind. If you rely *only* on colour to convey meaning (e.g., a red border for error), they will miss it.
 **The Fix:** Always pair colour with a secondary indicator like an icon or text label.
-*   **Bad:** Just a red outline on an input.
-*   **Good:** Red outline + "Invalid email" text + Warning icon.
+To ensure accessibility for users with colour blindness, always pair colour indicators with secondary cues such as red outlines combined with descriptive error text and warning icons.
 
 ## Dark Mode
 
@@ -172,29 +156,19 @@ Dark mode is not just "invert colours." It's a separate design system.
 ### Exercise 1: Analyse a Palette
 
 Pick a product you admire. Identify:
-1. Primary, secondary, and accent colours
-2. Semantic colours (success, error, etc.)
-3. Neutral scale (how many greys?)
-4. How colours create hierarchy
+Identify the primary, secondary, and accent colours in a product you admire, and examine how their semantic tones and neutral scales create a clear hierarchy.
 
 ### Exercise 2: Build a Palette
 
 Create a palette for a hypothetical product:
-1. Choose a primary colour based on the brand personality
-2. Generate a neutral grey scale (at least 6 shades)
-3. Define semantic colours
-4. Create variations (50-900) for your primary
-5. Test contrast ratios for text combinations
+Build a palette by selecting a primary colour based on brand personality, generating a neutral scale of at least six shades, and defining semantic colours that pass all necessary contrast tests.
 
 ### Exercise 3: Dark Mode Conversion
 
 <!-- illustration: dark-mode-mapping -->
 
 Take an existing light interface and design dark mode colours:
-1. Adjust background from light greys to dark greys
-2. Modify primary colour saturation
-3. Adjust text colours
-4. Ensure contrast ratios still pass
+Convert an existing interface to dark mode by adjusting background and text tones, modifying primary saturation, and verifying that all contrast ratios pass.
 
 ## Test Your Understanding
 
@@ -237,12 +211,7 @@ Take an existing light interface and design dark mode colours:
 
 ## Key Takeaways
 
-- Understand colour properties: hue, saturation, lightness
-- Colour psychology influences perception. Choose intentionally.
-- Build systematic palettes with primary, secondary, accent, semantic, and neutral colours
-- Follow the 60-30-10 rule for colour distribution
-- Ensure accessibility: 4.5:1 contrast for text, don't rely on colour alone
-- Dark mode requires adjustment, not inversion. Reduce saturation, soften contrast.
+Effective use of colour requires an understanding of hue, saturation, and lightness to build systematic palettes that include primary, secondary, accent, semantic, and neutral shades. By following the 60-30-10 rule and adhering to accessibility standards like the 4.5:1 contrast ratio—while ensuring colour is never the sole carrier of meaning—you can create an intuitive interface that remains functional in both light and dark modes.
 
 ## Next Steps
 

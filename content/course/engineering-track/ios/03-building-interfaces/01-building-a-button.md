@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- SwiftUI button basics
-- Custom button styles
-- Haptic feedback
-- Accessibility
+During this module, you will learn the foundational concepts of SwiftUI buttons and examine how to create custom button styles for a unique brand identity. We'll explore the integration of haptic feedback for a more tactile user experience and walk through the essential accessibility practices to ensure your buttons are usable by everyone.
 
 ## Basic Buttons
 
@@ -124,16 +121,12 @@ Button {
 ### Exercise 1: Styled Button Set
 
 Create buttons:
-- Primary (filled)
-- Secondary (outlined)
-- Destructive (red)
+Practise your button design skills by creating a comprehensive set of interface actions. You should implement a prominent primary button with a solid fill, a subtler secondary button using an outlined style, and a clearly identified destructive button in red to signify high-risk actions.
 
 ### Exercise 2: Async Button
 
 Build a button that:
-- Shows loading spinner
-- Disables during load
-- Shows success checkmark
+Build a robust asynchronous button that provides clear feedback during background operations. Your implementation should display a loading spinner while the task is in progress, disable the button to prevent multiple submissions, and show a success checkmark once the operation completes.
 
 ## Test Your Understanding
 
@@ -176,10 +169,7 @@ Build a button that:
 
 ## Key Takeaways
 
-- ButtonStyle enables custom appearances
-- Handle isPressed for interactive states
-- Add haptics for tactile feedback
-- Always consider accessibility
+To create professional interactive elements, you should leverage `ButtonStyle` to define custom appearances and always handle the `isPressed` state to provide immediate visual feedback. Incorporate haptics to give your interface a premium, tactile feel and maintain a strong focus on accessibility to ensure a great experience for all users.
 
 ## Next Steps
 

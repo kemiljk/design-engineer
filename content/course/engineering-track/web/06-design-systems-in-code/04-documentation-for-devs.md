@@ -4,30 +4,13 @@
 
 ## What You'll Learn
 
-- What to document for each component
-- Code examples and usage patterns
-- Living documentation with Storybook
-- Keeping docs up to date
+In this lesson, we will explore what should be documented for each component, including code examples and common usage patterns. You will learn about interactive documentation using Storybook and discover strategies for keeping your documentation accurate and up to date as your codebase evolves.
 
 ## Component Documentation Structure
 
 ### Overview
 
-```markdown
-# Button
-
-Buttons trigger actions. Use them for form submissions, 
-confirmations, and important interactions.
-
-## When to use
-- Primary actions in forms
-- CTAs in hero sections
-- Confirmations in dialogs
-
-## When not to use
-- Navigation (use links)
-- Low-emphasis actions (use links or text buttons)
-```
+Buttons are used to trigger actions such as form submissions, confirmations, and other important interactions. They should be used for primary actions in forms, call-to-action (CTA) buttons in hero sections, and for confirmations within dialogs. Conversely, buttons should not be used for navigation, where links are more appropriate, nor for low-emphasis actions that could be handled by text buttons.
 
 ### Props Table
 
@@ -96,21 +79,15 @@ export const AllVariants = () => (
 );
 ```
 
-## Do's and Don'ts
-
-```markdown
 ## Guidelines
 
-### ✅ Do
-- Use primary buttons for main actions
-- Include clear action text
-- Ensure sufficient colour contrast
+### Best Practices
 
-### ❌ Don't
-- Use multiple primary buttons together
-- Use vague text like "Click here"
-- Use buttons for navigation
-```
+When using primary buttons, ensure they are reserved for the main action on a page and include clear, descriptive text. It is also vital to ensure that all button variants maintain sufficient colour contrast for accessibility.
+
+### Things to Avoid
+
+Avoid using multiple primary buttons in close proximity, as this can confuse the user's primary path. You should also steer clear of vague text such as "Click here"—always describe the action being taken—and never use button elements for purely navigational purposes.
 
 ## Test Your Understanding
 
@@ -153,11 +130,7 @@ export const AllVariants = () => (
 
 ## Key Takeaways
 
-- Document what, when to use, and how
-- Provide copy-paste code examples
-- Use tools like Storybook for interactive docs
-- Include do's and don'ts
-- Keep docs updated with code
+To recap, your documentation should clearly state what each component is, when it should be used, and how to implement it correctly. Providing copy-and-paste code examples and using tools like Storybook for interactive documentation can significantly improve the developer experience. Finally, remember to include clear guidelines on usage and ensure that your documentation is always kept in sync with the underlying code.
 
 ## Next Steps
 

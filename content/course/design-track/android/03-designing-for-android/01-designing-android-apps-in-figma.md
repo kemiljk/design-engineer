@@ -4,96 +4,43 @@
 
 ## What You'll Learn
 
-- Android design file setup
-- Using Material Design kits
-- Device frames and dimensions
-- Component and token setup
+During this lesson, you will master the setup of Android design files and learn how to effectively use the official Material Design kits. We'll examine standard device frames and dimensions, alongside the correct configuration of components and design tokens to ensure a professional workflow.
 
 ## File Setup
 
-### Device Dimensions
-Start with standard Android frame sizes. Remember to design in **dp** (density-independent pixels).
-- **Compact phone:** 360×800 dp (Standard starting point)
-- **Large phone:** 412×915 dp (Pixel Pro / large devices)
-- **Small tablet:** 600×960 dp
-- **Large tablet:** 840×1280 dp
+Start with standard Android frame sizes in Figma, ensuring you work in **dp** (density-independent pixels). For mobile, use a **Compact phone** size of 360×800 dp as your primary starting point, or 412×915 dp for **Large phone**/Pro devices. When designing for tablets, use 600×960 dp for **Small tablet** layouts and 840×1280 dp for **Large tablet** or desktop contexts.
 
-### Page Organization
-Keep your file clean and navigable.
-```text
-📄 Cover
-📄 Tokens & Styles (Local definitions)
-📄 Components
-📄 Screens - Home
-📄 Screens - Detail
-📄 Screens - Settings
-📄 Prototypes
-```
+Keep your Figma file clean and navigable by organising it into dedicated pages. This should begin with a cover and a page for tokens and local styles, followed by a central components library. Individual screen designs should be grouped logically—such as home, detail, and settings pages—with a final page reserved specifically for interactive prototypes.
 
-### Layout Grids
-Configure layout grids to match Material responsive guidance.
-- **Phone:** 4 columns, 16dp margin, 16dp gutter.
-- **Tablet:** 12 columns, 24dp margin, 24dp gutter.
-These grids ensure your content aligns correctly across different screen widths.
+Configure your layout grids to match Material's responsive guidance. This typically means using a 4-column grid with 16dp margins and gutters for **Phone** layouts, and expanding to a 12-column grid with 24dp margins and gutters for **Tablet** environments. These grids ensure your content remains structured and aligned across various screen widths.
 
 ## Material Design Kit
 
-### Official Resources
-Google provides the **Material Design 3 Kit** for Figma. Use it.
-- **Figma Community:** Search for "Material 3 Design Kit".
-- **Material Theme Builder:** A plugin that generates colour palettes and text styles automatically.
+Google provides official resources through the **Material Design 3 Kit**, which can be found in the Figma Community and paired with the **Material Theme Builder** plugin to automate the generation of colour palettes and text styles.
 
 ### Using the Kit
-1.  **Duplicate** the kit to your drafts or publish it as a library.
-2.  **Import** it into your project file.
-3.  **Use instances** of standard components like Top App Bars, Navigation Rails, and FABs.
-4.  **Customize** these instances using the Figma properties panel (e.g., toggle icons, change labels).
+To use the Material Design Kit effectively, you should first duplicate it to your drafts or publish it as a library before importing it into your specific project file. From there, you can place instances of standard components like Top App Bars and Navigation Rails, customising them through the properties panel to toggle icons or change labels as required.
 
-### Components Included
-The kit is comprehensive, covering Buttons (Filled, Tonal, Outlined, Text), Navigation (Bottom Bar, Rail, Drawer), Selection Controls (Switch, Checkbox, Radio, Chips), and Surfaces (Cards, Dialogs, Sheets).
+The kit includes a comprehensive library of buttons, navigation components like rails and drawers, selection controls, and containment surfaces such as cards and bottom sheets.
 
 ## Typography Setup
 
 ### Roboto Font
 **Roboto** is the standard system font for Android. It is clean, versatile, and legible. Figma has Google Fonts built-in, so you don't need to install it manually.
 
-### Type Styles
-Create text styles that map directly to the Material Type Scale.
-- **Display:** Large/Medium/Small (Hero headers)
-- **Headline:** Large/Medium/Small (Section headers)
-- **Title:** Large/Medium/Small (Component titles)
-- **Body:** Large/Medium/Small (Reading text)
-- **Label:** Large/Medium/Small (Button text, captions)
+Create text styles that map directly to the Material Type Scale to ensure consistency between design and code. This includes large, medium, and small variants for **Display** (hero headers), **Headline** (section headers), **Title** (component titles), **Body** (reading text), and **Label** (button text and captions) roles.
  naming them strictly (e.g., "M3/Body/Large") ensures they map to code tokens.
 
-## Color Setup
+The Material Theme Builder plugin is an essential tool that generates entire tonal palettes from a single brand colour. By inputting your primary hue, the plugin automatically creates semantic styles for surfaces and containers across both light and dark modes, ensuring absolute consistency in your design system.
 
-### Using Material Theme Builder
-This plugin is your best friend.
-1.  Input your brand's primary colour.
-2.  The plugin generates the entire **Tonal Palette** (0-100) for primary, secondary, tertiary, neutral, and error colours.
-3.  It creates the semantic styles (Surface, On Surface, Primary Container) automatically.
-4.  It generates both **Light** and **Dark** modes.
-
-### Color Styles Structure
-Avoid raw hex codes. Use the generated semantic tokens:
-- **Primary / On Primary:** High emphasis.
-- **Primary Container / On Primary Container:** Lower emphasis.
-- **Surface / On Surface:** Backgrounds and text.
-- **Outline:** Borders and dividers.
+A robust colour system avoids raw hex codes in favour of semantic tokens. This includes high-emphasis **Primary** and **On Primary** roles, lower-emphasis **Primary Container** options, and versatile **Surface** and **Outline** tokens for backgrounds and dividers.
 
 ## Icon Resources
 
-### Material Symbols
-Google's icon library is called **Material Symbols**.
-- **Variable:** They support variable weight (thin to black), fill (on/off), and optical size.
-- **Plugin:** Use the "Material Symbols" plugin in Figma to insert them directly.
-- **SVG:** If you download them, keep them as SVGs.
+Material Symbols is Google's variable icon library, supporting adjustable weight, fill, and optical size. These can be inserted directly via the Figma plugin or maintained as SVGs for implementation.
 
 ### Using Icons
-- **Size:** Standard icon size is 24x24dp.
-- **Touch Target:** Always ensure the touch target is at least 48x48dp, even if the icon is smaller.
-- **Style:** Stick to one style (Outlined, Rounded, or Sharp) for consistency.
+When implementing icons, always maintain a standard 24x24dp size while ensuring the functional touch target is at least 48x48dp for accessibility. To preserve visual consistency, you should also stick to a single style—whether outlined, rounded, or sharp—throughout the entire application.
 
 ## Try It Yourself
 
@@ -104,10 +51,7 @@ Create a new Figma file. Set up a phone frame (360x800). Configure a 4-column gr
 ### Exercise 2: First Screen
 
 Design a simple "Dashboard" screen.
-1.  Place a **Top App Bar** with a title.
-2.  Add a **Card** containing a title and supporting text.
-3.  Add a **Floating Action Button** (FAB) in the bottom right corner.
-4.  Use the **Material Theme Builder** to apply a custom brand colour to the entire page.
+Design a simple dashboard screen by placing a Top App Bar and a Card containing title and supporting text. Add a Floating Action Button in the bottom right corner and use the Material Theme Builder to apply a custom brand colour across the entire interface.
 
 ## Test Your Understanding
 
@@ -150,11 +94,7 @@ Design a simple "Dashboard" screen.
 
 ## Key Takeaways
 
-- Start with correct **dp dimensions** (360x800).
-- Use the **Material Design 3 Kit** to save time.
-- Use **Material Theme Builder** to generate accessible colour palettes.
-- Create semantic **Text Styles** that match the type scale.
-- Include **Light and Dark** modes from day one.
+To ensure a successful Android design, you should always start with correct 360x800dp dimensions and leverage the official Material Design 3 Kit to maintain platform consistency. Use the Material Theme Builder to generate accessible colour palettes and create semantic text styles that match the type scale, while always accounting for both light and dark modes from the very beginning of your project.
 
 ## Next Steps
 

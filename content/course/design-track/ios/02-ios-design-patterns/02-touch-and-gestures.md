@@ -15,11 +15,7 @@ Users don't read manuals; they explore interfaces using a vocabulary of gestures
 
 **The Tap** is the primary mechanism for selection. It requires instant, clear feedback—usually a visual highlight or state change—to confirm the system received the input. Without this, users will tap repeatedly, thinking the app has frozen.
 
-**The Swipe** is versatile and directional. A swipe from the left edge acts as a universal "Back" button, a pattern deeply ingrained in iOS muscle memory. Swiping on list items typically reveals contextual actions like "Delete" or "Archive." While vertical swiping handles scrolling, pulling down from the top of a scroll view triggers the standard "Pull to Refresh" action.
-
-**The Long Press** (formerly Force Touch) reveals secondary options, acting effectively as the "right click" of iOS. You should use it to show context menus, preview content (Peek and Pop), or enter edit modes, such as reordering a list.
-
-**Pinch and Rotate** are the standard manipulations for media. Users expect to be able to pinch photos, maps, and documents to zoom in and out, or rotate them with two fingers.
+Platform navigation relies on several key gestures: **Swipe** from the left edge acts as a universal "Back" button, while pulling down triggers content refreshes and long-swiping list items reveals contextual actions. **Long Press** is the "right click" of iOS, surfacing secondary menus or content previews, and **Pinch and Rotate** provides the standard mechanism for manipulating photos, maps, and documents.
 
 ## Designing for Fingers
 
@@ -108,11 +104,7 @@ Choose a complex interaction in your app (like organising a list). Map it to sta
 
 ## Key Takeaways
 
-- Respect the **44pt minimum touch target** rule, even for small icons.
-- Users expect standard gestures (swipe to back, pull to refresh) to work everywhere.
-- Your finger covers what you touch; design offset feedback to handle **occlusion**.
-- **No hover states** means affordances must be obvious at a glance.
-- Use **haptics** to give physical weight to digital interactions.
+Designing for direct manipulation requires respecting the **44pt minimum touch target** and standard system gestures like swiping to go back. Since physical fingers occlude what they touch, provide offset **visual feedback** and obvious affordances for interactive elements without relying on hover states. Finally, use **haptics** to provide subtle physical weight to your digital interactions.
 
 ## Next Steps
 

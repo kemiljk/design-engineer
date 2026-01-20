@@ -112,10 +112,7 @@ If you have an iOS device, go to **Settings > Display & Brightness > Text Size**
 
 ## Key Takeaways
 
-- **San Francisco** is the native typeface, optimized for legibility across Apple devices.
-- **Semantic Text Styles** (like Body, Title 1) are the building blocks of iOS typography.
-- **Dynamic Type** is essential for accessibility; never use fixed sizes for text.
-- Allow your layout to **adapt** as text sizes change, avoiding truncation.
+Building accessible apps requires using the **San Francisco** typeface—tailored for legibility across all Apple devices—and leveraging **Semantic Text Styles** like Body and Title 1. These building blocks enable **Dynamic Type** support, allowing layouts to adapt fluidly to user font preferences and avoiding the pitfalls of fixed-size text and content truncation.
 
 ## Next Steps
 

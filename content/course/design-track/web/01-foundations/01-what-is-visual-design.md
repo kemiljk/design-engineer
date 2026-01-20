@@ -8,10 +8,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- The difference between visual design and graphic design
-- Visual design's role in digital products
-- Why engineers benefit from understanding visual design
-- The core elements you'll master in this module
+By progressing through this lesson, you will understand the fundamental difference between visual design and graphic design, explore its critical role in digital products, and learn why engineers benefit from visual literacy. You will also identify the core elements—hierarchy, contrast, balance, repetition, alignment, and proximity—that you will master throughout this module.
 
 ## Beyond "Making Things Pretty"
 
@@ -33,11 +30,7 @@ These terms are often used interchangeably, but they're not the same:
 
 **Visual Design** in the context of digital products focuses on how visual elements guide users through interactive experiences. It must account for:
 
-- Multiple screen sizes and devices
-- User interaction and state changes
-- Information hierarchy in complex layouts
-- Accessibility requirements
-- Performance constraints
+Visual design for digital products must account for multiple screen sizes and devices, dynamic user interaction and state changes, as well as maintaining clear information hierarchy in complex layouts. Furthermore, it must adhere to strict accessibility requirements and account for potential performance constraints across different environments.
 
 A graphic designer creates a beautiful poster. A visual designer creates an interface that helps thousands of users accomplish their goals efficiently.
 
@@ -52,10 +45,7 @@ Visual design serves several critical functions:
 <!-- visual-example: visual-design-comparison-demo -->
 
 Before users read a single word, visual design has already communicated:
-- What's important (hierarchy)
-- What belongs together (grouping)
-- What they can interact with (affordances)
-- The overall tone and trustworthiness (aesthetics)
+Before users read a single word, visual design establishes a clear content hierarchy to show what is important and uses grouping to indicate related items. It also defines affordances to signal what can be interacted with and sets the overall tone and trustworthiness of the product through careful aesthetics.
 
 ### Reducing Cognitive Load
 
@@ -79,23 +69,7 @@ If you're an engineer, you might wonder why you need to learn visual design. Sev
 
 ### Independence
 
-You can ship side projects, MVPs, and experiments without waiting for design help. This makes you more capable and more valuable.
-
-### Better Collaboration
-
-Understanding visual design principles helps you communicate with designers, understand their requests, and implement their work faithfully.
-
-### Catching Issues
-
-You'll notice when something "feels off" before users do. You'll make better decisions when designs are ambiguous or incomplete.
-
-### Career Advancement
-
-Design Engineers (people who bridge both disciplines) are increasingly in demand and command premium compensation.
-
-### Personal Satisfaction
-
-Building things that look and feel good is satisfying. There's joy in craft that extends beyond "it works."
+Engineers gain significant independence by learning visual design, allowing them to ship side projects and MVPs without external help, while also enabling better collaboration and more faithful implementation of design specs. Developing this visual intuition helps in catching issues early when designs are ambiguous, leads to career advancement in high-demand roles like Design Engineering, and provides the personal satisfaction of building products that excel in both form and function.
 
 ## The Elements of Visual Design
 
@@ -130,10 +104,7 @@ These principles work together. A well-designed interface applies all of them, o
 Here's good news: visual design is a skill, not a talent. Some people may have natural inclinations, but the principles are learnable, practicable, and improvable.
 
 You don't need to become a world-class designer. You need to develop enough visual literacy to:
-- Recognize what makes designs effective
-- Make reasonable decisions when building interfaces
-- Communicate productively with designers
-- Avoid obvious mistakes
+Developing visual literacy allows you to recognise what makes designs effective, make reasonable decisions when building interfaces, and communicate productively with designers while avoiding obvious mistakes.
 
 That's achievable for anyone willing to practice.
 
@@ -141,9 +112,7 @@ That's achievable for anyone willing to practice.
 
 Look at three interfaces you use regularly (apps, websites, tools). For each:
 
-1. **Identify the hierarchy.** What do you notice first? Second? Third? Why?
-2. **Find the contrast.** What elements stand out? How are they differentiated?
-3. **Check the alignment.** Are elements aligned to a clear grid? What's the effect?
+Start by identifying the hierarchy to see what you notice first and why, then find the contrast to understand how elements are differentiated, and finally check the alignment to see if elements are adhering to a clear grid.
 
 Don't worry about using technical terms. Just observe and describe what you see. This habit of observation is the first step to improving your visual design skills.
 
@@ -188,11 +157,7 @@ Don't worry about using technical terms. Just observe and describe what you see.
 
 ## Key Takeaways
 
-- Visual design is strategic communication through visual elements
-- It differs from graphic design by focusing on interactive, multi-state experiences
-- Visual design improves usability, builds trust, and guides attention
-- Engineers benefit from visual design skills for independence and better collaboration
-- The foundational elements are hierarchy, contrast, balance, repetition, alignment, and proximity
+Visual design is a strategic form of communication that differs from graphic design by focusing on interactive, multi-state experiences that improve usability, build trust, and guide attention. Engineers who master these skills gain independence and collaborative efficiency by applying foundational elements such as hierarchy, contrast, balance, repetition, alignment, and proximity to their work.
 
 ## Next Steps
 

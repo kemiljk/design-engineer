@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Creating comprehensive colour scales
-- Building typography systems
-- Defining spacing scales
-- Effect tokens (shadows, radius)
+In this lesson, we will cover the creation of comprehensive colour scales and typography systems. You will learn how to define robust spacing scales and explore the use of effect tokens, such as those for shadows and border radii.
 
 ## Color System
 
@@ -168,11 +165,7 @@
 
 ## Key Takeaways
 
-- Build comprehensive scales for each category
-- 50-900 scale works well for colours
-- Spacing follows 4px/8px grid
-- Type scales use consistent ratios
-- Document when to use each token
+In summary, a strong token system relies on building comprehensive scales for each design category. A 50–900 scale typically works well for colours, while spacing should follow a consistent 4px or 8px grid. Ensure your type scales use consistent ratios and always document exactly which tokens should be used in specific contexts to maintain consistency across the team.
 
 ## Next Steps
 

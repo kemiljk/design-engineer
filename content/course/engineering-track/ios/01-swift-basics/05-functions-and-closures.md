@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Function syntax and parameters
-- Return values
-- Closures and trailing closure syntax
-- Higher-order functions
+During this module, you will master function syntax, including the use of parameter labels, and examine how to implement robust return values. We'll explore closures and trailing closure syntax in detail and walk through the application of higher-order functions to write more concise and powerful Swift code.
 
 ## Functions
 
@@ -157,15 +154,12 @@ let numbers = strings.compactMap { Int($0) }  // [1, 2, 4]
 ### Exercise 1: Function Practice
 
 Write a function that:
-- Takes an array of integers
-- Returns the sum of even numbers
-- Uses filter and reduce
+Practise your functional programming skills by writing a function that accepts an array of integers. Your implementation should filter for even numbers and then use the `reduce` function to calculate and return their total sum.
 
 ### Exercise 2: Closure Sorting
 
 Sort an array of names:
-- By length (shortest first)
-- Alphabetically within same length
+Sort an array of names first by their length, placing the shortest names at the beginning of the collection. For names of equal length, apply a second sorting pass to arrange them alphabetically.
 
 ## Test Your Understanding
 
@@ -208,11 +202,7 @@ Sort an array of names:
 
 ## Key Takeaways
 
-- Functions have parameter labels (external) and names (internal)
-- Closures are anonymous functions
-- Trailing closure syntax is idiomatic
-- Map, filter, reduce are essential
-- `$0`, `$1` are shorthand for closure parameters
+To write idiomatic Swift, you must understand that functions utilise distinct parameter labels for external calls and internal names for logic, while closures serve as powerful anonymous functions. Always prioritise trailing closure syntax for readability and master essential higher-order functions like `map`, `filter`, and `reduce`. Finally, become comfortable using shorthand argument names like `$0` and `$1` to keep your closures concise and expressive.
 
 ## Next Steps
 

@@ -10,9 +10,7 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- Content strategy and information hierarchy
-- Low-fidelity wireframing techniques
-- Planning responsive breakpoints
+By progressing through this lesson, you will master content strategy and information hierarchy to structure your page effectively. You will also learn low-fidelity wireframing techniques for rapid layout exploration and develop a strategy for planning responsive breakpoints across different devices.
 
 ## Step 1: Content Strategy
 
@@ -20,45 +18,15 @@ Before designing visuals, plan your content:
 
 ### Define Your Sections
 
-List all sections your landing page needs. Common patterns:
+Begin by listing all sections your landing page requires. For a SaaS or app project, this typically includes a hero section with a compelling headline and call to action, followed by social proof, features overviews, and deep-dives into specific functionality. You should also incorporate pricing tables, testimonials, an FAQ, a final call to action, and a comprehensive footer.
 
-**SaaS/App:**
-1. Hero (headline, subhead, CTA, visual)
-2. Social proof/logos
-3. Features overview
-4. Feature deep-dives (2-3)
-5. Pricing
-6. Testimonials
-7. FAQ
-8. Final CTA
-9. Footer
+For a physical product, focus on a hero shot that highlights the product, followed by a summary of key benefits, an explanation of how it works, and detailed features or specifications. Reviews and comparisons help build trust before leading the user to a final call to action and footer.
 
-**Physical Product:**
-1. Hero (product shot, headline, CTA)
-2. Key benefits (3-4)
-3. How it works
-4. Features/specs
-5. Reviews
-6. Comparison (optional)
-7. Final CTA
-8. Footer
-
-**Creative Service:**
-1. Hero (statement, work preview)
-2. Selected work
-3. Services
-4. About/team
-5. Process
-6. Contact
-7. Footer
+A creative service landing page usually starts with a strong statement and work preview, followed by a selection of featured work, a list of services, and information about the team and their process before concluding with a contact section and footer.
 
 ### Content Hierarchy
 
-For each section, define:
-- **Primary message:** What must users understand?
-- **Supporting content:** What reinforces the message?
-- **Visual needs:** Image, illustration, icon, or none?
-- **Call to action:** What should users do next?
+For each defined section, clarify the primary message users must understand and the supporting content that reinforces it. Identify any specific visual needs—such as images, illustrations, or icons—and determine what the next call to action should be to guide the user successfully through the flow.
 
 ### Write Placeholder Copy
 
@@ -76,21 +44,11 @@ Real (or realistic) copy makes better designs:
 
 Create low-fidelity layouts:
 
-### Wireframing Principles
-
-- **Focus on structure, not visuals**
-- Use boxes and lines, not detailed UI
-- Grey scale only (no colour)
-- System fonts at rough sizes
-- Focus on proportions and spacing
+When creating low-fidelity wireframes, focus entirely on the underlying structure rather than visual polish by using simple boxes and lines instead of detailed UI elements. Maintain a greyscale palette and use system fonts at rough sizes to ensure you prioritising proportions and spacing over aesthetics.
 
 ### What to Include
 
-For each section, sketch:
-- Content blocks and their hierarchy
-- Image/illustration placeholders
-- Button and link positions
-- Rough spacing between elements
+For each section of your wireframe, sketch the content blocks according to their defined hierarchy, placing placeholders for images and illustrations. Mark the intended positions for buttons and links, and establish the rough spacing between elements to evaluate the overall flow.
 
 ### Wireframe Techniques
 
@@ -137,25 +95,9 @@ Common breakpoints:
 
 For each section, decide:
 
-**Navigation:**
-- Desktop: Horizontal links
-- Tablet: Horizontal or hamburger
-- Mobile: Hamburger menu
+Navigational elements typically shift from a horizontal link layout on desktop and tablet to a hamburger menu on mobile devices to preserve screen real estate. HERO sections often move from a two-column layout on desktop to a stacked arrangement on tablet and mobile, with images placed strategically above or below the text.
 
-**Hero:**
-- Desktop: Two columns (text + image)
-- Tablet: Stacked or smaller image
-- Mobile: Stacked, image below or above
-
-**Features Grid:**
-- Desktop: 3-4 columns
-- Tablet: 2 columns
-- Mobile: 1 column (stacked)
-
-**Pricing:**
-- Desktop: 3 plans side-by-side
-- Tablet: 3 plans (compressed) or tabs
-- Mobile: Stacked or swipeable
+Features grids and pricing tables adapt by reducing column counts, moving from a multi-column desktop layout to a single-column stacked view on mobile. For pricing, you might choose to stack the plans or make them swipeable on smaller screens.
 
 ### Document Your Strategy
 
@@ -171,32 +113,19 @@ Create a simple table:
 
 ### Content Changes
 
-Some content changes per viewport:
-- Headlines might shorten on mobile
-- Images might swap (landscape → portrait)
-- Some decorative elements disappear
-- Touch targets increase (44px minimum)
+Content often changes per viewport beyond just layout; headlines might be shortened for mobile clarity, decorative elements may be removed, and touch targets must be increased to a minimum of 44px to ensure usability on mobile devices.
 
 ## Checkpoint
 
 Before moving on, verify:
 
-- [ ] All page sections defined and prioritised
-- [ ] Content hierarchy clear for each section
-- [ ] Placeholder copy written
-- [ ] Desktop wireframe complete
-- [ ] Responsive strategy documented
-- [ ] Breakpoints defined
+Before proceeding, verify that you have defined and prioritised all page sections, established a clear content hierarchy, and written realistic placeholder copy. Ensure your desktop wireframe is complete and that you have a documented responsive strategy for your defined breakpoints.
 
 ## Try It Yourself
 
 Complete all steps in your Figma file:
 
-1. Create a "Wireframes" page
-2. Sketch your desktop layout (rough is fine)
-3. Add annotations for responsive behaviour
-4. Document your breakpoint strategy
-5. Screenshot for your case study
+Finalise your planning in Figma by creating a dedicated "Wireframes" page where you sketch your desktop layout and add annotations for responsive behaviour. Be sure to document your entire breakpoint strategy and save a screenshot for your case study.
 
 ## Next Steps
 

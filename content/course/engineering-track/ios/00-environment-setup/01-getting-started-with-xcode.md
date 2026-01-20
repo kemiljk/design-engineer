@@ -19,11 +19,7 @@ This course is tested with the following versions (January 2026):
 
 ## What You'll Learn
 
-- What Xcode is and why it's required
-- How to download and install Xcode
-- First-time setup and configuration
-- Navigating the Xcode interface
-- Creating your first project
+During this module, you will learn exactly what Xcode is and why it remains a mandatory requirement for Apple platform development. We'll examine the various methods for downloading and installing the IDE, walk through the first-time setup and configuration, and explore the core areas of the interface so you can navigate with confidence while creating your first project.
 
 ## Go Beyond Vibe Coding
 
@@ -37,10 +33,7 @@ That's Vibe Coding. And whilst it's a valid starting point, to truly own your wo
 
 Xcode is Apple's official development environment. It's where you:
 
-- Write Swift and SwiftUI code
-- Preview your designs in real-time
-- Test on simulators and real devices
-- Build and submit apps to the App Store
+Xcode serves as the central hub where you will write your Swift and SwiftUI code while previewing your designs in real-time. It provides the essential tools to test your applications on both simulators and real devices, and ultimately allows you to build and submit your finished apps to the App Store.
 
 Unlike web development, where you can choose from many editors, iOS development requires Xcode. It's not optional—Apple's tools, frameworks, and simulators are bundled inside it.
 
@@ -48,19 +41,13 @@ Unlike web development, where you can choose from many editors, iOS development 
 
 Even if you're primarily a designer, understanding Xcode helps you:
 
-- **Prototype directly in SwiftUI:** See exactly how your designs behave
-- **Understand constraints:** Know what's technically feasible
-- **Collaborate better:** Speak the same language as iOS developers
-- **Build side projects:** Ship real apps without engineering help
+Even for those primarily focused on design, mastering Xcode allows you to prototype directly in SwiftUI to see exactly how your designs behave in a live environment. It provides a deeper understanding of technical constraints, improves collaboration by allowing you to speak the same language as iOS developers, and empowers you to ship real side projects without requiring external engineering assistance.
 
 ## System Requirements
 
 Before installing, ensure your Mac meets the requirements:
 
-- **macOS:** Xcode requires macOS 14 (Sonoma) or later
-- **Storage:** At least 35GB free (Xcode is large)
-- **Memory:** 8GB RAM minimum, 16GB recommended
-- **Apple Silicon or Intel:** Both work, Apple Silicon is faster
+Before you begin the installation, ensure that your Mac is running macOS 14 (Sonoma) or later and that you have at least 35GB of free storage space available. While 8GB of RAM is the absolute minimum requirement, 16GB is highly recommended for a smooth experience, and while both Apple Silicon and Intel processors are supported, you will find that Apple Silicon offers significantly faster performance.
 
 **Important:** Xcode only runs on Mac. If you're on Windows or Linux, you cannot build iOS apps natively. Consider cloud-based solutions or a Mac for iOS development.
 
@@ -114,8 +101,7 @@ This downloads simulators and finalises the installation.
 
 Xcode prompts you to install iOS simulators. At minimum, install:
 
-- Latest iOS simulator (for current devices)
-- One older iOS version (for compatibility testing)
+When prompt by Xcode, ensure you install the latest iOS simulator for current device testing, alongside at least one older iOS version to verify backward compatibility. You can always manage your installed simulators later through the Platforms section in the Xcode settings.
 
 You can manage simulators later via **Xcode → Settings → Platforms**.
 
@@ -125,29 +111,15 @@ Xcode's interface can be overwhelming at first. Let's break it down:
 
 ### Main Areas
 
-**Navigator (Left Panel)**
-- File browser for your project
-- Search, issues, and breakpoints
-- Toggle with ⌘ + 0
+The Navigator area in the left panel serves as your primary file browser for the project while also housing search functions, issue tracking, and breakpoints; you can toggle its visibility at any time using the ⌘ + 0 shortcut.
 
-**Editor (Centre)**
-- Where you write code
-- Multiple modes: source, canvas, assistant
+The Editor in the centre is your primary workspace for writing code, offering multiple modes such as source view, the layout canvas, and the assistant editor to help streamline your development.
 
-**Inspector (Right Panel)**
-- File and view properties
-- Attributes and connections
-- Toggle with ⌘ + Option + 0
+In the right panel, you'll find the Inspector, which provides detailed properties for both files and views, including attributes and connections; this panel can be toggled using ⌘ + Option + 0.
 
-**Debug Area (Bottom)**
-- Console output
-- Variable inspection
-- Toggle with ⌘ + Shift + Y
+The Debug Area at the bottom of the interface contains your console output and variable inspection tools, and you can quickly show or hide it with the ⌘ + Shift + Y command.
 
-**Toolbar (Top)**
-- Run/Stop buttons
-- Scheme selector (which device to target)
-- Status display
+Finally, the Toolbar at the top provides essential Run and Stop buttons, a scheme selector for targeting specific devices, and a status display to keep you informed of the project's state.
 
 ### Essential Shortcuts
 
@@ -249,13 +221,7 @@ Congratulations—you've just run your first iOS app!
 
 ### Using the Simulator
 
-The simulator behaves like a real iPhone:
-
-- Click to tap
-- Drag to scroll
-- ⌘ + Shift + H for home button
-- ⌘ + 1/2/3 to change device scale
-- ⌘ + K to toggle keyboard
+The simulator provides a highly accurate representation of a real iPhone, allowing you to click to tap, drag to scroll, and use ⌘ + Shift + H to return to the home screen. You can also press ⌘ + 1, 2, or 3 to change the device scale and use ⌘ + K to toggle the software keyboard as needed.
 
 ## SwiftUI Previews
 
@@ -323,15 +289,11 @@ The first build often shows errors. Try:
 
 ### Simulator Won't Launch
 
-- Ensure Xcode components are installed
-- **Window → Devices and Simulators** to manage simulators
-- Try a different simulator device
+If your simulator fails to launch, first ensure that all required Xcode components have been installed correctly. You can manage your devices through the "Devices and Simulators" window or simply try targeting a different simulator device to rule out configuration issues.
 
 ### Preview Not Updating
 
-- Click **Resume** in the canvas
-- Check for compile errors (red indicators)
-- Try **Editor → Canvas → Refresh Canvas**
+If your preview isn't updating, click the Resume button in the canvas and check for any red compile error indicators in your code. You can also manually trigger a refresh by navigating to the Editor menu and selecting Refresh Canvas within the Canvas submenu.
 
 ### "Signing Requires a Development Team"
 
@@ -382,11 +344,7 @@ For running on simulators, you don't need a team. For physical devices:
 
 ## Key Takeaways
 
-- Xcode is required for iOS development—there's no alternative
-- Download from the App Store for the easiest setup
-- The interface has navigators (left), editor (centre), inspectors (right)
-- SwiftUI previews let you see changes without running the full app
-- Use ⌘ + R to run and ⌘ + . to stop
+To build successful iOS apps, you must remember that Xcode is a mandatory requirement for development, and downloading it from the App Store provides the most straightforward setup experience. The interface is cleverly divided into navigators on the left, an editor in the centre, and inspectors on the right to keep your tools organised. By leveraging SwiftUI previews, you can see your changes instantly without the need for a full app build, but when you are ready to test on a device, use ⌘ + R to run your project and ⌘ + . to stop it.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- What design tokens are and why they matter
-- Token naming conventions and hierarchies
-- Semantic vs. primitive tokens
-- Implementing tokens in design and code
+By progressing through this lesson, you will understand what design tokens are and why they are essential for modern design systems. You will also learn about token naming conventions and hierarchies, explore the differences between semantic and primitive tokens, and master the techniques for implementing tokens across both design tools and codebases.
 
 ## What Are Design Tokens?
 
@@ -21,12 +18,7 @@ Design tokens are named containers for design values:
 | 16px | space-4 |
 | Inter Bold 24px | heading-large |
 
-Tokens abstract raw values into meaningful names. This abstraction provides:
-
-**Consistency:** The same value everywhere
-**Maintainability:** Change once, update everywhere
-**Communication:** Shared vocabulary between design and code
-**Theming:** Swap values for different themes/brands
+Tokens abstract raw values into meaningful names, providing global consistency and improved maintainability by allowing you to update a single value to effect changes across the entire system. Furthermore, tokens establish a shared vocabulary between design and engineering and enable powerful theming capabilities by allowing you to swap sets of values for different brand or interface modes.
 
 ## Token Categories
 
@@ -210,15 +202,7 @@ button-background-hover
 button-background-disabled
 ```
 
-### Naming Guidelines
-
-**Be consistent:** Once you establish a pattern, follow it everywhere.
-
-**Be specific:** `text-colour-primary` is clearer than `colour-1`.
-
-**Be predictable:** Users should guess token names correctly.
-
-**Avoid magic numbers:** Use scales (sm, md, lg) or numbers that relate to a system (space-4 = 4 × 4px).
+When naming tokens, strive for consistency by following established patterns everywhere and use specific terms like `text-colour-primary` to ensure clarity. Predictability is also key, as users should be able to intuitively guess token names. Finally, avoid using "magic numbers" by sticking to logical scales like sm, md, and lg, or numeric systems that relate directly to your core grid.
 
 ## Token Hierarchies
 
@@ -230,33 +214,14 @@ Organise tokens into logical groups:
 
 Modern design tools support token concepts through styles and variables:
 
-### Color Styles
+#### Colour Styles
+Named colours such as `Primary/500`, `Grey/100`, and `Error/500` should be defined and applied consistently so that updating a single style instantly reflects across all associated instances.
 
-Define named colours:
+#### Text Styles
+Named typography styles like `Heading/Large`, `Body/Default`, and `Caption/Small` encapsulate specific font families, sizes, weights, and line-heights into single reusable definitions.
 
-- `Primary/500`
-- `Gray/100`
-- `Error/500`
-
-Apply consistently. Update the style to change all instances.
-
-### Text Styles
-
-Define named typography:
-
-- `Heading/Large`
-- `Body/Default`
-- `Caption/Small`
-
-Each style includes: font, size, weight, line-height.
-
-### Variables (Figma Variables, etc.)
-
-More advanced token support:
-
-- Numeric values (spacing)
-- Modes (light/dark themes)
-- Aliasing (semantic referencing primitive)
+#### Variables
+Advanced token support through tools like Figma Variables allows for the management of numeric values for spacing, distinct modes for light and dark themes, and complex aliasing where semantic tokens reference primitive ones.
 
 ## Tokens in Code
 
@@ -325,16 +290,7 @@ module.exports = {
 
 The holy grail: tokens defined once, used everywhere.
 
-### Manual Sync
-
-Export tokens from design, import into code:
-
-1. Define in design tool
-2. Export as JSON
-3. Transform to CSS/JS format
-4. Import into codebase
-
-Works, but manual process can drift.
+The manual sync process involves defining tokens within a design tool and exporting them as JSON, which is then transformed into CSS or JavaScript formats to be imported into the codebase. While effective, this approach requires careful management to ensure the two environments don't drift apart over time.
 
 ### Automated Sync
 
@@ -350,48 +306,13 @@ Tools that automate the pipeline:
 
 <!-- illustration: token-pipeline -->
 
-## Token Governance
-
-Tokens require maintenance:
-
-### Adding Tokens
-
-- When is a new token justified?
-- Who approves additions?
-- How is it documented?
-
-### Changing Tokens
-
-- How are changes communicated?
-- What's the deprecation process?
-- How is versioning handled?
-
-### Auditing Tokens
-
-- Are all tokens used?
-- Are there duplicate values?
-- Is naming consistent?
+Tokens require rigorous governance, including clear criteria and approval processes for adding new values, well-defined deprecation and versioning strategies for making changes, and regular audits to remove duplicates or inconsistencies and ensure naming remains predictable.
 
 ## Try It Yourself
 
-### Exercise 1: Token Inventory
+For a product you're currently working on, perform a token inventory by listing all unique colours, spacing values, and font sizes used across the interface. Use this list to identify and document any inconsistencies that need to be addressed.
 
-For a product you're working on:
-
-1. List all unique colours used
-2. List all unique spacing values
-3. List all font sizes
-4. Identify inconsistencies
-
-### Exercise 2: Define a Token System
-
-Create a token system including:
-
-1. 5-shade grey scale
-2. Primary and secondary brand colours
-3. Semantic status colours (error, warning, success)
-4. Spacing scale (at least 8 values)
-5. Type scale (at least 5 sizes)
+Define a comprehensive token system that includes at least five shades of grey, primary and secondary brand colours, and semantic status colours for errors, warnings, and success. Additionally, establish scales for spacing with at least eight values and typography with at least five distinct sizes.
 
 ### Exercise 3: Implement in CSS
 
@@ -436,15 +357,7 @@ Take your token system and implement it as CSS custom properties. Create a sampl
 }
 -->
 
-## Key Takeaways
-
-- Design tokens are named values that store design decisions
-- Categories: colour, spacing, typography, effects
-- Primitive tokens describe values; semantic tokens describe usage
-- Good naming is consistent, specific, and predictable
-- Tokens exist in design tools (styles, variables) and code (CSS properties)
-- Design-to-code sync can be manual or automated
-- Tokens require governance for additions, changes, and maintenance
+Design tokens are named values that store crucial design decisions across categories like colour, spacing, typography, and effects. By distinguishing between primitive tokens that describe values and semantic tokens that describe usage, you can create a consistent and specific system that resides in both design tools and code. Maintaining this system requires clear governance for additions and changes, alongside either manual or automated synchronization to ensure design and engineering remain aligned.
 
 ## Next Steps
 

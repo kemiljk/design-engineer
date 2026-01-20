@@ -1,0 +1,253 @@
+- [ ] content/course/00-introduction/01-welcome.md
+- [ ] content/course/00-introduction/02-what-is-design-engineering.md
+- [ ] content/course/00-introduction/03-choosing-your-path.md
+- [ ] content/course/00-introduction/04-how-this-course-works.md
+- [ ] content/course/_meta/COURSE-PLAN.md
+- [ ] content/course/_meta/quotes.md
+- [ ] content/course/convergence/android/01-android-motion-and-animation/01-compose-animation.md
+- [ ] content/course/convergence/android/01-android-motion-and-animation/02-custom-transitions.md
+- [ ] content/course/convergence/android/02-prototyping-with-compose/01-prototyping-with-compose.md
+- [ ] content/course/convergence/android/03-accessibility-and-polish/01-android-accessibility.md
+- [ ] content/course/convergence/android/03-accessibility-and-polish/02-polish-and-details.md
+- [ ] content/course/convergence/android/04-capstone/01-capstone-overview.md
+- [ ] content/course/convergence/android/04-capstone/02-capstone-planning.md
+- [ ] content/course/convergence/android/04-capstone/03-capstone-animation.md
+- [ ] content/course/convergence/android/04-capstone/04-capstone-accessibility.md
+- [ ] content/course/convergence/android/04-capstone/05-capstone-polish.md
+- [ ] content/course/convergence/android/04-capstone/06-capstone-delivery.md
+- [ ] content/course/convergence/index.md
+- [ ] content/course/convergence/ios/01-ios-motion-and-animation/01-swiftui-animation.md
+- [ ] content/course/convergence/ios/01-ios-motion-and-animation/02-custom-transitions.md
+- [ ] content/course/convergence/ios/02-prototyping-with-swiftui/01-prototyping-with-swiftui.md
+- [ ] content/course/convergence/ios/03-accessibility-and-polish/01-ios-accessibility.md
+- [ ] content/course/convergence/ios/03-accessibility-and-polish/02-polish-and-details.md
+- [ ] content/course/convergence/ios/04-capstone/01-capstone-overview.md
+- [ ] content/course/convergence/ios/04-capstone/02-capstone-planning.md
+- [ ] content/course/convergence/ios/04-capstone/03-capstone-animation.md
+- [ ] content/course/convergence/ios/04-capstone/04-capstone-accessibility.md
+- [ ] content/course/convergence/ios/04-capstone/05-capstone-polish.md
+- [ ] content/course/convergence/ios/04-capstone/06-capstone-delivery.md
+- [ ] content/course/convergence/web/01-motion-and-interaction/01-why-motion-matters.md
+- [ ] content/course/convergence/web/01-motion-and-interaction/02-principles-of-ui-animation.md
+- [ ] content/course/convergence/web/01-motion-and-interaction/03-micro-interactions.md
+- [ ] content/course/convergence/web/01-motion-and-interaction/04-page-transitions.md
+- [ ] content/course/convergence/web/01-motion-and-interaction/05-scroll-based-animation.md
+- [ ] content/course/convergence/web/01-motion-and-interaction/06-implementing-motion.md
+- [ ] content/course/convergence/web/02-prototyping/01-prototyping-mindset.md
+- [ ] content/course/convergence/web/02-prototyping/02-from-design-to-prototype.md
+- [ ] content/course/convergence/web/02-prototyping/03-prototype-to-production.md
+- [ ] content/course/convergence/web/02-prototyping/04-selling-with-prototypes.md
+- [ ] content/course/convergence/web/02-prototyping/05-tools-and-techniques.md
+- [ ] content/course/convergence/web/03-accessibility/01-accessibility-foundations.md
+- [ ] content/course/convergence/web/03-accessibility/02-semantic-html-for-a11y.md
+- [ ] content/course/convergence/web/03-accessibility/03-keyboard-navigation.md
+- [ ] content/course/convergence/web/03-accessibility/04-screen-reader-experience.md
+- [ ] content/course/convergence/web/03-accessibility/05-color-and-contrast.md
+- [ ] content/course/convergence/web/03-accessibility/06-motion-and-accessibility.md
+- [ ] content/course/convergence/web/04-creative-visual-effects/01-beyond-css-animations.md
+- [ ] content/course/convergence/web/04-creative-visual-effects/02-introduction-to-shaders.md
+- [ ] content/course/convergence/web/04-creative-visual-effects/03-fragment-shaders-for-ui.md
+- [ ] content/course/convergence/web/04-creative-visual-effects/04-practical-shader-patterns.md
+- [ ] content/course/convergence/web/04-creative-visual-effects/05-performance-and-fallbacks.md
+- [ ] content/course/convergence/web/05-performance-and-polish/01-perceived-performance.md
+- [ ] content/course/convergence/web/05-performance-and-polish/02-image-optimization.md
+- [ ] content/course/convergence/web/05-performance-and-polish/03-css-performance.md
+- [ ] content/course/convergence/web/05-performance-and-polish/04-javascript-performance.md
+- [ ] content/course/convergence/web/05-performance-and-polish/05-the-details-matter.md
+- [ ] content/course/convergence/web/06-workflow-and-portfolio/01-the-de-workflow.md
+- [ ] content/course/convergence/web/06-workflow-and-portfolio/02-bridging-design-and-eng.md
+- [ ] content/course/convergence/web/06-workflow-and-portfolio/03-side-projects.md
+- [ ] content/course/convergence/web/06-workflow-and-portfolio/04-building-your-portfolio.md
+- [ ] content/course/convergence/web/06-workflow-and-portfolio/05-finding-de-roles.md
+- [ ] content/course/convergence/web/07-capstone/01-capstone-overview.md
+- [ ] content/course/convergence/web/07-capstone/02-capstone-concept.md
+- [ ] content/course/convergence/web/07-capstone/03-capstone-foundation.md
+- [ ] content/course/convergence/web/07-capstone/04-capstone-motion.md
+- [ ] content/course/convergence/web/07-capstone/05-capstone-performance.md
+- [ ] content/course/convergence/web/07-capstone/06-capstone-deployment.md
+- [ ] content/course/design-track/android/01-material-design/01-material-design-philosophy.md
+- [ ] content/course/design-track/android/01-material-design/02-material-foundations.md
+- [ ] content/course/design-track/android/01-material-design/03-elevation-and-surfaces.md
+- [ ] content/course/design-track/android/01-material-design/04-theming-and-customization.md
+- [ ] content/course/design-track/android/01-material-design/05-material-3-expressive.md
+- [ ] content/course/design-track/android/02-android-design-patterns/01-android-navigation.md
+- [ ] content/course/design-track/android/02-android-design-patterns/02-android-components.md
+- [ ] content/course/design-track/android/02-android-design-patterns/03-android-layout-system.md
+- [ ] content/course/design-track/android/02-android-design-patterns/04-notifications-and-widgets.md
+- [ ] content/course/design-track/android/03-designing-for-android/01-designing-android-apps-in-figma.md
+- [ ] content/course/design-track/android/03-designing-for-android/02-adaptive-and-responsive.md
+- [ ] content/course/design-track/android/03-designing-for-android/03-android-motion-principles.md
+- [ ] content/course/design-track/android/03-designing-for-android/04-from-design-to-compose.md
+- [ ] content/course/design-track/android/04-advanced-design/01-designing-for-accessibility.md
+- [ ] content/course/design-track/android/04-advanced-design/02-dark-mode-and-dynamic-color.md
+- [ ] content/course/design-track/android/04-advanced-design/03-motion-design-for-android.md
+- [ ] content/course/design-track/android/04-advanced-design/04-designing-for-device-variety.md
+- [ ] content/course/design-track/android/04-advanced-design/05-design-qa-and-handoff.md
+- [ ] content/course/design-track/android/05-capstone/01-capstone-overview.md
+- [ ] content/course/design-track/android/05-capstone/02-capstone-foundation.md
+- [ ] content/course/design-track/android/05-capstone/03-capstone-screens.md
+- [ ] content/course/design-track/android/05-capstone/04-capstone-adaptive.md
+- [ ] content/course/design-track/android/05-capstone/05-capstone-motion.md
+- [ ] content/course/design-track/android/05-capstone/06-capstone-polish.md
+- [ ] content/course/design-track/index.md
+- [ ] content/course/design-track/ios/01-hig-fundamentals/01-ios-design-philosophy.md
+- [ ] content/course/design-track/ios/01-hig-fundamentals/02-navigation-paradigms.md
+- [ ] content/course/design-track/ios/01-hig-fundamentals/03-ios-typography.md
+- [ ] content/course/design-track/ios/01-hig-fundamentals/04-ios-color-and-materials.md
+- [ ] content/course/design-track/ios/01-hig-fundamentals/05-adopting-liquid-glass.md
+- [ ] content/course/design-track/ios/02-ios-design-patterns/01-standard-ui-components.md
+- [ ] content/course/design-track/ios/02-ios-design-patterns/02-touch-and-gestures.md
+- [ ] content/course/design-track/ios/02-ios-design-patterns/03-safe-areas-and-layout.md
+- [ ] content/course/design-track/ios/02-ios-design-patterns/04-widgets-and-extensions.md
+- [ ] content/course/design-track/ios/03-designing-for-ios/01-designing-ios-apps-in-figma.md
+- [ ] content/course/design-track/ios/03-designing-for-ios/02-adaptive-layouts.md
+- [ ] content/course/design-track/ios/03-designing-for-ios/03-ios-animation-principles.md
+- [ ] content/course/design-track/ios/03-designing-for-ios/04-from-design-to-swiftui.md
+- [ ] content/course/design-track/ios/04-advanced-design/01-designing-for-accessibility.md
+- [ ] content/course/design-track/ios/04-advanced-design/02-dark-mode-design.md
+- [ ] content/course/design-track/ios/04-advanced-design/03-motion-design-principles.md
+- [ ] content/course/design-track/ios/04-advanced-design/04-designing-across-devices.md
+- [ ] content/course/design-track/ios/04-advanced-design/05-design-qa-and-handoff.md
+- [ ] content/course/design-track/ios/05-capstone/01-capstone-overview.md
+- [ ] content/course/design-track/ios/05-capstone/02-capstone-design-system.md
+- [ ] content/course/design-track/ios/05-capstone/03-capstone-screens.md
+- [ ] content/course/design-track/ios/05-capstone/04-capstone-devices.md
+- [ ] content/course/design-track/ios/05-capstone/05-capstone-prototype.md
+- [ ] content/course/design-track/ios/05-capstone/06-capstone-polish.md
+- [x] content/course/design-track/web/01-foundations/01-what-is-visual-design.md
+- [x] content/course/design-track/web/01-foundations/02-principles-of-design.md
+- [x] content/course/design-track/web/01-foundations/03-gestalt-principles.md
+- [x] content/course/design-track/web/01-foundations/04-designing-with-intention.md
+- [x] content/course/design-track/web/02-visual-design/01-typography-fundamentals.md
+- [x] content/course/design-track/web/02-visual-design/02-colour-theory-and-application.md
+- [x] content/course/design-track/web/02-visual-design/03-spacing-and-rhythm.md
+- [x] content/course/design-track/web/02-visual-design/04-layout-and-composition.md
+- [x] content/course/design-track/web/02-visual-design/05-iconography-and-imagery.md
+- [x] content/course/design-track/web/03-design-tools/01-thinking-in-components.md
+- [x] content/course/design-track/web/03-design-tools/02-design-tool-fundamentals.md
+- [x] content/course/design-track/web/03-design-tools/03-auto-layout-and-constraints.md
+- [x] content/course/design-track/web/03-design-tools/04-prototyping-basics.md
+- [x] content/course/design-track/web/03-design-tools/05-collaboration-and-handoff.md
+- [x] content/course/design-track/web/04-design-systems/01-what-is-a-design-system.md
+- [x] content/course/design-track/web/04-design-systems/02-tokens-and-variables.md
+- [x] content/course/design-track/web/04-design-systems/03-component-architecture.md
+- [x] content/course/design-track/web/04-design-systems/04-documentation-that-works.md
+- [x] content/course/design-track/web/04-design-systems/05-maintaining-and-evolving.md
+- [x] content/course/design-track/web/05-ux-principles/01-user-centered-thinking.md
+- [x] content/course/design-track/web/05-ux-principles/02-information-architecture.md
+- [x] content/course/design-track/web/05-ux-principles/03-interaction-design-basics.md
+- [x] content/course/design-track/web/05-ux-principles/04-usability-heuristics.md
+- [x] content/course/design-track/web/05-ux-principles/05-designing-for-edge-cases.md
+- [x] content/course/design-track/web/06-capstone/01-capstone-overview.md
+- [x] content/course/design-track/web/06-capstone/02-capstone-foundation.md
+- [x] content/course/design-track/web/06-capstone/03-capstone-layout.md
+- [x] content/course/design-track/web/06-capstone/04-capstone-visual-design.md
+- [x] content/course/design-track/web/06-capstone/05-capstone-polish.md
+- [ ] content/course/engineering-track/android/00-environment-setup/01-getting-started-with-android-studio.md
+- [ ] content/course/engineering-track/android/00-environment-setup/02-understanding-kotlin-basics.md
+- [ ] content/course/engineering-track/android/00-environment-setup/03-setting-up-your-workflow.md
+- [ ] content/course/engineering-track/android/01-kotlin-basics/01-introduction-to-kotlin.md
+- [ ] content/course/engineering-track/android/01-kotlin-basics/02-variables-and-types.md
+- [ ] content/course/engineering-track/android/01-kotlin-basics/03-collections.md
+- [ ] content/course/engineering-track/android/01-kotlin-basics/04-control-flow.md
+- [ ] content/course/engineering-track/android/01-kotlin-basics/05-functions-and-lambdas.md
+- [ ] content/course/engineering-track/android/01-kotlin-basics/06-classes-and-data-classes.md
+- [ ] content/course/engineering-track/android/02-compose-fundamentals/01-what-is-compose.md
+- [ ] content/course/engineering-track/android/02-compose-fundamentals/02-composables-and-modifiers.md
+- [ ] content/course/engineering-track/android/02-compose-fundamentals/03-layout-basics.md
+- [ ] content/course/engineering-track/android/02-compose-fundamentals/04-state-management.md
+- [ ] content/course/engineering-track/android/02-compose-fundamentals/05-lists-and-navigation.md
+- [ ] content/course/engineering-track/android/02-compose-fundamentals/06-theming.md
+- [ ] content/course/engineering-track/android/03-building-interfaces/01-building-a-button.md
+- [ ] content/course/engineering-track/android/03-building-interfaces/02-building-a-card.md
+- [ ] content/course/engineering-track/android/03-building-interfaces/03-building-a-list-item.md
+- [ ] content/course/engineering-track/android/03-building-interfaces/04-building-a-form.md
+- [ ] content/course/engineering-track/android/03-building-interfaces/05-custom-composables.md
+- [ ] content/course/engineering-track/android/04-capstone/01-capstone-overview.md
+- [ ] content/course/engineering-track/android/04-capstone/02-capstone-setup.md
+- [ ] content/course/engineering-track/android/04-capstone/03-capstone-screens.md
+- [ ] content/course/engineering-track/android/04-capstone/04-capstone-composables.md
+- [ ] content/course/engineering-track/android/04-capstone/05-capstone-polish.md
+- [ ] content/course/engineering-track/android/04-capstone/06-capstone-finalisation.md
+- [ ] content/course/engineering-track/index.md
+- [ ] content/course/engineering-track/ios/00-environment-setup/01-getting-started-with-xcode.md
+- [ ] content/course/engineering-track/ios/00-environment-setup/02-understanding-swift-basics.md
+- [ ] content/course/engineering-track/ios/00-environment-setup/03-setting-up-your-workflow.md
+- [ ] content/course/engineering-track/ios/01-swift-basics/01-introduction-to-swift.md
+- [ ] content/course/engineering-track/ios/01-swift-basics/02-variables-and-types.md
+- [ ] content/course/engineering-track/ios/01-swift-basics/03-collections.md
+- [ ] content/course/engineering-track/ios/01-swift-basics/04-control-flow.md
+- [ ] content/course/engineering-track/ios/01-swift-basics/05-functions-and-closures.md
+- [ ] content/course/engineering-track/ios/01-swift-basics/06-structs-and-classes.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/01-what-is-swiftui.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/02-views-and-modifiers.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/03-layout-basics.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/04-state-management.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/05-lists-and-navigation.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/06-styling-and-theming.md
+- [ ] content/course/engineering-track/ios/02-swiftui-fundamentals/07-liquid-glass.md
+- [ ] content/course/engineering-track/ios/03-building-interfaces/01-building-a-button.md
+- [ ] content/course/engineering-track/ios/03-building-interfaces/02-building-a-card.md
+- [ ] content/course/engineering-track/ios/03-building-interfaces/03-building-a-list-row.md
+- [ ] content/course/engineering-track/ios/03-building-interfaces/04-building-a-form.md
+- [ ] content/course/engineering-track/ios/03-building-interfaces/05-custom-components.md
+- [ ] content/course/engineering-track/ios/04-capstone/01-capstone-overview.md
+- [ ] content/course/engineering-track/ios/04-capstone/02-capstone-setup.md
+- [ ] content/course/engineering-track/ios/04-capstone/03-capstone-screens.md
+- [ ] content/course/engineering-track/ios/04-capstone/04-capstone-components.md
+- [ ] content/course/engineering-track/ios/04-capstone/05-capstone-polish.md
+- [ ] content/course/engineering-track/ios/04-capstone/06-capstone-finalisation.md
+- [ ] content/course/engineering-track/web/00-environment-setup/01-your-new-best-friend-the-terminal.md
+- [ ] content/course/engineering-track/web/00-environment-setup/02-terminal-basics.md
+- [ ] content/course/engineering-track/web/00-environment-setup/03-installing-tools.md
+- [ ] content/course/engineering-track/web/00-environment-setup/04-your-first-project.md
+- [ ] content/course/engineering-track/web/01-html-fundamentals/01-what-is-html.md
+- [ ] content/course/engineering-track/web/01-html-fundamentals/02-document-structure.md
+- [ ] content/course/engineering-track/web/01-html-fundamentals/03-semantic-elements.md
+- [ ] content/course/engineering-track/web/01-html-fundamentals/04-text-and-links.md
+- [ ] content/course/engineering-track/web/01-html-fundamentals/05-forms-and-inputs.md
+- [ ] content/course/engineering-track/web/01-html-fundamentals/06-media-elements.md
+- [ ] content/course/engineering-track/web/02-css-mastery/01-how-css-works.md
+- [ ] content/course/engineering-track/web/02-css-mastery/02-selectors-deep-dive.md
+- [ ] content/course/engineering-track/web/02-css-mastery/03-the-box-model.md
+- [ ] content/course/engineering-track/web/02-css-mastery/04-layout-with-flexbox.md
+- [ ] content/course/engineering-track/web/02-css-mastery/04b-flexbox-patterns.md
+- [ ] content/course/engineering-track/web/02-css-mastery/05-layout-with-grid.md
+- [ ] content/course/engineering-track/web/02-css-mastery/06-responsive-design.md
+- [ ] content/course/engineering-track/web/02-css-mastery/07-custom-properties.md
+- [ ] content/course/engineering-track/web/02-css-mastery/08-css-transitions.md
+- [ ] content/course/engineering-track/web/02-css-mastery/08b-keyframe-animations.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/01-what-is-javascript.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/02-variables-and-types.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/03-functions.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/04-control-flow.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/05-selecting-the-dom.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/05b-modifying-the-dom.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/06-events.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/07-working-with-data.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/08-destructuring-and-spread.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/09-modules.md
+- [ ] content/course/engineering-track/web/03-javascript-essentials/10-classes-and-modern-syntax.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/01-introduction-to-ui-frameworks.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/02-why-react.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/03-react-fundamentals.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/04-props-and-components.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/05-state-with-usestate.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/06-effects-and-data-fetching.md
+- [ ] content/course/engineering-track/web/04-react-fundamentals/07-hooks-patterns.md
+- [ ] content/course/engineering-track/web/05-building-components/01-component-thinking.md
+- [ ] content/course/engineering-track/web/05-building-components/02-building-a-button.md
+- [ ] content/course/engineering-track/web/05-building-components/03-building-a-card.md
+- [ ] content/course/engineering-track/web/05-building-components/04-building-a-modal.md
+- [ ] content/course/engineering-track/web/05-building-components/05-building-a-form.md
+- [ ] content/course/engineering-track/web/05-building-components/06-patterns-and-composition.md
+- [ ] content/course/engineering-track/web/06-design-systems-in-code/01-tokens-in-code.md
+- [ ] content/course/engineering-track/web/06-design-systems-in-code/02-building-a-token-system.md
+- [ ] content/course/engineering-track/web/06-design-systems-in-code/03-component-api-design.md
+- [ ] content/course/engineering-track/web/06-design-systems-in-code/04-documentation-for-devs.md
+- [ ] content/course/engineering-track/web/06-design-systems-in-code/05-versioning-and-releases.md
+- [ ] content/course/engineering-track/web/07-capstone/01-capstone-overview.md
+- [ ] content/course/engineering-track/web/07-capstone/02-capstone-tokens.md
+- [ ] content/course/engineering-track/web/07-capstone/03-capstone-components.md
+- [ ] content/course/engineering-track/web/07-capstone/04-capstone-documentation.md
+- [ ] content/course/engineering-track/web/07-capstone/05-capstone-deployment.md

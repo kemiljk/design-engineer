@@ -4,25 +4,11 @@
 
 ## What You'll Learn
 
-- What effects are and when to use them
-- The useEffect hook in detail
-- The dependency array and its rules
-- Fetching data from APIs
-- Cleanup functions
-- Common effect patterns
+In this lesson, we will explore what effects are and when they are necessary in your React components. You will learn the `useEffect` hook in detail, understand the dependency array and its rules, and see how to fetch data from APIs, write cleanup functions, and apply common effect patterns.
 
 ## What Are Effects?
 
-Effects are operations that happen outside React's rendering cycle:
-
-- Fetching data from an API
-- Setting up event listeners
-- Connecting to a WebSocket
-- Updating the document title
-- Measuring DOM elements
-- Setting timers
-
-These are "side effects" because they affect things beyond returning JSX.
+Effects are operations that occur outside of React's rendering cycle. These include fetching data from an API, setting up event listeners, connecting to a WebSocket, updating the document title, measuring DOM elements, and setting timers. Because they reach beyond simply returning JSX, they are called "side effects".
 
 ## The useEffect Hook
 
@@ -49,10 +35,8 @@ function DocumentTitle() {
 ```
 
 **What happens:**
-1. React renders the component
-2. Browser paints the screen
-3. useEffect runs
-4. Document title updates
+
+The sequence is as follows: React renders the component first, then the browser paints the screen, after which `useEffect` runs, and finally the document title updates.
 
 ## The Dependency Array
 
@@ -564,30 +548,17 @@ function PostList() {
 }
 ```
 
-## Try It Yourself
-
 ### Exercise 1: Clock Component
 
-Create a clock that:
-- Displays current time
-- Updates every second
-- Cleans up the interval on unmount
+Create a clock component that displays the current time, updates every second, and properly cleans up its interval when the component unmounts.
 
 ### Exercise 2: API Data Display
 
-Build a component that:
-- Fetches data from a public API (e.g., JSONPlaceholder)
-- Shows loading state
-- Handles errors gracefully
-- Re-fetches when a prop changes
+Build a component that fetches data from a public API such as JSONPlaceholder, displays a loading state while data is being retrieved, handles errors gracefully, and re-fetches whenever a relevant prop changes.
 
 ### Exercise 3: Scroll Position
 
-Track scroll position:
-- Add scroll event listener in effect
-- Update state with scroll position
-- Show "Back to Top" button when scrolled down
-- Clean up listener properly
+Develop a scroll tracking hook that adds a scroll event listener inside an effect, updates state with the current scroll position, shows a "Back to Top" button when the user has scrolled down, and correctly cleans up the listener when the component unmounts.
 
 ## Test Your Understanding
 
@@ -630,13 +601,7 @@ Track scroll position:
 
 ## Key Takeaways
 
-- useEffect runs after render for side effects (data fetching, subscriptions, DOM mutations)
-- The dependency array controls when effects run
-- Empty array `[]` means run once; no array means run every render
-- Cleanup functions prevent memory leaks and race conditions
-- Include all dependencies used in the effect
-- Don't use effects for things that can be calculated during render
-- Always handle loading and error states when fetching data
+To recap, `useEffect` runs after render and is used for side effects like data fetching, subscriptions, and DOM mutations. The dependency array controls exactly when the effect runs: an empty array means it runs only once, while no array means it runs after every render. Cleanup functions are essential for preventing memory leaks and race conditions, and you should always include all dependencies used within the effect. Avoid using effects for values that can simply be calculated during render, and always handle both loading and error states when fetching data.
 
 ## Next Steps
 

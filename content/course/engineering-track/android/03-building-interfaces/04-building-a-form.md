@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- TextField variants
-- Form state management
-- Validation
-- Form submission
+During this module, you will learn to utilize TextField variants for collecting user input and explore effective techniques for form state management. We'll examine how to implement validation logic and handle form submission to ensure a clean and professional user experience.
 
 ## TextField
 
@@ -166,19 +163,11 @@ ExposedDropdownMenuBox(
 
 ### Exercise 1: Login Form
 
-Create a login form with:
-- Email and password fields
-- Remember me checkbox
-- Submit button
-- Validation
+Practise your form development skills by creating a functional login screen. Your implementation should include dedicated email and password fields, a "remember me" checkbox, and a primary submit button. You should also incorporate basic validation to ensure the user provides properly formatted credentials.
 
 ### Exercise 2: Profile Editor
 
-Build a profile form:
-- Text fields
-- Dropdown for country
-- Date picker
-- Save button with loading state
+Further expand your capabilities by building a comprehensive profile editor. This form should feature standard text fields, a country selection dropdown, and a date picker. You should also include a save button that displays a loading state during the data persistence process to provide a responsive interface.
 
 ## Test Your Understanding
 
@@ -221,11 +210,7 @@ Build a profile form:
 
 ## Key Takeaways
 
-- OutlinedTextField for most form fields
-- Use keyboard options for appropriate keyboards
-- Validate and show errors with supportingText
-- Focus management improves UX
-- Keep form state in a data class
+To build effective forms in Compose, you must prioritise the use of `OutlinedTextField` for most data entries while configuring appropriate keyboard options to streamline the typing experience. Always validate your input and display specific errors through the `supportingText` property, and lean on focus management to enhance the overall user flow. Finally, remember to keep your form state organized within a dedicated data class for easier management and testing.
 
 ## Next Steps
 

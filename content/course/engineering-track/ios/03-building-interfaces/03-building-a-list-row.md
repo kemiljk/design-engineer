@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Row composition patterns
-- Efficient row design
-- Swipe actions
-- Selection and editing
+During this module, you will learn common row composition patterns and examine the principles of efficient row design. We'll explore how to implement swipe actions for quick user tasks and walk through the processes for handling selection and editing within your list interfaces.
 
 ## Basic Row
 
@@ -101,7 +98,7 @@ struct SettingsRow: View {
 struct SwipeableRow: View {
     let item: Item
     let onDelete: () -> Void
-    let onFavorite: () -> Void
+    let onFavourite: () -> Void
     
     var body: some View {
         Text(item.title)
@@ -111,8 +108,8 @@ struct SwipeableRow: View {
                 }
             }
             .swipeActions(edge: .leading) {
-                Button(action: onFavorite) {
-                    Label("Favorite", systemImage: "heart")
+                Button(action: onFavourite) {
+                    Label("Favourite", systemImage: "heart")
                 }
                 .tint(.pink)
             }
@@ -150,16 +147,12 @@ struct ItemList: View {
 ### Exercise 1: Contact Row
 
 Build a contact row with:
-- Avatar (initials fallback)
-- Name and phone
-- Favorite indicator
+Practise your row composition skills by building a contact row that includes a user avatar with an initials fallback. Your design should display the contact's name and phone number alongside a clear favourite indicator.
 
 ### Exercise 2: Message Row
 
 Create a message row:
-- Sender avatar
-- Name, preview, timestamp
-- Unread indicator
+Create a sophisticated message row that displays the sender's avatar, their name, a message preview, and a timestamp. Ensure you also include a distinct unread indicator to help users manage their conversations effectively.
 
 ## Test Your Understanding
 
@@ -202,11 +195,7 @@ Create a message row:
 
 ## Key Takeaways
 
-- Keep rows lightweight
-- Use HStack for horizontal layout
-- Spacer pushes content apart
-- Swipe actions add functionality
-- NavigationLink wraps for navigation
+To build efficient and performant list interfaces, you should always keep your row views lightweight and use `HStack` as your primary horizontal layout container. Leverage the `Spacer` component to push content to the edges and implement swipe actions to provide quick access to common functionalities. Finally, wrap your rows in a `NavigationLink` to provide a seamless transition to more detailed content.
 
 ## Next Steps
 

@@ -10,24 +10,17 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Planning information architecture
-- Choosing Material 3 navigation patterns
-- Designing core screens
-- Applying Material 3 components correctly
+During this phase, you will learn to plan a robust information architecture and select the most appropriate Material 3 navigation patterns for your app. We'll examine the design of core screens while applying Material 3 components correctly to ensure a professional and functional user interface.
 
 ## Step 1: Information Architecture
 
 Map the skeleton of your app.
-- **Destinations:** What are the 3-5 main places a user can go?
-- **Hierarchy:** Is the app flat (dashboard) or deep (folder structure)?
-- **Actions:** What is the primary action on each screen? (e.g., "Compose Email", "Add Task"). This determines your FAB placement.
+Map the skeleton of your application by identifying the three to five primary destinations and determining whether the hierarchy should be flat, like a dashboard, or deep, such as a multi-level folder structure. You must also define the primary action for every screen—such as composing an email or adding a task—which will inform the correct placement of your Floating Action Button.
 
 ## Step 2: Navigation Pattern
 
 Choose the navigation component that fits your IA.
-- **Bottom Navigation Bar:** Use this for 3-5 top-level destinations. It is the standard for mobile.
-- **Navigation Drawer:** Use this if you have 6+ destinations or if the destinations are secondary (e.g., mail folders).
-- **Navigation Rail:** Plan ahead—this will replace the bottom bar on tablets.
+A Bottom Navigation Bar is the standard choice for three to five top-level destinations on mobile, whereas a Navigation Drawer is preferred for six or more items or secondary locations like mail folders. To ensure a seamless transition between form factors, you should also plan how your mobile navigation will eventually be replaced by a vertical Navigation Rail on tablet devices.
 
 ## Step 3: Core Screens
 
@@ -51,10 +44,7 @@ A simple list of toggles and menus. Great practice for standard components.
 ## Step 4: Material Component Usage
 
 Don't invent custom UI elements if a standard one exists.
-- **FAB:** Use for the *single* most important action on a screen.
-- **Cards:** Use "Outlined" or "Filled" cards to group content. Avoid "Elevated" cards unless you need separation from a busy background.
-- **Text Fields:** Use "Outlined" text fields for forms. They have better usability testing results than filled fields in many contexts.
-- **Bottom Sheets:** Use these for secondary actions or simple inputs to keep the user in context.
+To maintain platform consistency, reserve the FAB for the single most important action on a screen and use outlined or filled cards to group content, avoiding elevated styles unless they are strictly necessary for separation. You should also employ outlined text fields for forms to enhance usability and utilize bottom sheets for secondary actions to keep the user focused on their current context.
 
 ## Checkpoint
 

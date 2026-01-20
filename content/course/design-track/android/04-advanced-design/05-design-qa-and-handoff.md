@@ -8,22 +8,15 @@ Design doesn't stop when you finish the mockup. The most critical phase is trans
 
 ## Preparing for Handoff
 
-### Design File Organization
-Structure your deliverables to separate final work from explorations.
-- **Pages:** Feature Name, States, Components, Archive.
-- **Frames:** Label them clearly (e.g., `Profile / Loaded`, `Profile / Empty`).
+Structure your deliverables to separate final work from explorations by organising your pages into categories like feature names, states, components, and archives, while ensuring every frame is clearly labelled as loaded or empty.
 
 ### Naming Conventions
 Naming is a shared language.
-- Use **PascalCase** for components (`ProductCard`).
-- Use **slash-notation** for variants (`PrimaryButton/Pressed`).
-This matches the mental model of a codebase.
+Establish a shared naming language by using PascalCase for components like ProductCard and slash-notation for variants such as PrimaryButton/Pressed, which directly matches the mental model of a production codebase.
 
 ### Match Compose Thinking
 Jetpack Compose is declarative. It builds UIs by stacking functions.
-- Group elements into **Columns** (vertical) and **Rows** (horizontal).
-- Use **Auto Layout** to simulate constraints.
-- Avoid random groups; make every container meaningful.
+Since Jetpack Compose is declarative, you should group elements into meaningful vertical columns and horizontal rows, using auto layout to simulate constraints rather than relying on random groups.
 
 ## Compose-Aware Specifications
 
@@ -33,33 +26,17 @@ Android developers rely on the Material Design spacing scale (4, 8, 16, 24dp). A
 ### Typography Mapping
 Map your styles to the **Material Type Scale** (`displayLarge`, `headlineMedium`, `bodyLarge`). Avoid creating custom text styles unless necessary. This ensures font scaling works automatically.
 
-### Color Documentation
-Hard-coded hex values break in dark mode. Specify colors using **Material Color Roles**.
-- `colorScheme.primary` (Brand).
-- `colorScheme.surface` (Background).
-- `colorScheme.onSurface` (Text).
-This allows the system to swap values based on the theme or wallpaper (Dynamic Color).
+### Colour Documentation
+Hard-coded hex values break in dark mode, so you must specify colours using Material Colour Roles such as `colourScheme.primary` for branding, `colourScheme.surface` for backgrounds, and `colourScheme.onSurface` for text content. This allows the system to swap values automatically based on the active theme or the user's wallpaper selection.
 
 ### Component Specifications
 Define the logic, not just the look.
-- **Visual:** Shape, Elevation, Stroke.
-- **Sizing:** Fixed width? Fill width? Wrap content?
-- **Content:** What happens if text is too long? (Truncate vs. Wrap).
+Specify the complete logic of each component by defining its visual properties like shape and elevation, its sizing constraints—whether it should fill width or wrap content—and its specific behaviour when text exceeds the available space.
 
 ## Creating Spec Documents
 
-### Component Spec Template
-```markdown
-## Filled Button
-- **Shape:** RoundedCornerShape(100)
-- **Background:** colorScheme.primary
-- **Typography:** labelLarge
-- **Sizing:** Height 40dp, Min Width 64dp
-- **States:**
-  - Disabled: 38% opacity
-  - Pressed: Ripple overlay
-- **Accessibility:** Min touch target 48dp, Description="Button Text"
-```
+#### Filled Button Specification
+The filled button is defined by a 100-unit rounded corner shape and uses the primary brand role from the colour scheme. It utilizes the large label typography with a 40dp height and 64dp minimum width, supporting disabled states at 38% opacity and pressed states with a ripple overlay. To ensure accessibility, it must maintain a minimum 48dp touch target and include a descriptive label for screen readers.
 
 ## Design QA Process
 
@@ -68,29 +45,19 @@ Run a self-check before handoff. Have you designed all states (Empty, Error, Loa
 
 ### The Verification Loop
 During development, request early builds.
-- **Visual Accuracy:** Does spacing align with the 8dp grid?
-- **Responsive Behavior:** Does the layout adapt from phone to tablet?
-- **Theme Support:** Does Dark Mode work?
-- **Accessibility:** Turn on TalkBack. Are touch targets large enough?
+During development, maintain a verification loop to check that spacing aligns with the 8dp grid and that the layout adapts correctly from phone to tablet. You must also ensure that dark mode is fully functional and that TalkBack reveals large enough touch targets for accessible interaction.
 
 ## Designer-Developer Collaboration
 
 ### Speak the Language
 Learn basic Compose concepts.
-- **Composable:** A UI function.
-- **Modifier:** How you style/layout a component.
-- **State:** What drives data updates.
-Using these terms earns you respect and clarity.
+Earn respect and clarity within the engineering team by learning basic Compose concepts, such as using composables for UI functions, modifiers for styling and layout, and state to drive data updates.
 
 ### Communication Best Practices
-- Explain the **Rationale**: "Button is at the bottom for reachability."
-- Be **Specific**: Use overlays to show exactly where padding is off.
-- Establish **Regular Touchpoints**: Kickoffs, Check-ins, QA Sessions.
+Establish regular touchpoints through kickoffs and QA sessions, ensuring you provide specific rationale for reachability decisions and use overlays to clearly demonstrate where padding or spacing needs adjustment.
 
 ## Tools for Handoff
-- **Figma Dev Mode:** Inspect properties directly.
-- **Material Theme Builder:** Export token files for developers.
-- **Relay:** Generate production-ready Compose code from Figma components.
+Utilise powerful handoff tools like Figma Dev Mode for property inspection, the Material Theme Builder for exporting token files, and Relay for generating production-ready Compose code directly from your components.
 
 ## Try It Yourself
 
@@ -119,7 +86,7 @@ Take a screenshot of an implemented screen. Overlay it on your design at 50% opa
     },
     {
       "id": "b",
-      "text": "Material colour scheme roles like colorScheme.primary",
+      "text": "Material colour scheme roles like colourScheme.primary",
       "isCorrect": true,
       "explanation": "Correct! Using Material colour roles ensures colours automatically adapt to light/dark themes and support dynamic colour from the user's wallpaper."
     },
@@ -141,11 +108,7 @@ Take a screenshot of an implemented screen. Overlay it on your design at 50% opa
 
 ## Key Takeaways
 
-- **Naming** is your first tool for communication.
-- Specs must speak **Material Design** (tokens, roles).
-- Document **logic and behavior**, not just visuals.
-- **Design QA** is a collaborative process.
-- The goal is a **shared understanding** between design and engineering.
+Effective Android handoff depends on clear naming conventions and specifications that leverage Material Design tokens and roles to define both logic and behaviour. By treating design QA as a collaborative, ongoing process, you can build a shared understanding with engineering that ensures the final product remains true to your original vision.
 
 ## Module Complete! 🎉
 

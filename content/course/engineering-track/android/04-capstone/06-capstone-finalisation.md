@@ -10,20 +10,13 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Creating an **Adaptive Icon** that works on all launchers
-- Configuring the modern Splash Screen API
-- Writing a README that explains your technical decisions
+During this module, you will learn to create a proper Adaptive Icon that functions across all launchers and configure the modern Splash Screen API for a professional launch experience. We'll also examine how to write a compelling README that clearly explains your technical decisions and showcases the final product effectively.
 
 ## Step 1: The Adaptive Icon
 
 Android icons are layered. They consist of a foreground (your logo) and a background (solid color or pattern). This allows the system to mask them as circles, squares, or squircles depending on the user's theme.
 
-1.  **Prepare:** Create a 108x108dp foreground image. Your logo should fit within the center 66dp "safe zone".
-2.  **Import:** Right-click `res` -> New -> **Image Asset**.
-3.  **Configure:** Select "Launcher Icons (Adaptive and Legacy)".
-    *   **Foreground Layer:** Select your image.
-    *   **Background Layer:** Select a color.
-4.  **Verify:** Toggle the "Preview" shapes to ensure your logo isn't cut off.
+To create your icon, start by preparing a 108x108dp foreground image ensuring your logo fits within the central 66dp "safe zone". You should then right-click on the `res` directory, navigate to New, and select Image Asset. From there, configure your launcher icons by selecting "Adaptive and Legacy", choosing your foreground image, and selecting an appropriate background colour. Finally, verify your work by toggling through the verschiedenen preview shapes to confirm that the logo remains perfectly visible without any clipping.
 
 ## Step 2: The Splash Screen
 
@@ -87,27 +80,18 @@ This app follows the recommended **MVI/MVVM** architecture:
 
 ## Step 4: The Repository
 
-1.  **Initialise:** `git init`
-2.  **Ignore:** Ensure you have a proper `.gitignore` (ignore `.idea`, `build/`, `*.iml`).
-3.  **Commit:** Stage and commit your code.
-4.  **Push:** Push to a new public GitHub repository.
+Begin by initialising your repository with a `git init` command and carefully configure your `.gitignore` file to exclude internal IDE files and build artifacts. Once your environment is clean, stage and commit your initial code before finally pushing your workspace to a new public GitHub repository.
 
 ## Submission Checklist
 
 ### Application Polish
-- [ ] Adaptive Icon is set (no green Android head).
-- [ ] Application Label is correct (e.g., "Tasks", not "Task_Manager_Final").
-- [ ] Dark Mode colors are checked and legible.
+Ensure your application is fully polished by verifying that your Adaptive Icon is correctly set and that the application label matches your project's name. You should also check that your dark mode colours are legible and consistent across all screens.
 
 ### Code Quality
-- [ ] No `Log.d` statements left in production code.
-- [ ] Code is formatted (press `Ctrl+Alt+L` / `Cmd+Opt+L`).
-- [ ] Unused resources (images, layouts) are removed.
+To maintain high code quality, remove any remaining `Log.d` statements from your production code and ensure all files are correctly formatted. You should also perform a final audit of your resources to remove any unused images or layouts that may bloat the application size.
 
 ### Documentation
-- [ ] `README.md` exists and has screenshots.
-- [ ] Architecture is explained briefly.
-- [ ] Repository is public.
+Finalise your documentation by ensuring a thorough `README.md` file exists with relevant screenshots and a brief explanation of your architectural choices. Finally, confirm that your repository is set to public so that it can be reviewed by others.
 
 ## What's Next
 

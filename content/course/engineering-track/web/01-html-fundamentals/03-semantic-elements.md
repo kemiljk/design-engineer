@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The main semantic elements and when to use them
-- How to structure page layout semantically
-- The difference between `<div>` and semantic elements
-- Best practices for semantic HTML
+During this module, you will learn about the primary semantic elements and identify the most appropriate scenarios for their use. We'll examine how to structure your page layout semantically and clarify the essential differences between generic `<div>` containers and meaningful semantic elements. You will also walk through the best practices for writing clean, accessible, and semantic HTML for modern web projects.
 
 ## Why Semantic Elements?
 
@@ -108,12 +105,7 @@ Self-contained, independently distributable content:
 ```
 
 Use `<article>` for:
-- Blog posts
-- News articles
-- Comments
-- Forum posts
-- Product cards
-- Social media posts
+The `<article>` element is ideally suited for self-contained content such as blog posts, news articles, and user comments. You should also consider using it for independent units like forum posts, product cards, or social media updates, provided they remain meaningful even when syndicated on their own.
 
 Test: Would this make sense syndicated on its own? If yes, it's an `<article>`.
 
@@ -153,11 +145,7 @@ Content tangentially related to the surrounding content:
 ```
 
 Use `<aside>` for:
-- Sidebars
-- Pull quotes
-- Advertising
-- Related content
-- Author bios (in an article context)
+The `<aside>` element is perfect for sidebars, pull quotes, and advertising that is tangentially related to the surrounding content. It is also commonly used for author biographies in an article context or for grouping related links that provide additional value without being part of the primary content stream.
 
 ### footer
 
@@ -211,9 +199,7 @@ Inline generic container:
 ```
 
 Use `<span>` for:
-- Styling portions of text
-- Targeting text with JavaScript
-- When no inline semantic element fits
+The `<span>` element serves as an inline generic container that is particularly useful for styling specific portions of text or targeting elements with JavaScript. You should reach for a `<span>` whenever no other inline semantic element fits your specific needs, such as when you need to highlight a price or apply a specific colour to a single word.
 
 ## Complete Page Structure
 
@@ -411,11 +397,7 @@ Take a page design (your own or from Dribbble):
 
 ## Key Takeaways
 
-- Semantic elements describe content meaning, not appearance
-- Use `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>` for page structure
-- Use `<div>` and `<span>` only when no semantic element fits
-- Semantic HTML improves accessibility, SEO, and maintainability
-- Multiple headers, footers, and navs are valid—use `aria-label` to distinguish
+To build high-quality web interfaces, you must use semantic elements to describe the genuine meaning of your content rather than its appearance. Prioritise using structure-defining tags such as `<header>`, `<nav>`, and `<main>` appropriately, and only resort to `<div>` or `<span>` when no semantic alternative exists. By correctly applying these elements and using `aria-label` to distinguish multiple landmarks, you will significantly improve the accessibility, SEO, and long-term maintainability of your web projects.
 
 ## Next Steps
 

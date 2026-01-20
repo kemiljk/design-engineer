@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Declarative UI concepts
-- Composable functions
-- Compose vs Views
-- Getting started
+During this module, you will learn the core concepts of declarative UI development and exactly how composable functions serve as the building blocks of your application. We'll examine the fundamental differences between Compose and the traditional View system and get you started with your first modern Android project.
 
 ## Declarative UI
 
@@ -43,10 +40,7 @@ fun Greeting(name: String) {
 ```
 
 ### Rules of Composables
-- Annotated with `@Composable`
-- Can call other composables
-- Can't be called from regular functions
-- Should be side-effect free
+Every composable must be annotated with `@Composable` and can only be called from other composable functions, never from regular code. To ensure optimal performance and predictability, they should also be side-effect free, simply transforming input data into visual descriptions.
 
 ## Recomposition
 
@@ -125,15 +119,11 @@ fun GreetingPreview() {
 
 ### Exercise 1: First Composable
 
-Create a composable that shows:
-- A greeting text
-- A button that prints to logcat
+Begin your journey by creating a simple composable that displays a personalised greeting text. You should also include a button that prints a confirmation message to Logcat when clicked to verify your understanding of basic interaction.
 
 ### Exercise 2: Preview Variations
 
-Create previews for:
-- Different names
-- Light and dark themes
+Further explore the developer experience by creating multiple preview variations for your component. Practice viewing your design with different name inputs and across both light and dark themes to ensure visual consistency.
 
 ## Test Your Understanding
 
@@ -176,11 +166,7 @@ Create previews for:
 
 ## Key Takeaways
 
-- Compose is declarative: describe what, not how
-- Composables are functions annotated with @Composable
-- State changes trigger recomposition
-- Preview lets you see UI in Android Studio
-- Pure Kotlin, no XML needed
+To master Jetpack Compose, you must understand that it is a declarative system where you describe "what" the UI should be rather than "how" to update it. Composable functions, identified by the `@Composable` annotation, are your primary tools, and they automatically recompose whenever their underlying state changes. This approach allows you to build entire interfaces in pure Kotlin without ever needing XML, while the integrated preview system provides immediate visual feedback.
 
 ## Next Steps
 

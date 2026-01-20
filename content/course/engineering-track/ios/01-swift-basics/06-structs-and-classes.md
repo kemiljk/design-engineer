@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Structs vs classes
-- Properties and methods
-- Value vs reference semantics
-- When to use each
+During this module, you will learn the fundamental differences between structs and classes and examine how to implement properties and methods within these structures. We'll explore the critical concepts of value versus reference semantics and provide clear guidance on when to choose each approach in your own projects.
 
 ## Structs
 
@@ -125,16 +122,10 @@ class Dog: Animal {
 ## Struct vs Class
 
 ### Use Structs When
-- Representing simple data
-- Copy semantics make sense
-- No need for inheritance
-- Thread safety matters (value types are safer)
+You should prioritise structs when representing simple data structures where independent copy semantics make sense and there is no requirement for inheritance. Structs are also the preferred choice when thread safety is a primary concern, as value types inherently avoid shared mutable state.
 
 ### Use Classes When
-- Need inheritance
-- Need reference semantics
-- Objective-C interoperability
-- Identity matters (checking if same instance)
+Conversely, classes are necessary when you require inheritance or reference semantics to share a single instance across multiple parts of your application. They are also mandatory for Objective-C interoperability or when the unique identity of an instance is more important than its underlying data.
 
 ### Swift Preference
 **Prefer structs by default.** Most Swift standard library types are structs: Int, String, Array, Dictionary.
@@ -165,15 +156,12 @@ class UserSession {
 ### Exercise 1: Model a Card
 
 Create a struct for a playing card:
-- Suit (enum)
-- Rank (enum)
-- Computed property for description
+Practise your modeling skills by creating a struct for a playing card that includes enums for both suit and rank. You should also implement a computed property that generates a clear, human-readable description of the card.
 
 ### Exercise 2: Value vs Reference
 
 Create examples demonstrating:
-- Struct copy behaviour
-- Class reference behaviour
+Create practical code examples that demonstrate the distinct differences between struct copy behaviour and class reference behaviour to solidify your understanding of these two fundamental types.
 
 ## Test Your Understanding
 
@@ -216,11 +204,7 @@ Create examples demonstrating:
 
 ## Key Takeaways
 
-- Structs are value types (copied)
-- Classes are reference types (shared)
-- Prefer structs for most data modelling
-- Use `mutating` for struct methods that modify self
-- Classes support inheritance; structs don't
+To build a scalable Swift codebase, you must understand that structs are value types that create independent copies, while classes are reference types that share instances. Prefer structs for the majority of your data modelling and use the `mutating` keyword for any struct methods that modify their own properties. Finally, remember that while classes support inheritance, structs prioritising safety and simplicity—remain the idiomatic choice for most Swift development.
 
 ## Congratulations!
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Form containers
-- Input types
-- Validation patterns
-- Keyboard handling
+During this module, you will learn to use form containers effectively and explore a variety of input types available in SwiftUI. We'll examine robust validation patterns and walk through the essential techniques for managing focus and keyboard handling to provide a smooth data entry experience.
 
 ## Basic Form
 
@@ -146,17 +143,12 @@ struct FocusForm: View {
 ### Exercise 1: Registration Form
 
 Build a registration form with:
-- Name, email, password fields
-- Terms acceptance toggle
-- Validation for all fields
-- Submit button
+Practise your form design skills by building a registration form that includes fields for name, email, and password. You should also incorporate a toggle for terms acceptance and implement validation logic for all fields before enabling the final submit button.
 
 ### Exercise 2: Settings Form
 
 Create a settings form:
-- Grouped sections
-- Various input types
-- Save/Cancel actions
+Create a comprehensive settings form organised into grouped sections and utilizing various input types like pickers and toggles. Ensure you include clear actions for saving changes or cancelling the operation to maintain a predictable user experience.
 
 ## Test Your Understanding
 
@@ -199,11 +191,7 @@ Create a settings form:
 
 ## Key Takeaways
 
-- Form provides automatic styling
-- Section groups related content
-- Use appropriate text content types
-- @FocusState manages keyboard focus
-- Validate before submission
+To build high-quality user entry interfaces, you should leverage the `Form` component to provide automatic, platform-appropriate styling and use `Section` to logically group related content. Always specify the correct text content types for each input field and use `@FocusState` to manage keyboard focus efficiently. Finally, ensure you implement thorough validation for all data before allowing submission to maintain data integrity.
 
 ## Next Steps
 

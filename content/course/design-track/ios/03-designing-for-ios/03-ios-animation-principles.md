@@ -66,7 +66,7 @@ Animations shouldn't happen in isolation. They should be choreographed. If a car
 "Make it pop" is not a specification. When handing off motion to developers, define:
 - **Trigger:** What starts it? (Tap, Drag, Automatic)
 - **Parameters:** Stiffness (300), Damping (30). Or use SwiftUI presets like `.bouncy` or `.snappy`.
-- **Behavior:** Is it interruptible? Does it track a gesture?
+- **Behaviour:** Is it interruptible? Does it track a gesture?
 
 ### Example Specification: Button Press
 **Touch Down:** Scale to 0.96. Duration: 0.1s. (Fast response)
@@ -136,10 +136,7 @@ Specify the animation for a "Like" heart icon.
 
 ## Key Takeaways
 
-- Use **Spring Physics** (Mass, Stiffness, Damping) instead of time-based curves.
-- Make motion **Responsive** (interruptible) and **Meaningful** (spatial orientation).
-- **Interactive animations** track the finger 1:1 and inherit velocity.
-- **Rubber banding** and **overshoot** make the interface feel alive.
+Native iOS animations are defined by **Spring Physics** (Mass, Stiffness, and Damping) rather than static time-based curves, ensuring motion is always **Responsive** and **Meaningful**. By leveraging **interactive animations** that track input 1:1 and inheriting user velocity, you create a tactile experience where **rubber banding** and **overshoot** make the interface feel alive and physically real.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- State in Compose
-- remember and mutableStateOf
-- State hoisting
-- ViewModel integration
+During this module, you will learn how state drives UI updates in Compose and explore the essential roles of `remember` and `mutableStateOf`. We'll examine the concept of state hoisting for creating reusable components and look at how to integrate ViewModels for more robust state management.
 
 ## State Basics
 
@@ -83,10 +80,7 @@ fun Counter(
 ```
 
 ### Benefits of Hoisting
-- Reusable components
-- Easier testing
-- Single source of truth
-- Parent controls behaviour
+Hoisting your state results in more reusable components and drastically simplifies the testing process. By creating a single source of truth, you ensure that the parent container maintains control over the behaviour of its child elements, leading to a cleaner and more predictable architecture.
 
 ## rememberSaveable
 
@@ -131,16 +125,11 @@ val itemCount by remember { derivedStateOf { items.size } }
 
 ### Exercise 1: Text Input
 
-Create a text field with:
-- State for text
-- Display current text length
-- Clear button
+Practise your state management skills by creating an interactive text field that displays its current character count in real time. You should also include a clear button that resets the state, ensuring that the interface updates immediately to reflect the change.
 
 ### Exercise 2: Hoisted State
 
-Refactor a stateful component:
-- Move state to parent
-- Pass state and callbacks down
+Further develop your architectural skills by refactoring a stateful component into a stateless one. Move the internal state management up to the parent container and pass the necessary state and event callbacks back down to ensure proper state hoisting.
 
 ## Test Your Understanding
 
@@ -183,11 +172,7 @@ Refactor a stateful component:
 
 ## Key Takeaways
 
-- `remember` preserves state across recompositions
-- `mutableStateOf` creates observable state
-- Hoist state for reusability
-- `rememberSaveable` survives config changes
-- ViewModel for business logic state
+To build responsive interfaces in Compose, you must use `remember` to preserve your state across recompositions and `mutableStateOf` to create observables that trigger UI updates. Always prioritise hoisting your state to enhance component reusability and use `rememberSaveable` to ensure data persists through configuration changes like screen rotation. Finally, leverage ViewModels to manage complex business logic and provide a consistent source of truth for your screen's state.
 
 ## Next Steps
 

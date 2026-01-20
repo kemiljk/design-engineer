@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Material 3 card types
-- Card composition
-- Interactive cards
-- Custom card styling
+During this module, you will learn to utilize the various Material 3 card types and master the art of effective card composition. We'll examine how to create interactive cards and explore techniques for custom styling to ensure your components fit perfectly within your application's design system.
 
 ## Material 3 Cards
 
@@ -148,19 +145,11 @@ fun CustomCard(
 
 ### Exercise 1: Product Card
 
-Build a product card with:
-- Image
-- Name and price
-- Rating
-- Add to cart button
+Practise your composition skills by building a detailed product card. Your design should include a primary product image, clear price and name labels, a customer rating section, and a prominent "Add to cart" button for a complete commerce experience.
 
 ### Exercise 2: Profile Card
 
-Create a profile card:
-- Avatar
-- Name and bio
-- Stats row
-- Message button
+Further expand your capabilities by creating a profile card that features a user avatar and a short biography. You should also incorporate a row for displaying user statistics and include a direct message button to encourage interaction.
 
 ## Test Your Understanding
 
@@ -203,10 +192,7 @@ Create a profile card:
 
 ## Key Takeaways
 
-- Card types indicate visual importance
-- Compose card content with Column/Row
-- Use onClick for interactive cards
-- Surface for fully custom cards
+To build effective grouping components in Compose, you must select the appropriate card type to indicate visual importance and use Column or Row layouts to structure your content. Assign an `onClick` parameter to make your cards interactive and leverage the `Surface` composable whenever you need to implement fully custom card designs that go beyond standard Material specifications.
 
 ## Next Steps
 

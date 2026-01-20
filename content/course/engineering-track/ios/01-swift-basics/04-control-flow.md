@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Conditionals (if, guard, switch)
-- Loops (for, while)
-- Early exit patterns
-- Pattern matching
+During this module, you will learn to implement core conditionals like `if`, `guard`, and `switch`, and explore the various loop structures including `for` and `while`. We'll examine effective early exit patterns and walk through the process of using advanced pattern matching to handle complex logic with ease.
 
 ## Conditionals
 
@@ -173,16 +170,12 @@ case .error(let error):
 ### Exercise 1: Grade Calculator
 
 Write a function that:
-- Takes a score (0-100)
-- Returns a letter grade using switch
-- Handles invalid scores
+Practise your conditional logic by writing a function that takes a score between 0 and 100. The function should return a corresponding letter grade using a `switch` statement and include robust handling for any invalid scores that may be passed.
 
 ### Exercise 2: FizzBuzz
 
 Print numbers 1-100:
-- "Fizz" for multiples of 3
-- "Buzz" for multiples of 5
-- "FizzBuzz" for both
+Implement the classic FizzBuzz problem by printing numbers from 1 to 100 with specific rules. Your code should display "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for numbers that are multiples of both.
 
 ## Test Your Understanding
 
@@ -225,11 +218,7 @@ Print numbers 1-100:
 
 ## Key Takeaways
 
-- Guard is great for early exit with unwrapping
-- Switch is exhaustive and supports patterns
-- For-in works with any Sequence
-- Pattern matching is powerful in switch
-- Use ranges with `...` (inclusive) or `..<` (exclusive)
+To build reliable Swift applications, you should utilise `guard` for early exits and clean optional unwrapping, and remember that `switch` statements must be exhaustive to ensure all possibilities are handled. The `for-in` loop is your primary tool for iterating over sequences, while advanced pattern matching within switches provides a powerful way to deconstruct complex data. Finally, use ranges with the inclusive `...` or exclusive `..<` operators to define precise intervals in your logic.
 
 ## Next Steps
 

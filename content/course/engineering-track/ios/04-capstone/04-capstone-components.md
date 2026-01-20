@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Creating reusable SwiftUI view components
-- Building custom view modifiers
-- Designing button styles
-- Creating empty state views
+During this module, you will learn how to create reusable SwiftUI view components and build custom view modifiers for consistent styling. We'll examine the process of designing bespoke button styles and walk through the creation of effective empty state views to handle missing data gracefully.
 
 ## Custom Row Component
 
@@ -147,19 +144,11 @@ struct EmptyStateView: View {
 
 Before moving on, verify:
 
-- [ ] TaskRow (or equivalent) component extracted
-- [ ] Badge/status component created
-- [ ] Custom view modifiers work
-- [ ] Button styles applied consistently
-- [ ] Empty state component ready
-- [ ] Components are reusable across views
+Before proceeding, verify that your task row or equivalent component has been successfully extracted and that you have created dedicated badge or status components for your interface. You should also ensure that your custom view modifiers function as expected, that button styles are applied consistently throughout the app, and that your empty state component is fully reusable across different views.
 
 ## Try It Yourself
 
-1. Identify repeated UI patterns in your screens
-2. Extract them into separate view files
-3. Create modifiers for common styling
-4. Test components in isolation with previews
+Enhance your application's architecture by identifying repeated UI patterns across your screens and extracting them into separate, manageable view files. Create custom modifiers for common styling needs and meticulously test each component in isolation using SwiftUI previews to ensure they are robust and visually consistent.
 
 ## Next Steps
 

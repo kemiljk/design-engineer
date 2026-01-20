@@ -4,34 +4,17 @@
 
 ## What You'll Learn
 
-- Adding and removing event listeners
-- Common event types
-- Event objects and their properties
-- Event delegation and bubbling
+In this lesson, we will cover the essential techniques for adding and removing event listeners to make your interfaces interactive. You will explore a wide range of common event types, understand how to leverage the event object and its properties, and learn the powerful concepts of event delegation and bubbling to manage complex interactions efficiently.
 
 ## What Are Events?
 
-Events are things that happen: a user clicks, types, scrolls, or the page loads. JavaScript can listen for these events and respond.
-
-```javascript
-button.addEventListener('click', () => {
-  console.log('Button clicked!');
-});
-```
+Events represent specific actions or occurrences that happen in the browser, such as a user clicking a button, typing into an input field, scrolling down a page, or the document finishing its initial load. JavaScript can "listen" for these events and execute specific code in response, allowing you to create dynamic and interactive user experiences.
 
 ## Adding Event Listeners
 
-### addEventListener
+### `addEventListener`
 
-The modern, preferred way:
-
-```javascript
-const button = document.querySelector('button');
-
-button.addEventListener('click', () => {
-  console.log('Clicked!');
-});
-```
+The modern and most versatile way to handle events is by using the `addEventListener` method. This approach allows you to attach one or more event handlers to a single element without overwriting existing ones, providing a clean and modular way to manage interactivity across your application.
 
 ### With Named Function
 
@@ -45,67 +28,11 @@ button.addEventListener('click', handleClick);
 
 ### Removing Listeners
 
-Must use the same function reference:
-
-```javascript
-button.removeEventListener('click', handleClick);
-```
-
-Anonymous functions can't be removed:
-
-```javascript
-// Can't remove this later
-button.addEventListener('click', () => {});
-```
+If you need to remove an event listener later, you must provide a reference to the exact same function that was used when the listener was added. Because of this requirement, anonymous functions cannot be removed, so it is a best practice to use named function references if you anticipate needing to clean up your event handlers to prevent memory leaks or unwanted behaviours.
 
 ## Common Event Types
 
-### Mouse Events
-
-```javascript
-element.addEventListener('click', handler);      // Click
-element.addEventListener('dblclick', handler);   // Double click
-element.addEventListener('mouseenter', handler); // Mouse enters
-element.addEventListener('mouseleave', handler); // Mouse leaves
-element.addEventListener('mousemove', handler);  // Mouse moves
-element.addEventListener('mousedown', handler);  // Mouse button pressed
-element.addEventListener('mouseup', handler);    // Mouse button released
-```
-
-### Keyboard Events
-
-```javascript
-input.addEventListener('keydown', handler);   // Key pressed
-input.addEventListener('keyup', handler);     // Key released
-input.addEventListener('keypress', handler);  // Deprecated, use keydown
-```
-
-### Form Events
-
-```javascript
-form.addEventListener('submit', handler);    // Form submitted
-input.addEventListener('input', handler);    // Value changes
-input.addEventListener('change', handler);   // Value committed (blur)
-input.addEventListener('focus', handler);    // Element focused
-input.addEventListener('blur', handler);     // Element loses focus
-```
-
-### Window/Document Events
-
-```javascript
-window.addEventListener('load', handler);     // Page fully loaded
-document.addEventListener('DOMContentLoaded', handler); // DOM ready
-window.addEventListener('resize', handler);   // Window resized
-window.addEventListener('scroll', handler);   // Page scrolled
-```
-
-### Touch Events (Mobile)
-
-```javascript
-element.addEventListener('touchstart', handler);
-element.addEventListener('touchmove', handler);
-element.addEventListener('touchend', handler);
-```
+JavaScript can respond to a vast array of user and browser events. Mouse events like `click`, `mouseenter`, and `mouseleave` allow you to handle physical interactions, while keyboard events such as `keydown` and `keyup` are essential for text entry and shortcuts. You will also frequently work with form events like `submit` and `input` to manage user data, as well as window events such as `resize` and `scroll` for responsive and dynamic layout adjustments. On mobile devices, touch events provide the necessary feedback for gestures like tapping and swiping.
 
 ## The Event Object
 
@@ -121,27 +48,7 @@ button.addEventListener('click', (event) => {
 
 ### Common Event Properties
 
-```javascript
-event.target          // Element that triggered event
-event.currentTarget   // Element with the listener
-event.type            // Event type ("click", "keydown", etc.)
-event.timeStamp       // When event occurred
-
-// Mouse events
-event.clientX         // Mouse X position in viewport
-event.clientY         // Mouse Y position in viewport
-event.pageX           // Mouse X position in page
-event.pageY           // Mouse Y position in page
-event.button          // Which mouse button (0=left, 1=middle, 2=right)
-
-// Keyboard events
-event.key             // Key pressed ("Enter", "a", "Escape")
-event.code            // Physical key ("KeyA", "Enter")
-event.shiftKey        // Shift held?
-event.ctrlKey         // Ctrl held?
-event.altKey          // Alt held?
-event.metaKey         // Cmd/Win held?
-```
+The event object provides a wealth of information about exactly what occurred. For any event, you can access the `target` to find the element that triggered it, the `currentTarget` to see which element holds the listener, and the `type` to identify the specific event. Mouse events additionally include coordinates like `clientX` and `clientY`, while keyboard events provide details about the specific `key` and `code` that were pressed, along with the state of modifier keys like Shift or Alt.
 
 ## Preventing Default Behavior
 
@@ -216,9 +123,7 @@ document.querySelector('.list').addEventListener('click', (event) => {
 
 ### Benefits of Delegation
 
-- Works with dynamically added elements
-- Better performance (fewer listeners)
-- Simpler code
+Event delegation is a powerful technique that allows you to handle events for multiple child elements using a single listener on their parent. This approach is highly efficient as it significantly reduces the number of event listeners in your application, which leads to better performance. Furthermore, it simplifies your code and ensures that any dynamically added elements are automatically covered by the listener without any additional setup.
 
 ### Delegation Pattern
 
@@ -351,15 +256,15 @@ document.addEventListener('keydown', (event) => {
 
 ### Exercise 1: Click Counter
 
-Create a button that shows how many times it's been clicked.
+Develop a simple interface featuring a button that displays and updates a count of how many times it has been clicked by the user.
 
 ### Exercise 2: Character Counter
 
-Create an input with a character counter that updates as you type.
+Create an input field paired with a character counter. Your JavaScript should listen for input events and update the counter in real-time as the user types, ensuring they can see how many characters they have entered.
 
 ### Exercise 3: Sortable List
 
-Create a list where clicking a button moves an item up or down. Use event delegation.
+Implement a list where each item has buttons to move it up or down relative to its siblings. You should use event delegation to handle the button clicks efficiently for the entire list.
 
 ## Test Your Understanding
 
@@ -402,13 +307,7 @@ Create a list where clicking a button moves an item up or down. Use event delega
 
 ## Key Takeaways
 
-- `addEventListener` attaches event handlers
-- Event object contains information about the event
-- `preventDefault()` stops default browser behaviour
-- Events bubble up—use `stopPropagation()` to stop
-- Event delegation listens on parents for efficiency
-- Debounce and throttle for frequently firing events
-- Use `event.target` to find what triggered the event
+To recap, `addEventListener` is the primary method for attaching event handlers and making your web pages interactive. Every event provides an object full of useful data, and you can use `preventDefault()` to override the browser's default behaviours when necessary. For more efficient and scalable code, leverage event delegation to handle multiple elements from a single parent, and consider using debouncing or throttling to manage events that fire frequently, such as scrolling or resizing.
 
 ## Next Steps
 

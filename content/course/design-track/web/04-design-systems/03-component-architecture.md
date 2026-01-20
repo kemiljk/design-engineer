@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Principles of good component architecture
-- Building component variants and states
-- Composition patterns for complex components
-- Planning for flexibility and evolution
+By progressing through this lesson, you will learn the core principles of good component architecture and explore how to build robust variants and states. You will also master composition patterns for handling complex UI structures and develop strategies for planning long-term flexibility and evolution within your design system.
 
 ## Principles of Component Architecture
 
@@ -33,7 +30,7 @@ Instead of building a `UserCard` that hard-codes a `UserAvatar` and `UserName` i
 There is a tension between making a component flexible ("It can do anything!") and making it easy to use ("It just works!").
 
 **Too Rigid:** A button that can only be blue and 40px high.
-**Too Flexible:** A button where you have to pass in the background color, text color, padding, and border radius every time you use it.
+**Too Flexible:** A button where you have to pass in the background colour, text colour, padding, and border radius every time you use it.
 **Just Right:** A button that offers a limited set of meaningful variants (`primary`, `secondary`, `danger`) but handles the visual details internally.
 
 ## Designing Component Variants
@@ -43,16 +40,13 @@ Variants are predefined configurations of a component. They communicate intent.
 <!-- visual-example: component-variants-demo -->
 
 **Semantic Variants:**
-Don't name variants after their look (`BlueButton`, `RedButton`). Name them after their purpose (`Primary`, `Danger`). If you rebrand and the primary color changes to purple, `BlueButton` becomes a lie, but `Primary` remains true.
+Don't name variants after their look (`BlueButton`, `RedButton`). Name them after their purpose (`Primary`, `Danger`). If you rebrand and the primary colour changes to purple, `BlueButton` becomes a lie, but `Primary` remains true.
 
 **Hierarchy:**
-Most components need a hierarchy of emphasis:
-- **Primary:** The main action on the screen (Solid fill).
-- **Secondary:** Alternative actions (Outline or light fill).
-- **Ghost/Tertiary:** Low emphasis (Text only).
+Most components require a clear hierarchy of emphasis, ranging from a primary solid fill for the main screen action to secondary outlines for alternative choices and tertiary ghost variants for low-priority text-only links.
 
 **Sizes:**
-Standardize your sizing. A "Small" button should align perfectly with a "Small" input field.
+Standardise your sizing so that a "Small" button aligns perfectly with a "Small" input field, ensuring visual rhythm across the interface.
 
 ## Designing Component States
 
@@ -61,18 +55,9 @@ A component is a state machine. It doesn't just look one way; it morphs based on
 <!-- visual-example: component-states-demo -->
 <!-- illustration: component-states -->
 
-**Interactive States:**
-Every interactive element must provide feedback.
-- **Hover:** "I am clickable."
-- **Active/Pressed:** "I am being clicked."
-- **Focus:** "I am selected via keyboard." (Critical for accessibility)
-- **Disabled:** "I cannot be clicked right now."
+Every interactive element must provide feedback through distinct states, using hover to indicate clickability and active or pressed states to confirm user selection. Additionally, focus states are critical for keyboard navigation and accessibility, while disabled states clearly communicate when an action is temporarily unavailable.
 
-**Data States:**
-Components often need to handle the lifecycle of data.
-- **Loading:** Show a skeleton or spinner.
-- **Empty:** Show a helpful message when there is no content.
-- **Error:** Show what went wrong and how to fix it.
+Components must also handle the data lifecycle, employing loading states like skeletons or spinners to manage wait times, and empty states to provide helpful guidance when no content is present. Error states are equally vital, clearly explaining what went wrong and offering a direct path to a resolution.
 
 ## Composition Patterns
 
@@ -112,11 +97,7 @@ Sensible defaults reduce boilerplate. A `Button` should probably default to `siz
 
 A component without documentation is a black box. Good documentation includes:
 
-1.  **Overview:** What is this and when should I use it?
-2.  **Examples:** Show, don't just tell. Live code examples are best.
-3.  **Props Table:** A clear list of every input the component accepts, its type, and its default value.
-4.  **Do's and Don'ts:** Guidelines on proper usage (e.g., "Don't use two Primary buttons on one page").
-5.  **Accessibility:** Notes on keyboard support and ARIA labels.
+Good documentation includes an overview of the component's purpose and usage context, accompanied by live examples that demonstrate its functionality. It should also feature a clear props table detailing every accepted input and type, along with "best practice" guidelines and specific notes on accessibility requirements like keyboard support and ARIA labels.
 
 ## Planning for Evolution
 
@@ -131,22 +112,13 @@ If you need to make a breaking change (like renaming a prop), consider if you ca
 ## Try It Yourself
 
 ### Exercise 1: Component Specification
-Choose a "Notification Toast" component. Write a spec listing:
-- What variants does it need? (Success, Error, Info, Warning)
-- What states does it have? (Entering, Visible, Exiting)
-- What is its API? (title, description, duration, onClose...)
+Perform a component specification by choosing a "Notification Toast" and listing its required variants—such as success, error, and info—alongside its visual states and full API including title, description, and duration.
 
 ### Exercise 2: Composition Design
-Sketch the hierarchy for a "Comment Section."
-- What are the atoms? (Avatar, Text, Timestamp, ReplyButton)
-- What are the molecules? (CommentHeader, CommentActions)
-- How do they compose into a CommentThread?
+Identify the atoms like avatars and timestamps that make up a comment section and determine how they compose into molecules like headers and actions before forming a complete comment thread.
 
 ### Exercise 3: API Review
-Look at a component in your current codebase.
-- Are the prop names clear?
-- Does it do too much?
-- Could it be simplified using composition?
+Examine a component in your current codebase to determine if its prop names are intuitive, if it has taken on too much responsibility, and whether its structure could be simplified through better composition.
 
 ## Test Your Understanding
 
@@ -189,12 +161,7 @@ Look at a component in your current codebase.
 
 ## Key Takeaways
 
-- Good components do one thing well (Single Responsibility).
-- Use **Composition** to build complex UIs from simple blocks.
-- **Variants** handle semantic differences; **Props** handle customization.
-- Design every **State** (Loading, Error, Empty, Disabled).
-- APIs should be intuitive: standard naming, sensible defaults.
-- Plan for the future with versioning and extensibility.
+Good components adhere to the single responsibility principle, doing one thing well while leveraging composition to build complex user interfaces. By using variants to handle semantic differences and props for customisation, you can design for every data and interaction state while ensuring APIs remain intuitive and prepared for future evolution through versioning.
 
 ## Next Steps
 

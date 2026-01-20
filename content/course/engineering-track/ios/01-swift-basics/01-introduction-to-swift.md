@@ -4,33 +4,21 @@
 
 ## What You'll Learn
 
-- What Swift is and why it matters
-- Swift Playgrounds for learning
-- Basic syntax overview
-- Your first Swift code
+During this module, you will learn exactly what Swift is and why it remains the premier language for Apple platform development. We'll examine the use of Swift Playgrounds for interactive learning and provide a comprehensive overview of basic syntax to help you write your first lines of modern Swift code.
 
 ## What Is Swift?
 
 Swift is Apple's programming language for:
-- iOS, iPadOS apps
-- macOS apps
-- watchOS, tvOS apps
-- Server-side development
+Swift is Apple's primary programming language for building high-quality applications across iOS, iPadOS, macOS, watchOS, and tvOS. Beyond client-side apps, it is also increasingly utilised for robust server-side development, offering a unified language for your entire technology stack.
 
 ### Why Swift?
-- **Safe:** Catches errors at compile time
-- **Fast:** Performance close to C
-- **Expressive:** Clean, readable syntax
-- **Modern:** Incorporates best practices
+Swift is preferred because it is safe, catching many common errors at compile time, and fast, offering performance that rivals traditional C implementations. Its expressive, clean syntax makes the code highly readable, while its modern design incorporates the latest industry best practices.
 
 ## Getting Started
 
 ### Swift Playgrounds
 Best way to learn:
-- Available on iPad and Mac
-- Interactive, immediate feedback
-- No project setup needed
-- Great for experimentation
+Swift Playgrounds offers an interactive environment with immediate feedback, making it a great tool for experimentation on both Mac and iPad. Since no complex project setup is needed, it remains the best way to learn the language through direct, hands-on experience.
 
 ### Xcode Playgrounds
 In Xcode:
@@ -110,9 +98,7 @@ let message = "Welcome to \(name)!"
 ### Exercise 1: Hello Swift
 
 Create a playground and:
-1. Print your name
-2. Create a constant for your birth year
-3. Calculate and print your age
+Practise your foundational Swift skills by creating a new playground and printing your name to the console. You should also create a constant to store your birth year and implement a simple calculation to determine and print your current age.
 
 ### Exercise 2: String Interpolation
 
@@ -164,11 +150,7 @@ Print a formatted receipt line.
 
 ## Key Takeaways
 
-- Swift is safe, fast, and modern
-- Use `let` for constants, `var` for variables
-- Types are inferred but can be explicit
-- String interpolation uses `\(value)` syntax
-- Playgrounds are great for learning
+To build a strong foundation in Apple platform development, you must embrace Swift's safe, fast, and modern architecture. Use `let` for constants to ensure immutability and `var` for variables that require change, while leveraging type inference to keep your code clean and readable. Master the use of string interpolation for dynamic text and utilise playgrounds as your primary environment for continuous learning and experimentation.
 
 ## Next Steps
 

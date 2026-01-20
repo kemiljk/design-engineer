@@ -4,23 +4,11 @@
 
 ## What You'll Learn
 
-- What state is and when to use it
-- The useState hook in detail
-- Updating state correctly
-- State vs props
-- Common state patterns
+In this lesson, we will delve into what state is and when to use it within your React components. You will learn the `useState` hook in detail, understand how to update state correctly, see the key differences between state and props, and explore common state management patterns.
 
 ## What Is State?
 
-State is data that can change during a component's lifetime:
-
-- A counter's current value
-- Whether a modal is open
-- Form input values
-- Fetched data from an API
-- Which tab is selected
-
-When state changes, React re-renders the component with the new values.
+State is data that can change during a component's lifetime. This includes things like a counter's current value, whether a modal is currently open, the values held by form inputs, data fetched from an API, or which tab is currently selected. When state changes, React automatically re-renders the component with the new values.
 
 ### State vs Props
 
@@ -57,9 +45,7 @@ function Counter() {
 const [value, setValue] = useState(initialValue);
 ```
 
-- **`value`**: The current state value
-- **`setValue`**: Function to update the state
-- **`initialValue`**: The starting value (only used on first render)
+The breakdown is as follows: `value` holds the current state value, `setValue` is a function used to update the state, and `initialValue` is the starting value which is only used on the very first render.
 
 The `[value, setValue]` syntax is array destructuring. You can name these anything:
 
@@ -336,11 +322,7 @@ function Editor() {
 
 ## State and Rendering
 
-When state changes, React:
-1. Calls your component function again
-2. Generates new JSX
-3. Compares with previous JSX
-4. Updates only what changed in the DOM
+When state changes, React calls your component function again to generate new JSX, compares it with the previous output, and then updates only the parts of the DOM that have actually changed.
 
 ```jsx
 function Example() {
@@ -388,10 +370,8 @@ function SearchInput() {
 ```
 
 **The controlled component pattern:**
-1. State holds the value
-2. Input displays the state value
-3. onChange updates state
-4. Component re-renders with new value
+
+The pattern is straightforward: state holds the value, the input element displays that value, the `onChange` event updates the state, and the component re-renders to reflect the new value.
 
 ## Building a Complete Example
 
@@ -748,30 +728,17 @@ function GoodComponent({ name }) {
 }
 ```
 
-## Try It Yourself
-
 ### Exercise 1: Like Counter
 
-Build a component with:
-- A heart icon button
-- A like count
-- Click to toggle liked state
-- Liked state changes the heart colour
+Build a simple "like" component featuring a heart icon button and a display of the current like count. Clicking the button should toggle the liked state, changing the heart's colour to reflect whether the post is currently liked.
 
 ### Exercise 2: Tab Component
 
-Create a tabbed interface:
-- Array of tab labels
-- Currently selected tab in state
-- Content changes based on selection
+Create a tabbed interface where an array of tab labels is rendered as buttons. Keep the currently selected tab in state, and ensure that the content area below the tabs updates dynamically based on the user's selection.
 
 ### Exercise 3: Shopping Cart
 
-Build a mini shopping cart:
-- List of products with "Add to Cart" buttons
-- Cart shows added items with quantities
-- Can increment/decrement quantities
-- Shows total price
+Build a mini shopping cart that displays a list of products, each with an "Add to Cart" button. The cart area should show added items with their quantities, allow increment and decrement adjustments, and display the calculated total price.
 
 ## Test Your Understanding
 
@@ -814,13 +781,7 @@ Build a mini shopping cart:
 
 ## Key Takeaways
 
-- State is component memory that persists across renders
-- `useState` returns `[value, setValue]` pair
-- Always create new objects/arrays; never mutate state directly
-- Use functional updates when new state depends on previous state
-- Controlled components tie input values to state
-- Keep state minimal; derive values when possible
-- Lift state up when multiple components need to share it
+To recap, state is the component's memory that persists across renders. The `useState` hook returns a `[value, setValue]` pair that you use to read and update this memory. It is essential to always create new objects and arrays rather than mutating existing state directly. When your new state value depends on the previous one, prefer functional updates. Controlled components tie input values directly to state, and you should always keep your state minimal by deriving computed values where possible. When multiple components need to share state, you should lift it up to their common ancestor.
 
 ## Next Steps
 

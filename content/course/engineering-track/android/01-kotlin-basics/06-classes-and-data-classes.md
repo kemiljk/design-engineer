@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Class declaration
-- Properties and constructors
-- Data classes
-- Object declarations
+During this module, you will learn the syntax for class declarations, property definitions, and the various constructor types available in Kotlin. We'll examine the power of data classes for reducing boilerplate code and explore object declarations for implementing singletons and companion members.
 
 ## Basic Classes
 
@@ -123,15 +120,11 @@ fun handle(result: Result<String>) = when (result) {
 
 ### Exercise 1: Data Class
 
-Create a `Product` data class:
-- id, name, price, quantity
-- Use copy to create discounted version
+Practise your structural design skills by creating a `Product` data class that includes properties for an ID, name, price, and quantity. Use the generated `copy` function to create a second version of a product with a discounted price while maintaining the other original values.
 
 ### Exercise 2: Sealed Class
 
-Create a `NetworkState` sealed class:
-- Loading, Success(data), Error(exception)
-- Handle with when expression
+Further develop your understanding of class hierarchies by implementing a `NetworkState` sealed class with three specific states: loading, success with data, and error with an exception. Finally, write a `when` expression to handle each of these states in a safe and exhaustive manner.
 
 ## Test Your Understanding
 
@@ -174,12 +167,7 @@ Create a `NetworkState` sealed class:
 
 ## Key Takeaways
 
-- Primary constructor in class header
-- `val` = read-only, `var` = mutable property
-- Data classes generate boilerplate
-- `copy()` creates modified copies
-- Sealed classes restrict inheritance
-- Object for singletons, companion for static-like members
+To master classes in Kotlin, you must remember that primary constructors are defined directly in the class header and that property mutability is controlled through the use of `val` and `var`. Data classes are essential for automatically generating common boilerplate methods, while the `copy` function allows you to create modified versions of your data objects with ease. Finally, leverage sealed classes to restrict inheritance and use object declarations to implement singletons or companion members for static-like functionality within your codebase.
 
 ## Congratulations!
 

@@ -10,10 +10,7 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-- Building list screens with LazyColumn
-- Navigation patterns with Navigation Compose
-- Form-based screens with Material 3
-- Settings screens with DataStore
+During this module, you will learn to build complex list screens using LazyColumn and master the implementation of type-safe navigation patterns. We'll examine how to create functional form-based screens with Material 3 components and integrate persistent settings using DataStore.
 
 ## Screen 1: Main List View
 
@@ -229,19 +226,11 @@ fun SettingsScreen(
 
 Before moving on, verify:
 
-- [ ] Main list view displays data with ViewModel
-- [ ] Search and filtering work correctly
-- [ ] Detail/edit view updates data
-- [ ] Create dialog/screen adds new items
-- [ ] Navigation between screens works
-- [ ] Settings persist with DataStore
+Before proceeding, confirm that your main list view correctly displays data using a ViewModel and that the integrated search and filtering logic works as expected. Verify that the detail view allows for data updates and that create screens successfully add new entries. Finally, ensure that navigation flows smoothly between every screen and that all settings persist correctly through your DataStore implementation.
 
 ## Try It Yourself
 
-1. Build all screens for your app
-2. Test navigation flow between screens
-3. Verify data persistence works
-4. Test search and filtering
+Get started by building all the core screens for your application and thoroughly testing the navigation flow between them. Once the interface is complete, verify that your data persistence is reliable and that all search or filtering functions behave correctly under various conditions.
 
 ## Next Steps
 

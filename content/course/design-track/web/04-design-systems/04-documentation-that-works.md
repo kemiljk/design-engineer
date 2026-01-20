@@ -6,10 +6,7 @@
 
 Many design systems fail not because the components are broken, but because nobody knows how to use them correctly.
 
-**Signs of a documentation problem:**
-*   Designers keep detaching instances because they "can't find the right variant."
-*   Developers constantly message you: "Which button should I use here?"
-*   Teams recreate existing patterns because they didn't know they existed.
+Common signs of a documentation problem include designers detaching instances because they cannot find the correct variants, or developers frequently asking which buttons to use for specific contexts. Furthermore, if teams are repeatedly recreating existing patterns they didn't know existed, your documentation is likely failing to bridge the gap.
 
 Good documentation is a competitive advantage. It scales your decision-making so you don't have to be in every meeting.
 
@@ -18,19 +15,13 @@ Good documentation is a competitive advantage. It scales your decision-making so
 Documentation usually fails because it tries to be everything to everyone in a single paragraph. You have distinct audiences with distinct needs.
 
 ### 1. The Designer
-Designers are visual. They need to know *when* to use a component and *how* to manipulate it in Figma.
-*   **Needs:** Visual examples, variant lists, "Do's and Don'ts," and clear links to the Figma library.
-*   **Format:** Show, don't just tell. Use screenshots comparing correct vs. incorrect usage.
+Designers require visual examples, variant lists, and "Do and Don't" guidelines with clear links to the Figma library. This information is best presented by showing rather than just telling, using screenshots to compare correct and incorrect usage.
 
 ### 2. The Developer
-Developers are functional. They need to get the code working quickly.
-*   **Needs:** Installation commands, API references (props/types), copy-pasteable code snippets, and accessibility implementation details.
-*   **Format:** Code blocks, props tables, and live playgrounds.
+Developers need functional details such as installation commands, API references for props and types, and copy-pasteable code snippets. These should be provided alongside accessibility implementation details through code blocks, props tables, and live playgrounds.
 
 ### 3. The Stakeholder
-Product managers need to know what is available to put on their roadmap.
-*   **Needs:** A high-level catalog of capabilities and the current status (Alpha, Beta, Stable).
-*   **Format:** Component gallery grids and status dashboards.
+Stakeholders like product managers need a high-level catalog of capabilities and current development statuses ranging from alpha to stable. A component gallery grid or a status dashboard is the most effective format for this audience.
 
 ## What to Document
 
@@ -41,15 +32,10 @@ Start with the purpose. "The Button triggers an action." is useless. "Use the Pr
 
 ### The "How" (Usage Guidelines)
 This is the meat of your documentation.
-*   **Placement:** Where does this component belong?
-*   **Content:** How should we write labels for it? (e.g., "Use title case for headers, sentence case for body").
-*   **Interaction:** What happens on hover, click, or error?
+Detail where the component belongs within the interface and establish clear content guidelines for labels, such as when to use title case versus sentence case. Additionally, document interaction behaviours for hover, click, and error states to ensure a consistent user experience.
 
 ### The "What" (API & Specs)
-For developers, list every prop.
-*   `variant`: "primary" | "secondary" (default: "primary")
-*   `isDisabled`: boolean
-*   `onClick`: function
+For developers, provide a comprehensive list of props such as `variant`, `isDisabled`, and `onClick`, along with their valid types and default values.
 
 For designers, list the Figma variants (Size, State, Icon).
 
@@ -60,18 +46,13 @@ Where should this documentation live?
 **1. The dedicated documentation site**
 Tools like Storybook, Zeroheight, or custom websites (built with Nextra or Docusaurus) are the gold standard. They allow you to render live code alongside design guidelines, acting as the single source of truth.
 
-**2. In-tool documentation**
-Don't make users leave their tool if you can help it.
-*   **Figma:** Use component descriptions and annotation layers directly in the sticker sheet.
-*   **Code:** Use JSDoc/TSDoc comments so developers see the documentation when they hover over the component in their IDE.
+In-tool documentation meets users where they already work, such as by using component descriptions and annotation layers within Figma. For developers, JSDoc and TSDoc comments allow them to view necessary documentation directly in their IDE when hovering over a component.
 
 ## Keeping It Alive
 
 Outdated documentation is worse than no documentation—it breaks trust.
 
-*   **Make it part of the definition of "Done".** A component isn't finished until the docs are updated.
-*   **Automate what you can.** Use tools that generate props tables automatically from your TypeScript types. You should never have to manually type out API tables.
-*   **Listen to questions.** Every time someone asks you a question about the system, it means the documentation failed. Answer the question, then update the docs so the next person doesn't have to ask.
+Keep documentation relevant by making its update part of the official "definition of done" for any component. Automate technical sections like props tables from TypeScript types to prevent manual errors, and treat every direct question from a team member as a sign that your documentation needs further refinement.
 
 ## Example: A Great Component Page
 
@@ -84,7 +65,7 @@ Buttons allow users to take actions, and make choices, with a single tap.
 
 ## Usage
 
-Use buttons for important actions like submitting a form, canceling a process, or creating a new item.
+Use buttons for important actions like submitting a form, cancelling a process, or creating a new item.
 
 **Do not use buttons for navigation.** Use Links for that.
 
@@ -128,10 +109,7 @@ Used for low-priority actions, often in toolbars or cards.
 ## Try It Yourself
 
 ### Exercise 1: Audit an Existing Component
-Pick a component in your current project. Read its documentation (if it exists).
-*   Does it explain *when* to use it?
-*   Are the code snippets accurate?
-*   Does it mention accessibility?
+Audit an existing component by reading its available documentation to see if it clearly explains when to use the element, if its code snippets are accurate, and if it explicitly addresses accessibility requirements.
 
 ### Exercise 2: Write a "Do and Don't"
 For a **Modal** component, write three "Do" rules and three "Don't" rules regarding its usage. (e.g., "Don't: Use a modal for a complex workflow requiring navigation.")
@@ -177,10 +155,7 @@ For a **Modal** component, write three "Do" rules and three "Don't" rules regard
 
 ## Key Takeaways
 
--   Documentation bridges the gap between the system and the user.
--   Address specific audiences: Designers need visuals; Developers need code; Managers need status.
--   Automate technical docs (API tables) to keep them in sync with code.
--   Treat documentation questions as bugs in the docs.
+Effective documentation bridges the gap between a design system and its users by addressing the specific needs of designers, developers, and managers. By automating technical details and treating incoming questions as opportunities to refine the docs, you can ensure that your system remains a living, trusted source of truth.
 
 ## Next Steps
 

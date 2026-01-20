@@ -17,11 +17,7 @@ This course is tested with the following versions (January 2026). Newer versions
 
 ## What You'll Learn
 
-- What Android Studio is and why it's required
-- How to download and install Android Studio
-- First-time setup and configuration
-- Navigating the Android Studio interface
-- Creating your first project
+Throughout this module, you will learn exactly what Android Studio is and why it remains an essential tool for download and installation. We'll examine the first-time setup and configuration process before navigating the primary interface and creating your very first project from scratch.
 
 ## Go Beyond Vibe Coding
 
@@ -35,11 +31,7 @@ That's Vibe Coding. And whilst it's a valid starting point, to truly own your wo
 
 Android Studio is Google's official IDE (Integrated Development Environment) for Android development. It's built on IntelliJ IDEA (a powerful, professional code editor) and includes everything you need to build Android apps:
 
-- Code editor with Kotlin/Java support
-- Visual layout editor
-- Android emulators
-- Build tools and debugger
-- Performance profilers
+Built on the professional IntelliJ IDEA foundation, it provides a comprehensive suite of tools including a sophisticated code editor for Kotlin and Java, a visual layout editor, and integrated Android emulators. Robust build tools, a debugger, and performance profilers are also included to ensure you have everything necessary to develop and refine your applications.
 
 Unlike web development where you can choose any editor, Android development works best with Android Studio. It's free and provides the most complete experience.
 
@@ -47,10 +39,7 @@ Unlike web development where you can choose any editor, Android development work
 
 Even if you're primarily a designer, understanding Android Studio helps you:
 
-- **Prototype in Jetpack Compose:** See exactly how your designs perform
-- **Understand constraints:** Know what's possible on Android
-- **Collaborate better:** Speak the same language as Android developers
-- **Ship your own ideas:** Build apps without waiting for engineering help
+Learning the environment allows you to see exactly how your designs perform when prototyped in Jetpack Compose, giving you a deeper understanding of what is technically possible on Android. Furthermore, it enables you to collaborate more effectively by speaking the same language as your engineering team and empowers you to ship your own ideas without waiting for external help.
 
 ## System Requirements
 
@@ -106,16 +95,7 @@ Android Studio runs on Mac, Windows, and Linux:
 
 When you first launch Android Studio:
 
-1. **Import Settings:** Choose "Do not import settings" if this is a fresh install
-
-2. **Setup Wizard:** Follow the guided setup:
-   - Select **Standard** installation type
-   - Choose a UI theme (Darcula for dark, Light for light)
-   - Verify SDK components to download
-
-3. **SDK Download:** Wait for components to download (this takes a while)
-
-4. **Ready to Use:** Once complete, you'll see the Welcome screen
+If this is a fresh installation, choose "Do not import settings" when prompted. Follow the guided setup wizard by selecting the **Standard** installation type and picking your preferred UI theme, such as Darcula for dark mode or the standard Light option. After verifying the SDK components, you must wait for them to finish downloading before the Welcome screen appears, signaling that the environment is ready for use.
 
 ## The Android Studio Interface
 
@@ -124,33 +104,14 @@ Android Studio's interface has several key areas:
 ### Welcome Screen
 
 When you open Android Studio without a project:
-- **New Project:** Create a new app
-- **Open:** Open an existing project
-- **Recent Projects:** Quick access to previous work
+The Welcome screen provides immediate access to core functions, allowing you to create a new app project, open an existing one, or quickly jump back into previous work through the recent projects list.
 
 ### Main Editor Areas
 
-**Project Panel (Left)**
-- File and folder structure
-- Resource files
-- Gradle scripts
-- Toggle with **⌘/Ctrl + 1**
-
-**Editor (Centre)**
-- Code editor
-- Layout preview
-- Multiple tabs for open files
-
-**Tool Windows (Sides/Bottom)**
-- Build output
-- Logcat (device logs)
-- Terminal
-- Version control
+The interface is divided into several functional zones: the **Project Panel** on the left manages your file structure and Gradle scripts, while the central **Editor** area houses your code and layout previews across multiple tabs. Surrounding these are various **Tool Windows** for build output, terminal access, and Logcat device monitoring, ensuring all diagnostic data is within easy reach.
 
 **Toolbar (Top)**
-- Run/Debug buttons
-- Device selector
-- Build variant selector
+The **Toolbar** at the top provides essential controls for running and debugging your application, alongside selectors for target devices and build variants.
 
 ### Essential Shortcuts
 
@@ -250,11 +211,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 This is your first Compose code! We'll learn the syntax later—for now, recognise that this creates a screen showing "Hello Android!"
 
-**AndroidManifest.xml**
-Declares your app's components and permissions.
-
-**build.gradle.kts (app level)**
-Configures dependencies and build settings.
+The **AndroidManifest.xml** file is used to declare all of your app's components and required permissions, while the app-level **build.gradle.kts** file configures your specific dependencies and build settings.
 
 ## Running Your App
 
@@ -311,9 +268,7 @@ The preview appears in the **Split** or **Design** view (tabs at top right of ed
 
 ### Preview Controls
 
-- **Build & Refresh:** Update the preview
-- **Interactive Mode:** Click to interact with components
-- **Device Settings:** Preview on different screen sizes
+The preview pane offers several useful controls, including the ability to build and refresh components instantly, an interactive mode for testing UI behavior, and various device settings to preview your design across different screen sizes.
 
 ## Try It Yourself
 
@@ -360,28 +315,19 @@ Build and run your modified app. See your changes on the virtual device.
 
 ### Gradle Sync Failed
 
-- Check internet connection
-- **File → Invalidate Caches → Restart**
-- Delete `.gradle` folder in your home directory
+If Gradle sync fails, you should first check your internet connection before attempting to invalidate caches and restart through the File menu; as a last resort, deleting the .gradle folder in your home directory may resolve deeper configuration conflicts.
 
 ### Emulator Won't Start
 
-- Ensure virtualisation is enabled in BIOS (Windows)
-- Update graphics drivers
-- Try a different system image
-- Allocate more RAM to the emulator
+When an emulator fails to start, ensure that hardware virtualisation is enabled in your system's BIOS and that all graphics drivers are up to date. You might also try using a different system image or allocating more RAM to the virtual device within its configuration settings.
 
 ### "SDK location not found"
 
-- **File → Project Structure → SDK Location**
-- Set the correct Android SDK path
+To fix an "SDK location not found" error, navigate to the Project Structure menu and explicitly set the correct Android SDK path under the SDK Location settings.
 
 ### Slow Performance
 
-- Allocate more RAM: **Settings → Appearance → System Settings → Memory Settings**
-- Use SSD storage
-- Close unnecessary applications
-- Use a physical device instead of emulator
+Slow performance can often be mitigated by allocating more memory through the System Settings or switching to SSD storage. To further improve speed, close unnecessary background applications or consider using a physical device for testing instead of a resource-heavy emulator.
 
 ## Test Your Understanding
 
@@ -424,12 +370,7 @@ Build and run your modified app. See your changes on the virtual device.
 
 ## Key Takeaways
 
-- Android Studio is required for Android development
-- Download from developer.android.com/studio
-- First-time setup downloads SDKs—be patient
-- Use Device Manager to create emulators
-- ⌘/Ctrl + Shift + A finds any action
-- Compose previews update as you code
+Android Studio is an absolute requirement for modern Android development and can be downloaded directly from the official developer site. While the initial setup requires patience as SDKs are downloaded, the environment provides powerful tools like the Device Manager for emulators and the Find Action shortcut for navigating every possible command. Most importantly, Compose previews offer real-time updates as you write code, ensuring a tight feedback loop during implementation.
 
 ## Next Steps
 

@@ -10,10 +10,7 @@ estimatedTime: 25
 
 ## What You'll Learn
 
-- Building accessible HTML/CSS components
-- Creating component variants and states
-- Implementing keyboard navigation
-- Writing vanilla JavaScript for interactive behaviours
+In this lesson, we will focus on building accessible HTML and CSS components and creating various component variants and states. You will learn how to implement keyboard navigation effectively and write vanilla JavaScript to manage interactive behaviours across your component library.
 
 ## Component 1: Button
 
@@ -221,20 +218,7 @@ Choose from:
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Button component with all variants and states
-- [ ] Input component with validation states
-- [ ] Card component with variants
-- [ ] Badge component
-- [ ] Alert component
-- [ ] Modal with focus trap and keyboard support
-- [ ] Tooltip with positioning
-- [ ] Dropdown with keyboard navigation
-- [ ] 2+ additional components
-- [ ] All components use your token system
-- [ ] All components are keyboard accessible
-- [ ] Focus states are visible
+Before moving on, verify that you have completed a Button component with all variants and states, an Input component featuring validation states, and a Card component with its respective variants. You should also have finished the Badge and Alert components, along with a Modal that includes a focus trap and keyboard support. Ensure your Tooltip has correct positioning and the Dropdown supports keyboard navigation. Finally, confirm that you have built at least two additional components, that all components use your token system, and that every element is keyboard accessible with visible focus states.
 
 ## Try It Yourself
 

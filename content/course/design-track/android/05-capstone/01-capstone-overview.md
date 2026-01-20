@@ -8,25 +8,13 @@ estimatedTime: 5
 
 ## Why This Project?
 
-Android apps showcase unique skills:
-
-- **Material 3 expertise** — The latest design system
-- **Dynamic colour understanding** — Material You
-- **Adaptive design** — Phones, tablets, foldables
-- **Motion design** — Material motion system
-- **Component architecture** — Material components
+By building this project, you will demonstrate your fluency in the latest Material 3 design system and show a deep understanding of dynamic colour within the Material You framework. Your portfolio will showcase your ability to create adaptive designs for phones, tablets, and foldables, while mastering the Material motion system and sophisticated component architecture.
 
 **Total Time Estimate:** 8-12 hours across all phases
 
 ## What You'll Create
 
-By the end of this capstone, you'll have:
-
-1. **Complete Android App Design** — 5-7 core screens with light/dark mode and dynamic colour
-2. **Material 3 Component Library** — Navigation, FABs, cards, inputs
-3. **Adaptive Layouts** — Phone and tablet adaptations
-4. **Interactive Prototype** — Material motion transitions
-5. **App Icon & Assets** — Adaptive icon with themed variant
+By the end of this capstone, you will have produced a complete Android app design featuring five to seven core screens with full light and dark mode support and dynamic colour integration. This will be supported by a robust Material 3 component library and specific adaptive layout schemes for both phone and tablet form factors. Furthermore, you will create an interactive prototype using Material motion transitions and a final set of assets including a themed adaptive app icon.
 
 ## Choose Your App
 
@@ -81,12 +69,7 @@ Study these Android apps:
 
 ## Tips for Success
 
-1. **Use Material Theme Builder** — Google's tool ensures correct colour math
-2. **Reference M3 guidelines constantly** — Keep material.io open
-3. **Design real content** — Realistic data makes better designs
-4. **Test dynamic colour early** — Don't assume your colours always work
-5. **Think adaptive from the start** — Don't leave tablets as an afterthought
-6. **Follow the 4dp grid** — Material spacing should feel consistent
+To ensure success, you should use the Material Theme Builder to guarantee correct colour mathematics and reference the official Material 3 guidelines constantly. Designing with realistic content and testing dynamic colour early will prevent unforeseen issues, while thinking adaptively from the outset and strictly following the 4dp grid will ensure a consistent and professional result.
 
 ## Get Started
 

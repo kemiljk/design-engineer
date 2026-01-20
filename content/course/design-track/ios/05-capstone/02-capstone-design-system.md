@@ -18,17 +18,12 @@ estimatedTime: 15
 ## Step 1: Research & Reference
 
 Great artists steal; great designers reference. Before you start drawing rectangles, understand the landscape.
-- **Competitor Audit:** Download 5-10 apps in your category. How do they handle navigation? What does their detail view look like?
-- **Pattern Matching:** Don't just look at features; look at *iOS patterns*. Do they use a modal for settings? Do they use a large title for the home screen?
-- **Collection:** Take screenshots. Annotate them. What works? What feels broken? This reference library will be your guide when you get stuck.
+Perform a competitor audit by downloading five to ten apps in your category to see how they handle navigation and detail views. Look specifically for **iOS patterns**, such as the use of modals for settings or large titles for home screens, and collect annotated screenshots to serve as a reference library throughout the design process.
 
 ## Step 2: Define Your App
 
 A pretty interface without a purpose is decoration. Define the soul of your app.
-- **Name:** Give it a name. It makes it real.
-- **Purpose:** Write one sentence that explains what it does. "A habit tracker that focuses on streaks."
-- **User:** Who is this for? "Busy professionals who forget to drink water."
-- **Personality:** Is it serious and data-heavy (Stocks)? Or playful and bouncy (Duolingo)? This dictates your visual choices.
+Establishing a clear app definition involves giving it a unique name and writing a single sentence that explains its core purpose. You must also identify your target users and define a distinct personality—whether it be serious and data-heavy or playful and expressive—as this will dictate your primary visual choices.
 
 ## Step 3: Create iOS Tokens
 
@@ -36,31 +31,20 @@ Build your design system using iOS native values. Do not invent your own grid or
 
 ### Colour System
 Define semantic tokens that support Light and Dark mode from day one.
-- **Primary:** Your brand colour. Define a `Light` version and a `Dark` version (usually lighter/desaturated).
-- **Backgrounds:** Use `System Background` (White/Black) and `Secondary Background` (Light Gray/Dark Gray).
-- **Labels:** Use `Label` (Black/White) and `Secondary Label` (Gray/Light Gray).
-- **Semantic:** define standard `Success` (Green), `Warning` (Orange), and `Destructive` (Red) states.
+Define semantic tokens for your **primary** brand colour in both light and desaturated dark versions, and use standard **background** and **label** system colours to ensure automatic adaptation. You should also establish semantic tokens for **success**, **warning**, and **destructive** states using the standard green, orange, and red palette.
 
 ### Typography (SF Pro)
 Stick to the system styles. It guarantees accessibility.
-- **Large Title:** 34pt Bold (Page Headers)
-- **Title 2:** 22pt Bold (Section Headers)
-- **Headline:** 17pt Semibold (Important Text)
-- **Body:** 17pt Regular (Reading Text)
-- **Caption 1:** 12pt Regular (Metadata)
+Use system styles such as **Large Title** for headers, **Title 2** for sections, and **Headline**, **Body**, and **Caption** styles for primary and metadata text to guarantee consistency and accessibility.
 
 ### Spacing
 Use the 4pt grid, but rely heavily on the iOS standard values:
-- **8pt:** Tight spacing between related items.
-- **16pt:** Standard padding and margins.
-- **20-24pt:** Separating distinct sections.
+Maintain rhythm using an 8pt scale for tight spacing between related items, 16pt for standard margins, and 20 to 24pt to separate distinct sections.
 
 ## Step 4: Setup Light & Dark Mode
 
 Don't treat Dark Mode as an afterthought. Set up your Figma variables (or colour styles) now.
-- Create a "Mode" collection.
-- Map your semantic tokens (e.g., "Background/Primary") to values for both "Light" and "Dark".
-- Test it immediately by creating a frame and switching modes. If the text disappears, fix your tokens now.
+Set up your Figma variables by creating a "Mode" collection and mapping your semantic tokens to specific light and dark values. You should test these immediately by switching modes on a sample frame to ensure text and background contrast remain legible.
 
 ## Checkpoint
 

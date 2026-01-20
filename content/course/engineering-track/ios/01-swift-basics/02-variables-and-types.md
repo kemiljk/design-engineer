@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Swift's type system
-- Common types
-- Optionals and nil safety
-- Type conversion
+During this module, you will explore Swift's robust type system and gain a deep understanding of common data types. We'll examine the critical role of optionals in ensuring nil safety and walk through the necessary techniques for accurate type conversion in your applications.
 
 ## Basic Types
 
@@ -126,15 +123,12 @@ let point: Coordinate = (x: 10.0, y: 20.0)
 ### Exercise 1: Optional Practice
 
 Create a function that:
-- Takes an optional name
-- Returns a greeting or default message
-- Uses guard let
+Practise your optional handling skills by creating a function that takes an optional name as an argument. The function should use a `guard let` statement to return a personalised greeting if a name is provided, or a generic default message if the value is nil.
 
 ### Exercise 2: Type Conversion
 
 Write code that:
-- Converts a string to an integer safely
-- Handles the case where conversion fails
+Write a piece of code that attempts to convert a string into an integer safely. Your implementation should gracefully handle the scenario where the conversion fails, ensuring the application remains stable.
 
 ## Test Your Understanding
 
@@ -177,11 +171,7 @@ Write code that:
 
 ## Key Takeaways
 
-- Swift has Int, Double, Bool, String as core types
-- Optionals (`Type?`) represent possible absence
-- Always unwrap optionals safely
-- Type conversion must be explicit
-- Use `??` for default values
+To write robust Swift code, you must master the core types of Int, Double, Bool, and String while understanding how optionals represent the possible absence of a value. Always prioritise safe unwrapping techniques over force unwrapping and remember that all type conversions must be explicit. Finally, use the nil-coalescing operator to provide sensible default values and maintain a smooth user experience.
 
 ## Next Steps
 

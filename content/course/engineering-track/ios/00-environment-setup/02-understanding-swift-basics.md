@@ -4,20 +4,11 @@
 
 ## What You'll Learn
 
-- Swift fundamentals without overwhelming detail
-- Variables, constants, and types
-- Basic structures: functions and structs
-- How Swift concepts appear in SwiftUI
-- Just enough to understand the code you'll write
+During this module, you will explore the fundamentals of Swift without being overwhelmed by unnecessary detail, covering essential concepts like variables, constants, and types. We'll examine basic structures such as functions and structs, specifically focusing on how these concepts manifest within SwiftUI to give you just enough knowledge to understand the code you'll be writing.
 
 ## Swift for Designers
 
-You don't need to become a Swift expert to use SwiftUI effectively. But understanding the basics helps you:
-
-- Read and modify existing code
-- Understand error messages
-- Build more complex interfaces
-- Communicate with developers
+You don't need to become a Swift expert to use SwiftUI effectively, but understanding these basics will empower you to read and modify existing code while interpreting error messages with ease. This foundation will also allow you to build more complex interfaces and communicate more effectively with your fellow developers.
 
 This lesson focuses on what you'll actually encounter when building UIs.
 
@@ -378,10 +369,7 @@ struct ProfileCard: View {
 ```
 
 Can you identify:
-- The struct definition?
-- The properties?
-- The conditional?
-- String interpolation?
+Can you identify the struct definition and its associated properties? Take a moment to locate the conditional logic within the body and spot where string interpolation is being used to display data.
 
 ## Common Patterns in SwiftUI
 
@@ -520,12 +508,7 @@ func getDiscount(isPremium: Bool, cartTotal: Double) -> Double {
 
 ## Key Takeaways
 
-- Use `let` for constants, `var` for values that change
-- Swift has strong types: String, Int, Double, Bool
-- Structs group related data—SwiftUI views are structs
-- Functions bundle reusable code
-- Optionals handle values that might not exist
-- SwiftUI code uses all these concepts together
+To build a solid foundation in iOS development, you must use `let` for constants and `var` for values that might change, while mastering Swift's strong types like String, Int, Double, and Bool. Remember that SwiftUI views are themselves structs and use functions to bundle reusable logic effectively. Finally, always handle potentially missing data with optionals and recognise how all these concepts interweave within practical SwiftUI code.
 
 ## Next Steps
 

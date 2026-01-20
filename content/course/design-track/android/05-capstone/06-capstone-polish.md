@@ -10,40 +10,27 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Designing an adaptive icon
-- Conducting a thorough design audit
-- Writing a case study
-- Organising files for portfolio
+Throughout this final stage, you will design a multilayered adaptive icon and conduct a thorough design audit of your entire project. We'll examine how to write a compelling case study and organise your files for a professional portfolio presentation.
 
 ## Step 1: Adaptive Icon
 
 Android icons are multilayered.
-- **Layers:** Design a Foreground (Icon) and a Background (Solid/Pattern).
-- **Masks:** Test how it looks masked as a Circle, a Square, and a Squircle.
-- **Monochrome:** Create a single-colour version of your icon. This is used for the "Themed Icon" feature in Android 13+, where the icon takes on the user's wallpaper colour.
+To create a proper adaptive icon, you must design separate foreground and background layers and test how they appear when masked into different shapes like circles or squircles. You should also produce a monochrome version for Android's themed icon feature, allowing your brand to adapt seamlessly to the user's chosen wallpaper colour.
 
 ## Step 2: Design Audit
 
 Be your own critic.
-- **Token Usage:** Did you cheat and use a hard-coded hex value? Fix it.
-- **Type Scale:** Are you using `Headline Medium` or did you manually set `32px`?
-- **Alignment:** Check your 4dp and 8dp spacing. Turn on the pixel grid.
-- **Contrast:** Ensure all text meets accessibility standards (4.5:1).
+Review your technical execution by ensuring every colour is mapped to a token rather than a hard-coded hex value and that your type hierarchy strictly follows the official Material scale. You should also verify that all spacing adheres to the 4dp grid and that every text element meets the 4.5:1 contrast ratio required for accessibility.
 
 ## Step 3: Case Study
 
 Tell the story.
-- **The Problem:** Why does this app exist?
-- **The System:** Show off your colour palette and type scale.
-- **The Adaptation:** Show a side-by-side of Phone vs. Tablet. This proves you understand responsive design.
-- **The Motion:** Embed a GIF of your prototype.
+Tell your story by documenting the core problem your app solves and showcasing your colour palette and type scale. Provide side-by-side comparisons of phone and tablet views to prove your adaptive design skills and embed a GIF to demonstrate your prototype's motion characteristics.
 
 ## Step 4: File Organisation
 
 Clean up.
-- **Cover Page:** Make a nice thumbnail.
-- **Pages:** Separate "Work in Progress" from "Final Assets".
-- **Exports:** Export your screens as high-res PNGs for your portfolio.
+Prepare your deliverables by creating a high-quality thumbnail cover and separating your explorations from the final assets. Finally, export all core screens as high-resolution PNGs to ensure your portfolio looks sharp across all viewing platforms.
 
 ## Submission Checklist
 

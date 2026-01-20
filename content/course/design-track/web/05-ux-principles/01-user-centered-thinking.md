@@ -1,4 +1,4 @@
-# User-Centered Thinking
+# User-Centred Thinking
 
 > **Quick Summary:** User-centred design (UCD) is a disciplined practice of making decisions based on real evidence rather than assumptions. It turns the design process from a guessing game into a problem-solving methodology.
 
@@ -57,7 +57,7 @@ Don't ask "Do I like this?" Ask "Can the user do what they came here to do?"
 
 **The False Consensus Effect:** We assume everyone thinks like us. They don't.
 **The Curse of Knowledge:** Once you know how the product works, it is impossible to un-know it. This makes you blind to the confusion of a new user.
-**Designing for Edge Cases:** Don't ruin the experience for 99% of users to solve a problem for 1%. Handle the edge case gracefully, but optimize for the primary flow.
+**Designing for Edge Cases:** Don't ruin the experience for 99% of users to solve a problem for 1%. Handle the edge case gracefully, but optimise for the primary flow.
 
 ## Try It Yourself
 
@@ -76,7 +76,7 @@ Try to sign up for a new service you've never used. Write down every single mome
 {
   "id": "user-centred-quiz",
   "type": "multiple-choice",
-  "title": "User-Centered Thinking",
+  "title": "User-Centred Thinking",
   "description": "Test your understanding of user-centred design.",
   "difficulty": "medium",
   "question": "What is the 'curse of knowledge' in design, and why is it problematic?",
@@ -111,10 +111,7 @@ Try to sign up for a new service you've never used. Write down every single mome
 
 ## Key Takeaways
 
--   **You are not your user.** Your intuition is biased by your expertise.
--   **Empathy is active.** It requires talking, watching, and listening.
--   **Assumption is the enemy.** Validate your guesses with real-world input.
--   **Design for context.** Users are distracted, impatient, and human.
+True user-centred thinking acknowledges that you are not your user and that your intuition is often biased by your own expertise. By actively developing empathy through talking and watching, and validating your assumptions with real-world input, you can design products that work for distracted, impatient, and human users in their actual context.
 
 ## Next Steps
 

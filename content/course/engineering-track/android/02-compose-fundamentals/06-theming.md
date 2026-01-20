@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Material 3 theming
-- Color schemes
-- Typography
-- Dynamic colour
+During this module, you will learn to implement Material 3 theming within your Compose applications, covering essential colour schemes and typography. We'll examine exactly how to integrate dynamic colour for Android 12 and above, ensuring your interface remains consistent and visually appealing across different system settings.
 
 ## MaterialTheme
 
@@ -208,17 +205,11 @@ These expressive patterns create interfaces that feel more dynamic and engaging 
 
 ### Exercise 1: Custom Theme
 
-Create a theme with:
-- Brand primary colour
-- Light and dark variants
-- Custom typography
+Practise your brand styling by creating a custom theme that incorporates your specific primary colour alongside distinct variants for light and dark modes. You should also define custom typography settings to ensure your application maintains a unique and professional visual identity.
 
 ### Exercise 2: Theme Switcher
 
-Build a toggle that switches between:
-- Light mode
-- Dark mode
-- System default
+Further enhance the user experience by building a theme switcher toggle. This component should allow users to manually cycle between light and dark modes or choose to follow the system's default setting for ultimate flexibility.
 
 ## Test Your Understanding
 
@@ -261,11 +252,7 @@ Build a toggle that switches between:
 
 ## Key Takeaways
 
-- MaterialTheme provides colours, typography, shapes
-- ColorScheme for light/dark mode colours
-- Dynamic colour uses wallpaper (Android 12+)
-- Access theme via `MaterialTheme.colorScheme`
-- CompositionLocal for custom theme values
+To master the visual identity of your app, you must use the `MaterialTheme` object to manage your colours, typography, and shapes effectively. By implementing a comprehensive `ColorScheme`, you can ensure your UI adapts seamlessly to both light and dark modes, while leveraging dynamic colour allows your app to harmonize with the user's wallpaper on supported devices. Finally, remember to access these values through `MaterialTheme.colorScheme` and use `CompositionLocal` whenever you need to provide custom theme properties throughout your component tree.
 
 ## Congratulations!
 

@@ -8,10 +8,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- What the DOM is and how it works
-- Selecting single and multiple elements
-- Reading text, HTML, and attributes
-- Traversing the DOM tree
+In this lesson, we will define what the DOM is and how it functions as a bridge between your HTML and JavaScript. You will learn the most effective methods for selecting single and multiple elements, how to read their text content and attributes, and the techniques needed to traverse the DOM tree with precision.
 
 ## What is the DOM?
 
@@ -42,84 +39,25 @@ JavaScript can traverse, read, and modify this tree. The browser creates the DOM
 
 ### Single Element
 
-```javascript
-// By ID (returns element or null)
-const app = document.getElementById('app');
-
-// By selector (returns first match or null)
-const intro = document.querySelector('.intro');
-const heading = document.querySelector('h1');
-const specific = document.querySelector('#app .intro');
-```
-
-`querySelector` uses CSS selector syntax, making it powerful and flexible:
-
-```javascript
-// Complex selectors work too
-document.querySelector('nav > ul > li:first-child a');
-document.querySelector('[data-active="true"]');
-document.querySelector('input[type="email"]');
-```
+To select a single element, you can use `document.getElementById()` for high-performance ID lookups or `document.querySelector()` for more flexible selections. Both methods will return the first matching element they find or `null` if no match is available. The `querySelector` method is particularly powerful as it allows you to use standard CSS selector syntax to target elements by class, tag, or even complex parent-child relationships and data attributes.
 
 ### Multiple Elements
 
-```javascript
-// By class name (returns HTMLCollection)
-const items = document.getElementsByClassName('item');
-
-// By tag name (returns HTMLCollection)
-const paragraphs = document.getElementsByTagName('p');
-
-// By selector (returns NodeList)
-const allLinks = document.querySelectorAll('a');
-const menuLinks = document.querySelectorAll('.nav a');
-```
+When you need to select multiple elements at once, you can use `document.getElementsByClassName()` or `document.getElementsByTagName()`, which return a live HTMLCollection. Alternatively, `document.querySelectorAll()` provides a more modern and versatile approach by returning a static NodeList of all elements that match your CSS selector, whether you are targeting specific classes or nested navigation links.
 
 ### HTMLCollection vs NodeList
 
-Both are array-like, but differ subtly:
-
-- **HTMLCollection** is live (updates automatically when DOM changes)
-- **NodeList** from `querySelectorAll` is static (a snapshot)
+While both collections are array-like and allow you to access elements by index, they differ in how they react to DOM changes. An `HTMLCollection` is live, meaning it will automatically update if elements are added or removed from the document. In contrast, the `NodeList` returned by `querySelectorAll` is static; it represents a fixed snapshot of the DOM at the exact moment the query was executed.
 
 ### Converting to Array
 
-To use array methods like `map`, `filter`, `forEach`:
-
-```javascript
-const links = document.querySelectorAll('a');
-const linksArray = Array.from(links);
-// Or
-const linksArray2 = [...links];
-
-// Now you can use array methods
-linksArray.filter(link => link.href.includes('example.com'));
-```
+If you want to use modern array methods like `map`, `filter`, or `forEach`, you must first convert your NodeList or HTMLCollection into a true array. You can achieve this easily by using the `Array.from()` method or the spread operator, which provides you with a fully functional array that can then be manipulated using standard JavaScript techniques.
 
 ## Reading Content
 
 ### Text Content
 
-```javascript
-const heading = document.querySelector('h1');
-
-// Get text (without HTML tags)
-heading.textContent;  // "Title"
-
-// Get text (visible text, accounts for CSS)
-heading.innerText;    // "Title"
-```
-
-The difference:
-- `textContent` returns all text, including hidden elements
-- `innerText` returns only visible text (respects CSS)
-
-```javascript
-// <span style="display: none">Hidden</span> Visible
-
-element.textContent;  // "Hidden Visible"
-element.innerText;    // "Visible"
-```
+You can read the text inside an element using either `textContent` or `innerText`. While `textContent` returns every piece of text within an element regardless of whether it is visible or not, `innerText` only retrieves the text that is currently visible to the user, respecting any CSS styling such as `display: none`. In most cases, `textContent` is preferred for its predictability and performance.
 
 ### HTML Content
 
@@ -239,16 +177,11 @@ const links = [...document.querySelectorAll('a')].filter(
 
 ### Exercise 1: Element Inspector
 
-Create a function that:
-1. Takes a selector as an argument
-2. Returns an object with: `tagName`, `id`, `classes`, `textContent`
-3. Returns `null` if element doesn't exist
+Develop a function that accepts a selector string and returns a detailed object containing the element's tag name, ID, class list, and text content. Ensure the function returns `null` if the specified element cannot be found in the document.
 
 ### Exercise 2: Tree Walker
 
-Create a function that:
-1. Takes an element as an argument
-2. Returns an array of all its parent elements up to `<body>`
+Create a function that takes a DOM element as its starting point and returns an array containing all of its parent elements in order, up until it reaches the `<body>` tag.
 
 ## Test Your Understanding
 
@@ -291,11 +224,7 @@ Create a function that:
 
 ## Key Takeaways
 
-- The DOM is a tree representation of HTML that JavaScript can interact with
-- Use `querySelector` and `querySelectorAll` for flexible element selection
-- `textContent` is safer than `innerHTML` for reading text
-- `dataset` provides easy access to `data-*` attributes
-- Traverse with `parentElement`, `children`, `closest`, and sibling properties
+To recap, the DOM is a powerful tree-based representation of your HTML that enables JavaScript to process and interact with web content dynamically. You should leverage `querySelector` and `querySelectorAll` for flexible and robust element selection, and use `dataset` to easily manage custom data stored in your HTML. Finally, remember that mastering DOM traversal and understanding the differences between `textContent` and `innerHTML` are essential for building secure and efficient web interfaces.
 
 ## Next Steps
 

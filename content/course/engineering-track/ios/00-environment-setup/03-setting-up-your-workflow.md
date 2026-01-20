@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- Configuring Xcode for productivity
-- Effective use of SwiftUI previews
-- Managing simulators
-- Version control with Git
-- Recommended tools and extensions
+During this module, you will learn how to configure Xcode for maximum productivity and explore the most effective ways to use SwiftUI previews. We'll examine robust methods for managing simulators and establish a solid version control workflow with Git, while also introducing a selection of recommended tools and extensions to enhance your development process.
 
 ## Configuring Xcode
 
@@ -21,18 +17,14 @@ Customise Xcode's appearance:
 3. Choose a theme or customise colours
 
 Popular options:
-- **Default (Dark):** Easy on the eyes
-- **Civic:** High contrast
-- **Classic (Light):** Traditional look
+Popular appearance options include the Default Dark theme, which is easy on the eyes for long sessions, the Civic theme for high contrast visibility, and the Classic Light theme for those who prefer a more traditional look and feel.
 
 ### Text Editing Preferences
 
 Under **Settings → Text Editing**:
 
 **Editing:**
-- ✅ Line numbers (shows line numbers in editor)
-- ✅ Code folding ribbon (collapse code blocks)
-- ✅ Highlight instances of selected symbol
+Enable line numbers to help you navigate files more easily and use the code folding ribbon to collapse complex blocks. You should also ensure that the "highlight instances of selected symbol" setting is active to quickly identify where variables and functions are reused throughout your code.
 
 **Indentation:**
 - ✅ Prefer indent using: Spaces
@@ -115,10 +107,7 @@ Control the preview size:
 
 Slow previews kill productivity. Tips:
 
-1. **Keep preview data minimal:** Don't load real data
-2. **Use mock data:** Create simple static examples
-3. **Preview components in isolation:** Don't preview entire screens unnecessarily
-4. **Pause when not needed:** Click "Pause" when focusing on code
+To maintain a high level of productivity, always keep your preview data minimal and use simple mock data instead of loading real resources. Focus on previewing individual components in isolation rather than entire screens, and remember to pause the canvas whenever you are focusing exclusively on complex code changes.
 
 ## Managing Simulators
 
@@ -156,9 +145,7 @@ Or open directly:
 
 **Window → Devices and Simulators** (⌘ + Shift + 2):
 
-- Add new simulator types
-- Delete unused simulators
-- View device logs
+The Devices and Simulators window allows you to add new simulator types and delete any that are no longer needed. It is also your primary location for viewing detailed device logs when debugging complex platform issues.
 
 ### Running on Multiple Simulators
 
@@ -177,9 +164,7 @@ Both simulators run your app simultaneously.
 Xcode has integrated Git support:
 
 **Source Control Navigator** (⌘ + 2):
-- View branches
-- See commit history
-- Review changes
+The Source Control Navigator provides a comprehensive view of your branches and commit history, allowing you to review all changes before they are integrated into the main codebase.
 
 **Commit Changes:**
 - **Source Control → Commit** (⌘ + Option + C)
@@ -424,12 +409,7 @@ struct MyView: View {
 
 ## Key Takeaways
 
-- Customise Xcode's theme and settings for comfort
-- Use multiple previews to see different states simultaneously
-- Learn simulator shortcuts for efficient testing
-- Set up Git from the start—version control is essential
-- Organise projects with clear folder structures
-- Master Quick Open (⌘ + Shift + O) for navigation
+To build an efficient development environment, you should begin by customising Xcode's theme and settings for your own comfort and making use of multiple previews to observe different interface states simultaneously. Master the essential simulator shortcuts for rapid testing and always set up Git from the very start to ensure proper version control. Finally, maintain an organised project folder structure and leverage the Quick Open shortcut to navigate your growing codebase with ease.
 
 ## Environment Complete!
 

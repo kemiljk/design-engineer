@@ -4,18 +4,11 @@
 
 ## What You'll Learn
 
-- Function declarations and expressions
-- Arrow functions
-- Parameters and return values
-- Scope and closures
+In this lesson, we will explore the differences between function declarations and expressions, and we'll introduce the modern arrow function syntax. You will learn how to effectively use parameters and return values to create flexible functions, and we will delve into the critical concepts of scope and closures to manage your variables and data securely.
 
 ## Why Functions?
 
-Functions let you:
-- Write code once, use it many times
-- Break complex problems into smaller pieces
-- Create clear, readable programs
-- Abstract away implementation details
+Functions allow you to write code once and use it many times, which helps you break complex problems into smaller, more manageable pieces. By abstracting away implementation details, you can create programs that are both clearer and more readable while ensuring that your code remains easy to maintain as it grows.
 
 ## Function Declarations
 
@@ -31,11 +24,7 @@ greet('World');  // "Hello, World!"
 
 ### Components
 
-- `function` keyword
-- Name (`greet`)
-- Parameters (`name`)
-- Body (code inside `{}`)
-- Return statement (optional)
+A typical function declaration consists of the `function` keyword followed by a unique name and any necessary parameters enclosed in parentheses. The body of the function contains the code to be executed, and an optional return statement allows you to send a specific value back to the caller.
 
 ## Function Expressions
 
@@ -108,30 +97,7 @@ createUser({ name: 'Alice', age: 30, email: 'alice@example.com' });
 
 ## Return Values
 
-Functions can return any value:
-
-```javascript
-// Return a value
-function add(a, b) {
-  return a + b;
-}
-
-// Return an object
-function createPoint(x, y) {
-  return { x, y };
-}
-
-// Return early
-function divide(a, b) {
-  if (b === 0) return null;  // Early return
-  return a / b;
-}
-
-// No return (returns undefined)
-function logMessage(msg) {
-  console.log(msg);
-}
-```
+Every function in JavaScript can return a value, ranging from simple primitive types like numbers to more complex objects. You can use early return statements to exit a function immediately if certain conditions are met, such as returning `null` when a division by zero is attempted. If a function does not include a return statement, it will automatically return `undefined` by default.
 
 ## Scope
 
@@ -303,40 +269,15 @@ Functions that run immediately:
 
 ### Exercise 1: Calculator Functions
 
-Create functions for:
-- `add(a, b)`
-- `subtract(a, b)`
-- `multiply(a, b)`
-- `divide(a, b)` (handle division by zero)
+Practise creating reusable functions for basic mathematical operations, including addition, subtraction, multiplication, and division. Ensure that your division function correctly handles scenarios where the divisor is zero to prevent errors in your application.
 
 ### Exercise 2: Array Processing
 
-Given an array of user objects:
-```javascript
-const users = [
-  { name: 'Alice', age: 25 },
-  { name: 'Bob', age: 30 },
-  { name: 'Carol', age: 20 }
-];
-```
-
-Use array methods to:
-1. Get array of names
-2. Filter users over 22
-3. Find total age
-4. Find youngest user
+Using an array of user objects that includes names and ages, apply various array methods to extract a list of names, filter for users above a certain age, and calculate the total age of the entire group. You should also attempt to identify the youngest user within the collection.
 
 ### Exercise 3: Closure Practice
 
-Create a `createMultiplier(factor)` function that returns a function that multiplies its argument by `factor`.
-
-```javascript
-const double = createMultiplier(2);
-const triple = createMultiplier(3);
-
-double(5);  // 10
-triple(5);  // 15
-```
+Develop a `createMultiplier` function that accepts a factor and returns a new function. This returned function should take a single argument and multiply it by the original factor, allowing you to easily create specialised functions like `double` or `triple`.
 
 ## Test Your Understanding
 
@@ -379,13 +320,7 @@ triple(5);  // 15
 
 ## Key Takeaways
 
-- Functions are declared with `function` keyword or arrow syntax
-- Arrow functions are concise and preferred for callbacks
-- Parameters can have defaults, use rest syntax, or destructure
-- Scope determines variable visibility
-- Closures remember their lexical scope
-- Higher-order functions take or return functions
-- Array methods (map, filter, reduce) use callback functions
+To recap, functions are a fundamental building block in JavaScript, and you can define them using either the traditional `function` keyword or the concise arrow function syntax. Understanding how to manage function parameters—including defaults and rest syntax—is essential for building flexible programs. Additionally, mastering scope and closures will allow you to manage variable visibility effectively, while leveraging higher-order functions like `map` and `filter` will enable you to process complex data sets with ease.
 
 ## Next Steps
 

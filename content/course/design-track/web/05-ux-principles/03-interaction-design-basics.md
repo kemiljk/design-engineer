@@ -4,14 +4,11 @@
 
 ## What You'll Learn
 
-- Core concepts of interaction design (IxD)
-- Affordances, signifiers, and feedback loops
-- Designing for different input methods
-- Managing state and flow
+By progressing through this lesson, you will understand the core concepts of interaction design (IxD) and explore how affordances, signifiers, and feedback loops create intuitive user experiences. You will also learn to design for various input methods and develop strategies for effectively managing state and task flows.
 
 ## The Dialogue of Design
 
-If visual design is about how a product looks, and information architecture is about how it is organized, interaction design (IxD) is about how it behaves. It is the structure of the conversation between the user and the screen.
+If visual design is about how a product looks, and information architecture is about how it is organised, interaction design (IxD) is about how it behaves. It is the structure of the conversation between the user and the screen.
 
 Good interaction design makes technology feel human. It anticipates needs, provides helpful feedback, and forgives mistakes. Bad interaction design feels like talking to a bureaucrat: rigid, confusing, and indifferent to your goals.
 
@@ -34,13 +31,9 @@ If an affordance is the *ability* to do something, a signifier is the *clue* tha
 
 Think of a door. The flat plate on the door is an affordance for pushing. The sign "PUSH" is the signifier. In a perfect world, the affordance is so obvious you don't need the signifier. In the real world (and in UI), we need both.
 
-Common UI signifiers include:
-- **Visual styling:** Blue text signifies a link.
-- **Icons:** A chevron (`>`) signifies that tapping will move forward.
-- **Motion:** A button that pulses signifies it is waiting for input.
-- **Cursor change:** On desktop, the arrow turning into a hand is the ultimate signifier of clickability.
+Common UI signifiers include specific visual styling like blue text for links, icons such as chevrons that indicate forward movement, and motion cues like pulsing buttons that show the system is waiting for input. On desktop, the cursor changing into a hand remains the ultimate signifier of clickability.
 
-**Signifier Strength:** Not everything needs a neon sign. A primary "Checkout" button needs a strong signifier (bold color, large size). A secondary "Cancel" link needs a weak signifier (plain text, neutral color). If everything screams for attention, nothing is heard.
+Not everything needs a neon sign. A primary "Checkout" button needs a strong signifier (bold colour, large size), while a secondary "Cancel" link should have a weaker signifier such as plain text in a neutral colour. If everything screams for attention, nothing is heard.
 
 <!-- illustration: signifier-strength -->
 
@@ -77,18 +70,9 @@ Gestures (swipe, pinch, long-press) are efficient but have low discoverability. 
 
 ## State Management
 
-An interface is not a static picture; it is a living system with many states. A button isn't just "a button." It is a button that can be:
-- **Default:** Resting state.
-- **Hover:** User is interested.
-- **Pressed:** User is acting.
-- **Disabled:** Action is unavailable (and the design should explain why).
-- **Loading:** Action is processing.
+A button typically cycles through several states, including its default resting position, a hover state that shows user interest, and a pressed state for active interaction. It should also have distinct styles for disabled states to explain why an action is unavailable, and a loading state to indicate that a request is currently processing.
 
-Similarly, screens have states:
-- **Empty:** No data yet. (Don't just show a blank screen; show a call to action to create data.)
-- **Loading:** Fetching data. (Use skeletons to reduce perceived wait time.)
-- **Error:** Something went wrong.
-- **Ideal:** The screen is populated with content.
+Screens similarly cycle through states, using empty states to provide calls to action when no data exists, and loading states or skeletons to manage the transition while data is being fetched. Error states communicate when something has gone wrong, while the ideal state shows the screen fully populated with its intended content.
 
 ## Flow Design
 
@@ -108,11 +92,7 @@ These aren't just delight; they are functional. A toggle animation confirms the 
 
 ## Try It Yourself
 
-### Exercise 1: Affordance Audit
-Open your favorite app. Look at the home screen.
-1. Identify every element you can tap.
-2. What visual clue (signifier) told you it was tappable?
-3. Are there any hidden gestures you only found by accident?
+Perform an affordance audit on your favourite app by identifying every tappable element on the home screen and noting the visual signifiers that indicated its interactivity. Take note of any hidden gestures you discovered by accident that might lack clear clues for new users.
 
 ### Exercise 2: State Mapping
 Draw a simple "Submit" button. Now draw it in all 5 states: Default, Hover, Focused, Pressed, Disabled, and Loading. How do you distinguish "Disabled" from "Default" without using text?
@@ -161,12 +141,7 @@ Find a task you do often (like paying a bill). Map out the steps. Where is the f
 
 ## Key Takeaways
 
-- Interaction design is the conversation between user and product.
-- **Affordances** are capabilities; **Signifiers** are clues.
-- **Feedback** must be immediate and clear to close the interaction loop.
-- Design for the constraints of the input method (Touch = coarse, Mouse = precise).
-- Design every state (Empty, Loading, Error), not just the happy path.
-- Use friction intentionally to prevent errors, but remove it everywhere else.
+Interaction design defines the functional conversation between the user and the product, where affordances represent capabilities and signifiers provide the necessary clues for their use. By providing immediate and clear feedback to close the interaction loop and designing for the specific constraints of diverse input methods, you can create robust interfaces that gracefully handle every state and use friction intentionally to prevent errors.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Why spacing matters more than you think
-- The 8-point grid system and how to use it
-- Creating vertical rhythm with consistent spacing
-- Practical spacing patterns for common UI elements
+By progressing through this lesson, you will understand why spacing is a critical design element and learn to implement the 8-point grid system effectively. You will also develop the skills to create vertical rhythm and apply practical spacing patterns to common UI elements.
 
 ## The Invisible Art
 
@@ -24,11 +21,7 @@ Most engineers underspacing. Designs feel crowded because elements are packed to
 A common misconception: empty space is wasted space that should be filled with content.
 
 The opposite is true. Whitespace:
-- **Reduces cognitive load:** Fewer elements competing for attention
-- **Improves comprehension:** Grouped content is easier to understand
-- **Creates focus:** Important elements stand out when surrounded by space
-- **Signals quality:** Premium products use generous spacing
-- **Improves readability:** Text with breathing room is easier to read
+Whitespace is an active design element that reduces cognitive load by limiting competing items and improves comprehension through logical grouping. It creates focus by making important elements stand out, signals a sense of premium quality, and directly enhances readability by providing text with necessary breathing room.
 
 <!-- visual-example: whitespace-demo -->
 
@@ -99,16 +92,12 @@ If your body text is 16px with 1.5 line-height:
 - Base unit = 16 × 1.5 = 24px
 
 All vertical spacing should be multiples of this base:
-- 24px (1×) — Between paragraphs
-- 48px (2×) — Between sections
-- 72px (3×) — Between major sections
+Establish a base unit, typically the line-height of your body text—such as 24px for 16px text at 1.5 line-height—and use multiples of this unit for all vertical spacing. For instance, maintain a single 24px unit between paragraphs, 48px between sections, and 72px between major page divisions.
 
 ### Maintaining Rhythm
 
 Consistent vertical rhythm means:
-- Margins and padding follow the grid
-- Different elements align to the same vertical lines
-- Scrolling feels smooth and predictable
+Maintaining consistent vertical rhythm means ensuring all margins and padding follow the grid so that different elements align to common vertical lines, resulting in a smooth and predictable scrolling experience.
 
 ## Component Spacing
 
@@ -175,16 +164,12 @@ Spacing communicates relationships (remember proximity from Gestalt):
 ### Tight Spacing = Related
 
 Elements that belong together should be close:
-- Label and input
-- Icon and text
-- List item children
+Maintain tight spacing for related elements like labels and inputs, icons and text, or list item children to reinforce their connection.
 
 ### Loose Spacing = Separate
 
 Elements that are distinct should have more space:
-- Between form sections
-- Between cards
-- Between page sections
+Use looser spacing between form sections, individual cards, and major page sections to clearly indicate distinct units of content.
 
 ### Visual Example
 
@@ -273,9 +258,7 @@ Edge padding (space between content and screen edge) is critical on mobile:
 ### The Squint Test
 
 A quick way to evaluate spacing: squint at your interface until you can't read text. You should still see:
-- Clear groupings
-- Obvious hierarchy
-- Balanced distribution
+Squint at your interface until the text blurs to ensure that you can still identify clear groupings, an obvious hierarchy, and a balanced distribution of visual weight.
 
 If everything blurs into one mass, spacing needs work.
 
@@ -300,10 +283,7 @@ Take a screen you've built or designed. Measure every spacing value. Are they on
 ### Exercise 2: Spacing Scale
 
 Create a spacing scale for a project:
-1. Choose your base unit (8px recommended)
-2. Define 8-10 spacing values
-3. Give them semantic names
-4. Document when to use each
+Create a spacing scale by choosing a base unit (8px recommended), defining 8-10 semantically named values, and documenting the specific use case for each.
 
 ### Exercise 3: Card Redesign
 
@@ -355,13 +335,7 @@ Compare how each feels. Which is most appropriate for different contexts?
 
 ## Key Takeaways
 
-- Spacing is invisible but critical. It creates rhythm and communicates relationships.
-- Whitespace is a feature, not wasted space
-- Use an 8-point grid for consistent spacing
-- Establish vertical rhythm based on your type scale
-- Use tighter spacing for related elements, looser spacing for distinct elements
-- Adapt spacing responsively but maintain proportions
-- Use the squint test to evaluate overall spacing balance
+Spacing is a critical, invisible element that creates rhythm and communicates relationships; remember that whitespace is a functional feature rather than wasted space. By implementing an 8-point grid and establishing vertical rhythm based on your type scale, you can distinguish related elements through proximity and adapt your spacing responsively while maintaining overall balance.
 
 ## Next Steps
 

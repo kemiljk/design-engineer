@@ -44,13 +44,11 @@ Apple's Human Interface Guidelines are strict: interactive elements must be at l
 ### Spacing
 Prevent accidental taps by leaving at least **8 points** between interactive targets. For critical or destructive actions, increase this spacing to prevent catastrophic errors.
 
-## Color and Contrast
+## Colour and Contrast
 
 ### Contrast Ratios
 Text must be legible. Follow WCAG guidelines:
-- **4.5:1** for normal text.
-- **3:1** for large text (18pt+ or 14pt+ bold).
-- **3:1** for UI components like inputs and buttons.
+Ensuring text remains legible requires following WCAG guidelines of **4.5:1** for normal text and **3:1** for larger or bold elements, as well as maintaining a **3:1** ratio for core UI components like buttons and inputs.
 
 ### Don't Rely on Colour Alone
 Never use colour as the only way to convey information. A red error message might look identical to a grey status text for a colour-blind user. Always pair colour with an icon or a clear text label.
@@ -115,11 +113,7 @@ Use a plugin like Stark or a web contrast checker. Test your primary text agains
 
 ## Key Takeaways
 
-- **Accessibility** benefits everyone and is a core iOS value.
-- Design for **VoiceOver** by defining clear labels and logical order.
-- Respect the **44pt minimum touch target**.
-- Ensure **colour contrast** meets WCAG standards.
-- Test your app at **Dynamic Type** extremes.
+Accessible design is a core iOS value that benefits all users by ensuring information is clear and navigatable. This requires designing for **VoiceOver** with logical focus orders and meaningful labels, respecting the **44pt minimum touch target**, and maintaining **colour contrast** that meets WCAG standards. Finally, testing your interface at **Dynamic Type** extremes ensures your layout remains functional for users with varying visual preferences.
 
 ## Next Steps
 

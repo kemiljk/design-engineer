@@ -10,10 +10,7 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-- Building list views with SwiftUI
-- Navigation patterns with NavigationStack
-- Form-based create/edit views
-- Settings screens with AppStorage
+During this module, you will learn to build efficient list views with SwiftUI and implement robust navigation patterns using `NavigationStack`. We'll examine how to create form-based views for data entry and walk through the implementation of settings screens that leverage `AppStorage` for persistent user preferences.
 
 ## Screen 1: Main List View
 
@@ -216,19 +213,11 @@ struct SettingsView: View {
 
 Before moving on, verify:
 
-- [ ] Main list view displays data from SwiftData
-- [ ] Search and filtering work correctly
-- [ ] Detail/edit view updates data
-- [ ] Create view adds new items
-- [ ] Navigation between screens works
-- [ ] Settings persist with AppStorage
+Before proceeding, verify that your main list view correctly displays data retrieved from SwiftData and that both search and filtering functionalities are working as intended. You should also ensure that your detail and edit views accurately update the underlying data, the create view successfully adds new items, and that all navigation between screens and settings persistence via `AppStorage` are functioning reliably.
 
 ## Try It Yourself
 
-1. Build all four screens for your app
-2. Test navigation flow between screens
-3. Verify data persistence works
-4. Test search and filtering
+Finalise your core application by building all four essential screens and thoroughly testing the navigation flow between them. Verify that your data persistence layer is working correctly and that the search and filtering features provide an accurate and responsive user experience.
 
 ## Next Steps
 

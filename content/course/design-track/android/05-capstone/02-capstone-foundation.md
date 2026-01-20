@@ -10,25 +10,17 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Researching Material 3 guidelines
-- Defining app concept and purpose
-- Creating Material 3 colour schemes
-- Preparing for dynamic colour
+During this phase, you will research the Material 3 guidelines and define your app's core concept and purpose. We'll examine exactly how to create comprehensive Material 3 colour schemes while preparing your design for dynamic colour and system-wide adaptation.
 
 ## Step 1: Research & Reference
 
 Don't guess at Material Design. It is a documented system.
-- **Study the Guidelines:** Read the [Material 3 spec](https://m3.material.io/). Understand the role of containers, the logic of elevation, and the spacing rules.
-- **App Audit:** Download 5-10 modern Android apps (Google and third-party). How do they handle navigation on large screens? How do they use colour?
-- **Collection:** Screenshot effective patterns. Look for the "List-Detail" pattern on tablets and the "Navigation Rail" on foldables.
+Begin by studying the official Material 3 specification to understand the logic of elevation, containers, and spacing rules. Conduct an audit of several modern Android apps to see how they utilize colour and navigation on large screens, and collect screenshots of effective patterns like the list-detail view or navigation rails to serve as a reference for your own work.
 
 ## Step 2: Define Your App
 
 A pretty interface without a purpose is just decoration.
-- **Name:** Give it a name. "TaskFlow," "ChefHelper," "BudgetBuddy."
-- **Purpose:** Write one sentence. "A meal planner that generates shopping lists automatically."
-- **User:** Who is this for? "Parents who are tired of deciding what to cook."
-- **Personality:** Is it vibrant and energetic (lots of primary colour)? Or utility-focused and calm (lots of surface colour)?
+Clearly define your app's identity by choosing a name and writing a single-sentence purpose statement. Identify your target user and decide on a visual personality, whether it should be a vibrant, energy-filled interface with lots of primary colour or a utility-focused experience that relies on calm surface tones.
 
 ## Step 3: Create Material Colour Scheme
 
@@ -37,28 +29,21 @@ Use the **Material Theme Builder** plugin in Figma.
 1.  **Seed Colour:** Input your primary brand colour.
 2.  **Generate:** Let the tool generate the full tonal range (0-100) for Primary, Secondary, Tertiary, Neutral, and Error.
 3.  **Roles:** Identify your Semantic Roles.
-    - **Primary:** High emphasis (FAB, active states).
-    - **Primary Container:** Medium emphasis (Selected states).
-    - **Surface:** Backgrounds.
-    - **Outline:** Borders.
+Identify your semantic roles within the scheme, using high-emphasis primary colours for active states and FABs, medium-emphasis primary containers for selections, and neutral surface and outline tokens for backgrounds and borders.
 
 **Create schemes for both Light and Dark modes.**
 
 ## Step 4: Dynamic Colour Preparation
 
 Your app lives on a user's device, which has its own wallpaper.
-- **Test:** Use the Theme Builder to swap the seed colour. Does your layout break if the user loves neon green?
-- **Plan:** Decide which parts of your UI will be static (always your brand colour) and which will be dynamic (user's wallpaper colour). Usually, branding anchors like the logo stay static, while backgrounds and buttons adapt.
+Test your layout against various dynamic seeds using the Theme Builder to ensure your design remains legible regardless of the user's wallpaper. You must also plan which parts of your interface will remain static to anchor your brand and which will adapt dynamically to the system's generated palette.
 
 ## Step 5: Typography with Roboto
 
 Stick to the system defaults unless you have a strong brand reason not to.
 - **Font:** Roboto (Sans-serif).
 - **Scale:** Map your styles to the Material Type Scale.
-    - **Headline Large (32sp):** Page Titles.
-    - **Title Medium (16sp):** Card Titles.
-    - **Body Medium (14sp):** Standard Text.
-    - **Label Large (14sp):** Buttons.
+Map your typography to the Material type scale using Roboto as your foundational system font. This includes defining headline large styles at 32sp for page titles, title medium at 16sp for cards, and standard body text at 14sp, alongside a 14sp label large style for buttons.
 
 ## Checkpoint
 

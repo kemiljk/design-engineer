@@ -4,46 +4,23 @@
 
 ## What You'll Learn
 
-- What JavaScript is and where it runs
-- How JavaScript relates to HTML and CSS
-- The role of JavaScript in modern web development
-- Why Design Engineers need JavaScript
+In this lesson, we will define what JavaScript is and identify where it runs within the web ecosystem. You will learn how JavaScript interacts with HTML and CSS, understand its critical role in modern web development, and discover why JavaScript is an indispensable tool for every Design Engineer.
 
 ## The Language of Interactivity
 
 > *"Always bet on JavaScript."* — Brendan Eich
 
-HTML provides structure. CSS provides style. JavaScript provides behaviour.
-
-When you:
-- Click a button and a menu opens
-- Submit a form and see validation messages
-- Scroll and animations trigger
-- Drag items to reorder them
-
-JavaScript makes it happen.
+HTML provides the structure of a page, while CSS handles the styling. JavaScript provides the behaviour. Whether you are clicking a button to open a menu, submitting a form to see validation messages, triggering animations as you scroll, or dragging items to reorder them, JavaScript is the engine that makes these interactive experiences possible.
 
 ## Where JavaScript Runs
 
 ### In the Browser
 
-JavaScript was created for browsers. Every modern browser has a JavaScript engine:
-- Chrome: V8
-- Firefox: SpiderMonkey
-- Safari: JavaScriptCore
-
-Browser JavaScript can:
-- Respond to user events (clicks, typing, scrolling)
-- Modify the page (DOM manipulation)
-- Make network requests (fetch data)
-- Store data locally (localStorage, IndexedDB)
+JavaScript was originally created for browsers, and every modern browser today includes a powerful JavaScript engine, such as Chrome's V8, Firefox's SpiderMonkey, or Safari's JavaScriptCore. In a browser environment, JavaScript can respond to user events like clicks and scrolling, modify the page content via DOM manipulation, make network requests to fetch data, and store information locally using tools like `localStorage`.
 
 ### On the Server (Node.js)
 
-Node.js lets JavaScript run outside browsers:
-- Build servers and APIs
-- Run build tools
-- Create command-line applications
+Node.js allows JavaScript to run outside the browser environment, enabling you to build servers, APIs, and command-line applications. It also powers the build tools that are essential for modern web development workflows.
 
 As a Design Engineer, you'll primarily write browser JavaScript, but understanding Node.js helps with build tools and frameworks.
 
@@ -62,12 +39,7 @@ button.addEventListener('click', () => {
 });
 ```
 
-JavaScript can:
-- Find elements
-- Read and modify content
-- Add and remove elements
-- Respond to events
-- Change styles
+By interacting with the DOM, JavaScript can find specific elements on a page, read and modify their content, add or remove elements dynamically, and respond to various user events. It also allows you to change styles on the fly, providing a level of interactivity that CSS alone cannot achieve.
 
 ## Adding JavaScript to HTML
 
@@ -126,85 +98,29 @@ button.addEventListener('click', () => {
 
 ## Why Design Engineers Need JavaScript
 
-As a Design Engineer, JavaScript enables you to:
-
-### Build Interactive Prototypes
-
-Move beyond static mockups and create prototypes with real interactions.
-
-### Implement Design Details
-
-Animations, micro-interactions, and dynamic behaviours that make designs feel polished.
-
-### Work with Real Data
-
-Fetch and display actual data. Handle loading states. Manage errors.
-
-### Bridge Design and Development
-
-Understand implementation constraints and build components that work.
-
-### Ship Side Projects
-
-Create complete projects without waiting for backend developers.
+As a Design Engineer, mastering JavaScript enables you to move beyond static mockups and build interactive prototypes with real functionality. You can implement the fine design details, such as complex animations and micro-interactions, that make a product feel truly polished. Furthermore, JavaScript allows you to work with real data, handle loading states, and manage errors effectively, helping you bridge the gap between design and development and ship complete side projects independently.
 
 ## JavaScript Ecosystem
 
-JavaScript has a vast ecosystem:
-
-**Frameworks:**
-- React, Vue, Svelte, Angular (UI frameworks)
-- Next.js, Nuxt, Remix (full-stack frameworks)
-
-**Tools:**
-- npm/Bun/yarn (package managers)
-- Webpack, Vite (bundlers)
-- TypeScript (typed JavaScript)
-
-**Libraries:**
-- Thousands for any need
-
-You don't need to know everything. Start with fundamentals, learn tools as needed.
+The JavaScript ecosystem is vast, featuring a wide array of UI frameworks like React and Svelte, as well as full-stack frameworks such as Next.js. You'll also encounter essential tools like the npm package manager and bundlers like Vite. While there are thousands of libraries available for almost any need, you don't need to know everything at once; starting with the fundamentals will allow you to learn more specialised tools as you need them.
 
 ## Modern JavaScript
 
-JavaScript has evolved significantly. Modern JavaScript (ES6+) includes:
-- `const` and `let` (better variable declarations)
-- Arrow functions (`() => {}`)
-- Template literals (`` `Hello, ${name}` ``)
-- Destructuring, spread, and rest operators
-- Modules (`import`/`export`)
-- Promises and async/await
-- Classes
-
-We'll cover these throughout this module.
+JavaScript has evolved significantly in recent years, with modern versions (ES6+) introducing powerful features such as `const` and `let` for better variable declarations, arrow functions, and template literals. These versions also include essential tools like modules, promises, and the `async/await` syntax, as well as classes for more structured programming. We will cover these modern enhancements in detail throughout this module.
 
 ## Try It Yourself
 
 ### Exercise 1: Console Exploration
 
-Open the console on any webpage. Try:
-```javascript
-document.title
-document.body.style.background = 'lightblue'
-document.querySelectorAll('a').length
-```
+Open the developer console on any webpage and experiment with finding the document title, changing the page's background colour, or counting the number of links on the page.
 
 ### Exercise 2: First Script
 
-Create an HTML file with a button. Add JavaScript that:
-1. Selects the button
-2. Adds a click event listener
-3. Changes the button text when clicked
+Create a basic HTML file containing a single button and add a JavaScript script that selects the button and changes its text when it is clicked.
 
 ### Exercise 3: Variables
 
-In the console, create variables for:
-- Your name (string)
-- Your age (number)
-- Whether you're a designer (boolean)
-
-Log them all.
+Practise using the console to create variables for your name, age, and professional role, and then log them all to verify they have been stored correctly.
 
 ## Test Your Understanding
 
@@ -247,11 +163,7 @@ Log them all.
 
 ## Key Takeaways
 
-- JavaScript adds interactivity to web pages
-- It runs in browsers (and on servers with Node.js)
-- JavaScript interacts with HTML through the DOM
-- Modern JavaScript (ES6+) has powerful features
-- Design Engineers use JavaScript for prototypes, interactions, and shipping products
+To recap, JavaScript is the primary tool for adding interactivity to web pages, and it runs both in browsers and on servers via Node.js. It interacts with your HTML through the Document Object Model (DOM), and modern ES6+ features provide a powerful toolkit for building complex applications. For Design Engineers, JavaScript is essential for creating high-fidelity prototypes, implementing detailed interactions, and shipping complete products.
 
 ## Next Steps
 

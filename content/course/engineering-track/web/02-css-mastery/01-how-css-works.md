@@ -8,10 +8,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- What CSS is and how it connects to HTML
-- The cascade and how style conflicts resolve
-- Specificity rules and calculations
-- How inheritance works
+In this lesson, we will explore the fundamental nature of CSS and how it connects to your HTML documents. You will learn about the cascade and how it resolves style conflicts, alongside the rules and calculations used to determine selector specificity. We'll also examine how inheritance allows styles to pass down through your document structure, simplifying your overall design workflow.
 
 ## What is CSS?
 
@@ -30,18 +27,7 @@ This says: "All `<h1>` elements should be navy and 2rem."
 
 ### CSS Syntax
 
-```css
-selector {
-  property: value;
-  property: value;
-}
-```
-
-- **Selector:** What elements to style
-- **Property:** What aspect to change
-- **Value:** What to change it to
-- **Declaration:** A property-value pair
-- **Declaration block:** Everything inside `{}`
+To write effective CSS, you must understand the basic syntax of a rule. A **selector** identifies which elements you wish to style, while a **property** defines the specific aspect you want to change, and a **value** determines the new appearance. Together, a property and its value form a **declaration**, and multiple declarations are grouped within curly braces to create a **declaration block**.
 
 ### Adding CSS to HTML
 
@@ -70,12 +56,7 @@ CSS stands for *Cascading* Style Sheets. The cascade determines which styles app
 
 ### Cascade Order
 
-When styles conflict, these factors determine the winner (in order):
-
-1. **Importance** (`!important` declarations)
-2. **Origin** (author, user, browser defaults)
-3. **Specificity** (how specific the selector is)
-4. **Source order** (later rules win)
+When multiple styles conflict, the browser uses a specific hierarchy to determine the winner. It first considers **importance**, looking for `!important` declarations, followed by the **origin** of the style, such as whether it comes from the author, the user, or browser defaults. If these are equal, it calculates **specificity** to see which selector is more precise, and finally, it looks at the **source order**, where rules defined later in the stylesheet take precedence.
 
 ### Example
 
@@ -102,13 +83,7 @@ Specificity is a weight that determines which CSS rule applies. Higher specifici
 
 ### Specificity Levels
 
-From lowest to highest:
-
-1. **Type selectors** (`h1`, `p`, `div`) — Specificity: 0,0,1
-2. **Class selectors** (`.card`, `.active`) — Specificity: 0,1,0
-3. **ID selectors** (`#header`, `#main`) — Specificity: 1,0,0
-4. **Inline styles** — Highest regular specificity
-5. **!important** — Overrides everything (avoid using)
+Specificity levels range from the lowest to the highest weight. **Type selectors**, such as `h1` or `div`, have the lowest specificity, followed by **class selectors** like `.card` or `.active`. **ID selectors**, such as `#header`, carry even more weight, while **inline styles** applied directly to an element have the highest regular specificity. The `!important` declaration acts as a final override for everything else, though it should be avoided in most architectural designs.
 
 ### Calculating Specificity
 
@@ -156,12 +131,7 @@ Some CSS properties pass from parent to child elements.
 
 ### Inherited Properties
 
-Text-related properties typically inherit:
-- `color`
-- `font-family`
-- `font-size`
-- `line-height`
-- `text-align`
+Most text-related properties are designed to inherit from their parents, which helps maintain consistency across your typography. This includes properties such as `colour`, `font-family`, `font-size`, `line-height`, and `text-align`.
 
 ```css
 body {
@@ -174,13 +144,7 @@ All text in `<body>` inherits these unless overridden.
 
 ### Non-Inherited Properties
 
-Layout and box properties typically don't inherit:
-- `margin`
-- `padding`
-- `border`
-- `background`
-- `width`
-- `height`
+Conversely, properties related to layout and the box model typically do not inherit. You must define properties such as `margin`, `padding`, `border`, `background`, `width`, and `height` specifically for the elements you wish to style.
 
 ```css
 .container {
@@ -246,76 +210,23 @@ img {
 }
 ```
 
-## Writing Maintainable CSS
+### Writing Maintainable CSS
 
-Understanding the cascade helps you write better CSS:
-
-### Keep Specificity Low
-
-```css
-/* Avoid */
-#header #nav ul li a.active { ... }
-
-/* Prefer */
-.nav-link.is-active { ... }
-```
-
-Low specificity is easier to override when needed.
-
-### Use Classes
-
-Classes are the sweet spot:
-- More specific than elements
-- Less specific than IDs
-- Reusable across elements
-
-### Avoid !important
-
-If you need `!important`, consider:
-- Is specificity too high elsewhere?
-- Can you restructure selectors?
-- Is there a cascade conflict to resolve?
-
-### Order Matters
-
-Organize CSS predictably:
-1. Base/reset styles
-2. Layout
-3. Components
-4. Utilities
+To keep your CSS maintainable, you should strive to keep your specificity as low as possible. Avoiding deeply nested selectors in favour of shallow class-based rules like `.nav-link.is-active` makes your styles much easier to override when necessary. Classes are generally the "sweet spot" for styling because they are more specific than elements but less rigid than IDs, and they remain highly reusable across different parts of your interface. Always aim to avoid `!important` by considering if your specificity is too high elsewhere or if your selectors need restructuring. Finally, organise your CSS in a predictable order, starting with base and reset styles, followed by layout rules, components, and finally utility classes.
 
 ## Try It Yourself
 
 ### Exercise 1: Specificity Practice
 
-Without running the code, predict the colour:
-
-```css
-p { color: black; }
-.text { color: blue; }
-p.text { color: green; }
-#intro { color: red; }
-p#intro.text { color: purple; }
-```
-
-```html
-<p id="intro" class="text">What colour am I?</p>
-```
+Without running the code, try to predict the final colour of the text in the example below. Calculate the specificity for each rule to see which one the browser will ultimately select.
 
 ### Exercise 2: Cascade Debugging
 
-Create two rules that conflict. Use browser dev tools to see which wins and why.
+Create two conflicting rules in your stylesheet and use your browser's developer tools to inspect which one wins. Observe how the dev tools strike out the losing declarations, providing a clear visual of the cascade in action.
 
 ### Exercise 3: Inheritance Exploration
 
-Create a nested structure:
-```html
-<div class="parent">
-  <p class="child">Text</p>
-</div>
-```
-
-Test which properties inherit (`color`, `border`, `margin`) and which don't.
+Set up a nested HTML structure with a parent div and a child paragraph. Experiment with different properties like `colour`, `border`, and `margin` on the parent to see which ones automatically apply to the child and which require manual definition.
 
 ## Test Your Understanding
 
@@ -358,13 +269,7 @@ Test which properties inherit (`color`, `border`, `margin`) and which don't.
 
 ## Key Takeaways
 
-- CSS controls appearance; HTML controls structure
-- The cascade resolves conflicts using importance, specificity, and source order
-- Specificity: IDs > Classes > Elements
-- Avoid `!important`. It indicates architecture problems.
-- Text properties inherit; box properties don't
-- Keep specificity low for maintainable CSS
-- Use classes as your primary selector type
+To recap, CSS is the language of appearance while HTML defines structure. The cascade serves as the mechanism for resolving conflicts by weighing importance, specificity, and source order. You should generally avoid `!important` as it often masks underlying architectural issues, and instead focus on keeping specificity low by using classes as your primary selector type. Remember that while text-related properties like typography usually inherit from their parents, box model properties do not, requiring explicit definition for each component.
 
 ## Next Steps
 

@@ -4,14 +4,11 @@
 
 ## What You'll Learn
 
-- What information architecture (IA) is and why it matters
-- Principles of organising information
-- Navigation patterns and systems
-- Techniques for planning IA
+By progressing through this lesson, you will understand what information architecture (IA) is and why it is fundamental to product success. You will also learn the core principles of organising information, explore various navigation patterns and systems, and master the practical techniques used for planning robust IA.
 
 ## The Invisible Structure
 
-Information Architecture (IA) is the structural design of shared information environments. It is the art and science of organizing and labeling websites, intranets, online communities, and software to support usability and findability.
+Information Architecture (IA) is the structural design of shared information environments. It is the art and science of organising and labelling websites, intranets, online communities, and software to support usability and findability.
 
 Think of IA as the blueprint of a building. You can paint the walls (visual design) and install the light switches (interaction design), but if the bathroom is only accessible through the kitchen, the house is fundamentally broken. IA ensures that the rooms are in the right place and the hallways lead where you expect them to.
 
@@ -19,7 +16,7 @@ Think of IA as the blueprint of a building. You can paint the walls (visual desi
 
 A **mental model** is the image of the world that a user carries in their head. When a user arrives at your site, they already have an expectation of how it should work based on their past experiences.
 
-If you are designing a shopping site, users expect products to be categorized by type (Men, Women, Kids), not by color or date of manufacture. They expect the "Cart" to be in the top right. They expect clicking the logo to take them Home.
+If you are designing a shopping site, users expect products to be categorised by type (Men, Women, Kids), not by colour or date of manufacture. They expect the "Cart" to be in the top right. They expect clicking the logo to take them Home.
 
 Good IA aligns the system model (how it actually works) with the user's mental model (how they think it works). When these align, the interface feels "intuitive." When they clash, the user feels confused and frustrated.
 
@@ -27,17 +24,9 @@ Good IA aligns the system model (how it actually works) with the user's mental m
 
 How do you group a pile of 1,000 items? There are two main ways to approach this:
 
-### Exact Schemes
-These sort information objectively. There is only one "right" place for each item.
-- **Alphabetical:** Like a phone book. Good when the user knows the specific name they are looking for (e.g., a contact list).
-- **Chronological:** Like a blog or news feed. Good when "newness" is the primary value.
-- **Geographical:** Like a map. Good for physical locations.
+Exact schemes sort information objectively into single, correct locations, such as alphabetical lists for contact directories, chronological feeds for news where timeliness is paramount, or geographical maps for physical locations.
 
-### Ambiguous Schemes
-These sort information subjectively. Users might look for an item in multiple places.
-- **Topical:** Organizing by subject (e.g., News, Sports, Weather). This is the most common but the hardest to design because topics often overlap.
-- **Task-Based:** Organizing by what the user wants to do (e.g., "Pay Bill," "Change Plan"). Common in utility apps.
-- **Audience-Based:** Organizing by who the user is (e.g., "For Students," "For Teachers").
+Ambiguous schemes are more subjective and allow for items to potentially appear in multiple places, such as topical groupings like news or sports, task-based categories focused on user actions like "Pay Bill," or audience-specific sections tailored to students or teachers.
 
 Most effective navigation systems use a hybrid approach—perhaps a topical primary navigation combined with a task-based utility menu.
 
@@ -76,9 +65,9 @@ The "Three-Click Rule" (users should find anything in 3 clicks) is a myth. Users
 <!-- visual-example: ia-hierarchy-depth-demo -->
 <!-- illustration: hierarchy-depth -->
 
-## Labeling
+## Labelling
 
-Labeling is the art of naming things. It sounds simple, but it is often the point of failure.
+Labelling is the art of naming things. It sounds simple, but it is often the point of failure.
 
 **Avoid internal jargon:** Don't call your help section "Knowledge Repository" if users are looking for "Help." Don't call your pricing page "Investment" if users are looking for "Cost."
 
@@ -92,7 +81,7 @@ How do you actually create an IA? You don't start in Figma. You start with data.
 
 <!-- illustration: ia-hierarchy -->
 
-**Content Inventory:** Before you can organize, you need to know what you have. A content inventory is a spreadsheet listing every page and piece of content on the current site. It is tedious, but necessary.
+**Content Inventory:** Before you can organise, you need to know what you have. A content inventory is a spreadsheet listing every page and piece of content on the current site. It is tedious, but necessary.
 
 **Card Sorting:** This is a user research method where you write topics on index cards and ask users to group them.
 - **Open Sort:** Users create their own group names. This reveals their mental model.
@@ -105,7 +94,7 @@ How do you actually create an IA? You don't start in Figma. You start with data.
 ## Try It Yourself
 
 ### Exercise 1: Mental Model Mapping
-Pick a complex app you use (like Spotify or Amazon). Try to draw a map of how you *think* it is organized. Then, navigate through the app and draw the *actual* map. Where do they differ?
+Pick a complex app you use (like Spotify or Amazon). Try to draw a map of how you *think* it is organised. Then, navigate through the app and draw the *actual* map. Where do they differ?
 
 ### Exercise 2: Quick Card Sort
 Write down 20 features of a banking app (Check Balance, Transfer Money, Pay Bill, Order Checks, etc.) on sticky notes. Ask three friends to group them. Do they group "Pay Bill" with "Transfers" or as its own thing?
@@ -154,12 +143,7 @@ Visit a university website (they often have complex IAs). Try to find the academ
 
 ## Key Takeaways
 
-- IA is the blueprint of your product; design it before you draw pixels.
-- Use **Card Sorting** to discover how users group information.
-- Use **Tree Testing** to validate your structure.
-- Align your navigation with the user's **Mental Model**.
-- Good labels are specific, familiar, and consistent.
-- **Breadcrumbs** and **Global Navigation** provide necessary context and safety.
+Information Architecture serves as the blueprint for your product and should be designed prior to any visual work, using card sorting to discover user groupings and tree testing to validate the proposed structure. By aligning navigation with user mental models and ensuring labels are specific and consistent, you can provide an interface where breadcrumbs and global navigation offer necessary context and safety for exploration.
 
 ## Next Steps
 

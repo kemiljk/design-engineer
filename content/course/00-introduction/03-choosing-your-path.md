@@ -8,18 +8,13 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- How to assess your current skill level
-- The difference between the Design and Engineering tracks
-- How to choose your platform (Web, iOS, or Android)
-- When to pursue the Convergence track
+By exploring this lesson, you will learn how to accurately assess your current skill level and distinguish between the focus of the Design and Engineering tracks. We'll guide you through choosing the right platform—whether Web, iOS, or Android—and explain the ideal time to pursue the advanced Convergence track.
 
 ## The Course Structure
 
 This course is designed as a "Choose Your Own Adventure." Instead of a single linear path, you'll select:
 
-1. **A Track**: Design (for engineers) or Engineering (for designers)
-2. **A Platform**: Web, iOS, or Android
-3. **Convergence**: The advanced track where both skills merge
+This course is designed as a "Choose Your Own Adventure" rather than a single linear path. You'll begin by selecting between the Design track for engineers or the Engineering track for designers, followed by your preferred platform of Web, iOS, or Android. Finally, you can choose to merge these abilities in the advanced Convergence track.
 
 Let's figure out what's right for you.
 
@@ -79,39 +74,23 @@ Before choosing a path, honestly assess your current skills. Rate each skill fro
 
 Your **engineering score is higher** than your design score, or:
 
-- You can build things but they don't look great
-- You struggle to make aesthetic decisions confidently
-- You want to understand *why* designers make certain requests
-- You want to ship beautiful, polished interfaces—not just functional code
-- You want to develop real design taste, not just follow templates
+The Design track is perfect for those who can build functional products but find them lacking in aesthetic quality or struggle to make confident visual decisions. If you want to understand the reasoning behind designer requests and develop a genuine taste for beautiful, polished interfaces rather than just following a template, this is your starting point.
 
 **Develop design taste that AI can't replicate.** You already know how to code—now learn to make confident visual decisions. This track gives you fundamentals that compound: skills that make your work beautiful, not just functional.
 
 The Design Track covers:
-- Visual design fundamentals
-- Typography, colour, and spacing
-- Design tools and workflows
-- Design systems
-- UX principles
+The Design track provides a deep dive into visual fundamentals, including typography, colour, and spacing. You will master professional design tools and workflows while learning to build robust design systems and applying core UX principles to your work.
 
 ### Take the Engineering Track If...
 
 Your **design score is higher** than your engineering score, or:
 
-- You're comfortable in design tools but can't code your ideas
-- You've tried Vibe Coding (prompting AI) but the results feel hollow
-- You want real engineering skills—not just generated outputs
-- You want to ship side projects yourself
-- You're tired of designs getting "lost in translation"
+You should opt for the Engineering track if you are already comfortable with design tools but find yourself unable to code your ideas effectively. If you're tired of designs getting "lost in translation" or relying on hollow AI-generated outputs, this track will provide the real engineering foundations needed to ship your own side projects with total intention.
 
 **Go beyond Vibe Coding.** AI can generate code, but it can't teach you to build with intention. This track gives you fundamentals that compound: skills that let you own the entire build process, not just prompt and hope.
 
 The Engineering Track covers:
-- Terminal, environment setup, and tooling
-- HTML, CSS, and JavaScript fundamentals (for Web)
-- Building UI components
-- State management
-- Design systems in code
+The Engineering track covers everything from terminal and environment setup to mastery of HTML, CSS, and JavaScript for the web. You'll learn to build complex UI components, manage state effectively, and translate your design systems into robust production code.
 
 ### What If You're Balanced?
 
@@ -128,44 +107,26 @@ If your scores are similar:
 ### Web
 
 **Choose Web if:**
-- You want the broadest applicability
-- You're interested in websites, web apps, or cross-platform work
-- You want to build things that work everywhere
-- You're new to both design and development (web has the lowest barrier to entry)
+Web is the ideal choice if you seek the broadest platform applicability for websites and web apps that work across all devices. Because it has the lowest barrier to entry, it's particularly well-suited for those who are entirely new to both design and development.
 
 **Web Track covers:**
-- HTML, CSS, JavaScript
-- Responsive design
-- Modern frameworks (conceptually)
-- Web-specific design considerations
+The Web track focuses on mastering HTML, CSS, and JavaScript to create responsive designs. You will also explore modern framework concepts and the specific design considerations unique to the web ecosystem.
 
 ### iOS (SwiftUI)
 
 **Choose iOS if:**
-- You're specifically interested in Apple platforms
-- You want to build iPhone, iPad, or Mac apps
-- You appreciate Apple's design philosophy
-- You're already in the Apple ecosystem
+Select iOS if you are specifically interested in Apple's ecosystem and want to build apps for the iPhone, iPad, or Mac. This platform is perfect for those who already appreciate and want to master Apple's distinct design philosophy and materials.
 
 **iOS Track covers:**
-- Swift programming language
-- SwiftUI framework
-- Human Interface Guidelines
-- iOS-specific design patterns
+The iOS track covers the Swift programming language and the SwiftUI framework in depth. You'll learn to apply the Human Interface Guidelines and master the design patterns specific to the iOS platform.
 
 ### Android (Jetpack Compose)
 
 **Choose Android if:**
-- You're specifically interested in Android development
-- You want to build for the largest mobile platform globally
-- You appreciate Material Design
-- You're already using Android devices
+Android is the best path if you want to build for the world's largest mobile platform and have an appreciation for Google's Material Design system. It's ideally suited for those who are already integrated into the Android ecosystem and want to develop for a wide variety of devices.
 
 **Android Track covers:**
-- Kotlin programming language
-- Jetpack Compose framework
-- Material Design principles
-- Android-specific design patterns
+The Android track focuses on the Kotlin programming language and the Jetpack Compose framework. You will master the principles of Material Design and the varied layout and navigation patterns unique to Android.
 
 ### Can I Do Multiple Platforms?
 
@@ -177,16 +138,10 @@ Once you're comfortable on one platform, picking up another is faster. The funda
 
 The Convergence track is where Design Engineering comes together. It's for people who:
 
-- Have completed both the Design and Engineering tracks for their platform
-- Already have strong skills in both areas
-- Want to focus on the *bridge* between design and engineering
+The Convergence track is designed for those who have completed both the Design and Engineering tracks or already possess strong skills in both areas and want to focus specifically on the bridge between them.
 
 **Convergence covers:**
-- Motion and animation
-- Prototyping workflows
-- Accessibility deep dive
-- Performance and polish
-- Building a DE portfolio and workflow
+Convergence covers motion and animation, advanced prototyping workflows, and a deep dive into accessibility. You'll also focus on implementation performance and polish, while learning how to build a professional design engineering portfolio.
 
 You don't have to complete both tracks before starting Convergence, but you should be comfortable with the fundamentals of both design and engineering for your platform.
 
@@ -276,12 +231,7 @@ Your choices aren't permanent. You can switch if another path suits you better. 
 
 ## Key Takeaways
 
-- Assess your skills honestly before choosing a path
-- Designers: go beyond Vibe Coding—develop real engineering skills AI can't replicate
-- Engineers: develop design taste—ship beautiful, polished UIs, not just functional code
-- Start with one platform and master it before adding others
-- The Convergence track ties everything together
-- Your path isn't permanent—you can adjust as you learn
+Before selecting a path, you should assess your skills honestly and decide whether you need to go beyond AI-generated code or develop a more refined design taste. Whether you start with design or engineering, focus on mastering one platform first to learn portable fundamentals before merging your abilities in the Convergence track. Remember that your path isn't permanent, and you can always adjust your journey as you continue to learn and grow.
 
 ## Next Steps
 

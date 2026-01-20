@@ -4,24 +4,14 @@
 
 ## What You'll Learn
 
-- The psychology of good notifications
-- Anatomy of standard and custom notifications
-- Designing versatile Home Screen widgets
-- Giving users control with Notification Channels
+During this lesson, you will explore the psychology behind effective notification design and dissect the anatomy of both standard and custom notification surfaces. We'll learn how to build versatile Home Screen widgets and how to give users granular control over their experience using Notification Channels.
 
 ## The Art of the Notification
 
 Notifications are an interruption. Your job is to ensure the value of the information outweighs the cost of the interruption.
 
 **Good notifications** are:
-- **Timely:** "Your driver has arrived." (Actionable now)
-- **Personal:** "Alice commented on your photo." (About the user)
-- **Actionable:** "Check-in for your flight." (Task-oriented)
-
-**Bad notifications** are:
-- **Vague:** "Check out what's new!" (Clickbait)
-- **Passive:** "You haven't logged in for 3 days." (Guilt trip)
-- **Marketing:** "10% off sale." (Unless explicitly opted-in)
+Effective notifications provide value through **timely** arrival and **personal** relevance, driving **actionable** tasks like flight check-ins or replying to comments. Avoid notifications that are vague, passive, or purely promotional unless the user has explicitly opted in.
 
 ### Notification Channels
 
@@ -37,15 +27,11 @@ A standard notification isn't just text; it's a rich surface.
 Contains the App Icon, App Name, and Timestamp. This establishes trust and context.
 
 ### The Content Area
-- **Title:** Short and punchy. "New Message" or "Flight Delayed."
-- **Text:** The detail. "Alice: Hey, are we still on for lunch?"
-- **Large Icon (Optional):** An avatar or thumbnail on the right. Essential for messaging apps to show *who* is talking.
+The content area includes a punchy **Title**, descriptive **Text**, and an optional **Large Icon** or avatar to identify the source.
 
 ### The Expanded View
 Users can drag down on a notification to expand it. This is where you can show:
-- **Big Picture Style:** A large photo preview.
-- **Big Text Style:** The full email body.
-- **Inbox Style:** A list of multiple new messages.
+Expanded views allow users to see more detail through **Big Picture**, **Big Text**, or **Inbox** styles.
 
 ### Actions
 You can add up to three action buttons at the bottom (e.g., "Reply," "Archive," "Mark as Read"). These are powerful because they let users complete tasks *without opening the app*.
@@ -68,16 +54,12 @@ Widgets update periodically (usually every 30+ minutes) to save battery. Do not 
 ### Exercise 1: The Notification Audit
 
 Look at the last 5 notifications you received on your phone.
-1.  Which ones were useful? Which were annoying?
-2.  Did any offer inline actions (Reply, Delete)?
-3.  How would you redesign the annoying ones to be useful (or would you remove them entirely)?
+Review the last five notifications you received and identify which ones were genuinely useful versus those that were simply annoying. Look for any that offered inline actions like replying or deleting, and consider how you would either redesign the disruptive alerts to provide more value or determine if they should be removed entirely.
 
 ### Exercise 2: Widget States
 
 Sketch a "Notes" widget.
-1.  **Small State:** Shows the title of the most recent note.
-2.  **Expanded State:** Shows a scrollable list of recent notes and a "New Note" button.
-3.  **Empty State:** What does it look like if the user has no notes?
+Sketch a "Notes" widget that adapts across three distinct states. At its smallest size, it should only show the title of the most recent note, while the expanded view should reveal a scrollable list of recent entries and a "New Note" button. Finally, consider the empty state and decide exactly how the widget appears when the user has no notes saved.
 
 ## Test Your Understanding
 
@@ -106,13 +88,13 @@ Sketch a "Notes" widget.
       "id": "c",
       "text": "They empower users to disable specific types of notifications (like Marketing) while keeping important ones (like Messages)",
       "isCorrect": true,
-      "explanation": "Correct! Channels categorize notifications so users can fine-tune what they want to receive, reducing the likelihood of them blocking your app entirely."
+      "explanation": "Correct! Channels categorise notifications so users can fine-tune what they want to receive, reducing the likelihood of them blocking your app entirely."
     },
     {
       "id": "d",
       "text": "They make notifications appear in a different color",
       "isCorrect": false,
-      "explanation": "Channels don't control color theming."
+      "explanation": "Channels don't control colour theming."
     }
   ]
 }
@@ -120,10 +102,7 @@ Sketch a "Notes" widget.
 
 ## Key Takeaways
 
-- **Notifications are a privilege.** Deliver value, or get blocked.
-- Use **Channels** to categorize your alerts.
-- **Actions** make notifications powerful productivity tools.
-- **Widgets** on Android can be scrollable and interactive; design for variable sizes.
+Treat notifications as a privilege by ensuring every alert delivers genuine value to the user and is correctly categorised through system channels. By including powerful inline actions, you can transform notifications into productive micro-interfaces, while designing interactive and scrollable widgets that adapt to variable home screen sizes provides another layer of utility and re-engagement.
 
 ## Congratulations!
 

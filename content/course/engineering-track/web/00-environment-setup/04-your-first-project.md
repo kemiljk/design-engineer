@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- How to initialise a new project with npm
-- Understanding `package.json`
-- Installing project dependencies
-- Running development scripts
-- The typical project workflow
+During this module, you will learn how to initialise a new project using npm and gain a deep understanding of the `package.json` file. We'll examine the process of installing project dependencies and walking through the execution of development scripts to establish a professional project workflow.
 
 ## Creating a Project
 
@@ -199,30 +195,13 @@ Let's break down this important file:
 
 **devDependencies:** Packages only needed during development.
 
-### Common Scripts
-
-Most projects have scripts like:
-
-```json
-{
-  "scripts": {
-    "start": "...",
-    "dev": "...",
-    "build": "...",
-    "test": "..."
-  }
-}
-```
-
-Run them with `npm run dev`, `npm run build`, etc.
+Most modern web projects include a standard set of scripts for starting a development server, building the final production bundle, or running tests. You can execute these custom commands by typing `npm run dev`, `npm run build`, or any other script name defined in your configuration. Additionally, the `start` script is unique because it can be run using the shorthand `npm start`, providing a quick way to launch your primary development environment.
 
 ## The node_modules Folder
 
 When you ran `npm install`, a `node_modules` folder appeared. This contains:
 
-- The packages you installed
-- All packages those packages depend on
-- A lot of files
+When you run the installation command, a `node_modules` folder is generated which contains all of your primary packages along with their various sub-dependencies. This directory can grow quite large and contains numerous individual files required for your project to function.
 
 **Never edit files in node_modules.** They're managed by npm.
 
@@ -247,17 +226,7 @@ npm reads `package.json` and downloads everything.
 As you build projects, you'll add more packages:
 
 ```bash
-# Install and save to dependencies
-npm install package-name
-
-# Install and save to devDependencies
-npm install --save-dev package-name
-
-# Install a specific version
-npm install package-name@1.2.3
-
-# Install multiple packages
-npm install package-one package-two
+As your project evolves, you can add more tools by using `npm install package-name` to save a dependency for production, or `npm install --save-dev package-name` to restrict it to your development environment. You also have the flexibility to install specific versions by appending an @ symbol, such as `package-name@1.2.3`, or even install multiple packages simultaneously by listing them in a single command.
 ```
 
 ### Popular Packages for Design Engineers
@@ -323,9 +292,7 @@ npm run dev
 ```
 
 Vite gives you:
-- Lightning-fast hot reload
-- Modern JavaScript support
-- Optimised production builds
+Vite provides an exceptional development experience by offering lightning-fast hot module replacement and comprehensive support for modern JavaScript features. It also handles the generation of highly optimised production builds, ensuring your application remains performant and ready for deployment with minimal configuration.
 
 Open `http://localhost:5173` to see your project. This is how real projects start.
 
@@ -403,12 +370,7 @@ Follow the Vite example above. Explore the generated files:
 
 ## Key Takeaways
 
-- `npm init` creates `package.json` for your project
-- Install packages with `npm install package-name`
-- Use `--save-dev` for development-only tools
-- Scripts in `package.json` define common commands
-- `node_modules` is auto-generated. Don't commit it.
-- `npm install` recreates dependencies from `package.json`
+To manage your web projects effectively, you should always start by initialising a `package.json` file and using npm to install dependencies, making sure to use the `--save-dev` flag for development-only tools. These scripts define your essential project commands, while the `node_modules` directory remains an auto-generated component that should never be edited or committed to version control. By correctly leveraging `npm install` to recreate your development environment, you ensure that your projects remain consistent and portable across different systems.
 
 ## Environment Complete!
 

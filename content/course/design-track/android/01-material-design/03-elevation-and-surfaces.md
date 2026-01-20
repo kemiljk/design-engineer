@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- How elevation works
-- Elevation levels and usage
-- Shadow vs. surface tint
-- Designing with depth
+In this lesson, you will learn exactly how elevation works as a functional tool within the Android ecosystem. We'll explore the standard elevation levels and their appropriate use cases, distinguish between shadows and surface tints, and master the art of designing with intentional depth.
 
 ## Understanding Elevation
 
@@ -19,21 +16,13 @@ Elevation isn't just for show; it serves a functional purpose. It establishes hi
 
 Material Design defines standard elevation levels to ensure consistency.
 
-**Level 0 (0dp)** is the base surface. This is the background of your app and any content that sits flush with it. Disabled elements also typically rest at this level.
-
-**Level 1 (1dp)** is for low-emphasis containers like Cards, search bars, and filled text fields. They sit just above the background, separating their content from the noise.
-
-**Level 2 (3dp)** is the resting state for interactive elements like elevated buttons and Floating Action Buttons (FABs). This slight lift suggests that they can be pressed.
-
-**Level 3 (6dp)** is often used for the active, pressed state of a FAB or for snackbars that toast a message above the content.
-
-**Level 4 (8dp)** and **Level 5 (12dp)** are reserved for large, temporary surfaces that need to command attention, such as bottom sheets, navigation drawers, and dialogs. The high elevation casts a large shadow, visually separating these modal elements from the rest of the application.
+Material Design defines standard elevation levels to ensure consistency across interfaces. **Level 0 (0dp)** serves as the base surface and background of the application. **Level 1 (1dp)** is used for low-emphasis containers like cards or search bars, while **Level 2 (3dp)** provides a resting state for interactive elements like elevated buttons and Floating Action Buttons (FABs). Higher levels like **Level 3 (6dp)** are reserved for active states or snackbars, while the highest levels, **Level 4 (8dp)** and **Level 5 (12dp)**, are for modal elements that command attention, such as bottom sheets and dialogs.
 
 ## Shadow Components
 
 Material shadows are constructed from two light sources to create a realistic effect.
 
-The **Key Shadow** is sharp and directional, representing a direct light source (like the sun). It provides definition. The **Ambient Shadow** is soft and diffuse, representing light bouncing off the environment. It surrounds the element evenly. Together, they create a shadow that feels grounded and natural.
+Material shadows are constructed from two light sources to create a realistic effect. The **Key Shadow** provides definition and direction, representing a direct light source, while the **Ambient Shadow** is soft and surrounding, representing reflected light from the environment. Together, they create a depth effect that feels grounded and natural.
 
 ## Surface Tint
 
@@ -45,7 +34,7 @@ Surfaces at higher elevations receive a stronger tint of the primary colour. Thi
 
 Elements are not static; they move in response to user input.
 
-In its **Resting** state, a component sits at its default elevation. When **Hovered**, it might lift slightly (e.g., +1dp) to indicate it is ready to be clicked. When **Pressed**, the elevation might decrease (flattening against the surface) or remain steady, while the ripple effect confirms the action. When **Dragged**, an element typically rises significantly (e.g., to Level 3 or 4) to show that it has detached from its position and is floating above the rest of the UI.
+Elements are dynamic and move in response to user input. In a **Resting** state, a component sits at its default elevation. When **Hovered**, it may lift slightly to indicate it is ready to be clicked, and when **Pressed**, the ripple effect confirms the action as the elevation either decreases or stays steady. When **Dragged**, an element typically rises significantly to show it has detached from its position and is floating above the rest of the UI.
 
 ## Designing with Elevation
 
@@ -64,8 +53,7 @@ Open a few Google apps (Gmail, Drive, Maps) and analyze the depth. Identify whic
 ### Exercise 2: Card Elevation
 
 Design a simple card component. Define its appearance in two states:
-1.  **Resting:** 1dp elevation with a subtle shadow and tint.
-2.  **Hover/Press:** 3dp elevation with a larger shadow and stronger tint.
+Design a simple card component and define its appearance across two distinct states. At its resting state, the card should sit at 1dp elevation with a subtle shadow and tint, while the hover and press states should rise to 3dp with a larger shadow and significantly stronger tint.
 
 ## Test Your Understanding
 
@@ -108,11 +96,8 @@ Design a simple card component. Define its appearance in two states:
 
 ## Key Takeaways
 
-- Elevation creates hierarchy through **shadow** and **surface tint**.
-- Standard **elevation levels** (0dp to 12dp) ensure consistency.
-- **Tonal elevation** (surface tint) is critical for depth in Dark Mode.
-- Elevation is **dynamic**; elements rise and fall based on interaction.
+Elevation establishes a clear visual hierarchy by combining shadows with surface tints, particularly through tonal elevation which is critical for maintaining depth within Dark Mode. By adhering to standard elevation levels from 0dp to 12dp, you can ensure your interface remains consistent and dynamic, where elements rise and fall naturally based on user interaction.
 
 ## Next Steps
 
-Continue to [Theming and Customization](./04-theming-and-customization.md) →
+Continue to [Theming and Customisation](./04-theming-and-customisation.md) →

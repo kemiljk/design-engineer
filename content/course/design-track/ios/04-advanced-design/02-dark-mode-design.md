@@ -10,9 +10,7 @@ Since iOS 13, users have had the choice. Many use Dark Mode 24/7 for comfort or 
 
 ### System Colours
 iOS provides semantic colours that automatically adapt.
-- **System Background:** White in Light Mode, Black in Dark Mode.
-- **Label:** Black in Light Mode, White in Dark Mode.
-- **System Blue:** A vibrant blue in Light Mode, a slightly lighter/brighter blue in Dark Mode to maintain contrast.
+System colors like **System Background**, **Label**, and **System Blue** automatically adapt to the user's appearance settings, ensuring consistent contrast and legibility across Light and Dark modes.
 
 ### Why Use Them?
 Using semantic colours like `Color.label` or `Color.systemBackground` means your app supports Dark Mode instantly with zero extra code. It also ensures consistency with the rest of the OS.
@@ -27,18 +25,14 @@ Dark Mode is not a simple inversion.
 ### Elevation Through Colour
 In Light Mode, we use shadows to show that a card is sitting on top of the background. In Dark Mode, shadows are invisible against a black background.
 Instead, we use **Lightness**.
-- **Base Level:** Pure Black (#000000).
-- **Elevated Level (Card):** Dark Grey (#1C1C1E).
-- **Modal Level:** Lighter Grey (#2C2C2E).
+Elevation in dark mode is communicated through lightness: the **Base Level** starts at pure black (#000000), while the **Elevated Level** for cards uses a dark grey (#1C1C1E), and the **Modal Level** uses a slightly lighter grey (#2C2C2E).
 The "closer" the surface is to the light source (the user), the lighter it gets.
 
 ## Designing Both Appearances
 
 ### Text Colours
 Pure white text on a pure black background can cause "halation" or vibrating edges for users with astigmatism.
-- **Primary Text:** Use high opacity (e.g., 87% white) rather than 100% white.
-- **Secondary Text:** Use medium opacity (e.g., 60% white).
-- **Disabled Text:** Use low opacity (e.g., 38% white).
+To prevent visual strain, use high opacity (87% white) for **primary text** rather than pure white, medium opacity (60% white) for **secondary text**, and low opacity (38% white) for **disabled** elements.
 
 ### Accent Colours
 Your brand colour might look great on white, but it might be too dark or muddy on black. Or, if it's very saturated, it might "vibrate" visually.
@@ -51,8 +45,7 @@ Photos generally work fine, but bright images can be jarring. Consider applying 
 
 ### Illustrations
 Illustrations often need two versions.
-- **Light Mode:** Dark strokes, light fills.
-- **Dark Mode:** Light strokes, dark fills.
+Illustrations typically require two distinct versions: one for **Light Mode** featuring dark strokes and light fills, and another for **Dark Mode** with light strokes and dark fills to avoid the "negative photo" effect.
 Simply inverting an illustration often makes it look like a negative photo. You may need to recolour it specifically for the dark context.
 
 ### Icons
@@ -76,24 +69,17 @@ Use **Variables** (or Styles) that have two modes: Light and Dark. This allows y
 
 ## Testing Your Dark Mode Design
 
-1.  **Side by Side:** View the same screen in both modes.
-2.  **Context:** Test on a real device in a dark room. Does it hurt your eyes?
-3.  **Transitions:** Switch modes in the Settings while your app is open. Does it transition smoothly?
-4.  **Accessibility:** Enable "Increase Contrast" in Dark Mode to see if you lose hierarchy.
+To properly test your dark mode design, view the same screen **side by side** in both modes, test on a real device in a **dark environment**, verify that the interface switches **smoothly** in settings, and enable **Increase Contrast** to ensure hierarchy is maintained.
 
 ## Try It Yourself
 
 ### Exercise 1: Colour Mapping
 Create a mapping table for your brand.
-- **Brand Blue:** #007AFF (Light) → #0A84FF (Dark).
-- **Background:** #FFFFFF (Light) → #000000 (Dark).
-- **Surface:** #F2F2F7 (Light) → #1C1C1E (Dark).
+Create a mapping table for your brand, such as defining **Brand Blue** for both Light (#007AFF) and Dark (#0A84FF), as well as mapping **Background** and **Surface** colours to their dark counterparts.
 
 ### Exercise 2: Dark Mode Audit
 Take an existing Light Mode screen. Convert it to Dark Mode manually.
-- Did you lose the card borders?
-- Is the text vibration too high?
-- Do the shadows disappear?
+Perform an audit by converting an existing screen to Dark Mode and checking if card borders are lost, if text vibration is too high, or if shadows have disappeared.
 
 ## Test Your Understanding
 
@@ -120,7 +106,7 @@ Take an existing Light Mode screen. Convert it to Dark Mode manually.
     },
     {
       "id": "c",
-      "text": "Colored borders around elevated elements",
+      "text": "Coloured borders around elevated elements",
       "isCorrect": false,
       "explanation": "While borders can help, the primary elevation indicator in iOS dark mode is surface colour."
     },
@@ -136,11 +122,7 @@ Take an existing Light Mode screen. Convert it to Dark Mode manually.
 
 ## Key Takeaways
 
-- Use **Semantic System Colours** for free adaptation.
-- In Dark Mode, **Lighter = Higher**. Use greys to show elevation.
-- Adjust **Accent Colours** to be legible against dark backgrounds.
-- Provide **Dark Mode specific assets** for illustrations.
-- **Test** on real hardware in real dark environments.
+Stunning Dark Mode design relies on **Semantic System Colours** for automatic adaptation and using **Lighter greys** to indicate higher elevation. You must carefully adjust **Accent Colours** for legibility, provide specific assets for **illustrations**, and rigorously **test** your designs on real hardware in diverse lighting environments.
 
 ## Next Steps
 

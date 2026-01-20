@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- If expressions
-- When expressions
-- Loops
-- Exception handling
+Throughout this module, you will learn to use if and when as powerful expressions that return values directly. We'll examine the various loop syntaxes available in Kotlin alongside comprehensive exception handling techniques to help you build robust and manageable code flows.
 
 ## If Expressions
 
@@ -132,13 +129,9 @@ val number = try {
 
 ## Try It Yourself
 
-### Exercise 1: Grade Calculator
+Practise your application of conditional logic by using a `when` expression to convert a numerical score into a letter grade, incorporating both plus and minus variants for added precision.
 
-Use `when` to convert a score to a letter grade with +/- variants.
-
-### Exercise 2: Collection Loop
-
-Loop through a list of users and print formatted output with index.
+Further develop your looping skills by iterating through a list of users to generate a formatted output that includes each person's specific index within the collection.
 
 ## Test Your Understanding
 
@@ -181,11 +174,7 @@ Loop through a list of users and print formatted output with index.
 
 ## Key Takeaways
 
-- `if` and `when` are expressions returning values
-- `when` is exhaustive with sealed classes
-- Ranges: `..` (inclusive), `until` (exclusive)
-- `step` and `downTo` for range variations
-- Try-catch can be expressions
+To master control flow in Kotlin, you must remember that `if` and `when` functions as expressions that return values, and that `when` is particularly powerful when used exhaustively with sealed classes. When working with ranges, use `..` for inclusive bounds and `until` for exclusive ones, applying `step` and `downTo` for more complex variations, and remember that even try-catch blocks can be used as value-returning expressions.
 
 ## Next Steps
 

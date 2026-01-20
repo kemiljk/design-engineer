@@ -10,35 +10,27 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Planning responsive breakpoints
-- Adapting navigation for larger screens
-- Designing content transformations
-- Creating tablet-specific layouts
+Throughout this stage, you will plan responsive breakpoints and adapt your navigation for larger screens. We'll explore designing content transformations and creating sophisticated tablet-specific layouts to ensure your app remains functional across all form factors.
 
 ## Step 1: Breakpoint Strategy
 
 You've designed for **Compact** width (<600dp). Now design for **Expanded** width (>840dp).
-- Don't just stretch the phone layout. A list of items stretching 800dp wide is unreadable.
-- Define your columns. Phone = 4 cols. Tablet = 12 cols.
+Having designed for compact widths, you must now plan for expanded displays by ensuring layouts don't simply stretch unreadably. You should define your grid structure carefully, moving from a four-column phone layout to a twelve-column tablet system.
 
 ## Step 2: Navigation Adaptation
 
 Navigation must move to remain ergonomic.
-- **Phone (Compact):** Bottom Navigation Bar. Best for thumbs.
-- **Tablet (Expanded):** Navigation Rail (Left side vertical bar). This saves vertical space for content and prevents the bottom bar buttons from spreading too far apart.
+To maintain ergonomics, your navigation must move from a thumb-accessible Bottom Navigation Bar on compact devices to a vertical Navigation Rail on tablets. This side-mounted bar saves valuable vertical space for content and prevents buttons from spreading too far apart across the wide display.
 
 ## Step 3: Content Adaptation
 
 How does your layout reflow?
-- **Grid:** A single-column list on phone should become a multi-column grid on tablet.
-- **Hero Image:** A full-width header on phone might become a side-panel image on tablet.
-- **Text:** Keep line lengths readable (approx 60 chars). Don't let text span the full width of a landscape tablet.
+Consider how your layout reflows, such as transforming a single-column list into a multi-column grid and repurposing a full-width hero header into a side-panel image. Most importantly, you must keep line lengths readable by ensuring text does not span the full width of a landscape tablet.
 
 ## Step 4: The List-Detail View
 
 This is the gold standard for adaptive Android apps.
-- **Phone:** List Screen → (Tap) → Detail Screen.
-- **Tablet:** List Panel (Left) + Detail Panel (Right). Tapping the list updates the detail panel instantly.
+While phone experiences typically require a full-page transition between a list and its detail view, tablet designs should utilize a side-by-side panel configuration where tapping a list item updates the adjacent detail pane instantly.
 - *Action:* Design this view. Show how the user selects an item on the left and edits it on the right without leaving the screen.
 
 ## Checkpoint

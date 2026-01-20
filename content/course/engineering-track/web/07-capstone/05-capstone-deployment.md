@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Setting up a build process for CSS/JS
-- Creating a comprehensive README
-- Publishing to npm or deploying to a CDN
-- Versioning and release management
+In this final lesson, we will focus on setting up a professional build process for your CSS and JavaScript. You will learn how to create a comprehensive README file, understand the steps for publishing to npm or deploying to a CDN, and discover how to manage versioning and releases effectively.
 
 ## Step 1: Build Process
 
@@ -229,61 +226,21 @@ Deploy your docs site:
 
 ## Submission Checklist
 
-Your completed capstone should include:
+Your completed capstone should include a comprehensive token system that uses CSS custom properties for colours (supporting both light and dark themes), typography, and spacing. You must have built a minimum of 8–10 components, including a Button with all variants and states, an Input with validation and error states, a Card with its own variants, and Badge, Alert, and Modal components—the latter requiring a focus trap. Additionally, include a Tooltip, an accessible Dropdown, and at least two other components of your choice.
 
-### Token System
-- [ ] Colour tokens (light/dark)
-- [ ] Typography tokens
-- [ ] Spacing tokens
-- [ ] All use CSS custom properties
-
-### Components (8-10 minimum)
-- [ ] Button (all variants, sizes, states)
-- [ ] Input (validation, error states)
-- [ ] Card (variants)
-- [ ] Badge
-- [ ] Alert
-- [ ] Modal (with focus trap)
-- [ ] Tooltip
-- [ ] Dropdown (keyboard accessible)
-- [ ] 2+ additional components
-
-### Accessibility
-- [ ] Semantic HTML throughout
-- [ ] Keyboard navigable
-- [ ] Focus visible states
-- [ ] ARIA where needed
-- [ ] Colour contrast passing
-
-### Documentation
-- [ ] Getting started guide
-- [ ] Each component documented
-- [ ] Code examples
-- [ ] Accessibility notes
-
-### Deployment
-- [ ] GitHub repository
-- [ ] Published (npm/CDN/GitHub Pages)
-- [ ] README complete
+Your work should demonstrate a high level of accessibility, including semantic HTML throughout, full keyboard navigability with visible focus states, appropriate ARIA attributes, and colour contrast that meets WCAG AA standards. The documentation must be complete, featuring a "Getting Started" guide, individual component pages with code examples, and accessibility notes. Finally, your project must be stored in a GitHub repository and published via npm, a CDN, or GitHub Pages with a complete README.
 
 ## Checkpoint
 
-Before considering the capstone complete, verify:
-
-- [ ] Build process creates minified dist files
-- [ ] GitHub repository is public with comprehensive README
-- [ ] Library is published or deployable
-- [ ] Documentation site is live or can be hosted
+Before you consider your capstone project complete, verify that your build process successfully creates minified distribution files and that your public GitHub repository features a comprehensive README. Finally, ensure your library is either published or ready for deployment, and that your documentation site is live or in a state where it can be easily hosted.
 
 ## What's Next
 
 Congratulations on completing the Engineering Track capstone!
 
-This project demonstrates:
-- Deep HTML, CSS, and JavaScript knowledge
-- Systems thinking and API design
-- Accessibility expertise
-- Documentation and developer experience focus
+### Portfolio Success
+
+The completion of this project demonstrates your deep knowledge of HTML, CSS, and JavaScript, along with your capacity for systems thinking and API design. It also highlights your expertise in accessibility and your focus on documentation and the developer experience.
 
 ### Portfolio Tips
 

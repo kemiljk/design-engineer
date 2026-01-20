@@ -8,11 +8,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Array destructuring
-- Object destructuring
-- Destructuring in function parameters
-- The spread operator for arrays and objects
-- Rest parameters for collecting values
+In this lesson, we will cover the techniques for array and object destructuring to help you extract data more efficiently. You will learn how to apply destructuring within function parameters, use the spread operator to combine and copy collections, and leverage rest parameters to collect multiple values into a single variable.
 
 ## Destructuring
 
@@ -20,15 +16,7 @@ Extract values from arrays and objects into variables.
 
 ### Array Destructuring
 
-```javascript
-const colours = ['red', 'green', 'blue'];
-
-// Traditional
-const first = colours[0];
-const second = colours[1];
-
-// Destructuring
-const [first, second, third] = colours;
+Array destructuring provides a concise syntax for assigning elements from an array into individual variables. While the traditional approach requires accessing each element by its index, destructuring allows you to map values to variable names in a single line, making your code significantly more readable and expressive.
 
 // Skip values
 const [, , third] = colours;
@@ -43,14 +31,7 @@ const [head, ...tail] = colours;
 
 ### Object Destructuring
 
-```javascript
-const user = { name: 'Alice', age: 30, email: 'alice@example.com' };
-
-// Traditional
-const name = user.name;
-
-// Destructuring
-const { name, age } = user;
+In a similar fashion, object destructuring allows you to extract properties from an object directly into variables that match the property names. This replaces the traditional method of repetitive property access and provides a much cleaner way to work with complex data structures like user profiles or configuration objects.
 
 // Rename variables
 const { name: userName, age: userAge } = user;
@@ -171,47 +152,17 @@ const { data: { user, permissions } } = await response.json();
 
 ### Merging with Defaults
 
-```javascript
-function createButton(options = {}) {
-  const config = {
-    size: 'medium',
-    variant: 'primary',
-    disabled: false,
-    ...options
-  };
-  // config now has all defaults plus any overrides
-}
-```
+One of the most practical applications of the spread operator is merging user-provided options with a set of default configuration values. By spreading your defaults first and then the user options, you can ensure that all required properties have a value while allowing specific ones to be easily overridden.
 
 ## Try It Yourself
 
 ### Exercise 1: Destructuring Practice
 
-Given this data:
-```javascript
-const response = {
-  data: {
-    users: [
-      { id: 1, name: 'Alice', role: 'admin' },
-      { id: 2, name: 'Bob', role: 'user' }
-    ],
-    total: 2
-  },
-  status: 200
-};
-```
-
-Use destructuring to extract:
-1. The first user's name
-2. All users
-3. The status code
+Working with a sample API response object, practise using destructuring to extract specific pieces of information such as the name of the first user, the complete list of users, and the overall status code of the response.
 
 ### Exercise 2: Spread and Merge
 
-Create a function `mergeObjects` that:
-1. Takes any number of objects as arguments
-2. Returns a single merged object
-3. Later objects override earlier ones
+Create a `mergeObjects` function that can accept any number of objects as arguments. Your function should return a single merged object where properties from later objects correctly override those from earlier ones, demonstrating your mastery of the spread operator.
 
 ## Test Your Understanding
 
@@ -254,11 +205,7 @@ Create a function `mergeObjects` that:
 
 ## Key Takeaways
 
-- Destructuring extracts values from arrays (`[a, b]`) and objects (`{ a, b }`)
-- Use default values (`{ name = 'Guest' }`) when values might be undefined
-- Spread (`...`) expands arrays/objects into individual elements
-- Rest (`...`) collects remaining elements into an array
-- These features make data manipulation cleaner and more expressive
+To recap, destructuring allows you to extract values from both arrays and objects with a clean and expressive syntax, and you should use default values to handle potentially undefined data gracefully. The spread operator provides a powerful way to expand collections for copying or merging, while rest parameters enable you to collect any remaining elements into a single array for further processing.
 
 ## Next Steps
 

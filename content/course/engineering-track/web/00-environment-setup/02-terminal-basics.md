@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- Essential navigation commands
-- Creating, moving, and deleting files and folders
-- Reading and searching file contents
-- Keyboard shortcuts that save time
-- How to get help when you're stuck
+During this module, you will learn the essential navigation commands required for daily development and examine the processes for creating, moving, and deleting files and folders. We'll explore how to read and search file contents efficiently and walk through the keyboard shortcuts and help systems that will save you time and assist you whenever you're stuck.
 
 ## The Commands You'll Actually Use
 
@@ -42,27 +38,7 @@ Output:
 Desktop  Documents  Downloads  Pictures
 ```
 
-#### Useful Flags
-
-Flags modify how commands work. They start with `-`:
-
-```bash
-ls -l
-```
-
-Shows a detailed list with file sizes, dates, and permissions.
-
-```bash
-ls -a
-```
-
-Shows _all_ files, including hidden ones (files starting with `.`).
-
-```bash
-ls -la
-```
-
-Combine flags to show all files with details.
+To modify how the `ls` command functions, you can append various flags that start with a hyphen. For example, using `ls -l` will display a detailed list including file sizes and modification dates, while `ls -a` reveals all files, including hidden ones that begin with a full stop. You can also combine these flags into a single command, such as `ls -la`, to see a comprehensive and detailed view of everything within your current directory.
 
 ### `cd` - Move Around
 
@@ -74,37 +50,7 @@ cd Documents
 
 Moves into the Documents folder.
 
-#### Special Shortcuts
-
-```bash
-cd ~
-```
-
-Go to your home folder (the `~` always means home).
-
-```bash
-cd ..
-```
-
-Go up one level to the parent folder.
-
-```bash
-cd ../..
-```
-
-Go up two levels.
-
-```bash
-cd -
-```
-
-Go back to the previous folder you were in.
-
-```bash
-cd /
-```
-
-Go to the root of your file system.
+To navigate quickly, you can use several shorthand symbols with the `cd` command. Typing `cd ~` will always return you to your home folder, while `cd ..` moves you up one level to the parent directory. For traversing larger distances, you can use `cd ../..` to go up two levels, or `cd -` to instantly return to the previous folder you were in. Finally, `cd /` will take you directly to the root of your entire file system.
 
 #### Tab Completion
 
@@ -192,21 +138,7 @@ Rename a file (move it to a new name):
 mv old-name.txt new-name.txt
 ```
 
-### `rm` - Delete
-
-Remove files.
-
-```bash
-rm unwanted-file.txt
-```
-
-Remove a folder and its contents:
-
-```bash
-rm -r unwanted-folder
-```
-
-⚠️ **Warning:** `rm` doesn't move files to Trash. They're permanently deleted. Be careful!
+To manage your files, use `rm unwanted-file.txt` to delete specific files or `rm -r unwanted-folder` to recursively remove a directory and all of its contents. Be extremely careful when using these commands, as the terminal does not move items to the Trash; instead, they are permanently deleted from your system immediately.
 
 ### `rmdir` - Delete Empty Folders
 
@@ -238,14 +170,7 @@ less long-file.txt
 
 Press `q` to quit, `/` to search.
 
-### `head` and `tail` - Partial Views
-
-See the beginning or end of a file:
-
-```bash
-head -20 file.txt    # First 20 lines
-tail -20 file.txt    # Last 20 lines
-```
+When you only need to see parts of a file, use the `head -20 file.txt` command to view the first twenty lines, or `tail -20 file.txt` to see the final twenty lines. These tools are particularly useful for quickly checking the beginning of a script or the most recent entries in a log file without opening the entire document.
 
 ## Finding Things
 
@@ -287,23 +212,7 @@ man ls
 
 Press `q` to exit.
 
-### `--help` Flag
-
-Most commands have a help flag:
-
-```bash
-ls --help
-```
-
-### `tldr` - Simplified Help
-
-Install `tldr` for friendlier help pages:
-
-```bash
-tldr ls
-```
-
-Shows practical examples instead of dense documentation.
+You can also use the `--help` flag with most commands, such as `ls --help`, to get a quick overview of available options. For an even more accessible experience, consider installing `tldr`, which provides simplified help pages like `tldr ls` that focus on practical, real-world examples rather than dense technical documentation.
 
 ## Keyboard Shortcuts
 
@@ -481,12 +390,7 @@ Always check your location with `pwd` if you're unsure. Running commands in the 
 
 ## Key Takeaways
 
-- Navigation: `pwd`, `ls`, `cd` are your core tools
-- Files: `mkdir`, `touch`, `cp`, `mv`, `rm` for management
-- Reading: `cat`, `less`, `head`, `tail` for viewing contents
-- Finding: `find` and `grep` for locating files and text
-- **Use Tab completion constantly.** It's your biggest time-saver.
-- **Check your location with `pwd`** when unsure
+To become proficient in the terminal, you must master the fundamental navigation commands like `pwd`, `ls`, and `cd`, while also becoming comfortable with file management tools such as `mkdir`, `cp`, and `rm`. Use `find` and `grep` to locate content quickly, and always lean on Tab completion as your primary time-saving mechanism. By consistently checking your location with `pwd` and leveraging viewing tools like `cat` and `less`, you will build the confidence needed to navigate complex project structures with ease.
 
 ## Next Steps
 

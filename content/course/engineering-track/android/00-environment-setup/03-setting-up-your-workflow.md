@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- Configuring Android Studio for productivity
-- Effective use of Compose previews
-- Managing emulators efficiently
-- Version control with Git
-- Recommended tools and plugins
+Throughout this lesson, you will learn to configure Android Studio for maximum productivity and master the effective use of Compose previews. We'll examine how to manage emulators efficiently, establish version control with Git, and explore a selection of recommended tools and plugins to enhance your daily workflow.
 
 ## Configuring Android Studio
 
@@ -16,20 +12,13 @@
 
 Customise Android Studio's look:
 
-1. **Settings/Preferences** (⌘/Ctrl + ,)
-2. **Appearance & Behavior → Appearance**
-3. Choose a theme:
-   - **Darcula:** Dark theme (popular)
-   - **IntelliJ Light:** Light theme
-   - **High Contrast:** Accessibility-focused
+Open the Settings or Preferences menu and navigate to **Appearance & Behaviour** to select your preferred UI theme, such as the popular dark Darcula option, the IntelliJ Light theme, or an accessibility-focused high-contrast variant.
 
 ### Editor Settings
 
 Under **Editor → General → Appearance**:
 
-- ✅ Show line numbers
-- ✅ Show whitespaces (helps catch formatting issues)
-- ✅ Show indent guides
+Enabling line numbers, whitespaces, and indent guides within the editor settings is essential for catching formatting issues early and maintaining a clean, structured view of your code.
 
 Under **Editor → General → Code Folding**:
 - Enable folding for import statements (cleaner view)
@@ -38,16 +27,13 @@ Under **Editor → General → Code Folding**:
 
 Under **Editor → Font**:
 
-- **Font:** JetBrains Mono (built-in), Fira Code, or SF Mono
-- **Size:** 13-15 is comfortable for most
-- **Line spacing:** 1.2 for readability
+Choose a comfortable font such as JetBrains Mono or Fira Code at a size between 13 and 15, ensuring you set the line spacing to 1.2 to maintain optimal readability during long coding sessions.
 
 ### Code Style
 
 Under **Editor → Code Style → Kotlin**:
 
-- Use the default Android/Kotlin style
-- Consider enabling "Use tab character" if you prefer tabs
+You should stick to the default Android and Kotlin styles, though you might consider enabling the "Use tab character" option if you prefer tabs over spaces for your indentation.
 
 ## Compose Preview Mastery
 
@@ -146,30 +132,19 @@ Click the **Run Preview** button to send just that composable to a device for re
 
 ### Keeping Previews Fast
 
-- Preview only the components you're working on
-- Use mock/sample data, not real API calls
-- Keep preview composables simple
-- Use `@Preview(showSystemUi = false)` to skip system chrome
+To maintain high performance, you should only preview the specific components you are currently working on and always use mock data rather than expensive API calls. Keeping your preview composables simple and disabling the system UI chrome when unnecessary will also help ensure that the design pane remains fast and responsive.
 
 ## Managing Emulators
 
 ### Creating Emulators
 
-1. **Tools → Device Manager**
-2. Click **Create Device**
-3. Choose a device profile (Pixel 7 is a good default)
-4. Select a system image (download the latest if needed)
-5. Configure AVD settings
-6. Click **Finish**
+Open the Device Manager from the Tools menu and click to create a new device, where you can choose a profile like the Pixel 7 and select the latest system image before finishing the configuration.
 
 ### Recommended Emulators
 
 Create a few emulators covering different scenarios:
 
-- **Pixel 7** (current flagship)
-- **Pixel 7a** (smaller, popular device)
-- **Pixel Tablet** (for tablet layouts)
-- **Older device** (Pixel 4, API 28 for compatibility)
+It is useful to maintain several emulators for different scenarios, including current flagships like the Pixel 7, smaller popular devices such as the Pixel 7a, and a dedicated tablet profile for testing adaptive layouts.
 
 ### Emulator Shortcuts
 
@@ -185,25 +160,17 @@ Create a few emulators covering different scenarios:
 
 Click **...** in the emulator toolbar for:
 
-- **Location:** Simulate GPS coordinates
-- **Battery:** Test low battery states
-- **Network:** Simulate slow connections
-- **Phone:** Simulate calls and SMS
+Beyond standard touch interaction, you can use the extended controls menu to simulate various hardware states, including custom GPS locations, low battery conditions, slow network connections, and even incoming calls or SMS messages.
 
 ### Physical Devices
 
 For best performance, use real devices:
 
-1. Enable Developer Options (tap Build Number 7 times)
-2. Enable USB Debugging
-3. Connect via USB
-4. Device appears in device selector
+For the most accurate performance testing, connect a physical device via USB after enabling developer options and USB debugging on the handset; it will then appear directly in your device selector.
 
 ### Wireless Debugging (Android 11+)
 
-1. Enable **Wireless debugging** in Developer Options
-2. In Android Studio: **Run → Pair Devices Using Wi-Fi**
-3. Scan QR code or enter pairing code
+Android 11 and later also support wireless debugging, allowing you to pair devices over Wi-Fi by scanning a QR code or entering a pairing code directly within the Android Studio pairing menu.
 
 ## Version Control with Git
 
@@ -212,12 +179,7 @@ For best performance, use real devices:
 Android Studio has built-in Git support:
 
 **Enable VCS:**
-1. **VCS → Enable Version Control Integration**
-2. Select Git
-
-**Commit Changes:**
-- **⌘/Ctrl + K** opens commit dialog
-- Review changes, write message, commit
+Enable version control integration from the VCS menu and select Git to activate the built-in support, which allows you to open the commit dialog and review your changes before finishing with a descriptive message.
 
 **View History:**
 - **View → Tool Windows → Git**
@@ -461,12 +423,7 @@ fun LargeFontPreview() {
 
 ## Key Takeaways
 
-- Customise Android Studio's theme and fonts for comfort
-- Use multiple @Preview annotations to see different states
-- Create emulators for different device sizes and API levels
-- Set up Git from the start—version control is essential
-- Learn keyboard shortcuts, especially ⌘/Ctrl + Shift + A
-- Organise projects with clear package structures
+Configuring a productive Android environment requires customising your theme and fonts for comfort while established habits like using multiple preview annotations and early Git integration ensure a professional workflow. By mastering keyboard shortcuts—primarily the Find Action command—and maintaining an organised project structure, you can spend less time navigating the tools and more time building high-quality interfaces.
 
 ## Environment Complete!
 

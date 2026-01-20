@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Heading elements and creating proper hierarchy
-- Paragraph and text formatting elements
-- Lists and when to use each type
-- Link anatomy and best practices
+During this module, you will learn how to use heading elements to create a logical document hierarchy and examine the various elements available for paragraph and text formatting. We'll explore the different types of lists and when to apply them, whilst also walking through the anatomy of a link and the best practices for connecting your web content effectively.
 
 ## Headings
 
@@ -66,7 +63,7 @@ Don't use `<p>` for everything—use appropriate elements for different content 
 
 ### Emphasis
 
-`<em>` for stress emphasis (how you'd emphasize speaking):
+`<em>` for stress emphasis (how you'd emphasise speaking):
 
 ```html
 <p>I <em>really</em> want this to work.</p>
@@ -98,11 +95,7 @@ Use for actual importance, not just bold text.
 <p>The ship <i>HMS Victory</i> is a museum.</p>
 ```
 
-### When to Use What?
-
-- Need emphasis in meaning? → `<em>`
-- Need to mark importance? → `<strong>`
-- Need bold/italic for style only? → `<b>` or `<i>` (or CSS)
+When deciding which element to use for text emphasis, you should choose `<em>` for stress emphasis and `<strong>` to denote actual importance. If you only require bold or italic styles for visual purposes without changing the underlying meaning, you should use `<b>` or `<i>` respectively, or ideally apply these styles through CSS.
 
 ## Other Text Elements
 
@@ -181,10 +174,7 @@ For items without inherent order:
 </ul>
 ```
 
-Use for:
-- Navigation menus
-- Feature lists
-- Any group where order doesn't matter
+The unordered list is ideal for navigation menus and feature lists, but you should use it for any grouping where the specific order of items does not significantly impact the content's meaning.
 
 ### Ordered Lists
 
@@ -198,10 +188,7 @@ For items with meaningful order:
 </ol>
 ```
 
-Use for:
-- Steps in a process
-- Rankings
-- Any sequential items
+Use an ordered list for any sequential items where the order is critical, such as the specific steps in a process or a list of rankings.
 
 ### Description Lists
 
@@ -217,10 +204,7 @@ For name-value pairs:
 </dl>
 ```
 
-Use for:
-- Glossaries
-- Metadata (author, date, category)
-- FAQs
+Description lists are particularly effective for glossaries and FAQs, but also serve well for displaying metadata such as an author's name, the publication date, or content categories.
 
 ### Nested Lists
 
@@ -400,12 +384,7 @@ Take a recipe and mark it up with:
 
 ## Key Takeaways
 
-- Headings (`<h1>`-`<h6>`) create document hierarchy—don't skip levels
-- Use `<em>` for emphasis, `<strong>` for importance
-- Three list types: unordered, ordered, description
-- Links use `<a>` with `href` attribute
-- Link text should be descriptive, not "click here"
-- Use `rel="noopener noreferrer"` for external links with `target="_blank"`
+To build high-quality web content, you must master the use of headings to create a clear document hierarchy and consistently use `<em>` and `<strong>` to convey genuine emphasis and importance. Leverage the three primary list types to organise your data logically and ensure that all links use descriptive text rather than generic phrases. Finally, remember to apply `rel="noopener noreferrer"` to any external links that open in a new tab to maintain the security and performance of your application.
 
 ## Next Steps
 

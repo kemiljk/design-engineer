@@ -10,23 +10,13 @@ estimatedTime: 5
 
 A working SwiftUI app showcases the full breadth of iOS engineering skills:
 
-- **Swift language proficiency** — Modern Swift patterns and syntax
-- **SwiftUI view composition** — Declarative UI building
-- **State management understanding** — Property wrappers and data flow
-- **Data persistence skills** — SwiftData or UserDefaults
-- **UI/UX implementation ability** — Polished, accessible interfaces
+A working SwiftUI app provides a comprehensive demonstration of your iOS engineering skills, showcasing your proficiency in the modern Swift language and your ability to build declarative interfaces through effective view composition. You will demonstrate a solid understanding of state management and property wrappers, while also proving your ability to implement reliable data persistence and create polished, accessible user interfaces.
 
 **Total Time Estimate:** 10-15 hours across all phases
 
 ## What You'll Create
 
-By the end of this capstone, you'll have:
-
-1. **Working SwiftUI App** — 3-5 fully functional screens with real data and persistence
-2. **Custom Components** — Reusable view components and custom modifiers
-3. **Proper Architecture** — Clean state management with Observable patterns
-4. **Polish & Accessibility** — VoiceOver support, Dynamic Type, refined interactions
-5. **GitHub Repository** — Clean code organisation with comprehensive README
+By the end of this capstone, you will have developed a working SwiftUI app featuring three to five fully functional screens with integrated persistence, supported by a library of custom reusable components and modifiers. The project will showcase a clean state management architecture based on observable patterns, all while maintaining a high level of polish and accessibility support. Finally, you will host your work in a well-organised GitHub repository complete with a comprehensive README.
 
 ## Choose Your App
 
@@ -79,12 +69,7 @@ Study these apps for different approaches:
 
 ## Tips for Success
 
-1. **Start with data** — Model your data before UI
-2. **Use previews** — SwiftUI previews speed up development
-3. **Extract components** — When views get big, break them up
-4. **Test on device** — Simulator misses performance issues
-5. **Add accessibility early** — Harder to retrofit
-6. **Commit often** — Small commits make debugging easier
+To ensure the success of your project, you should always begin by modelling your data before moving on to the user interface and make extensive use of SwiftUI previews to accelerate your development cycle. Extract components as soon as your views become too complex and remember to test your application on a physical device to catch performance issues that the simulator might miss. Address accessibility requirements as early as possible rather than retrofitting them later, and make frequent, small commits to your repository to simplify the debugging process.
 
 ## Get Started
 

@@ -34,9 +34,9 @@ Why do some interfaces feel intuitive while others feel broken? It's not magic. 
 **In practice:** Don't let a user type letters into a phone number field. Don't let them click "Submit" if the form is empty. Use sensible defaults. If a delete action is permanent, ask for confirmation. The best error message is the one you never have to show.
 
 ### 6. Recognition Rather Than Recall
-**The principle:** Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another.
+**The principle:** Minimise the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another.
 
-**In practice:** Humans are bad at remembering things. Don't make them remember a product code from the previous screen; show it to them. Use a "Recently Viewed" list so they don't have to search again. Show the search term they just typed. Recognition (seeing it) is cognitively cheaper than recall (remembering it).
+**In practice:** Humans are restricted by how much they can remember at once, so instead of forcing them to recall a product code or search term from a previous screen, you should show it to them directly. Utilising "Recently Viewed" lists and keeping search queries visible are effective ways to leverage recognition, which is cognitively cheaper than forced recall.
 
 ### 7. Flexibility and Efficiency of Use
 **The principle:** Accelerators—unseen by the novice user—may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users.
@@ -48,13 +48,10 @@ Why do some interfaces feel intuitive while others feel broken? It's not magic. 
 
 **In practice:** This isn't about flat design or white space. It's about signal-to-noise ratio. If a screen has 50 elements, the user sees nothing. Remove everything that doesn't support the user's current goal. If it's not helping, it's hurting.
 
-### 9. Help Users Recognize, Diagnose, and Recover from Errors
+### 9. Help Users Recognise, Diagnose, and Recover from Errors
 **The principle:** Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.
 
-**In practice:**
-*   **Bad:** "Error 500: Internal Server Error."
-*   **Good:** "We couldn't save your changes because of a connection issue. Please check your internet and try again."
-*   **Formula:** What happened + Why it happened + How to fix it.
+To move from a generic "Error 500" to a helpful response, use a formula that explains exactly what happened, why it happened, and how the user can fix it. For example, rather than a vague technical code, tell the user that their changes couldn't be saved due to a connection issue and suggest they check their internet before trying again.
 
 ### 10. Help and Documentation
 **The principle:** Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.
@@ -65,15 +62,8 @@ Why do some interfaces feel intuitive while others feel broken? It's not magic. 
 
 You don't need a lab or 50 users to find usability problems. You can do a "Heuristic Evaluation" yourself in an afternoon.
 
-1.  **Select the Flow:** Choose a critical path (e.g., "Sign Up" or "Checkout").
-2.  **Walk the Path:** Go through it step-by-step, acting as a user.
-3.  **Check the List:** At every screen, ask: "Does this violate any of the 10 heuristics?"
-4.  **Rate Severity:**
-    *   **0:** No problem.
-    *   **1:** Cosmetic problem only.
-    *   **2:** Minor usability problem (fix if time permits).
-    *   **3:** Major usability problem (important to fix).
-    *   **4:** Usability catastrophe (imperative to fix).
+To conduct a heuristic evaluation, select a critical path such as "Sign Up" or "Checkout" and walk through it step-by-step while acting as a user. At every screen, cross-reference the interface against the ten heuristics to identify any potential violations.
+Rate the severity of each problem on a scale from zero for no issue to four for a usability catastrophe that must be addressed immediately. Cosmetic issues are rated at level one, while minor and major usability problems are assigned levels two and three respectively, helping you prioritise your design and engineering efforts.
 
 ## Try It Yourself
 
@@ -116,7 +106,7 @@ Find a technical error message ("Invalid Input"). Rewrite it to follow Heuristic
       "id": "d",
       "text": "Recognition rather than recall",
       "isCorrect": false,
-      "explanation": "While related to memory, this heuristic is more about making options visible rather than label consistency."
+      "explanation": "While related to memory, this heuristic is more about making options visible rather than labelling consistency."
     }
   ]
 }
@@ -124,10 +114,7 @@ Find a technical error message ("Invalid Input"). Rewrite it to follow Heuristic
 
 ## Key Takeaways
 
--   **Heuristics are tools, not laws.** Use them to identify likely problems, but trust user testing for the final verdict.
--   **Consistency (#4) is powerful.** It reduces learning time.
--   **Error prevention (#5) beats error handling.** Stop the mistake before it happens.
--   **Recognition (#6) beats recall.** Don't make users memorize things.
+Usability heuristics should be treated as diagnostic tools rather than rigid laws, used to identify likely problems before validating them through user testing. By prioritising consistency to reduce learning time and focusing on error prevention and recognition over recall, you can build interfaces that don't force users to memorise information or search for hidden status updates.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The form element and submission
-- Input types and when to use each
-- Labels, fieldsets, and accessibility
-- Form validation basics
+During this module, you will learn the fundamental structure of the form element and its various submission methods. We'll examine the wide range of input types available and identify the most appropriate scenarios for their use, whilst also exploring the critical roles of labels, fieldsets, and other accessibility features. You will also walk through the basics of form validation to ensure your interfaces are both robust and user-friendly.
 
 ## The Form Element
 
@@ -241,9 +238,7 @@ This implicitly associates the label.
 
 ### Why Labels Matter
 
-- Clicking the label focuses/activates the input
-- Screen readers announce the label when focusing the input
-- Required for accessibility compliance
+Using labels correctly provides significant benefits, such as allowing users to click the label text to focus or activate the associated input and ensuring that screen readers announce the label clearly when the input is focused. Furthermore, proper labelling is a fundamental requirement for accessibility compliance, making it an essential practice for every form you build.
 
 **Always use labels.** Never rely on placeholder alone.
 
@@ -341,12 +336,7 @@ The legend provides an accessible group label.
 
 ## Form Accessibility
 
-### Labeling
-
-Every input needs an accessible name:
-- `<label>` elements (preferred)
-- `aria-label` attribute
-- `aria-labelledby` attribute
+To ensure your forms are fully accessible, every input must have a clearly defined accessible name. Whilst using the `<label>` element is the preferred method for most scenarios, you can also leverage the `aria-label` or `aria-labelledby` attributes to provide the necessary context for users of assistive technologies.
 
 ### Error Messages
 
@@ -485,13 +475,7 @@ Create a test page with every input type. Test on:
 
 ## Key Takeaways
 
-- Forms use `<form>` with `action` and `method`
-- Many input types exist—use the right one for semantic meaning and better UX
-- Always use `<label>` elements for accessibility
-- Placeholders supplement labels. They don't replace them.
-- Group related fields with `<fieldset>` and `<legend>`
-- Use appropriate input attributes: `required`, `pattern`, `autocomplete`
-- Connect error messages to inputs with `aria-describedby`
+To build high-quality, accessible forms, you must wrap your inputs in a `<form>` element with the appropriate `action` and `method` attributes and use the most specific input type for each field's semantic meaning. Always prioritise the use of `<label>` elements for accessibility and remember that placeholders should only supplement rather than replace descriptive labels. For more complex forms, group related fields using `<fieldset>` and `<legend>` and leverage attributes like `required` and `autocomplete` to enhance the user experience. By connecting error messages to inputs with `aria-describedby`, you ensure that your forms remain usable and informative for all users.
 
 ## Next Steps
 

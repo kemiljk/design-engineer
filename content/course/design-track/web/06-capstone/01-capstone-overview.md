@@ -10,11 +10,7 @@ estimatedTime: 5
 
 Landing pages are exceptional portfolio pieces because they showcase the full breadth of design skills:
 
-- **Visual design** — Typography, colour, composition
-- **Systematic thinking** — Tokens, components, consistency
-- **Responsive design** — Desktop to mobile adaptation
-- **Interaction design** — Prototype behaviours
-- **Communication** — Selling a product visually
+Landing pages are exceptional portfolio pieces because they showcase a full breadth of design skills, from visual execution in typography, colour, and composition to systematic thinking through tokens and components. They also require demonstrating a mastery of responsive design for mobile adaptation, interaction design for prototyping behaviours, and the effective communication needed to sell a product visually.
 
 **Total Time Estimate:** 8-12 hours across all phases
 
@@ -22,38 +18,23 @@ Landing pages are exceptional portfolio pieces because they showcase the full br
 
 By the end of this capstone, you'll have:
 
-1. **Complete Landing Page Design** — Desktop (1440px), tablet (768px), and mobile (375px) layouts
-2. **Mini Design System** — Colour tokens, typography scale, spacing scale, and component library
-3. **Interactive Prototype** — Hero interactions, navigation, and key user flows
-4. **Case Study Documentation** — Process documentation and design rationale
+By the end of this capstone, you will have developed a complete landing page design with responsive layouts for desktop, tablet, and mobile, alongside a mini design system based on colour, typography, and spacing scales. You will also create an interactive prototype that demonstrates hero interactions and key user flows, supported by comprehensive case study documentation that outlines your process and rationale.
 
 ## Choose Your Product
 
 Select one of these product types, or propose your own:
 
 ### Option A: SaaS Product
-Design a landing page for a B2B software tool:
-- **Suggestions:** Project management, analytics dashboard, design tool, developer tool
-- **Sections:** Hero, features grid, pricing table, testimonials, CTA
-- **Challenge:** Balance information density with visual appeal
+Designing a landing page for a B2B SaaS product challenges you to balance information density (such as pricing tables and features grids) with visual appeal, using suggestions like project management or developer tools.
 
 ### Option B: Consumer App
-Design a landing page for a mobile-first consumer product:
-- **Suggestions:** Fitness app, finance app, meditation app, social app
-- **Sections:** Hero with app preview, key features, app store badges, social proof
-- **Challenge:** Create excitement while clearly explaining the product
+A consumer app project focuses on creating excitement for mobile-first products like fitness or finance apps, requiring sections for app previews and store badges while clearly explaining the product's value.
 
 ### Option C: Physical Product
-Design a landing page for a DTC (direct-to-consumer) product:
-- **Suggestions:** Smart home device, wellness product, sustainable goods
-- **Sections:** Hero with product imagery, features/benefits, how it works, reviews
-- **Challenge:** Make a physical product feel tangible on screen
+Choosing a physical product allows you to make tangible goods (like smart devices or sustainable products) feel real on a screen, using hero imagery and reviews to illustrate features and benefits.
 
 ### Option D: Creative Service
-Design a landing page for a creative agency or freelancer:
-- **Suggestions:** Design studio, photography, video production
-- **Sections:** Portfolio showcase, services, about/team, contact
-- **Challenge:** Let the work speak while maintaining clear UX
+Design for a creative service agency or freelancer to let the work speak for itself through portfolio showcases, maintaining clear UX while highlighting services and team background.
 
 ## The Phases
 
@@ -93,19 +74,12 @@ Study these landing pages for different approaches:
 
 ## Tips for Success
 
-1. **Start with content** — Real or realistic copy makes better designs
-2. **Design mobile first** — It forces clarity and prioritisation
-3. **Use real imagery** — Unsplash helps avoid placeholder-itis
-4. **Get feedback early** — Share wireframes before investing in polish
-5. **Don't over-design** — Know when to stop adding and start refining
-6. **Document as you go** — Taking screenshots during process saves time later
+Success in this project starts with using real copy to drive better layout decisions and adopting a mobile-first approach to force clarity and prioritisation. Ensure you use real imagery from sources like Unsplash to avoid a placeholder aesthetic, get early feedback on wireframes before polishing, and document your process with screenshots to save time during final documentation.
 
 ## Get Started
 
 Before moving to Phase 1:
 
-1. **Choose your product type** from Options A-D (or propose your own)
-2. **Research 5-10 landing pages** in your chosen category
-3. **Create a new Figma file** for your capstone project
+Before moving to Phase 1, ensure you have chosen your product type, researched several category-specific landing pages for inspiration, and created a new Figma file for your capstone project work.
 
 Ready? Continue to [Phase 1: Foundation & Tokens](./02-capstone-foundation.md) →

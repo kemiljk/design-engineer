@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Function syntax
-- Default and named parameters
-- Lambdas and higher-order functions
-- Extension functions
+During this module, you will learn the fundamental syntax for defining functions and explore the power of default and named parameters. We'll examine lambdas and higher-order functions in depth before introducing extension functions as a way to append new capabilities to existing types.
 
 ## Function Basics
 
@@ -132,15 +129,11 @@ val numbers = mutableListOf(1, 2, 3).also {
 
 ### Exercise 1: Higher-Order Function
 
-Create a function that:
-- Takes a list and a transformation lambda
-- Returns transformed list
+Practise your implementation of functional programming by creating a higher-order function that accepts both a list and a transformation lambda. Your goal is to apply the provided transformation to every element and return the resulting collection.
 
 ### Exercise 2: Extension Function
 
-Add an extension to String:
-- `truncate(length: Int)` - truncates with "..."
-- Returns original if shorter
+Further enhance your skills by adding a practical extension to the String type called `truncate`. This function should shorten a string to a specified length and append an ellipsis, while simply returning the original string if it is already shorter than the target length.
 
 ## Test Your Understanding
 
@@ -183,12 +176,7 @@ Add an extension to String:
 
 ## Key Takeaways
 
-- Default parameters reduce overloads
-- Named arguments improve readability
-- `it` is implicit single lambda parameter
-- Trailing lambdas are idiomatic
-- Extension functions add to existing types
-- Scope functions (`let`, `apply`, `run`) simplify common patterns
+To write idiomatic Kotlin, you should use default parameters to reduce the need for function overloads and named arguments to make your calls more readable. Remember that the implicit `it` parameter allows for cleaner lambdas and that the trailing lambda syntax is the standard for functional calls. Finally, leverage extension functions to build cleaner APIs and use scope functions like `let`, `apply`, and `run` to simplify your object manipulation patterns.
 
 ## Next Steps
 

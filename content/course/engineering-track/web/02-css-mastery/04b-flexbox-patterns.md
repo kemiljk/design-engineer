@@ -8,34 +8,11 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Navigation bar patterns
-- Card layouts
-- Sidebar layouts
-- Page structure patterns
-- Form layouts
+In this lesson, we will explore the essential navigation bar patterns and card layout strategies used in modern web design. You will learn how to implement robust sidebar layouts, manage complex page structures, and build efficient form layouts using the power of flexbox.
 
-## Centering
+## Centring
 
-The most famous flexbox pattern:
-
-```css
-.center-all {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-```
-
-For full-page centring (modals, splash screens):
-
-```css
-.fullscreen-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-```
+Centring elements is perhaps the most famous and widely used flexbox pattern. By combining `justify-content: centre` and `align-items: centre` on a container, you can perfectly position its children in the middle of the spare space. This technique is equally effective for full-page centring, such as for modals or splash screens, when combined with a minimum height of `100vh`.
 
 ## Navigation Bar
 
@@ -51,60 +28,11 @@ For full-page centring (modals, splash screens):
 
 ### Logo Left, Links Right
 
-```css
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo {
-  margin-right: auto;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-```
-
-### Logo Left, Links Centre, Actions Right
-
-```css
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo { }
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nav-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-```
-
-The `margin-left: auto` trick pushes items to the right. Combined with `margin-right: auto`, it centres the links.
+For a standard navigation bar, you can use `margin-right: auto` on the logo to push the subsequent navigation links to the far right. If your design requires the links to be centred while the logo and action buttons remain pinned to the sides, you can apply `margin-left: auto` and `margin-right: auto` to the link container. This "margin: auto" trick is a powerful way to absorb available space and distribute items exactly where you need them.
 
 ### Navigation with Spacer
 
-```css
-.nav {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.nav-spacer {
-  margin-left: auto;  /* Push subsequent items right */
-}
-```
+Another common approach is to use a dedicated spacer element. By applying `margin-left: auto` to a spacer div, you can force all subsequent items to the right side of your navigation bar, which is perfect for separating primary navigation from utility links or call-to-action buttons.
 
 ```html
 <nav class="nav">
@@ -119,251 +47,41 @@ The `margin-left: auto` trick pushes items to the right. Combined with `margin-r
 
 ## Card Layouts
 
-### Equal Width Cards
-
-```css
-.card-row {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.card {
-  flex: 1;  /* Equal width cards */
-}
-```
-
-### Fixed Number of Cards Per Row
-
-```css
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.card {
-  flex: 0 0 calc(33.333% - 1rem);  /* 3 per row, accounting for gap */
-}
-```
-
-### Card with Fixed Height Footer
-
-```css
-.card {
-  display: flex;
-  flex-direction: column;
-}
-
-.card-content {
-  flex: 1;  /* Takes available space */
-}
-
-.card-footer {
-  /* Stays at bottom */
-}
-```
+You can use flexbox to create rows of cards that automatically match each other's height. By setting `flex: 1` on each card, they will take up equal width regardless of their individual content. If your design requires a fixed number of cards per row, you can use `flex-wrap: wrap` on the container and set a specific `flex-basis` for the cards using `calc()` to account for the gaps. Additionally, flexbox makes it easy to pin a footer to the bottom of a card by setting the card itself to `display: flex` with a column direction and allowing the content area to grow and fill the available space.
 
 ## Sidebar Layout
 
-### Fixed Sidebar, Flexible Main
+A classic sidebar layout can be achieved by setting the sidebar to a fixed width and letting the main content area fill the remaining space with `flex: 1`. This pattern is also ideal for collapsible sidebars, where you can transition the `flex-basis` to smoothly shrink the sidebar to a narrow icon-only view.
 
-```css
-.layout {
-  display: flex;
-}
+## Page Structure Patterns
 
-.sidebar {
-  flex: 0 0 250px;  /* Fixed 250px width */
-}
-
-.main {
-  flex: 1;  /* Fill remaining space */
-}
-```
-
-### Collapsible Sidebar
-
-```css
-.sidebar {
-  flex: 0 0 250px;
-  transition: flex-basis 0.3s ease;
-}
-
-.sidebar.collapsed {
-  flex-basis: 60px;
-}
-```
-
-## Holy Grail Layout
-
-The classic three-column layout with header and footer:
-
-```css
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.header { }
-
-.content {
-  display: flex;
-  flex: 1;
-}
-
-.sidebar-left {
-  flex: 0 0 200px;
-}
-
-.main {
-  flex: 1;
-}
-
-.sidebar-right {
-  flex: 0 0 200px;
-}
-
-.footer { }
-```
-
-## Footer Stuck to Bottom
-
-When content is short, keep footer at bottom:
-
-```css
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main {
-  flex: 1;  /* Grows to push footer down */
-}
-
-.footer {
-  /* Stays at bottom */
-}
-```
+The "Holy Grail" layout is a traditional three-column structure that includes a header, a main content area flanked by two sidebars, and a footer. By setting the main wrapper to a column flex direction and the content area to `flex: 1`, you can ensure that the footer remains pinned to the bottom of the viewport even when the page content is sparse.
 
 ## Form Layouts
 
-### Inline Form Row
-
-```css
-.form-row {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.form-row label {
-  flex: 0 0 100px;  /* Fixed label width */
-}
-
-.form-row input {
-  flex: 1;  /* Input fills remaining space */
-}
-
-.form-row button {
-  flex: none;  /* Button's natural size */
-}
-```
-
-### Search Bar
-
-```css
-.search {
-  display: flex;
-}
-
-.search input {
-  flex: 1;
-  border-radius: 0.5rem 0 0 0.5rem;
-}
-
-.search button {
-  flex: none;
-  border-radius: 0 0.5rem 0.5rem 0;
-}
-```
+Flexbox is invaluable for building consistent form layouts. You can create inline rows where labels have a fixed width and input fields automatically stretch to fill the rest of the available space. For search bars, you can seamlessly join an input field and a search button by setting the button's flex to `none` to preserve its natural size while the input expands.
 
 ## Media Object
 
-Image/icon with text beside it:
-
-```css
-.media {
-  display: flex;
-  gap: 1rem;
-}
-
-.media-image {
-  flex: 0 0 auto;  /* Image's natural size */
-}
-
-.media-body {
-  flex: 1;  /* Text fills remaining space */
-}
-```
+The media object pattern—a small image or icon with associated text beside it—is a staple of web design. By setting the image to `flex: 0 0 auto`, you ensure it maintains its natural dimensions while the body text grows to fill all remaining horizontal space.
 
 ## Responsive Patterns
 
-### Stack on Mobile
-
-```css
-.row {
-  display: flex;
-  gap: 1rem;
-}
-
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
-}
-```
-
-### Wrap on Smaller Screens
-
-```css
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.feature {
-  flex: 1 1 300px;  /* Grow and shrink, min 300px */
-}
-```
+To ensure your layouts work effectively on mobile devices, you can use media queries to switch your flex direction from row to column, causing items to stack vertically. Alternatively, you can use `flex-wrap: wrap` combined with a minimum `flex-basis` to allow items to automatically flow onto new lines as the screen width decreases.
 
 ## Try It Yourself
 
 ### Exercise 1: Navigation Bar
 
-Create a nav bar with:
-- Logo on the left
-- Links in the middle
-- Login button on the right
-
-Use flexbox with `margin-left: auto` to separate sections.
+Create a navigation bar that features a logo on the left, primary links in the centre, and a login button on the right. Use flexbox along with the `margin-left: auto` technique to manage the distribution of these components.
 
 ### Exercise 2: Card Grid
 
-Create a row of 3 equal-width cards that:
-- Have equal widths
-- Have consistent gap
-- Centre their content vertically
-- Stack on mobile
+Develop a card grid featuring three equal-width cards that maintain a consistent gap. Ensure that the content within each card is centred vertically and that the grid automatically stacks into a single column on mobile devices.
 
 ### Exercise 3: Modal Overlay
 
-Create a full-page modal overlay with:
-- Semi-transparent background
-- Content centred both horizontally and vertically
-- Modal box that doesn't stretch to fill
+Build a full-page modal overlay with a semi-transparent background. The modal content should remain perfectly centred both horizontally and vertically without stretching to fill the entire container.
 
 ## Test Your Understanding
 
@@ -406,12 +124,7 @@ Create a full-page modal overlay with:
 
 ## Key Takeaways
 
-- `margin-left: auto` pushes items right; great for navigation
-- `flex: 1` on cards creates equal widths
-- `flex: 0 0 250px` creates fixed-width sidebars
-- `flex-direction: column` with `flex: 1` on main content pins footer to bottom
-- `flex-wrap: wrap` with `flex: 1 1 300px` creates responsive grids
-- Flexbox is one-dimensional—use Grid for two-dimensional layouts
+In summary, remember that `margin-left: auto` is an excellent tool for pushing items to the right in a navigation bar, while `flex: 1` ensures that cards maintain equal widths. You can create fixed-width sidebars by defining a specific pixel value in your flex shorthand, and use `flex-direction: column` to reliably pin footers to the bottom of your pages. For responsive grids, `flex-wrap: wrap` remains the most versatile option, providing a fluid layout that adapts to any screen size.
 
 ## Next Steps
 

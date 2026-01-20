@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Project structure for component libraries
-- Creating CSS custom properties for design tokens
-- Implementing light and dark theme support
-- Building a systematic, scalable token architecture
+In this lesson, we will focus on the project structure for component libraries and the creation of CSS custom properties for design tokens. You will learn how to implement support for both light and dark themes and build a systematic, scalable token architecture.
 
 ## Step 1: Project Setup
 
@@ -184,15 +181,7 @@ Import all tokens:
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Project structure created with src/tokens, src/components, docs, dist
-- [ ] Colour tokens with primary, neutral, and semantic values
-- [ ] Light and dark theme support via `[data-theme="dark"]`
-- [ ] Typography tokens with font families, sizes, weights
-- [ ] Spacing scale defined (0.25rem increments)
-- [ ] Border radius, shadow, and transition tokens
-- [ ] All tokens imported in index.css
+Before moving on, verify that you have created the correct project structure with `src/tokens`, `src/components`, `docs`, and `dist` directories. Ensure your colour tokens include primary, neutral, and semantic values, and that you have implemented light and dark theme support via the `[data-theme="dark"]` selector. You should also have typography tokens covering font families, sizes, and weights, a defined spacing scale using 0.25rem increments, and tokens for border radii, shadows, and transitions. Finally, confirm that all your token files are correctly imported into `index.css`.
 
 ## Try It Yourself
 

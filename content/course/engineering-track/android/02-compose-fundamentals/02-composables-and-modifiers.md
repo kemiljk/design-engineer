@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- How modifiers work
-- Common modifiers
-- Modifier order
-- Creating custom modifiers
+During this module, you will learn exactly how modifiers work and explore a wide variety of common modifiers used for layout and appearance. We'll examine why modifier order is so significant and learn how to create your own custom modifiers for reusable styling patterns.
 
 ## How Modifiers Work
 
@@ -146,18 +143,11 @@ Box(modifier = Modifier.card()) {
 
 ### Exercise 1: Styled Box
 
-Create a box with:
-- Fixed size
-- Rounded corners
-- Shadow
-- Padding
+Practice your layout skills by creating a styled box that incorporates a fixed size, rounded corners, and a subtle shadow. You should also include specific padding tokens to ensure the interior content is properly spaced within the container.
 
 ### Exercise 2: Custom Modifier
 
-Create a `badge()` modifier that adds:
-- Pill shape background
-- Horizontal padding
-- Small vertical padding
+Further expand your capabilities by creating a custom `badge()` modifier that facilitates consistent styling across your app. Your modifier should apply a pill-shaped background while managing both horizontal and small vertical padding to create a professional look.
 
 ## Test Your Understanding
 
@@ -200,11 +190,7 @@ Create a `badge()` modifier that adds:
 
 ## Key Takeaways
 
-- Modifiers transform composables
-- Order matters significantly
-- Chain modifiers for complex styling
-- Accept `Modifier` parameter in composables
-- Create custom modifiers for reuse
+To build effective interfaces in Compose, you must understand that modifiers are the primary tool for transforming composable behaviour and appearance. Order remains critical to the final visual output, and you should always chain modifiers logically while ensuring your composables accept a `Modifier` parameter for external flexibility. Finally, leverage custom modifiers to encapsulate repeating styles and maintain a clean, reusable codebase.
 
 ## Next Steps
 

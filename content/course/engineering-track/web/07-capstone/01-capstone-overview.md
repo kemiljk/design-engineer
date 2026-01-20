@@ -8,13 +8,7 @@ estimatedTime: 5
 
 ## Why This Project?
 
-Component libraries are exceptional portfolio pieces because they showcase the full breadth of frontend engineering skills:
-
-- **Deep HTML/CSS knowledge** — Semantic, accessible markup
-- **JavaScript proficiency** — Interactive behaviours
-- **Systems thinking** — Consistent APIs, tokens
-- **Documentation skills** — Developer experience
-- **DevOps awareness** — Deployment, versioning
+Component libraries are exceptional portfolio pieces because they showcase the full breadth of frontend engineering skills, including deep HTML and CSS knowledge through the creation of semantic and accessible markup, JavaScript proficiency in building interactive behaviours, and strong systems thinking for consistent APIs and tokens. They also demonstrate your documentation skills and developer experience awareness, as well as DevOps knowledge regarding deployment and versioning.
 
 **Total Time Estimate:** 10-15 hours across all phases
 
@@ -80,12 +74,7 @@ Study these component libraries:
 
 ## Tips for Success
 
-1. **Start with tokens** — A solid foundation makes components easier
-2. **Build accessibility in** — Don't bolt it on after
-3. **Document as you build** — Don't leave it all for the end
-4. **Test in context** — Components should work together
-5. **Keep scope realistic** — 8-10 polished components > 20 rough ones
-6. **Use real content** — "Lorem ipsum" hides layout issues
+To ensure your project is successful, it is recommended to start by building your tokens, as a solid foundation will make developing individual components much easier. You should also build accessibility into your components from the start rather than attempting to add it later, and document your progress as you build to avoid a large tasks at the end. Always test your components in context to ensure they work well together, keep your scope realistic by focusing on 8–10 polished components rather than 20 rough ones, and use real content instead of placeholder text to help uncover potential layout issues.
 
 ## Get Started
 

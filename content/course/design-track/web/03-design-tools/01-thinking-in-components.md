@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- What components are and why they matter
-- Atomic design: atoms, molecules, organisms
-- How to identify and define components
-- The relationship between design components and code components
+By progressing through this lesson, you will understand what components are and why they matter, using the Atomic Design methodology to structure interfaces into atoms, molecules, and organisms. You will also learn to identify and define components while exploring the critical relationship between design and production code.
 
 ## The Component Mental Model
 
@@ -36,10 +33,7 @@ Molecules are groups of atoms bonded together to perform a specific function. Th
 
 Take a **Search Form**. It is composed of a `Label` atom, an `Input` atom, and a `Button` atom. Combined, they form a functional unit that can be dropped anywhere in the application.
 
-### Organisms
-Organisms are complex UI components composed of groups of molecules and/or atoms and/or other organisms. They form distinct sections of an interface.
-
-A **Header** organism might contain a `Logo` atom, a `Navigation` molecule, and a `Search Form` molecule. Organisms begin to look like recognizable parts of a webpage.
+Organisms act as complex UI components—such as a header containing a logo atom and navigation molecule—that form distinct, recognisable sections of an interface. At this level, components begin to appear as the specific, functional parts that users interact with on a webpage.
 
 ### Templates
 Templates are page-level objects that place components into a layout and articulate the design's underlying content structure. They focus on the page's anatomy (grid, layout) rather than its specific content.
@@ -51,30 +45,13 @@ Pages are specific instances of templates. This is where you pour real content i
 
 When you look at a mockup or a wireframe, how do you decide what should be a component?
 
-**Look for Repetition:**
-If you copy-paste an element more than twice, it's a candidate. If you have three cards that look identical except for the text, that's a `Card` component.
-
-**Look for Encapsulation:**
-Can this element exist on its own? A generic "Error Message" box makes sense anywhere. A specific paragraph of text describing your company's history probably doesn't need to be a reusable component.
-
-**Look for Variability:**
-Identify what changes. If you have a blue button and a red button, you don't have two components; you have one `Button` component with a `variant` property.
+Identifying components involves looking for repeated patterns that can be abstracted, ensuring each element is sufficiently encapsulated to exist independently. By focusing on variability, you can define a single component with multiple properties rather than creating separate unique instances.
 
 ## Component Properties
 
 Components aren't static images; they are flexible tools. We define their flexibility through **properties** (often called "props").
 
-**Variants:**
-These are mutually exclusive visual styles. A button might be `Primary` (filled) or `Secondary` (outlined). It can't be both.
-
-**States:**
-These describe interaction. Is the component `Hovered`? `Pressed`? `Disabled`? `Loading`? Every interactive component needs these states defined.
-
-**Content:**
-This is the data you pour into the component. The text inside a button, the image in an avatar, the title of a card.
-
-**Options (Booleans):**
-These are simple on/off switches for features. `hasIcon` (true/false) or `isDismissible` (true/false).
+Components are defined by their **variants**, such as primary or secondary styles, and their interactive **states** like hovered or disabled. Furthermore, they are shaped by the **content** poured into them—including text and imagery—and controlled via boolean **options** like `hasIcon` or `isDismissible`.
 
 ## Naming Components
 
@@ -111,13 +88,10 @@ Take a screenshot of a popular app like Instagram or Twitter. Print it out or pu
 
 ### Exercise 2: Defining Props
 Imagine a "Notification Toast" component. List the properties it needs.
-- **Content:** Title, Message
-- **Variant:** Success, Error, Warning, Info
-- **Option:** isDismissible (true/false)
-- **Action:** Button label (optional)
+A notification toast component would typically require content properties for its title and message, variants for success or error states, and boolean options to determine if it is dismissible or includes an action button.
 
 ### Exercise 3: Naming
-Rename the layers in your current design file to match a strict component naming convention. Group related components (e.g., `Button/Primary`, `Button/Secondary`) to organize your system.
+Rename the layers in your current design file to match a strict component naming convention, and then organise related components into groups like `Button/Primary` or `Button/Secondary`.
 
 ## Test Your Understanding
 
@@ -160,11 +134,7 @@ Rename the layers in your current design file to match a strict component naming
 
 ## Key Takeaways
 
-- Treat components as the fundamental unit of design, not pages.
-- Use **Atomic Design** (Atoms, Molecules, Organisms) to structure your hierarchy.
-- Identify components by looking for repetition and distinct functionality.
-- Define components using **Properties** (Variants, States, Content) rather than making unique copies.
-- Align your naming conventions with engineering to create a shared language.
+Components should be treated as the fundamental units of design, structured through Atomic Design principles into atoms, molecules, and organisms. By identifying reusable functionality and defining props rather than unique copies, you can align naming conventions with engineering to create a shared, systematic language.
 
 ## Next Steps
 

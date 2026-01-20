@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Why React became the dominant framework
-- The job market reality for React developers
-- React's ecosystem and community advantages
-- How React skills compound over time
+In this lesson, we will examine why React has become the dominant frontend framework and explore the compelling job market data that supports this claim. You will gain insight into React's extensive ecosystem and the community advantages it provides, and learn how your React skills will compound over time to benefit your career.
 
 ## The Numbers Don't Lie
 
@@ -38,28 +35,11 @@ React's dominance wasn't accidental. Several factors contributed:
 
 ### First-Mover Advantage (Sort Of)
 
-React wasn't first; Angular (v1) predated it. But React introduced ideas that changed everything:
-
-- **Component model:** Everything is a component
-- **One-way data flow:** Predictable state management
-- **Virtual DOM:** Efficient updates without manual optimisation
-- **JSX:** HTML-like syntax in JavaScript
-
-These ideas were revolutionary in 2013 and remain influential today.
+React was not the first framework of its kind; Angular (v1) predated it. However, React introduced several groundbreaking ideas that fundamentally changed how developers think about building user interfaces. These included the component model where everything is a reusable piece, one-way data flow for predictable state management, the virtual DOM for efficient updates without manual optimisation, and JSX for writing HTML-like syntax directly within your JavaScript code. These ideas were revolutionary when they were introduced in 2013 and continue to influence the entire industry today.
 
 ### Meta's Investment
 
-Facebook (now Meta) uses React extensively:
-- Facebook.com
-- Instagram
-- WhatsApp Web
-- Messenger
-
-This means:
-- Battle-tested at massive scale
-- Continuous investment in development
-- Features driven by real production needs
-- No risk of abandonment
+Facebook (now Meta) uses React extensively across its major platforms, including Facebook.com, Instagram, WhatsApp Web, and Messenger. This widespread internal adoption means the framework is battle-tested at a truly massive scale, receives continuous investment in development, has its features driven by real production needs, and carries virtually no risk of abandonment.
 
 ### Community Momentum
 
@@ -72,12 +52,7 @@ React's community created a virtuous cycle:
 
 ### Evolution Without Revolution
 
-React's major updates have been additive, not destructive:
-- **Hooks (2019):** New paradigm, old code still works
-- **Concurrent Mode:** Opt-in performance improvements
-- **Server Components:** Incremental adoption path
-
-Compare this to Angular's complete rewrite (Angular 1 → 2) that fragmented its community.
+React's major updates have been additive rather than destructive. When hooks were introduced in 2019, they represented a new paradigm, yet all existing code continued to work. Concurrent mode offered opt-in performance improvements, and server components provide an incremental adoption path. This stands in stark contrast to Angular's complete rewrite from version 1 to version 2, which fragmented its community significantly.
 
 ## The React Ecosystem
 
@@ -168,19 +143,11 @@ React 360 brings React to virtual reality interfaces.
 
 ### Conceptual Transfer
 
-Even if you switch frameworks later, React teaches:
-- Component composition
-- Unidirectional data flow
-- Hooks patterns (adopted by Vue, Svelte)
-- State management principles
+Even if you decide to switch frameworks later, React teaches you invaluable concepts such as component composition, unidirectional data flow, hooks patterns (which have been adopted by Vue and Svelte), and state management principles that apply universally.
 
 ### Career Trajectory
 
-React developers often progress to:
-- Senior Frontend Developer
-- Full-Stack Developer (with Next.js)
-- Technical Lead
-- Frontend Architect
+React developers often progress to more senior roles, including Senior Frontend Developer, Full-Stack Developer (particularly with Next.js), Technical Lead, and Frontend Architect.
 
 ## Common Concerns
 
@@ -325,11 +292,7 @@ Libraries like Framer Motion make complex animations accessible:
 
 ### Bridge Design and Development
 
-Knowing React lets you:
-- Speak the same language as developers
-- Understand implementation constraints
-- Ship your own side projects
-- Prototype ideas with real code
+Knowing React allows you to speak the same language as your development colleagues, understand the constraints involved in implementation, ship your own side projects, and prototype ideas with real, production-ready code.
 
 ## Try It Yourself
 
@@ -396,12 +359,7 @@ Compare the communities:
 
 ## Key Takeaways
 
-- React dominates the job market (65%+ of frontend jobs)
-- The ecosystem is unmatched, with solutions for every problem
-- React skills transfer to mobile (React Native), desktop (Electron), and beyond
-- Meta's backing ensures continued development and stability
-- Learning React is an investment that compounds over time
-- As a Design Engineer, React aligns naturally with component-based thinking
+To recap, React dominates the job market with over 65% of frontend positions requiring it. Its ecosystem is unmatched, offering solutions for every conceivable problem, and your skills will transfer directly to mobile (React Native), desktop (Electron), and beyond. Meta's backing ensures continued development and stability. Learning React is an investment that compounds over time, and as a Design Engineer, you will find it aligns naturally with component-based thinking.
 
 ## Next Steps
 

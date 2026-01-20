@@ -4,12 +4,9 @@
 
 ## What You'll Learn
 
-- Colors and materials
-- Custom styles
-- Environment and preferences
-- Dark mode support
+During this module, you will learn to work with colours and materials to create visually stunning interfaces and explore the process of building custom styles for your components. We'll examine how to use environment values and preferences to manage global settings and walk through the essential steps for supporting dark mode across your entire application.
 
-## Colors
+## Colours
 
 ### System Colors
 ```swift
@@ -142,16 +139,12 @@ struct ContentView: View {
 ### Exercise 1: Custom Button
 
 Create a custom button style with:
-- Brand colours
-- Press animation
-- Disabled state
+Practise your custom styling by creating a bespoke button style that incorporates your unique brand colours and interactive press animations. Ensure that you also define a clear visual state for when the button is disabled to maintain a high level of accessibility and user feedback.
 
 ### Exercise 2: Theme Preview
 
 Create a view and preview it:
-- Light mode
-- Dark mode
-- Large dynamic type
+Develop a comprehensive view and verify its appearance across different configurations by creating multiple previews. You should test the layout in both light and dark modes, and ensure it remains legible when displayed with large dynamic type sizes.
 
 ## Test Your Understanding
 
@@ -194,11 +187,7 @@ Create a view and preview it:
 
 ## Key Takeaways
 
-- Use semantic colours for automatic adaptation
-- Materials provide translucent backgrounds
-- Custom styles enable reusable styling
-- Environment values access system settings
-- Always test light and dark modes
+To create high-quality iOS interfaces, you should always use semantic colours and materials that automatically adapt to the user's system settings. Custom styles provide a powerful mechanism for building reusable and consistent components, while environment values allow you to access critical system preferences with ease. Finally, make it a standard practice to test your designs in both light and dark modes to ensure a seamless experience for every user.
 
 ## Next Steps
 

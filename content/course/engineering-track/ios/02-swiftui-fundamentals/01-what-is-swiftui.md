@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Declarative vs imperative UI
-- The SwiftUI mental model
-- Basic SwiftUI structure
-- Preview system
+During this module, you will explore the differences between declarative and imperative UI paradigms and dive into the fundamental SwiftUI mental model. We'll examine the basic structure of a SwiftUI application and show you how to leverage the powerful preview system for rapid development.
 
 ## Declarative UI
 
@@ -33,9 +30,7 @@ SwiftUI handles the how.
 
 ### Views Are Descriptions
 A SwiftUI View is a description of UI, not the UI itself:
-- Lightweight structs
-- Created frequently
-- System manages actual rendering
+SwiftUI views are essentially lightweight structs that are created frequently by the system. Instead of maintaining persistent view objects, you provide a description of the interface, and the system manages the actual rendering and updates on your behalf.
 
 ### State Drives UI
 When state changes, UI updates automatically:
@@ -104,10 +99,7 @@ struct ContentView: View {
 ```
 
 ### Preview Benefits
-- See changes instantly
-- Multiple device previews
-- Different states and configurations
-- Interactive testing
+The preview system allows you to see changes instantly without rebuilding the entire app and enables simultaneous testing on multiple device types. You can easily observe different states and configurations in real-time, facilitating a much more interactive and efficient testing process.
 
 ## Basic Views
 
@@ -142,15 +134,12 @@ Button(action: { }) {
 ### Exercise 1: First View
 
 Create a view that shows:
-- A greeting text
-- An SF Symbol
-- A button that prints to console
+Practise your SwiftUI skills by creating a new view that displays a personalised greeting text and an SF Symbol. Include a button that performs a simple action, such as printing a message to the console, to verify your understanding of basic interactions.
 
 ### Exercise 2: Preview Variations
 
 Create multiple previews:
-- Light and dark mode
-- Different device sizes
+Expand your development workflow by creating multiple preview configurations for your view. Ensure that you test your design in both light and dark modes across several different device sizes to confirm its responsiveness.
 
 ## Test Your Understanding
 
@@ -193,11 +182,7 @@ Create multiple previews:
 
 ## Key Takeaways
 
-- SwiftUI is declarative: describe what, not how
-- Views are lightweight structs
-- State changes drive UI updates
-- Composition builds complex UIs
-- Previews enable rapid iteration
+To build modern iOS interfaces effectively, you must embrace SwiftUI's declarative paradigm where you describe the desired state rather than the rendering steps. Recognise that views are lightweight structs and that all UI updates are driven by state changes. By using composition to assemble complex interfaces from simple components and leveraging live previews for rapid iteration, you can create high-quality applications with confidence.
 
 ## Next Steps
 

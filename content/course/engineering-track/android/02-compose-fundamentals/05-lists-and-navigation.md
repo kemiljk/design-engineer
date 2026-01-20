@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- LazyColumn and LazyRow
-- Navigation basics
-- Passing arguments
-- Back stack management
+During this module, you will learn to use LazyColumn and LazyRow for efficiently displaying scrolling content and explore the core principles of the Navigation Compose system. We'll examine exactly how to pass arguments between screens and manage the back stack to ensure a professional navigation experience.
 
 ## LazyColumn
 
@@ -133,15 +130,11 @@ navController.navigate("home") {
 
 ### Exercise 1: Contact List
 
-Create a LazyColumn of contacts:
-- Profile image, name, phone
-- Tap navigates to detail
+Practise your mobile UI development by creating a functional contact list using a LazyColumn. Each row should feature a profile image alongside a name and phone number, and you should implement navigation logic that takes the user to a detailed view when they tap a specific contact.
 
 ### Exercise 2: Navigation Flow
 
-Build a three-screen flow:
-- List → Detail → Edit
-- Proper back navigation
+Further expand your navigation skills by building a sequential three-screen flow that moves from a main list to a detail view and finally to an edit screen. Ensure that the back-stack behaves correctly so that users can return to previous screens as expected.
 
 ## Test Your Understanding
 
@@ -184,11 +177,7 @@ Build a three-screen flow:
 
 ## Key Takeaways
 
-- LazyColumn/LazyRow for efficient scrolling
-- Use `key` for stable item identity
-- NavHost defines navigation graph
-- Arguments passed via route parameters
-- Type-safe navigation available in newer versions
+To build efficient and navigable Android apps, you must utilise LazyColumn and LazyRow for scrolling content while assigning stable keys to maintain item identity. Your navigation graph should be defined within a NavHost, with arguments passed via route parameters for type safety. Finally, stay up to date with the latest versions to leverage type-safe navigation features that further reduce potential errors in your screen-to-screen transitions.
 
 ## Next Steps
 

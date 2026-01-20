@@ -10,11 +10,7 @@ estimatedTime: 5
 
 A working Compose app showcases the full breadth of Android engineering skills:
 
-- **Kotlin language proficiency** — Modern Kotlin patterns and syntax
-- **Jetpack Compose UI composition** — Declarative UI building
-- **State management understanding** — ViewModel and StateFlow patterns
-- **Data persistence skills** — Room or DataStore
-- **UI/UX implementation ability** — Material 3, accessible interfaces
+A working Compose application allows you to showcase a full breadth of Android engineering skills. You will demonstrate high proficiency with modern Kotlin language patterns and syntax, alongside a deep understanding of Jetpack Compose UI composition for declarative building. This project also requires a strong grasp of state management using ViewModel and StateFlow patterns, data persistence techniques with Room or DataStore, and the ability to implement high-quality UI/UX through Material 3 and accessible interface design.
 
 **Total Time Estimate:** 10-15 hours across all phases
 
@@ -22,11 +18,11 @@ A working Compose app showcases the full breadth of Android engineering skills:
 
 By the end of this capstone, you'll have:
 
-1. **Working Compose App** — 3-5 fully functional screens with real data and persistence
-2. **Custom Composables** — Reusable UI components and custom modifiers
-3. **Proper Architecture** — ViewModel state management with repository pattern
-4. **Polish & Accessibility** — TalkBack support, Dynamic Type, Material motion
-5. **GitHub Repository** — Clean code organisation with comprehensive README
+1. **Working Compose App** — A collection of 3-5 fully functional screens that interact with real data and persistent storage.
+2. **Custom Composables** — A library of reusable UI components and bespoke modifiers tailored to your app's specific needs.
+3. **Proper Architecture** — A robust implementation of ViewModel state management following the repository pattern for clean data flow.
+4. **Polish & Accessibility** — A high level of refinement including full TalkBack support, Dynamic Type integration, and expressive Material motion.
+5. **GitHub Repository** — A professionally organised codebase accompanied by a comprehensive README file to document your work.
 
 ## Choose Your App
 
@@ -79,12 +75,7 @@ Study these apps for different approaches:
 
 ## Tips for Success
 
-1. **Start with data** — Model your data before UI
-2. **Use previews** — Compose previews speed up development
-3. **Extract composables** — When functions get big, break them up
-4. **Test on device** — Emulator misses performance issues
-5. **Add accessibility early** — Harder to retrofit
-6. **Commit often** — Small commits make debugging easier
+To ensure success, you should always model your data structures before attempting to build any UI components and rely on Compose previews to speed up your development cycle. Focus on extracting composables into smaller, manageable functions as they grow in complexity and always test your implementation on physical devices to catch performance issues that emulators might miss. Finally, remember to add accessibility features early in the process and commit your code frequently to make the debugging and version control experience as smooth as possible.
 
 ## Get Started
 

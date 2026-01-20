@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- How designs map to Compose functions
-- The Compose mental model (Columns, Rows, Modifiers)
-- Design decisions that help developers
-- Preparing designs for handoff
+Throughout this lesson, you will learn exactly how your design elements map to Jetpack Compose functions and explore the declarative mental model of columns, rows, and modifiers. We'll identify specific design decisions that help streamline the development process and establish best practices for preparing your files for a successful handoff.
 
 ## Compose Fundamentals
 
@@ -29,24 +26,17 @@ Just like SwiftUI, everything is a component (called a **Composable**). The UI i
 
 ### Columns and Rows
 In Figma, you use Auto Layout. In Compose, we use:
-- **Column:** Vertical stack (Figma Auto Layout ↓).
-- **Row:** Horizontal stack (Figma Auto Layout →).
-- **Box:** Z-stack for overlapping elements (Figma Group).
+In Figma, you use Auto Layout to manage distribution, which maps directly to vertical stacks (**Column**), horizontal stacks (**Row**), and overlapping Z-stacks (**Box**) in Compose.
 
 ### Modifiers
 Modifiers are used to configure layouts.
-- **Padding:** `Modifier.padding(16.dp)` adds space around an element.
-- **Size:** `Modifier.size(50.dp)` sets fixed dimensions.
-- **Clickable:** `Modifier.clickable { }` makes any element interactive.
+Modifiers are used to configure element appearance and behaviour, such as adding **padding**, setting a fixed **size**, or making an element **clickable**.
 
 ## Components → Composables
 
 ### Material Components
 Most of your design elements map 1:1 to the Material Compose library:
-- **Button** → `Button`, `OutlinedButton`, `TextButton`
-- **Card** → `Card`, `ElevatedCard`
-- **Text Field** → `TextField`, `OutlinedTextField`
-- **List** → `LazyColumn` (Vertical), `LazyRow` (Horizontal)
+Standard Material components map directly to Compose functions, including **Buttons** (Button, OutlinedButton, TextButton), **Cards** (Card, ElevatedCard), **Text Fields** (TextField, OutlinedTextField), and lists (LazyColumn and LazyRow).
 
 ### Custom Components
 When you design a custom card, the developer creates a custom Composable function.
@@ -68,9 +58,7 @@ This means your design components should be modular and reusable, just like the 
 
 ### Use Material Theme Slots
 Compose has a built-in theming engine. Reference semantic roles in your design:
-- **Typography:** Don't use "Inter 16px". Use `MaterialTheme.typography.bodyLarge`.
-- **Colors:** Don't use `#6200EE`. Use `MaterialTheme.colorScheme.primary`.
-- **Shapes:** Reference `MaterialTheme.shapes.medium`.
+Reference semantic roles in your design rather than raw values, such as using specific **Typography** roles, **Colour** schemes, and **Shapes** defined in the Material theme.
 
 This allows the entire app to support Dark Mode and Dynamic Colour automatically.
 
@@ -79,9 +67,7 @@ Use an 8dp spacing scale. Developers often create spacing objects: `Spacing.medi
 
 ### Clear Hierarchy
 Structure your Figma layers to match the intended Compose structure.
-- Group elements that belong in a `Row` together.
-- Group vertical sections that belong in a `Column`.
-- Name your layers meaningfully.
+To ensure a logical translation to code, you should group elements that belong in a row together and organise vertical sections into clear columns, while taking care to name all layers meaningfully.
 
 ## Responsive Design
 
@@ -97,36 +83,25 @@ Indicate in your handoff if an element should "fill available space" or has a "f
 
 ### Adaptive Breakpoints
 Compose handles adaptation easily. You can check the screen size and switch layouts.
-- **Compact:** Show a `LazyColumn`.
-- **Expanded:** Show a `LazyVerticalGrid` with 2 columns.
-Document this behavior: "At 600dp width, switch from List to Grid."
+For compact widths, you might display a simple scrollable list, whereas expanded layouts can transition to a vertical grid with multiple columns.
+Document this behaviour: "At 600dp width, switch from List to Grid."
 
 ## Handoff Best Practices
 
 ### Annotate
-- **Spacing:** "16dp padding."
-- **Tokens:** "Primary Container colour."
-- **Typography:** "Headline Medium."
+Annotations should clearly label **spacing**, **tokens** (such as Primary Container colour), and **typography** roles.
 
 ### Document Interactions
-- **State:** Show Default, Pressed, Disabled, and Error states.
-- **Transitions:** "This card expands to full screen."
-- **Gestures:** "Swipe to dismiss."
+Document interaction models by showing all necessary **states**, describing **transitions** like card expansion, and specifying intended **gestures**.
 
 ### Provide Assets
-- **Vectors:** Export icons as XML Vector Drawables (or SVGs that can be converted).
-- **Images:** Provide WebP or PNG assets at multiple densities.
+Provide all necessary **vector** assets as XML or SVG files and high-density **image** assets in WebP or PNG formats.
 
 ## Try It Yourself
 
 ### Exercise 1: Compose Mapping
 Take a music player control bar. Write the pseudo-code:
-- Row (fill width, space between)
-  - Image (Album art)
-  - Column (Weight 1f)
-    - Text (Title)
-    - Text (Artist)
-  - Icon (Play/Pause)
+Take a control bar from a music player and write its pseudo-code by mapping the layout to a row that fills the width with space between its children. This should include an image for album art, a column with a flex weight of one for the title and artist text, and a final icon for the play and pause actions.
 
 ### Exercise 2: Handoff Document
 Annotate a screen for a developer. Use strictly Material semantic names for all colours and fonts. Mark which elements are flexible and which are fixed.
@@ -172,11 +147,7 @@ Annotate a screen for a developer. Use strictly Material semantic names for all 
 
 ## Key Takeaways
 
-- **Compose** is declarative; UI is a function of state.
-- Map your layouts to **Rows, Columns, and Boxes**.
-- Use **Material Semantic Tokens** for colour and type.
-- Design for **flexibility** using weights and adaptive layouts.
-- **Annotate** thoroughly to bridge the gap between design and code.
+Jetpack Compose is a declarative system where the UI is a direct function of state, requiring you to map your designs to fundamental primitives like rows, columns, and boxes. By consistently using Material semantic tokens for colour and typography, and designing for flexibility through adaptive layouts and weights, you can provide thorough annotations that bridge the gap between design and implementation.
 
 ## Congratulations!
 

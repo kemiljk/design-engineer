@@ -17,11 +17,7 @@ Colour on iOS is not static. Apple provides a suite of semantic colours that ada
 ### UI Element Colours
 
 Instead of picking a hex code for "black" text, you use **Label Color**. This ensures that when the device switches to Dark Mode, your text automatically turns white. The hierarchy is built-in:
-- **Label:** Primary text, fully opaque.
-- **Secondary Label:** Less prominent text, slightly transparent.
-- **Tertiary Label:** Disabled or placeholder text.
-- **Separator:** Divider lines that are barely visible but structurally important.
-- **System Background:** The base layer of your view.
+Standard text roles include **Label** for primary opaque text, **Secondary Label** for less prominent information, and **Tertiary Label** for disabled or placeholder content. These are supported by **Separators** for structural division and **System Background** roles for the base layout layer.
 
 ### Accent Colours
 
@@ -38,9 +34,7 @@ Support for Dark Mode is mandatory for modern iOS apps. It isn't just a "night t
 ### Design Considerations
 
 Dark Mode is not a simple inversion. You cannot just swap white for black.
-- **Contrast:** Pure black backgrounds can cause "smearing" on OLED screens when scrolling. Dark grey (System Background) is often better.
-- **Elevation:** In Light Mode, we use shadows to show depth. In Dark Mode, shadows are invisible. Instead, we use lightness. Higher surfaces are lighter grey; lower surfaces are darker grey.
-- **Saturation:** Bright, saturated colours can vibrate against dark backgrounds, causing eye strain. System colours automatically desaturate slightly in Dark Mode to remain comfortable.
+Dark mode design must account for visual comfort and clarity. This involves ensuring high **contrast** to avoid OLED smearing, using **elevation** through lighter grey levels rather than shadows, and ensuring appropriate **saturation** so that system colours remain comfortable against dark backgrounds.
 
 ## Materials
 
@@ -142,12 +136,7 @@ Sketch a screen layout that uses depth correctly.
 
 ## Key Takeaways
 
-- **Liquid Glass** creates a distinct functional layer for navigation and controls.
-- Use **Standard Materials** within the content layer to organize information.
-- **Semantic System Colours** adapt automatically to Light and Dark modes.
-- **Dark Mode** requires specific design choices; it is not just a colour inversion.
-- **Vibrancy** ensures text remains legible on translucent backgrounds.
-- Always design with **Accessibility** (contrast, transparency settings) in mind.
+Modern iOS design leverages **Liquid Glass** for navigation and control layers while using **Standard Materials** to organize information within the content layer. By using **Semantic System Colours** and **Vibrancy**, you ensure that interfaces remain beautiful and legible across light and dark modes, provided you always prioritize **Accessibility** through proper contrast and transparency testing.
 
 ## Next Steps
 

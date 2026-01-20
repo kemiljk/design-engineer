@@ -10,25 +10,19 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Creating a production-ready App Icon
-- Writing a README that explains your architecture
-- Structuring a professional GitHub repository
+During this module, you will learn how to create a production-ready App Icon and write a comprehensive README that clearly explains your app's architecture. We'll also examine the best practices for structuring a professional GitHub repository to showcase your work effectively.
 
 ## Step 1: The App Icon
 
 The icon is the first thing users see. Even for a learning project, don't leave the default wireframe icon.
 
-1.  **Design:** Create a simple 1024x1024 PNG. A solid background colour with a white symbol (SF Symbol) is sufficient for a clean look.
-2.  **Import:** Open `Assets.xcassets` -> `AppIcon`.
-3.  **Assign:** Drag your 1024x1024 image into the "Single App Icon" slot. Xcode will handle scaling for different devices automatically.
+To create your icon, design a simple 1024x1024 PNG featuring a solid background colour and a clear symbol from the SF Symbols library. Once ready, open `Assets.xcassets`, navigate to the `AppIcon` set, and drag your image into the "Single App Icon" slot so that Xcode can automatically handle the scaling for various devices.
 
 ## Step 2: The Launch Screen
 
 The launch screen masks the loading time. Keep it simple—it should mimic the first screen of your app.
 
-1.  Open the `Launch Screen` file (or `Info.plist` configuration).
-2.  Set the background colour to match your app's background.
-3.  (Optional) Add your app logo in the center. Avoid text, as it's hard to localize and align perfectly during the launch transition.
+Configure your launch screen by matching its background colour to your application's primary background and optionally adding your app logo to the centre. Be sure to avoid using text on this screen, as it can be difficult to localise and align precisely during the rapid transition to your app's first view.
 
 ## Step 3: The README
 
@@ -71,27 +65,12 @@ This app follows a strict **MVVM (Model-View-ViewModel)** pattern:
 
 ## Step 4: The Repository
 
-1.  **Initialise:** Run `git init` in your project folder.
-2.  **Ignore:** Create a `.gitignore` file. Use [Swift.gitignore](https://github.com/github/gitignore/blob/main/Swift.gitignore) as a template to avoid committing user-specific Xcode data.
-3.  **Commit:** Stage and commit your clean project.
-4.  **Push:** Create a new repository on GitHub and push your code.
+Establish your project's repository by running `git init` in your project folder and creating a `.gitignore` file using the standard Swift template to prevent committing unnecessary Xcode data. Stage and commit your clean project files before creating a new repository on GitHub and pushing your code to the remote server.
 
 ## Submission Checklist
 
 ### Application Polish
-- [ ] App Icon is set (no default placeholder).
-- [ ] Launch Screen matches the app theme.
-- [ ] Display Name is correct (e.g., "Tasks", not "TaskManager_Final_v2").
-
-### Code Quality
-- [ ] No compiler warnings.
-- [ ] Dead code (commented-out blocks) removed.
-- [ ] Files organised into groups (Views, Models, ViewModels).
-
-### Documentation
-- [ ] `README.md` created with screenshots.
-- [ ] `.gitignore` prevents derived data commit.
-- [ ] Repository is public (so it can be reviewed).
+Before submitting your project, verify that your App Icon is correctly set and that the Launch Screen theme aligns with your app's design. Ensure your application has a professional display name, is free of compiler warnings and dead code, and that all files are logically organised into groups. Finally, confirm your repository includes a comprehensive `README.md` with screenshots, a proper `.gitignore` file is in place, and the project is public for easy review.
 
 ## What's Next
 
@@ -101,9 +80,7 @@ You have built a functional, persistent, architectural iOS app. This puts you ah
 
 ### Portfolio Tips
 
-*   **Record a Video:** A README is great, but a 30-second video of you using the app is better. Embed it or link to it.
-*   **Write a Post:** Share your "biggest challenge" (e.g., "Learning how SwiftData predicates work") on LinkedIn or Twitter.
-*   **Keep Building:** Add one more feature. Maybe push notifications? Maybe iCloud sync? The best way to learn is to extend existing code.
+To further enhance your portfolio, consider recording a brief thirty-second video of your application in action and sharing your development journey, including any specific challenges like mastering SwiftData, on social platforms. Continue to grow your skills by adding new features such as push notifications or iCloud synchronisation to your existing codebase.
 
 ### Continue Your Journey
 

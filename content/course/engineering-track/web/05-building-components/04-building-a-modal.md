@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Modal structure and styling
-- Focus trapping and management
-- Keyboard interactions
-- Accessible modal implementation
+In this lesson, we will cover modal structure and styling, focus trapping and management, keyboard interactions, and how to implement accessible modals.
 
 ## Modal HTML Structure
 
@@ -201,11 +198,7 @@ class Modal {
 
 ## Accessibility Requirements
 
-1. **Role and ARIA:** `role="dialog"`, `aria-modal="true"`, `aria-labelledby`
-2. **Focus trap:** Focus stays within modal
-3. **Escape key:** Closes modal
-4. **Return focus:** Returns to trigger element on close
-5. **Background scroll:** Prevent body scroll when open
+Accessible modals have several essential requirements: proper role and ARIA attributes including `role="dialog"`, `aria-modal="true"`, and `aria-labelledby`; a focus trap that keeps focus within the modal while it is open; an Escape key binding that closes the modal; focus restoration that returns focus to the trigger element on close; and prevention of background scroll when the modal is open.
 
 ---
 
@@ -455,37 +448,21 @@ function Modal({ isOpen, onClose, title, children }: ModalProps) {
 
 ### Why React Excels at Modals
 
-1. **Portals:** Render outside parent DOM while keeping React context
-2. **Hooks:** Clean lifecycle management for focus and events
-3. **State lifting:** Parent controls open/close state
-4. **Composition:** Flexible content through children
-5. **Reusability:** One Modal serves the entire app
+React offers several advantages for modal implementation: portals allow you to render outside the parent DOM while retaining React context; hooks provide clean lifecycle management for focus and events; state lifting means the parent controls the open and close state; composition enables flexible content through `children`; and a single reusable Modal component can serve the entire application.
 
 ## Try It Yourself
 
 ### Exercise 1: Basic Modal
 
-Implement a modal with:
-
-- Open/close functionality
-- Escape key to close
-- Backdrop click to close
+Implement a modal with open and close functionality, an Escape key binding to close, and backdrop click to close.
 
 ### Exercise 2: Confirmation Dialog
 
-Build a confirmation modal:
-
-- Warning message
-- Cancel and Confirm buttons
-- Returns user's choice
+Build a confirmation modal that displays a warning message, provides Cancel and Confirm buttons, and returns the user's choice.
 
 ### Exercise 3: Form Modal
 
-Create a modal with a form:
-
-- Form fields inside
-- Proper focus management
-- Submit handling
+Create a modal that contains a form, implements proper focus management, and handles form submission.
 
 ## Test Your Understanding
 
@@ -528,16 +505,7 @@ Create a modal with a form:
 
 ## Key Takeaways
 
-- Use semantic HTML and ARIA attributes
-- Implement focus trapping
-- Handle Escape key
-- Return focus on close
-- Prevent background scrolling
-- Animate open/close for polish
-- React portals render modals outside DOM hierarchy
-- Custom hooks encapsulate focus and keyboard logic
-- Parent components control modal state via props
-- Compound components allow flexible modal layouts
+To recap, always use semantic HTML and ARIA attributes for accessibility, and implement focus trapping to keep the user within the modal. Handle the Escape key to close the modal and return focus to the trigger element on close. Prevent background scrolling while the modal is open, and animate the open and close transitions for polish. React portals render modals outside the DOM hierarchy, and custom hooks encapsulate focus and keyboard logic cleanly. Parent components control modal state via props, while compound components allow flexible modal layouts.
 
 ## Next Steps
 

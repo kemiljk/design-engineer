@@ -4,21 +4,11 @@
 
 ## What You'll Learn
 
-- Card structure and composition
-- Flexible layouts within cards
-- Handling various content types
-- Making cards interactive
+In this lesson, we will explore card structure and composition, flexible layouts within cards, how to handle various content types, and techniques for making cards interactive.
 
 ## Card Anatomy
 
-A card typically contains:
-
-- Media (image, video)
-- Header (title, subtitle)
-- Content (description, metadata)
-- Actions (buttons, links)
-
-All are optional; cards adapt to their content.
+A card typically contains a media area (image or video), a header (title and subtitle), content (description and metadata), and actions (buttons or links). All of these sections are optional; cards adapt to whatever content they contain.
 
 <!-- visual-example: card-showcase-demo -->
 
@@ -392,30 +382,15 @@ No need for complex conditional props—consumers compose what they need.
 
 ### Exercise 1: Product Card
 
-Build a product card with:
-
-- Product image
-- Name and price
-- Rating stars
-- Add to cart button
+Build a product card featuring a product image, name and price, rating stars, and an "Add to cart" button.
 
 ### Exercise 2: Article Card
 
-Build an article card with:
-
-- Cover image
-- Title and excerpt
-- Author avatar and name
-- Read time and date
+Build an article card that includes a cover image, title and excerpt, author avatar and name, plus read time and publication date.
 
 ### Exercise 3: Profile Card
 
-Build a user profile card with:
-
-- Avatar image
-- Name and bio
-- Stats (followers, posts)
-- Follow button
+Build a user profile card containing an avatar image, name and bio, stats such as followers and posts, and a follow button.
 
 ## Test Your Understanding
 
@@ -458,15 +433,7 @@ Build a user profile card with:
 
 ## Key Takeaways
 
-- Cards group related content in flexible containers
-- Use semantic HTML (`<article>` for standalone content)
-- Build with flexible internal structure
-- Provide variants for different contexts
-- Handle content overflow gracefully
-- Make interactive cards accessible
-- React enables true composition with sub-components
-- Use separate components (CardMedia, CardBody, etc.) for flexibility
-- Let consumers compose only what they need
+To recap, cards group related content in flexible containers. Use semantic HTML such as `<article>` for standalone content, build with a flexible internal structure, and provide variants for different contexts. Handle content overflow gracefully and ensure interactive cards remain accessible. React enables true composition with sub-components like `CardMedia` and `CardBody`, and by letting consumers compose only what they need, you create a highly flexible system.
 
 ## Next Steps
 

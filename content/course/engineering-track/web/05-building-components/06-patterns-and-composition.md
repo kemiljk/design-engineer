@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- Component composition patterns in React
-- The children prop and slots
-- Compound components with shared state
-- Render props and custom hooks
-- Best practices for component APIs
+In this lesson, we will explore component composition patterns in React, specifically focusing on the `children` prop and slots. You will learn about compound components and how they share state, understand render props and custom hooks, and discover best practices for designing robust component APIs.
 
 ## Composition Over Inheritance
 
@@ -32,10 +28,7 @@ React favours composition over inheritance. Instead of creating specialised comp
 />
 ```
 
-Composition wins because:
-- You see exactly what's rendered
-- Each piece is reusable elsewhere
-- Adding features doesn't bloat the API
+Composition is preferred over specialized components because it allows you to see exactly what is being rendered, makes each piece reusable in other contexts, and ensures that adding new features does not unnecessarily bloat the component's API.
 
 ## The Children Prop
 
@@ -209,38 +202,7 @@ function DataFetcher({ url, children }) {
 </DataFetcher>
 ```
 
-## Custom Hooks (Modern Pattern)
-
-Hooks have largely replaced render props for sharing logic:
-
-```jsx
-// Custom hook
-function useUser(userId) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-    fetch(`/api/users/${userId}`)
-      .then(res => res.json())
-      .then(data => {
-        setUser(data);
-        setLoading(false);
-      });
-  }, [userId]);
-  
-  return { user, loading };
-}
-
-// Usage - cleaner than render props
-function UserProfile({ userId }) {
-  const { user, loading } = useUser(userId);
-  
-  if (loading) return <Spinner />;
-  return <Profile user={user} />;
-}
-```
-
-Hooks are preferred when you're sharing logic, not UI structure.
+Custom hooks have largely replaced render props for sharing logic. They are generally preferred when the goal is to share logic rather than entire UI structures, as they result in cleaner and more readable code.
 
 ## API Design Principles
 
@@ -421,14 +383,7 @@ function Form() {
 
 ## Key Takeaways
 
-- Prefer composition over specialised components
-- Use `children` and named props for flexible content slots
-- Compound components share state through React Context
-- Custom hooks have largely replaced render props for logic sharing
-- Design minimal APIs with sensible defaults
-- Spread props (`...props`) forward native attributes
-- Use TypeScript for self-documenting component APIs
-- Forward refs when wrapping native elements
+In summary, you should prefer composition over specialised components and use `children` along with named props to create flexible content slots. Compound components are excellent for sharing state through React Context, while custom hooks have largely replaced render props for logic sharing. Aim to design minimal APIs with sensible defaults and use the spread operator (`...props`) to forward native attributes. Finally, leverage TypeScript for self-documenting APIs and use `forwardRef` when wrapping native elements.
 
 ## Next Steps
 

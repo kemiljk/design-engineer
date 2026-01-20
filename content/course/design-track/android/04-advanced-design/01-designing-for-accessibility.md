@@ -41,15 +41,12 @@ Material Design guidelines are clear: interactive elements must be at least **48
 ### Spacing
 Leave at least **8dp** between interactive targets. Tightly packed buttons are a nightmare for users with tremors or motor impairments, leading to frustrating accidental clicks.
 
-## Color and Contrast
+## Colour and Contrast
 
 ### Contrast Ratios
-Text must be legible. WCAG 2.1 standards require:
-- **4.5:1** for normal text.
-- **3:1** for large text (18sp+).
-- **3:1** for essential UI components (icons, input borders).
+To meet WCAG 2.1 standards, you must ensure a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text (18sp+). Essential UI components, such as icons and input borders, should also maintain a minimum 3:1 ratio.
 
-### Color Independence
+### Colour Independence
 Never use colour as the only signal. A green circle and a red circle look identical to someone with red-green colour blindness. Always use a secondary cue like an icon (check vs. X) or a text label.
 
 ## Testing Accessibility
@@ -67,17 +64,14 @@ Always specify font sizes in **sp** (scale-independent pixels), not dp or px. Th
 
 ### Layout Considerations
 Your layout must be flexible. What happens if the user sets the font size to 200%?
-- **Don't** use fixed height containers that clip text.
-- **Do** allow containers to expand vertically.
-- **Do** wrap text to multiple lines rather than truncating it.
+You must allow containers to expand vertically and wrap text to multiple lines rather than truncating it, avoiding fixed-height containers that clip content when scaled.
 
 ## Try It Yourself
 
 ### Exercise 1: TalkBack Walkthrough
 Enable TalkBack. Navigate to the "Settings" app on your phone to learn the gestures. Now open your own design (if prototyped) or a similar app. Close your eyes. Can you navigate? Note every time the spoken description is confusing or missing.
 
-### Exercise 2: Contrast Audit
-Take a screenshot of your app. Run it through a color blindness simulator (like Sim Daltonism on Mac). Can you still distinguish error states from success states?
+Take a screenshot of your app and run it through a colour blindness simulator like Sim Daltonism on Mac. Determine if you can still clearly distinguish error states from success states without relying on hue alone.
 
 ## Test Your Understanding
 
@@ -120,12 +114,8 @@ Take a screenshot of your app. Run it through a color blindness simulator (like 
 
 ## Key Takeaways
 
-- **Accessibility** is about structure and clarity, not just compliance.
-- **TalkBack** requires descriptive labels and logical grouping.
-- **48dp** is the magic number for touch targets.
-- **Contrast** must be checked against WCAG standards.
-- **Text scaling** (sp) is mandatory; fixed sizes break accessibility.
+Accessibility is fundamentally about structure and clarity rather than mere compliance, requiring descriptive labels and logical grouping for TalkBack users. With a mandatory 48dp minimum for touch targets and strict adherence to WCAG contrast standards, your design must also support mandatory text scaling through sp units to avoid breaking the experience when users adjust their system settings.
 
 ## Next Steps
 
-Continue to [Dark Mode and Dynamic Color](./02-dark-mode-and-dynamic-color.md) →
+Continue to [Dark Mode and Dynamic Colour](./02-dark-mode-and-dynamic-colour.md) →

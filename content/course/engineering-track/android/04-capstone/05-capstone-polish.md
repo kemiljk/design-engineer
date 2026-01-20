@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Adding TalkBack accessibility semantics
-- Supporting dynamic text sizes
-- Implementing Material motion
-- Handling errors gracefully
+During this module, you will learn to add comprehensive TalkBack accessibility semantics to your application and ensure support for dynamic text sizes. We'll examine the implementation of Material motion to create smooth transitions and explore robust techniques for handling errors gracefully within your UI.
 
 ## Step 1: Accessibility Semantics
 
@@ -131,19 +128,11 @@ sealed interface UiState {
 
 Before moving on, verify:
 
-- [ ] All interactive elements have accessibility semantics
-- [ ] Dynamic text scales all text appropriately
-- [ ] TalkBack navigation is logical
-- [ ] Material motion animations are smooth
-- [ ] Errors are handled and displayed gracefully
-- [ ] App tested with TalkBack enabled
+Before proceeding to the finalisation phase, you should verify that every interactive element in your app has proper accessibility semantics and that dynamic text scales correctly across the entire interface. Confirm that TalkBack navigation follows a logical flow and that all Material motion animations are smooth and purposeful. Finally, ensure that error states are handled gracefully and that you have personally tested the application with TalkBack enabled.
 
 ## Try It Yourself
 
-1. Enable TalkBack and navigate through your app
-2. Test with largest font size in accessibility settings
-3. Review all animations for smoothness
-4. Test error scenarios
+Practise your refinement skills by enabling TalkBack and navigating through your entire application to identify any friction points. Test your design with the largest font size available in the system accessibility settings to ensure layout integrity, and review all animations for consistency before verifying that your error scenarios are handled correctly.
 
 ## Next Steps
 

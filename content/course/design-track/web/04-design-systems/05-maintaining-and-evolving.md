@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Why design systems require ongoing investment
-- Versioning strategies and semantic versioning
-- How to deprecate and remove components
-- Governance models and contribution processes
+By progressing through this lesson, you will understand why design systems require ongoing investment and master versioning strategies using semantic versioning principles. You will also learn how to effectively deprecate and remove obsolete components and explore various governance models and contribution processes to keep your system thriving.
 
 ## The Living System
 
@@ -58,7 +55,7 @@ After a designated period (usually the next Major release), remove the old compo
 
 Governance is simply the answer to the question: "Who decides what goes in?"
 
-**Centralized Model:**
+**Centralised Model:**
 A dedicated Design System team makes all the decisions. This ensures high consistency and quality but can become a bottleneck. The core team becomes the "police."
 
 **Federated Model:**
@@ -82,31 +79,19 @@ Are people outside the core team fixing bugs or adding patterns? A healthy syste
 
 ## The Maintenance Mindset
 
-Design system work is service work. It requires a specific temperament:
-- **Patience:** You are building for the long term.
-- **Empathy:** You must understand the constraints of the teams using your tools.
-- **Communication:** You are selling the system every day.
-- **Pragmatism:** Sometimes shipping a slightly imperfect component is better than blocking a product release.
+Design system work is fundamentally service work that requires a specific mindset, starting with the patience to build for the long term and the empathy to understand the constraints of those using your tools. Effective communication is essential for advocating for the system daily, while a pragmatic approach ensures that shipping slightly imperfect components is prioritised over blocking critical product releases.
 
 ## Try It Yourself
 
 ### Exercise 1: Changelog Review
-Go to the GitHub repository of a major design system (like Material UI or Carbon). Read their Release Notes. Look for:
-- How they describe breaking changes.
-- How they credit contributors.
-- How they structure the notes (New, Fixed, Changed).
+Perform a changelog review by examining the release notes of a major design system like Material UI or Carbon, paying particular attention to how they describe breaking changes, credit their contributors, and structure their updates into new, fixed, and changed categories.
 
 ### Exercise 2: Deprecation Plan
 Imagine you need to remove a "Modal" component because it has accessibility flaws, and replace it with a new "Dialog" component.
-1. Write the deprecation warning message.
-2. Outline the steps a developer would need to take to switch.
-3. Decide on a timeline for removal.
+Develop a deprecation plan for replacing a component by writing a clear warning message for developers, outlining the necessary migration steps, and establishing a firm timeline for its eventual removal.
 
 ### Exercise 3: Contribution Guidelines
-Draft a simple "How to Contribute" document. Answer:
-- How do I report a bug?
-- How do I request a new feature?
-- What is the process for submitting a code change?
+Draft a set of contribution guidelines that clearly explain how users can report bugs, request new features, and navigate the process for submitting their own code changes to the system.
 
 ## Test Your Understanding
 
@@ -149,19 +134,11 @@ Draft a simple "How to Contribute" document. Answer:
 
 ## Key Takeaways
 
-- A design system is a product, not a project; it needs continuous maintenance.
-- Use Semantic Versioning to communicate the impact of changes.
-- Deprecation is a managed process, not a sudden deletion.
-- Governance models define who makes decisions; hybrid models often work best.
-- Measure success by adoption and team satisfaction, not just component counts.
+A design system is an ongoing product rather than a finite project, requiring continuous maintenance and the use of semantic versioning to communicate the scope of changes. By managing deprecation as a gradual process and adopting a governance model that balances speed and consistency, you can measure success through team adoption and satisfaction rather than just component volume.
 
 ## Next Steps
 
 You've completed the Design Systems module! You now understand:
-- What design systems are and why they matter
-- How to create and use design tokens
-- Component architecture principles
-- Writing effective documentation
-- Maintenance, versioning, and governance
+You have now successfully completed the Design Systems module, gaining a deep understanding of why these systems matter and how to create and manage design tokens. You have also mastered component architecture principles, developed the skills to write effective documentation, and explored the complexities of long-term maintenance, versioning, and governance.
 
 Continue to [UX Principles: User-Centered Thinking](../05-ux-principles/01-user-centred-thinking.md) →

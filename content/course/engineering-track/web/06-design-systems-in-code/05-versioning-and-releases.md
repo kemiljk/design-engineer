@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Semantic versioning (SemVer)
-- Writing changelogs
-- Managing breaking changes
-- Release process
+In this lesson, we will cover the principles of semantic versioning (SemVer) and how to write clear, effective changelogs. You will learn strategies for managing breaking changes and understand the steps involved in a professional release process.
 
 ## Semantic Versioning
 
@@ -15,24 +12,15 @@
 
 ### PATCH (2.1.3 → 2.1.4)
 
-Bug fixes, no API changes:
-- Fixed button hover colour
-- Fixed modal focus trap
-- Fixed accessibility issue
+A patch release is for bug fixes that do not change the API. Examples include fixing a button hover colour, correcting a modal focus trap, or addressing an accessibility issue.
 
 ### MINOR (2.1.3 → 2.2.0)
 
-New features, backwards compatible:
-- Added new button variant
-- Added size prop to Avatar
-- New Card component
+A minor release introduces new features in a backwards-compatible manner. This might involve adding a new button variant, introducing a size prop to the Avatar component, or creating an entirely new Card component.
 
 ### MAJOR (2.1.3 → 3.0.0)
 
-Breaking changes:
-- Removed deprecated props
-- Changed component API
-- Renamed components
+A major release signals breaking changes that require consumers to update their code. These changes often involve removing deprecated props, altering a component's API, or renaming components entirely.
 
 ## Changelog Format
 
@@ -103,11 +91,7 @@ After:
 
 ## Release Process
 
-1. **Update version** in package.json
-2. **Update changelog** with all changes
-3. **Create git tag** for the version
-4. **Publish** to npm/registry
-5. **Announce** to consumers
+The typical release process involves a series of structured steps. First, you must update the version in your `package.json` file and then update the changelog with all relevant changes. Once documented, create a git tag for the version and publish the package to npm or your chosen registry. Finally, communicate the release clearly to your consumers to ensure they are aware of the new changes.
 
 ## Test Your Understanding
 
@@ -150,23 +134,13 @@ After:
 
 ## Key Takeaways
 
-- Use semantic versioning consistently
-- Document all changes in changelog
-- Deprecate before removing
-- Provide migration guides for breaking changes
-- Communicate releases clearly
+To recap, you should use semantic versioning consistently to communicate the nature of your changes. Ensure all updates are documented in a clear changelog and always deprecate features before removing them entirely. Providing migration guides for breaking changes is essential for helping your users upgrade, and clear communication remains a vital part of every release.
 
 ## Congratulations!
 
 You've completed the Engineering Track - Web!
 
-You now understand:
-- HTML structure and semantics
-- CSS styling and layout
-- JavaScript fundamentals
-- React and component-based UI development
-- Building components
-- Design systems in code
+You now have a solid understanding of HTML structure and semantics, CSS styling and layout, and JavaScript fundamentals. You also understand React and component-based UI development, how to build complex components, and how to implement design systems in code.
 
 **Next Steps:**
 

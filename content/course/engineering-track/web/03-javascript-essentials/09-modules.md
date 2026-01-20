@@ -8,30 +8,11 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Why modules matter
-- Named exports and imports
-- Default exports
-- Re-exports and barrel files
-- Module best practices
+In this lesson, we will examine why ES6 modules are vital for modern codebases and how they provide a more structured alternative to traditional script loading. You will learn the syntax for named and default exports, explore how to use re-exports and barrel files to simplify your imports, and discover the best practices for maintaining a clean and scalable module-based architecture.
 
 ## Why Modules?
 
-Before modules, JavaScript relied on script tags and global variables:
-
-```html
-<!-- Old way: order matters, globals everywhere -->
-<script src="utils.js"></script>
-<script src="api.js"></script>
-<script src="app.js"></script>
-```
-
-Problems with this approach:
-- Order-dependent loading
-- Global namespace pollution
-- No explicit dependencies
-- Hard to track what uses what
-
-Modules solve these issues with explicit imports and exports.
+Before the introduction of ES6 modules, JavaScript relied on multiple script tags and global variables, which often led to difficult-to-track dependencies and a polluted global namespace. This older approach was heavily dependent on the exact order in which scripts were loaded and made it challenging to manage large codebases where many different files used the same variable names. Modules solve these issues by providing explicit imports and exports, ensuring that each file has its own scope and that dependencies are clearly defined.
 
 ## Named Exports
 
@@ -117,36 +98,9 @@ export function handleError(err) { /* ... */ }
 import API, { BASE_URL, handleError } from './api.js';
 ```
 
-## Re-exports
+## Re-exports and Barrel Files
 
-Export from another module without importing first:
-
-```javascript
-// components/Button.js
-export function Button() { /* ... */ }
-
-// components/Card.js
-export function Card() { /* ... */ }
-
-// components/Modal.js
-export default function Modal() { /* ... */ }
-```
-
-Create a barrel file to re-export everything:
-
-```javascript
-// components/index.js
-export { Button } from './Button.js';
-export { Card } from './Card.js';
-export { default as Modal } from './Modal.js';
-```
-
-Now import from one place:
-
-```javascript
-// app.js
-import { Button, Card, Modal } from './components';
-```
+Re-exports allow you to export values from another module without having to import them first, which is particularly useful for creating "barrel files" like `index.js`. By using a barrel file to consolidate multiple exports from a single directory, you can provide a cleaner API for other parts of your application, allowing them to import several components or utilities from a single, unified source rather than from individual files.
 
 ### Re-export Everything
 
@@ -175,74 +129,13 @@ button.addEventListener('click', async () => {
 
 ## Module Best Practices
 
-### One Component Per File
-
-```javascript
-// Good: Button.js exports Button
-export function Button() { /* ... */ }
-
-// Avoid: Multiple unrelated exports
-export function Button() { /* ... */ }
-export function formatDate() { /* ... */ }  // Unrelated!
-```
-
-### Prefer Named Exports
-
-Named exports are more refactorable and easier to track:
-
-```javascript
-// Easier to find usages, rename, and tree-shake
-export function formatDate() { /* ... */ }
-export function formatCurrency() { /* ... */ }
-```
-
-### Use Barrel Files Sparingly
-
-Barrel files (`index.js`) are convenient but can hurt tree-shaking:
-
-```javascript
-// This might import more than you need
-import { Button } from './components';
-
-// More explicit, better for bundle size
-import { Button } from './components/Button';
-```
-
-### Avoid Circular Dependencies
-
-```javascript
-// a.js
-import { b } from './b.js';
-export const a = 'a' + b;
-
-// b.js
-import { a } from './a.js';  // Circular!
-export const b = 'b' + a;
-```
-
-Circular dependencies cause confusing bugs. Restructure to avoid them.
+To keep your codebase manageable, it is generally recommended to export only one main component per file and to prefer named exports over default exports, as they are often easier to refactor and track within your IDE. While barrel files are convenient, they should be used sparingly to avoid potential issues with tree-shaking and bundle size. Additionally, you should always strive to avoid circular dependencies, which happen when two modules attempt to import each other, as these can lead to confusing bugs and unexpected results in your application.
 
 ## Try It Yourself
 
 ### Exercise: Module Refactoring
 
-Split this code into modules:
-
-```javascript
-const API_URL = 'https://api.example.com';
-
-function fetchUsers() { /* ... */ }
-function fetchPosts() { /* ... */ }
-
-function formatDate(date) { /* ... */ }
-function formatCurrency(amount) { /* ... */ }
-```
-
-Create:
-1. `constants.js` - Export `API_URL`
-2. `api.js` - Export `fetchUsers`, `fetchPosts` (import `API_URL`)
-3. `formatters.js` - Export `formatDate`, `formatCurrency`
-4. `index.js` - Re-export everything as a barrel file
+Take a single JavaScript file that contains multiple constants, API functions, and formatting utilities, and refactor it into a collection of smaller, more focused modules. You should create separate files for your constants, your API logic, and your formatting functions, and then use a barrel file to reunite them all into a single, clean interface.
 
 ## Test Your Understanding
 
@@ -285,12 +178,7 @@ Create:
 
 ## Key Takeaways
 
-- Modules use `export` and `import` for explicit dependencies
-- Named exports: `export function foo()` → `import { foo }`
-- Default exports: `export default` → `import anyName`
-- Re-exports create convenient barrel files
-- Dynamic imports enable code splitting
-- Prefer named exports for better refactorability
+To recap, ES6 modules provide a robust way to manage code dependencies by using explicit `import` and `export` statements. While both named and default exports are available, named exports are generally preferred for better refactorability and clearer intent. You can use re-exports to create convenient barrel files and dynamic imports to enable code splitting, both of which are essential techniques for building high-performance, maintainable web applications.
 
 ## Next Steps
 

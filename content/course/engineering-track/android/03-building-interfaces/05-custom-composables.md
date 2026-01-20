@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Extracting reusable components
-- Slot-based APIs
-- Preview-driven development
-- Best practices
+During this module, you will learn to extract reusable components from complex UI patterns and master the use of slot-based APIs for ultimate flexibility. We'll examine the benefits of preview-driven development and establish a set of best practices to ensure your custom composables are robust and maintainable.
 
 ## Extracting Components
 
@@ -186,18 +183,11 @@ fun Counter(
 
 ### Exercise 1: Stat Card
 
-Create a reusable stat card:
-- Title, value, trend indicator
-- Configurable trend direction (up/down)
-- Multiple preview states
+Practise your component architecture by creating a reusable stat card. Your design should feature a title, a numerical value, and a trend indicator, with configurable directions for both upward and downward movements. Ensure you include multiple preview states to verify the design under different conditions.
 
 ### Exercise 2: Empty State
 
-Build an empty state component:
-- Icon slot
-- Title and description
-- Action slot
-- Preview variations
+Further enhance your design system by building a flexible empty state component. Your implementation should provide dedicated slots for an icon, a title and description, and an action button, alongside various preview variations to demonstrate its versatility.
 
 ## Test Your Understanding
 
@@ -240,11 +230,7 @@ Build an empty state component:
 
 ## Key Takeaways
 
-- Extract repeated patterns into composables
-- Use slots for flexible content
-- Accept Modifier as first optional parameter
-- Use previews to develop and document
-- Keep components stateless when possible
+To build a scalable and professional interface in Compose, you must extract repeated patterns into dedicated composables and use slots to allow for flexible content injection. Always accept a `Modifier` as your first optional parameter to ensure external calls can control layout, and utilise previews throughout the development process to document and verify your components' visual states. Finally, prioritise keeping your components stateless whenever possible to maximise their reusability across your entire application.
 
 ## Congratulations!
 

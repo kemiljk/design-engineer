@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Understanding Density-Independent Pixels (dp)
-- The Material responsive grid system
-- Window Size Classes (Compact, Medium, Expanded)
-- Adapting to Foldables and Large Screens
+During this lesson, you will gain a deep understanding of density-independent pixels and the Material responsive grid system. We'll explore exactly how to use Window Size Classes—Compact, Medium, and Expanded—to adapt your interfaces for everything from standard phones to foldables and large-screen devices.
 
 ## The Core Concept: Density Independence
 
@@ -18,25 +15,21 @@ You define sizes in `dp`. Android scales them at runtime based on the screen's d
 
 ## The Responsive Grid
 
-Material Design uses a flexible column grid to organize layouts. The number of columns changes based on the screen width, allowing content to scale naturally.
+Material Design uses a flexible column grid to organise layouts. The number of columns changes based on the screen width, allowing content to scale naturally.
 
-**Mobile (Compact)** layouts use a 4-column grid with typical margins of 16dp. This simple structure works well for single-column content on phones.
-
-**Tablet (Medium)** layouts expand to an 8-column grid with larger margins (24dp). This provides more granularity for placing elements side-by-side.
-
-**Desktop/Large (Expanded)** layouts use a 12-column grid. On these wide screens, content is often constrained to a maximum width to prevent lines of text from becoming unreadably long.
+The number of columns adapts to screen width: **Compact** mobile layouts use 4 columns, **Medium** tablet designs expand to 8, and **Expanded** desktop layouts use 12 columns to maintain readable line lengths.
 
 **Gutters**—the space between columns—are typically 16dp but can be adjusted to create more or less separation between elements.
 
 ## Window Size Classes
 
-Instead of designing for specific devices like "Samsung Galaxy S22" vs "Pixel 7 Pro," Android categorizes screens into three buckets called **Window Size Classes**.
+Instead of designing for specific devices like "Samsung Galaxy S22" vs "Pixel 7 Pro," Android categorises screens into three buckets called **Window Size Classes**.
 
 ### Compact Width (< 600dp)
 This class covers most phones in portrait mode. Layouts here are primarily single-column and stack content vertically. Navigation is typically handled by a Bottom Navigation Bar, and flows often use full-screen dialogs to maintain focus.
 
 ### Medium Width (600dp - 840dp)
-This class includes foldables (unfolded), small tablets, and large phones in landscape orientation. At this width, you can start to show two panes of content, such as a list alongside a detail view. The Navigation Rail (a vertical bar on the left) becomes the preferred navigation pattern, saving vertical space. The strategy here is to utilize the extra width rather than just stretching the phone layout.
+This class includes foldables (unfolded), small tablets, and large phones in landscape orientation. At this width, you can start to show two panes of content, such as a list alongside a detail view. The Navigation Rail (a vertical bar on the left) becomes the preferred navigation pattern, saving vertical space. The strategy here is to utilise the extra width rather than just stretching the phone layout.
 
 ### Expanded Width (> 840dp)
 This class encompasses large tablets and Desktop mode. Multi-pane layouts are standard here, often showing a list, a detail view, and a supporting pane simultaneously. A permanent Navigation Drawer is appropriate for navigation. The goal is to avoid a "wall of text" and create layouts that resemble desktop applications.
@@ -45,11 +38,7 @@ This class encompasses large tablets and Desktop mode. Multi-pane layouts are st
 
 When you have extra space, don't just fill it with whitespace. Use it to reduce friction and improve the user's workflow.
 
-### List-Detail View
-On a phone, tapping an email opens a new screen. On a tablet, the inbox list stays on the left (consuming 1/3 of the screen), and the email content opens on the right (2/3). This allows fast browsing without constant back-and-forth navigation.
-
-### Supporting Pane
-Use the extra width to show context. If a user is editing a document, the document takes the center stage, while a formatting palette or comments thread sits permanently on the right side.
+Large screens enable powerful patterns like the **List-Detail View**, which allows browsing and reading without leaving the screen, and the **Supporting Pane**, which provides persistent context for main tasks.
 
 ## The Foldable Frontier
 
@@ -64,18 +53,12 @@ Foldables also introduce **Postures**. In **Tabletop Mode**, the device sits lik
 ### Exercise 1: The Resizing Test
 
 Take a simple design (e.g., a music player). Sketch it in three states:
-1.  **Phone Portrait (Compact):** Album art with controls below.
-2.  **Tablet Portrait (Medium):** List of songs on the left, "Now Playing" on the right.
-3.  **Desktop Landscape (Expanded):** Sidebar navigation and a 3-column grid of albums.
+Take a simple music player design and sketch how it should appear across three distinct states. The compact phone portrait view should feature album art with controls below, while the medium tablet portrait layout moves to a split view with a song list on the left and "Now Playing" on the right. Finally, the expanded desktop landscape view should use sidebar navigation with a three-column grid for the album collection.
 
 ### Exercise 2: Grid Math
 
 Calculate the column width for a card on a **360dp** wide phone screen (standard Android width):
-- Total width: 360dp
-- Margins: 16dp x 2 = 32dp
-- Gutters (3 gaps between 4 columns): 16dp x 3 = 48dp
-- Available space for columns: 360 - 32 - 48 = 280dp
-- One column width: 280 / 4 = **70dp**
+To calculate the column width for a card on a standard 360dp wide phone screen, start by subtracting 32dp for margins (16dp on each side). Next, account for the 48dp taken up by gutters (three 16dp gaps between four columns). This leaves 280dp of available space for the columns themselves, which, when divided by four, results in a final column width of 70dp.
 
 ## Test Your Understanding
 
@@ -118,10 +101,7 @@ Calculate the column width for a card on a **360dp** wide phone screen (standard
 
 ## Key Takeaways
 
-- Design in **dp**, not pixels.
-- Don't design for specific devices; design for **Window Size Classes**.
-- **Navigation adapts:** Bottom Bar → Nav Rail → Nav Drawer as screens get wider.
-- **Foldables** are not just big phones; they have postures (Tabletop, Book) that require unique layouts.
+When designing for Android, you must prioritise density-independent pixels over standard pixels and create layouts that target Window Size Classes rather than specific devices. This means ensuring your navigation transitions from a Bottom Bar to a Navigation Rail or Drawer as width increases, while treating foldables as unique hardware with specific Tabletop and Book postures that require their own architectural considerations.
 
 ## Next Steps
 

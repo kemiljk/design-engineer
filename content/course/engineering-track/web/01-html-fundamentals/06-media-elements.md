@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- The img element and responsive images
-- Video and audio elements
-- Accessibility for media
-- Performance considerations
+In this lesson, we will explore the `<img>` element and the techniques used for implementing responsive images. We'll also cover the use of video and audio elements, how to ensure your media remains accessible to all users, and essential performance considerations for a fast, modern web experience.
 
 ## Images
 
@@ -19,32 +16,13 @@ The `<img>` element embeds images:
 
 ### Required Attributes
 
-**src:** The image URL
-**alt:** Alternative text (required for accessibility)
+To embed an image correctly, you must use two primary attributes. The `src` attribute specifies the image URL or path, while the `alt` attribute provides alternative text that is essential for accessibility and search engine visibility.
 
 ### Alt Text
 
-Alt text describes images for users who can't see them:
+Alt text describes images for users who cannot see them, such as those using screen readers or people with slow connections. When dealing with informative images, your alt text should provide a clear description of the content, such as a bar chart showing specific sales data. For purely decorative images that do not add information to the page, you should use an empty `alt=""` attribute, which tells screen readers to skip the image entirely.
 
-**Informative images:**
-```html
-<img src="chart.png" alt="Bar chart showing sales increased 50% in Q4">
-```
-
-**Decorative images (no alt needed):**
-```html
-<img src="decorative-border.png" alt="">
-```
-
-Empty `alt=""` tells screen readers to skip the image.
-
-**Complex images:**
-```html
-<img src="diagram.png" alt="System architecture diagram" aria-describedby="diagram-desc">
-<div id="diagram-desc">
-  Detailed description of the diagram...
-</div>
-```
+When an image is particularly complex, such as a detailed system architecture diagram, you can use `aria-describedby` to link the image to a more thorough description elsewhere in the document.
 
 ### Image Sizing
 
@@ -82,8 +60,7 @@ Different images for different screen sizes:
   alt="A beautiful landscape">
 ```
 
-- `srcset` lists available images with their widths
-- `sizes` tells the browser which size to choose based on viewport
+The `srcset` attribute provides a list of available images along with their respective widths, while the `sizes` attribute informs the browser which size to select based on the current viewport.
 
 **picture (different images/formats):**
 ```html
@@ -182,13 +159,7 @@ The `<video>` element embeds video:
 </video>
 ```
 
-- `controls` — Show playback controls
-- `poster` — Image shown before play
-- `preload` — `none`, `metadata`, or `auto`
-- `autoplay` — Start automatically (use carefully)
-- `muted` — Start muted (required for autoplay in most browsers)
-- `loop` — Loop playback
-- `playsinline` — Prevent fullscreen on mobile
+Several attributes allow you to fine-tune video playback. The `controls` attribute shows the standard playback interface, while `poster` specifies an image to display before the video starts. You can use `preload` to suggest how much data the browser should download initially, and `autoplay` to start playback automatically—though this should be used sparingly and usually requires the `muted` attribute to function in modern browsers. Other useful attributes include `loop` for continuous playback and `playsinline` to prevent the video from taking over the full screen on mobile devices.
 
 ### Multiple Sources
 
@@ -289,20 +260,13 @@ For embedding external content (YouTube, maps, etc.):
 
 ## Performance Considerations
 
-### Image Optimization
+### Image Optimisation
 
-1. **Choose the right format:** WebP/AVIF for photos, SVG for icons
-2. **Size appropriately:** Don't serve 4000px images for 400px containers
-3. **Compress:** Use tools like ImageOptim, Squoosh
-4. **Lazy load:** Below-fold images
-5. **Responsive images:** Serve appropriate sizes
+To ensure your images do not slow down your site, always choose the right format, such as WebP or AVIF for photographs and SVG for icons. You should also size your images appropriately, avoiding the common mistake of serving a high-resolution image for a much smaller container. Use tools like ImageOptim or Squoosh for compression, implement lazy loading for images that appear below the fold, and always serve appropriate sizes via responsive image techniques.
 
-### Video Optimization
+### Video Optimisation
 
-1. **Compress:** Reduce file size without visible quality loss
-2. **Don't autoplay:** Let users choose to play
-3. **Provide poster:** Show preview image
-4. **Consider streaming:** Use services for long videos
+When embedding video, compress your files to reduce their size without sacrificing visible quality. Avoid using autoplay whenever possible to give users control over their experience, and always provide a poster image to show during the loading phase. For longer videos or high-traffic sites, consider using a dedicated streaming service rather than hosting the files yourself.
 
 ## Accessibility Summary
 
@@ -318,28 +282,15 @@ For embedding external content (YouTube, maps, etc.):
 
 ### Exercise 1: Responsive Image Gallery
 
-Create an image gallery with:
-- 4-6 images
-- Responsive images using `srcset`
-- WebP with JPEG fallback using `<picture>`
-- Lazy loading for all images
-- Proper alt text
+Create a responsive image gallery containing four to six images. You should implement responsive images using the `srcset` attribute and use the `<picture>` element to serve WebP files with a JPEG fallback. Ensure that all images include proper alt text and use lazy loading to improve performance.
 
 ### Exercise 2: Video Player
 
-Add a video with:
-- Multiple format sources
-- Poster image
-- Captions track (create a simple VTT file)
-- Accessible controls
+Add a video to your project that includes multiple format sources for maximum compatibility. Include a poster image, a captions track created as a simple VTT file, and ensure that accessible controls are available for the user.
 
 ### Exercise 3: Performance Audit
 
-Take a page with images and:
-- Check image sizes vs. display sizes
-- Identify optimisation opportunities
-- Implement lazy loading where appropriate
-- Test with throttled network in dev tools
+Select an existing page featuring multiple images and conduct a performance audit. Compare the actual image file dimensions against their display sizes to identify optimisation opportunities. Implement lazy loading where appropriate and test the final result using throttled network settings in your browser's developer tools.
 
 ## Test Your Understanding
 
@@ -382,24 +333,8 @@ Take a page with images and:
 
 ## Key Takeaways
 
-- Always include `alt` text for images (empty for decorative)
-- Use responsive images (`srcset`, `sizes`, `<picture>`) for performance
-- Choose the right format: WebP/AVIF for photos, SVG for icons
-- Include `width` and `height` to prevent layout shift
-- Use `loading="lazy"` for below-fold images
-- Video and audio need `controls` attribute for accessibility
-- Provide captions for video, transcripts for audio
-- iframes need `title` attribute for accessibility
+To recap, always ensure your images include an `alt` attribute, using an empty value for purely decorative elements. Use responsive image techniques like `srcset`, `sizes`, and the `<picture>` element to improve performance, and select the most efficient format for your needs. Always specify `width` and `height` to prevent layout shifts and apply `loading="lazy"` to images appearing below the fold. For audio and video, include the `controls` attribute for accessibility and provide captions or transcripts to ensure all users can access your content. Finally, remember that all iframes require a `title` attribute for proper accessibility.
 
-## Next Steps
-
-Congratulations! You've completed the HTML Fundamentals module.
-
-You now understand:
-- HTML document structure
-- Semantic elements
-- Text and links
-- Forms and inputs
-- Media elements
+Congratulations on completing the HTML Fundamentals module. You have now developed a solid understanding of HTML document structure, the use of semantic elements for better organization, and how to effectively implement text, links, forms, and media.
 
 Continue to [CSS Mastery: How CSS Works](../02-css-mastery/01-how-css-works.md) →

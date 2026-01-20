@@ -4,20 +4,14 @@
 
 ## What You'll Learn
 
-- The anatomy of typefaces and why it matters
-- How to choose and pair fonts effectively
-- Creating typographic hierarchy
-- Testing and validating your type system
-- Web typography considerations and best practices
+By progressing through this lesson, you will learn the anatomy of typefaces and why it matters for digital interfaces, developing the skills to choose and pair fonts effectively. You will also create robust typographic hierarchies, learn to test and validate your type systems, and explore essential web typography considerations and best practices.
 
 ## Start with the Content
 
 Before you choose a font or pick a size, you must understand what you are typesetting. Typography is the clothes words wear. You wouldn't wear a tuxedo to the gym, and you shouldn't use a delicate display serif for a utilitarian dashboard.
 
 Ask yourself:
-- Is this a content-heavy reading app (like Medium)?
-- Is this a data-dense tool (like Excel)?
-- Is this a marketing site that needs to scream for attention?
+Determine if the product is a content-heavy reading application like Medium, a data-dense tool like Excel, or a marketing site designed to capture immediate attention.
 
 The function dictates the form.
 
@@ -35,9 +29,7 @@ Good typography is invisible. It allows the reader to absorb the message without
 
 You don't need to be a calligrapher, but you need to know the basic parts of a letter to compare typefaces.
 
-**Serif vs. Sans-Serif:**
-- **Serifs** have little "feet" on the ends of strokes. They feel traditional, authoritative, and formal (e.g., Times New Roman, Georgia).
-- **Sans-Serifs** lack these feet. They feel modern, clean, and humanist or geometric (e.g., Helvetica, Inter).
+Serif typefaces feature small "feet" at the ends of strokes, creating a traditional and authoritative feel seen in fonts like Georgia, whereas sans-serifs lack these feet to provide a more modern, clean, and geometric appearance characteristic of fonts like Inter.
 
 **X-Height:**
 This is the height of the lowercase "x" relative to the capital letters. In UI design, a **large x-height** is crucial. It makes text more legible at small sizes because the letters feel more "open."
@@ -53,15 +45,11 @@ With thousands of fonts available, where do you start?
 If you are designing a dashboard, look for a "Workhorse" sans-serif (like Inter or Roboto) that is legible at tiny sizes and has tabular figures (numbers that line up vertically). If you are designing a luxury fashion brand, look for a high-contrast serif that oozes elegance.
 
 **Practical Constraints:**
-- **Readability:** Can you distinguish an uppercase 'I', a lowercase 'l', and the number '1'?
-- **Weights:** Does it have enough weights to build a hierarchy?
-- **Language:** Does it support the languages your users speak?
+Prioritise readability by ensuring users can distinguish between similar characters like uppercase 'I' and lowercase 'l', verify that the typeface offers enough weights to build a clear hierarchy, and confirm that it supports all the languages your users speak.
 
 ### Safe Bets
 If you're stuck, these are reliable choices:
-- **Sans:** Inter, Roboto, San Francisco (system), Segoe UI (system).
-- **Serif:** Merriweather, Lora, Georgia.
-- **Mono:** JetBrains Mono, Fira Code.
+Reliable choices for sans-serifs include Inter, Roboto, and system fonts like San Francisco, while Merriweather and Georgia serve as excellent serifs, and JetBrains Mono or Fira Code are standard for monospaced needs.
 
 ## Font Pairing
 
@@ -86,7 +74,7 @@ Don't pick random sizes. Use a mathematical scale. A "Major Third" scale (1.25 r
 - **Scale down:** 12.8px (Caption)
 
 **Beyond Size:**
-Size is not the only tool. Use **Weight** (Bold headings), **Color** (Grey captions), and **Case** (Uppercase overlines) to distinguish elements without blowing up the font size.
+Size is not the only tool; you can also use **weight** for bold headings, **colour** for grey captions, and **case**—such as uppercase overlines—to distinguish elements without needing to increase the font size excessively.
 
 ## Readability Rules
 
@@ -115,7 +103,7 @@ On modern web, we use fluid units (`clamp()`) to scale text smoothly between vie
 Squint at your design until it blurs. Can you still tell which text is the headline and which is the body? If not, your hierarchy is too weak. Increase the contrast in size or weight.
 
 **The Black and White Test:**
-Designing in grayscale forces you to rely on weight and size for hierarchy, rather than color. If it works in B&W, it will work in color.
+Designing in grayscale forces you to rely on weight and size for hierarchy, rather than colour; if the system works in black and white, it will remain effective when colour is introduced.
 
 ## Try It Yourself
 
@@ -169,13 +157,8 @@ Find a website that is hard to read. Inspect the code. Is the line height too ti
 
 ## Key Takeaways
 
-- Typography serves the content; understand what you are communicating first.
-- Use **x-height** to judge legibility at small sizes.
-- Limit your font choices. One good family is often enough.
-- Establish a **Type Scale** for mathematical consistency.
-- Maintain readable **line lengths** (50-75 chars) and **line heights** (1.5 for body).
-- Hierarchy should be visible even if you squint.
+Effective typography serves the content by establishing mathematical consistency through a defined type scale and ensuring legibility through appropriate x-heights and line lengths. By limiting font choices and maintaining visible hierarchy even when blurred, you can create a readable and structured interface that guides the user naturally through the information.
 
 ## Next Steps
 
-Continue to [Color Theory and Application](./02-colour-theory-and-application.md) →
+Continue to [Colour Theory and Application](./02-colour-theory-and-application.md) →

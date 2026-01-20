@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Universal concepts that apply across design tools
-- The design tool mental model
-- Essential operations and workflows
-- How to learn any design tool quickly
+By progressing through this lesson, you will grasp universal concepts that apply across all major design tools and develop a robust mental model for digital design. You will also learn essential operations and workflows for selection and manipulation, enabling you to learn and adapt to any new design platform quickly.
 
 ## Tool-Agnostic Thinking
 
@@ -33,8 +30,7 @@ Every element you create—a rectangle, a text block, an image—is a **Layer**.
 Layers at the top of the list cover layers at the bottom. If your text is hidden, it's probably just sitting "under" the background rectangle in the layer stack.
 
 **Grouping vs. Framing:**
-- **Groups** are like a bag. They hold things together so you can move them, but the bag itself has no properties.
-- **Frames** are like a picture frame. They hold things, but they also have their own background color, border, and clipping rules (hiding things that stick out). **Modern design relies heavily on Frames.**
+While **groups** simply hold items together for easier movement, modern design relies more heavily on **frames**, which act as functional containers with their own background colours, borders, and clipping rules.
 
 ## Selection and Manipulation
 
@@ -53,22 +49,19 @@ Unlike raster tools (Photoshop) which paint pixels, UI tools are Vector-based. T
 
 **Boolean Operations:**
 Complex shapes are often just simple shapes combined.
-- **Union:** Merge two circles to make a cloud.
-- **Subtract:** Cut a circle out of a square to make a hole.
-- **Intersect:** Keep only the overlapping part (like a Venn diagram).
+Complex shapes are often created by combining simple ones through boolean operations, such as **union** to merge circles into a cloud, **subtract** to cut holes out of squares, or **intersect** to keep only the overlapping segments.
 
 ## Typography
 
 Text in design tools comes in two flavors:
-1.  **Point Text:** You click and type. The text box grows as you type. Use this for short labels or headlines.
-2.  **Area Text:** You drag a box, then type. The text wraps when it hits the edge. Use this for body paragraphs.
+Text in design tools is typically handled as either **point text** for short labels and headlines that grow as you type, or **area text** for body paragraphs that automatically wrap within a defined box.
 
 **Styles:**
 Never manually set "Arial, 16px, Bold" on every single heading. Create a **Text Style** called "Heading 3". Apply that style. If you later decide all H3s should be 18px, you update the Style, and every instance updates instantly.
 
-## Color and Styles
+## Colour and Styles
 
-Just like type, color should be systematic. Do not use the color picker to find a nice blue every time. Find a nice blue *once*, save it as a **Color Style** (e.g., "Primary/500"), and reuse it.
+Just like type, colour should be systematic. Do not use the colour picker to find a nice blue every time. Find a nice blue *once*, save it as a **Colour Style** (e.g., "Primary/500"), and reuse it.
 
 **Fills and Strokes:**
 Objects have Fills (insides) and Strokes (outlines). You can stack them. A button might have a solid Fill, a gradient Fill on top (for a shine effect), and an inner Stroke (for a bevel effect).
@@ -77,9 +70,7 @@ Objects have Fills (insides) and Strokes (outlines). You can stack them. A butto
 
 Design tools are not the final destination. The assets must leave the tool to become code.
 
-- **SVG:** Use this for icons and simple illustrations. It's code-friendly and scalable.
-- **PNG/JPG:** Use this for photographs.
-- **PDF:** Use this for sharing documents, not for UI assets.
+Assets must be exported for production in appropriate formats, such as scalable and code-friendly **SVGs** for icons, **PNGs** or **JPGs** for high-quality photographs, and **PDFs** primarily for document sharing.
 
 **Export density:**
 Screens have different pixel densities (Retina displays). When exporting bitmaps (PNG/JPG), you often need to export at 1x, 2x, and 3x sizes so the developer can serve the sharpest version for each device.
@@ -136,11 +127,7 @@ Type three different headlines. Manually style them. Now, create a Text Style fr
 
 ## Key Takeaways
 
-- Treat the canvas as an infinite desk, not a finite page.
-- Use **Frames** to group and clip content, mimicking HTML containers.
-- **Vector** shapes allow for infinite scaling without quality loss.
-- Always use **Styles** for color and typography to ensure consistency.
-- Learn to **Deep Select** (Cmd/Ctrl+Click) to save hours of clicking.
+By treating the canvas as an infinite desk and using frames to mimic HTML containers, you can build systematic designs that scale effortlessly thanks to vector-based shapes. Always implement styles for colour and typography to ensure consistency, and master essential shortcuts like deep selection to drastically improve your design workflow.
 
 ## Next Steps
 

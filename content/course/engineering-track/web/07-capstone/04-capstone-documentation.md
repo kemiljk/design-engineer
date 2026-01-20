@@ -10,10 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Structuring documentation for developer experience
-- Creating live component examples
-- Writing clear API documentation
-- Adding interactive features like theme switching
+In this lesson, we will focus on structuring documentation to provide an excellent developer experience and creating live component examples. You will learn how to write clear API documentation and discover techniques for adding interactive features such as theme switching.
 
 ## Step 1: Documentation Site Structure
 
@@ -125,13 +122,12 @@ All available classes/variants:
 All possible states (default, hover, focus, active, disabled).
 
 ### Accessibility Notes
-Key a11y considerations:
-- Keyboard behaviour
-- Screen reader announcements
-- ARIA attributes required
 
-### Do's and Don'ts
-Usage guidelines to prevent misuse.
+Key accessibility considerations include documenting keyboard behaviour, describing how screen readers announce component states, and listing any ARIA attributes required for full compliance.
+
+### Best Practices and Things to Avoid
+
+Include usage guidelines that highlight best practices for using the component effectively and call out common pitfalls or things to avoid to prevent misuse across the library.
 
 ## Step 3: Interactive Features
 
@@ -177,19 +173,7 @@ document.querySelectorAll('.example-code').forEach(block => {
 
 ## Checkpoint
 
-Before moving on, verify:
-
-- [ ] Documentation site structure is logical
-- [ ] Getting started guide is clear
-- [ ] All components have documentation pages
-- [ ] Each component has:
-  - [ ] Purpose description
-  - [ ] Live examples with code
-  - [ ] API reference table
-  - [ ] States documented
-  - [ ] Accessibility notes
-- [ ] Code examples are copyable
-- [ ] Theme switcher works
+Before moving on, verify that your documentation site structure is logical and that your "Getting Started" guide is clear and easy to follow. Ensure all components have dedicated documentation pages and that each page includes a description of the component's purpose, live examples with code, an API reference table, and documented states and accessibility notes. Finally, confirm that your code examples are easily copyable and that the theme switcher functions correctly.
 
 ## Try It Yourself
 

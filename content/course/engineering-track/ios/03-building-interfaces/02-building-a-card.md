@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Card structure and composition
-- Material and shadows
-- Flexible content slots
-- Interactive cards
+During this module, you will learn to design robust card structures and examine how to implement materials and shadows for added depth. We'll explore the creation of flexible content slots and walk through the techniques needed to build interactive cards that respond to user gestures.
 
 ## Basic Card
 
@@ -142,18 +139,12 @@ struct ActionCard: View {
 ### Exercise 1: Profile Card
 
 Build a card with:
-- Avatar image
-- Name and title
-- Social stats row
-- Follow button
+Construct a comprehensive profile card that includes a circular avatar image alongside the user's name and professional title. You should also incorporate a row for social statistics and a clearly labelled follow button to encourage user interaction.
 
 ### Exercise 2: Product Card
 
 Create a product card:
-- Product image
-- Name and price
-- Rating stars
-- Add to cart button
+Design a functional product card featuring a large product image, name, and current price. Complement the layout with a rating star display and a prominent "Add to Cart" button for a complete shopping experience.
 
 ## Test Your Understanding
 
@@ -196,10 +187,7 @@ Create a product card:
 
 ## Key Takeaways
 
-- Use @ViewBuilder for flexible content
-- Combine padding, background, clip, shadow
-- Add interaction states for tappable cards
-- Compose from smaller components
+To create versatile and reusable card components, you should leverage the `@ViewBuilder` attribute for flexible content injection. Master the combination of padding, background styling, clipping, and subtle shadows to define your card's visual identity. Finally, remember to add interaction states for any tappable cards and compose your final layouts from smaller, more manageable components to ensure maintainability.
 
 ## Next Steps
 

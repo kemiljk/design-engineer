@@ -6,10 +6,7 @@
 
 ### Motion as Communication
 Every animation should serve a purpose.
-- **Orientation:** "Where am I?" (Navigation transitions)
-- **Continuity:** "Where did that come from?" (Zooming a photo)
-- **Feedback:** "Did my action work?" (Button press)
-- **Delight:** "Make it feel good." (A satisfying checkmark)
+Effective motion provides **orientation** by showing where the user is in the hierarchy, ensures **continuity** by demonstrating where elements originated, delivers immediate **feedback** for user actions, and adds a touch of **delight** through satisfying micro-interactions.
 
 ### Physics-Based Motion
 iOS animations feel real because they follow physics. Objects have mass and momentum. Movements ease in and out naturally; nothing starts or stops abruptly. Spring dynamics create an organic feel that linear animations cannot match.
@@ -21,31 +18,21 @@ Traditional easing curves (Linear, Ease-In-Out) are defined by time. They feel a
 If you interrupt a spring animation (e.g., catch a sliding card mid-flight), it reacts instantly and preserves momentum. A time-based animation would often snap or jitter.
 
 ### Spring Parameters
-- **Stiffness:** The tension of the spring. High stiffness = snappy response. Low stiffness = loose, lazy movement.
-- **Damping:** The friction. Low damping = bouncy (overshoots). High damping = smooth settle (no bounce).
-- **Mass:** The weight. Heavier objects accelerate and decelerate slower.
+Springs are defined by **stiffness** for responsiveness, **damping** to control friction and bounce, and **mass** which governs the speed of acceleration and deceleration.
 
 ### Common iOS Spring Presets
-- **Snappy:** High stiffness, medium damping. Great for toggles and buttons.
-- **Bouncy:** Low damping. Fun for notifications or badges.
-- **Smooth:** Balanced. The default for navigation transitions.
+Common presets include **Snappy** for interactive controls like toggles, **Bouncy** for playful alerts, and **Smooth** for standard navigation transitions.
 
 ## When to Animate
 
 ### Always Animate
-- **State Changes:** A toggle turning on/off.
-- **Transitions:** Moving between screens.
-- **Feedback:** Loading, success, error.
-- **Reveals:** New content appearing (like expanding a card).
+Animations should always accompany **state changes**, screen **transitions**, user **feedback** events, and content **reveals** to maintain a sense of continuity.
 
 ### Consider Carefully
-- **Decorative Loops:** Can be distracting.
-- **Complex Sequences:** Can feel slow if they block user interaction.
+Consider decorative loops and complex sequences carefully, as they can be distracting or feel slow if they block user interaction.
 
 ### Never Animate
-- **Critical Info:** Don't make the user wait to see a warning.
-- **Repeated Actions:** If a user does something 100 times a day, make it instant.
-- **Reduce Motion:** If the user has enabled this setting, respect it.
+Never animate critical warnings, repeated actions that users perform frequently, or when the user has enabled the **Reduce Motion** setting.
 
 ## Types of iOS Animations
 
@@ -57,9 +44,7 @@ Modals slide up from the bottom as a sheet. This reinforces that the new view is
 
 ### Micro-interactions
 Small, purposeful animations that delight.
-- **Button Press:** A subtle scale down (0.95) mimics depressing a physical button.
-- **Switch:** The knob slides with a spring physics feel.
-- **Like:** A heart icon might pop and settle.
+Delightful micro-interactions include a subtle **scale down** for button presses, a spring-based **slide** for switches, and a slight **pop** for action icons like a heart.
 
 ### Loading States
 Keep users informed. Use **Skeleton Screens** (shimmering placeholders) to imply structure while data loads. Avoid generic spinners if possible; they feel slower.
@@ -67,24 +52,17 @@ Keep users informed. Use **Skeleton Screens** (shimmering placeholders) to imply
 ## Designing Animations in Figma
 
 ### Prototyping Motion
-1.  Use **Smart Animate** for simple transitions between frames.
-2.  Use **Component Properties** to animate variants (e.g., button hover/press).
-3.  Set the animation curve to **Spring** (or "Gentle" / "Quick") to match iOS physics.
+When prototyping, use **Smart Animate** for transitions, **Component Properties** for variants, and set the curve to **Spring** to mirror iOS physics.
 
 ### Documenting for Developers
 Don't just send a video. Provide specs:
-- **Trigger:** "On Tap."
-- **Duration:** "0.35s."
-- **Spring Damping:** "0.8" (or "Snappy").
-- **Properties:** "Scale from 1.0 to 0.95."
+Document the **trigger**, **duration**, **spring damping**, and target **properties** for developers.
 
 ## Designing for Reduce Motion
 
 ### Respecting User Preference
 Some users suffer from vestibular disorders where motion causes nausea. iOS has a "Reduce Motion" setting.
-- **Replace:** Large swipes and zooms with simple **Crossfades**.
-- **Remove:** Parallax effects and bouncing.
-- **Keep:** Essential feedback (like a loading spinner or a colour change on press).
+Respect user preferences by replacing large zooms with **crossfades**, removing unnecessary **parallax**, and keeping only **essential feedback** like loading indicators.
 
 ## Motion Audit Checklist
 
@@ -99,17 +77,11 @@ For each animation, ask:
 
 ### Exercise 1: Animation Inventory
 Open 3 Apple apps (Notes, Maps, Music).
-1.  Trigger an animation.
-2.  Guess the trigger (Tap? Scroll?).
-3.  Guess the purpose (Feedback? Orientation?).
-4.  Does it bounce?
+Open Apple apps like Notes or Maps to trigger an animation, then identifying its trigger, purpose, and whether it uses physical bounce.
 
 ### Exercise 2: Spring Parameters
 In Figma (or Swift):
-1.  Create a square.
-2.  Animate it moving right.
-3.  Try high damping (no bounce).
-4.  Try low damping (lots of bounce).
+In your design tool, create a square and experiment with high and low damping to see which feels more playful or precise.
 5.  Which feels more "playful"? Which feels more "precise"?
 
 ## Test Your Understanding
@@ -153,11 +125,7 @@ In Figma (or Swift):
 
 ## Key Takeaways
 
-- iOS motion uses **Spring Physics** for a natural feel.
-- Every animation must have a **communication purpose**.
-- Standard spring damping is around **0.7-0.9**.
-- Always provide alternatives for **Reduce Motion**.
-- **Document** animation specs clearly for developers.
+iOS motion leverage **Spring Physics** to create a natural and physically real feel, provided every animation serves a clear **communication purpose**. By maintaining standard damping ratios and always providing alternatives for **Reduce Motion**, you can deliver a polished experience that remains accessible, provided you **document** your specifications clearly for the engineering team.
 
 ## Next Steps
 

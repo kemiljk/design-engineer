@@ -33,9 +33,7 @@ Design your layers in Figma or Sketch. Export them as separate assets. Then, use
 
 Controls have become more tactile. They feel less like flat stickers and more like physical objects made of glass.
 
-**Shape:** Buttons and toggles are rounder, mimicking the friendly curvature of the hardware.
-**Interaction:** When you touch a control, it doesn't just darken. It responds with fluid physics—it might depress slightly, or light might warp around your finger. This feedback confirms interaction in a satisfying, organic way.
-**Colour:** Be careful with colour. In Liquid Glass, controls often pick up the colour of the content behind them (through blurring). If you force a hard-coded background colour on a button, it breaks this immersion. Instead, use system colours (`.tint`, `.secondary`) which are designed to blend correctly with the glass materials.
+Modern controls feature a rounder **shape** that mimics hardware curvature and provides tactile **interaction** through physics-based feedback and fluid lighting. When applying **colour**, it is best to use system tints that blend harmoniously with the underlying glass materials rather than using hard-coded opaque backgrounds.
 
 ## Navigation
 
@@ -66,9 +64,7 @@ One subtle but powerful effect is the "Background Extension." If you have a beau
 
 Liquid Glass relies heavily on transparency and blur. For some users, this reduces legibility.
 
-**Automatic Adaptation:** When a user enables "Reduce Transparency" or "Increase Contrast" in their system settings, Liquid Glass automatically degrades gracefully. The blurs become solid fills; the text contrast sharpens.
-
-**Your Responsibility:** You must test these states. Don't assume your text will always be on a blurry background. Check your app with accessibility settings enabled to ensure you haven't accidentally created white-text-on-white-background scenarios when the glass effects are disabled.
+While Liquid Glass features **automatic adaptation** to user settings like reduced transparency, it remains your **responsibility** to test these states to ensure custom controls and text remain perfectly legible without material effects.
 
 ## Try It Yourself
 
@@ -83,11 +79,7 @@ Look at your navigation hierarchy. Are you using a custom opaque navigation bar?
 
 ## Key Takeaways
 
-- Liquid Glass creates a z-axis hierarchy where **Navigation** floats above **Content**.
-- Standard system components update automatically; custom ones need manual refinement.
-- **Icons** are now layered, dynamic 3D objects.
-- **Controls** are rounder, tactile, and react to content colour.
-- **Accessibility testing** is critical to ensure legibility when transparency is disabled.
+Adopting Liquid Glass creates a clear z-axis hierarchy where **navigation** floats above the **content** layer. While system components update automatically, custom elements require refinement through rounder, tactile **controls** and layered, dynamic **icons**. Success depends on thorough **accessibility testing** to maintain legibility even when transparency is disabled.
 
 ## Next Steps
 

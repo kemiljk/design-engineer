@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Conditional statements (if, else, switch)
-- Comparison and logical operators
-- Loops (for, while, for...of)
-- Error handling with try/catch
+In this lesson, we will cover the core conditional statements such as `if`, `else`, and `switch` which allow your code to make decisions. You will learn how to use comparison and logical operators to build complex conditions, explore different types of loops for iterating over data, and understand how to handle errors gracefully using `try`/`catch` blocks.
 
 ## Conditional Statements
 
@@ -47,59 +44,11 @@ if (score >= 90) {
 
 ## Comparison Operators
 
-```javascript
-// Equality
-5 == '5';   // true (loose equality - type coercion)
-5 === '5';  // false (strict equality - no coercion)
-5 != '5';   // false
-5 !== '5';  // true
-
-// Always use === and !== (strict)
-
-// Comparison
-5 > 3;   // true
-5 < 3;   // false
-5 >= 5;  // true
-5 <= 4;  // false
-```
+To compare values, JavaScript provides several operators that evaluate to true or false. It is important to distinguish between loose equality (`==`), which allows for type coercion, and strict equality (`===`), which requires both the value and the type to match. For the most predictable and reliable code, you should always use strict equality (`===` and `!==`). You can also use standard comparison operators such as greater than (`>`), less than (`<`), and their associated inclusive variants.
 
 ## Logical Operators
 
-```javascript
-// AND (&&) - both must be true
-true && true;   // true
-true && false;  // false
-
-// OR (||) - at least one must be true
-true || false;  // true
-false || false; // false
-
-// NOT (!) - inverts
-!true;   // false
-!false;  // true
-
-// Combining
-if (age >= 18 && hasID) {
-  console.log('Can enter');
-}
-
-if (isAdmin || isModerator) {
-  console.log('Has access');
-}
-```
-
-### Short-Circuit Evaluation
-
-```javascript
-// && returns first falsy or last value
-const name = user && user.name;
-
-// || returns first truthy or last value
-const displayName = name || 'Anonymous';
-
-// Nullish coalescing (??) - only null/undefined
-const count = input ?? 0;  // Only replaces null/undefined, not 0 or ''
-```
+Logical operators allow you to combine multiple conditions into a single expression. You can use the AND (`&&`) operator when both conditions must be true, or the OR (`||`) operator if at least one condition needs to be true. The NOT (`!`) operator is also available to invert a boolean value. Additionally, JavaScript supports short-circuit evaluation, where `&&` returns the first falsy value and `||` returns the first truthy value. For handling potential `null` or `undefined` values, the nullish coalescing operator (`??`) provides a safe way to specify a default.
 
 ## Ternary Operator
 
@@ -161,86 +110,7 @@ const result = obj?.method?.();
 
 ## Loops
 
-### for Loop
-
-Traditional counting loop:
-
-```javascript
-for (let i = 0; i < 5; i++) {
-  console.log(i);  // 0, 1, 2, 3, 4
-}
-```
-
-### for...of Loop
-
-Iterate over iterable values:
-
-```javascript
-const colours = ['red', 'green', 'blue'];
-
-for (const colour of colours) {
-  console.log(colour);
-}
-
-// With index
-for (const [index, colour] of colours.entries()) {
-  console.log(`${index}: ${colour}`);
-}
-```
-
-### for...in Loop
-
-Iterate over object keys:
-
-```javascript
-const user = { name: 'Alice', age: 30 };
-
-for (const key in user) {
-  console.log(`${key}: ${user[key]}`);
-}
-```
-
-Prefer `Object.keys()` or `Object.entries()` for objects.
-
-### while Loop
-
-```javascript
-let count = 0;
-
-while (count < 5) {
-  console.log(count);
-  count++;
-}
-```
-
-### do...while Loop
-
-Runs at least once:
-
-```javascript
-let count = 0;
-
-do {
-  console.log(count);
-  count++;
-} while (count < 5);
-```
-
-### Loop Control
-
-```javascript
-// break - exit loop
-for (let i = 0; i < 10; i++) {
-  if (i === 5) break;
-  console.log(i);  // 0, 1, 2, 3, 4
-}
-
-// continue - skip iteration
-for (let i = 0; i < 5; i++) {
-  if (i === 2) continue;
-  console.log(i);  // 0, 1, 3, 4
-}
-```
+Loops enable you to execute a block of code multiple times, which is essential for iterating over arrays or objects. While the traditional `for` loop is ideal for numeric counting, the `for...of` loop provides a more readable way to iterate over iterable values like arrays. When working with objects, the `for...in` loop allows you to access each key, although using `Object.keys()` or `Object.entries()` is often preferred. You can also use `while` and `do...while` loops to repeat actions based on a specific condition, and leverage `break` or `continue` to control the flow within these structures.
 
 ## Error Handling
 
@@ -288,66 +158,21 @@ try {
 
 ## Truthy and Falsy
 
-Values in conditions are converted to booleans:
-
-### Falsy Values
-
-These evaluate to `false`:
-- `false`
-- `0` and `-0`
-- `''` (empty string)
-- `null`
-- `undefined`
-- `NaN`
-
-### Truthy Values
-
-Everything else is truthy:
-- `true`
-- Any non-zero number
-- Any non-empty string
-- Objects (including empty `{}`)
-- Arrays (including empty `[]`)
-
-```javascript
-if (userInput) {
-  // Runs if userInput is truthy
-}
-
-if (!errors.length) {
-  // Runs if errors array is empty
-}
-```
+In JavaScript, any value used in a conditional statement is automatically converted to a boolean. Falsy values include `false`, `0`, empty strings, `null`, `undefined`, and `NaN`, all of which will evaluate to `false`. Conversely, everything else is considered truthy, including non-zero numbers, non-empty strings, and even empty objects or arrays. Understanding the difference between truthy and falsy values is vital for writing concise and effective condition checks.
 
 ## Try It Yourself
 
 ### Exercise 1: Grade Calculator
 
-Write a function that takes a score (0-100) and returns a grade:
-- 90+: 'A'
-- 80-89: 'B'
-- 70-79: 'C'
-- 60-69: 'D'
-- Below 60: 'F'
+Write a custom function that accepts a numerical score between zero and 100 and returns the corresponding letter grade. Use an `if...else if...else` structure to handle different score ranges from 'A' down to 'F'.
 
 ### Exercise 2: FizzBuzz
 
-Loop from 1 to 100. For each number:
-- Print "Fizz" if divisible by 3
-- Print "Buzz" if divisible by 5
-- Print "FizzBuzz" if divisible by both
-- Otherwise print the number
+Implement the classic FizzBuzz challenge by looping from one to 100. Your programme should print "Fizz" for numbers divisible by three, "Buzz" for numbers divisible by five, and "FizzBuzz" for those divisible by both, printing the number itself in all other cases.
 
 ### Exercise 3: Safe Property Access
 
-Write a function `getNestedValue(obj, path)` that safely accesses nested object properties:
-
-```javascript
-const user = { profile: { name: 'Alice' } };
-getNestedValue(user, 'profile.name');  // 'Alice'
-getNestedValue(user, 'profile.age');   // undefined
-getNestedValue(user, 'settings.theme'); // undefined
-```
+Create a `getNestedValue` function that allows you to safely access properties within deeply nested objects. This function should accept an object and a dot-notated path string, returning the requested value or `undefined` if any part of the path is missing.
 
 ## Test Your Understanding
 
@@ -390,14 +215,7 @@ getNestedValue(user, 'settings.theme'); // undefined
 
 ## Key Takeaways
 
-- Use `if`/`else` for conditional logic
-- Always use strict equality (`===`, `!==`)
-- `&&` and `||` for logical operations; `??` for nullish coalescing
-- Ternary operator for inline conditions
-- `for...of` for arrays, `for...in` for object keys
-- `try...catch` handles errors gracefully
-- Know truthy/falsy values for condition checks
-- Optional chaining (`?.`) safely accesses nested properties
+To recap, you can use `if`, `else`, and `switch` statements to manage your programme's conditional logic, but remember to always use strict equality to avoid unexpected type coercion. Mastering logical operators and their short-circuit behaviours will help you write more efficient code, while various loop types provide the tools needed to process iterative data sets. Finally, always account for potential errors with `try...catch` and utilise optional chaining to safely navigate complex objects.
 
 ## Next Steps
 

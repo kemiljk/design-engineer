@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- How to prepare designs for developer handoff
-- Design specs and what developers need
-- Collaboration workflows that reduce friction
-- Tools and techniques for better handoff
+By progressing through this lesson, you will learn how to prepare designs for effective developer handoff and identify the specific specifications developers require. You will also explore collaboration workflows that reduce friction and master the tools and techniques needed to bridge the gap between design and development.
 
 ## The Handoff Problem
 
@@ -25,7 +22,7 @@ Developers aren't mind readers. To build your design accurately, they need expli
 
 **Typography:** Don't just show the text. Specify the font family, weight, size, line height, and letter spacing. Better yet, map these to your system's type scale.
 
-**Colors:** Provide exact values (hex, RGB, HSL) and, crucially, their usage context. Is this `#EF4444` just red, or is it your system's `Error/500` token?
+**Colours:** Provide exact values (hex, RGB, HSL) and, crucially, their usage context. Is this `#EF4444` just red, or is it your system's `Error/500` token?
 
 **Assets:** Developers need icons (SVG) and images in the correct formats and resolutions.
 
@@ -79,7 +76,7 @@ When you speak in tokens ("Use `primary/500` here"), you eliminate ambiguity. Th
 
 ## Inspect Mode
 
-Modern design tools offer an "Inspect" mode that gives developers a look "under the hood" of your design. They can click an element to see its dimensions, position, colors, typography, and even copy CSS code snippets.
+Modern design tools offer an "Inspect" mode that gives developers a look "under the hood" of your design. They can click an element to see its dimensions, position, colours, typography, and even copy CSS code snippets.
 
 However, Inspect mode isn't magic. The code it generates is often verbose and lacks context. It can tell a developer that a box is 200px wide, but it can't tell them *why* or how it should behave on a smaller screen. Inspect mode supplements good documentation; it doesn't replace it.
 
@@ -142,7 +139,7 @@ Choose a complex component from your design. Create a documentation frame next t
 
 ### Exercise 3: Token Mapping
 
-Create a simple table mapping your core design tokens to hypothetical CSS variables. List your primary colors, spacing scale, and typography styles on one side, and their proposed CSS variable names on the other.
+Create a simple table mapping your core design tokens to hypothetical CSS variables. List your primary colours, spacing scale, and typography styles on one side, and their proposed CSS variable names on the other.
 
 ## Test Your Understanding
 
@@ -185,21 +182,12 @@ Create a simple table mapping your core design tokens to hypothetical CSS variab
 
 ## Key Takeaways
 
-- Handoff is a continuous communication process, not a one-time event.
-- Developers need explicit details: measurements, tokens, states, edge cases, and responsive rules.
-- Prepare your files by organizing layers, applying tokens, and removing clutter.
-- Use design tokens to create a shared vocabulary between design and code.
-- Leverage Inspect mode, but supplement it with documentation and conversation.
-- Map your design components directly to code components to streamline implementation.
+Effective handoff is a continuous communication process that requires explicit details such as measurements, tokens, states, and responsive rules. By organising your files, applying design tokens, and leveraging inspect tools alongside direct conversation, you can map design components directly to code and streamline the entire implementation lifecycle.
 
 ## Next Steps
 
 You've completed the Design Tools module! You now understand:
 
-- Component thinking and atomic design
-- Design tool fundamentals
-- Auto layout and responsive design
-- Prototyping and interactions
-- Collaboration and handoff
+You have now explored component thinking and atomic design, mastered design tool fundamentals, and understood the intricacies of auto layout and responsive design. Additionally, you have learned to build interactive prototypes and established effective workflows for collaboration and handoff.
 
 Continue to [Design Systems: What is a Design System](../04-design-systems/01-what-is-a-design-system.md) →

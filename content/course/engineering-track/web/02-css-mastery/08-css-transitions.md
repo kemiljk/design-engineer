@@ -8,10 +8,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- How transitions work
-- Transition properties and shorthand
-- Timing functions and easing curves
-- What can (and can't) be transitioned
+In this lesson, we will examine the mechanics of how CSS transitions work and explore the various transition properties and shorthand notations available to you. You will also learn how to use timing functions and easing curves to refine your animations, and we'll identify which properties can and cannot be transitioned to help you build more predictable interfaces.
 
 ## What Are Transitions?
 
@@ -79,21 +76,7 @@ Timing functions control how the animation accelerates and decelerates.
 
 ### Built-in Functions
 
-```css
-.element {
-  transition-timing-function: linear;      /* Constant speed */
-  transition-timing-function: ease;        /* Slow-fast-slow (default) */
-  transition-timing-function: ease-in;     /* Slow start */
-  transition-timing-function: ease-out;    /* Slow end */
-  transition-timing-function: ease-in-out; /* Slow start and end */
-}
-```
-
-**When to use each:**
-- `ease-out` — Best for entering elements (feels responsive)
-- `ease-in` — Best for exiting elements
-- `ease-in-out` — Best for elements moving on screen
-- `linear` — Best for continuous animations (spinners)
+CSS provides several built-in timing functions that cater to common animation needs. The `ease-out` function is typically best for entering elements as it feels highly responsive, while `ease-in` is better suited for exiting elements. For elements moving across the screen, `ease-in-out` provides a natural start and end, whereas the `linear` function maintains a constant speed, making it ideal for continuous animations like spinners.
 
 ### Custom Cubic Bezier
 
@@ -131,21 +114,7 @@ For frame-by-frame animation (sprite sheets, typewriter effects):
 
 ## What Can Be Transitioned?
 
-Most properties with numeric or colour values:
-
-**Can transition:**
-- Colours (`colour`, `background-colour`, `border-colour`)
-- Dimensions (`width`, `height`, `padding`, `margin`)
-- Position (`top`, `left`, with `position: relative/absolute`)
-- Transforms (`transform`)
-- Opacity (`opacity`)
-- Box shadow (`box-shadow`)
-- Border radius (`border-radius`)
-
-**Cannot transition:**
-- `display` (use `opacity` + `visibility` instead)
-- `font-family`
-- Most discrete values
+You can transition most CSS properties that have numeric or colour values. This include basic attributes like `width`, `height`, `padding`, and `margin`, as well as more complex properties such as `transform`, `opacity`, `box-shadow`, and `border-radius`. However, it is important to note that certain properties, most notably `display`, cannot be transitioned directly; in these cases, you often need to combine `opacity` and `visibility` to achieve a smooth appearance or disappearance.
 
 ### The Display Problem
 
@@ -249,18 +218,11 @@ Most properties with numeric or colour values:
 
 ### Exercise 1: Button States
 
-Create a button with smooth transitions for:
-- Background colour on hover
-- Box shadow on hover
-- Slight scale reduction on active (pressed)
-- Focus ring animation
+Create a custom button that features smooth transitions for its background colour and box shadow when hovered. You should also implement a slight scale reduction for the active pressed state and add a polished focus ring animation to enhance accessibility.
 
 ### Exercise 2: Navigation Link
 
-Create a navigation link that:
-- Has an underline that grows from the centre on hover
-- Changes colour smoothly
-- Has a subtle background on hover
+Develop a navigation link that includes an underline which grows horizontally from the centre upon hovering. Ensure that the link’s colour changes smoothly and that it features a subtle background highlight to provide clear interactive feedback.
 
 ## Test Your Understanding
 
@@ -303,11 +265,7 @@ Create a navigation link that:
 
 ## Key Takeaways
 
-- Transitions animate property changes between states
-- Use specific properties rather than `all` for predictable results
-- `ease-out` feels most responsive for hover states
-- Not all properties can be transitioned (`display` notably can't)
-- Keep transitions short (100-300ms) for responsive feel
+To recap, CSS transitions are a powerful way to animate property changes between different states, making your interface feel more interactive and polished. For the most predictable and performant results, you should target specific properties rather than using the `all` keyword. Remember that `ease-out` typically provides the most responsive feel for hover effects, and keep your transition durations short—ideally between 100ms and 300ms—to ensure the interface remains snappy.
 
 ## Next Steps
 

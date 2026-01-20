@@ -54,9 +54,7 @@ Text fields come with built-in behaviours you should leverage. A **Secure** text
 Where the web might use a checkbox, iOS uses a **Switch** for binary on/off states. It provides clear visual feedback and a satisfying tactile interaction.
 
 For choosing between options, you have several tools:
-- **Segmented Controls:** Best for 2-5 mutually exclusive options that change the view instantly (like "Map" vs "List").
-- **Pickers:** Used for dates or selecting from long lists. Modern date pickers can be inline calendars or compact fields that expand.
-- **Steppers:** Simple plus/minus controls for small integer adjustments.
+For choosing between multiple options, you can use **Segmented Controls** for small groups of 2-5 mutually exclusive views, **Pickers** for dates or long lists, and **Steppers** for simple incremental adjustments. Modern date pickers are particularly versatile, offering both inline calendar views and compact fields that expand.
 
 ## Progress and Activity
 
@@ -75,10 +73,7 @@ One of the most common questions is: "Should I build a custom component?"
 ### The Case for Standard
 
 Standard components are "free" in many ways. They automatically support:
-- **Dynamic Type:** Text resizes for users with visual impairments.
-- **Dark Mode:** Colours adapt automatically.
-- **Accessibility:** VoiceOver labels and traits are pre-configured.
-- **Evolution:** When Apple updates the visual style of iOS, your standard components update automatically.
+Standard components offer significant advantages out of the box, including automatic support for **Dynamic Type** and **Dark Mode**, pre-configured **Accessibility** traits for VoiceOver, and seamless **Evolution** as the system's visual style changes over time.
 
 ### The Case for Custom
 
@@ -137,10 +132,7 @@ Sketch a "Profile" screen for an app. Decide which list style (Plain or Inset Gr
 
 ## Key Takeaways
 
-- Use **Filled** buttons for primary actions and **Gray/Tinted** for secondary ones.
-- **Inset Grouped** lists are the standard for forms and settings; **Plain** lists for content.
-- Leverage native input behaviours like correct keyboard types and **Switches** instead of checkboxes.
-- Standard components give you accessibility and platform updates for free; custom components require you to build those features yourself.
+Effective iOS interfaces prioritise hierarchy by using **Filled** buttons for primary actions and **Inset Grouped** lists for settings and forms, while reserving **Plain** lists for general content. By leveraging native input behaviours like **Switches** and correct keyboard types, you gain accessibility and future-proof platform updates for free, whereas custom components require manual implementation of these critical features.
 
 ## Next Steps
 

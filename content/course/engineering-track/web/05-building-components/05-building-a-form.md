@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Accessible form structure
-- Input styling and states
-- Client-side validation
-- Error handling and display
+In this lesson, we will cover accessible form structure, input styling and states, client-side validation, and error handling and display techniques.
 
 ## Form Structure
 
@@ -523,16 +520,7 @@ Use controlled components for validation, conditional rendering, and complex for
 
 ## Key Takeaways
 
-- Always associate labels with inputs
-- Use `novalidate` to implement custom validation
-- Show errors near the relevant field
-- Use `role="alert"` for error messages
-- Validate on blur, clear on input
-- Provide clear, helpful error messages
-- React controlled components keep state in React
-- Custom hooks like `useForm` encapsulate validation logic
-- Reusable FormField components reduce repetition
-- TypeScript adds type safety to form data
+To recap, always associate labels with their inputs and use `novalidate` to implement custom validation. Show errors near the relevant field and apply `role="alert"` to error messages. Validate on blur and clear errors on input, providing clear, helpful messages. React controlled components keep state in React, and custom hooks like `useForm` encapsulate validation logic neatly. Reusable `FormField` components reduce repetition, and TypeScript adds type safety to form data.
 
 ## Next Steps
 

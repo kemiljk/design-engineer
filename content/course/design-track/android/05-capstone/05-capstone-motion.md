@@ -10,37 +10,27 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Applying Material motion principles
-- Designing all interaction states
-- Building connected prototypes
-- Adding Material micro-interactions
+During this phase, you will learn to apply Material motion principles and design comprehensive interaction states for all UI elements. We'll examine how to build connected prototypes and add delightful Material-style micro-interactions to bring your interface to life.
 
 ## Step 1: Material Motion Principles
 
 Apply the standard patterns. Don't invent random slides.
-- **Container Transform:** Use this for List → Detail. The card should visually expand to become the new screen.
-- **Shared Axis (X):** Use this for steps in a flow (e.g., Setup Wizard).
-- **Fade Through:** Use this for Bottom Navigation switching. It implies a context reset.
+Apply standard Material patterns by using Container Transform to visually expand cards from a list into a full-detail view and Shared Axis transitions for sequential steps in a flow. When switching between bottom navigation destinations, use Fade Through to subtly imply a reset of the current context.
 
 ## Step 2: Interaction States
 
 Every interactive element needs feedback.
-- **State Layer:** Material uses a semi-transparent overlay to show states.
-- **Pressed:** Add a 10-12% opacity layer over your primary colour.
-- **Drag:** Show elevation (shadow) increasing when an item is dragged.
+Provide instant feedback for every interaction by utilizing Material's semi-transparent state layers, such as adding a 10-12% opacity overlay for pressed states or increasing elevation shadows to signify when an item is being dragged.
 
 ## Step 3: Build Prototype
 
 Connect your screens in Figma.
-- **Smart Animate:** Use this to simulate the Container Transform. Match the layer names of the card (List) and the container (Detail) to make them morph.
-- **Scrolling:** Ensure your lists scroll and your Top App Bar collapses (if designed).
-- **Dialogs:** Use overlays for dialogs and bottom sheets.
+Connect your screens in Figma using Smart Animate to simulate the morphing effect of a Container Transform, ensuring that layer names match between the list card and the detail container. You should also verify that lists scroll correctly, top app bars collapse as intended, and that all dialogs or bottom sheets are implemented as functional overlays.
 
 ## Step 4: Micro-interactions
 
 Add the delight.
-- **Ripple:** You can't code a real ripple in Figma easily, but you can simulate the "Pressed" state instant change.
-- **Icon Toggle:** Animate a "Favourite" icon from outlined to filled with a small scale bounce.
+Inject delight into the experience by simulating the instant visual change of a ripple's pressed state and animating icon toggles—such as a favourite button—with a subtle scale bounce as they transition from outlined to filled.
 
 ## Checkpoint
 

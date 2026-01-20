@@ -7,14 +7,11 @@
 For a designer, Android's variety is both a challenge and an opportunity. You cannot simply design a "mobile" screen and a "desktop" screen. You must design a responsive system.
 
 ### Device Categories
-While there are thousands of devices, they generally fall into three width buckets:
-- **Compact (< 600dp):** Most phones in portrait mode.
-- **Medium (600-840dp):** Small tablets, unfolded foldables, landscape phones.
-- **Expanded (> 840dp):** Large tablets, desktop mode.
+While there are thousands of unique devices, they generally fall into three width buckets: compact phones in portrait mode, medium small tablets and landscape phones, and expanded large tablets or desktop configurations.
 
 ## Window Size Classes
 
-To manage this diversity, Google introduced **Window Size Classes**. Rather than targeting specific devices, you design for these standardized breakpoints.
+To manage this diversity, Google introduced **Window Size Classes**. Rather than targeting specific devices, you design for these standardised breakpoints.
 
 ### Compact Width
 This is the standard phone experience. Space is premium. Layouts use a single column. Navigation lives at the bottom (Bottom Navigation Bar) for thumb reachability. Content is stacked vertically.
@@ -28,15 +25,10 @@ On large tablets, a single column of text looks ridiculous. Expanded layouts dem
 ## Designing Adaptive Layouts
 
 ### The List-Detail Pattern
-This is the most powerful tool for adapting content.
-- **Compact:** The list and detail are separate screens. Tapping an item navigates to a new page.
-- **Medium/Expanded:** The list and detail sit side-by-side. Tapping an item updates the detail pane instantly. This allows users to triage information much faster.
+In the compact phone view, the list and detail exist as separate screens where tapping an item triggers a full-page navigation. On medium to expanded screens, however, these elements sit side-by-side, allowing users to update the detail pane instantly and triage information far more efficiently.
 
 ### Navigation Adaptation
-Your navigation structure should morph:
-- **Compact:** Bottom Navigation Bar.
-- **Medium:** Navigation Rail.
-- **Expanded:** Navigation Drawer (Permanent).
+Your navigation structure should morph from a Bottom Navigation Bar on compact devices to a Navigation Rail for medium widths, eventually becoming a permanent Navigation Drawer for expanded layouts.
 
 ### Content Reflow
 Content shouldn't just stretch; it should reflow. A grid of cards might show one column on a phone, two on a foldable, and four on a tablet. Hero images should be constrained to prevent them from dominating the viewport on large screens.
@@ -56,11 +48,7 @@ Holding a foldable like a book offers a natural reading experience. Treat the sc
 
 ## Designing for Wear OS
 
-Designing for the wrist is an exercise in extreme restraint.
-- **Glanceable First:** If a user has to scroll to understand, the design failed.
-- **Tiles:** Swipeable widgets for instant access to data (weather, fitness).
-- **Notifications:** Must be actionable (quick replies).
-- **Touch Targets:** Massive buttons (minimum 48dp) for clumsy taps while moving.
+Designing for the wrist requires extreme restraint to ensure information is glanceable at a first look before a user has to scroll. Wear OS features swipeable tiles for instant data access and actionable notifications with quick replies, all supported by massive 48dp touch targets for easy interaction while moving.
 
 ## Testing Across Devices
 
@@ -122,11 +110,7 @@ Design a "Recipe View" for a foldable in **Tabletop Mode**.
 
 ## Key Takeaways
 
-- Design for **Window Size Classes**, not fixed devices.
-- **Navigation** evolves from Bottom Bar to Rail to Drawer.
-- **Foldables** offer unique postures (Tabletop, Book).
-- **Wear OS** requires a "glanceable" mindset.
-- **Test** on resizable emulators.
+To master Android's device variety, you must design for Window Size Classes while ensuring navigation evolves naturally from a Bottom Bar to a Rail or Drawer. By leveraging unique foldable postures like Tabletop and Book modes and adopting a glanceable mindset for Wear OS, you can ensure your interface remains functional and beautiful across all form factors, which should always be validated using resizable emulators.
 
 ## Next Steps
 

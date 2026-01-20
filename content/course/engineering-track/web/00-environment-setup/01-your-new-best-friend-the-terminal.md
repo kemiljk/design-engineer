@@ -4,11 +4,7 @@
 
 ## What You'll Learn
 
-- What the terminal actually is (and why it's not scary)
-- Why designers need to learn the terminal
-- The difference between Terminal, Command Line, Shell, and CLI
-- How to open and customise your terminal
-- Your very first commands
+During this module, you will learn exactly what the terminal is and why it's not as intimidating as it first appears. We'll examine why designers specifically need to master the terminal and clarify the differences between common terms like Command Line, Shell, and CLI. You will also discover how to open and customise your terminal environment and walk through the execution of your very first commands.
 
 ## Go Beyond Vibe Coding
 
@@ -97,19 +93,13 @@ The blinking cursor waits for your command.
 
 ## Your First Commands
 
-Let's try something simple. Type this and press **Enter**:
+Let's start your terminal journey with a simple interaction. Type the text below and press **Enter** to see the terminal respond:
 
 ```bash
 echo "Hello, I'm a design engineer now"
 ```
 
-The terminal responds:
-
-```text
-Hello, I'm a design engineer now
-```
-
-Congratulations, you just ran your first command! The `echo` command simply prints whatever text you give it.
+The terminal will mirror your input by displaying "Hello, I'm a design engineer now" immediately below the command line. This simple exercise demonstrates the `echo` command, which is used to output strings of text directly to the interface.
 
 ### See Where You Are
 
@@ -139,21 +129,7 @@ This "lists" the contents of your current folder. You'll see your Documents, Des
 
 ### Move Around
 
-Type:
-
-```bash
-cd Desktop
-```
-
-Now you've "changed directory" to your Desktop. If you type `ls` again, you'll see whatever files are on your desktop.
-
-To go back up one level:
-
-```bash
-cd ..
-```
-
-The `..` means "parent folder".
+To navigate between folders, use the `cd` command followed by the name of the directory, such as `cd Desktop`, to change your current location. If you need to return to the parent directory, simply type `cd ..`, where the double dots represent a move up one level in the folder hierarchy.
 
 ## Why This Matters for Design Engineers
 
@@ -207,10 +183,7 @@ The default terminal looks stark. Make it friendlier:
 3. Choose a profile you like (Pro, Ocean, or Homebrew are popular)
 4. Click "Default" to make it your default
 
-**Consider alternative apps:**
-- **iTerm2** (Mac): More customisable, popular with developers
-- **Warp** (Mac): Modern terminal with AI assistance
-- **Windows Terminal**: Microsoft's modern terminal app
+Consider using alternative applications like iTerm2 for its extensive customisation options, Warp for its modern AI-assisted features, or the official Windows Terminal app from Microsoft. Regardless of your choice, ensure you increase the font size and apply a pleasant colour scheme—such as Dracula or Solarised—to make spending time in the terminal a more comfortable and enjoyable part of your daily workflow.
 
 ### Increase the Font Size
 
@@ -322,11 +295,7 @@ Now open Finder and navigate to your Desktop. You'll see the `design-engineer-pr
 
 ## Key Takeaways
 
-- The terminal is just a text-based way to control your computer
-- It's essential for web development. There's no way around it.
-- Start with simple commands: `pwd`, `ls`, `cd`, `mkdir`
-- Customise your terminal to make it comfortable
-- You don't need to memorise everything. Look things up as needed.
+To build a strong foundation in design engineering, you must embrace the terminal as an essential tool for managing development servers, installing software, and handling version control. While it may seem daunting at first, you only need to master a handful of core commands like `pwd`, `ls`, and `cd` to navigate your file system effectively. By taking the time to customise your terminal's appearance and keeping it as a ready reference rather than a memorisation task, you will significantly accelerate your development workflow and build more complex projects with confidence.
 
 ## Next Steps
 

@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Material 3 ListItem
-- Custom list items
-- Swipe to dismiss
-- Selection states
+During this module, you will learn to utilize the Material 3 ListItem component for creating consistent list layouts and explore techniques for building fully custom list items. We'll examine how to implement swipe-to-dismiss functionality and manage various selection states to enhance the interactivity of your data displays.
 
 ## Material 3 ListItem
 
@@ -162,18 +159,11 @@ fun SwipeableItem(
 
 ### Exercise 1: Contact Item
 
-Build a contact list item with:
-- Avatar with initials fallback
-- Name and phone number
-- Call and message action icons
+Practise your interface design by building a comprehensive contact list item that features a user avatar with an initials-based fallback. Your implementation should display the contact's name and phone number clearly while including actionable icons for both calling and messaging.
 
 ### Exercise 2: Task Item
 
-Create a task item with:
-- Checkbox
-- Title with strikethrough when complete
-- Due date badge
-- Swipe to delete
+Further develop your interactive components by creating a task item that includes a functional checkbox and a title that displays a strikethrough effect when marked as complete. You should also incorporate a due date badge for enhanced visibility and implement swipe-to-delete logic for easy task management.
 
 ## Test Your Understanding
 
@@ -216,10 +206,7 @@ Create a task item with:
 
 ## Key Takeaways
 
-- ListItem provides consistent Material 3 layout
-- Use slots: headlineContent, supportingContent, leadingContent, trailingContent
-- Build custom items with Row for more control
-- SwipeToDismissBox for swipe actions
+To build professional lists in Compose, you must leverage the standard `ListItem` component for Material 3 consistency while utilizing its various content slots for headlines, supporting text, and leading or trailing elements. When you require more control, build custom items from scratch using Row layouts and remember to implement the `SwipeToDismissBox` whenever you need to add intuitive swipe-based actions to your list entries.
 
 ## Next Steps
 

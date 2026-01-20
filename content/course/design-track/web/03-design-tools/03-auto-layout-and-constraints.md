@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- What auto layout is and why it matters
-- How to create flexible components with auto layout
-- Using constraints for responsive positioning
-- Best practices for building production-ready components
+By progressing through this lesson, you will understand the fundamentals of auto layout and how to use it to create flexible, responsive components. You will also learn to apply constraints for precise positioning and explore best practices for building production-ready design systems.
 
 ## The Problem with Static Design
 
@@ -57,14 +54,7 @@ The magic of Auto Layout comes from how items resize. You have three main choice
 
 <!-- visual-example: sizing-behaviors-demo -->
 
-**1. Fixed Width:**
-The element stays exactly the size you set (e.g., 24px icon). It ignores the parent container's size.
-
-**2. Hug Contents:**
-The element shrinks to be as small as possible while still fitting everything inside it. A button "hugs" its text label. If you add more text, the button grows.
-
-**3. Fill Container:**
-The element stretches to take up all available empty space. In a form, the input field often "Fills Container" so it stretches from the label on the left to the edge of the screen on the right.
+Sizing behaviours determine how elements respond to content and containers, with **fixed width** keeping an item at a set size, while **hug contents** allows it to shrink or grow to fit its children. Conversely, **fill container** stretches the element to occupy all available empty space within its parent.
 
 ## Constraints
 
@@ -97,9 +87,7 @@ Imagine a row of three cards.
 
 When your layout breaks (and it will), check these common culprits:
 
-1.  **Wrong Sizing Mode:** Did you set "Fixed" when you meant "Fill"? If text is overflowing a box, the box is probably Fixed.
-2.  **Conflicting Constraints:** You can't pin something to the Left AND align it to the Center.
-3.  **Nesting Errors:** Auto Layout works best when nested. A Card might be a vertical stack, containing a Header (horizontal stack) and a Footer (horizontal stack). If you try to do it all in one layer, you'll struggle.
+When debugging broken layouts, verify that you haven't assigned a fixed size where a fill container behaviour was intended, and check for conflicting constraints that might be pulling an element in opposing directions. Furthermore, ensure that you are nesting layouts logically, as complex components like cards often require multiple nested horizontal and vertical stacks to function correctly.
 
 ## Try It Yourself
 
@@ -162,11 +150,7 @@ Create a navigation bar with a Logo (left) and a "Sign Up" button (right).
 
 ## Key Takeaways
 
-- Auto Layout defines relationships (spacing, padding, alignment) rather than absolute positions.
-- Use **Hug Contents** for elements that adapt to their children (buttons).
-- Use **Fill Container** for elements that adapt to their parent (inputs, hero sections).
-- Use **Constraints** to pin elements to the edges of the screen for responsiveness.
-- Nesting layouts allows for complex, flexible component structures.
+Auto layout allows you to define functional relationships such as spacing and alignment rather than absolute positions, using hug contents for child-dependent elements and fill container for parent-dependent ones. By combining these behaviours with nested layout structures and constraints that pin elements to screen edges, you can build complex systems that remain responsive across all devices.
 
 ## Next Steps
 

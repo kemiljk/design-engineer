@@ -125,10 +125,7 @@ Design a navigation pattern that transforms:
 
 ## Key Takeaways
 
-- **Size Classes** (Compact/Regular) allow one design to fit all screens.
-- **iPad** requires unique layouts (Sidebars, Multi-column) to feel native.
-- **Multitasking** means your iPad app must handle being resized to phone width.
-- Use **Auto Layout** constraints to build flexible components, not fixed artboards.
+Responsive iOS design is built on **Size Classes** (Compact and Regular), which allow a single design to adapt fluidly across all devices. iPad layouts require unique treatments like **Sidebars** and multi-column views to feel truly native, and multitasking capabilities mean your app must handle being resized to iPhone widths at any moment. By using **Auto Layout** constraints rather than fixed artboards, you create flexible components that remain functional and elegant on any screen size.
 
 ## Next Steps
 

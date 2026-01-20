@@ -40,10 +40,7 @@ In portrait orientation, side insets are usually zero. However, in landscape ori
 ### Full-Bleed Design
 
 iOS apps should feel expansive. Avoid trapping your entire interface inside the safe area boundaries, which creates unsightly letterboxing.
-- **Do:** Pin your background view to the `superview` (screen) edges.
-- **Do:** Pin your content (text, buttons) to the **Safe Area Layout Guide**.
-
-This creates the "full bleed" effect where headers and tab bars extend infinitely, but their icons and titles remain safely readable.
+To achieve a "full bleed" effect, you should pin your background views to the screen edges (superview) while constraining interactive content like text and buttons to the **Safe Area Layout Guide**. This ensures that headers and tab bars extend infinitely to the device edges while remaining readable and tappable.
 
 ### Scrolling Content
 
@@ -52,9 +49,7 @@ Scroll views have special behaviour. Their content should scroll *behind* the na
 ### Designing for Variation
 
 You cannot hard-code dimensions. The "height of the status bar" is a variable, not a constant.
-- **iPhone SE:** Rectangular screen, physical home button.
-- **iPhone 15/16:** Rounded screen, Dynamic Island.
-- **iPhone 15/16 Pro Max:** Larger layout, same constraints.
+Modern iOS devices present varying layout challenges, from the rectangular screen of the **iPhone SE** to the rounded display and Dynamic Island of the **iPhone 15, 16, and Pro Max** models.
 
 Your layout must adapt. Auto Layout (and SwiftUI's layout system) is built for this. By constraining views to the Safe Area guides rather than absolute constants, your app adapts to future devices (with potentially larger islands or different corners) without a single code change.
 
@@ -118,11 +113,7 @@ Design a screen with a "Confirm" button at the bottom.
 
 ## Key Takeaways
 
-- The screen is not a rectangle; safe areas define the usable interactive space.
-- **Backgrounds** should ignore safe areas (full bleed). **Content** must respect them.
-- Top and bottom insets vary dramatically between Touch ID and Face ID devices.
-- Never place interactive elements in the bottom 34pt of a Face ID device (the Home Indicator zone).
-- Use layout guides, not hard-coded numbers, to future-proof your design.
+Designing for modern displays means moving beyond the rectangle to respect **safe areas**, ensuring that while backgrounds enjoy a full-bleed effect, interactive content remains visible across various Touch ID and Face ID devices. You must be particularly careful to avoid placing controls in the **Home Indicator zone** and always use layout guides instead of hard-coded values to future-proof your interface.
 
 ## Next Steps
 

@@ -8,29 +8,13 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- Modifying text and HTML content
-- Creating and removing elements
-- Working with classes and styles
-- Practical DOM manipulation patterns
+In this lesson, we will explore the techniques for modifying text and HTML content within your elements. You will learn how to create and remove elements dynamically, work effectively with CSS classes and inline styles, and discover practical DOM manipulation patterns that can be applied to real-world interface challenges.
 
 ## Modifying Content
 
-### Text Content
+### Text and HTML Content
 
-```javascript
-const heading = document.querySelector('h1');
-heading.textContent = 'New Title';
-```
-
-### HTML Content
-
-```javascript
-const container = document.querySelector('.container');
-container.innerHTML = '<p>New paragraph</p>';
-
-// Careful: innerHTML can be a security risk with user input
-// Use textContent for plain text
-```
+You can update an element's text by assigning a new string to its `textContent` property, or modify its structure using `innerHTML`. While `innerHTML` allows you to insert complex HTML, you must be extremely cautious when using it with user-provided content, as it can introduce significant security risks such as cross-site scripting (XSS) vulnerabilities. For plain text updates, `textContent` is always the safer and more performant choice.
 
 **Security warning:** Never use `innerHTML` with user-provided content:
 
@@ -44,66 +28,21 @@ container.textContent = userInput;
 
 ### Attributes
 
-```javascript
-const link = document.querySelector('a');
-
-// Set attribute
-link.setAttribute('href', 'https://example.com');
-link.href = 'https://example.com';  // Direct assignment
-
-// Remove attribute
-link.removeAttribute('target');
-
-// Toggle attribute
-button.toggleAttribute('disabled');
-```
+JavaScript provides straightforward ways to manage HTML attributes. You can use `setAttribute()` to define new attributes or update existing ones, or directly assign values to properties like `href`. Likewise, `removeAttribute()` allows you to delete attributes entirely, while `toggleAttribute()` is highly useful for managing boolean states such as `disabled` on button elements.
 
 ### Data Attributes
 
-```javascript
-// HTML: <div data-user-id="123">
-
-const div = document.querySelector('div');
-
-// Write
-div.dataset.status = 'loading';
-// Adds: data-status="loading"
-
-// Update
-div.dataset.userId = '456';
-
-// Remove
-delete div.dataset.status;
-```
+Custom data attributes can be easily managed through an element's `dataset` property. You can read current values, add new data by assigning to properties on the dataset object—which automatically converts camelCase names to their hyphenated HTML counterparts—or use the `delete` keyword to remove specific data attributes when they are no longer needed.
 
 ## Creating Elements
 
 ### Basic Creation
 
-```javascript
-// Create element
-const newPara = document.createElement('p');
-newPara.textContent = 'New paragraph';
-newPara.classList.add('intro');
-
-// Add to DOM
-document.body.appendChild(newPara);
-```
+To add new content to a page, you must first create an element using `document.createElement()`, configure its properties like text content or classes, and then explicitly add it to the DOM. Common methods for insertion include `appendChild()`, which adds the new element as the last child of a parent, ensuring it appears correctly within your interface structure.
 
 ### Insertion Methods
 
-```javascript
-const container = document.querySelector('.container');
-
-// Insert at specific position
-container.insertBefore(newPara, container.firstChild);
-
-// Modern insertion methods
-container.prepend(newPara);        // First child
-container.append(newPara);         // Last child
-container.before(newPara);         // Before container
-container.after(newPara);          // After container
-```
+Beyond simple appending, modern JavaScript offers several versatile insertion methods. You can use `prepend()` to add an element as the first child, or `before()` and `after()` to position it as a sibling relative to another element. For more precise control, `insertBefore()` allows you to specify exactly which child the new element should precede.
 
 ### Creating Multiple Elements
 
@@ -122,41 +61,11 @@ document.body.appendChild(list);
 
 ### Document Fragment
 
-For better performance with many elements:
-
-```javascript
-const fragment = document.createDocumentFragment();
-
-items.forEach(item => {
-  const li = document.createElement('li');
-  li.textContent = item;
-  fragment.appendChild(li);
-});
-
-list.appendChild(fragment);  // Single DOM update
-```
-
-Using a fragment batches DOM updates, avoiding multiple reflows.
+When you need to insert a large number of elements at once, using a `DocumentFragment` is a significantly more performant approach. By appending your elements to a fragment first and then adding that fragment to the DOM in a single operation, you can avoid multiple layout reflows and ensure that your application remains responsive and fluid.
 
 ## Removing Elements
 
-```javascript
-// Remove element
-element.remove();
-
-// Remove child
-parent.removeChild(child);
-
-// Remove all children
-container.innerHTML = '';
-// Or (preserves event listeners on container)
-while (container.firstChild) {
-  container.removeChild(container.firstChild);
-}
-
-// Replace element
-oldElement.replaceWith(newElement);
-```
+Removing elements from the DOM is equally simple. The `remove()` method allows an element to remove itself directly, while `removeChild()` can be used by a parent to target a specific child. If you need to clear all content from a container, you can either set its `innerHTML` to an empty string or use a loop to remove each child individually, which helpfully preserves any event listeners attached to the container itself.
 
 ## Modifying Classes
 
@@ -291,28 +200,15 @@ container.innerHTML = `<p>${sanitiseHTML(userInput)}</p>`;
 
 ### Exercise 1: Todo List
 
-Create a simple todo list that:
-1. Has an input and add button
-2. Adds new items to a list
-3. Each item has a delete button that removes it
+Build a basic todo list application that features an input field and an add button. Your script should allow users to add new items to the list dynamically, and each individual item should include a delete button that removes it from the DOM when clicked.
 
 ### Exercise 2: Tab Component
 
-Create tabs that:
-1. Have multiple tab buttons
-2. Show corresponding content when clicked
-3. Highlight the active tab
+Create an interactive tab component that includes several tab buttons. When a user clicks a button, the corresponding content section should be revealed, and the active tab should be highlighted to provide clear visual feedback.
 
 ### Exercise 3: Dynamic Table
 
-Create a function that takes an array of objects and renders a table:
-
-```javascript
-renderTable([
-  { name: 'Alice', age: 30 },
-  { name: 'Bob', age: 25 }
-]);
-```
+Develop a function that accepts an array of objects and renders them as a structured HTML table. This function should demonstrate your ability to create elements, set their content, and build a nested structure through DOM manipulation.
 
 ## Test Your Understanding
 
@@ -355,12 +251,7 @@ renderTable([
 
 ## Key Takeaways
 
-- `textContent` for safe text updates, `innerHTML` for HTML (with caution)
-- `createElement` and `append`/`appendChild` to add elements
-- Use `DocumentFragment` for batch insertions
-- `classList` provides clean class manipulation
-- `style` for inline styles, CSS variables for theming
-- Always sanitise user input before using `innerHTML`
+To recap, `textContent` should be your default for safe text updates, while `innerHTML` should only be used when you are certain the HTML content is secure. Use `createElement` alongside insertion methods like `append` or `prepend` to build out your interfaces, and consider using a `DocumentFragment` to batch multiple updates for better performance. Finally, remember that the `classList` API provides a clean and efficient way to manage element states, and always ensure that you sanitise any user-provided input to prevent security vulnerabilities.
 
 ## Next Steps
 

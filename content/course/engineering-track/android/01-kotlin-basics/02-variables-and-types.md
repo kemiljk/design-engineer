@@ -4,10 +4,7 @@
 
 ## What You'll Learn
 
-- Basic types
-- Nullable types
-- Safe calls and Elvis operator
-- Type conversion
+During this module, you will learn about Kotlin's basic numerical and boolean types before diving into the essential concept of nullable types. Let's examine how to use safe calls and the Elvis operator effectively, while also covering type conversion and smart casting to ensure your code is both robust and concise.
 
 ## Basic Types
 
@@ -113,16 +110,11 @@ val num = str.toIntOrNull()  // Safe conversion, returns null if fails
 
 ### Exercise 1: Null Safety
 
-Write a function that:
-- Takes a nullable string
-- Returns its length or 0 if null
-- Use safe calls
+Test your understanding of null safety by writing a function that accepts a nullable string as an argument. The function should return the length of the string if it exists, or zero if the value is null, ensuring that you use safe calls for a clean implementation.
 
 ### Exercise 2: Conversion
 
-Create a function that:
-- Takes a string that might be a number
-- Returns the number doubled, or null if invalid
+Further develop your skills by creating a function that takes a string input that might represent a number. Your task is to return the numerical value doubled if the conversion is successful, or null if the input is invalid.
 
 ## Test Your Understanding
 
@@ -165,11 +157,7 @@ Create a function that:
 
 ## Key Takeaways
 
-- `Type?` makes a type nullable
-- `?.` for safe calls
-- `?:` (Elvis) for default values
-- Avoid `!!` - it defeats null safety
-- Smart casts simplify null checks
+To master variables and types in Kotlin, you must understand that appending a question mark to a type name makes it nullable and that the safe call operator allows for error-free property access. You should use the Elvis operator to provide sensible default values and rely on smart casts to simplify your null-checking logic, while always avoiding the not-null assertion operator to maintain the integrity of your code.
 
 ## Next Steps
 
