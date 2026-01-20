@@ -7,7 +7,7 @@ import {
 } from "@/lib/temporary-access";
 
 // Admin user ID that has access to these functions
-const ADMIN_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
+const ADMIN_USER_ID = "user_2YfwsgLf6sxplrtpJw2z3n805R3";
 
 async function requireAdmin() {
   const { userId } = await auth();

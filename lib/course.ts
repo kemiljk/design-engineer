@@ -79,7 +79,7 @@ const TEST_ACCESS_LEVEL = process.env.NEXT_PUBLIC_COURSE_TEST_ACCESS as
 // User IDs that should bypass test mode and use real enrollments
 // This allows specific users to test real progress/notes saving while others see test mode
 const TEST_MODE_BYPASS_USER_IDS = new Set([
-  "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J", // Owner - always use real enrollment
+  "user_2YfwsgLf6sxplrtpJw2z3n805R3", // Owner - always use real enrollment
 ]);
 
 /**

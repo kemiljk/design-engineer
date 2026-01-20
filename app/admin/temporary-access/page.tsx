@@ -18,7 +18,7 @@ import {
 import { Copy, RefreshCw, CheckCircle, XCircle, Users } from "lucide-react";
 
 // Admin user ID
-const ADMIN_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
+const ADMIN_USER_ID = "user_2YfwsgLf6sxplrtpJw2z3n805R3";
 
 interface TemporaryAccessCode {
   id: string;

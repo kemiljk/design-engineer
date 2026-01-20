@@ -4,16 +4,19 @@ import { cosmic } from "@/lib/cosmic";
 
 // Only available in development mode
 const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
-const ADMIN_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
+const ADMIN_USER_ID = "user_2YfwsgLf6sxplrtpJw2z3n805R3";
 
 export async function POST() {
   const { userId } = await auth();
-  
+
   // In development, allow unauthenticated access for setup scripts
   // In production, require admin user
   if (!IS_DEVELOPMENT) {
     if (userId !== ADMIN_USER_ID) {
-      return NextResponse.json({ error: "Admin access required" }, { status: 403 });
+      return NextResponse.json(
+        { error: "Admin access required" },
+        { status: 403 },
+      );
     }
   }
 
@@ -133,7 +136,12 @@ export async function POST() {
       objectTypeExists = true;
       results.steps.push("Found existing gallery-projects object type");
     } catch (error: unknown) {
-      if (error && typeof error === "object" && "status" in error && error.status === 404) {
+      if (
+        error &&
+        typeof error === "object" &&
+        "status" in error &&
+        error.status === 404
+      ) {
         objectTypeExists = false;
         results.steps.push("gallery-projects object type does not exist");
       } else {
@@ -143,15 +151,22 @@ export async function POST() {
 
     if (objectTypeExists) {
       // Update existing object type
-      const updateResult = await cosmic.objectTypes.updateOne("gallery-projects", {
-        title: "Gallery Projects",
-        singular: "Gallery Project",
-        emoji: "🎨",
-        metafields: galleryMetafields,
-      });
-      
-      results.steps.push("Updated gallery-projects object type with new metafields");
-      results.steps.push(`Update result: ${JSON.stringify(updateResult).slice(0, 100)}...`);
+      const updateResult = await cosmic.objectTypes.updateOne(
+        "gallery-projects",
+        {
+          title: "Gallery Projects",
+          singular: "Gallery Project",
+          emoji: "🎨",
+          metafields: galleryMetafields,
+        },
+      );
+
+      results.steps.push(
+        "Updated gallery-projects object type with new metafields",
+      );
+      results.steps.push(
+        `Update result: ${JSON.stringify(updateResult).slice(0, 100)}...`,
+      );
     } else {
       // Create new object type
       const createResult = await cosmic.objectTypes.insertOne({
@@ -161,23 +176,29 @@ export async function POST() {
         emoji: "🎨",
         metafields: galleryMetafields,
       });
-      
+
       results.steps.push("Created gallery-projects object type");
-      results.steps.push(`Create result: ${JSON.stringify(createResult).slice(0, 100)}...`);
+      results.steps.push(
+        `Create result: ${JSON.stringify(createResult).slice(0, 100)}...`,
+      );
     }
 
     return NextResponse.json({
-      message: results.errors.length === 0 ? "Gallery setup complete!" : "Setup completed with errors",
+      message:
+        results.errors.length === 0
+          ? "Gallery setup complete!"
+          : "Setup completed with errors",
       ...results,
     });
   } catch (error) {
     console.error("Gallery setup error:", error);
-    const errorDetails = error instanceof Error 
-      ? { message: error.message, stack: error.stack }
-      : String(error);
+    const errorDetails =
+      error instanceof Error
+        ? { message: error.message, stack: error.stack }
+        : String(error);
     return NextResponse.json(
       { error: "Setup failed", details: errorDetails, steps: results.steps },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
