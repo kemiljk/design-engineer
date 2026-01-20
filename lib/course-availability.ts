@@ -8,6 +8,9 @@ const BYPASS_USER_IDS = new Set([
   "user_2YfwsgLf6sxplrtpJw2z3n805R3", // Owner
 ]);
 
+// Legacy/dev-only bypass user ID (allowed only in development for convenience)
+const LEGACY_BYPASS_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
+
 export async function checkCourseAvailability() {
   const { is_available } = await getCourseAvailability();
   return is_available;

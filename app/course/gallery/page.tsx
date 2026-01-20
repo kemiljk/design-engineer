@@ -29,7 +29,7 @@ interface GalleryPageProps {
 export default async function GalleryPage({ searchParams }: GalleryPageProps) {
   const params = await searchParams;
   const { userId } = await auth();
-  
+
   let isEnrolled = false;
   if (userId) {
     const enrollment = await getUserEnrollment(userId);
@@ -47,8 +47,14 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
   if (params.platform && ["web", "ios", "android"].includes(params.platform)) {
     filterOptions.platform = params.platform as "web" | "ios" | "android";
   }
-  if (params.track && ["design", "engineering", "convergence"].includes(params.track)) {
-    filterOptions.track = params.track as "design" | "engineering" | "convergence";
+  if (
+    params.track &&
+    ["design", "engineering", "convergence"].includes(params.track)
+  ) {
+    filterOptions.track = params.track as
+      | "design"
+      | "engineering"
+      | "convergence";
   }
 
   const [featuredProjects, projects] = await Promise.all([
@@ -56,7 +62,8 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
     getGalleryProjects(filterOptions),
   ]);
 
-  const showFeatured = !params.platform && !params.track && featuredProjects.length > 0;
+  const showFeatured =
+    !params.platform && !params.track && featuredProjects.length > 0;
 
   return (
     <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
@@ -73,8 +80,10 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <FolderKanban className="h-8 w-8 text-swiss-red" />
-              <h1 className="text-2xl font-bold md:text-3xl">Capstone Gallery</h1>
+              <FolderKanban className="text-swiss-red h-8 w-8" />
+              <h1 className="text-2xl font-bold md:text-3xl">
+                Capstone Gallery
+              </h1>
             </div>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">
               Explore capstone projects from our Design Engineer students
@@ -95,7 +104,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         {showFeatured && (
           <section className="mb-12">
             <div className="mb-4 flex items-center gap-2">
-              <Star className="h-5 w-5 text-swiss-red" />
+              <Star className="text-swiss-red h-5 w-5" />
               <h2 className="text-lg font-bold">Featured Projects</h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -122,7 +131,9 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
         <section>
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-bold">
-              {params.platform || params.track ? "Filtered Projects" : "All Projects"}
+              {params.platform || params.track
+                ? "Filtered Projects"
+                : "All Projects"}
             </h2>
             <span className="text-sm text-neutral-500">
               {projects.length} project{projects.length !== 1 ? "s" : ""}
@@ -159,16 +170,14 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
 
         {/* CTA for non-enrolled users */}
         {!isEnrolled && (
-          <section className="mt-12 rounded-none border-2 border-swiss-red bg-swiss-red/[0.025] p-8 text-center dark:bg-swiss-red/5">
-            <Star className="mx-auto h-8 w-8 text-swiss-red" />
+          <section className="border-swiss-red bg-swiss-red/2.5 dark:bg-swiss-red/5 mt-12 rounded-none border-2 p-8 text-center">
+            <Star className="text-swiss-red mx-auto h-8 w-8" />
             <h2 className="mt-4 text-xl font-bold">Create Your Own Capstone</h2>
             <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-              Enrol in the Design Engineer Course to complete capstone projects and showcase your work here.
+              Enrol in the Design Engineer Course to complete capstone projects
+              and showcase your work here.
             </p>
-            <Button
-              href="/course/pricing"
-              className="mt-6"
-            >
+            <Button href="/course/pricing" className="mt-6">
               View Pricing
             </Button>
           </section>

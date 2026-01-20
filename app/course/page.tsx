@@ -341,7 +341,7 @@ export default async function CoursePage() {
                   ? "The first module of each track is completely free. Start learning—no credit card required."
                   : "The Introduction and first module of each track are completely free. Understand what Design Engineering is and start learning—no credit card required."}
               </p>
-              <div className="border-swiss-red/20 bg-swiss-red/[0.025] text-swiss-red dark:border-swiss-red/30 dark:bg-swiss-red/5 mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm">
+              <div className="border-swiss-red/20 bg-swiss-red/2.5 text-swiss-red dark:border-swiss-red/30 dark:bg-swiss-red/5 mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm">
                 🎓 Students get 30% off -{" "}
                 <Link
                   href="/course/pricing"
@@ -458,7 +458,7 @@ export default async function CoursePage() {
                 </div>
 
                 {/* Convergence */}
-                <div className="border-swiss-red bg-swiss-red/[0.025] dark:bg-swiss-red/5 rounded-none border-2 p-6">
+                <div className="border-swiss-red bg-swiss-red/2.5 dark:bg-swiss-red/5 rounded-none border-2 p-6">
                   <div className="mb-1 flex items-center gap-2">
                     <span className="text-swiss-red text-xs font-bold tracking-wider uppercase">
                       Best Value

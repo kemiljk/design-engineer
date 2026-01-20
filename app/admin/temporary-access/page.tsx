@@ -19,6 +19,8 @@ import { Copy, Refresh, CheckCircle, XmarkCircle, User } from "iconoir-react";
 
 // Admin user ID
 const ADMIN_USER_ID = "user_2YfwsgLf6sxplrtpJw2z3n805R3";
+// Legacy admin ID (allowed in development)
+const LEGACY_ADMIN_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
 
 interface TemporaryAccessCode {
   id: string;
@@ -45,7 +47,11 @@ export default function TemporaryAccessAdmin() {
   const [expiresInDays, setExpiresInDays] = useState(7);
 
   // Check if user is admin
-  const isAdmin = isLoaded && user?.id === ADMIN_USER_ID;
+  const isAdmin =
+    isLoaded &&
+    (user?.id === ADMIN_USER_ID ||
+      (process.env.NODE_ENV === "development" &&
+        user?.id === LEGACY_ADMIN_USER_ID));
 
   const fetchCodes = async () => {
     try {
@@ -129,8 +135,21 @@ export default function TemporaryAccessAdmin() {
     return new Date(dateString).toLocaleString();
   };
 
-  const getStatusBadge = (status: string) => {
-    switch (status) {
+  const normalizeStatus = (s: any): string => {
+    if (!s) return "";
+    if (typeof s === "string") return s;
+    if (typeof s === "object") {
+      if ("key" in s && typeof s.key === "string") return s.key;
+      if ("value" in s && typeof s.value === "string") return s.value;
+      return String(s);
+    }
+    return String(s);
+  };
+
+  const getStatusBadge = (status: any) => {
+    const key = normalizeStatus(status);
+
+    switch (key) {
       case "active":
         return (
           <Badge variant="success">
@@ -153,7 +172,7 @@ export default function TemporaryAccessAdmin() {
           </Badge>
         );
       default:
-        return <Badge variant="default">{status}</Badge>;
+        return <Badge variant="default">{key}</Badge>;
     }
   };
 
@@ -181,11 +200,13 @@ export default function TemporaryAccessAdmin() {
   }
 
   const activeCount = codes.filter(
-    (c) => c.metadata.status === "active",
+    (c) => normalizeStatus(c.metadata.status) === "active",
   ).length;
-  const usedCount = codes.filter((c) => c.metadata.status === "used").length;
+  const usedCount = codes.filter(
+    (c) => normalizeStatus(c.metadata.status) === "used",
+  ).length;
   const expiredCount = codes.filter(
-    (c) => c.metadata.status === "expired",
+    (c) => normalizeStatus(c.metadata.status) === "expired",
   ).length;
 
   return (

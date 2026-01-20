@@ -8,6 +8,8 @@ import {
 
 // Admin user ID that has access to these functions
 const ADMIN_USER_ID = "user_2YfwsgLf6sxplrtpJw2z3n805R3";
+// Legacy admin ID (allowed in development for convenience)
+const LEGACY_ADMIN_USER_ID = "user_2YUTxqEjj0tI9pYSqmlE1fweQ4J";
 
 async function requireAdmin() {
   const { userId } = await auth();
@@ -16,7 +18,11 @@ async function requireAdmin() {
     return { error: "Unauthorized", status: 401 };
   }
 
-  if (userId !== ADMIN_USER_ID) {
+  // Allow primary admin ID always, and legacy admin ID only in development
+  if (
+    userId !== ADMIN_USER_ID &&
+    !(process.env.NODE_ENV === "development" && userId === LEGACY_ADMIN_USER_ID)
+  ) {
     return { error: "Forbidden - Admin access required", status: 403 };
   }
 

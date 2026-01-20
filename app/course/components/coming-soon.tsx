@@ -175,7 +175,7 @@ export function ComingSoon() {
               </div>
 
               {/* Convergence */}
-              <div className="border-swiss-red bg-swiss-red/[0.025] dark:bg-swiss-red/5 border-2 p-6">
+              <div className="border-swiss-red bg-swiss-red/2.5 dark:bg-swiss-red/5 border-2 p-6">
                 <div className="mb-1 flex items-center gap-2">
                   <span className="text-swiss-red text-xs font-bold tracking-wider uppercase">
                     Best Value

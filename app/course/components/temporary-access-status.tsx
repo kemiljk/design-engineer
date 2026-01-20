@@ -89,7 +89,7 @@ export function TemporaryAccessStatus({
 
   return (
     <Card
-      className="border-swiss-red/20 bg-swiss-red/[0.025] dark:border-swiss-red/30 dark:bg-swiss-red/5 p-4"
+      className="border-swiss-red/20 bg-swiss-red/2.5 dark:border-swiss-red/30 dark:bg-swiss-red/5 p-4"
       data-testid="temporary-access-status"
     >
       <div className="flex items-start justify-between">

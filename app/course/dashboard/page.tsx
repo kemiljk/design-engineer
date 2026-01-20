@@ -15,8 +15,18 @@ import {
   OpenNewWindow as ExternalLink,
   User,
 } from "iconoir-react";
-import { getUserNotes, getUserProgress, getProgressStats, getUserEnrollment, normalizeAccessLevel, getLastActivity } from "@/lib/course";
-import { getUserCertificates, checkCertificateEligibility } from "@/lib/certificate";
+import {
+  getUserNotes,
+  getUserProgress,
+  getProgressStats,
+  getUserEnrollment,
+  normalizeAccessLevel,
+  getLastActivity,
+} from "@/lib/course";
+import {
+  getUserCertificates,
+  checkCertificateEligibility,
+} from "@/lib/certificate";
 import { getUserGalleryProjects } from "@/lib/cosmic";
 import { Button } from "@/app/components/ui";
 import { GalleryProjectCard } from "./gallery-project-card";
@@ -24,7 +34,8 @@ import { ContinueLearning } from "../components/continue-learning";
 
 export const metadata = {
   title: "My Dashboard | Design Engineer Course",
-  description: "View your course progress, notes, certificates, and gallery submissions",
+  description:
+    "View your course progress, notes, certificates, and gallery submissions",
 };
 
 export default async function DashboardPage() {
@@ -35,7 +46,14 @@ export default async function DashboardPage() {
   }
 
   const user = await currentUser();
-  const [enrollment, progress, notes, certificates, galleryProjects, lastActivity] = await Promise.all([
+  const [
+    enrollment,
+    progress,
+    notes,
+    certificates,
+    galleryProjects,
+    lastActivity,
+  ] = await Promise.all([
     getUserEnrollment(userId),
     getUserProgress(userId),
     getUserNotes(userId),
@@ -44,24 +62,30 @@ export default async function DashboardPage() {
     getLastActivity(userId),
   ]);
 
-  const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
+  const accessLevel =
+    normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
   const stats = await getProgressStats(progress, accessLevel);
 
-  const [webEligibility, iosEligibility, androidEligibility] = await Promise.all([
-    checkCertificateEligibility(userId, "web"),
-    checkCertificateEligibility(userId, "ios"),
-    checkCertificateEligibility(userId, "android"),
-  ]);
+  const [webEligibility, iosEligibility, androidEligibility] =
+    await Promise.all([
+      checkCertificateEligibility(userId, "web"),
+      checkCertificateEligibility(userId, "ios"),
+      checkCertificateEligibility(userId, "android"),
+    ]);
 
-  const eligibleForCertificates = [webEligibility, iosEligibility, androidEligibility].filter(
-    (e) => e.eligible && !e.certificate
-  ).length;
+  const eligibleForCertificates = [
+    webEligibility,
+    iosEligibility,
+    androidEligibility,
+  ].filter((e) => e.eligible && !e.certificate).length;
 
   const recentNotes = notes.slice(0, 3);
   const approvedProjects = galleryProjects.filter(
-    (p) => p.metadata.status === "approved" || p.metadata.status === "featured"
+    (p) => p.metadata.status === "approved" || p.metadata.status === "featured",
   );
-  const pendingProjects = galleryProjects.filter((p) => p.metadata.status === "pending");
+  const pendingProjects = galleryProjects.filter(
+    (p) => p.metadata.status === "pending",
+  );
 
   return (
     <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
@@ -76,7 +100,7 @@ export default async function DashboardPage() {
 
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
-          <div className="flex h-16 w-16 items-center justify-center bg-swiss-red/10 text-swiss-red">
+          <div className="bg-swiss-red/10 text-swiss-red flex h-16 w-16 items-center justify-center">
             <User className="h-8 w-8" />
           </div>
           <div>
@@ -86,7 +110,10 @@ export default async function DashboardPage() {
             <p className="text-neutral-600 dark:text-neutral-400">
               {enrollment ? (
                 <>
-                  {accessLevel === "full" ? "Convergence" : accessLevel.replace(/_/g, " ")} access
+                  {accessLevel === "full"
+                    ? "Convergence"
+                    : accessLevel.replace(/_/g, " ")}{" "}
+                  access
                 </>
               ) : (
                 "Free access"
@@ -109,12 +136,12 @@ export default async function DashboardPage() {
         <section className="mb-12 rounded-none border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="flex items-center gap-2 text-lg font-bold">
-              <Trophy className="h-5 w-5 text-swiss-red" />
+              <Trophy className="text-swiss-red h-5 w-5" />
               Your Progress
             </h2>
             <Link
               href="/course"
-              className="flex items-center gap-1 text-sm text-swiss-red hover:underline"
+              className="text-swiss-red flex items-center gap-1 text-sm hover:underline"
             >
               Continue Learning
               <ArrowRight className="h-4 w-4" />
@@ -123,22 +150,34 @@ export default async function DashboardPage() {
 
           <div className="grid gap-4 md:grid-cols-4">
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="text-3xl font-bold tabular-nums text-swiss-red">{stats.completedCount}</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Lessons Completed</div>
+              <div className="text-swiss-red text-3xl font-bold tabular-nums">
+                {stats.completedCount}
+              </div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Lessons Completed
+              </div>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="text-3xl font-bold tabular-nums">{stats.completionPercentage}%</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Course Progress</div>
+              <div className="text-3xl font-bold tabular-nums">
+                {stats.completionPercentage}%
+              </div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Course Progress
+              </div>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
               <div className="flex items-center gap-2 text-3xl font-bold">
                 <Clock className="h-6 w-6 text-neutral-400" />
                 {stats.totalTimeFormatted}
               </div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">Time Invested</div>
+              <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                Time Invested
+              </div>
             </div>
             <div className="border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
-              <div className="text-3xl font-bold tabular-nums">{certificates.length}</div>
+              <div className="text-3xl font-bold tabular-nums">
+                {certificates.length}
+              </div>
               <div className="text-sm text-neutral-600 dark:text-neutral-400">
                 Certificates Earned
               </div>
@@ -148,12 +187,16 @@ export default async function DashboardPage() {
           {/* Progress Bar */}
           <div className="mt-4">
             <div className="mb-2 flex items-center justify-between text-sm text-neutral-500">
-              <span className="tabular-nums">{stats.completedCount} of {stats.totalLessons} lessons</span>
-              <span className="tabular-nums">{stats.completionPercentage}% complete</span>
+              <span className="tabular-nums">
+                {stats.completedCount} of {stats.totalLessons} lessons
+              </span>
+              <span className="tabular-nums">
+                {stats.completionPercentage}% complete
+              </span>
             </div>
             <div className="h-2 w-full rounded-none bg-neutral-200 dark:bg-neutral-700">
               <div
-                className="h-full bg-swiss-red transition-all"
+                className="bg-swiss-red h-full transition-all"
                 style={{ width: `${stats.completionPercentage}%` }}
               />
             </div>
@@ -164,49 +207,55 @@ export default async function DashboardPage() {
         <div className="mb-12 grid gap-4 md:grid-cols-3">
           <Link
             href="/course/notes"
-            className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
+            className="group hover:border-swiss-red flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
               <StickyNote className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold group-hover:text-swiss-red">My Notes</h3>
+              <h3 className="group-hover:text-swiss-red font-bold">My Notes</h3>
               <p className="text-sm text-neutral-500">{notes.length} notes</p>
             </div>
-            <ArrowRight className="h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-swiss-red" />
+            <ArrowRight className="group-hover:text-swiss-red h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
             href="/course/certificate"
-            className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
+            className="group hover:border-swiss-red flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
           >
-            <div className="flex h-12 w-12 items-center justify-center bg-swiss-red/10">
-              <Award className="h-6 w-6 text-swiss-red" />
+            <div className="bg-swiss-red/10 flex h-12 w-12 items-center justify-center">
+              <Award className="text-swiss-red h-6 w-6" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold group-hover:text-swiss-red">Certificates</h3>
+              <h3 className="group-hover:text-swiss-red font-bold">
+                Certificates
+              </h3>
               <p className="text-sm text-neutral-500">
                 {certificates.length} earned
                 {eligibleForCertificates > 0 && (
-                  <span className="ml-2 text-swiss-red">({eligibleForCertificates} to claim)</span>
+                  <span className="text-swiss-red ml-2">
+                    ({eligibleForCertificates} to claim)
+                  </span>
                 )}
               </p>
             </div>
-            <ArrowRight className="h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-swiss-red" />
+            <ArrowRight className="group-hover:text-swiss-red h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
             href="/course/gallery"
-            className="group flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
+            className="group hover:border-swiss-red flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
           >
             <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
               <FolderKanban className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold group-hover:text-swiss-red">Project Gallery</h3>
+              <h3 className="group-hover:text-swiss-red font-bold">
+                Project Gallery
+              </h3>
               <p className="text-sm text-neutral-500">Browse student work</p>
             </div>
-            <ArrowRight className="h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-swiss-red" />
+            <ArrowRight className="group-hover:text-swiss-red h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -220,7 +269,7 @@ export default async function DashboardPage() {
             {notes.length > 3 && (
               <Link
                 href="/course/notes"
-                className="flex items-center gap-1 text-sm text-swiss-red hover:underline"
+                className="text-swiss-red flex items-center gap-1 text-sm hover:underline"
               >
                 View all ({notes.length})
                 <ExternalLink className="h-3 w-3" />
@@ -242,13 +291,21 @@ export default async function DashboardPage() {
                 <Link
                   key={note.id}
                   href={`/course/${note.metadata.lesson_path}`}
-                  className="group block rounded-none border border-neutral-200 bg-white p-4 transition-colors hover:border-swiss-red dark:border-neutral-800 dark:bg-neutral-900"
+                  className="group hover:border-swiss-red block rounded-none border border-neutral-200 bg-white p-4 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
                 >
                   <p className="text-xs text-neutral-400">
-                    {note.metadata.lesson_path.split("/").slice(-2).join(" / ").replace(/-/g, " ")}
+                    {note.metadata.lesson_path
+                      .split("/")
+                      .slice(-2)
+                      .join(" / ")
+                      .replace(/-/g, " ")}
                   </p>
                   <p className="mt-1 line-clamp-2 text-sm">
-                    {note.metadata.content || <span className="italic text-neutral-400">Empty note</span>}
+                    {note.metadata.content || (
+                      <span className="text-neutral-400 italic">
+                        Empty note
+                      </span>
+                    )}
                   </p>
                 </Link>
               ))}
@@ -279,7 +336,8 @@ export default async function DashboardPage() {
               <FolderKanban className="mx-auto h-10 w-10 text-neutral-300" />
               <p className="mt-3 text-neutral-500">No projects submitted yet</p>
               <p className="mt-1 text-sm text-neutral-400">
-                Complete a capstone project and share your work with the community
+                Complete a capstone project and share your work with the
+                community
               </p>
               {enrollment ? (
                 <Button
@@ -291,7 +349,10 @@ export default async function DashboardPage() {
                 </Button>
               ) : (
                 <p className="mt-4 text-sm text-neutral-500">
-                  <Link href="/course/pricing" className="text-swiss-red hover:underline">
+                  <Link
+                    href="/course/pricing"
+                    className="text-swiss-red hover:underline"
+                  >
                     Enrol in the course
                   </Link>{" "}
                   to submit projects
@@ -307,7 +368,11 @@ export default async function DashboardPage() {
                   </p>
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {pendingProjects.map((project) => (
-                      <GalleryProjectCard key={project.id} project={project} showStatus />
+                      <GalleryProjectCard
+                        key={project.id}
+                        project={project}
+                        showStatus
+                      />
                     ))}
                   </div>
                 </div>
@@ -319,7 +384,11 @@ export default async function DashboardPage() {
                   </p>
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     {approvedProjects.map((project) => (
-                      <GalleryProjectCard key={project.id} project={project} showStatus />
+                      <GalleryProjectCard
+                        key={project.id}
+                        project={project}
+                        showStatus
+                      />
                     ))}
                   </div>
                 </div>
@@ -333,12 +402,12 @@ export default async function DashboardPage() {
           <section className="mb-12">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="flex items-center gap-2 text-lg font-bold">
-                <Award className="h-5 w-5 text-swiss-red" />
+                <Award className="text-swiss-red h-5 w-5" />
                 Earned Certificates
               </h2>
               <Link
                 href="/course/certificate"
-                className="flex items-center gap-1 text-sm text-swiss-red hover:underline"
+                className="text-swiss-red flex items-center gap-1 text-sm hover:underline"
               >
                 Manage Certificates
                 <ExternalLink className="h-3 w-3" />
@@ -348,16 +417,19 @@ export default async function DashboardPage() {
               {certificates.map((cert) => (
                 <div
                   key={cert.id}
-                  className="flex items-center gap-3 border border-swiss-red/20 bg-swiss-red/[0.025] p-4 dark:border-swiss-red/30 dark:bg-swiss-red/5"
+                  className="border-swiss-red/20 bg-swiss-red/2.5 dark:border-swiss-red/30 dark:bg-swiss-red/5 flex items-center gap-3 border p-4"
                 >
-                  <Award className="h-8 w-8 text-swiss-red" />
+                  <Award className="text-swiss-red h-8 w-8" />
                   <div>
                     <p className="font-medium">
-                      {cert.metadata.platform === "web" && "Web Design Engineer"}
-                      {cert.metadata.platform === "ios" && "iOS Design Engineer"}
-                      {cert.metadata.platform === "android" && "Android Design Engineer"}
+                      {cert.metadata.platform === "web" &&
+                        "Web Design Engineer"}
+                      {cert.metadata.platform === "ios" &&
+                        "iOS Design Engineer"}
+                      {cert.metadata.platform === "android" &&
+                        "Android Design Engineer"}
                     </p>
-                    <p className="text-xs text-swiss-red">
+                    <p className="text-swiss-red text-xs">
                       {new Date(cert.metadata.issued_at).toLocaleDateString()}
                     </p>
                   </div>
@@ -373,21 +445,21 @@ export default async function DashboardPage() {
           <div className="grid gap-4 md:grid-cols-3">
             <Link
               href="/course/faq"
-              className="flex items-center gap-2 text-sm text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
+              className="hover:text-swiss-red flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400"
             >
               <BookOpen className="h-4 w-4" />
               Frequently Asked Questions
             </Link>
             <a
               href="mailto:hello@designengineer.xyz"
-              className="flex items-center gap-2 text-sm text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
+              className="hover:text-swiss-red flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400"
             >
               <ExternalLink className="h-4 w-4" />
               Contact Support
             </a>
             <Link
               href="/course/refund-policy"
-              className="flex items-center gap-2 text-sm text-neutral-600 hover:text-swiss-red dark:text-neutral-400"
+              className="hover:text-swiss-red flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400"
             >
               <BookOpen className="h-4 w-4" />
               Refund Policy

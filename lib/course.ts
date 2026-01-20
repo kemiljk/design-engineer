@@ -80,6 +80,10 @@ const TEST_ACCESS_LEVEL = process.env.NEXT_PUBLIC_COURSE_TEST_ACCESS as
 // This allows specific users to test real progress/notes saving while others see test mode
 const TEST_MODE_BYPASS_USER_IDS = new Set([
   "user_2YfwsgLf6sxplrtpJw2z3n805R3", // Owner - always use real enrollment
+  // Include legacy owner ID in development only for convenience
+  ...(process.env.NODE_ENV === "development"
+    ? ["user_2YUTxqEjj0tI9pYSqmlE1fweQ4J"]
+    : []),
 ]);
 
 /**
