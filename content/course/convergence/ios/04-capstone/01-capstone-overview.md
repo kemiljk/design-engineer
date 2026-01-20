@@ -8,25 +8,13 @@ estimatedTime: 5
 
 ## Why This Project?
 
-A polished iOS app demonstrates design engineering excellence:
-
-- **SwiftUI animation mastery** — Sophisticated, purposeful motion
-- **Accessibility-first implementation** — VoiceOver, Dynamic Type, reduced motion
-- **Attention to detail and craft** — Professional-quality polish
-- **Ability to ship** — Production-ready work
-- **Design engineering sensibility** — Bridging design and code
+A polished iOS app demonstrates design engineering excellence by showcasing **SwiftUI animation mastery** through sophisticated, purposeful motion. It requires an **accessibility-first implementation** supporting VoiceOver, Dynamic Type, and reduced motion. The final result proves your **attention to detail and craft**, your **ability to ship** production-ready work, and your unique **design engineering sensibility** that bridges the gap between design and code.
 
 **Total Time Estimate:** 10-15 hours across all phases
 
 ## What You'll Create
 
-By the end of this capstone, you'll have:
-
-1. **Polished iOS App or Feature** — Sophisticated animations and delightful micro-interactions
-2. **Accessibility Excellence** — Full VoiceOver, Dynamic Type, and reduced motion support
-3. **Professional Polish** — Refined visual details, smooth performance, graceful error handling
-4. **Case Study** — Animation decisions documented and technical challenges explained
-5. **Deliverables** — Working Xcode project, screen recordings, GitHub repository
+By the end of this capstone, you will have a **polished iOS app or feature** filled with sophisticated animations and delightful micro-interactions. You will demonstrate **accessibility excellence** with full VoiceOver and Dynamic Type support, and achieve **professional polish** through refined visual details. Your work will be documented in a comprehensive **case study** explaining your animation decisions, and you will produce final **deliverables** including a working Xcode project, screen recordings, and a GitHub repository.
 
 ## Choose Your Project
 
@@ -70,11 +58,7 @@ Use these criteria to assess your own work throughout the project:
 
 ## Tips for Success
 
-1. **Less is more** — A few excellent animations beat many mediocre ones
-2. **Test constantly** — Enable VoiceOver and reduced motion while developing
-3. **Record everything** — Capture your animations for the case study
-4. **Seek feedback** — Test with real users if possible
-5. **Document decisions** — Explain *why*, not just *what*
+**Less is more**—a few excellent animations beat many mediocre ones. **Test constantly** by enabling VoiceOver and reduced motion settings while you develop. **Record everything** as you go to capture high-quality assets for your case study. **Seek feedback** by testing with real users if possible, and always **document your decisions** by explaining the *why* behind your choices, not just the *what*.
 
 ## Get Started
 

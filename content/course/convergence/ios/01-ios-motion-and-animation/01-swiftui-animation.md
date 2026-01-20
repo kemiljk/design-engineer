@@ -2,12 +2,7 @@
 
 > **Quick Summary:** SwiftUI makes animation simple with withAnimation and implicit animations. Understanding spring physics helps create natural-feeling motion.
 
-## What You'll Learn
-
-- withAnimation basics
-- Implicit vs explicit animation
-- Spring animations
-- Animation modifiers
+In this lesson, you will master the basics of **withAnimation**, understand the crucial difference between **implicit and explicit animation**, learn to craft natural-feeling **spring animations**, and discover how to chain powerful **animation modifiers**.
 
 ## withAnimation
 
@@ -50,9 +45,7 @@ withAnimation(.bouncy) { }   // Playful overshoot
 ```
 
 ### Spring Parameters
-- **response:** Duration to reach target
-- **dampingFraction:** 0 = oscillate forever, 1 = no bounce
-- **blendDuration:** Smoothing when interrupted
+The **response** parameter controls how quickly the spring reacts (duration to reach target). **dampingFraction** determines how much the spring oscillates (0 oscillates forever, 1 has no bounce). **blendDuration** handles the smoothing when an animation is interrupted by another change.
 
 ## Implicit Animation
 
@@ -81,14 +74,7 @@ Image(systemName: "star.fill")
 
 ## Animatable Properties
 
-Common animatable properties:
-- `.offset`
-- `.scale`
-- `.rotation`
-- `.opacity`
-- `.frame`
-- `.position`
-- `.foregroundColor`
+Common animatable properties include **.offset**, **.scale**, **.rotation**, **.opacity**, **.frame** (size changes), **.position**, and **.foregroundColor**.
 
 ## Combining Animations
 
@@ -110,18 +96,10 @@ VStack {
 ## Try It Yourself
 
 ### Exercise 1: Animated Toggle
-
-Create a custom toggle that:
-- Slides the knob
-- Changes colour
-- Has spring animation
+Create a custom toggle component that slides the knob smoothly, changes colour upon activation, and uses a spring animation for a tactile feel.
 
 ### Exercise 2: Loading Animation
-
-Build a loading indicator:
-- Three bouncing dots
-- Staggered timing
-- Continuous animation
+Build a loading indicator featuring three bouncing dots with staggered timing to create a wave effect, ensuring the animation loops continuously.
 
 ## Test Your Understanding
 
@@ -163,12 +141,7 @@ Build a loading indicator:
 -->
 
 ## Key Takeaways
-
-- withAnimation wraps state changes
-- Springs feel more natural than linear
-- .animation modifier for implicit animation
-- Combine animations for complex effects
-- Test feel on device
+Always use **withAnimation** to wrap explicit state changes. Prefer **springs** over linear curves for more natural motion. Use the **.animation** modifier carefully for implicit effects, and **combine animations** to create complex, multi-layered interactions. Finally, always **test the feel** on a real device.
 
 ## Next Steps
 

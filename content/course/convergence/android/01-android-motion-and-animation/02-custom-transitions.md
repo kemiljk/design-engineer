@@ -2,12 +2,7 @@
 
 > **Quick Summary:** Material motion patterns guide Android transitions. Learn container transforms, shared elements, and custom enter/exit animations.
 
-## What You'll Learn
-
-- Material motion patterns
-- Shared element transitions
-- Custom AnimatedVisibility
-- Navigation transitions
+In this lesson, you will learn how to implement standard **Material motion patterns** in Compose. We will explore complex **shared element transitions** between screens, creating custom **AnimatedVisibility** enter/exit effects, and applying polished transitions to your **Navigation** graph.
 
 ## Material Motion Patterns
 
@@ -132,18 +127,10 @@ Crossfade(targetState = currentScreen) { screen ->
 ## Try It Yourself
 
 ### Exercise 1: Tab Transition
-
-Build tab navigation with:
-- Fade through animation
-- Direction-aware slide
-- Smooth content change
+Build a tab navigation component that uses a **fade through** animation when switching tabs. The content should slide in from the correct direction (left or right) based on the tab order, providing a smooth, direction-aware context switch.
 
 ### Exercise 2: Card Expansion
-
-Create card to detail:
-- Container transform feel
-- Shared element image
-- Staggered content reveal
+Create a Master-Detail flow where clicking a card expands it into a full details screen. Implement a **container transform** feel using shared elements for the main image and background, and use a staggered reveal animation for the detail content.
 
 ## Test Your Understanding
 
@@ -185,12 +172,7 @@ Create card to detail:
 -->
 
 ## Key Takeaways
-
-- Material motion patterns guide design
-- SharedTransitionLayout for hero animations
-- AnimatedContent for state transitions
-- Coordinate enter/exit for polish
-- Direction-aware animations feel natural
+Remember that **Material motion patterns** exist to guide your design choices, not just for aesthetics. Use `SharedTransitionLayout` to create seamless hero animations that connect screens. Leverage `AnimatedContent` for smooth state transitions within a single screen. For a truly polished feel, carefully coordinate your enter and exit animations, ensuring they are **direction-aware** to match the user's mental model of navigation.
 
 ## Next Steps
 

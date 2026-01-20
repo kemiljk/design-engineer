@@ -8,24 +8,13 @@ estimatedTime: 5
 
 ## Why This Project?
 
-A polished Android experience showcases design engineering excellence:
-
-- **Fluid Animations** — Meaningful motion that enhances usability
-- **Full Accessibility** — TalkBack support and inclusive design
-- **Performance Excellence** — 60fps animations and optimised rendering
-- **Design-Code Convergence** — Seamless translation from design to implementation
+A polished Android experience showcases design engineering excellence by combining **fluid animations** that enhance usability with **full accessibility** support for TalkBack. It demonstrates **performance excellence** through 60fps rendering and proves your ability to execute a seamless **design-code convergence** workflow.
 
 **Total Time Estimate:** 12-16 hours across all phases
 
 ## What You'll Create
 
-By the end of this capstone, you'll have a polished Android experience that showcases:
-
-- Compose animation mastery
-- Material motion implementation
-- Full TalkBack support
-- Performance optimisation
-- Case study documentation
+By the end of this capstone, you will have created a polished Android experience that demonstrates **Compose animation mastery** and robust **Material motion implementation**. The project will feature **full TalkBack support**, evidence of **performance optimisation**, and will be accompanied by comprehensive **case study documentation**.
 
 ## Choose Your Project
 
@@ -60,37 +49,20 @@ This capstone is broken into five focused phases:
 Use these criteria to assess your own work:
 
 ### Animation Quality (30%)
-- Purposeful motion that enhances UX
-- Smooth performance (60fps)
-- Appropriate timing and easing
-- Cohesive motion design language
+Your animations should provide **purposeful motion** that enhances the user experience, rather than just adding flair. They must maintain smooth **60fps performance** with appropriate **timing and easing**, resulting in a cohesive motion design language.
 
 ### Accessibility (30%)
-- Complete TalkBack navigation
-- Proper semantic structure
-- Alternative interaction methods
-- Inclusive design decisions
+The app must support complete **TalkBack navigation** with a proper **semantic structure**. You should implement **alternative interaction methods** and demonstrate inclusive design decisions throughout.
 
 ### Code Quality (25%)
-- Clean Compose patterns
-- Efficient state management
-- Performance optimisation
-- Proper architecture
+The codebase should utilise clean **Compose patterns** and efficient **state management**. It requires clear evidence of **performance optimisation** and a proper, scalable **architecture**.
 
 ### Polish & Documentation (15%)
-- Attention to detail
-- Edge case handling
-- Clear documentation
-- Portfolio presentation
+Success requires visible attention to **detail**, robust **edge case handling**, clear **documentation**, and a professional **portfolio presentation**.
 
 ## Tips for Success
 
-1. **Start Simple** — Get basic functionality working before adding animation polish
-2. **Profile Early** — Use Android Studio Profiler to catch performance issues
-3. **Test on Device** — Animations feel different on real hardware
-4. **Use TalkBack Throughout** — Don't save accessibility testing for the end
-5. **Record Everything** — Capture animations for your portfolio
-6. **Respect User Preferences** — Honour reduced motion and font size settings
+**Start simple** by getting basic functionality working before adding animation polish. **Profile early** using the Android Studio Profiler to catch performance issues before they compound. Always **test on device** as animations often feel different on real hardware compared to emulators. **Use TalkBack throughout** the process rather than saving accessibility testing for the end. **Record everything** to capture high-quality assets for your portfolio, and always **respect user preferences** by honouring settings for reduced motion and font sizes.
 
 ## Get Started
 

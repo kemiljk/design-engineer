@@ -2,12 +2,7 @@
 
 > **Quick Summary:** SwiftUI has excellent accessibility support built-in. Learn to enhance it with labels, traits, and VoiceOver testing.
 
-## What You'll Learn
-
-- Built-in accessibility
-- Custom accessibility labels
-- VoiceOver testing
-- Dynamic Type support
+In this lesson, you will learn how iOS handles **built-in accessibility** and how to enhance it. We will cover providing descriptive **custom accessibility labels**, ensuring your app scales correctly with **Dynamic Type**, and how to verify your work using **VoiceOver testing**.
 
 ## Built-in Accessibility
 
@@ -89,10 +84,7 @@ Text("Hello")
 
 ## Testing VoiceOver
 
-1. Enable VoiceOver: Settings → Accessibility → VoiceOver
-2. Navigate with swipe gestures
-3. Check every element is announced correctly
-4. Verify order makes sense
+To test your app's accessibility, you must use VoiceOver on a physical device. First, enable it in **Settings → Accessibility → VoiceOver**. Then, navigate your app using standard swipe gestures. Verify that every interactive element is announced correctly and that the reading order follows a logical flow.
 
 ### Accessibility Inspector
 Xcode → Open Developer Tool → Accessibility Inspector
@@ -108,18 +100,10 @@ Xcode → Open Developer Tool → Accessibility Inspector
 ## Try It Yourself
 
 ### Exercise 1: Image Gallery
-
-Make an image gallery accessible:
-- Label each image
-- Group caption with image
-- Announce image count
+Make a photo gallery fully accessible. You should ensure each image has a clear label, **group the caption** with its corresponding image so they are read as a single unit, and announce the **image count** (e.g., "Image 1 of 5") to provide context.
 
 ### Exercise 2: Form Accessibility
-
-Enhance a form:
-- Clear labels
-- Error announcements
-- Focus management
+Enhance a data entry form. Ensure all fields have clear, descriptive **labels**. Implement custom announcements for **validation errors** so users know exactly what went wrong, and manage **focus** so the cursor moves logically between fields.
 
 ## Test Your Understanding
 
@@ -161,13 +145,7 @@ Enhance a form:
 -->
 
 ## Key Takeaways
-
-- SwiftUI provides solid defaults
-- Add labels for icon-only buttons
-- Group related elements
-- Test with VoiceOver
-- Support Dynamic Type
-- Respect Reduce Motion
+SwiftUI provides **solid accessibility defaults**, but you must go further. Always add **accessibility labels** for icon-only buttons and **group related elements** to reduce clutter. Thoroughly **test with VoiceOver** to catch navigation issues, ensure your layout supports **Dynamic Type** for larger text, and respect the **Reduce Motion** setting for users who are sensitive to animation.
 
 ## Next Steps
 

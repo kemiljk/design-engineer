@@ -8,11 +8,7 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
-## What You'll Learn
-
-- Defining project scope
-- Planning animation strategy
-- Auditing for accessibility
+This phase focuses on defining a clear **project scope** to prevent feature creep. You will create a comprehensive **animation strategy** and perform an initial **audit for accessibility** requirements to guide your development.
 
 ## Step 1: Project Selection
 
@@ -36,19 +32,13 @@ Accessibility Goals:
 
 Plan your animation strategy:
 
-- **Entrances:** How elements appear on screen
-- **Transitions:** How screens connect
-- **Feedback:** How interactions respond
-- **State Changes:** How UI updates communicate
+Plan your animation strategy by defining how elements appear on screen (**entrances**) and how different screens connect through **transitions**. Determine how interactions will provide **feedback** to the user and how **state changes** (like loading or success) will be communicated visually.
 
 ## Step 3: Accessibility Audit
 
 Define your accessibility approach:
 
-- Content descriptions for all interactive elements
-- Focus order and navigation patterns
-- Touch target sizes (minimum 48dp)
-- Colour contrast and text scaling
+Define your accessibility approach upfront. Ensure you have planned **content descriptions** for all interactive elements and established a logical **focus order** and navigation pattern. Verify that all interactive elements meet the minimum **touch target size** of 48dp, and check that your **colour contrast** and text scaling support meets required standards.
 
 ## Checkpoint
 

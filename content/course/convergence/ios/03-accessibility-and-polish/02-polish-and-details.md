@@ -2,12 +2,7 @@
 
 > **Quick Summary:** Polish transforms good apps into great ones. Small details in haptics, sounds, and micro-interactions create delightful experiences.
 
-## What You'll Learn
-
-- Haptic feedback
-- Sound design
-- Micro-interactions
-- Attention to detail
+This lesson explores the finishing touches that make an app feel premium. You will master **haptic feedback** to add tactile response, use **sound design** effectively, create delightful **micro-interactions**, and apply a rigorous attention to **detail**.
 
 ## Haptic Feedback
 
@@ -36,11 +31,7 @@ Toggle("Setting", isOn: $isOn)
 ```
 
 ### When to Use Haptics
-- Button presses
-- Toggle changes
-- Successful actions
-- Errors
-- Reaching list bounds
+Haptics are best used to confirm intentional actions. Use them for **button presses**, toggling switches (**toggle changes**), confirming **successful actions** (like saving or sending), signaling **errors**, and indicating when a user has reached the end of a scroll view (**reaching list bounds**).
 
 ## Sound Design
 
@@ -114,40 +105,21 @@ struct SuccessCheckmark: View {
 ## Polish Checklist
 
 ### Visual
-- [ ] Consistent spacing
-- [ ] Proper alignment
-- [ ] Dark mode looks good
-- [ ] Safe area respected
-- [ ] Loading states smooth
+Verify that all elements have **consistent spacing** and alignment. Check that your app looks great in **Dark Mode** and that it respects the device's **Safe Area** insets. Ensure that any **loading states** appear smooth and do not cause layout shifts.
 
 ### Interaction
-- [ ] All buttons have press feedback
-- [ ] Appropriate haptics
-- [ ] Animations feel natural
-- [ ] No jarring transitions
+Ensure that all buttons provide visible **press feedback**. Verify that **appropriate haptics** are triggered for key actions. Check that all **animations feel natural** and responsive, avoiding any jarring transitions or frame drops.
 
 ### Edge Cases
-- [ ] Empty states handled
-- [ ] Error states clear
-- [ ] Long text handled
-- [ ] Offline mode considered
+Test that **empty states** are handled gracefully with helpful messaging. ensure **error states** serve a clear purpose and guide the user. Verify that **long text** wraps or truncates correctly without breaking the layout, and consider how the app behaves in **offline mode**.
 
 ## Try It Yourself
 
 ### Exercise 1: Like Button
-
-Create a like button with:
-- Heart fill animation
-- Scale bounce
-- Haptic feedback
-- Particle burst (advanced)
+Create a custom like button that feels alive. It should feature a **heart fill animation**, a bouncy **scale effect**, crisp **haptic feedback**, and optionally a **particle burst** for added delight.
 
 ### Exercise 2: Pull to Refresh
-
-Build custom pull-to-refresh:
-- Loading indicator
-- Haptic at threshold
-- Smooth animation
+Build a custom pull-to-refresh control. It should include a unique **loading indicator**, provide a distinct **haptic** bump when the refresh threshold is reached, and settle into place with a **smooth animation**.
 
 ## Test Your Understanding
 
@@ -189,12 +161,7 @@ Build custom pull-to-refresh:
 -->
 
 ## Key Takeaways
-
-- Haptics add tactile dimension
-- Use sound very sparingly
-- Micro-interactions show craft
-- Polish is the accumulation of details
-- Test on real devices
+**Haptics** add a critical tactile dimension to touch interactions. Use **sound** very sparingly, as it can be intrusive. Well-crafted **micro-interactions** demonstrate respect for the user and pride in your craft. Remember that **polish** is simply the accumulation of many small, well-considered details. Always **test on real devices** to verify the feel.
 
 ## Congratulations!
 

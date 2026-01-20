@@ -8,12 +8,7 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
-## What You'll Learn
-
-- Defining project scope effectively
-- Creating a motion design plan
-- Auditing existing work for accessibility
-- Setting clear goals
+ This lesson covers **defining project scope effectively**, helping you avoid feature creep. You will create a comprehensive **motion design plan**, perform an **audit of existing work** for accessibility gaps, and finish by **setting clear goals** for the capstone.
 
 ## Step 1: Define Scope
 

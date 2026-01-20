@@ -8,12 +8,7 @@ estimatedTime: 20
 
 **Time Estimate:** 3-4 hours
 
-## What You'll Learn
-
-- Adding semantic structure
-- Implementing focus management
-- Creating live regions
-- Adding custom actions
+This phase ensures your app is usable by everyone. You will learn to add proper **semantic structure** to your composables, implement logical **focus management** for navigation, create **live regions** to announce dynamic changes, and add **custom actions** to simplify complex interactions for screen reader users.
 
 ## Semantic Structure
 

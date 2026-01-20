@@ -2,12 +2,7 @@
 
 > **Quick Summary:** SwiftUI's preview system and rapid iteration make it perfect for prototyping. Build interactive prototypes that feel like the real thing.
 
-## What You'll Learn
-
-- Preview-driven prototyping
-- Rapid iteration techniques
-- Creating realistic interactions
-- Sharing prototypes
+In this lesson, you will learn **preview-driven prototyping** to visualise changes instantly. We will cover **rapid iteration techniques** to refine your designs quickly, how to create **realistic interactions** using gestures and animations, and efficient methods for **sharing prototypes** for feedback.
 
 ## Preview-Driven Development
 
@@ -117,14 +112,10 @@ struct GesturePrototype: View {
 ## Sharing Prototypes
 
 ### TestFlight
-1. Archive in Xcode
-2. Upload to App Store Connect
-3. Invite testers via TestFlight
+First, **archive** your build in Xcode. Then, **upload** it to App Store Connect. Finally, use **TestFlight** to invite testers to install the prototype on their devices.
 
 ### Xcode Previews on Device
-1. Connect device
-2. Select device in preview
-3. Run preview directly on device
+**Connect your device** to your Mac. Select your connected device in the **preview canvas** selector. The preview will then **run directly** on your device, allowing you to test touch interactions and performance in real-time.
 
 ### Screen Recording
 Use Cmd+R in Simulator to record interactions.
@@ -132,18 +123,10 @@ Use Cmd+R in Simulator to record interactions.
 ## Try It Yourself
 
 ### Exercise 1: Onboarding Prototype
-
-Build an onboarding flow:
-- Multiple pages with swipe navigation
-- Progress indicator
-- Skip and continue buttons
+Build a polished onboarding flow with multiple pages. Implement **swipe navigation** between steps, include a dynamic **progress indicator**, and add functional **Skip** and **Continue** buttons to navigate through the flow.
 
 ### Exercise 2: Interaction Prototype
-
-Create a draggable card stack:
-- Cards can be swiped away
-- Spring back if not swiped far enough
-- Next card animates up
+Create a stack of draggable cards. Users should be able to **swipe cards away** to dismiss them. If a card is not swiped far enough, it should **spring back** to its original position. As a card is removed, the **next card** should animate up into view.
 
 ## Test Your Understanding
 
@@ -185,12 +168,7 @@ Create a draggable card stack:
 -->
 
 ## Key Takeaways
-
-- Previews enable rapid iteration
-- Create variations for different states
-- Use placeholder data for realism
-- Test on device for accurate feel
-- Share via TestFlight for feedback
+**Previews** are your most powerful tool for rapid iteration, allowing you to visualize changes instantly. Create **preview variations** to test different data states (loading, error, empty) without running the full app. Use **placeholder data** to make your layouts look realistic, and always **test on a physical device** to ensure gestures feel right. Finally, share your builds via **TestFlight** to get valuable feedback from real users.
 
 ## Next Steps
 

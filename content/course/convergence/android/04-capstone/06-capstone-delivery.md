@@ -8,11 +8,7 @@ estimatedTime: 10
 
 **Time Estimate:** 1-2 hours
 
-## What You'll Learn
-
-- Writing Javadoc/KDoc for interaction components
-- Structuring a technical case study
-- Packaging your repository for recruiters and peers
+Engineering is as much about communication as it is about code. This lesson covers writing effective **Javadoc/KDoc** for your components, structuring a compelling **technical case study**, and **packaging your repository** so it stands out to recruiters and peers.
 
 ## 1. Code Documentation
 
@@ -82,24 +78,16 @@ Your GitHub repo is your portfolio.
 ## Submission Checklist
 
 ### Code Quality
-- [ ] Logic is separated from UI (hoisted state).
-- [ ] No hardcoded dimensions (use `dp`, `sp`, or theme tokens).
-- [ ] Modifiers are ordered correctly (size before padding, etc).
+Ensure your logical code is **separated from UI** (hoisted state) and that you have used **no hardcoded dimensions** (relying on `dp`, `sp`, or theme tokens instead). Verify that **modifiers are ordered correctly**, placing size modifiers before padding and other layout instructions.
 
 ### Animation
-- [ ] Transitions feel fluid (no jank).
-- [ ] Motion has purpose (spatial orientation), not just flair.
-- [ ] Interrupted animations handle state gracefully.
+Check that all **transitions feel fluid** without any visible jank. Ensure the **motion has purpose**, providing spatial orientation rather than just visual flair. Confirm that **interrupted animations** handle state changes gracefully without snapping or breaking.
 
 ### Accessibility
-- [ ] TalkBack reads content in a logical order.
-- [ ] Touch targets are at least 48x48dp.
-- [ ] Layouts adapt to large fonts without overlapping.
+Verify that TalkBack reads content in a **logical order**. Ensure all **touch targets** are at least 48x48dp. Test that layouts **adapt to large fonts** without text overlapping or becoming truncated.
 
 ### Documentation
-- [ ] `README.md` has a hero image/video.
-- [ ] `CASE_STUDY.md` explains the "Why".
-- [ ] Key functions have KDoc comments.
+Your `README.md` must include a **hero image/video**. The `CASE_STUDY.md` should clearly explain the **"Why"** behind your decisions. Ensure all key functions have descriptive **KDoc comments**.
 
 ## What's Next
 

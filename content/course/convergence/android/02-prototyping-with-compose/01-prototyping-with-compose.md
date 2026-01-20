@@ -2,12 +2,7 @@
 
 > **Quick Summary:** Compose's preview system and hot reload enable rapid prototyping. Build interactive prototypes that feel like real apps.
 
-## What You'll Learn
-
-- Preview-driven prototyping
-- Interactive previews
-- Rapid iteration
-- Sharing prototypes
+This lesson focuses on **preview-driven prototyping**. You will learn to use **interactive previews** to test logic without deploying, how to achieve **rapid iteration** loops, and effective methods for **sharing prototypes** with stakeholders.
 
 ## Preview System
 
@@ -166,19 +161,10 @@ Use Logcat → Device Explorer for video capture.
 ## Try It Yourself
 
 ### Exercise 1: Multi-State Preview
-
-Create previews for a form:
-- Empty state
-- Filled state
-- Error state
-- Submitting state
+Create a comprehensive set of previews for a form component. You should include an **empty state** (initial load), a **filled state** with sample data, an **error state** showing validation messages, and a **submitting state** with a disabled UI and loading indicator.
 
 ### Exercise 2: Gesture Prototype
-
-Build a draggable card prototype:
-- Drag to reveal actions
-- Snap back or complete action
-- Visual feedback
+Build a prototype of a swipeable card. Implement a drag gesture that reveals actions behind the card, with logic to **snap back** if the threshold isn't met or **complete the action** if it is. Ensure there is clear visual feedback throughout the interaction.
 
 ## Test Your Understanding
 
@@ -220,12 +206,7 @@ Build a draggable card prototype:
 -->
 
 ## Key Takeaways
-
-- Previews enable rapid iteration
-- Interactive mode for testing interactions
-- Preview data keeps examples consistent
-- Show all states in previews
-- Share APKs for real device testing
+Compose **Previews** are your primary tool for rapid iteration—use them liberally. Enable **Interactive Mode** to test gestures and state logic instantly. Maintain a `PreviewData` object to keep your example data consistent across the project. Always visualize all possible states (loading, error, empty) in your previews to catch edge cases early. For final verification, share **APKs** to test the "feel" on a real device.
 
 ## Next Steps
 

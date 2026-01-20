@@ -2,12 +2,7 @@
 
 > **Quick Summary:** Transitions animate views entering and leaving. SwiftUI provides built-in transitions and lets you create custom ones.
 
-## What You'll Learn
-
-- Built-in transitions
-- Combining transitions
-- Custom transitions
-- matchedGeometryEffect
+This lesson explores how to use **built-in transitions** for standard effects, how to **combine transitions** for richer entrances, creating **custom transitions** for unique component behaviour, and using **matchedGeometryEffect** for seamless hero animations.
 
 ## Built-in Transitions
 
@@ -136,18 +131,10 @@ NavigationStack {
 ## Try It Yourself
 
 ### Exercise 1: Card Flip
-
-Create a card that:
-- Flips on tap
-- Shows different content on each side
-- Has 3D rotation effect
+Create a card component that flips 180 degrees on tap. It should show different content on each side (front and back) and utilise a 3D rotation effect for realism.
 
 ### Exercise 2: Hero Transition
-
-Build a photo grid where:
-- Tapping expands photo full screen
-- Photo animates between positions
-- Smooth spring animation
+Build a photo grid where tapping a photo expands it to full screen. The photo should animate smoothly between its grid position and the full-screen view using a spring animation.
 
 ## Test Your Understanding
 
@@ -189,12 +176,7 @@ Build a photo grid where:
 -->
 
 ## Key Takeaways
-
-- Transitions animate view insertion/removal
-- Combine for complex effects
-- matchedGeometryEffect for hero animations
-- @Namespace for animation identity
-- Test transitions at different speeds
+**Transitions** control how views enter and leave the hierarchy. You can **combine** them (e.g., fade + scale) for complex effects. Use **matchedGeometryEffect** with a unique **@Namespace** identity to create hero animations that morph one view into another. Always **test transitions** at different speeds to ensure robustness.
 
 ## Next Steps
 

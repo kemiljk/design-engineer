@@ -8,11 +8,7 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
-## What You'll Learn
-
-- Recording demonstrations that sell your work
-- Writing a compelling case study
-- Preparing a professional repository
+This final lesson covers **recording demonstrations** that effectively showcase your work to recruiters. You will learn the art of **writing a compelling case study** that explains your design decisions, and how to **prepare a professional repository** that stands out.
 
 ## Step 1: Screen Recordings
 
@@ -106,23 +102,16 @@ A polished iOS app demonstrating production-grade animation and accessibility.
 ## Submission Checklist
 
 ### Polished App/Feature
-- [ ] Animations are smooth (no hitching) and interruptible.
-- [ ] Motion language is consistent across screens.
-- [ ] Empty and Error states are designed (no blank screens).
+Ensure all **animations are smooth** (no hitching) and interruptible. Verify that your **motion language is consistent** across all screens, and that meaningful **Empty and Error states** are designed so users never face a blank screen.
 
 ### Accessibility
-- [ ] VoiceOver navigates logical groups, not just raw views.
-- [ ] Dynamic Type scales without breaking layout.
-- [ ] Reduced Motion preference disables excessive movement.
+Confirm that **VoiceOver navigates logical groups** rather than just reading raw views. Check that **Dynamic Type scales** text up to accessibility sizes without breaking the layout, and that the **Reduced Motion** preference successfully disables excessive movement.
 
 ### Documentation
-- [ ] `CASE_STUDY.md` is written and proofread.
-- [ ] `README.md` includes setup instructions.
-- [ ] Screen recordings are included in the repository (or linked).
+Your **`CASE_STUDY.md`** must be written and proofread. The **`README.md`** should include clear setup instructions. Ensure that high-quality **screen recordings** are included in the repository or linked.
 
 ### Deliverables
-- [ ] Working Xcode project (clean build).
-- [ ] GitHub repository link.
+Submit a **working Xcode project** that builds cleanly, and provide the **GitHub repository link**.
 
 ## What's Next
 
@@ -136,10 +125,7 @@ This project demonstrates your ability to:
 
 ### Portfolio Impact
 
-Use this project to:
-- **Showcase Motion:** Show the slow-mo video in your portfolio.
-- **Demonstrate Empathy:** Highlight your accessibility work.
-- **Prove Craft:** Point to your handling of edge cases and empty states.
+Use this project to **showcase motion** by featuring your slow-motion video in your portfolio. **Demonstrate empathy** by highlighting your dedicated accessibility work, and **prove your craft** by pointing to your careful handling of edge cases and empty states.
 
 ### Continue Your Journey
 

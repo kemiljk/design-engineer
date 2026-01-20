@@ -8,12 +8,7 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
-## What You'll Learn
-
-- Performance optimisation
-- Adding haptic feedback
-- Handling edge cases
-- Testing thoroughly
+The final code phase is about elevation. You will focus on **performance optimisation** to ensure 60fps rendering, add **haptic feedback** for a tactile experience, ensure all **edge cases** are handled gracefully, and verify quality by **testing thoroughly** on real devices.
 
 ## Performance Optimisation
 
@@ -55,10 +50,7 @@ fun HapticButton(onClick: () -> Unit) {
 
 Handle all states gracefully:
 
-- Empty states with helpful messaging
-- Error states with recovery options
-- Loading states with skeleton screens
-- Offline states with cached data
+Handle all states gracefully. Ensure you have designed **empty states** with helpful messaging for when data is missing, and **error states** that provide clear recovery options. implement **loading states** with skeleton screens to reduce perceived wait times, and handle **offline states** by showing cached data or friendly warnings.
 
 ## Testing
 

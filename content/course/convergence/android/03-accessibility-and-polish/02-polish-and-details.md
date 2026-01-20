@@ -2,12 +2,7 @@
 
 > **Quick Summary:** Small details elevate apps from good to great. Haptics, edge cases, and micro-interactions create memorable experiences.
 
-## What You'll Learn
-
-- Haptic feedback
-- Micro-interactions
-- Edge case handling
-- Polish checklist
+This lesson covers the final touches that make an app feel premium. You will learn to implement **haptic feedback** for tactile responsiveness, create delightful **micro-interactions**, handle common **edge cases** gracefully, and verify your work against a comprehensive **polish checklist**.
 
 ## Haptic Feedback
 
@@ -39,11 +34,7 @@ fun vibrate() {
 ```
 
 ### When to Use Haptics
-- Button presses
-- Toggle switches
-- Success/error feedback
-- Reaching scroll bounds
-- Important actions
+Haptics are effective for confirming actions. Use them for button presses, toggling switches, providing success or error feedback, indicating when a user has reached scroll bounds, and for any other important actions that require user confirmation.
 
 ## Micro-interactions
 
@@ -152,47 +143,24 @@ Text(
 ## Polish Checklist
 
 ### Visual
-- [ ] Consistent spacing (8dp grid)
-- [ ] Proper elevation/shadow
-- [ ] Dark mode tested
-- [ ] Edge-to-edge handled
-- [ ] Loading states smooth
+Verify that all spacing is consistent (using an 8dp grid). Check that elevation and shadows create proper depth, that dark mode is fully tested and legible, that the UI handles edge-to-edge display correctly, and that loading states are smooth and non-jarring.
 
 ### Interaction
-- [ ] All buttons have feedback
-- [ ] Appropriate haptics
-- [ ] Smooth animations
-- [ ] No janky transitions
+Ensure all buttons provide immediate visual feedback. Verify that appropriate haptics are present, that all animations run smoothly without jank, and that transitions between states feel fluid.
 
 ### Content
-- [ ] Empty states designed
-- [ ] Error states helpful
-- [ ] Long text handled
-- [ ] Loading indicators present
+Check that empty states are designed and helpful. Ensure error states provide clear guidance on how to recover. Verify that long text truncates or wraps correctly, and that loading indicators clearly communicate activity.
 
 ### Accessibility
-- [ ] All elements labelled
-- [ ] TalkBack tested
-- [ ] Touch targets 48dp+
-- [ ] Color contrast sufficient
+Confirm that all elements have content labels. Test the entire flow with TalkBack. Ensure all touch targets meet the 48dp minimum size, and that colour contrast ratios are sufficient for readability.
 
 ## Try It Yourself
 
 ### Exercise 1: Like Animation
-
-Create an animated like button:
-- Heart fills with colour
-- Scale bounce
-- Particle burst
-- Haptic feedback
+Create a delightful animated like button. It should feature a heart icon that fills with colour, performs a bouncy scale animation, triggers a particle burst effect, and provides crisp haptic feedback upon activation.
 
 ### Exercise 2: Error State
-
-Design a polished error state:
-- Friendly illustration
-- Clear message
-- Retry action
-- Smooth animation
+Design a polished error state component. Include a friendly illustration to reduce frustration, a clear and helpful message explaining what went wrong, a prominent "Retry" action, and a smooth animation when the component appears.
 
 ## Test Your Understanding
 
@@ -234,12 +202,7 @@ Design a polished error state:
 -->
 
 ## Key Takeaways
-
-- Haptics add tactile dimension
-- Micro-interactions show craft
-- Handle all edge cases
-- Use the polish checklist
-- Test on real devices
+**Haptics** add a valuable tactile dimension to your app. **Micro-interactions** demonstrate attention to detail and craft. You must handle all **edge cases** (like loading and errors) to ensure a robust experience. Use the **polish checklist** before every release, and always test on real devices to ensure the quality matches your design intent.
 
 ## Congratulations!
 

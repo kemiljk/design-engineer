@@ -8,11 +8,7 @@ estimatedTime: 25
 
 **Time Estimate:** 4-5 hours
 
-## What You'll Learn
-
-- Creating core Compose animations
-- Building smooth transitions
-- Implementing gesture animations
+In this phase, you will write the code to bring your motion plan to life. You will focus on creating robust **core Compose animations**, building silky smooth **transitions** between states and screens, and implementing responsive **gesture animations** that feel natural to touch.
 
 ## Core Animations
 

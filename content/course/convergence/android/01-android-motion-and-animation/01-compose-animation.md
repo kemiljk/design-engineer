@@ -2,12 +2,7 @@
 
 > **Quick Summary:** Jetpack Compose provides powerful, easy-to-use animation APIs. From simple animateAsState to complex choreography, Compose makes motion accessible.
 
-## What You'll Learn
-
-- animate*AsState APIs
-- AnimatedVisibility
-- Transition animations
-- Spring physics
+In this lesson, you will master the fundamental animation APIs in Jetpack Compose. You will learn how to animate single values using `animate*AsState`, create complex enter and exit transitions with `AnimatedVisibility`, manage state changes using `Transition`, and apply realistic motion using **spring physics**.
 
 ## animate*AsState
 
@@ -143,18 +138,10 @@ Icon(
 ## Try It Yourself
 
 ### Exercise 1: Animated Card
-
-Create a card that:
-- Expands on tap
-- Animates size, corner radius, elevation
-- Uses spring animation
+Create an interactive card component that expands when tapped. ensure it smoothly animates its size, corner radius, and elevation simultaneously, using a **spring animation** spec to give it a natural, tactile feel.
 
 ### Exercise 2: Loading Indicator
-
-Build a custom loading animation:
-- Three pulsing dots
-- Staggered timing
-- Infinite animation
+Build a custom loading animation consisting of three pulsing dots. They should animate using `infiniteTransition` and have stagger start times to create a wave-like effect that loops continuously.
 
 ## Test Your Understanding
 
@@ -196,12 +183,7 @@ Build a custom loading animation:
 -->
 
 ## Key Takeaways
-
-- animate*AsState for single value animations
-- AnimatedVisibility for enter/exit
-- updateTransition for coordinated animations
-- Spring for natural feel, tween for precise timing
-- Test animations on device
+Use `animate*AsState` for simple, single-value fire-and-forget animations. detailed entrance and exit transitions are best handled by `AnimatedVisibility`. When you need to coordinate multiple values reacting to the same state change, `updateTransition` is your best tool. Always prefer **spring specs** for a natural feel, using tween only when precise timing is required. Finally, always test your animations on a real device to judge performance and feel accurately.
 
 ## Next Steps
 
