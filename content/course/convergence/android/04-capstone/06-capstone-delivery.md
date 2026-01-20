@@ -12,7 +12,7 @@ Engineering is as much about communication as it is about code. This lesson cove
 
 ## 1. Code Documentation
 
-Don't just describe *what* the code does; describe the *design intent*.
+Don't just describe _what_ the code does; describe the _design intent_.
 
 **Example: A Swipeable Card**
 
@@ -45,23 +45,28 @@ A case study proves you can think like a Design Engineer. Create a `CASE_STUDY.m
 # Android Animation Capstone
 
 ## Overview
+
 **Goal:** Build a complex, accessible animation in Jetpack Compose.
 **Stack:** Kotlin, Compose, Material 3.
 
 ## The Problem
+
 Standard transitions often feel rigid. I wanted to create a "Shared Element" transition that feels continuous and physical, rather than just fading screen A into screen B.
 
 ## Design Decisions
+
 1.  **Spring Physics:** I avoided standard tweens. Springs allow the animation to handle interruptions (e.g., if the user grabs the card mid-flight).
-2.  **Orchestration:** The text fades in *after* the image settles to reduce visual noise.
+2.  **Orchestration:** The text fades in _after_ the image settles to reduce visual noise.
 
 ## Accessibility Strategy
-*   **TalkBack:** The complex image/text group is merged into one semantic node (`Modifier.semantics { mergeDescendants = true }`).
-*   **Scale:** The layout uses `FlowRow` so that when font size increases to 200%, the buttons wrap instead of being cut off.
+
+- **TalkBack:** The complex image/text group is merged into one semantic node (`Modifier.semantics { mergeDescendants = true }`).
+- **Scale:** The layout uses `FlowRow` so that when font size increases to 200%, the buttons wrap instead of being cut off.
 
 ## Performance
-*   Verified 0% frame drops in the Android Profiler.
-*   Used `derivedStateOf` to prevent excessive recomposition during the drag loop.
+
+- Verified 0% frame drops in the Android Profiler.
+- Used `derivedStateOf` to prevent excessive recomposition during the drag loop.
 ```
 
 ## 3. The Repository
@@ -69,9 +74,9 @@ Standard transitions often feel rigid. I wanted to create a "Shared Element" tra
 Your GitHub repo is your portfolio.
 
 1.  **README.md:**
-    *   **Screenshot/GIF:** Put a recording at the very top.
-    *   **Features:** Bullet points of what you built.
-    *   **Setup:** "Clone repo -> Open in Android Studio -> Run."
+    - **Screenshot/GIF:** Put a recording at the very top.
+    - **Features:** Bullet points of what you built.
+    - **Setup:** Create a new Android project in Android Studio (or open your project), then press Run to launch it on an emulator or device.
 2.  **Clean Up:** Remove unused resources and commented-out code.
 3.  **APK:** (Optional) Upload a debug APK to the "Releases" section so people can try it without compiling.
 
@@ -89,15 +94,19 @@ Approved projects are featured in the global gallery and shared with our hiring 
 ## Submission Checklist
 
 ### Code Quality
+
 Ensure your logical code is **separated from UI** (hoisted state) and that you have used **no hardcoded dimensions** (relying on `dp`, `sp`, or theme tokens instead). Verify that **modifiers are ordered correctly**, placing size modifiers before padding and other layout instructions.
 
 ### Animation
+
 Check that all **transitions feel fluid** without any visible jank. Ensure the **motion has purpose**, providing spatial orientation rather than just visual flair. Confirm that **interrupted animations** handle state changes gracefully without snapping or breaking.
 
 ### Accessibility
+
 Verify that TalkBack reads content in a **logical order**. Ensure all **touch targets** are at least 48x48dp. Test that layouts **adapt to large fonts** without text overlapping or becoming truncated.
 
 ### Documentation
+
 Your `README.md` must include a **hero image/video**. The `CASE_STUDY.md` should clearly explain the **"Why"** behind your decisions. Ensure all key functions have descriptive **KDoc comments**.
 
 ## What's Next
@@ -105,9 +114,11 @@ Your `README.md` must include a **hero image/video**. The `CASE_STUDY.md` should
 Congratulations on completing the Convergence track!
 
 You now possess a rare skillset:
+
 - **Compose Fluency:** You can build complex, custom UIs.
 - **Motion Literacy:** You understand physics, timing, and choreography.
 - **Inclusive Mindset:** You build for everyone, not just the "happy path."
 
 ### Share Your Project
+
 Post your case study on LinkedIn, Twitter, or the Android Developers Reddit. Design Engineering is a visual field—show your work!

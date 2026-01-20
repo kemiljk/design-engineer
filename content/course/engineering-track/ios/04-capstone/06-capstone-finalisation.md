@@ -39,6 +39,7 @@ A SwiftUI task management app exploring SwiftData persistence and MVVM architect
 </p>
 
 ## Features
+
 - ✅ **Task Management:** Create, edit, and delete tasks with priority levels.
 - 💾 **SwiftData:** Local persistence with complex sorting predicates.
 - 🔍 **Search:** Real-time filtering using `@Query`.
@@ -46,18 +47,22 @@ A SwiftUI task management app exploring SwiftData persistence and MVVM architect
 - ♿ **Accessible:** VoiceOver labels and semantic ordering.
 
 ## Architecture
+
 This app follows a strict **MVVM (Model-View-ViewModel)** pattern:
+
 - **Models:** Defined using `@Model` macros for SwiftData.
 - **ViewModels:** Observable classes handling business logic and data transformation.
 - **Views:** Pure SwiftUI layers that react to state changes.
 
 ## Requirements
+
 - iOS 17.0+
 - Xcode 15+
 
 ## Installation
-1. Clone the repository.
-2. Open `TaskManager.xcodeproj`.
+
+1. Create a new Xcode project (e.g., name it "Task Manager") and initialize Git for your project.
+2. Open your Xcode project in Xcode (for example, `TaskManager.xcodeproj`).
 3. Press `Cmd + R` to build and run.
 ```
 
@@ -70,6 +75,7 @@ Establish your project's repository by running `git init` in your project folder
 ## Submission Checklist
 
 ### Application Polish
+
 Before submitting your project, verify that your App Icon is correctly set and that the Launch Screen theme aligns with your app's design. Ensure your application has a professional display name, is free of compiler warnings and dead code, and that all files are logically organised into groups. Finally, confirm your repository includes a comprehensive `README.md` with screenshots, a proper `.gitignore` file is in place, and the project is public for easy review.
 
 ## What's Next
