@@ -75,6 +75,17 @@ Your GitHub repo is your portfolio.
 2.  **Clean Up:** Remove unused resources and commented-out code.
 3.  **APK:** (Optional) Upload a debug APK to the "Releases" section so people can try it without compiling.
 
+## 4. Submit Your Project
+
+Your work deserves to be seen. We have a dedicated [Course Gallery](/course/gallery) for showcasing student projects.
+
+1.  Go to the [Gallery Submission Page](/course/gallery/submit).
+2.  Select "Android" as your platform and "Convergence" as the track.
+3.  Provide links to your GitHub repository and demo video.
+4.  Submit for review.
+
+Approved projects are featured in the global gallery and shared with our hiring network.
+
 ## Submission Checklist
 
 ### Code Quality

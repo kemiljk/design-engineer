@@ -99,6 +99,15 @@ A polished iOS app demonstrating production-grade animation and accessibility.
 3. Press `Cmd + R` to run on iPhone 15 Pro simulator.
 ```
 
+## Step 4: Submit to Gallery
+
+Don't let your code sit on your hard drive. Submit your project to the [Course Gallery](/course/gallery) to get eyes on your work.
+
+1.  Visit the [Gallery Submission Page](/course/gallery/submit).
+2.  Select "iOS" and "Convergence".
+3.  Adding a **demo video URL** (YouTube/Vimeo) is highly recommended for iOS projects since users cannot "preview" a live URL like on the web.
+4.  Submit your GitHub link and case study details.
+
 ## Submission Checklist
 
 ### Polished App/Feature

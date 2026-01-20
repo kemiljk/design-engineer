@@ -75,6 +75,17 @@ Run a final lighthouse audit to ensure a score above 90. Confirm that Core Web V
 ### Cross-Browser
 Don't rely on just one browser. Test your site in Chrome, Firefox, and Safari, and verify the experience on a mobile device.
 
+## Step 5: Submit to Gallery
+
+Once your project is deployed and tested, allow us to see what you've built.
+
+1.  Navigate to the [Gallery Submission Page](/course/gallery/submit).
+2.  Fill in your project details, including the live URL and GitHub repository.
+3.  Upload your thumbnail and (optional) demo video.
+4.  Submit for review.
+
+Our team reviews every submission. Approved projects are featured in the [Course Gallery](/course/gallery), where they can be seen by recruiters and fellow design engineers.
+
 ## Submission Checklist
 
 ### Interactive Experience
