@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Different ways to declare variables (`const`, `let`, `var`)
-- JavaScript's core data types
+- Javascript's core data types
 - Working effectively with strings, numbers, booleans, arrays, and objects
 - Essential techniques for type checking and conversion
 
@@ -169,15 +169,10 @@ Develop a function that accepts user data and uses a template literal to return 
 ## Key Takeaways
 
 - To recap, you should use `const` for variable declarations by default
-- only switch to `let` when you specifically need to reassign a value
-- only switch to `let` when you specifically need to reassign a value
-- JavaScript includes several primitive types like strings
-- booleans, alongside more complex structures such as arrays
-- booleans, alongside more complex structures such as arrays
-- objects for managing collections of data objects for managing collections of data
+- Only switch to `let` when you specifically need to reassign a value
+- JavaScript includes several primitive types like strings and booleans, alongside more complex structures such as arrays and objects for managing collections of data
 - You can use destructuring and template literals to work more efficiently with these values
-- the spread operator provides a clean way to copy or combine your data structures
-- the spread operator provides a clean way to copy or combine your data structures
+- The spread operator provides a clean way to copy or combine your data structures
 
 ## Next Steps
 

@@ -324,9 +324,7 @@ Develop a `createMultiplier` function that accepts a factor and returns a new fu
 ## Key Takeaways
 
 - To recap, functions are a fundamental building block in JavaScript
-- Understanding how to manage function parameters—including defaults
-- rest syntax—is essential for building flexible programs
-- rest syntax—is essential for building flexible programs
+- Understanding how to manage function parameters—including defaults and rest syntax—is essential for building flexible programs
 - Additionally, mastering scope and closures will allow you to manage variable visibility effectively
 
 ## Next Steps

@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- During this module, you will learn the fundamental syntax for defining functions
-- explore the power of default explore the power of default and named parameters
-- We'll examine lambdas
+- The fundamental syntax for defining functions
+- The power of default and named parameters
+- How lambdas work and their role in Compose
 
 ## Function Basics
 
@@ -178,12 +178,10 @@ Further enhance your skills by adding a practical extension to the String type c
 
 ## Key Takeaways
 
-- named arguments to make your calls more readable named arguments to make your calls more readable
+- Use named arguments to make your calls more readable
 - Remember that the implicit `it` parameter allows for cleaner lambdas
-- that the trailing lambda syntax is the standard for functional calls
-- that the trailing lambda syntax is the standard for functional calls
-- `run` to simplify your object manipulation patterns
-- `run` to simplify your object manipulation patterns
+- The trailing lambda syntax is the standard for functional calls
+- Use `run` to simplify your object manipulation patterns
 
 ## Next Steps
 

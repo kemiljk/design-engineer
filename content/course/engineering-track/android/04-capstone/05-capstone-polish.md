@@ -10,10 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- ensure support for dynamic text sizes ensure support for dynamic text sizes
-- We'll examine the implementation of Material motion to create smooth transitions
-- explore robust techniques for handling errors gracefully within your UI
-- explore robust techniques for handling errors gracefully within your UI
+- How to ensure support for dynamic text sizes
+- The implementation of Material Motion to create smooth transitions
+- Robust techniques for handling errors gracefully within your UI
 
 ## Step 1: Accessibility Semantics
 

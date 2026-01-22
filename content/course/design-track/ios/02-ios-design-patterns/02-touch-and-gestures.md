@@ -105,11 +105,9 @@ Choose a complex interaction in your app (like organising a list). Map it to sta
 ## Key Takeaways
 
 - Designing for direct manipulation requires respecting the **44pt minimum touch target**
-- standard system gestures like swiping to go back standard system gestures like swiping to go back
-- Since physical fingers occlude what they touch, provide offset **visual feedback**
-- obvious affordances for interactive elements without relying on hover states
-- obvious affordances for interactive elements without relying on hover states
-- Finally, use **haptics** to provide subtle physical weight to your digital interactions
+- Standard system gestures like swiping to go back should be supported consistently
+- Since physical fingers occlude what they touch, provide offset **visual feedback** and obvious affordances for interactive elements without relying on hover states
+- Use **haptics** to provide subtle physical weight to your digital interactions
 
 ## Next Steps
 

@@ -10,10 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- creating live component examples creating live component examples
-- You will learn how to write clear API documentation
-- discover techniques for adding interactive features such as theme switching
-- discover techniques for adding interactive features such as theme switching
+- How to create live component examples
+- How to write clear API documentation
+- Techniques for adding interactive features such as theme switching
 
 ## Step 1: Documentation Site Structure
 

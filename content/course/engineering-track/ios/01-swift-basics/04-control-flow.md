@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to implement core conditionals like `if`, `guard`, and `switch`
-- explore the various loop structures including `for` and `while`
-- explore the various loop structures including `for` and `while`
-- We'll examine effective early exit patterns
-- walk through the process of using advanced pattern matching to handle complex logic with ease
-- walk through the process of using advanced pattern matching to handle complex logic with ease
+- How to implement core conditionals like `if`, `guard`, and `switch`
+- The various loop structures including `for` and `while`
+- Effective early exit patterns
+- How to use advanced pattern matching to handle complex logic with ease
 
 ## Conditionals
 
@@ -223,12 +221,10 @@ Implement the classic FizzBuzz problem by printing numbers from 1 to 100 with sp
 
 ## Key Takeaways
 
-- remember that `switch` statements must be exhaustive to ensure all possibilities are handled
-- remember that `switch` statements must be exhaustive to ensure all possibilities are handled
+- Remember that `switch` statements must be exhaustive to ensure all possibilities are handled
 - The `for-in` loop is your primary tool for iterating over sequences
-- advanced pattern matching within switches provides a powerful way to deconstruct complex data
-- advanced pattern matching within switches provides a powerful way to deconstruct complex data
-- Finally, use ranges with the inclusive `...` or exclusive `..
+- Advanced pattern matching within switches provides a powerful way to deconstruct complex data
+- Finally, use ranges with the inclusive `...` or exclusive `..<` operators to create flexible iteration patterns
 
 ## Next Steps
 

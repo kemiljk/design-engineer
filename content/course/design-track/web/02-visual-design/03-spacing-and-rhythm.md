@@ -7,7 +7,7 @@
 - Why spacing is a critical design element
 - How to implement the 8-point grid system effectively
 - Creating vertical rhythm in your designs
-- Applying practical spacing patterns to common UI elements
+- Applying practical spacing patterns to common ui elements
 
 ## The Invisible Art
 
@@ -339,9 +339,8 @@ Compare how each feels. Which is most appropriate for different contexts?
 ## Key Takeaways
 
 - Spacing is a critical, invisible element that creates rhythm and communicates relationships
-- remember that whitespace is a functional feature rather than wasted space
-- By implementing an 8-point grid
-- adapt your spacing responsively adapt your spacing responsively while maintaining overall balance
+- Remember that whitespace is a functional feature rather than wasted space
+- By implementing an 8-point grid and adapting your spacing responsively, you maintain overall balance
 
 ## Next Steps
 

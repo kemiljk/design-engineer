@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to utilize the various Material 3 card types
-- master the art of effective card composition master the art of effective card composition
-- We'll examine how to create interactive cards
+- How to utilise the various Material 3 card types
+- How to master the art of effective card composition
+- How to create interactive cards
 
 ## Material 3 Cards
 
@@ -194,8 +194,7 @@ Further expand your capabilities by creating a profile card that features a user
 
 ## Key Takeaways
 
-- use Column or Row layouts to structure your content
-- use Column or Row layouts to structure your content
+- Use Column or Row layouts to structure your content
 - Assign an `onClick` parameter to make your cards interactive
 
 ## Next Steps

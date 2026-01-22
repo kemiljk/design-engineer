@@ -478,16 +478,12 @@ Create a test page with every input type. Test on:
 
 ## Key Takeaways
 
-- `method` attributes `method` attributes
-- use the most specific input type for each field's semantic meaning
-- use the most specific input type for each field's semantic meaning
+- Always specify `method` and `action` attributes on your form elements
+- Use the most specific input type for each field's semantic meaning
 - Always prioritise the use of `<label>` elements for accessibility
-- remember that placeholders should only supplement rather than replace descriptive labels
-- remember that placeholders should only supplement rather than replace descriptive labels
+- Remember that placeholders should only supplement rather than replace descriptive labels
 - For more complex forms, group related fields using `<fieldset>` and `<legend>`
-- leverage attributes like `required` leverage attributes like `required`
-- `autocomplete` to enhance the user experience `autocomplete` to enhance the user experience
-- informative for all users informative for all users
+- Leverage attributes like `required` and `autocomplete` to enhance the user experience and make forms more informative for all users
 
 ## Next Steps
 

@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will master function syntax, including the use of parameter labels
-- examine how to implement robust return values
-- examine how to implement robust return values
-- We'll explore closures and trailing closure syntax in detail
-- walk through the application of higher-order functions to write more concise
-- walk through the application of higher-order functions to write more concise and powerful Swift code
+- Function syntax, including the use of parameter labels
+- How to implement robust return values
+- Closures and trailing closure syntax in detail
+- How to apply higher-order functions to write more concise and powerful Swift code
 
 ## Functions
 
@@ -207,10 +205,8 @@ Sort an array of names first by their length, placing the shortest names at the 
 
 ## Key Takeaways
 
-- closures serve as powerful anonymous functions
-- closures serve as powerful anonymous functions
-- Finally, become comfortable using shorthand argument names like `$0`
-- `$1` to keep your closures concise `$1` to keep your closures concise and expressive
+- Closures serve as powerful anonymous functions that can be passed around and stored
+- Become comfortable using shorthand argument names like `$0` and `$1` to keep your closures concise and expressive
 
 ## Next Steps
 

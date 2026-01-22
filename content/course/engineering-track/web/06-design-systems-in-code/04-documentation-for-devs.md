@@ -6,7 +6,7 @@
 
 - What should be documented for each component
 - Code examples and common usage patterns
-- Interactive documentation using Storybook
+- Interactive documentation using storybook
 - Strategies for keeping documentation accurate and up to date as your codebase evolves
 
 ## Component Documentation Structure
@@ -135,7 +135,7 @@ Avoid using multiple primary buttons in close proximity, as this can confuse the
 
 - Documentation should clearly state what each component is, when to use it, and how to implement it
 - Provide copy-and-paste code examples
-- Use tools like Storybook for interactive documentation
+- Use tools like storybook for interactive documentation
 - Include clear usage guidelines
 - Keep documentation in sync with the underlying code
 

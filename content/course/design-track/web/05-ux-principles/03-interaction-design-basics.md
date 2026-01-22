@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- Core concepts of interaction design (IxD)
+- Core concepts of interaction design (ixd)
 - How affordances, signifiers, and feedback loops create intuitive experiences
 - Designing for various input methods
 - Strategies for effectively managing state and task flows
@@ -144,13 +144,8 @@ Find a task you do often (like paying a bill). Map out the steps. Where is the f
 
 ## Key Takeaways
 
-- Interaction design defines the functional conversation between the user
-- the product, where affordances represent capabilities
-- the product, where affordances represent capabilities
-- signifiers provide the necessary clues for their use
-- signifiers provide the necessary clues for their use
-- By providing immediate and clear feedback to close the interaction loop
-- use friction intentionally to prevent errors use friction intentionally to prevent errors
+- Interaction design defines the functional conversation between the user and the product, where affordances represent capabilities and signifiers provide the necessary clues for their use
+- By providing immediate and clear feedback to close the interaction loop and using friction intentionally to prevent errors, you create intuitive experiences
 
 ## Next Steps
 

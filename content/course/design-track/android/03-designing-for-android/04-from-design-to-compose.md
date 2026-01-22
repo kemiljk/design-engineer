@@ -152,7 +152,7 @@ Annotate a screen for a developer. Use strictly Material semantic names for all 
 
 - Jetpack Compose is a declarative system where UI is a direct function of state
 - Map your designs to fundamental primitives: rows, columns, and boxes
-- Use Material semantic tokens for colour and typography consistently
+- Use material semantic tokens for colour and typography consistently
 - Design for flexibility through adaptive layouts and weights
 - Provide thorough annotations that bridge design and implementation
 

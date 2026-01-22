@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- During this lesson, you will learn the precise WCAG contrast requirements for text and UI components
-- how to verify them using professional testing tools
-- how to verify them using professional testing tools
-- examine strategies for using patterns and icons to convey meaning beyond colour alone
-- examine strategies for using patterns and icons to convey meaning beyond colour alone
+- The precise WCAG contrast requirements for text and UI components
+- How to verify contrast using professional testing tools
+- Strategies for using patterns and icons to convey meaning beyond colour alone
 
 ## WCAG Contrast Requirements
 
@@ -174,11 +172,8 @@ View your interface using a simulation tool like Chrome's "Emulate vision defici
 
 ## Key Takeaways
 
-- To ensure legibility, you must meet the minimum contrast ratio of 4.5:1 for normal text
-- 3:1 for large text 3:1 for large text
-- UI components, verifying these values with proper testing tools
-- UI components, verifying these values with proper testing tools
-- Remember that approximately 8% of men have some form of colour blindness,
+- To ensure legibility, you must meet the minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text and UI components, verifying these values with proper testing tools
+- Remember that approximately 8% of men have some form of colour blindness, so never rely on colour alone to convey meaning
 
 ## Next Steps
 

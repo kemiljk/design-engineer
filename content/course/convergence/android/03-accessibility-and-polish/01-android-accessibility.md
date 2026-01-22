@@ -190,8 +190,7 @@ Enhance a form screen for accessibility. Ensure every field has a clear label, t
 - Jetpack Compose provides solid **accessibility defaults**, but you must enhance them
 - Always add `contentDescription` for informative icons and images
 - Use **semantics** modifiers to define custom behaviour for complex components
-- **merge descendants** to group related elements into single focusable targets
-- **merge descendants** to group related elements into single focusable targets
+- **Merge descendants** to group related elements into single focusable targets
 - Finally, there is no substitute for testing with **TalkBack** on a real device
 
 ## Next Steps

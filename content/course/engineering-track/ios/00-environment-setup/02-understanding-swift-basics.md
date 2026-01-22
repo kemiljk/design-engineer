@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-- We'll examine basic structures such as functions
+- Basic structures such as variables, constants, and functions
+- Swift's type system and how it ensures safety
+- Optionals and how to handle potentially missing values
+- How these concepts appear in SwiftUI code
 
 ## Swift for Designers
 
@@ -252,7 +255,7 @@ if score >= 90 {
 } else if score >= 70 {
     print("Good")
 } else {
-    print("Keep practicing")
+    print("Keep practising")
 }
 ```
 
@@ -508,14 +511,11 @@ func getDiscount(isPremium: Bool, cartTotal: Double) -> Double {
 
 ## Key Takeaways
 
-- mastering Swift's strong types like String, Int, Double
-- mastering Swift's strong types like String, Int, Double, and Bool
+- Master Swift's strong types like String, Int, Double, and Bool
 - Remember that SwiftUI views are themselves structs
-- use functions to bundle reusable logic effectively
-- use functions to bundle reusable logic effectively
-- Finally, always handle potentially missing data with optionals
-- recognise how all these concepts interweave within practical SwiftUI code
-- recognise how all these concepts interweave within practical SwiftUI code
+- Use functions to bundle reusable logic effectively
+- Always handle potentially missing data with optionals
+- Recognise how all these concepts interweave within practical SwiftUI code
 
 ## Next Steps
 

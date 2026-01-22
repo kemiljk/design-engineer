@@ -4,11 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to build effective stack-based layouts
-- explore the nuances of spacing explore the nuances of spacing and alignment
-- We'll examine how to use the `Spacer` component to create flexible space
-- walk through the application of `ZStack` for complex view layering
-- walk through the application of `ZStack` for complex view layering
+- How to build effective stack-based layouts
+- The nuances of spacing and alignment
+- How to use the `Spacer` component to create flexible space
+- How to apply `ZStack` for complex view layering
 
 ## VStack - Vertical Stack
 
@@ -186,15 +185,10 @@ Design a card layout by positioning an image at the top of the container with a 
 
 ## Key Takeaways
 
-- To build responsive SwiftUI interfaces, you should utilise `VStack` for vertical arrangements
-- `HStack` for horizontal positioning `HStack` for horizontal positioning
+- To build responsive SwiftUI interfaces, you should utilise `VStack` for vertical arrangements and `HStack` for horizontal positioning
 - Use `ZStack` for layering elements on the depth axis
-- leverage `Spacer` to define flexible gaps between your views
-- leverage `Spacer` to define flexible gaps between your views
-- By nesting these stacks
-- controlling their sizing with the `frame` modifier, you can create highly complex
-- controlling their sizing with the `frame` modifier, you can create highly complex
-- sophisticated layouts with ease sophisticated layouts with ease
+- Leverage `Spacer` to define flexible gaps between your views
+- By nesting these stacks and controlling their sizing with the `frame` modifier, you can create highly complex and sophisticated layouts with ease
 
 ## Next Steps
 

@@ -241,12 +241,10 @@ Apply all six principles deliberately. Then sketch it again, intentionally viola
 
 ## Key Takeaways
 
-- The six foundational principles—hierarchy, balance, contrast, repetition, alignment
-- proximity—work together to establish importance, distribute visual weight
-- proximity—work together to establish importance, distribute visual weight, and build consistency
-- By using these tools to create differentiation through contrast and organisation through alignment
-- proximity, you can ensure that every design is effective
-- proximity, you can ensure that every design is effective and intuitive for the user
+- The six foundational principles—hierarchy, balance, contrast, repetition, alignment, and proximity—work together to establish importance, distribute visual weight, and build consistency
+- Use these tools to create differentiation through contrast and organisation through alignment
+- Proximity signals relationships and helps users understand content structure
+- Every effective design applies these principles intentionally, not accidentally
 
 ## Next Steps
 

@@ -7,7 +7,7 @@
 - The essential purpose of motion in modern user interfaces
 - How to use animation as a tool for communication, not decoration
 - Scenarios where animation adds value (and where it doesn't)
-- The role of the Design Engineer in bridging motion specifications and functional code
+- The role of the design engineer in bridging motion specifications and functional code
 
 ## Motion Is Communication
 
@@ -138,9 +138,10 @@ Find animations that seem purely decorative. Ask:
 
 ## Key Takeaways
 
-- To use motion effectively, you must ensure that every animation serves a clear functional purpose...
-- By keeping interactions brief—typically under 300ms—and strictly respecting reduced motion prefer...
-- Ultimately, as a Design Engineer,
+- Motion serves functional purposes: providing feedback, showing relationships, guiding attention, and creating continuity
+- Every animation should have a clear purpose—decoration isn't enough
+- Keep animations brief (under 300ms) and always respect reduced motion preferences
+- As a design engineer, you bridge motion specifications and functional code
 
 ## Next Steps
 

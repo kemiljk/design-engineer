@@ -4,13 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to work with colours
-- materials to create visually stunning interfaces materials to create visually stunning interfaces
-- explore the process of building custom styles for your components
-- explore the process of building custom styles for your components
-- We'll examine how to use environment values and preferences to manage global settings
-- walk through the essential steps for supporting dark mode across your entire application
-- walk through the essential steps for supporting dark mode across your entire application
+- How to work with colours and materials to create visually stunning interfaces
+- The process of building custom styles for your components
+- How to use environment values and preferences to manage global settings
+- The essential steps for supporting dark mode across your entire application
 
 ## Colours
 
@@ -193,15 +190,10 @@ Develop a comprehensive view and verify its appearance across different configur
 
 ## Key Takeaways
 
-- To create high-quality iOS interfaces, you should always use semantic colours
-- materials that automatically adapt to the user's system settings
-- materials that automatically adapt to the user's system settings
+- To create high-quality iOS interfaces, you should always use semantic colours and materials that automatically adapt to the user's system settings
 - Custom styles provide a powerful mechanism for building reusable and consistent components
-- environment values allow you to access critical system preferences with ease
-- environment values allow you to access critical system preferences with ease
-- Finally, make it a standard practice to test your designs in both light
-- dark modes to ensure a seamless experience for every user
-- dark modes to ensure a seamless experience for every user
+- Environment values allow you to access critical system preferences with ease
+- Make it a standard practice to test your designs in both light and dark modes to ensure a seamless experience for every user
 
 ## Next Steps
 

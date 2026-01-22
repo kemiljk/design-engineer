@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- Throughout this lesson, you will master the art of reducing asset weight without sacrificing visu...
-- implement lazy loading and image CDNs to ensure your site performs optimally on any connection
-- implement lazy loading and image CDNs to ensure your site performs optimally on any connection
+- The art of reducing asset weight without sacrificing visual quality
+- How to implement lazy loading and image CDNs to ensure your site performs optimally on any connection
+- Modern image formats (WebP, AVIF) and responsive image techniques
 
 ## Modern Image Formats
 
@@ -156,15 +156,10 @@ Implement responsive images for a hero section with appropriate breakpoints.
 
 ## Key Takeaways
 
-- Using modern formats like WebP
-- AVIF (with appropriate fallbacks) can significantly reduce your bandwidth usage
-- AVIF (with appropriate fallbacks) can significantly reduce your bandwidth usage
-- Combine this with `srcset` for responsive sizing and lazy loading for off-screen content
-- you will dramatically improve initial load times
-- you will dramatically improve initial load times
-- Finally, always specify explicit width and height attributes to prevent layout shifts
-- consider using image CDNs for automated, on-the-fly optimisation
-- consider using image CDNs for automated, on-the-fly optimisation
+- Using modern formats like WebP and AVIF (with appropriate fallbacks) can significantly reduce your bandwidth usage
+- Combine this with `srcset` for responsive sizing and lazy loading for off-screen content to dramatically improve initial load times
+- Always specify explicit width and height attributes to prevent layout shifts
+- Consider using image CDNs for automated, on-the-fly optimisation
 
 ## Next Steps
 

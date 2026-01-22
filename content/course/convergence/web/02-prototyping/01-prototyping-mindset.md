@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- learn why Design Engineers are uniquely suited to excel in this experimental phase
-- learn why Design Engineers are uniquely suited to excel in this experimental phase
-- We'll examine the full spectrum of prototype fidelity—from paper sketches to high-fidelity code—a...
+- Why design engineers are uniquely suited to excel in this experimental phase
+- The full spectrum of prototype fidelity—from paper sketches to high-fidelity code—and when to use each
+- How to embrace rapid iteration and learning over perfection
 
 ## What Is a Prototype?
 
@@ -147,13 +147,10 @@ Compare what you learned from each.
 
 ## Key Takeaways
 
-- To master a prototyping mindset, you must remember that prototypes are built for learning
-- validating hypotheses, not for shipping final code
-- validating hypotheses, not for shipping final code
-- By choosing the appropriate fidelity for your specific question
+- To master a prototyping mindset, you must remember that prototypes are built for learning and validating hypotheses, not for shipping final code
+- By choosing the appropriate fidelity for your specific question, you can move faster and learn more
 - Ultimately, embrace the idea that speed and quantity often beat perfection in this phase
-- never be afraid to throw a prototype away once it has served its purpose
-- never be afraid to throw a prototype away once it has served its purpose
+- Never be afraid to throw a prototype away once it has served its purpose
 
 ## Next Steps
 

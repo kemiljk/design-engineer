@@ -4,11 +4,11 @@
 
 ## What You'll Learn
 
-- Component composition patterns in React
+- Component composition patterns in react
 - The `children` prop and slots
 - Compound components and how they share state
 - Render props and custom hooks
-- Best practices for designing robust component APIs
+- Best practices for designing robust component apis
 
 ## Composition Over Inheritance
 
@@ -32,7 +32,7 @@ React favours composition over inheritance. Instead of creating specialised comp
 />
 ```
 
-Composition is preferred over specialized components because it allows you to see exactly what is being rendered, makes each piece reusable in other contexts, and ensures that adding new features does not unnecessarily bloat the component's API.
+Composition is preferred over specialised components because it allows you to see exactly what is being rendered, makes each piece reusable in other contexts, and ensures that adding new features does not unnecessarily bloat the component's API.
 
 ## The Children Prop
 
@@ -388,16 +388,13 @@ function Form() {
 ## Key Takeaways
 
 - In summary, you should prefer composition over specialised components
-- use `children` along with named props to create flexible content slots
-- use `children` along with named props to create flexible content slots
+- Use `children` along with named props to create flexible content slots
 - Compound components are excellent for sharing state through React Context
-- custom hooks have largely replaced render props for logic sharing
-- custom hooks have largely replaced render props for logic sharing
+- Custom hooks have largely replaced render props for logic sharing
 - Aim to design minimal APIs with sensible defaults
-- use the spread operator (`...props`) to forward native attributes
-- use the spread operator (`...props`) to forward native attributes
+- Use the spread operator (`...props`) to forward native attributes
+- Use `forwardRef` when wrapping native elements to allow parent components to access the underlying DOM node
 - Finally, leverage TypeScript for self-documenting APIs
-- use `forwardRef` when wrapping native elements use `forwardRef` when wrapping native elements
 
 ## Next Steps
 

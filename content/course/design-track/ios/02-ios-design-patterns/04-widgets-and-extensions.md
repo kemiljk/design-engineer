@@ -5,9 +5,9 @@
 ## What You'll Learn
 
 - The "glanceable" design mindset for effective widgets
-- Creating Home Screen widgets and Lock Screen extensions
+- Creating home screen widgets and lock screen extensions
 - Navigating technical constraints of various widget sizes
-- Creating dynamic Live Activities for the Dynamic Island
+- Creating dynamic live activities for the dynamic island
 
 ## Home Screen Widgets
 
@@ -117,9 +117,9 @@ Sketch the lifecycle of a Live Activity for a food delivery app.
 
 ## Key Takeaways
 
-- **Live Activities** for real-time events in the Dynamic Island
-- **Live Activities** for real-time events in the Dynamic Island
-- Successful designs focus on providing maximum value through glanceable content that respects the...
+- **Live Activities** provide real-time updates for events in the Dynamic Island
+- Successful designs focus on providing maximum value through glanceable content that respects the constraints of each widget size
+- Always test widgets on actual devices to ensure they feel native and performant
 
 ## Congratulations!
 

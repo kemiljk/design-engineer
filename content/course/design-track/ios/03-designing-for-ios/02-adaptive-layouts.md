@@ -125,9 +125,8 @@ Design a navigation pattern that transforms:
 
 ## Key Takeaways
 
-- multitasking capabilities mean your app must handle being resized to iPhone widths at any moment
-- multitasking capabilities mean your app must handle being resized to iPhone widths at any moment
-- elegant on any screen size elegant on any screen size
+- Multitasking capabilities mean your app must handle being resized to iPhone widths at any moment
+- By designing with size classes and adaptive layouts, you can create interfaces that remain elegant on any screen size
 
 ## Next Steps
 

@@ -4,8 +4,9 @@
 
 ## What You'll Learn
 
-- Throughout this lesson, you will master the fundamentals of focus management to ensure your appli...
-- We'll examine how to control tab order and create robust focus traps for modal dialogs
+- The fundamentals of focus management to ensure your application is fully keyboard accessible
+- How to control tab order and create robust focus traps for modal dialogs
+- How to implement skip links and manage focus states effectively
 
 ## Who Uses Keyboard Navigation?
 
@@ -202,12 +203,10 @@ Build a modal with proper focus trapping:
 
 ## Key Takeaways
 
-- inputs—are reachable and usable via the Tab key
-- inputs—are reachable and usable via the Tab key
-- Never remove default focus styles without providing a clearer replacement,
-- Finally, ensure that modals trap focus to prevent users from getting lost
-- implement skip links to allow users to bypass repetitive navigation content efficiently
-- implement skip links to allow users to bypass repetitive navigation content efficiently
+- Ensure all interactive elements—buttons, links, inputs—are reachable and usable via the tab key
+- Never remove default focus styles without providing a clearer replacement
+- Ensure that modals trap focus to prevent users from getting lost
+- Implement skip links to allow users to bypass repetitive navigation content efficiently
 
 ## Next Steps
 

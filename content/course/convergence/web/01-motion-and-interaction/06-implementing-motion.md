@@ -4,13 +4,9 @@
 
 ## What You'll Learn
 
-- keyframes with modern JavaScript approaches like the Web Animations API
-- keyframes with modern JavaScript approaches like the Web Animations API
-- We'll examine popular animation libraries such as Motion, GSAP, and Anime.js
-- explore the specific React animation patterns used to handle exit transitions, layout changes
-- explore the specific React animation patterns used to handle exit transitions, layout changes
-- complex gesture-driven interactions
-- complex gesture-driven interactions
+- CSS keyframes and modern JavaScript approaches like the Web Animations API
+- Popular animation libraries such as Motion, GSAP, and Anime.js
+- Specific React animation patterns used to handle exit transitions, layout changes, and complex gesture-driven interactions
 
 ## CSS Transitions
 
@@ -278,11 +274,10 @@ Build a grid of items that:
 
 ## Key Takeaways
 
-- gesture-based interactions
-- The Web Animations API serves as a vital bridge between CSS
-- JavaScript, providing granular control when needed
-- JavaScript, providing granular control when needed
-- accessible across all user settings accessible across all user settings
+- Use CSS transitions for simple state changes and CSS keyframes for looping animations
+- The Web Animations API serves as a vital bridge between CSS and JavaScript, providing granular control when needed
+- Animation libraries like Motion excel at complex sequences, gesture-based interactions, and exit animations
+- Always ensure animations are accessible across all user settings, respecting reduced motion preferences
 
 ## Congratulations!
 

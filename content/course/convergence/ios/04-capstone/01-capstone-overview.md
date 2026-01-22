@@ -8,8 +8,8 @@ estimatedTime: 5
 
 ## What You'll Learn
 
-- How to synthesise SwiftUI animation mastery in a complete project
-- Creating accessibility-first implementations with VoiceOver and Dynamic Type
+- How to synthesise swiftui animation mastery in a complete project
+- Creating accessibility-first implementations with voiceover and dynamic type
 - Applying attention to detail and craft to achieve professional polish
 - Documenting animation decisions in a comprehensive case study
 

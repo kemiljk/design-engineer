@@ -4,11 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to navigate the various Material 3 button types
-- explore techniques for custom button styling explore techniques for custom button styling
-- We'll examine how to implement loading and disabled states effectively
-- ensuring your components adhere to strict accessibility standards
-- ensuring your components adhere to strict accessibility standards
+- How to navigate the various Material 3 button types
+- Techniques for custom button styling
+- How to implement loading and disabled states effectively
+- How to ensure your components adhere to strict accessibility standards
 
 ## Material 3 Buttons
 
@@ -186,10 +185,9 @@ Further develop your interactive elements by building an asynchronous button tha
 
 ## Key Takeaways
 
-- use `ButtonDefaults` to customising colours use `ButtonDefaults` to customising colours and shapes
+- Use `ButtonDefaults` to customise colours and shapes
 - Always handle loading and disabled states to provide a responsive user experience
-- ensure that every icon button includes an accurate content description for accessibility
-- ensure that every icon button includes an accurate content description for accessibility
+- Ensure that every icon button includes an accurate content description for accessibility
 
 ## Next Steps
 

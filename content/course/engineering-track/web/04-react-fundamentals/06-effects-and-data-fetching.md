@@ -606,14 +606,11 @@ Develop a scroll tracking hook that adds a scroll event listener inside an effec
 ## Key Takeaways
 
 - The dependency array controls exactly when the effect runs: an empty array means it runs only once
-- no array means it runs after every render
-- no array means it runs after every render
+- No array means it runs after every render
 - Cleanup functions are essential for preventing memory leaks and race conditions
-- you should always include all dependencies used within the effect
-- you should always include all dependencies used within the effect
+- You should always include all dependencies used within the effect
 - Avoid using effects for values that can simply be calculated during render
-- always handle both loading and error states when fetching data
-- always handle both loading and error states when fetching data
+- Always handle both loading and error states when fetching data
 
 ## Next Steps
 

@@ -10,10 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- In this final lesson, we will focus on setting up a professional build process for your CSS
-- JavaScript JavaScript
-- discover how to manage versioning and releases effectively
-- discover how to manage versioning and releases effectively
+- How to set up a professional build process for your CSS and JavaScript
+- How to manage versioning and releases effectively
+- Best practices for deploying component libraries
 
 ## Step 1: Build Process
 

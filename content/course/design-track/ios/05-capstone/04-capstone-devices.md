@@ -10,11 +10,11 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Adapting designs for various iPhone dimensions
+- Adapting designs for various iphone dimensions
 - Stress-testing layouts for smallest and largest displays
 - Handling safe areas effectively across device generations
 - Applying semantic tokens to create polished dark mode versions
-- Optional strategies for transforming interfaces for iPad
+- Optional strategies for transforming interfaces for ipad
 
 ## Step 1: iPhone Sizes
 

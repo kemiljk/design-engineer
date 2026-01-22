@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn how state drives UI updates in Compose
-- explore the essential roles of `remember` explore the essential roles of `remember`
-- `mutableStateOf` `mutableStateOf`
-- We'll examine the concept of state hoisting for creating reusable components
-- look at how to integrate ViewModels for more robust state management
-- look at how to integrate ViewModels for more robust state management
+- How state drives UI updates in Compose
+- The essential roles of `remember` and `mutableStateOf`
+- The concept of state hoisting for creating reusable components
+- How to integrate ViewModels for more robust state management
 
 ## State Basics
 
@@ -177,14 +175,10 @@ Further develop your architectural skills by refactoring a stateful component in
 
 ## Key Takeaways
 
-- `mutableStateOf` to create observables that trigger UI updates
-- `mutableStateOf` to create observables that trigger UI updates
+- Use `mutableStateOf` to create observables that trigger UI updates
 - Always prioritise hoisting your state to enhance component reusability
-- use `rememberSaveable` to ensure data persists through configuration changes like screen rotation
-- use `rememberSaveable` to ensure data persists through configuration changes like screen rotation
-- Finally, leverage ViewModels to manage complex business logic
-- provide a consistent source of truth for your screen's state
-- provide a consistent source of truth for your screen's state
+- Use `rememberSaveable` to ensure data persists through configuration changes like screen rotation
+- Leverage ViewModels to manage complex business logic and provide a consistent source of truth for your screen's state
 
 ## Next Steps
 

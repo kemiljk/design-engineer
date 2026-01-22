@@ -4,10 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will discover the anatomy of effective micro-interactions
-- explore the common patterns that make digital interfaces feel responsive
-- explore the common patterns that make digital interfaces feel responsive and alive
-- We'll dive into the practical implementation of these small-scale animations using modern CSS
+- The anatomy of effective micro-interactions (trigger, rules, feedback, loops & modes)
+- Common patterns that make digital interfaces feel responsive and alive
+- Practical implementation of these small-scale animations using modern CSS and JavaScript
 
 ## Anatomy of a Micro-interaction
 
@@ -296,9 +295,9 @@ Create a robust input field that handles various states gracefully. Implement a 
 
 ## Key Takeaways
 
-- Successful micro-interactions are subtle
-- By keeping animations brief (100-300ms)
-- Finally, ensuring your interactions respect reduced motion preferences will keep your refined exp...
+- Successful micro-interactions are subtle and provide clear feedback
+- By keeping animations brief (100-300ms), you maintain responsiveness without feeling sluggish
+- Ensure your interactions respect reduced motion preferences to keep your refined experience accessible to all users
 
 ## Next Steps
 

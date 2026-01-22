@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn the foundational concepts of SwiftUI buttons
-- examine how to create custom button styles for a unique brand identity
-- examine how to create custom button styles for a unique brand identity
-- We'll explore the integration of haptic feedback for a more tactile user experience
-- walk through the essential accessibility practices to ensure your buttons are usable by everyone
-- walk through the essential accessibility practices to ensure your buttons are usable by everyone
+- The foundational concepts of SwiftUI buttons
+- How to create custom button styles for a unique brand identity
+- The integration of haptic feedback for a more tactile user experience
+- Essential accessibility practices to ensure your buttons are usable by everyone
 
 ## Basic Buttons
 
@@ -174,11 +172,9 @@ Build a robust asynchronous button that provides clear feedback during backgroun
 
 ## Key Takeaways
 
-- always handle the `isPressed` state to provide immediate visual feedback
-- always handle the `isPressed` state to provide immediate visual feedback
+- Always handle the `ispressed` state to provide immediate visual feedback
 - Incorporate haptics to give your interface a premium, tactile feel
-- maintain a strong focus on accessibility to ensure a great experience for all users
-- maintain a strong focus on accessibility to ensure a great experience for all users
+- Maintain a strong focus on accessibility to ensure a great experience for all users
 
 ## Next Steps
 

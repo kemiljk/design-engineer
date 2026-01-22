@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- Setup of Android design files in Figma
+- How to set up Android design files in Figma
 - How to effectively use official Material Design kits
 - Standard device frames and dimensions
 - Correct configuration of components and design tokens
@@ -97,11 +97,9 @@ Design a simple dashboard screen by placing a Top App Bar and a Card containing 
 
 ## Key Takeaways
 
-- To ensure a successful Android design, you should always start with correct 360x800dp dimensions
-- leverage the official Material Design 3 Kit to maintain platform consistency
-- leverage the official Material Design 3 Kit to maintain platform consistency
-- always accounting for both light and dark modes from the very beginning of your project
-- always accounting for both light and dark modes from the very beginning of your project
+- Always start with correct 360×800dp dimensions for successful Android design
+- Leverage the official Material Design 3 kit to maintain platform consistency
+- Always account for both light and dark modes from the very beginning of your project
 
 ## Next Steps
 

@@ -150,10 +150,9 @@ Design a simple "Settings" screen.
 ## Key Takeaways
 
 - To create professional iOS designs in Figma, you must always work at **1x scale** (points)
-- leverage **Apple's official UI Kit** to ensure component accuracy
-- leverage **Apple's official UI Kit** to ensure component accuracy and consistency
-- Integrating **SF Symbols** as your iconography standard
-- Finally, building with **Auto Layout** ensures your designs mimic the behaviour of native SwiftUI...
+- Leverage **Apple's official UI kit** to ensure component accuracy and consistency
+- Integrate **SF Symbols** as your iconography standard
+- Building with **Auto Layout** ensures your designs mimic the behaviour of native SwiftUI layouts
 
 ## Next Steps
 

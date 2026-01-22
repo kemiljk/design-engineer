@@ -4,14 +4,14 @@
 
 ## What You'll Learn
 
-- The seven core Gestalt principles: proximity, similarity, closure, continuity, figure/ground, common fate, symmetry
+- The seven core gestalt principles: proximity, similarity, closure, continuity, figure/ground, common fate, symmetry
 - How the brain groups and interprets visual information
-- How to leverage Gestalt principles in your designs
+- How to leverage gestalt principles in your designs
 - Practical applications of each principle
 
 ## The Brain as a Pattern Matching Machine
 
-In the early 20th century, a group of German psychologists observed something fascinating: the human brain is lazy. It constantly tries to simplify complex visual data into simple, organized wholes. This is **Gestalt** (German for "form" or "shape").
+In the early 20th century, a group of German psychologists observed something fascinating: the human brain is lazy. It constantly tries to simplify complex visual data into simple, organised wholes. This is **Gestalt** (German for "form" or "shape").
 
 For designers, this is a superpower. If you understand how the brain groups things, you can create layouts that users understand instantly, without needing to read a single label.
 

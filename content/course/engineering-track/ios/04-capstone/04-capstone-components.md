@@ -10,12 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- During this module, you will learn how to create reusable SwiftUI view components
-- build custom view modifiers for consistent styling
-- build custom view modifiers for consistent styling
-- We'll examine the process of designing bespoke button styles
-- walk through the creation of effective empty state views to handle missing data gracefully
-- walk through the creation of effective empty state views to handle missing data gracefully
+- How to create reusable SwiftUI view components
+- How to build custom view modifiers for consistent styling
+- The process of designing bespoke button styles
+- How to create effective empty state views to handle missing data gracefully
 
 ## Custom Row Component
 

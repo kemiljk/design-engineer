@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- Throughout this lesson, you will learn how to keep the main thread unblocked to ensure your inter...
-- discuss code splitting strategies to load JavaScript only when it's truly needed
-- discuss code splitting strategies to load JavaScript only when it's truly needed
+- How to keep the main thread unblocked to ensure your interface remains responsive
+- Code splitting strategies to load JavaScript only when it's truly needed
+- Techniques like debouncing, throttling, and Web Workers to prevent UI freezes
 
 ## The Main Thread
 
@@ -193,10 +193,8 @@ Create a scroll listener with throttling and measure the difference without.
 ## Key Takeaways
 
 - JavaScript executes on the main thread, meaning long-running tasks can freeze the entire interface
-- To prevent this, use debouncing for actions that should wait for inactivity (like search)
-- throttling for continuous events (like scroll) throttling for continuous events (like scroll)
-- use code splitting to ensure you are not sending unused code to the client
-- use code splitting to ensure you are not sending unused code to the client
+- To prevent this, use debouncing for actions that should wait for inactivity (like search) and throttling for continuous events (like scroll)
+- Use code splitting to ensure you are not sending unused code to the client
 
 ## Next Steps
 

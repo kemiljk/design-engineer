@@ -10,11 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- During this module, you will learn how to properly set up an Xcode project for SwiftUI
-- define robust data models using SwiftData define robust data models using SwiftData
-- We'll examine effective ways to organise your project files
-- walk through the configuration of the main app entry point
-- walk through the configuration of the main app entry point
+- How to properly set up an Xcode project for SwiftUI
+- How to define robust data models using SwiftData
+- Effective ways to organise your project files
+- How to configure the main app entry point
 
 ## Step 1: Create Xcode Project
 

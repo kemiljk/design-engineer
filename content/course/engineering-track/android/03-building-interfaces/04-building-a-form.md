@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to utilize TextField variants for collecting user input
-- explore effective techniques for form state management
-- explore effective techniques for form state management
-- We'll examine how to implement validation logic and handle form submission to ensure a clean
-- professional user experience professional user experience
+- How to utilise TextField variants for collecting user input
+- Effective techniques for form state management
+- How to implement validation logic and handle form submission to ensure a clean, professional user experience
 
 ## TextField
 
@@ -214,12 +212,10 @@ Further expand your capabilities by building a comprehensive profile editor. Thi
 
 ## Key Takeaways
 
-- configuring appropriate keyboard options to streamline the typing experience
-- configuring appropriate keyboard options to streamline the typing experience
+- Configure appropriate keyboard options to streamline the typing experience
 - Always validate your input and display specific errors through the `supportingText` property
-- lean on focus management to enhance the overall user flow
-- lean on focus management to enhance the overall user flow
-- testing testing
+- Lean on focus management to enhance the overall user flow
+- Test your forms thoroughly across different input scenarios
 
 ## Next Steps
 

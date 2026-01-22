@@ -5,9 +5,9 @@
 ## What You'll Learn
 
 - Essentials of defining and using CSS custom properties
-- Leveraging inheritance to create clean stylesheets
+- How to leverage inheritance to create clean stylesheets
 - Using JavaScript to manage dynamic values at runtime
-- Implementing robust theming systems for user preferences or brands
+- How to implement robust theming systems for user preferences or brands
 
 ## What Are Custom Properties?
 
@@ -313,9 +313,8 @@ Develop a component that features several customisable properties, such as backg
 
 ## Key Takeaways
 
-- To recap, CSS custom properties are defined using the `--name` prefix
-- accessed through the `var()` function accessed through the `var()` function
-- They support full inheritance across the document,
+- To recap, CSS custom properties are defined using the `--name` prefix and accessed through the `var()` function
+- They support full inheritance across the document
 - By providing fallback values, you can build more resilient styles
 
 ## Next Steps

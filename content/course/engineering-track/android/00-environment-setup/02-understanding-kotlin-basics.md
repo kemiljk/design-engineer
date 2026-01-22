@@ -4,10 +4,9 @@
 
 ## What You'll Learn
 
-- Throughout this lesson, you will learn the fundamentals of Kotlin without being overwhelmed by ex...
-- We'll examine variables, types
-- data classes, focusing specifically on how these concepts appear within Jetpack Compose
-- data classes, focusing specifically on how these concepts appear within Jetpack Compose
+- The fundamentals of Kotlin without being overwhelmed by excessive detail
+- Variables, types, and data classes, focusing specifically on how these concepts appear within Jetpack Compose
+- Essential Kotlin features that make Compose code readable and maintainable
 
 ## Kotlin for Designers
 
@@ -594,13 +593,10 @@ fun getThemeLabel(theme: Theme): String = when (theme) {
 
 ## Key Takeaways
 
-- leveraging the language's strong null safety through operators like `?`, `?.`
-- leveraging the language's strong null safety through operators like `?`, `?.`, and `?:`
+- Leverage the language's strong null safety through operators like `?`, `?.`, and `?:`
 - Remember that data classes are ideal for managing UI state
-- that lambdas are the essential building blocks for Compose
-- that lambdas are the essential building blocks for Compose
-- Finally, utilizing named parameters will significantly improve code readability
-- `when` expressions provide an elegant way to handle multiple logical conditions
+- Lambdas are the essential building blocks for Compose
+- Utilising named parameters significantly improves code readability
 - `when` expressions provide an elegant way to handle multiple logical conditions
 
 ## Next Steps

@@ -8,7 +8,7 @@
 - Spring animation parameters and when to use them
 - Types of iOS animations (navigation, modals, micro-interactions)
 - How to design animations in Figma for iOS
-- Respecting the Reduce Motion accessibility setting
+- Respecting the reduce motion accessibility setting
 
 ## The iOS Motion Philosophy
 
@@ -133,9 +133,9 @@ In your design tool, create a square and experiment with high and low damping to
 
 ## Key Takeaways
 
-- iOS motion uses **Spring Physics** to create natural, physically real animations
+- iOS motion uses **spring physics** to create natural, physically real animations
 - Every animation should serve a clear **communication purpose**
-- Maintain standard damping ratios and provide alternatives for **Reduce Motion**
+- Maintain standard damping ratios and provide alternatives for **reduce motion**
 - **Document** your animation specifications clearly for the engineering team
 
 ## Next Steps

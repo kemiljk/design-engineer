@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - What components are and why they matter
-- Using Atomic Design methodology to structure interfaces (atoms, molecules, organisms)
+- Using atomic design methodology to structure interfaces (atoms, molecules, organisms)
 - How to identify and define components
 - The critical relationship between design and production code
 
@@ -138,7 +138,7 @@ Rename the layers in your current design file to match a strict component naming
 ## Key Takeaways
 
 - Components are the fundamental units of design
-- Structure them through Atomic Design principles: atoms, molecules, and organisms
+- Structure them through atomic design principles: atoms, molecules, and organisms
 - By identifying reusable functionality and defining props rather than unique copies, you can align naming conventions with engineering to create a shared, systematic language
 
 ## Next Steps

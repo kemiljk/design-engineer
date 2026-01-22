@@ -11,11 +11,11 @@ Learn to think like a designer. This track covers the principles, patterns, and 
 
 - Visual design fundamentals: typography, colour theory, and layout
 - Creating clear hierarchy and visual communication
-- Platform-specific guidelines: Apple's HIG and Google's Material Design 3
+- Platform-specific guidelines: apple's hig and google's material design 3
 - Building robust design systems with tokens and clear documentation
-- User-centred UX principles for solving complex problems
-- Interaction design and bridging the gap between Figma and production code
+- User-centred ux principles for solving complex problems
+- Interaction design and bridging the gap between figma and production code
 
 ## Choose Your Platform
 
-Select a path to specialize in the nuances of your target ecosystem.
+Select a path to specialise in the nuances of your target ecosystem.

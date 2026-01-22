@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- learn how to identify safe versus risky animation patterns
-- learn how to identify safe versus risky animation patterns
-- We'll explore how to implement the `prefers-reduced-motion` media query to automatically adapt yo...
+- How to identify safe versus risky animation patterns
+- How to implement the `prefers-reduced-motion` media query to automatically adapt your animations
+- How to provide reduced motion alternatives that maintain functionality
 
 ## Who Is Affected by Motion?
 
@@ -226,11 +226,9 @@ Add reduced motion support to:
 
 ## Key Takeaways
 
-- JavaScript JavaScript
+- Use JavaScript to detect `prefers-reduced-motion` and adjust animation behaviour accordingly
 - While opacity fades are generally safe, avoid parallax effects and large movement animations
-- always provide reduced alternatives rather than simply removing all motion
-- always provide reduced alternatives rather than simply removing all motion
-- polished polished
+- Always provide reduced alternatives rather than simply removing all motion, ensuring your experience remains polished and functional
 
 ## Congratulations!
 

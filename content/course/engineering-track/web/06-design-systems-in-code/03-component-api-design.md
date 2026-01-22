@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- In this lesson, we will focus on designing effective component props
-- implementing various variant implementing various variant and modifier patterns
-- You will learn about consistent API conventions
-- explore a range of developer experience considerations to ensure your components are intuitive
-- explore a range of developer experience considerations to ensure your components are intuitive
-- easy to use easy to use
+- How to design effective component props
+- Implementing various variant and modifier patterns
+- Consistent API conventions
+- Developer experience considerations to ensure your components are intuitive and easy to use
 
 ## Props Design Principles
 
@@ -156,11 +154,9 @@ rightIcon
 
 ## Key Takeaways
 
-- To recap, your component APIs should only require essential props
-- provide sensible defaults for everything else provide sensible defaults for everything else
+- To recap, your component APIs should only require essential props and provide sensible defaults for everything else
 - Use consistent naming conventions across all components in your library
-- ensure you support composition through the use of children
-- ensure you support composition through the use of children and slots
+- Ensure you support composition through the use of children and slots
 - Finally, always document your API clearly to help other developers use your components effectively
 
 ## Next Steps

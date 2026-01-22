@@ -10,7 +10,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Applying Material motion principles
+- Applying Material Motion principles
 - Designing comprehensive interaction states for UI elements
 - Building connected prototypes
 - Adding delightful Material-style micro-interactions

@@ -4,8 +4,9 @@
 
 ## What You'll Learn
 
-- During this lesson, you will master the various categories of prototyping tools—from design softw...
-- We'll explore essential speed techniques, including the use of boilerplates and component libraries
+- The various categories of prototyping tools—from design software to code-based solutions
+- Essential speed techniques, including the use of boilerplates and component libraries
+- How to choose the right tool for each prototyping challenge
 
 ## Tool Categories
 
@@ -156,12 +157,9 @@ Create your ideal prototype starter:
 
 ## Key Takeaways
 
-- Mastering a variety of prototyping tools allows you to choose the fastest method to answer a spec...
-- Speed comes from preparation—having a personal toolkit of templates, libraries
-- deployment scripts ready for instant use
-- deployment scripts ready for instant use
-- Ultimately, the best tool is the one that facilitates the fastest cycle of iteration
-- learning for your specific project needs learning for your specific project needs
+- Mastering a variety of prototyping tools allows you to choose the fastest method to answer a specific question
+- Speed comes from preparation—having a personal toolkit of templates, libraries, and deployment scripts ready for instant use
+- Ultimately, the best tool is the one that facilitates the fastest cycle of iteration and learning for your specific project needs
 
 ## Congratulations!
 

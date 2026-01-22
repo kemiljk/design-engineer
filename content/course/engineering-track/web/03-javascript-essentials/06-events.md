@@ -310,11 +310,10 @@ Implement a list where each item has buttons to move it up or down relative to i
 
 ## Key Takeaways
 
-- To recap, `addEventListener` is the primary method for attaching event handlers
-- making your web pages interactive making your web pages interactive
-- Every event provides an object full of useful data
-- you can use `preventDefault()` to override the browser's default behaviours when necessary
-- you can use `preventDefault()` to override the browser's default behaviours when necessary
+- To recap, `addEventListener` is the primary method for attaching event handlers, making your web pages interactive
+- Every event provides an object full of useful data about the interaction
+- You can use `preventDefault()` to override the browser's default behaviours when necessary
+- Event delegation allows you to handle events efficiently on dynamically created elements
 
 ## Next Steps
 

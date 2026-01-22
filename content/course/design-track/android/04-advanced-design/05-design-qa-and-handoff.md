@@ -116,10 +116,9 @@ Take a screenshot of an implemented screen. Overlay it on your design at 50% opa
 
 ## Key Takeaways
 
-- Effective Android handoff depends on clear naming conventions
-- specifications that leverage Material Design tokens
-- specifications that leverage Material Design tokens and roles to define both logic and behaviour
-- By treating design QA as a collaborative, ongoing process,
+- Effective Android handoff depends on clear naming conventions and specifications that leverage Material Design tokens and roles to define both logic and behaviour
+- By treating design QA as a collaborative, ongoing process, you ensure pixel-perfect implementation
+- Match Compose thinking by organising designs into meaningful columns and rows that translate directly to code
 
 ## Module Complete! 🎉
 

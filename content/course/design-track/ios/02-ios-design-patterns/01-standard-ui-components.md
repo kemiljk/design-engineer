@@ -133,10 +133,9 @@ Sketch a "Profile" screen for an app. Decide which list style (Plain or Inset Gr
 
 ## Key Takeaways
 
-- reserving **Plain** lists for general content
-- reserving **Plain** lists for general content
-- By leveraging native input behaviours like **Switches**
-- correct keyboard types, you gain accessibility correct keyboard types, you gain accessibility
+- Reserve **plain** lists for general content and **grouped** lists for settings and related items
+- By leveraging native input behaviours like **switches** and correct keyboard types, you gain accessibility and platform consistency
+- Use standard iOS components to ensure your app feels native and familiar to users
 
 ## Next Steps
 

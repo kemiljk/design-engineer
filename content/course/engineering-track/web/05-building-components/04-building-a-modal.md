@@ -508,19 +508,15 @@ Create a modal that contains a form, implements proper focus management, and han
 
 ## Key Takeaways
 
-- To recap, always use semantic HTML and ARIA attributes for accessibility
-- implement focus trapping to keep the user within the modal
-- implement focus trapping to keep the user within the modal
-- Handle the Escape key to close the modal and return focus to the trigger element on close
+- To recap, always use semantic html and aria attributes for accessibility
+- Implement focus trapping to keep the user within the modal
+- Handle the escape key to close the modal and return focus to the trigger element on close
 - Prevent background scrolling while the modal is open
-- animate the open and close transitions for polish
-- animate the open and close transitions for polish
-- React portals render modals outside the DOM hierarchy
-- custom hooks encapsulate focus and keyboard logic cleanly
-- custom hooks encapsulate focus and keyboard logic cleanly
+- Animate the open and close transitions for polish
+- React portals render modals outside the dom hierarchy
+- Custom hooks encapsulate focus and keyboard logic cleanly
 - Parent components control modal state via props
-- compound components allow flexible modal layouts
-- compound components allow flexible modal layouts
+- Compound components allow flexible modal layouts
 
 ## Next Steps
 

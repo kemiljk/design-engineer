@@ -12,7 +12,7 @@ estimatedTime: 5
 - Creating Material 3 component libraries
 - Designing adaptive layouts for phones, tablets, and foldables
 - Implementing dynamic colour (Material You)
-- Building interactive prototypes with Material motion
+- Building interactive prototypes with Material Motion
 
 ## Why This Project?
 

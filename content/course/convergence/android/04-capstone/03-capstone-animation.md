@@ -10,7 +10,7 @@ estimatedTime: 25
 
 ## What You'll Learn
 
-- How to create robust core Compose animations
+- How to create robust core compose animations
 - Building silky smooth transitions between states and screens
 - Implementing responsive gesture animations that feel natural
 - Bringing your motion plan to life in code

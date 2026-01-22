@@ -39,7 +39,7 @@ In Material 3, surface colours are often tints of the primary or neutral palette
 ## Typography
 
 ### Type Scale
-Material provides a set of semantic roles to organize your text.
+Material provides a set of semantic roles to organise your text.
 The type scale is organised into semantic roles to help users understand information hierarchy. This starts with large, expressive **Display** text for hero sections, followed by **Headline** sizes for section markings and **Title** styles for component headings. **Body** text handles the primary reading experience, while **Label** roles provide compact text for UI elements like buttons and chips.
 
 ### Fonts
@@ -113,14 +113,11 @@ Pick a primary seed colour for a fictional brand and use it to generate a full M
 
 ## Key Takeaways
 
-- The 8dp grid acts as a fundamental guide that significantly simplifies spacing
-- sizing decisions across any interface sizing decisions across any interface
+- The 8dp grid acts as a fundamental guide that significantly simplifies spacing and sizing decisions across any interface
 - By separating hue from luminance into tonal palettes, Material ensures total accessibility
-- the dynamic colour system allows your app to adapt seamlessly to a user's personal style
-- the dynamic colour system allows your app to adapt seamlessly to a user's personal style
-- Finally, the type scale provides a robust semantic hierarchy for all text
-- iconography is divided between simple system functional and expressive product graphics
-- iconography is divided between simple system functional and expressive product graphics
+- The dynamic colour system allows your app to adapt seamlessly to a user's personal style
+- The type scale provides a robust semantic hierarchy for all text
+- Iconography is divided between simple system functional icons and expressive product graphics
 
 ## Next Steps
 

@@ -8,7 +8,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Why ES6 modules are vital for modern codebases
+- Why es6 modules are vital for modern codebases
 - Syntax for named and default exports
 - Using re-exports and barrel files to simplify imports
 - Best practices for clean, scalable module-based architecture
@@ -181,12 +181,9 @@ Take a single JavaScript file that contains multiple constants, API functions, a
 
 ## Key Takeaways
 
-- To recap, ES6 modules provide a robust way to manage code dependencies by using explicit `import`
-- `export` statements `export` statements
-- default exports are available, named exports are generally preferred for better refactorability
-- default exports are available, named exports are generally preferred for better refactorability
-- clearer intent clearer intent
-- You can use re-exports to create convenient barrel files
+- To recap, ES6 modules provide a robust way to manage code dependencies by using explicit `import` and `export` statements
+- While default exports are available, named exports are generally preferred for better refactorability and clearer intent
+- You can use re-exports to create convenient barrel files that simplify imports
 
 ## Next Steps
 

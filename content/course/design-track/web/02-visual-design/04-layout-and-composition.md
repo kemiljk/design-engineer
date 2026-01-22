@@ -263,10 +263,8 @@ Sketch each breakpoint.
 ## Key Takeaways
 
 - Effective layout uses grids to create consistency
-- By designing mobile-first and applying composition techniques like the F
-- Z-patterns, you can guide visual flow Z-patterns, you can guide visual flow
-- balance weight to avoid walls of sameness or overcrowding in your interfaces
-- balance weight to avoid walls of sameness or overcrowding in your interfaces
+- By designing mobile-first and applying composition techniques like the F-pattern and Z-patterns, you can guide visual flow
+- Balance weight to avoid walls of sameness or overcrowding in your interfaces
 
 ## Next Steps
 

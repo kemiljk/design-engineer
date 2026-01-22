@@ -138,12 +138,8 @@ Draft a set of contribution guidelines that clearly explain how users can report
 ## Key Takeaways
 
 - A design system is an ongoing product rather than a finite project, requiring continuous maintenance
-- the use of semantic versioning to communicate the scope of changes
-- the use of semantic versioning to communicate the scope of changes
-- By managing deprecation as a gradual process and adopting a governance model that balances speed
-- consistency, you can measure success through team adoption
-- consistency, you can measure success through team adoption
-- satisfaction rather than just component volume satisfaction rather than just component volume
+- Use semantic versioning to communicate the scope of changes
+- By managing deprecation as a gradual process and adopting a governance model that balances speed and consistency, you can measure success through team adoption and satisfaction rather than just component volume
 
 ## Next Steps
 

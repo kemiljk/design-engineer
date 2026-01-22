@@ -8,11 +8,11 @@ estimatedTime: 5
 
 ## What You'll Learn
 
-- How to build a complete working Jetpack Compose app
+- How to build a complete working jetpack compose app
 - Creating custom reusable composables and modifiers
-- Implementing proper state management with ViewModel
-- Adding data persistence with Room or DataStore
-- Achieving polish and accessibility with Material 3
+- Implementing proper state management with viewmodel
+- Adding data persistence with room or datastore
+- Achieving polish and accessibility with material 3
 
 ## Why This Project?
 

@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- How to implement standard Material motion patterns in Compose
+- How to implement standard material motion patterns in compose
 - Complex shared element transitions between screens
-- Creating custom AnimatedVisibility enter/exit effects
-- Applying polished transitions to your Navigation graph
+- Creating custom animatedvisibility enter/exit effects
+- Applying polished transitions to your navigation graph
 
 ## Material Motion Patterns
 

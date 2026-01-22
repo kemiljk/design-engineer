@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn exactly how modifiers work
-- explore a wide variety of common modifiers used for layout
-- explore a wide variety of common modifiers used for layout and appearance
-- We'll examine why modifier order is so significant
-- learn how to create your own custom modifiers for reusable styling patterns
-- learn how to create your own custom modifiers for reusable styling patterns
+- Exactly how modifiers work
+- A wide variety of common modifiers used for layout and appearance
+- Why modifier order is so significant
+- How to create your own custom modifiers for reusable styling patterns
 
 ## How Modifiers Work
 
@@ -195,10 +193,10 @@ Further expand your capabilities by creating a custom `badge()` modifier that fa
 
 ## Key Takeaways
 
-- appearance appearance
-- Order remains critical to the final visual output
-- Finally, leverage custom modifiers to encapsulate repeating styles
-- maintain a clean, reusable codebase maintain a clean, reusable codebase
+- Modifiers chain together to transform layout, behaviour, and appearance
+- Order remains critical to the final visual output—modifiers wrap from bottom to top
+- Leverage custom modifiers to encapsulate repeating styles and maintain a clean, reusable codebase
+- Always accept a `Modifier` parameter in your composables to allow flexibility
 
 ## Next Steps
 

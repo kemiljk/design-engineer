@@ -591,13 +591,11 @@ const features = [
 
 ## Key Takeaways
 
-- curly braces for JavaScript expressions
-- curly braces for JavaScript expressions
-- Components must return a single root element,
+- Use curly braces for JavaScript expressions in JSX
+- Components must return a single root element
 - Composition is the key pattern, allowing you to build complex UIs from simple, reusable pieces
 - When rendering lists, always provide unique `key` props to enable efficient updates
-- organise your project with one component per file
-- organise your project with one component per file
+- Organise your project with one component per file
 
 ## Next Steps
 

@@ -6,8 +6,8 @@
 
 - Psychology behind effective notification design
 - Anatomy of standard and custom notification surfaces
-- How to build versatile Home Screen widgets
-- Giving users granular control using Notification Channels
+- How to build versatile home screen widgets
+- Giving users granular control using notification channels
 
 ## The Art of the Notification
 
@@ -106,7 +106,9 @@ Sketch a "Notes" widget that adapts across three distinct states. At its smalles
 ## Key Takeaways
 
 - Treat notifications as a privilege by ensuring every alert delivers genuine value to the user
-- is correctly categorised through system channels is correctly categorised through system channels
+- Categorise notifications correctly through system channels so users can control what they receive
+- Design widgets to be resizable and adapt fluidly across different sizes
+- Provide inline actions in notifications so users can complete tasks without opening the app
 
 ## Congratulations!
 

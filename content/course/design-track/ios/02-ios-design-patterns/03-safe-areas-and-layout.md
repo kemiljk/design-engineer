@@ -7,7 +7,7 @@
 - Why the rectangular screen concept no longer applies to modern iOS devices
 - How to use safe areas to protect interactive content
 - Strategies for achieving immersive "full-bleed" designs
-- Managing system-reserved zones (Dynamic Island, Home Indicator, rounded corners)
+- Managing system-reserved zones (dynamic island, home indicator, rounded corners)
 
 ## The Death of the Rectangle
 
@@ -113,12 +113,9 @@ Design a screen with a "Confirm" button at the bottom.
 
 ## Key Takeaways
 
-- backgrounds enjoy a full-bleed effect, interactive content remains visible across various Touch ID
-- backgrounds enjoy a full-bleed effect, interactive content remains visible across various Touch ID
-- Face ID devices Face ID devices
-- You must be particularly careful to avoid placing controls in the **Home Indicator zone**
-- always use layout guides instead of hard-coded values to future-proof your interface
-- always use layout guides instead of hard-coded values to future-proof your interface
+- Backgrounds enjoy a full-bleed effect, while interactive content remains visible across various Touch ID and Face ID devices
+- You must be particularly careful to avoid placing controls in the **home indicator zone**
+- Always use layout guides instead of hard-coded values to future-proof your interface
 
 ## Next Steps
 

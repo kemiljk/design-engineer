@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- The four distinct parts of the CSS box model
+- The four distinct parts of the css box model
 - Critical differences between `content-box` and `border-box` sizing
 - The phenomenon of margin collapse
 - Practical box model techniques for layouts
@@ -353,10 +353,9 @@ Set up a few different scenarios to demonstrate margin collapse, including both 
 ## Key Takeaways
 
 - To recap, the CSS box model consists of four layers: content, padding, border, and margin
-- grid layouts grid layouts
-- Finally, remember that the `display` property significantly alters box behaviour
-- you can use the `overflow` property to manage any content that exceeds its container's dimensions
-- you can use the `overflow` property to manage any content that exceeds its container's dimensions
+- Understanding the difference between `content-box` and `border-box` is crucial for predictable layouts
+- The `display` property significantly alters box behaviour, affecting how elements interact with Flexbox and Grid layouts
+- You can use the `overflow` property to manage any content that exceeds its container's dimensions
 
 ## Next Steps
 

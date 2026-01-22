@@ -10,11 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- In this lesson, we will focus on the project structure for component libraries
-- the creation of CSS custom properties for design tokens
-- the creation of CSS custom properties for design tokens
-- You will learn how to implement support for both light and dark themes
-- build a systematic, scalable token architecture build a systematic, scalable token architecture
+- The project structure for component libraries
+- How to create CSS custom properties for design tokens
+- How to implement support for both light and dark themes
+- How to build a systematic, scalable token architecture
 
 ## Step 1: Project Setup
 

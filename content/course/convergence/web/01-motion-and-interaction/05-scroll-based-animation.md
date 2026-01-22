@@ -4,10 +4,9 @@
 
 ## What You'll Learn
 
-- scroll-linked progress effects scroll-linked progress effects
-- dive into the essential performance dive into the essential performance
-- accessibility considerations required to keep your scrolling experiences smooth
-- accessibility considerations required to keep your scrolling experiences smooth and inclusive
+- Scroll-linked progress effects and scroll-triggered animations
+- Essential performance considerations for smooth scrolling experiences
+- Accessibility considerations required to keep your scrolling experiences smooth and inclusive
 
 ## Types of Scroll Animation
 
@@ -227,13 +226,10 @@ Create a hero section with a background image that scrolls at a different rate t
 
 ## Key Takeaways
 
-- Scroll animations should be used intentionally to reveal content or provide progress indicators,...
-- When using fallbacks like Intersection Observer, you must limit your animations to transform
-- opacity properties to ensure hardware acceleration
-- opacity properties to ensure hardware acceleration and smooth frame rates
+- Scroll animations should be used intentionally to reveal content or provide progress indicators, not just for decoration
+- When using fallbacks like Intersection Observer, limit your animations to transform and opacity properties to ensure hardware acceleration and smooth frame rates
 - Most importantly, always respect reduced motion preferences
-- test your scroll effects across both desktop test your scroll effects across both desktop
-- mobile devices to ensure consistency mobile devices to ensure consistency
+- Test your scroll effects across both desktop and mobile devices to ensure consistency
 
 ## Next Steps
 

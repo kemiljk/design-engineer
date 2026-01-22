@@ -327,14 +327,12 @@ Create a full-page modal overlay where the content box remains perfectly centred
 ## Key Takeaways
 
 - To build powerful layouts with flexbox, you must first create a flex container using `display: flex`
-- define the main axis with `flex-direction` define the main axis with `flex-direction`
+- Define the main axis with `flex-direction` (row or column)
 - Use `justify-content` and `align-items` to manage alignment across the axes
-- take advantage of the `gap` property for clean spacing between your items
-- take advantage of the `gap` property for clean spacing between your items
+- Take advantage of the `gap` property for clean spacing between your items
 - By mastering the `flex` shorthand property, you can control how items grow and shrink
 - `order` and `align-self` provide granular control over individual elements
-- `order` and `align-self` provide granular control over individual elements
-- Finally, remember that flexbox is a one-dimensional system,
+- Finally, remember that flexbox is a one-dimensional system, perfect for rows or columns but not both simultaneously
 
 ## Next Steps
 

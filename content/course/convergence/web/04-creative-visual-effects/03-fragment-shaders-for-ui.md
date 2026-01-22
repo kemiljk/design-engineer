@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- Throughout this lesson, you will learn to construct practical,
-- seamlessly integrate these GPU-powered visuals into your existing component architecture
-- seamlessly integrate these GPU-powered visuals into your existing component architecture
+- How to construct practical, production-ready shader effects for user interfaces
+- How to seamlessly integrate these GPU-powered visuals into your existing component architecture
+- Techniques for creating subtle, enhancing effects rather than distracting ones
 
 ## The UI Shader Mindset
 
@@ -337,13 +337,9 @@ Create a glow effect that follows the mouse cursor, suitable for a hero section 
 
 ## Key Takeaways
 
-- Effective UI shaders should always prioritise subtlety
-- integration, enhancing the design rather than distracting from it
-- integration, enhancing the design rather than distracting from it
-- By mastering noise functions to create organic randomness
-- using mesh gradients for trendy, fluid visuals, you can add a premium feel to your work
-- using mesh gradients for trendy, fluid visuals, you can add a premium feel to your work
-- your WebGL effects your WebGL effects
+- Effective UI shaders should always prioritise subtlety and integration, enhancing the design rather than distracting from it
+- By mastering noise functions to create organic randomness and using mesh gradients for trendy, fluid visuals, you can add a premium feel to your work
+- Your WebGL effects should feel like a natural extension of your design system, not a separate layer
 
 ## Next Steps
 

@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will demystify how screen readers interpret your code by parsing the accessib...
-- master the art of writing effective alternative text for images and dynamic content updates
-- master the art of writing effective alternative text for images and dynamic content updates
+- How screen readers interpret your code by parsing the accessibility tree
+- How to master the art of writing effective alternative text for images and dynamic content updates
+- How to structure content for optimal screen reader navigation
 
 ## How Screen Readers Work
 
@@ -185,8 +185,9 @@ Using the insights from your testing session, return to your code to fix the ide
 
 ## Key Takeaways
 
-- Screen readers rely entirely on the semantic structure of your code (the accessibility tree) rath...
-- You must ensure all images have appropriate alt text—even if it is empty for decorative elements—...
+- Screen readers rely entirely on the semantic structure of your code (the accessibility tree) rather than visual appearance
+- You must ensure all images have appropriate alt text—even if it is empty for decorative elements—to provide context
+- Use ARIA labels and live regions to announce dynamic content changes
 
 ## Next Steps
 

@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn why Kotlin matters as a platform
-- explore a comprehensive overview of its basic syntax
-- explore a comprehensive overview of its basic syntax
-- We'll examine the relationship between Kotlin and Java
-- get you started with your first lines of modern Android code
-- get you started with your first lines of modern Android code
+- Why Kotlin matters as a platform for Android development
+- A comprehensive overview of its basic syntax
+- The relationship between Kotlin and Java
+- How to write your first lines of modern Android code
 
 ## What Is Kotlin?
 
@@ -160,14 +158,11 @@ Expand your experience by creating a set of calculator functions for addition, s
 
 ## Key Takeaways
 
-- To build a strong foundation in Kotlin, you must remember to use `val` for constants
-- `var` for variables `var` for variables
-- taking advantage of the language's ability to infer types
-- taking advantage of the language's ability to infer types
+- Use `val` for constants and `var` for variables
+- Take advantage of Kotlin's type inference to reduce boilerplate
 - Utilise string templates for easy variable and expression insertion into text
-- use the `fun` keyword to define your functions use the `fun` keyword to define your functions
-- For added efficiency, remember that single-expression functions can often omit braces
-- the explicit return keyword entirely the explicit return keyword entirely
+- Use the `fun` keyword to define functions
+- Single-expression functions can omit braces and the explicit return keyword
 
 ## Next Steps
 

@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- explore techniques for building fully custom list items
-- explore techniques for building fully custom list items
-- We'll examine how to implement swipe-to-dismiss functionality
-- manage various selection states to enhance the interactivity of your data displays
-- manage various selection states to enhance the interactivity of your data displays
+- Techniques for building fully custom list items
+- How to implement swipe-to-dismiss functionality
+- How to manage various selection states to enhance the interactivity of your data displays
 
 ## Material 3 ListItem
 
@@ -210,7 +208,7 @@ Further develop your interactive components by creating a task item that include
 
 ## Key Takeaways
 
-- leading or trailing elements
+- Material 3 ListItem provides a standardised structure with leading and trailing elements
 - When you require more control, build custom items from scratch using Row layouts
 
 ## Next Steps

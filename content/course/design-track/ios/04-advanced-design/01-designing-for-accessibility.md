@@ -121,11 +121,9 @@ Use a plugin like Stark or a web contrast checker. Test your primary text agains
 
 ## Key Takeaways
 
-- Accessible design is a core iOS value that benefits all users by ensuring information is clear
-- navigable navigable
-- maintaining **colour contrast** that meets WCAG standards
-- maintaining **colour contrast** that meets WCAG standards
-- Finally, testing your interface at **Dynamic Type** extremes ensures your layout remains function...
+- Accessible design is a core iOS value that benefits all users by ensuring information is clear and navigable
+- Maintain **colour contrast** that meets WCAG standards
+- Test your interface at **dynamic type** extremes to ensure your layout remains functional and readable
 
 ## Next Steps
 

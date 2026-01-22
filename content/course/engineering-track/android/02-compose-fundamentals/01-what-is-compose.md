@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn the core concepts of declarative UI development
-- exactly how composable functions serve as the building blocks of your application
-- exactly how composable functions serve as the building blocks of your application
-- We'll examine the fundamental differences between Compose and the traditional View system
-- get you started with your first modern Android project
-- get you started with your first modern Android project
+- The core concepts of declarative UI development
+- Exactly how composable functions serve as the building blocks of your application
+- The fundamental differences between Compose and the traditional View system
+- How to get started with your first modern Android project
 
 ## Declarative UI
 
@@ -171,13 +169,11 @@ Further explore the developer experience by creating multiple preview variations
 
 ## Key Takeaways
 
-- To master Jetpack Compose, you must understand that it is a declarative system where you describe...
+- To master Jetpack Compose, you must understand that it is a declarative system where you describe what the UI should look like, not how to change it
 - Composable functions, identified by the `@Composable` annotation, are your primary tools
-- they automatically recompose whenever their underlying state changes
-- they automatically recompose whenever their underlying state changes
+- They automatically recompose whenever their underlying state changes
 - This approach allows you to build entire interfaces in pure Kotlin without ever needing XML
-- the integrated preview system provides immediate visual feedback
-- the integrated preview system provides immediate visual feedback
+- The integrated preview system provides immediate visual feedback
 
 ## Next Steps
 

@@ -10,12 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- During this module, you will learn how to add descriptive VoiceOver labels to your interface
-- ensure your application fully supports Dynamic Type for better readability
-- ensure your application fully supports Dynamic Type for better readability
-- We'll examine the implementation of smooth, purposeful animations
-- walk through the essential patterns for handling walk through the essential patterns for handling
-- displaying errors gracefully displaying errors gracefully
+- How to add descriptive VoiceOver labels to your interface
+- How to ensure your application fully supports Dynamic Type for better readability
+- The implementation of smooth, purposeful animations
+- Essential patterns for handling and displaying errors gracefully
 
 ## Step 1: Accessibility Labels
 

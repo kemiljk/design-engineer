@@ -227,12 +227,9 @@ Look at a UI you've built or designed. Identify three elements you could remove.
 
 ## Key Takeaways
 
-- considering tradeoffs before committing considering tradeoffs before committing
-- By aligning with existing patterns
-- rigorously removing unnecessary elements, you can defend your work through specific principles
-- rigorously removing unnecessary elements, you can defend your work through specific principles
-- user goals, ensuring that every visual detail serves as intentional communication
-- user goals, ensuring that every visual detail serves as intentional communication
+- Consider tradeoffs before committing to design decisions
+- By aligning with existing patterns and rigorously removing unnecessary elements, you can defend your work through specific principles and user goals
+- Ensure that every visual detail serves as intentional communication, not decoration
 
 ## Next Steps
 

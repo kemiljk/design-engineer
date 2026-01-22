@@ -12,7 +12,7 @@ estimatedTime: 5
 - Creating a comprehensive token system with theme support
 - Building accessible, semantic components
 - Writing interactive documentation
-- Deploying to npm or a CDN with versioning
+- Deploying to npm or a cdn with versioning
 
 ## Why This Project?
 

@@ -4,12 +4,9 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to use Column, Row
-- Box layouts as the primary building blocks for your application's interface
-- Box layouts as the primary building blocks for your application's interface
-- We'll examine exactly how to manage arrangement and alignment within these containers
-- exploring the use of weight and sizing to create sophisticated nested layouts
-- exploring the use of weight and sizing to create sophisticated nested layouts
+- How to use Column, Row, and Box layouts as the primary building blocks for your application's interface
+- How to manage arrangement and alignment within these containers
+- How to use weight and sizing to create sophisticated nested layouts
 
 ## Column
 
@@ -190,14 +187,10 @@ Build a 2-column grid using nested Rows and Columns.
 
 ## Key Takeaways
 
-- To build robust layouts in Compose, you must use Column for vertical orientation, Row for horizontal
-- Box for stacking elements on top of one another
-- Box for stacking elements on top of one another
-- Remember that arrangement controls the spacing between child elements
-- alignment manages their cross-axis positioning alignment manages their cross-axis positioning
-- Finally, leverage weights to distribute available space proportionally
-- use Spacers to create flexible gaps that adapt to different screen sizes
-- use Spacers to create flexible gaps that adapt to different screen sizes
+- To build robust layouts in Compose, you must use Column for vertical orientation, Row for horizontal, and Box for stacking elements on top of one another
+- Remember that arrangement controls the spacing between child elements and alignment manages their cross-axis positioning
+- Leverage weights to distribute available space proportionally
+- Use Spacers to create flexible gaps that adapt to different screen sizes
 
 ## Next Steps
 

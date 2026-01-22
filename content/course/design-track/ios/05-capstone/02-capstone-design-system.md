@@ -12,7 +12,7 @@ estimatedTime: 15
 
 - Essential research and reference gathering techniques
 - How to establish a consistent app purpose and personality
-- Setting up a comprehensive system of iOS-specific design tokens
+- Setting up a comprehensive system of ios-specific design tokens
 - Implementing a foundation for light and dark mode
 
 ## Step 1: Research & Reference

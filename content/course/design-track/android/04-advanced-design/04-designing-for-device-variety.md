@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Understanding the Android device landscape and variety
-- Window Size Classes and responsive breakpoints
+- Window size classes and responsive breakpoints
 - Designing for different screen sizes (compact, medium, expanded)
 - Creating adaptive layouts for phones, tablets, and foldables
 
@@ -117,14 +117,9 @@ Design a "Recipe View" for a foldable in **Tabletop Mode**.
 
 ## Key Takeaways
 
-- To master Android's device variety, you must design for Window Size Classes
-- ensuring navigation evolves naturally from a Bottom Bar to a Rail or Drawer
-- ensuring navigation evolves naturally from a Bottom Bar to a Rail or Drawer
-- By leveraging unique foldable postures like Tabletop and Book modes
-- adopting a glanceable mindset for Wear OS, you can ensure your interface remains functional
-- adopting a glanceable mindset for Wear OS, you can ensure your interface remains functional
-- beautiful across all form factors, which should always be validated using resizable emulators
-- beautiful across all form factors, which should always be validated using resizable emulators
+- To master Android's device variety, you must design for window size classes, ensuring navigation evolves naturally from a bottom bar to a rail or drawer
+- Leverage unique foldable postures like tabletop and book modes
+- Adopting a glanceable mindset for Wear OS ensures your interface remains functional and beautiful across all form factors, which should always be validated using resizable emulators
 
 ## Next Steps
 

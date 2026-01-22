@@ -131,9 +131,8 @@ Plan the navigation for a simple app idea. Decide which three or four features d
 ## Key Takeaways
 
 - **Modals** manage focused, self-contained tasks that interrupt the main flow
-- **Modals** manage focused, self-contained tasks that interrupt the main flow
-- Effective app architecture usually integrates all three to create a cohesive
-- orientation-friendly structure orientation-friendly structure
+- Effective app architecture usually integrates all three navigation patterns to create a cohesive, orientation-friendly structure
+- Tab bars provide primary navigation, navigation stacks handle hierarchical content, and modals handle focused tasks
 
 ## Next Steps
 

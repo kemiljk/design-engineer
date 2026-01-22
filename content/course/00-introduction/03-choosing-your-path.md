@@ -9,9 +9,9 @@ estimatedTime: 10
 ## What You'll Learn
 
 - How to accurately assess your current skill level
-- The difference between Design and Engineering tracks
-- How to choose the right platform (Web, iOS, or Android)
-- When to pursue the advanced Convergence track
+- The difference between design and engineering tracks
+- How to choose the right platform (web, ios, or android)
+- When to pursue the advanced convergence track
 
 ## The Course Structure
 
@@ -236,7 +236,7 @@ Your choices aren't permanent. You can switch if another path suits you better. 
 
 - Assess your skills honestly before selecting a path
 - Focus on mastering one platform first to learn portable fundamentals
-- Merge your abilities in the Convergence track after building foundations
+- Merge your abilities in the convergence track after building foundations
 - Your path isn't permanent—adjust as you learn and grow
 
 ## Next Steps

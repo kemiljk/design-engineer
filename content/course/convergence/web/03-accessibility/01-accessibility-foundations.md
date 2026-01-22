@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - What accessibility means and why it matters
-- The Curb Cut Effect and how accessibility benefits everyone
+- The curb cut effect and how accessibility benefits everyone
 - Types of disabilities and how they affect web use
 - Core accessibility principles and standards
 
@@ -45,7 +45,7 @@ By designing for the permanent constraint, you solve for the temporary and situa
 
 ## Design Engineer Responsibility
 
-As a Design Engineer, you bridge the gap between intent and implementation. You are the last line of defense for accessibility.
+As a Design Engineer, you bridge the gap between intent and implementation. You are the last line of defence for accessibility.
 
 ### In Design
 Your decisions in Figma determine the baseline accessibility of the product.
@@ -72,11 +72,11 @@ Users access the web using diverse tools. Understanding them helps you build bet
 
 ## WCAG Guidelines
 
-The **Web Content Accessibility Guidelines (WCAG)** are the international standard for web accessibility. They are organized into three levels of conformance:
+The **Web Content Accessibility Guidelines (WCAG)** are the international standard for web accessibility. They are organised into three levels of conformance:
 
 *   **Level A:** Essential accessibility features. Without these, the site is unusable for many.
 *   **Level AA:** The global standard for most public websites and legal requirements. It addresses the most common barriers.
-*   **Level AAA:** The highest standard, often required for specialized government or healthcare sites.
+*   **Level AAA:** The highest standard, often required for specialised government or healthcare sites.
 
 **WCAG 2.2** is the current standard, focusing on four principles (POUR):
 1.  **Perceivable:** Information must be presentable to users in ways they can perceive (sight, sound, touch).
@@ -125,15 +125,9 @@ The **Web Content Accessibility Guidelines (WCAG)** are the international standa
 
 ## Key Takeaways
 
-- Accessibility is about universality
-- inclusion, ensuring that the web is open to everyone regardless of specific abilities or constraints
-- inclusion, ensuring that the web is open to everyone regardless of specific abilities or constraints
-- Remember the **Curb Cut Effect**: features designed for people with disabilities often improve th...
-- As a Design Engineer, you control both the visual aspects (like contrast and hierarchy)
-- the technical implementation (via HTML the technical implementation (via HTML
-- ARIA), so look to **WCAG** as your rulebook ARIA), so look to **WCAG** as your rulebook
-- **POUR** (Perceivable, Operable, Understandable, Robust) as your guiding philosophy
-- **POUR** (Perceivable, Operable, Understandable, Robust) as your guiding philosophy
+- Accessibility is about universality and inclusion, ensuring that the web is open to everyone regardless of specific abilities or constraints
+- Remember the **curb cut effect**: features designed for people with disabilities often improve the experience for everyone
+- As a design engineer, you control both the visual aspects (like contrast and hierarchy) and the technical implementation (via HTML and ARIA), so look to **WCAG** as your rulebook and **POUR** (Perceivable, Operable, Understandable, Robust) as your guiding philosophy
 
 ## Next Steps
 

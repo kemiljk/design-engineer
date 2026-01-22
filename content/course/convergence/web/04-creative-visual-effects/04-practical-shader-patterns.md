@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will build a library of production-ready shader patterns that solve common UI...
-- explore how to layer multiple effects—like grain, noise
-- explore how to layer multiple effects—like grain, noise
-- spotlights—to produce rich, scroll-driven visual experiences
-- spotlights—to produce rich, scroll-driven visual experiences
+- How to build a library of production-ready shader patterns that solve common UI challenges
+- How to layer multiple effects—like grain, noise, and spotlights—to produce rich, scroll-driven visual experiences
+- Practical techniques for mouse interaction, distortion effects, and animated textures
 
 ## Mouse-Following Effects
 
@@ -436,14 +434,9 @@ Design a hero section that responds to the user's scroll depth. As the user scro
 
 ## Key Takeaways
 
-- scroll-driven animations are powerful ways to make shader effects feel reactive
-- scroll-driven animations are powerful ways to make shader effects feel reactive
-- magical, transforming static pages into living environments
-- magical, transforming static pages into living environments
-- By combining multiple techniques—such as image distortion for hover states
-- layered noise for background texture—you can create deep, premium visuals
-- layered noise for background texture—you can create deep, premium visuals
-- The most efficient workflow involves building a personal utility library of reusable shader funct...
+- Scroll-driven animations are powerful ways to make shader effects feel reactive and magical, transforming static pages into living environments
+- By combining multiple techniques—such as image distortion for hover states and layered noise for background texture—you can create deep, premium visuals
+- The most efficient workflow involves building a personal utility library of reusable shader functions
 
 ## Next Steps
 

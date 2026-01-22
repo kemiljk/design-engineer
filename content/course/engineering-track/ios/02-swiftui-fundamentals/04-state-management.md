@@ -4,10 +4,9 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to use `@State` for managing local view properties
-- explore the role of `@Binding` in connecting child views to their parents
-- explore the role of `@Binding` in connecting child views to their parents
-- We'll examine the critical "source of truth" concept
+- How to use `@State` for managing local view properties
+- The role of `@Binding` in connecting child views to their parents
+- The critical "source of truth" concept and how to maintain it
 
 ## @State
 
@@ -188,11 +187,9 @@ Implement a parent-child relationship where the parent owns a piece of text stat
 
 ## Key Takeaways
 
-- responsive SwiftUI applications, you must effectively use `@State` for local view management
-- responsive SwiftUI applications, you must effectively use `@State` for local view management
-- `@Binding` to connect dependencies between parent `@Binding` to connect dependencies between parent
-- child components child components
-- Adhering to the single source of truth principle will prevent data inconsistencies
+- To build responsive SwiftUI applications, you must effectively use `@State` for local view management
+- Use `@Binding` to connect dependencies between parent and child components
+- Adhere to the single source of truth principle to prevent data inconsistencies
 
 ## Next Steps
 

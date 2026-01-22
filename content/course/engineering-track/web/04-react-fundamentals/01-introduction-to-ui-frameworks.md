@@ -7,7 +7,7 @@
 - What UI frameworks are and the problems they solve
 - Major players in the ecosystem (React, Vue, Svelte, Angular)
 - How their underlying philosophies and approaches differ
-- Why React dominates the industry and what it means for Design Engineers
+- Why React dominates the industry and what it means for design engineers
 
 ## Beyond Vanilla JavaScript
 
@@ -371,14 +371,10 @@ Look at the todo item examples above. For each framework, identify:
 
 ## Key Takeaways
 
-- To recap, UI frameworks automate the management of state
-- DOM updates, freeing you from tedious manual synchronisation
-- DOM updates, freeing you from tedious manual synchronisation
-- While React, Vue, Svelte
-- Angular are the major players, each comes with its own unique philosophy and set of tradeoffs
-- Angular are the major players, each comes with its own unique philosophy and set of tradeoffs
-- widespread industry adoption
-- The core concepts of components, state
+- To recap, UI frameworks automate the management of state and DOM updates, freeing you from tedious manual synchronisation
+- While React, Vue, Svelte, and Angular are the major players, each comes with its own unique philosophy and set of tradeoffs
+- Widespread industry adoption means learning these frameworks provides transferable skills
+- The core concepts of components, state, and props are universal across modern frameworks
 
 ## Next Steps
 

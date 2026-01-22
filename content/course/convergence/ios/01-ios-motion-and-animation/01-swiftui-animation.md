@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- The basics of withAnimation for explicit animations
+- The basics of `withAnimation` for explicit animations
 - The difference between implicit and explicit animation
 - How to craft natural-feeling spring animations
 - How to chain animation modifiers for complex effects
@@ -60,7 +60,7 @@ Use `.animation` modifier:
 
 ```swift
 Circle()
-    .fill(isActive ? .blue : .gray)
+    .fill(isActive ? .blue : .grey)
     .scaleEffect(isActive ? 1.2 : 1)
     .animation(.spring(), value: isActive)
 ```
@@ -149,11 +149,10 @@ Build a loading indicator featuring three bouncing dots with staggered timing to
 
 ## Key Takeaways
 
-- Always use **withAnimation** to wrap explicit state changes Prefer **springs** over linear curves...
-- Use the **.animation** modifier carefully for implicit effects
-- **combine animations** to create complex, multi-layered interactions
-- **combine animations** to create complex, multi-layered interactions
-- Finally, always **test the feel** on a real device
+- Use `withAnimation` to wrap explicit state changes and prefer springs over linear curves
+- Use the `.animation` modifier carefully for implicit effects
+- Combine animations to create complex, multi-layered interactions
+- Always test the feel on a real device
 
 ## Next Steps
 

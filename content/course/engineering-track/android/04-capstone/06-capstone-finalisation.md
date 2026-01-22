@@ -10,16 +10,14 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- configure the modern Splash Screen API for a professional launch experience
-- configure the modern Splash Screen API for a professional launch experience
-- We'll also examine how to write a compelling README that clearly explains your technical decisions
-- showcases the final product effectively showcases the final product effectively
+- How to configure the modern splash screen API for a professional launch experience
+- How to write a compelling README that clearly explains your technical decisions and showcases the final product effectively
 
 ## Step 1: The Adaptive Icon
 
 Android icons are layered. They consist of a foreground (your logo) and a background (solid color or pattern). This allows the system to mask them as circles, squares, or squircles depending on the user's theme.
 
-To create your icon, start by preparing a 108x108dp foreground image ensuring your logo fits within the central 66dp "safe zone". You should then right-click on the `res` directory, navigate to New, and select Image Asset. From there, configure your launcher icons by selecting "Adaptive and Legacy", choosing your foreground image, and selecting an appropriate background colour. Finally, verify your work by toggling through the verschiedenen preview shapes to confirm that the logo remains perfectly visible without any clipping.
+To create your icon, start by preparing a 108x108dp foreground image ensuring your logo fits within the central 66dp "safe zone". You should then right-click on the `res` directory, navigate to New, and select Image Asset. From there, configure your launcher icons by selecting "Adaptive and Legacy", choosing your foreground image, and selecting an appropriate background colour. Finally, verify your work by toggling through the various preview shapes to confirm that the logo remains perfectly visible without any clipping.
 
 ## Step 2: The Splash Screen
 

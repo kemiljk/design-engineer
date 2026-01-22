@@ -10,9 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- Creating comprehensive interaction states for UI components
-- Planning transitions that mirror native iOS navigation patterns
-- Building connected, functional prototypes in Figma
+- Creating comprehensive interaction states for ui components
+- Planning transitions that mirror native ios navigation patterns
+- Building connected, functional prototypes in figma
 - Using micro-interactions and haptic cues for polish
 
 ## Step 1: Interaction States

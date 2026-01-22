@@ -136,12 +136,9 @@ Specify the animation for a "Like" heart icon.
 
 ## Key Takeaways
 
-- Native iOS animations are defined by **Spring Physics** (Mass, Stiffness
-- By leveraging **interactive animations** that track input 1:1
-- inheriting user velocity, you create a tactile experience where **rubber banding**
-- inheriting user velocity, you create a tactile experience where **rubber banding**
-- **overshoot** make the interface feel alive **overshoot** make the interface feel alive
-- physically real physically real
+- Native iOS animations are defined by **spring physics** (mass, stiffness, damping) rather than easing curves
+- By leveraging **interactive animations** that track input 1:1 and inherit user velocity, you create a tactile experience where **rubber banding** and **overshoot** make the interface feel alive and physically real
+- Every animation should serve a clear purpose: responsive feedback, meaningful transitions, or coherent choreography
 
 ## Next Steps
 

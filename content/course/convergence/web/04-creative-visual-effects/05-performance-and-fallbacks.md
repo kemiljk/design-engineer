@@ -4,9 +4,10 @@
 
 ## What You'll Learn
 
-- During this final lesson of the module, you will learn to identify
-- ensure your effects respect user accessibility preferences for reduced motion across all devices
-- ensure your effects respect user accessibility preferences for reduced motion across all devices
+- How to identify performance bottlenecks in shader code
+- How to optimise shader performance for smooth 60fps rendering
+- How to ensure your effects respect user accessibility preferences for reduced motion across all devices
+- How to provide CSS fallbacks for environments without WebGL support
 
 ## The Performance Paradox
 
@@ -392,9 +393,10 @@ Create two versions of a shader effect:
 
 ## Key Takeaways
 
-- update frequency
-- It is critical to provide solid CSS fallbacks for environments without WebGL
-- Finally, always test your effects on real mobile devices to ensure they deliver a smooth experien...
+- Optimise shader performance by reducing complexity, limiting texture samples, and controlling update frequency
+- It is critical to provide solid CSS fallbacks for environments without WebGL support
+- Always respect `prefers-reduced-motion` preferences to ensure accessibility
+- Finally, always test your effects on real mobile devices to ensure they deliver a smooth experience across all hardware
 
 ## Congratulations
 

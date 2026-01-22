@@ -12,7 +12,7 @@ estimatedTime: 15
 
 - How to map out clear information architecture
 - Choosing navigation patterns that suit your app's content hierarchy
-- Designing core iOS screens (dashboards, detail views)
+- Designing core ios screens (dashboards, detail views)
 - Leveraging standard system components for a recognizable experience
 
 ## Step 1: Information Architecture
@@ -42,7 +42,7 @@ When a user taps an item, where do they go? Design the detail view. Ensure the "
 How does data get in? Design a form or input screen. Use a modal presentation style (Sheet) for this to keep context.
 
 **5. Settings / Profile:**
-A standard list of grouped rows. This is a great place to practice using system components strictly.
+A standard list of grouped rows. This is a great place to practise using system components strictly.
 
 ## Step 4: Component Usage
 

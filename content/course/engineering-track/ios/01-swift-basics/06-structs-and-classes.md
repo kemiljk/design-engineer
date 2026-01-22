@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn the fundamental differences between structs and classes
-- examine how to implement properties examine how to implement properties
-- methods within these structures methods within these structures
-- We'll explore the critical concepts of value versus reference semantics
-- provide clear guidance on when to choose each approach in your own projects
-- provide clear guidance on when to choose each approach in your own projects
+- The fundamental differences between structs and classes
+- How to implement properties and methods within these structures
+- The critical concepts of value versus reference semantics
+- Clear guidance on when to choose each approach in your own projects
 
 ## Structs
 
@@ -161,7 +159,7 @@ class UserSession {
 ### Exercise 1: Model a Card
 
 Create a struct for a playing card:
-Practise your modeling skills by creating a struct for a playing card that includes enums for both suit and rank. You should also implement a computed property that generates a clear, human-readable description of the card.
+Practise your modelling skills by creating a struct for a playing card that includes enums for both suit and rank. You should also implement a computed property that generates a clear, human-readable description of the card.
 
 ### Exercise 2: Value vs Reference
 
@@ -209,14 +207,10 @@ Create practical code examples that demonstrate the distinct differences between
 
 ## Key Takeaways
 
-- classes are reference types that share instances
-- classes are reference types that share instances
+- Classes are reference types that share instances, while structs are value types that are copied
 - Prefer structs for the majority of your data modelling
-- use the `mutating` keyword for any struct methods that modify their own properties
-- use the `mutating` keyword for any struct methods that modify their own properties
-- Finally, remember that while classes support inheritance, structs prioritising safety
-- simplicity—remain the idiomatic choice for most Swift development
-- simplicity—remain the idiomatic choice for most Swift development
+- Use the `mutating` keyword for any struct methods that modify their own properties
+- Finally, remember that while classes support inheritance, structs prioritising safety and simplicity remain the idiomatic choice for most Swift development
 
 ## Congratulations!
 

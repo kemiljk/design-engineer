@@ -7,11 +7,11 @@
 - The San Francisco font family and its variants
 - Structured text styles that define the iOS interface
 - Principles of typography hierarchy
-- Implementing Dynamic Type for accessibility and readability
+- Implementing dynamic type for accessibility and readability
 
 ## San Francisco Font Family
 
-Apple designed San Francisco (SF) specifically for its platforms. It is a modern, clean sans-serif typeface optimized for legibility on screens. The family includes several variants tailored for specific contexts.
+Apple designed San Francisco (SF) specifically for its platforms. It is a modern, clean sans-serif typeface optimised for legibility on screens. The family includes several variants tailored for specific contexts.
 
 **SF Pro** is the primary interface font. It is highly versatile, supporting a wide range of weights from Ultralight to Black. It uses variable font technology to adjust optical sizing automatically, ensuring that small text remains legible while large headlines look elegant.
 
@@ -112,9 +112,10 @@ If you have an iOS device, go to **Settings > Display & Brightness > Text Size**
 
 ## Key Takeaways
 
-- Title 1 Title 1
-- avoiding the pitfalls of fixed-size text avoiding the pitfalls of fixed-size text
-- content truncation content truncation
+- The San Francisco font family (SF Pro, SF Pro Rounded, SF Mono, New York) provides the foundation for iOS typography
+- Use semantic text styles (Title 1, Body, Headline, etc.) instead of fixed sizes to support Dynamic Type
+- Avoid the pitfalls of fixed-size text and content truncation by designing flexible layouts that adapt to user text size preferences
+- Dynamic Type ensures your app remains accessible and readable for all users
 
 ## Next Steps
 

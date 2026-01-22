@@ -8,7 +8,7 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- The fundamental nature of CSS and how it connects to HTML
+- The fundamental nature of css and how it connects to html
 - The cascade and how it resolves style conflicts
 - Rules and calculations for selector specificity
 - How inheritance allows styles to pass down through document structure
@@ -272,11 +272,10 @@ Set up a nested HTML structure with a parent div and a child paragraph. Experime
 
 ## Key Takeaways
 
-- To recap, CSS is the language of appearance while HTML defines structure
+- To recap, css is the language of appearance while html defines structure
 - The cascade serves as the mechanism for resolving conflicts by weighing importance, specificity
 - You should generally avoid `!important` as it often masks underlying architectural issues
-- instead focus on keeping specificity low by using classes as your primary selector type
-- instead focus on keeping specificity low by using classes as your primary selector type
+- Instead focus on keeping specificity low by using classes as your primary selector type
 
 ## Next Steps
 

@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- During this module, you will explore Swift's robust type system
-- gain a deep understanding of common data types gain a deep understanding of common data types
-- We'll examine the critical role of optionals in ensuring nil safety
-- walk through the necessary techniques for accurate type conversion in your applications
-- walk through the necessary techniques for accurate type conversion in your applications
+- Swift's robust type system and common data types
+- The critical role of optionals in ensuring nil safety
+- The necessary techniques for accurate type conversion in your applications
 
 ## Basic Types
 
@@ -175,14 +173,10 @@ Write a piece of code that attempts to convert a string into an integer safely. 
 
 ## Key Takeaways
 
-- To write robust Swift code, you must master the core types of Int, Double, Bool
-- String while understanding how optionals represent the possible absence of a value
-- String while understanding how optionals represent the possible absence of a value
+- To write robust Swift code, you must master the core types of Int, Double, Bool, and String while understanding how optionals represent the possible absence of a value
 - Always prioritise safe unwrapping techniques over force unwrapping
-- remember that all type conversions must be explicit
-- remember that all type conversions must be explicit
-- Finally, use the nil-coalescing operator to provide sensible default values
-- maintain a smooth user experience maintain a smooth user experience
+- Remember that all type conversions must be explicit
+- Finally, use the nil-coalescing operator (`??`) to provide sensible default values and maintain a smooth user experience
 
 ## Next Steps
 

@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- What to include in a DE portfolio
+- What to include in a Design Engineer portfolio
 - How to present projects effectively
 - Portfolio formats and platforms
 - Common mistakes to avoid
@@ -128,7 +128,7 @@ List 3-5 projects for your portfolio. For each:
 
 ## Key Takeaways
 
-- DE portfolios show design AND engineering
+- Design Engineer portfolios show both design and engineering skills
 - Lead with interactive work, not static screenshots
 - Tell the story behind decisions
 - Build your own site to demonstrate skills

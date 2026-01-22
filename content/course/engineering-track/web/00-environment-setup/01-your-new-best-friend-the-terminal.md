@@ -6,9 +6,9 @@
 
 - What the terminal is and why it's not intimidating
 - Why designers need to master the terminal
-- Differences between Command Line, Shell, and CLI
+- Differences between command line, shell, and CLI
 - How to open and customise your terminal environment
-- Executing your first commands
+- How to execute your first commands
 
 ## Go Beyond Vibe Coding
 
@@ -299,11 +299,9 @@ Now open Finder and navigate to your Desktop. You'll see the `design-engineer-pr
 
 ## Key Takeaways
 
-- handling version control
-- `cd` to navigate your file system effectively
-- `cd` to navigate your file system effectively
-- By taking the time to customise your terminal's appearance
-- build more complex projects with confidence build more complex projects with confidence
+- Master essential commands like `cd` to navigate your file system effectively
+- By taking the time to customise your terminal's appearance and learning keyboard shortcuts, you'll build more complex projects with confidence
+- The terminal is essential for version control, package management, and running development servers
 
 ## Next Steps
 

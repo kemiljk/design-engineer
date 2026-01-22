@@ -10,11 +10,10 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-- In this final phase, you will document your journey by writing a compelling **case study**
-- creating comprehensive **project documentation** creating comprehensive **project documentation**
-- You will proceed to **deploy your project** to a production environment
-- conduct a rigorous **final testing** pass to ensure everything is perfect
-- conduct a rigorous **final testing** pass to ensure everything is perfect
+- How to document your journey by writing a compelling **case study**
+- Creating comprehensive **project documentation** including README files
+- How to **deploy your project** to a production environment
+- Conducting a rigorous **final testing** pass to ensure everything is perfect
 
 ## Step 1: Case Study Document
 

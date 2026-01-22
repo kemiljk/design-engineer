@@ -4,8 +4,9 @@
 
 ## What You'll Learn
 
-- In this final lesson, you will explore the concept of "polish"—the accumulation of small details...
-- We'll walk through a comprehensive polish checklist (covering visual consistency, empty states
+- The concept of "polish"—the accumulation of small details that separate good from great
+- A comprehensive polish checklist covering visual consistency, empty states, error handling, and edge cases
+- How to systematically audit your work for maximum impact
 
 ## What Is Polish?
 
@@ -149,13 +150,9 @@ Add graceful error handling to an API call with retry capability.
 
 ## Key Takeaways
 
-- Polish is not a single feature but the sum of consistent spacing, smooth interactions
-- thoughtful handling of every possible state
-- thoughtful handling of every possible state
-- Users may not consciously notice every detail,
-- By rigorously testing edge cases—empty lists, errors, loading screens
-- overflow text—you ensure that your experience holds up even when things go wrong
-- overflow text—you ensure that your experience holds up even when things go wrong
+- Polish is not a single feature but the sum of consistent spacing, smooth interactions, and thoughtful handling of every possible state
+- Users may not consciously notice every detail, but they feel the difference
+- By rigorously testing edge cases—empty lists, errors, loading screens, and overflow text—you ensure that your experience holds up even when things go wrong
 
 ## Congratulations!
 

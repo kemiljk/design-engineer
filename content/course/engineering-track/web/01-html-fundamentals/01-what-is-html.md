@@ -8,10 +8,10 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- What HTML is and why it's the essential foundation of the web
-- How HTML provides semantic structure to content
-- The critical relationship between HTML, CSS, and JavaScript
-- Why semantic HTML is important for Design Engineers
+- What html is and why it's the essential foundation of the web
+- How html provides semantic structure to content
+- The critical relationship between html, css, and javascript
+- Why semantic html is important for design engineers
 
 ## The Foundation of the Web
 
@@ -239,10 +239,10 @@ Take a design you've created (or a page you like). List:
 
 ## Key Takeaways
 
-- HTML is the structural foundation of every web page
+- Html is the structural foundation of every web page
 - Tags mark up content with genuine meaning
-- Semantic HTML improves accessibility, SEO, and maintainability
-- Understanding HTML leads to more implementable design decisions
+- Semantic html improves accessibility, seo, and maintainability
+- Understanding html leads to more implementable design decisions
 
 ## Next Steps
 

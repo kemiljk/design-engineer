@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-- We'll identify specific use cases where shader-based techniques are superior
+- Specific use cases where shader-based techniques are superior to CSS animations
+- When to reach for GPU-powered effects for that "extra 1%" of polish
+- The performance characteristics that make shaders ideal for complex visual effects
 
 ## The Animation Spectrum
 
@@ -139,10 +141,9 @@ Try to recreate a flowing noise gradient using only CSS. Notice what's missing�
 
 ## Key Takeaways
 
-- per-pixel distortion—that is simply impossible with traditional technologies
-- per-pixel distortion—that is simply impossible with traditional technologies
-- The secret lies in the GPU's ability to process millions of pixels in parallel,
-- Ultimately, learning to use shaders for that "extra 1%" of polish is a key differentiator for top...
+- Shaders enable effects like per-pixel distortion that are simply impossible with traditional technologies
+- The secret lies in the GPU's ability to process millions of pixels in parallel, creating effects at 60fps
+- Ultimately, learning to use shaders for that "extra 1%" of polish is a key differentiator for top-tier design engineering work
 
 ## Next Steps
 

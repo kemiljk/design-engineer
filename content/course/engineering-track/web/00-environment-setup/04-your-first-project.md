@@ -6,8 +6,8 @@
 
 - How to initialise a new project using npm
 - Deep understanding of the `package.json` file
-- Process of installing project dependencies
-- Executing development scripts for professional workflows
+- The process of installing project dependencies
+- How to execute development scripts for professional workflows
 
 ## Creating a Project
 

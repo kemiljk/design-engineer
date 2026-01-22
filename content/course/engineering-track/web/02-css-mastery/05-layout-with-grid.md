@@ -277,12 +277,10 @@ Build a dynamic image gallery where individual images span different numbers of 
 
 ## Key Takeaways
 
-- columns simultaneously columns simultaneously
+- CSS Grid allows you to define rows and columns simultaneously, creating two-dimensional layouts
 - You can use the `fr` unit to distribute space proportionally
-- leverage functions like `repeat()` and `minmax()` for sophisticated responsive designs
-- leverage functions like `repeat()` and `minmax()` for sophisticated responsive designs
-- `place-items: centre` remains the simplest method for perfectly centring content within a grid cell
-- `place-items: centre` remains the simplest method for perfectly centring content within a grid cell
+- Leverage functions like `repeat()` and `minmax()` for sophisticated responsive designs
+- `place-items: center` remains the simplest method for perfectly centring content within a grid cell
 
 ## Next Steps
 

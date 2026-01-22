@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- The three enduring themes of Apple's design philosophy (Clarity, Deference, Depth)
+- The three enduring themes of Apple's design philosophy (clarity, deference, depth)
 - How these principles guide the iOS experience
 - The revolutionary Liquid Glass design language introduced in iOS 26
 - How system-wide materials, typography, and colour create a premium, native feel
@@ -119,11 +119,10 @@ Open the same app (e.g., Spotify or Slack) on iOS and Android side-by-side.
 
 ## Key Takeaways
 
-- The core principles of **Clarity, Deference
+- The core principles of **clarity, deference, and depth** guide all iOS design decisions
 - By respecting these established platform conventions, you reduce cognitive load for users
-- create the premium "iOS feel" that comes from the seamless integration of fluid motion
-- create the premium "iOS feel" that comes from the seamless integration of fluid motion
-- optical depth optical depth
+- Create the premium "iOS feel" that comes from the seamless integration of fluid motion and optical depth
+- Liquid Glass introduces a new design language that combines translucency with physics-based interactions
 
 ## Next Steps
 

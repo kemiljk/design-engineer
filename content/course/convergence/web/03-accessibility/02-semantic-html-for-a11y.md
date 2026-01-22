@@ -4,10 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will discover why semantic HTML is the non-negotiable foundation of an access...
-- how choosing the correct native elements provides functionality "for free.
-- identify common semantic patterns that ensure your interfaces are machine-readable and
-- navigable for assistive technologies
+- Why semantic HTML is the non-negotiable foundation of an accessible interface
+- How choosing the correct native elements provides functionality "for free"
+- Common semantic patterns that ensure your interfaces are machine-readable and navigable for assistive technologies
 
 ## The Power of Native Elements
 
@@ -174,10 +173,8 @@ Create a robust form that includes properly associated labels for every input. A
 
 ## Key Takeaways
 
-- Native HTML elements should always be your first choice because they come with built-in accessibi...
-- By using landmarks to structure your pages
-- headings to create a navigable hierarchy, you ensure users can find what they need quickly
-- headings to create a navigable hierarchy, you ensure users can find what they need quickly
+- Native HTML elements should always be your first choice because they come with built-in accessibility features
+- By using landmarks to structure your pages and headings to create a navigable hierarchy, you ensure users can find what they need quickly
 - Always remember that labels are required for all form inputs
 
 ## Next Steps

@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Material motion principles (informative, focused, expressive)
-- Core transition patterns (Container Transform, Shared Axis, Fade Through, Fade)
+- Core transition patterns (container transform, shared axis, fade through, fade)
 - Spring-based physics in Material 3 Expressive
 - How to design motion that guides users and provides feedback
 
@@ -117,10 +117,10 @@ Design a transition for a "Compose" FAB turning into a "New Email" screen.
 
 ## Key Takeaways
 
-- Motion serves as an informative tool rather than mere decoration, with Container Transform
-- Shared Axis patterns reinforcing navigation Shared Axis patterns reinforcing navigation
-- the relationship between structural items the relationship between structural items
-- By employing meaningful choreography to prevent visual chaos
+- Motion serves as an informative tool rather than mere decoration, with container transform and shared axis patterns reinforcing navigation
+- Transition patterns show the relationship between structural items and maintain spatial context
+- Employ meaningful choreography to sequence elements and prevent visual chaos
+- Always respect reduced motion preferences for accessibility
 
 ## Next Steps
 

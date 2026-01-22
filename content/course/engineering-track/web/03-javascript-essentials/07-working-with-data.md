@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- Fundamental concepts of asynchronous JavaScript
+- Fundamental concepts of asynchronous javascript
 - Managing future values using promises and `async`/`await` syntax
-- Using the Fetch API to make HTTP requests
-- Working effectively with JSON data and implementing error handling
+- Using the fetch api to make http requests
+- Working effectively with json data and implementing error handling
 
 ## Synchronous vs Asynchronous
 
@@ -403,12 +403,9 @@ Create a basic todo application that stores all tasks in the browser's `localSto
 
 ## Key Takeaways
 
-- other time-consuming tasks without blocking the user interface
-- other time-consuming tasks without blocking the user interface
-- By mastering promises and `async`/`await`, you can write clean
-- readable code that handles data effectively readable code that handles data effectively
-- utilise `localStorage` for simple data persistence within the browser
-- utilise `localStorage` for simple data persistence within the browser
+- Asynchronous JavaScript allows you to perform time-consuming tasks without blocking the user interface
+- By mastering promises and `async`/`await`, you can write clean, readable code that handles data effectively
+- Utilise `localStorage` for simple data persistence within the browser
 
 ## Next Steps
 

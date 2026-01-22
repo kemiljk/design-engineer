@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will demystify the core concepts of shader programming,
-- walk through the practical setup of your very first GLSL shading program
-- walk through the practical setup of your very first GLSL shading program
+- The core concepts of shader programming and how they differ from traditional JavaScript
+- How to set up your very first GLSL shading program
+- The mental model for thinking in parallel GPU operations
 
 ## What Is a Shader?
 
@@ -312,10 +312,9 @@ Take the circular gradient you just created and make it feel alive. Multiply the
 
 ## Key Takeaways
 
-- Shaders are massively parallel GPU programs where you write a single mathematical formula that de...
-- While vertex shaders handle geometry,
-- always think in terms of mathematical relationships rather than sequential loops
-- always think in terms of mathematical relationships rather than sequential loops
+- Shaders are massively parallel GPU programs where you write a single mathematical formula that determines the colour of each pixel
+- While vertex shaders handle geometry, fragment shaders determine pixel colours and are where most UI effects happen
+- Always think in terms of mathematical relationships rather than sequential loops—you write formulas that run simultaneously on thousands of pixels
 
 ## Next Steps
 

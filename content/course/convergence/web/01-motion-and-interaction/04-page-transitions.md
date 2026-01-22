@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- We'll examine framework-specific approaches for Next.js and React
-- dive into the specific patterns—such as cross-fades
-- dive into the specific patterns—such as cross-fades
-- shared element morphing—that create a sophisticated, app-like navigation experience on the web
-- shared element morphing—that create a sophisticated, app-like navigation experience on the web
+- Framework-specific approaches for Next.js and React
+- Specific patterns such as cross-fades and shared element morphing that create a sophisticated, app-like navigation experience on the web
+- How to implement smooth transitions that maintain user context
 
 ## The Problem with Instant Navigation
 
@@ -236,10 +234,8 @@ Create a card grid where clicking a card transitions the card image smoothly to 
 ## Key Takeaways
 
 - Page transitions are a powerful tool for maintaining user context
-- By keeping your transitions brief, purposeful
-- aligned with navigation direction, you can create seamless connections between different views
-- aligned with navigation direction, you can create seamless connections between different views
-- Always prioritise accessibility by simplifying or skipping animations for users with reduced moti...
+- By keeping your transitions brief, purposeful, and aligned with navigation direction, you can create seamless connections between different views
+- Always prioritise accessibility by simplifying or skipping animations for users with reduced motion preferences
 
 ## Next Steps
 

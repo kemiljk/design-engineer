@@ -10,9 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- In this phase, you will tackle performance holistically
-- measuring your success using **Core Web Vitals**
-- measuring your success using **Core Web Vitals**
+- How to tackle performance holistically across images, CSS, and JavaScript
+- Measuring your success using **Core Web Vitals**
+- How to meet your performance budget and optimise for fast load times
 
 ## Step 1: Image Optimisation
 

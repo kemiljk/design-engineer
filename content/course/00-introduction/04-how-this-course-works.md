@@ -13,7 +13,7 @@ estimatedTime: 10
 - Practical tips for successful learning
 - How to track your progress throughout the track
 
-## Course Organization
+## Course Organisation
 
 The course is organised into three main sections, each with platform-specific content:
 
@@ -181,7 +181,7 @@ Here's a rough guide for how long each section takes:
 These estimates assume:
 - You're learning the content for the first time
 - You complete all exercises
-- You build additional projects to practice
+- You build additional projects to practise
 
 Experienced students move faster. Complete beginners may need more time. Both are fine.
 
@@ -238,7 +238,7 @@ You should also create a dedicated learning folder for your projects, familiaris
 - The course provides three distinct tracks across three platforms
 - Each track follows a consistent lesson structure prioritising active practice
 - You can progress linearly or jump between topics
-- Use the Course Plan document to track your journey and connect concepts
+- Use the course plan document to track your journey and connect concepts
 
 ## Next Steps
 

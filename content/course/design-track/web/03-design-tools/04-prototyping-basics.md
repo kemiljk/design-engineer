@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- Why prototyping is a vital skill for Design Engineers
+- Why prototyping is a vital skill for design engineers
 - Various fidelity levels required for different testing phases
 - How to create interactive prototypes using triggers and actions
 - Effective methods for presenting and sharing work with stakeholders
@@ -73,7 +73,7 @@ Create a "Delete" button. When clicked, it should open a confirmation dialog. Us
 
 ### Exercise 3: Smart Animate
 Create a toggle switch.
-- Frame 1: Switch is OFF (gray circle on the left).
+- Frame 1: Switch is OFF (grey circle on the left).
 - Frame 2: Switch is ON (green circle on the right).
 - Connect them with "On Click" and "Smart Animate." Watch how the circle slides smoothly across.
 
@@ -121,7 +121,7 @@ Create a toggle switch.
 - Prototypes are essential for simulating the user experience
 - Low-fidelity versions test core concepts; high-fidelity versions refine specific details
 - Build interactivity through connections and triggers
-- Leverage tools like Smart Animate and real-device testing
+- Leverage tools like smart animate and real-device testing
 - Validate specific flows and ensure transitions feel intuitive before production
 
 ## Next Steps

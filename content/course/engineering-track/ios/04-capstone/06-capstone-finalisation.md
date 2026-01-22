@@ -10,9 +10,8 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- During this module, you will learn how to create a production-ready App Icon
-- write a comprehensive README that clearly explains your app's architecture
-- write a comprehensive README that clearly explains your app's architecture
+- During this module, you will learn how to create a production-ready app icon
+- Write a comprehensive readme that clearly explains your app's architecture
 
 ## Step 1: The App Icon
 

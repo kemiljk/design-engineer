@@ -5,8 +5,8 @@
 ## What You'll Learn
 
 - How iOS handles built-in accessibility and how to enhance it
-- Providing descriptive custom accessibility labels
-- Ensuring your app scales correctly with Dynamic Type
+- How to provide descriptive custom accessibility labels
+- How to ensure your app scales correctly with Dynamic Type
 - How to verify your work using VoiceOver testing
 
 ## Built-in Accessibility
@@ -153,9 +153,8 @@ Enhance a data entry form. Ensure all fields have clear, descriptive **labels**.
 
 - SwiftUI provides **solid accessibility defaults**, but you must go further
 - Always add **accessibility labels** for icon-only buttons
-- **group related elements** to reduce clutter **group related elements** to reduce clutter
-- respect the **Reduce Motion** setting for users who are sensitive to animation
-- respect the **Reduce Motion** setting for users who are sensitive to animation
+- **Group related elements** to reduce clutter and improve navigation
+- Respect the **reduce motion** setting for users who are sensitive to animation
 
 ## Next Steps
 

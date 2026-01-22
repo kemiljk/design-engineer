@@ -10,9 +10,9 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-- How to structure your document using **semantic HTML** landmarks
-- Setting up a robust **CSS architecture** based on design tokens
-- Building essential **JavaScript utilities** for animations and accessibility
+- How to structure your document using **semantic html** landmarks
+- Setting up a robust **css architecture** based on design tokens
+- Building essential **javascript utilities** for animations and accessibility
 
 ## Step 1: Semantic HTML Structure
 

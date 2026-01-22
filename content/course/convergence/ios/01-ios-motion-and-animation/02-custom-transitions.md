@@ -7,7 +7,7 @@
 - How to use built-in transitions for standard effects
 - How to combine transitions for richer entrances
 - Creating custom transitions for unique component behaviour
-- Using matchedGeometryEffect for seamless hero animations
+- Using matchedgeometryeffect for seamless hero animations
 
 ## Built-in Transitions
 
@@ -182,10 +182,8 @@ Build a photo grid where tapping a photo expands it to full screen. The photo sh
 
 ## Key Takeaways
 
-- **Transitions** control how views enter
-- leave the hierarchy You can **combine** them (e.g., fade + scale) for complex effects
-- leave the hierarchy You can **combine** them (e.g., fade + scale) for complex effects
-- Use **matchedGeometryEffect** with a unique **@Namespace** identity to create hero animations tha...
+- **Transitions** control how views enter and leave the hierarchy—you can **combine** them (e.g., fade + scale) for complex effects
+- Use **matchedGeometryEffect** with a unique **@Namespace** identity to create hero animations that seamlessly connect screens
 - Always **test transitions** at different speeds to ensure robustness
 
 ## Next Steps

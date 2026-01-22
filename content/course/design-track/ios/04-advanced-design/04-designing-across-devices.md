@@ -5,9 +5,9 @@
 ## What You'll Learn
 
 - The ecosystem mindset and context of use for each device
-- Designing for iPhone (thumb-driven, vertical scrolling)
-- Designing for iPad (two-handed, focus-driven)
-- Designing for Apple Watch (glance-driven, action-focused)
+- Designing for iphone (thumb-driven, vertical scrolling)
+- Designing for ipad (two-handed, focus-driven)
+- Designing for apple watch (glance-driven, action-focused)
 - Maintaining a cohesive experience across devices
 
 ## The Ecosystem Mindset
@@ -123,12 +123,8 @@ Redesign a social feed for iPad. Move the bottom tabs to a left sidebar. How doe
 
 ## Key Takeaways
 
-- the **Watch's** requirement for 2-second glanceability
-- the **Watch's** requirement for 2-second glanceability
-- By using **Size Classes** to adapt layouts logically
-- maintaining a **shared visual language**, you ensure your app feels native on every device
-- maintaining a **shared visual language**, you ensure your app feels native on every device
-- remaining cohesive as a brand remaining cohesive as a brand
+- The **watch's** requirement for 2-second glanceability demands extreme information density
+- By using **size classes** to adapt layouts logically and maintaining a **shared visual language**, you ensure your app feels native on every device while remaining cohesive as a brand
 
 ## Next Steps
 

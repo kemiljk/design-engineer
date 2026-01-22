@@ -7,7 +7,7 @@
 - Button variants and the various states a button can occupy
 - How to implement accessible buttons
 - Styling interactive states properly
-- Designing a clean component API
+- Designing a clean component api
 
 ## Button Fundamentals
 
@@ -376,9 +376,8 @@ Implement a loading button that shows a spinner, disables user interaction while
 
 - Create variants through modifier classes and always consider accessibility
 - Loading states require both visual feedback and accessible announcements
-- In React, components accept props for configuration
-- TypeScript adds type safety to component APIs
-- TypeScript adds type safety to component APIs
+- In react, components accept props for configuration
+- Typescript adds type safety to component apis
 - The special `{children}` prop enables flexible content composition
 
 ## Next Steps

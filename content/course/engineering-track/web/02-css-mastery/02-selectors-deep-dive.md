@@ -7,7 +7,7 @@
 - All major selector types
 - How to use combinators to target related elements
 - Pseudo-classes for managing states and patterns
-- Pseudo-elements for generating content through CSS
+- Pseudo-elements for generating content through css
 
 ## Basic Selectors
 
@@ -346,12 +346,11 @@ Develop a navigation component where all links share a consistent base style, bu
 
 ## Key Takeaways
 
-- To master CSS selectors, remember to use basic type, class
+- To master CSS selectors, remember to use basic type, class, and ID selectors appropriately
 - Use combinators to express the relationships between descendants, children, and siblings
-- apply pseudo-classes to manage interaction states and structural patterns
-- apply pseudo-classes to manage interaction states and structural patterns
+- Apply pseudo-classes to manage interaction states and structural patterns
 - You can also use pseudo-elements to generate content and style specific parts of your text
-- With the introduction of native CSS nesting
+- With the introduction of native CSS nesting, you can write more maintainable selector hierarchies
 
 ## Next Steps
 

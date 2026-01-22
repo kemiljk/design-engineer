@@ -4,11 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will explore the differences between declarative and imperative UI paradigms
-- dive into the fundamental SwiftUI mental model dive into the fundamental SwiftUI mental model
-- We'll examine the basic structure of a SwiftUI application
-- show you how to leverage the powerful preview system for rapid development
-- show you how to leverage the powerful preview system for rapid development
+- The differences between declarative and imperative UI paradigms
+- The fundamental SwiftUI mental model
+- The basic structure of a SwiftUI application
+- How to leverage the powerful preview system for rapid development
 
 ## Declarative UI
 
@@ -186,9 +185,9 @@ Expand your development workflow by creating multiple preview configurations for
 
 ## Key Takeaways
 
-- To build modern iOS interfaces effectively,
-- Recognise that views are lightweight structs and that all UI updates are driven by state changes
-- By using composition to assemble complex interfaces from simple components
+- To build modern iOS interfaces effectively, recognise that views are lightweight structs and that all UI updates are driven by state changes
+- Use composition to assemble complex interfaces from simple components
+- SwiftUI's declarative approach means you describe what you want, not how to achieve it
 
 ## Next Steps
 

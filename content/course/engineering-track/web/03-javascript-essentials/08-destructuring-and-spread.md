@@ -208,8 +208,8 @@ Create a `mergeObjects` function that can accept any number of objects as argume
 
 ## Key Takeaways
 
-- you should use default values to handle potentially undefined data gracefully
-- you should use default values to handle potentially undefined data gracefully
+- Destructuring allows you to extract values from arrays and objects cleanly
+- You should use default values to handle potentially undefined data gracefully
 - The spread operator provides a powerful way to expand collections for copying or merging
 
 ## Next Steps

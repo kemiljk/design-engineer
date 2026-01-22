@@ -4,8 +4,11 @@
 
 ## What You'll Learn
 
-- During this lesson, you will master the fundamental guidelines for animation timing
-- duration, ensuring your UI remains responsive duration, ensuring your UI remains responsive
+- Fundamental guidelines for animation timing and duration
+- How easing functions affect the feel of motion
+- Techniques for choreographing multiple animated elements
+- How to apply spring physics for natural-feeling animations
+- Disney's animation principles adapted for UI
 
 ## Timing and Duration
 
@@ -199,11 +202,10 @@ Create a list that animates in with staggered delays. Experiment with:
 
 ## Key Takeaways
 
-- choosing the correct easing functions—such as ease-out for entrances and ease-in for exits
-- choosing the correct easing functions—such as ease-out for entrances and ease-in for exits
-- By choreographing multiple elements using staggers and hierarchical delays
-- Always remember to test your animations at varying speeds to ensure they remain helpful
-- never become a hurdle for the user never become a hurdle for the user
+- Choose the correct easing functions—ease-out for entrances, ease-in for exits
+- Choreograph multiple elements using staggers and hierarchical delays
+- Keep animations brief (200-500ms) to maintain responsiveness
+- Test animations at varying speeds to ensure they remain helpful, not a hurdle
 
 ## Next Steps
 

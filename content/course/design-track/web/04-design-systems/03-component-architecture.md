@@ -6,7 +6,7 @@
 
 - Core principles of good component architecture
 - How to build robust variants and states
-- Composition patterns for handling complex UI structures
+- Composition patterns for handling complex ui structures
 - Strategies for planning long-term flexibility and evolution
 
 ## Principles of Component Architecture
@@ -165,13 +165,9 @@ Examine a component in your current codebase to determine if its prop names are 
 ## Key Takeaways
 
 - Good components adhere to the single responsibility principle, doing one thing well
-- leveraging composition to build complex user interfaces
-- leveraging composition to build complex user interfaces
-- By using variants to handle semantic differences
-- props for customisation, you can design for every data
-- props for customisation, you can design for every data and interaction state
-- ensuring APIs remain intuitive ensuring APIs remain intuitive
-- prepared for future evolution through versioning prepared for future evolution through versioning
+- Leverage composition to build complex user interfaces
+- By using variants to handle semantic differences and props for customisation, you can design for every data and interaction state
+- Ensure APIs remain intuitive and prepared for future evolution through versioning
 
 ## Next Steps
 

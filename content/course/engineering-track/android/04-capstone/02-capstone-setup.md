@@ -10,10 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- add all the essential dependencies add all the essential dependencies
-- We'll examine how to define robust data models with Room
-- establish a logical project structure to keep your files effectively organised
-- establish a logical project structure to keep your files effectively organised
+- How to add all the essential dependencies
+- How to define robust data models with Room
+- How to establish a logical project structure to keep your files effectively organised
 
 ## Step 1: Create Android Studio Project
 

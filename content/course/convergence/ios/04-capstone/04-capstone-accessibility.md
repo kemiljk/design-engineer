@@ -10,8 +10,8 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-- How to optimise for VoiceOver for blind users
-- Supporting Dynamic Type with adaptive layouts
+- How to optimise for voiceover for blind users
+- Supporting dynamic type with adaptive layouts
 - Creating reduced motion alternatives for complex animations
 - Making helpful screen reader announcements for status changes
 

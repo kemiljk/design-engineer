@@ -437,12 +437,10 @@ Build a user profile card containing an avatar image, name and bio, stats such a
 ## Key Takeaways
 
 - To recap, cards group related content in flexible containers
-- provide variants for different contexts
-- provide variants for different contexts
+- Provide variants for different contexts
 - Handle content overflow gracefully and ensure interactive cards remain accessible
-- React enables true composition with sub-components like `CardMedia` and `CardBody`
-- by letting consumers compose only what they need, you create a highly flexible system
-- by letting consumers compose only what they need, you create a highly flexible system
+- React enables true composition with sub-components like `cardmedia` and `cardbody`
+- By letting consumers compose only what they need, you create a highly flexible system
 
 ## Next Steps
 

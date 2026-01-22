@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Functional hierarchy of Android buttons (filled, tonal, outlined, text)
-- When to employ the Floating Action Button
+- When to employ the floating action button
 - Selecting correct controls for chips, radio buttons, and checkboxes
 - Containment surfaces like cards and bottom sheets
 
@@ -105,13 +105,10 @@ You are designing a filter menu. Users can filter by **Category** (Mutually excl
 ## Key Takeaways
 
 - To build effective Android interfaces, you must strictly follow the established button hierarchy
-- reserve the FAB for the single most important action on a screen
-- reserve the FAB for the single most important action on a screen
+- Reserve the FAB for the single most important action on a screen
 - Bottom sheets are generally preferred over disruptive dialogs
-- you should always distinguish between switches for immediate activation and checkboxes for form data
-- you should always distinguish between switches for immediate activation and checkboxes for form data
-- ensuring every interactive element includes a robust pressed ripple state
-- ensuring every interactive element includes a robust pressed ripple state
+- Always distinguish between switches for immediate activation and checkboxes for form data
+- Ensure every interactive element includes a robust pressed ripple state
 
 ## Next Steps
 

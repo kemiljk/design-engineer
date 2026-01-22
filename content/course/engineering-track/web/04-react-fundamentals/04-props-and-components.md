@@ -516,12 +516,10 @@ Develop an `Avatar` component that displays an image if a `src` is provided and 
 
 - To recap, props are the mechanism through which components receive data from their parents
 - Using destructuring leads to cleaner prop access
-- providing default values handles optional props gracefully
-- providing default values handles optional props gracefully
-- should never be mutated directly should never be mutated directly
+- Providing default values handles optional props gracefully
+- Props should never be mutated directly
 - Child components communicate with parents by calling callback functions passed as props
-- well-designed component composition creates flexible, reusable systems
-- well-designed component composition creates flexible, reusable systems
+- Well-designed component composition creates flexible, reusable systems
 
 ## Next Steps
 

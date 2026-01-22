@@ -8,7 +8,7 @@ estimatedTime: 5
 
 ## What You'll Learn
 
-- How to demonstrate Compose animation mastery and Material motion
+- How to demonstrate Compose animation mastery and Material Motion
 - Creating full TalkBack support for accessibility
 - Optimising for performance and 60fps rendering
 - Executing a seamless design-code convergence workflow

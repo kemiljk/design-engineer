@@ -4,11 +4,11 @@
 
 ## What You'll Learn
 
-- Why Dark Mode matters and how users interact with it
+- Why dark mode matters and how users interact with it
 - The semantic colour system and system colours
-- Colour strategy for Dark Mode (beyond simple inversion)
+- Colour strategy for dark mode (beyond simple inversion)
 - Designing effective dark themes that maintain brand identity
-- Testing and refining Dark Mode designs
+- Testing and refining dark mode designs
 
 ## Why Dark Mode Matters
 
@@ -130,11 +130,9 @@ Perform an audit by converting an existing screen to Dark Mode and checking if c
 
 ## Key Takeaways
 
-- Stunning Dark Mode design relies on **Semantic System Colours** for automatic adaptation
-- using **Lighter greys** to indicate higher elevation
-- using **Lighter greys** to indicate higher elevation
-- rigorously **test** your designs on real hardware in diverse lighting environments
-- rigorously **test** your designs on real hardware in diverse lighting environments
+- Stunning dark mode design relies on **semantic system colours** for automatic adaptation
+- Using **lighter greys** to indicate higher elevation
+- Rigorously **test** your designs on real hardware in diverse lighting environments
 
 ## Next Steps
 

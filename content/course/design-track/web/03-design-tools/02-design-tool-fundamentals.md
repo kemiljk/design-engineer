@@ -130,10 +130,9 @@ Type three different headlines. Manually style them. Now, create a Text Style fr
 
 ## Key Takeaways
 
-- By treating the canvas as an infinite desk
+- By treating the canvas as an infinite desk, you can work without artificial boundaries
 - Always implement styles for colour and typography to ensure consistency
-- master essential shortcuts like deep selection to drastically improve your design workflow
-- master essential shortcuts like deep selection to drastically improve your design workflow
+- Master essential shortcuts like deep selection to drastically improve your design workflow
 
 ## Next Steps
 

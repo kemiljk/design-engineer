@@ -78,7 +78,7 @@ Take your most exciting idea. Scope it down to something you could finish this w
     },
     {
       "id": "b",
-      "text": "They let you practice skills, experiment freely, and build portfolio pieces",
+      "text": "They let you practise skills, experiment freely, and build portfolio pieces",
       "isCorrect": true,
       "explanation": "Correct! Side projects offer freedom to try new technologies, make design decisions you can't make at work, and create evidence of your abilities."
     },

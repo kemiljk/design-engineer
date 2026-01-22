@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will explore the critical difference between actual load times
-- how fast an interface feels to the user how fast an interface feels to the user
-- We'll examine techniques like skeleton screens and optimistic UI patterns that can mask latency
+- The critical difference between actual load times and how fast an interface feels to the user
+- Techniques like skeleton screens and optimistic UI patterns that can mask latency
+- How to provide immediate feedback to make experiences feel instant
 
 ## Perception vs. Reality
 
@@ -176,10 +176,9 @@ Build a like button with optimistic updates and error rollback.
 ## Key Takeaways
 
 - Perceived speed often matters far more than actual millisecond execution time
-- By using skeleton screens to provide immediate visual structure
+- By using skeleton screens to provide immediate visual structure, you can make loading feel faster
 - Remember that every interaction deserves immediate feedback
-- when waits are unavoidable, always provide clear progress indication to maintain user trust
-- when waits are unavoidable, always provide clear progress indication to maintain user trust
+- When waits are unavoidable, always provide clear progress indication to maintain user trust
 
 ## Next Steps
 

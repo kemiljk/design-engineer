@@ -4,9 +4,9 @@
 
 ## What You'll Learn
 
-- How to animate single values using animate*AsState
-- Creating complex enter and exit transitions with AnimatedVisibility
-- Managing state changes using Transition
+- How to animate single values using `animate*AsState`
+- Creating complex enter and exit transitions with `AnimatedVisibility`
+- Managing state changes using transition
 - Applying realistic motion using spring physics
 
 ## animate*AsState
@@ -189,10 +189,9 @@ Build a custom loading animation consisting of three pulsing dots. They should a
 
 ## Key Takeaways
 
-- Use `animate*AsState` for simple, single-value fire-and-forget animations. detailed entrance
-- exit transitions are best handled by `AnimatedVisibility`
-- exit transitions are best handled by `AnimatedVisibility`
-- When you need to coordinate multiple values reacting to the same state change,
+- Use `animate*AsState` for simple, single-value fire-and-forget animations
+- Detailed entrance and exit transitions are best handled by `AnimatedVisibility`
+- When you need to coordinate multiple values reacting to the same state change, use `Transition` for synchronized animations
 - Always prefer **spring specs** for a natural feel, using tween only when precise timing is required
 - Finally, always test your animations on a real device to judge performance and feel accurately
 

@@ -8,7 +8,7 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-- Syntax and benefits of JavaScript classes (inheritance, getters, setters)
+- Syntax and benefits of javascript classes (inheritance, getters, setters)
 - Using optional chaining for safe property access
 - Nullish coalescing to provide reliable default values
 - Modern object and array methods for expressive, robust code
@@ -285,15 +285,9 @@ Working with a potentially incomplete user profile object, write a script that u
 
 ## Key Takeaways
 
-- To recap, JavaScript classes provide a modern
-- clean syntax for object-oriented programming, allowing for true encapsulation through private fields
-- clean syntax for object-oriented programming, allowing for true encapsulation through private fields
-- By combining optional chaining
-- nullish coalescing, you can safely navigate complex data structures
-- nullish coalescing, you can safely navigate complex data structures
-- provide reliable defaults for missing values provide reliable defaults for missing values
-- Finally, mastering modern object and array methods will enable you to process data more efficiently
-- write code that is both expressive write code that is both expressive and maintainable
+- To recap, JavaScript classes provide a modern, clean syntax for object-oriented programming, allowing for true encapsulation through private fields
+- By combining optional chaining (`?.`) and nullish coalescing (`??`), you can safely navigate complex data structures and provide reliable defaults for missing values
+- Finally, mastering modern object and array methods will enable you to process data more efficiently and write code that is both expressive and maintainable
 
 ## Next Steps
 

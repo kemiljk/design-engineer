@@ -4,8 +4,8 @@
 
 ## What You'll Learn
 
-- Principles of Material motion
-- Foundational transition patterns (Container Transform, Shared Axis)
+- Principles of Material Motion
+- Foundational transition patterns (container transform, shared axis)
 - Importance of choreography and sequencing in animations
 - How to effectively specify motion requirements for developers
 
@@ -124,10 +124,10 @@ Design a transition for a "Compose" FAB turning into a "New Email" screen using 
 
 ## Key Takeaways
 
-- Motion serves as an informative tool rather than mere decoration, with Container Transform
-- Shared Axis patterns reinforcing navigation Shared Axis patterns reinforcing navigation
-- the relationship between structural items the relationship between structural items
-- By employing meaningful choreography to sequence elements
+- Motion serves as an informative tool rather than mere decoration, with container transform and shared axis patterns reinforcing navigation
+- Transition patterns show the relationship between structural items and maintain spatial context
+- Employ meaningful choreography to sequence elements and guide user attention
+- Specify motion clearly for developers: pattern type, duration, easing curve, and property changes
 
 ## Next Steps
 

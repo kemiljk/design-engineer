@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- Where DEs fit in product development
-- End-to-end ownership
-- Working with designers and engineers
-- Maximizing your unique position
+- Where Design Engineers fit in product development
+- How to take end-to-end ownership of features
+- How to work effectively with designers and engineers
+- How to maximise your unique position at the intersection of design and engineering
 
 ## The Design Engineer Position
 
@@ -110,7 +110,7 @@ List your key collaborators. How can you provide more value to each?
 
 ## Key Takeaways
 
-- DEs participate across the entire development cycle
+- Design Engineers participate across the entire development cycle
 - End-to-end ownership reduces friction and improves quality
 - Build trust with designers and engineers
 - Your unique position enables things neither can do alone

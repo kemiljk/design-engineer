@@ -218,12 +218,10 @@ Create a `getNestedValue` function that allows you to safely access properties w
 
 ## Key Takeaways
 
-- To recap, you can use `if`, `else`
-- various loop types provide the tools needed to process iterative data sets
-- various loop types provide the tools needed to process iterative data sets
-- Finally, always account for potential errors with `try...catch`
-- utilise optional chaining to safely navigate complex objects
-- utilise optional chaining to safely navigate complex objects
+- To recap, you can use `if`, `else`, and `switch` statements to control program flow based on conditions
+- Various loop types (`for`, `while`, `for...of`, `for...in`) provide the tools needed to process iterative data sets
+- Always account for potential errors with `try...catch` blocks
+- Utilise optional chaining (`?.`) to safely navigate complex objects
 
 ## Next Steps
 

@@ -10,11 +10,10 @@ estimatedTime: 25
 
 ## What You'll Learn
 
-- In this lesson, we will focus on building accessible HTML and CSS components
-- creating various component variants creating various component variants and states
-- You will learn how to implement keyboard navigation effectively
-- write vanilla JavaScript to manage interactive behaviours across your component library
-- write vanilla JavaScript to manage interactive behaviours across your component library
+- How to build accessible HTML and CSS components
+- Creating various component variants and states
+- How to implement keyboard navigation effectively
+- How to write vanilla JavaScript to manage interactive behaviours across your component library
 
 ## Component 1: Button
 

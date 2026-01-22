@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- What information architecture (IA) is and why it's fundamental to product success
+- What information architecture (ia) is and why it's fundamental to product success
 - Core principles of organising information
 - Various navigation patterns and systems
-- Practical techniques for planning robust IA
+- Practical techniques for planning robust ia
 
 ## The Invisible Structure
 
@@ -33,7 +33,7 @@ Ambiguous schemes are more subjective and allow for items to potentially appear 
 
 Most effective navigation systems use a hybrid approach—perhaps a topical primary navigation combined with a task-based utility menu.
 
-<!-- illustration: organization-schemes -->
+<!-- illustration: organisation-schemes -->
 
 ## Navigation Patterns
 
@@ -146,15 +146,9 @@ Visit a university website (they often have complex IAs). Try to find the academ
 
 ## Key Takeaways
 
-- Information Architecture serves as the blueprint for your product
-- should be designed prior to any visual work, using card sorting to discover user groupings
-- should be designed prior to any visual work, using card sorting to discover user groupings
-- tree testing to validate the proposed structure tree testing to validate the proposed structure
-- By aligning navigation with user mental models and ensuring labels are specific
-- consistent, you can provide an interface where breadcrumbs
-- consistent, you can provide an interface where breadcrumbs
-- global navigation offer necessary context global navigation offer necessary context
-- safety for exploration safety for exploration
+- Information architecture serves as the blueprint for your product and should be designed prior to any visual work
+- Use card sorting to discover user groupings and tree testing to validate the proposed structure
+- By aligning navigation with user mental models and ensuring labels are specific and consistent, you can provide an interface where breadcrumbs and global navigation offer necessary context and safety for exploration
 
 ## Next Steps
 

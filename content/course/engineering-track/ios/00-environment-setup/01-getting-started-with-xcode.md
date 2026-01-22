@@ -19,9 +19,10 @@ This course is tested with the following versions (January 2026):
 
 ## What You'll Learn
 
-- During this module, you will learn exactly what Xcode is
-- why it remains a mandatory requirement for Apple platform development
-- why it remains a mandatory requirement for Apple platform development
+- What Xcode is and why it's essential for Apple platform development
+- How to install Xcode and set up your development environment
+- The basic structure of an Xcode project
+- How to use Xcode's interface and preview features
 
 ## Go Beyond Vibe Coding
 
@@ -346,12 +347,10 @@ For running on simulators, you don't need a team. For physical devices:
 
 ## Key Takeaways
 
-- downloading it from the App Store provides the most straightforward setup experience
-- downloading it from the App Store provides the most straightforward setup experience
-- The interface is cleverly divided into navigators on the left, an editor in the centre
-- inspectors on the right to keep your tools organised
-- inspectors on the right to keep your tools organised
-- ⌘ + . to stop it ⌘ + . to stop it
+- Downloading Xcode from the App Store provides the most straightforward setup experience
+- The interface is cleverly divided into navigators on the left, an editor in the centre, and inspectors on the right to keep your tools organised
+- Use ⌘ + . to stop running processes
+- Xcode is essential for iOS development—there's no alternative
 
 ## Next Steps
 

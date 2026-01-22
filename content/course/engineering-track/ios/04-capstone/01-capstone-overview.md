@@ -8,11 +8,11 @@ estimatedTime: 5
 
 ## What You'll Learn
 
-- How to build a complete working SwiftUI app
+- How to build a complete working swiftui app
 - Creating custom reusable components and modifiers
 - Implementing proper state management architecture
 - Adding data persistence to your app
-- Achieving polish and accessibility in your UI
+- Achieving polish and accessibility in your ui
 
 ## Why This Project?
 

@@ -34,7 +34,7 @@ Maintain visual consistency by ensuring icons share the same stroke weight and c
 You cannot just shrink a large icon. A 24px icon scaled down to 16px becomes a blurry blob.
 Standardise icon usage across different sizes by using simplified 16px micro-icons for dense data tables, standard 24px icons for primary navigation and buttons, and detailed display icons for empty states or feature highlights.
 
-Use a library like **Heroicons**, **Lucide**, or **Phosphor** that provides pre-optimized sizes.
+Use a library like **Heroicons**, **Lucide**, or **Phosphor** that provides pre-optimised sizes.
 
 ## Imagery: Setting the Tone
 
@@ -114,14 +114,8 @@ Find a stock photo for a "Team" page. Now, find a *better* alternative that feel
 
 ## Key Takeaways
 
-- text combinations are almost always superior to standalone icons, as consistency in stroke weight
-- text combinations are almost always superior to standalone icons, as consistency in stroke weight
-- illustration style creates a sense of high quality
-- illustration style creates a sense of high quality
-- By prioritising authentic imagery over generic stock photos
-- ensuring that every meaningful visual has a text alternative, you can build a professional
-- ensuring that every meaningful visual has a text alternative, you can build a professional
-- accessible interface accessible interface
+- Text combinations are almost always superior to standalone icons, as consistency in stroke weight and illustration style creates a sense of high quality
+- By prioritising authentic imagery over generic stock photos and ensuring that every meaningful visual has a text alternative, you can build a professional and accessible interface
 
 ## Next Steps
 

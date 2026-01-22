@@ -51,7 +51,7 @@ Do not use elevation purely for decoration; every lift should have a meaning. Av
 
 ### Exercise 1: Elevation Audit
 
-Open a few Google apps (Gmail, Drive, Maps) and analyze the depth. Identify which elements sit at Level 0. Find the elevated surfaces and guess their level. Notice how the elevation changes when you tap or drag an item.
+Open a few Google apps (Gmail, Drive, Maps) and analyse the depth. Identify which elements sit at Level 0. Find the elevated surfaces and guess their level. Notice how the elevation changes when you tap or drag an item.
 
 ### Exercise 2: Card Elevation
 
@@ -99,9 +99,9 @@ Design a simple card component and define its appearance across two distinct sta
 
 ## Key Takeaways
 
-- Elevation establishes a clear visual hierarchy by combining shadows with surface tints, particula...
-- dynamic, where elements rise dynamic, where elements rise
-- fall naturally based on user interaction fall naturally based on user interaction
+- Elevation establishes a clear visual hierarchy by combining shadows with surface tints, particularly in Material 3
+- Elevation is dynamic, where elements rise and fall naturally based on user interaction
+- Use standard elevation levels consistently to maintain visual order and indicate interactivity
 
 ## Next Steps
 

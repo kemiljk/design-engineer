@@ -4,11 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to design robust card structures
-- examine how to implement materials examine how to implement materials and shadows for added depth
-- We'll explore the creation of flexible content slots
-- walk through the techniques needed to build interactive cards that respond to user gestures
-- walk through the techniques needed to build interactive cards that respond to user gestures
+- How to design robust card structures
+- How to implement materials and shadows for added depth
+- The creation of flexible content slots
+- The techniques needed to build interactive cards that respond to user gestures
 
 ## Basic Card
 
@@ -191,12 +190,9 @@ Design a functional product card featuring a large product image, name, and curr
 
 ## Key Takeaways
 
-- Master the combination of padding, background styling, clipping
-- subtle shadows to define your card's visual identity
-- subtle shadows to define your card's visual identity
+- Master the combination of padding, background styling, clipping, and subtle shadows to define your card's visual identity
 - Finally, remember to add interaction states for any tappable cards
-- compose your final layouts from smaller, more manageable components to ensure maintainability
-- compose your final layouts from smaller, more manageable components to ensure maintainability
+- Compose your final layouts from smaller, more manageable components to ensure maintainability
 
 ## Next Steps
 

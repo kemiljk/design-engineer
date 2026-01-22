@@ -109,7 +109,7 @@ Here's good news: visual design is a skill, not a talent. Some people may have n
 You don't need to become a world-class designer. You need to develop enough visual literacy to:
 Developing visual literacy allows you to recognise what makes designs effective, make reasonable decisions when building interfaces, and communicate productively with designers while avoiding obvious mistakes.
 
-That's achievable for anyone willing to practice.
+That's achievable for anyone willing to practise.
 
 ## Try It Yourself
 

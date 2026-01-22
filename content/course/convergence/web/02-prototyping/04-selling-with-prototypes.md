@@ -4,11 +4,9 @@
 
 ## What You'll Learn
 
-- In this lesson, you will explore the powerful role of prototypes as persuasive communication tools
-- learn how to tailor your presentations for different audiences, from engineers to executives
-- learn how to tailor your presentations for different audiences, from engineers to executives
-- build consensus across multidisciplinary teams
-- build consensus across multidisciplinary teams
+- The powerful role of prototypes as persuasive communication tools
+- How to tailor your presentations for different audiences, from engineers to executives
+- How to build consensus across multidisciplinary teams using interactive prototypes
 
 ## The Power of "Show, Don't Tell"
 
@@ -141,11 +139,8 @@ Share a prototype and gather feedback:
 
 ## Key Takeaways
 
-- By setting clear expectations about fidelity
-- focusing on a specific research question, you can use interactive models to build strategic buy-in
-- focusing on a specific research question, you can use interactive models to build strategic buy-in
-- alignment alignment
-- Most importantly, remain open to feedback—especially when it challenges your original assumptions...
+- By setting clear expectations about fidelity and focusing on a specific research question, you can use interactive models to build strategic buy-in and alignment
+- Most importantly, remain open to feedback—especially when it challenges your original assumptions
 
 ## Next Steps
 

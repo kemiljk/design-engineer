@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- What JavaScript is and where it runs in the web ecosystem
-- How JavaScript interacts with HTML and CSS
-- JavaScript's critical role in modern web development
-- Why JavaScript is indispensable for Design Engineers
+- What javascript is and where it runs in the web ecosystem
+- How javascript interacts with html and css
+- Javascript's critical role in modern web development
+- Why javascript is indispensable for design engineers
 
 ## The Language of Interactivity
 
@@ -167,12 +167,9 @@ Practise using the console to create variables for your name, age, and professio
 ## Key Takeaways
 
 - To recap, JavaScript is the primary tool for adding interactivity to web pages
-- it runs both in browsers and on servers via Node.js
-- it runs both in browsers and on servers via Node.js
+- It runs both in browsers and on servers via Node.js
 - It interacts with your HTML through the Document Object Model (DOM)
-- modern ES6+ features provide a powerful toolkit for building complex applications
-- modern ES6+ features provide a powerful toolkit for building complex applications
-- shipping complete products
+- Modern ES6+ features provide a powerful toolkit for building complex applications and shipping complete products
 
 ## Next Steps
 

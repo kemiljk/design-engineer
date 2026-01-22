@@ -790,9 +790,8 @@ Build a mini shopping cart that displays a list of products, each with an "Add t
 - It is essential to always create new objects and arrays rather than mutating existing state directly
 - When your new state value depends on the previous one, prefer functional updates
 - Controlled components tie input values directly to state
-- you should always keep your state minimal by deriving computed values where possible
-- you should always keep your state minimal by deriving computed values where possible
-- When multiple components need to share state, you should lift it up to their common ancestor
+- Always keep your state minimal by deriving computed values where possible
+- When multiple components need to share state, lift it up to their common ancestor
 
 ## Next Steps
 

@@ -161,13 +161,8 @@ Find a website that is hard to read. Inspect the code. Is the line height too ti
 
 ## Key Takeaways
 
-- ensuring legibility through appropriate x-heights ensuring legibility through appropriate x-heights
-- line lengths line lengths
-- By limiting font choices
-- maintaining visible hierarchy even when blurred, you can create a readable
-- maintaining visible hierarchy even when blurred, you can create a readable
-- structured interface that guides the user naturally through the information
-- structured interface that guides the user naturally through the information
+- Ensuring legibility through appropriate x-heights and line lengths
+- By limiting font choices and maintaining visible hierarchy even when blurred, you can create a readable and structured interface that guides the user naturally through the information
 
 ## Next Steps
 

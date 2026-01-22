@@ -4,14 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to use LazyColumn
-- LazyRow for efficiently displaying scrolling content
-- LazyRow for efficiently displaying scrolling content
-- explore the core principles of the Navigation Compose system
-- explore the core principles of the Navigation Compose system
-- We'll examine exactly how to pass arguments between screens
-- manage the back stack to ensure a professional navigation experience
-- manage the back stack to ensure a professional navigation experience
+- How to use `LazyColumn` and `LazyRow` for efficiently displaying scrolling content
+- The core principles of the Navigation Compose system
+- How to pass arguments between screens
+- How to manage the back stack to ensure a professional navigation experience
 
 ## LazyColumn
 
@@ -184,11 +180,10 @@ Further expand your navigation skills by building a sequential three-screen flow
 
 ## Key Takeaways
 
-- To build efficient and navigable Android apps, you must utilise LazyColumn
-- LazyRow for scrolling content LazyRow for scrolling content
-- assigning stable keys to maintain item identity assigning stable keys to maintain item identity
-- Your navigation graph should be defined within a NavHost,
-- Finally, stay up to date with the latest versions to leverage type-safe navigation features that...
+- To build efficient and navigable Android apps, you must utilise `LazyColumn` and `LazyRow` for scrolling content
+- Assign stable keys to maintain item identity
+- Your navigation graph should be defined within a `NavHost`
+- Stay up to date with the latest versions to leverage type-safe navigation features
 
 ## Next Steps
 

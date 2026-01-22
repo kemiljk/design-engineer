@@ -18,9 +18,9 @@ This course is tested with the following versions (January 2026). Newer versions
 
 - What package managers are and why they're essential
 - How to install Homebrew on Mac or Chocolatey on Windows
-- Setup of Node.js and npm
+- How to set up Node.js and npm
 - Differences between global and local packages
-- Installing your first development tools
+- How to install your first development tools
 
 ## The Package Manager Concept
 
@@ -408,10 +408,8 @@ npm info tailwindcss
 
 ## Key Takeaways
 
-- keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`
-- keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`
-- can often be resolved by simply restarting your terminal
-- can often be resolved by simply restarting your terminal
+- Keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`
+- Most installation issues can often be resolved by simply restarting your terminal
 
 ## Next Steps
 

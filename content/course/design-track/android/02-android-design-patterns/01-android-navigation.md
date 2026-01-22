@@ -4,8 +4,8 @@
 
 ## What You'll Learn
 
-- Core navigation components (Bottom Bar, Navigation Rail, Drawer)
-- Functional differences between "Back" gesture and "Up" button
+- Core navigation components (bottom bar, navigation rail, drawer)
+- Functional differences between "back" gesture and "up" button
 - Managing complex screen hierarchies for predictable user flow
 
 ## Primary Navigation Structures
@@ -103,10 +103,9 @@ Imagine a user lands on a Message Detail screen via a notification and then taps
 
 ## Key Takeaways
 
-- For optimal navigation, use the Bottom Bar on mobile devices and the Navigation Rail for tablets
-- reserving Drawers for secondary destinations outside the primary flow
-- reserving Drawers for secondary destinations outside the primary flow
-- It is vital to remember that System Back navigates through a user's chronological history
+- For optimal navigation, use the bottom bar on mobile devices and the navigation rail for tablets
+- Reserve drawers for secondary destinations outside the primary flow
+- It is vital to remember that system back navigates through a user's chronological history, while the up button follows the app's hierarchy
 
 ## Next Steps
 

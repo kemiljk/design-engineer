@@ -4,12 +4,10 @@
 
 ## What You'll Learn
 
-- During this module, you will learn to create high-performance scrolling lists
-- master the use of `NavigationStack` master the use of `NavigationStack`
-- `NavigationLink` for hierarchical app navigation `NavigationLink` for hierarchical app navigation
-- We'll examine how to build effective detail views
-- walk through the various styling options available for customising your list interfaces
-- walk through the various styling options available for customising your list interfaces
+- How to create high-performance scrolling lists
+- How to master the use of `NavigationStack` and `NavigationLink` for hierarchical app navigation
+- How to build effective detail views
+- The various styling options available for customising your list interfaces
 
 ## Basic Lists
 
@@ -197,12 +195,9 @@ Enhance your list interactions by implementing custom swipe actions. Configure a
 
 ## Key Takeaways
 
-- To build sophisticated iOS applications,
-- Leverge `NavigationStack` to handle your app's hierarchy
-- use `NavigationLink` to push detailed content as needed
-- use `NavigationLink` to push detailed content as needed
-- Finally, employ sections to organise your list data logically
-- provide a clear structure for your users provide a clear structure for your users
+- To build sophisticated iOS applications, leverage `NavigationStack` to handle your app's hierarchy
+- Use `NavigationLink` to push detailed content as needed
+- Employ sections to organise your list data logically and provide a clear structure for your users
 
 ## Next Steps
 

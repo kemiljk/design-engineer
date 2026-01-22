@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- Core concepts of Material Theming
+- Core concepts of Material theming
 - How to effectively customise colour, typography, and shape systems
 - Strategies for balancing brand expression with usability standards
 

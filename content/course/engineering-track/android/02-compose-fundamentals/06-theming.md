@@ -4,11 +4,10 @@
 
 ## What You'll Learn
 
-- typography typography
-- We'll examine exactly how to integrate dynamic colour for Android 12
-- above, ensuring your interface remains consistent above, ensuring your interface remains consistent
-- visually appealing across different system settings
-- visually appealing across different system settings
+- How to set up Material 3 theming with colour schemes, typography, and shapes
+- How to integrate dynamic colour for Android 12+
+- How to ensure your interface remains consistent and visually appealing across different system settings
+- How to create custom theme values when needed
 
 ## MaterialTheme
 
@@ -256,8 +255,10 @@ Further enhance the user experience by building a theme switcher toggle. This co
 
 ## Key Takeaways
 
-- shapes effectively
-- Finally, remember to access these values through `MaterialTheme.colorScheme`
+- Material 3 theming provides colour schemes, typography, and shapes that adapt to light/dark mode and dynamic colour
+- Always access theme values through `MaterialTheme.colorScheme`, `MaterialTheme.typography`, and `MaterialTheme.shapes` to ensure consistency
+- Dynamic colour (Android 12+) allows your app to adapt to the user's wallpaper automatically
+- Use custom `CompositionLocal` values when you need theme properties beyond the standard Material tokens
 
 ## Congratulations!
 

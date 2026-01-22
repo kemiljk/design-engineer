@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- Where DE roles exist
-- Job titles to look for
-- Making the case for DE roles
-- Interview preparation
+- Where Design Engineer roles exist in the industry
+- Job titles to look for when searching
+- How to make the case for Design Engineer roles at your company
+- How to prepare for Design Engineer interviews
 
 ## Where DE Roles Exist
 
@@ -117,10 +117,10 @@ Prepare a 2-minute pitch for why a company should hire a DE (or why your company
 
 ## Key Takeaways
 
-- DE roles exist but use various titles
+- Design Engineer roles exist but use various titles
 - Look for design systems, prototyping, and cross-functional focus
 - Sometimes you need to create the role
-- Build evidence of DE value at your current company
+- Build evidence of Design Engineer value at your current company
 - Prepare both technical and design interview components
 
 ## Congratulations!

@@ -8,10 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- What the DOM is and how it bridges HTML and JavaScript
+- What the dom is and how it bridges html and javascript
 - Most effective methods for selecting single and multiple elements
 - How to read text content and attributes
-- Techniques for traversing the DOM tree with precision
+- Techniques for traversing the dom tree with precision
 
 ## What is the DOM?
 
@@ -227,15 +227,10 @@ Create a function that takes a DOM element as its starting point and returns an 
 
 ## Key Takeaways
 
-- interact with web content dynamically interact with web content dynamically
+- The DOM allows JavaScript to interact with web content dynamically
 - You should leverage `querySelector` and `querySelectorAll` for flexible and robust element selection
-- use `dataset` to easily manage custom data stored in your HTML
-- use `dataset` to easily manage custom data stored in your HTML
-- Finally, remember that mastering DOM traversal
-- understanding the differences between `textContent`
-- understanding the differences between `textContent`
-- `innerHTML` are essential for building secure `innerHTML` are essential for building secure
-- efficient web interfaces efficient web interfaces
+- Use `dataset` to easily manage custom data stored in your HTML
+- Finally, remember that mastering DOM traversal and understanding the differences between `textContent` and `innerHTML` are essential for building secure and efficient web interfaces
 
 ## Next Steps
 

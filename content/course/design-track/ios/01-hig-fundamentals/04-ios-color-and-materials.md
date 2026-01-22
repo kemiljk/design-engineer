@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Foundational materials and colour systems of iOS
-- The new Liquid Glass design language and its functional layers
+- The new liquid glass design language and its functional layers
 - How semantic system colours adapt to light and dark modes
 - Building accessible, vibrant, and deeply integrated user interfaces
 
@@ -135,14 +135,9 @@ Sketch a screen layout that uses depth correctly.
 
 ## Key Takeaways
 
-- Modern iOS design leverages **Liquid Glass** for navigation and control layers
-- using **Standard Materials** to organize information within the content layer
-- using **Standard Materials** to organize information within the content layer
-- By using **Semantic System Colours** and **Vibrancy**, you ensure that interfaces remain beautiful
-- legible across light legible across light
-- dark modes, provided you always prioritize **Accessibility** through proper contrast
-- dark modes, provided you always prioritize **Accessibility** through proper contrast
-- transparency testing transparency testing
+- Modern iOS design leverages **Liquid Glass** for navigation and control layers, using **standard materials** to organise information within the content layer
+- By using **semantic system colours** and **vibrancy**, you ensure that interfaces remain beautiful and legible across light and dark modes
+- Always prioritise **accessibility** through proper contrast and transparency testing
 
 ## Next Steps
 

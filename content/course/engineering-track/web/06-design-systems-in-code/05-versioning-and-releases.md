@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- The principles of semantic versioning (SemVer)
+- The principles of semantic versioning (semver)
 - How to write clear, effective changelogs
 - Strategies for managing breaking changes
 - The steps involved in a professional release process

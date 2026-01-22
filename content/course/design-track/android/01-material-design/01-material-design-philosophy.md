@@ -5,7 +5,7 @@
 ## What You'll Learn
 
 - Foundational principles of Material Design
-- The core material metaphor that defines the platform
+- The core Material metaphor that defines the platform
 - What makes an Android app feel native
 - Latest expressive design features of Material Design 3 and Material You
 
@@ -112,11 +112,10 @@ Cut out a few pieces of paper. Write "Header," "Card," and "Button" on them. Arr
 
 ## Key Takeaways
 
-- Material Design treats pixels as if they were physical paper with a distinct (1dp) thickness, usi...
+- Material Design treats pixels as if they were physical paper with a distinct (1dp) thickness, using elevation to create spatial relationships
 - With Material You, the entire UI colour scheme can be personalised based on a user's wallpaper
-- intentional motion explains where elements originate and where they are going
-- intentional motion explains where elements originate and where they are going
-- Designing native Android simply means respecting these system patterns,
+- Intentional motion explains where elements originate and where they are going
+- Designing native Android simply means respecting these system patterns
 
 ## Next Steps
 

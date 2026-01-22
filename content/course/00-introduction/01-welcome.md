@@ -71,7 +71,7 @@ You won't just learn theory. Every module includes hands-on exercises, real exam
 
 This isn't a passive course. You get out what you put in.
 
-**Go at your own pace.** There's no deadline. Some lessons click immediately; others need practice. Both are fine.
+**Go at your own pace.** There's no deadline. Some lessons click immediately; others need practise. Both are fine.
 
 **Build as you learn.** Each lesson has exercises. Do them. The gap between understanding and knowing is crossed by building.
 

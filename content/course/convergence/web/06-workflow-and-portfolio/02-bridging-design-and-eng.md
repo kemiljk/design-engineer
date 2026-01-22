@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- Common friction points
-- Communication strategies
-- Building shared understanding
-- Being an effective bridge
+- Common friction points between design and engineering teams
+- Communication strategies that reduce misunderstandings
+- How to build shared understanding across disciplines
+- How to be an effective bridge between design and engineering
 
 ## The Gap
 

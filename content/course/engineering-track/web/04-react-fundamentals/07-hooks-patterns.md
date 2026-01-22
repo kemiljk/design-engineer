@@ -633,16 +633,13 @@ Create a complete theme system that includes a `ThemeContext` with light and dar
 ## Key Takeaways
 
 - `useContext` enables you to share state globally and avoid prop drilling
-- `useContext` enables you to share state globally and avoid prop drilling
 - For performance, `useMemo` caches expensive calculations
-- `useCallback` caches functions to maintain stable references
 - `useCallback` caches functions to maintain stable references
 - When state logic becomes complex, `useReducer` offers the familiar reducer pattern
 - Custom hooks allow you to extract and share stateful logic between components
-- Always follow the Rules of Hooks—call them only at the top level and only in React functions
+- Always follow the rules of hooks—call them only at the top level and only in React functions
 - Avoid over-optimisation by measuring before adding memoisation
-- remember to name your custom hooks starting with "use" so React can identify them
-- remember to name your custom hooks starting with "use" so React can identify them
+- Remember to name your custom hooks starting with "use" so React can identify them
 
 ## What's Next?
 

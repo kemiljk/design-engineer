@@ -6,7 +6,7 @@
 
 - Density-independent pixels (dp) and how they work
 - The Material responsive grid system
-- Using Window Size Classes (Compact, Medium, Expanded)
+- Using window size classes (compact, medium, expanded)
 - Adapting interfaces for phones, foldables, and large-screen devices
 
 ## The Core Concept: Density Independence
@@ -105,8 +105,7 @@ To calculate the column width for a card on a standard 360dp wide phone screen, 
 ## Key Takeaways
 
 - When designing for Android, you must prioritise density-independent pixels over standard pixels
-- create layouts that target Window Size Classes rather than specific devices
-- create layouts that target Window Size Classes rather than specific devices
+- Create layouts that target window size classes rather than specific devices
 
 ## Next Steps
 

@@ -45,7 +45,7 @@ Once you have data, you need to share it with your team.
 
 **Personas** are fictional characters that represent your key user segments. Instead of arguing about what "users" want, you can ask "Would 'Busy Bob' have time to read this onboarding tour?" Good personas are based on research, not stereotypes.
 
-**Journey Maps** visualize the user's entire timeline, from realizing they have a problem to solving it with your product. This highlights the gaps—what happens *before* they open your app? What happens *after* they close it?
+**Journey Maps** visualise the user's entire timeline, from realising they have a problem to solving it with your product. This highlights the gaps—what happens *before* they open your app? What happens *after* they close it?
 
 ## Applying the Mindset
 
@@ -118,12 +118,8 @@ Try to sign up for a new service you've never used. Write down every single mome
 
 ## Key Takeaways
 
-- True user-centred thinking acknowledges that you are not your user
-- that your intuition is often biased by your own expertise
-- that your intuition is often biased by your own expertise
-- By actively developing empathy through talking and watching
-- human users in their actual context
-- human users in their actual context
+- True user-centred thinking acknowledges that you are not your user and that your intuition is often biased by your own expertise
+- By actively developing empathy through talking and watching human users in their actual context, you can make better design decisions
 
 ## Next Steps
 

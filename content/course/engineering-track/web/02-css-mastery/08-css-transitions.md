@@ -8,7 +8,7 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-- Mechanics of how CSS transitions work
+- Mechanics of how css transitions work
 - Various transition properties and shorthand notations
 - Using timing functions and easing curves to refine animations
 - Which properties can and cannot be transitioned
@@ -268,10 +268,8 @@ Develop a navigation link that includes an underline which grows horizontally fr
 
 ## Key Takeaways
 
-- polished polished
-- For the most predictable
-- performant results, you should target specific properties rather than using the `all` keyword
-- performant results, you should target specific properties rather than using the `all` keyword
+- CSS transitions add polish and smoothness to state changes
+- For the most predictable and performant results, you should target specific properties rather than using the `all` keyword
 - Remember that `ease-out` typically provides the most responsive feel for hover effects
 
 ## Next Steps

@@ -122,13 +122,8 @@ Take a screenshot of your app and run it through a colour blindness simulator li
 
 ## Key Takeaways
 
-- Accessibility is fundamentally about structure
-- clarity rather than mere compliance, requiring descriptive labels
-- clarity rather than mere compliance, requiring descriptive labels
-- logical grouping for TalkBack users logical grouping for TalkBack users
-- With a mandatory 48dp minimum for touch targets
-- strict adherence to WCAG contrast standards, your design must
-- strict adherence to WCAG contrast standards, your design must
+- Accessibility is fundamentally about structure and clarity rather than mere compliance, requiring descriptive labels and logical grouping for TalkBack users
+- With a mandatory 48dp minimum for touch targets and strict adherence to WCAG contrast standards, your design must be usable by everyone
 
 ## Next Steps
 

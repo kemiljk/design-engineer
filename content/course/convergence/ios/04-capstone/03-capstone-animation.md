@@ -13,7 +13,7 @@ estimatedTime: 20
 - How to implement matched geometry transitions for seamless navigation
 - Building animated components that support standard and reduced motion
 - Implementing smooth list animations
-- Designing custom transitions using AnyTransition
+- Designing custom transitions using anytransition
 
 In this phase, you will implement **matched geometry transitions** for seamless navigation. You will build **animated components** that fully support standard and reduced motion settings, implement smooth **list animations**, and design bespoke **custom transitions** using AnyTransition.
 

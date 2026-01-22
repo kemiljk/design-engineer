@@ -33,7 +33,7 @@ In production, most teams use React (or Vue, Svelte, etc.). But knowing the unde
 
 ## Breaking Down a UI
 
-When you see a design, practice decomposition:
+When you see a design, practise decomposition:
 
 ### Example: Card Grid
 
@@ -205,10 +205,9 @@ Practise naming components. Names should be descriptive, consistent, and follow 
 
 - To recap, components are self-contained, reusable UI pieces
 - You should break interfaces into atoms, molecules, and organisms
-- plan before building by considering data, states
-- plan before building by considering data, states, and variations
+- Plan before building by considering data, states, and variations
 - Good component design enables composition and reuse, and naming matters greatly for maintainability
-- Vanilla JS teaches you the fundamentals
+- Vanilla JavaScript teaches you the fundamentals before moving to frameworks
 
 ## Next Steps
 

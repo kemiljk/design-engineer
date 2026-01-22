@@ -4,10 +4,8 @@
 
 ## What You'll Learn
 
-- Throughout this module, you will learn to use if
-- when as powerful expressions that return values directly
-- when as powerful expressions that return values directly
-- manageable code flows manageable code flows
+- How to use `if` and `when` as powerful expressions that return values directly
+- How to write manageable code flows using Kotlin's control structures
 
 ## If Expressions
 
@@ -177,10 +175,8 @@ Further develop your looping skills by iterating through a list of users to gene
 
 ## Key Takeaways
 
-- that `when` is particularly powerful when used exhaustively with sealed classes
-- that `when` is particularly powerful when used exhaustively with sealed classes
-- remember that even try-catch blocks can be used as value-returning expressions
-- remember that even try-catch blocks can be used as value-returning expressions
+- `when` is particularly powerful when used exhaustively with sealed classes
+- Remember that even try-catch blocks can be used as value-returning expressions
 
 ## Next Steps
 

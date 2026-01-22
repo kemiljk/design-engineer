@@ -7,7 +7,7 @@
 - Primary semantic elements and when to use them
 - How to structure page layouts semantically
 - Differences between generic `<div>` containers and semantic elements
-- Best practices for writing clean, accessible, semantic HTML
+- Best practices for writing clean, accessible, semantic html
 
 ## Why Semantic Elements?
 
@@ -400,12 +400,9 @@ Take a page design (your own or from Dribbble):
 
 ## Key Takeaways
 
-- To build high-quality web interfaces,
-- Prioritise using structure-defining tags such as `<header>`, `<nav>`, and `<main>` appropriately
-- only resort to `<div>` or `<span>` when no semantic alternative exists
-- only resort to `<div>` or `<span>` when no semantic alternative exists
-- long-term maintainability of your web projects
-- long-term maintainability of your web projects
+- To build high-quality web interfaces, prioritise using structure-defining tags such as `<header>`, `<nav>`, and `<main>` appropriately
+- Only resort to `<div>` or `<span>` when no semantic alternative exists
+- Semantic HTML improves accessibility, SEO, and long-term maintainability of your web projects
 
 ## Next Steps
 

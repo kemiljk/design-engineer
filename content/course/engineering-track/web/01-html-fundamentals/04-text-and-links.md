@@ -387,12 +387,10 @@ Take a recipe and mark it up with:
 
 ## Key Takeaways
 
-- consistently use `<em>` consistently use `<em>` and `<strong>` to convey genuine emphasis
-- importance importance
-- Leverage the three primary list types to organise your data logically
-- ensure that all links use descriptive text rather than generic phrases
-- ensure that all links use descriptive text rather than generic phrases
-- performance of your application performance of your application
+- Consistently use `<em>` and `<strong>` to convey genuine emphasis and importance
+- Leverage the three primary list types (`<ul>`, `<ol>`, `<dl>`) to organise your data logically
+- Ensure that all links use descriptive text rather than generic phrases like "click here"
+- Proper semantic HTML improves both the accessibility and performance of your application
 
 ## Next Steps
 

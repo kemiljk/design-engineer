@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- Essential components of a standard HTML document
+- Essential components of a standard html document
 - Critical differences between `<head>` and `<body>` sections
 - Indispensable metadata elements
-- How modern browsers interpret and render HTML structures
+- How modern browsers interpret and render html structures
 
 ## The HTML Document Template
 
@@ -322,9 +322,9 @@ Validate your HTML files by visiting validator.w3.org and either uploading or pa
 
 ## Key Takeaways
 
-- also leveraging Open Graph tags to control how your content appears when shared socially
-- also leveraging Open Graph tags to control how your content appears when shared socially
-- By using `defer` for your scripts to prevent render blocking
+- The `<head>` section contains metadata that doesn't appear on the page but is crucial for SEO, social sharing, and browser behaviour
+- Leverage Open Graph tags to control how your content appears when shared socially
+- By using `defer` for your scripts, you prevent render blocking and improve page load performance
 
 ## Next Steps
 
