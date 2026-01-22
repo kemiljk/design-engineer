@@ -17,6 +17,7 @@ import {
   normalizeAccessLevel,
   getModulesForTrack,
 } from "@/lib/course";
+import { getDynamicTotalLessonsForAccess } from "@/lib/course-structure";
 import { hasPreviewAccess } from "@/lib/preview-access";
 import { formatTitle } from "@/lib/format";
 import { BreadcrumbNav } from "../components/breadcrumb-nav";
@@ -375,6 +376,18 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const titleMatch = lesson.content.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1] : slug[slug.length - 1];
   let contentWithoutTitle = lesson.content.replace(/^#\s+.+\n*/m, "");
+  
+  // Replace hardcoded lesson count with dynamic count for convergence index page
+  const isConvergenceIndex = slug.length === 1 && slug[0] === "convergence";
+  if (isConvergenceIndex) {
+    const totalLessons = await getDynamicTotalLessonsForAccess("full");
+    // Replace any hardcoded lesson count (handles both markdown and rendered formats)
+    // Pattern matches: "- ✅ **248 total lessons**" or "- ✅ **156 total lessons**"
+    contentWithoutTitle = contentWithoutTitle.replace(
+      /- ✅ \*\*\d+ total lessons\*\*/g,
+      `- ✅ **${totalLessons} total lessons**`
+    );
+  }
   
   // Apply watermarking for authenticated users on paid content
   // This embeds invisible user identification for content leak tracing

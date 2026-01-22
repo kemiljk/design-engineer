@@ -4,10 +4,10 @@
 
 ## What You'll Learn
 
-- common usage patterns common usage patterns
-- You will learn about interactive documentation using Storybook
-- discover strategies for keeping your documentation accurate
-- discover strategies for keeping your documentation accurate and up to date as your codebase evolves
+- What should be documented for each component
+- Code examples and common usage patterns
+- Interactive documentation using Storybook
+- Strategies for keeping documentation accurate and up to date as your codebase evolves
 
 ## Component Documentation Structure
 

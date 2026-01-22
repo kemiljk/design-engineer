@@ -9,7 +9,12 @@ Learn to think like a designer. This track covers the principles, patterns, and 
 
 ## What You'll Learn
 
-By progressing through this track, you will master visual design fundamentals—including typography, colour theory, and layout—to create clear hierarchy. You will gain a deep understanding of platform-specific guidelines like Apple's HIG and Google's Material Design 3, while learning to build robust design systems with tokens and clear documentation. Furthermore, you will apply user-centred UX principles to solve complex problems through interaction design and bridge the gap between Figma and production code in SwiftUI and Jetpack Compose.
+- Visual design fundamentals: typography, colour theory, and layout
+- Creating clear hierarchy and visual communication
+- Platform-specific guidelines: Apple's HIG and Google's Material Design 3
+- Building robust design systems with tokens and clear documentation
+- User-centred UX principles for solving complex problems
+- Interaction design and bridging the gap between Figma and production code
 
 ## Choose Your Platform
 

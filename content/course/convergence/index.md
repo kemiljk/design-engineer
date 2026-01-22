@@ -10,7 +10,7 @@ description: Complete course access - all Design, Engineering, and Convergence c
 - ✅ **All Design Track lessons** (Web, iOS, Android)
 - ✅ **All Engineering Track lessons** (Web, iOS, Android) 
 - ✅ **All Convergence content** (motion, prototyping, accessibility, workflow)
-- ✅ **156 total lessons** across all tracks and platforms
+- ✅ **248 total lessons** across all tracks and platforms
 - ✅ **Lifetime access** with all future updates
 
 This is where it all comes together. For designers ready to go beyond Vibe Coding and engineers ready to ship beautiful, thoroughly considered UIs—Convergence gives you everything you need.

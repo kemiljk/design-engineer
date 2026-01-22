@@ -4,11 +4,10 @@
 
 ## What You'll Learn
 
-- In this lesson, we will cover the principles of semantic versioning (SemVer)
-- how to write clear, effective changelogs how to write clear, effective changelogs
-- You will learn strategies for managing breaking changes
-- understand the steps involved in a professional release process
-- understand the steps involved in a professional release process
+- The principles of semantic versioning (SemVer)
+- How to write clear, effective changelogs
+- Strategies for managing breaking changes
+- The steps involved in a professional release process
 
 ## Semantic Versioning
 
