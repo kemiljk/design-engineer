@@ -14,6 +14,7 @@ import {
   PlusCircle,
   OpenNewWindow as ExternalLink,
   User,
+  Flash,
 } from "iconoir-react";
 import {
   getUserNotes,
@@ -204,7 +205,23 @@ export default async function DashboardPage() {
         </section>
 
         {/* Quick Actions */}
-        <div className="mb-12 grid gap-4 md:grid-cols-3">
+        <div className="mb-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Link
+            href="/course/dashboard/flashcards"
+            className="group hover:border-swiss-red flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
+          >
+            <div className="flex h-12 w-12 items-center justify-center bg-neutral-100 dark:bg-neutral-800">
+              <Flash className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+            </div>
+            <div className="flex-1">
+              <h3 className="group-hover:text-swiss-red font-bold">
+                Flashcards
+              </h3>
+              <p className="text-sm text-neutral-500">Review and practice</p>
+            </div>
+            <ArrowRight className="group-hover:text-swiss-red h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1" />
+          </Link>
+
           <Link
             href="/course/notes"
             className="group hover:border-swiss-red flex items-center gap-4 border border-neutral-200 bg-white p-6 transition-colors dark:border-neutral-800 dark:bg-neutral-900"
