@@ -101,9 +101,17 @@ export default async function DashboardPage() {
 
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
-          <div className="bg-swiss-red/10 text-swiss-red flex h-16 w-16 items-center justify-center">
-            <User className="h-8 w-8" />
-          </div>
+          {user?.imageUrl ? (
+            <img
+              src={user.imageUrl}
+              alt={user.firstName || "User"}
+              className="h-16 w-16 bg-neutral-100 object-cover"
+            />
+          ) : (
+            <div className="bg-swiss-red/10 text-swiss-red flex h-16 w-16 items-center justify-center">
+              <User className="h-8 w-8" />
+            </div>
+          )}
           <div>
             <h1 className="text-2xl font-bold md:text-3xl">
               Welcome back, {user?.firstName || "Learner"}
