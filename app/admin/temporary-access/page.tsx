@@ -91,11 +91,16 @@ export default function TemporaryAccessAdmin() {
         await fetchCodes();
 
         // Copy all new codes to clipboard
-        const newCodes = data.codes
-          .map((code: TemporaryAccessCode) => code.metadata.code)
-          .join("\n");
-        await navigator.clipboard.writeText(newCodes);
-        toast.info("New codes copied to clipboard");
+        try {
+          const newCodes = data.codes
+            .map((code: TemporaryAccessCode) => code.metadata.code)
+            .join("\n");
+          await navigator.clipboard.writeText(newCodes);
+          toast.info("New codes copied to clipboard");
+        } catch (clipboardError) {
+          console.error("Failed to copy to clipboard:", clipboardError);
+          // Don't show an error toast here since the codes were created successfully
+        }
       } else {
         toast.error(data.error || "Failed to create codes");
       }
