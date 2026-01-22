@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Lock, Loader2, InfoEmpty } from "iconoir-react";
+import { ArrowRight, Lock, RefreshDouble, InfoCircle } from "iconoir-react";
 import Link from "next/link";
 
 export default function EarlyPreviewPage() {
@@ -82,7 +82,7 @@ export default function EarlyPreviewPage() {
                 className="absolute top-1 right-1 bottom-1 flex items-center justify-center bg-neutral-900 px-4 text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-30 dark:bg-neutral-50 dark:text-black"
               >
                 {status === "loading" ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <RefreshDouble className="h-4 w-4 animate-spin" />
                 ) : (
                   <ArrowRight className="h-4 w-4" />
                 )}
@@ -94,7 +94,7 @@ export default function EarlyPreviewPage() {
         <div className="mt-4 min-h-[20px] text-center">
           {status === "error" && (
             <p className="animate-in fade-in slide-in-from-top-1 flex items-center justify-center gap-1.5 text-xs text-red-500">
-              <InfoEmpty className="h-3.5 w-3.5" />
+              <InfoCircle className="h-3.5 w-3.5" />
               {message}
             </p>
           )}
