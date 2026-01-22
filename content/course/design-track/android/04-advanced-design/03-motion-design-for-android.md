@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Motion in Material Design creates meaning. It is not just decoration; it explains spatial relationships and provides feedback. Learn how to design animations that guide users and bring your Android app to life.
 
+## What You'll Learn
+
+- Material motion principles (informative, focused, expressive)
+- Core transition patterns (Container Transform, Shared Axis, Fade Through, Fade)
+- Spring-based physics in Material 3 Expressive
+- How to design motion that guides users and provides feedback
+
 ## Material Motion Principles
 
 ### Informative

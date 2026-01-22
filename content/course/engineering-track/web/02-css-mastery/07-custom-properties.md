@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover the essentials of defining and using CSS custom properties across different scopes. You will learn how to leverage inheritance to create clean stylesheets, use JavaScript to manage dynamic values at runtime, and implement robust theming systems that can adapt to user preferences or brand requirements.
+- Essentials of defining and using CSS custom properties
+- Leveraging inheritance to create clean stylesheets
+- Using JavaScript to manage dynamic values at runtime
+- Implementing robust theming systems for user preferences or brands
 
 ## What Are Custom Properties?
 

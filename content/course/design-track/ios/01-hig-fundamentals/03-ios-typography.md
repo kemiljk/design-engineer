@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this module, you will explore the San Francisco font family and the structured text styles that define the iOS interface. We'll examine the principles of typography hierarchy and dive into the implementation of Dynamic Type to ensure your app remains readable and accessible for all users regardless of their preferred text size.
+- The San Francisco font family and its variants
+- Structured text styles that define the iOS interface
+- Principles of typography hierarchy
+- Implementing Dynamic Type for accessibility and readability
 
 ## San Francisco Font Family
 

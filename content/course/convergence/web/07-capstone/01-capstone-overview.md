@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Synthesise everything from the Web Convergence Track into a polished, portfolio-ready project that demonstrates your motion design, accessibility, performance, and design engineering workflow skills.
 
+## What You'll Learn
+
+- How to synthesise motion design, accessibility, and performance in one project
+- Creating purposeful animations and micro-interactions
+- Building accessibility-first experiences
+- Optimising for performance and fast load times
+- Documenting design-to-code decisions in a case study
+
 ## Why This Project?
 
 A design engineer portfolio piece demonstrates the unique intersection of design and engineering. It showcases your **motion design sensibility** through purposeful animations, your **accessibility-first thinking** by being inclusive by default, your **performance awareness** through fast load times, and your **ability to ship** polished, production-ready work. Ultimately, it proves your **design-to-code fluency** and seamless translation between disciplines.

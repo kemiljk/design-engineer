@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand the fundamentals of auto layout and how to use it to create flexible, responsive components. You will also learn to apply constraints for precise positioning and explore best practices for building production-ready design systems.
+- Fundamentals of auto layout and how to use it
+- Creating flexible, responsive components
+- Applying constraints for precise positioning
+- Best practices for building production-ready design systems
 
 ## The Problem with Static Design
 

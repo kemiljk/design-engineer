@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will grasp universal concepts that apply across all major design tools and develop a robust mental model for digital design. You will also learn essential operations and workflows for selection and manipulation, enabling you to learn and adapt to any new design platform quickly.
+- Universal concepts that apply across all major design tools
+- Developing a robust mental model for digital design
+- Essential operations and workflows for selection and manipulation
+- How to learn and adapt to any new design platform quickly
 
 ## Tool-Agnostic Thinking
 

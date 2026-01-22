@@ -2,6 +2,13 @@
 
 > **Quick Summary:** User-centred design (UCD) is a disciplined practice of making decisions based on real evidence rather than assumptions. It turns the design process from a guessing game into a problem-solving methodology.
 
+## What You'll Learn
+
+- The core shift from designing for yourself to designing for users
+- Why user-centred thinking matters for business success
+- How to develop empathy for your users
+- Methods for gathering user insights and feedback
+
 ## The Core Shift
 
 It is dangerously easy to design for yourself. You know how the product works, you know where the buttons are, and you have a high-end device with a fast connection.

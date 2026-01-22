@@ -8,7 +8,10 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-In this lesson, we will explore the techniques for modifying text and HTML content within your elements. You will learn how to create and remove elements dynamically, work effectively with CSS classes and inline styles, and discover practical DOM manipulation patterns that can be applied to real-world interface challenges.
+- Techniques for modifying text and HTML content
+- How to create and remove elements dynamically
+- Working effectively with CSS classes and inline styles
+- Practical DOM manipulation patterns for real-world interfaces
 
 ## Modifying Content
 

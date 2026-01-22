@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will examine the rigorous research that powers the Material 3 Expressive evolution and learn how to apply its core principles to your colour and typography systems. We will also explore the use of dynamic shape and motion, while considering the unique platform requirements for Wear OS, phones, and tablets.
+- The rigorous research that powers Material 3 Expressive
+- How to apply core principles to colour and typography systems
+- Using dynamic shape and motion
+- Platform requirements for Wear OS, phones, and tablets
 
 ## The Science of Expressive Design
 

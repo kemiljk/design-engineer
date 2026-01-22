@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn to navigate the functional hierarchy of Android buttons, from high-emphasis filled variants to low-emphasis text styles. We'll identify exactly when to employ the Floating Action Button and how to select the correct controls for chips, radio buttons, and checkboxes, while mastering containment surfaces like cards and bottom sheets.
+- Functional hierarchy of Android buttons (filled, tonal, outlined, text)
+- When to employ the Floating Action Button
+- Selecting correct controls for chips, radio buttons, and checkboxes
+- Containment surfaces like cards and bottom sheets
 
 ## Buttons and Actions
 

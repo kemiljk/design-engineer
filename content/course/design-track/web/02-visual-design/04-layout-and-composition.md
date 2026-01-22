@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Layout is how elements are arranged on a page. Good layout creates visual flow, establishes hierarchy, and makes content easy to consume.
 
+## What You'll Learn
+
+- The purpose of layout and how it creates visual flow
+- Grid systems and how to use them effectively
+- Composition techniques for organising content
+- Responsive layout principles
+- How layout establishes hierarchy
+
 ## The Purpose of Layout
 
 Layout answers fundamental questions:

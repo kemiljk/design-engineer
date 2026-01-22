@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will define what JavaScript is and identify where it runs within the web ecosystem. You will learn how JavaScript interacts with HTML and CSS, understand its critical role in modern web development, and discover why JavaScript is an indispensable tool for every Design Engineer.
+- What JavaScript is and where it runs in the web ecosystem
+- How JavaScript interacts with HTML and CSS
+- JavaScript's critical role in modern web development
+- Why JavaScript is indispensable for Design Engineers
 
 ## The Language of Interactivity
 

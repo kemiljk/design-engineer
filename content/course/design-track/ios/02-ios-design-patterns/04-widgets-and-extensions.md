@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, you will master the "glanceable" design mindset required to create effective Home Screen widgets and Lock Screen extensions. We'll examine exactly how to navigate the technical constraints of various widget sizes and dive into the creation of dynamic Live Activities that keep users informed via the Dynamic Island, ensuring your app's most valuable content remains accessible even when it isn't explicitly open.
+- The "glanceable" design mindset for effective widgets
+- Creating Home Screen widgets and Lock Screen extensions
+- Navigating technical constraints of various widget sizes
+- Creating dynamic Live Activities for the Dynamic Island
 
 ## Home Screen Widgets
 

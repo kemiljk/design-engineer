@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Visual elements are not just decoration—they are a functional part of your interface's language. Icons speed up recognition, while imagery sets the emotional tone. Using them correctly separates professional interfaces from amateur ones.
 
+## What You'll Learn
+
+- The role of visuals in interfaces
+- Icon design principles and best practices
+- When to use icons vs text vs both
+- How to choose and use imagery effectively
+- Optimising visual elements for performance
+
 ## The Role of Visuals
 
 Users process images 60,000 times faster than text. A well-placed icon can replace a sentence; a hero image can explain a value proposition in milliseconds. But visual elements are heavy. They add cognitive load and visual noise.

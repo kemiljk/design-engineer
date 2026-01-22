@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn the fundamental structure of the form element and its various submission methods. We'll examine the wide range of input types available and identify the most appropriate scenarios for their use, whilst also exploring the critical roles of labels, fieldsets, and other accessibility features. You will also walk through the basics of form validation to ensure your interfaces are both robust and user-friendly.
+- Fundamental structure of the form element and submission methods
+- Wide range of input types and when to use them
+- Critical roles of labels, fieldsets, and accessibility features
+- Basics of form validation for robust, user-friendly interfaces
 
 ## The Form Element
 

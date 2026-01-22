@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Material You brings personalization to Android. Learn how to design for dark theme and dynamic colour while maintaining brand identity, creating an app that feels personal to every user.
 
+## What You'll Learn
+
+- How the Android theming system works
+- Material Design colour system and colour roles
+- Designing effective dark themes
+- Using dynamic colour (Material You) while maintaining brand identity
+- Surface colours and elevation in dark mode
+
 ## The Android Theming System
 
 Since Android 10, the operating system has treated appearance as a user preference, not a fixed state. Users can toggle between Light and Dark themes at will, or have their phone switch automatically.

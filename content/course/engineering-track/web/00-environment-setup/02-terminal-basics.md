@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn the essential navigation commands required for daily development and examine the processes for creating, moving, and deleting files and folders. We'll explore how to read and search file contents efficiently and walk through the keyboard shortcuts and help systems that will save you time and assist you whenever you're stuck.
+- Essential navigation commands for daily development
+- Processes for creating, moving, and deleting files and folders
+- How to read and search file contents efficiently
+- Keyboard shortcuts and help systems
 
 ## The Commands You'll Actually Use
 

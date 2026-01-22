@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the core concepts of flex containers and flex items, and how to manage alignment across both the main and cross axes. You will learn the mechanics of growing, shrinking, and sizing flex items, and we'll walk through several common flexbox patterns that are essential for modern web layout.
+- Core concepts of flex containers and flex items
+- Managing alignment across main and cross axes
+- Mechanics of growing, shrinking, and sizing flex items
+- Common flexbox patterns for modern web layout
 
 ## What is Flexbox?
 

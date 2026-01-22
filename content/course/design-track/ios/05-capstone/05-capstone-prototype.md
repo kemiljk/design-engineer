@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-During this phase, you will master the creation of comprehensive interaction states for all your UI components and learn how to plan transitions that mirror native iOS navigation patterns. We'll examine the process of building connected, functional prototypes in Figma and dive into the use of micro-interactions and haptic cues to add the final layer of polish to your app design.
+- Creating comprehensive interaction states for UI components
+- Planning transitions that mirror native iOS navigation patterns
+- Building connected, functional prototypes in Figma
+- Using micro-interactions and haptic cues for polish
 
 ## Step 1: Interaction States
 

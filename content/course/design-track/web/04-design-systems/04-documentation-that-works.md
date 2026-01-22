@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Documentation is the interface between your design system and its users. Without good docs, even great components go unused. Your goal is to answer the user's question before they have to ask it.
 
+## What You'll Learn
+
+- Why documentation matters for design systems
+- Writing for different audiences (designers, developers, stakeholders)
+- Best practices for effective documentation
+- How to structure documentation that answers questions before they're asked
+
 ## The Documentation Problem
 
 Many design systems fail not because the components are broken, but because nobody knows how to use them correctly.

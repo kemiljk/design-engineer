@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the fundamental concepts of asynchronous JavaScript and understand how to manage future values using promises and the modern `async`/`await` syntax. You will learn how to use the Fetch API to make HTTP requests, work effectively with JSON data, and implement robust error handling for your data operations.
+- Fundamental concepts of asynchronous JavaScript
+- Managing future values using promises and `async`/`await` syntax
+- Using the Fetch API to make HTTP requests
+- Working effectively with JSON data and implementing error handling
 
 ## Synchronous vs Asynchronous
 

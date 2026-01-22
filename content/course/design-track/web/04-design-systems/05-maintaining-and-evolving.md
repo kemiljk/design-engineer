@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand why design systems require ongoing investment and master versioning strategies using semantic versioning principles. You will also learn how to effectively deprecate and remove obsolete components and explore various governance models and contribution processes to keep your system thriving.
+- Why design systems require ongoing investment
+- Versioning strategies using semantic versioning principles
+- How to effectively deprecate and remove obsolete components
+- Governance models and contribution processes to keep systems thriving
 
 ## The Living System
 

@@ -8,6 +8,13 @@ estimatedTime: 20
 
 **Time Estimate:** 3-4 hours
 
+## What You'll Learn
+
+- How to define your project's scope and core goals
+- Creating a detailed motion inventory to plan animations
+- Establishing an accessibility strategy from the beginning
+- Setting a strict performance budget to guide technical decisions
+
 In this phase, you will define your project's scope and core goals. You will create a detailed **motion inventory** to plan your animations, establish an **accessibility strategy** from the very beginning, and set a strict **performance budget** to guide your technical decisions.
 
 ## Step 1: Define Your Project

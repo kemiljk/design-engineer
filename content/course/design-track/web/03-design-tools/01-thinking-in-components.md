@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand what components are and why they matter, using the Atomic Design methodology to structure interfaces into atoms, molecules, and organisms. You will also learn to identify and define components while exploring the critical relationship between design and production code.
+- What components are and why they matter
+- Using Atomic Design methodology to structure interfaces (atoms, molecules, organisms)
+- How to identify and define components
+- The critical relationship between design and production code
 
 ## The Component Mental Model
 

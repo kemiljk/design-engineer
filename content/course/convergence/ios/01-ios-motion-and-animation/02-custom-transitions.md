@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Transitions animate views entering and leaving. SwiftUI provides built-in transitions and lets you create custom ones.
 
-This lesson explores how to use **built-in transitions** for standard effects, how to **combine transitions** for richer entrances, creating **custom transitions** for unique component behaviour, and using **matchedGeometryEffect** for seamless hero animations.
+## What You'll Learn
+
+- How to use built-in transitions for standard effects
+- How to combine transitions for richer entrances
+- Creating custom transitions for unique component behaviour
+- Using matchedGeometryEffect for seamless hero animations
 
 ## Built-in Transitions
 

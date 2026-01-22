@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, we will delve into what state is and when to use it within your React components. You will learn the `useState` hook in detail, understand how to update state correctly, see the key differences between state and props, and explore common state management patterns.
+- What state is and when to use it in React components
+- The `useState` hook in detail
+- How to update state correctly
+- Key differences between state and props
+- Common state management patterns
 
 ## What Is State?
 

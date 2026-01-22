@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy iOS app with HIG-compliant components, light and dark mode, and an interactive prototype.
 
+## What You'll Learn
+
+- How to apply iOS design principles to a complete app
+- Creating HIG-compliant component libraries
+- Designing for both light and dark mode
+- Building interactive prototypes
+- Documenting design decisions in a case study
+
 ## Why This Project?
 
 iOS apps are highly visible portfolio pieces. They showcase:

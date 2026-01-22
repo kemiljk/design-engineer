@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Learn how to bring Liquid Glass to your app's design—from app icons to navigation, controls, and modals. This practical guide covers everything you need to adopt Apple's new design language.
 
+## What You'll Learn
+
+- How to adopt Liquid Glass in your app design
+- Creating layered app icons with dynamic effects
+- Designing controls and navigation with glass materials
+- Adapting menus, toolbars, and modals to the new language
+- Ensuring accessibility with Liquid Glass
+
 ## Getting Started
 
 Adopting a new design language can feel daunting, but Liquid Glass is designed to be an evolution, not a revolution. It builds on the existing principles of depth and layering that iOS has always used, but refines them with new materials and physics.

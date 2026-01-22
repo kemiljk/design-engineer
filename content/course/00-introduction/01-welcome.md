@@ -8,7 +8,10 @@ estimatedTime: 8
 
 ## What You'll Learn
 
-Throughout this course, you will learn exactly what you can achieve as a design engineer, identifying the core mindset shifts that make these individuals effective. We'll explore who this journey is designed for and provide practical strategies to ensure you get the absolute most from your learning experience.
+- What you can achieve as a design engineer
+- The core mindset shifts that make design engineers effective
+- Who this course is designed for
+- Practical strategies to get the most from your learning experience
 
 ## Welcome, Future Design Engineer
 
@@ -123,7 +126,10 @@ Your journey to becoming a Design Engineer starts now.
 
 ## Key Takeaways
 
-Design engineering is the art of bridging the gap between design and code, and it welcome's both designers learning to build and engineers developing their eye. Success in this field requires a mindset that values curiosity, iteration, empathy, and craftsmanship, all of which are best developed through active practice and building as you learn.
+- Design engineering bridges the gap between design and code
+- It welcomes both designers learning to build and engineers developing their eye
+- Success requires a mindset valuing curiosity, iteration, empathy, and craftsmanship
+- These skills are best developed through active practice and building as you learn
 
 ## Next Steps
 

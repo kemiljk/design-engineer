@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn exactly how your design elements map to Jetpack Compose functions and explore the declarative mental model of columns, rows, and modifiers. We'll identify specific design decisions that help streamline the development process and establish best practices for preparing your files for a successful handoff.
+- How design elements map to Jetpack Compose functions
+- The declarative mental model (columns, rows, modifiers)
+- Design decisions that streamline the development process
+- Best practices for preparing files for successful handoff
 
 ## Compose Fundamentals
 

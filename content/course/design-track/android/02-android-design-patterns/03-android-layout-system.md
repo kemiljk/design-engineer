@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will gain a deep understanding of density-independent pixels and the Material responsive grid system. We'll explore exactly how to use Window Size Classes—Compact, Medium, and Expanded—to adapt your interfaces for everything from standard phones to foldables and large-screen devices.
+- Density-independent pixels (dp) and how they work
+- The Material responsive grid system
+- Using Window Size Classes (Compact, Medium, Expanded)
+- Adapting interfaces for phones, foldables, and large-screen devices
 
 ## The Core Concept: Density Independence
 

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will examine why React has become the dominant frontend framework and explore the compelling job market data that supports this claim. You will gain insight into React's extensive ecosystem and the community advantages it provides, and learn how your React skills will compound over time to benefit your career.
+- Why React has become the dominant frontend framework
+- Compelling job market data supporting React's dominance
+- React's extensive ecosystem and community advantages
+- How React skills compound over time for career benefit
 
 ## The Numbers Don't Lie
 

@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-During this lesson, you will master the core navigation components of the Android platform, including the Bottom Bar, Navigation Rail, and Drawer. We will clarify the crucial functional differences between the "Back" gesture and the "Up" button while learning to manage complex screen hierarchies for a predictable user flow.
+- Core navigation components (Bottom Bar, Navigation Rail, Drawer)
+- Functional differences between "Back" gesture and "Up" button
+- Managing complex screen hierarchies for predictable user flow
 
 ## Primary Navigation Structures
 

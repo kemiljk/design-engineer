@@ -8,7 +8,11 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-By the end of this lesson, you will understand the formal definition of design engineering and how it distinguishes itself from related industry roles. We will explore the professional spectrum where these hybrids operate, why their specific skillset is increasingly sought after by modern companies, and provide concrete examples of the work they produce.
+- The formal definition of design engineering
+- How design engineering distinguishes itself from related roles
+- The professional spectrum where design engineers operate
+- Why this skillset is increasingly sought after by companies
+- Concrete examples of design engineering work
 
 ## Defining the Role
 
@@ -195,7 +199,10 @@ Write down your answers. We'll use them in the next lesson to help you choose yo
 
 ## Key Takeaways
 
-Design engineering bridges the gap between design and development through absolute fluency in both, operating on a spectrum from design-heavy to engineering-heavy depending on individual interests and team needs. Companies value this role for its ability to accelerate shipping times and ensure high-quality handoffs through essential work in prototyping, design systems, implementation polish, and proprietary tooling.
+- Design engineering bridges design and development through fluency in both
+- It operates on a spectrum from design-heavy to engineering-heavy
+- Companies value this role for accelerating shipping times
+- Key work includes prototyping, design systems, implementation polish, and tooling
 
 ## Next Steps
 

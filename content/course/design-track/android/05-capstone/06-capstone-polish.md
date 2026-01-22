@@ -10,7 +10,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-Throughout this final stage, you will design a multilayered adaptive icon and conduct a thorough design audit of your entire project. We'll examine how to write a compelling case study and organise your files for a professional portfolio presentation.
+- Designing a multilayered adaptive icon
+- Conducting a thorough design audit
+- Writing a compelling case study
+- Organising files for professional portfolio presentation
 
 ## Step 1: Adaptive Icon
 

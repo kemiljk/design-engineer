@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover modal structure and styling, focus trapping and management, keyboard interactions, and how to implement accessible modals.
+- Modal structure and styling
+- Focus trapping and management
+- Keyboard interactions
+- How to implement accessible modals
 
 ## Modal HTML Structure
 

@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Small details elevate apps from good to great. Haptics, edge cases, and micro-interactions create memorable experiences.
 
-This lesson covers the final touches that make an app feel premium. You will learn to implement **haptic feedback** for tactile responsiveness, create delightful **micro-interactions**, handle common **edge cases** gracefully, and verify your work against a comprehensive **polish checklist**.
+## What You'll Learn
+
+- How to implement haptic feedback for tactile responsiveness
+- Creating delightful micro-interactions
+- Handling common edge cases gracefully
+- Verifying your work against a comprehensive polish checklist
 
 ## Haptic Feedback
 

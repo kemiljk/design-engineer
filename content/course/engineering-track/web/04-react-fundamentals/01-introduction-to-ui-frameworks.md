@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore what UI frameworks are and the problems they were designed to solve. You will gain an understanding of the major players in the ecosystem, including React, Vue, Svelte, and Angular, and learn how their underlying philosophies and approaches differ. Finally, we will examine why React has come to dominate the industry and what that means for your career as a Design Engineer.
+- What UI frameworks are and the problems they solve
+- Major players in the ecosystem (React, Vue, Svelte, Angular)
+- How their underlying philosophies and approaches differ
+- Why React dominates the industry and what it means for Design Engineers
 
 ## Beyond Vanilla JavaScript
 

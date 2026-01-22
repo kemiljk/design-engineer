@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will explore why iOS animations feel so distinct, specifically focusing on the shift from standard curves to sophisticated spring physics. We'll examine the three core principles of native motion—responsive, meaningful, and coherent—and learn exactly how to specify transitions and timing that create a tactile, physically real experience for your users.
+- Why iOS animations feel distinct (spring physics vs standard curves)
+- Three core principles of native motion (responsive, meaningful, coherent)
+- How to specify transitions and timing
+- Creating a tactile, physically real animation experience
 
 ## Spring Animations
 

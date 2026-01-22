@@ -2,6 +2,13 @@
 
 > **Quick Summary:** A design system is more than a component library—it's a shared language of principles, patterns, and tools that enables teams to build consistent products efficiently.
 
+## What You'll Learn
+
+- The difference between design systems and component libraries
+- The anatomy of a design system (principles, foundations, components, documentation)
+- Why design systems matter for teams
+- How design systems enable consistency and efficiency
+
 ## Beyond the Component Library
 
 Many people confuse design systems with component libraries. While they are related, the distinction is critical.

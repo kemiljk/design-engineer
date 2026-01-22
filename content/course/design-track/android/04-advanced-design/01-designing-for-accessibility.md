@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Accessible design is inclusive design. Learn how to create Android apps that work seamlessly with TalkBack and other assistive technologies, ensuring your app can be used by anyone, anywhere.
 
+## What You'll Learn
+
+- Why accessibility matters and who benefits
+- Android accessibility services (TalkBack, Select to Speak, Switch Access)
+- How to design for screen readers and assistive technologies
+- Creating accessible touch targets and content descriptions
+- Testing your app for accessibility
+
 ## Why Accessibility Matters
 
 Accessible design isn't just about charity or compliance; it's about making a better product. Over **26% of US adults** live with some form of disability. When you design for accessibility, you improve usability for everyone—large touch targets help users with motor impairments *and* users carrying groceries. High contrast helps users with low vision *and* users in bright sunlight. Google Play also boosts the discoverability of high-quality, accessible apps.

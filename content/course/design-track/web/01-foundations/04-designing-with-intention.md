@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will learn to distinguish between mere decoration and intentional design by questioning every decision within a purposeful framework. You will also develop the ability to clearly articulate and defend your design choices based on user goals and established principles.
+- How to distinguish between decoration and intentional design
+- Questioning every decision within a purposeful framework
+- Clearly articulating and defending design choices
+- Basing decisions on user goals and established principles
 
 ## The Problem with "Pretty"
 

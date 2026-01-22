@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Six core principles (hierarchy, balance, contrast, repetition, alignment, and proximity) form the foundation of all effective visual design.
 
+## What You'll Learn
+
+- The six core principles of design (hierarchy, balance, contrast, repetition, alignment, proximity)
+- How each principle works and when to apply it
+- How to use principles as decision-making tools
+- How to analyse designs using these principles
+
 ## The Framework
 
 > *"Contrast is the essence of communication."* — Jan Tschichold

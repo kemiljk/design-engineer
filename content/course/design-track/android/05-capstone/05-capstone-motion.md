@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-During this phase, you will learn to apply Material motion principles and design comprehensive interaction states for all UI elements. We'll examine how to build connected prototypes and add delightful Material-style micro-interactions to bring your interface to life.
+- Applying Material motion principles
+- Designing comprehensive interaction states for UI elements
+- Building connected prototypes
+- Adding delightful Material-style micro-interactions
 
 ## Step 1: Material Motion Principles
 

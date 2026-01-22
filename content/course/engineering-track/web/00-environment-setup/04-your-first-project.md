@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn how to initialise a new project using npm and gain a deep understanding of the `package.json` file. We'll examine the process of installing project dependencies and walking through the execution of development scripts to establish a professional project workflow.
+- How to initialise a new project using npm
+- Deep understanding of the `package.json` file
+- Process of installing project dependencies
+- Executing development scripts for professional workflows
 
 ## Creating a Project
 

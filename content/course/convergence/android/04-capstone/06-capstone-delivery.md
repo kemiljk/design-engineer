@@ -8,6 +8,13 @@ estimatedTime: 10
 
 **Time Estimate:** 1-2 hours
 
+## What You'll Learn
+
+- How to write effective Javadoc/KDoc for your components
+- Structuring a compelling technical case study
+- Packaging your repository to stand out to recruiters and peers
+- Best practices for technical communication
+
 Engineering is as much about communication as it is about code. This lesson covers writing effective **Javadoc/KDoc** for your components, structuring a compelling **technical case study**, and **packaging your repository** so it stands out to recruiters and peers.
 
 ## 1. Code Documentation

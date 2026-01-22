@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Colour isn't just aesthetic preference. It's a powerful communication tool that affects perception, accessibility, and usability.
 
+## What You'll Learn
+
+- Colour properties (hue, saturation, lightness)
+- Colour psychology and how it affects perception
+- How to create effective colour palettes
+- Accessibility considerations for colour
+- Practical application of colour in interfaces
+
 ## The Language of Colour
 
 > *"Colour is a power which directly influences the soul."* — Wassily Kandinsky

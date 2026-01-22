@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Polish transforms good apps into great ones. Small details in haptics, sounds, and micro-interactions create delightful experiences.
 
-This lesson explores the finishing touches that make an app feel premium. You will master **haptic feedback** to add tactile response, use **sound design** effectively, create delightful **micro-interactions**, and apply a rigorous attention to **detail**.
+## What You'll Learn
+
+- How to master haptic feedback to add tactile response
+- Using sound design effectively
+- Creating delightful micro-interactions
+- Applying rigorous attention to detail
 
 ## Haptic Feedback
 

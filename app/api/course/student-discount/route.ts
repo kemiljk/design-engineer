@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { cosmic } from "@/lib/cosmic";
 import { createStudentDiscount } from "@/lib/lemonsqueezy";
 import { StudentDiscountEmailTemplate } from "@/app/components/email-template";
+import { getCourse } from "@/lib/course";
 import { Resend } from "resend";
 import { nanoid } from "nanoid";
 
@@ -98,6 +99,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const course = await getCourse();
     const slug = `student-discount-${nanoid(8)}`;
     await cosmic.objects.insertOne({
       type: "student-discounts",
@@ -119,6 +121,7 @@ export async function POST(request: NextRequest) {
         react: StudentDiscountEmailTemplate({
           email: trimmedEmail,
           discountCode,
+          totalLessons: course.totalLessons,
         }) as React.ReactElement,
       });
     } catch (emailError) {

@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-During this phase, you will research the Material 3 guidelines and define your app's core concept and purpose. We'll examine exactly how to create comprehensive Material 3 colour schemes while preparing your design for dynamic colour and system-wide adaptation.
+- Researching Material 3 guidelines
+- Defining your app's core concept and purpose
+- Creating comprehensive Material 3 colour schemes
+- Preparing designs for dynamic colour and system-wide adaptation
 
 ## Step 1: Research & Reference
 

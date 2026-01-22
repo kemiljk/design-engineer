@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Motion on iOS isn't decoration—it's communication. Learn how to design animations that feel natural, enhance the user experience, and follow Apple's physics-based philosophy.
 
+## What You'll Learn
+
+- How motion communicates orientation, continuity, and feedback
+- Spring animation parameters and when to use them
+- Types of iOS animations (navigation, modals, micro-interactions)
+- How to design animations in Figma for iOS
+- Respecting the Reduce Motion accessibility setting
+
 ## The iOS Motion Philosophy
 
 ### Motion as Communication

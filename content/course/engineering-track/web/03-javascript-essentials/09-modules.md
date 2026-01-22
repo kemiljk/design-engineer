@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this lesson, we will examine why ES6 modules are vital for modern codebases and how they provide a more structured alternative to traditional script loading. You will learn the syntax for named and default exports, explore how to use re-exports and barrel files to simplify your imports, and discover the best practices for maintaining a clean and scalable module-based architecture.
+- Why ES6 modules are vital for modern codebases
+- Syntax for named and default exports
+- Using re-exports and barrel files to simplify imports
+- Best practices for clean, scalable module-based architecture
 
 ## Why Modules?
 

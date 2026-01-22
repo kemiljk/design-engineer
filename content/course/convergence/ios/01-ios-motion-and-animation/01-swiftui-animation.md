@@ -2,7 +2,14 @@
 
 > **Quick Summary:** SwiftUI makes animation simple with withAnimation and implicit animations. Understanding spring physics helps create natural-feeling motion.
 
-In this lesson, you will master the basics of **withAnimation**, understand the crucial difference between **implicit and explicit animation**, learn to craft natural-feeling **spring animations**, and discover how to chain powerful **animation modifiers**.
+## What You'll Learn
+
+- The basics of withAnimation for explicit animations
+- The difference between implicit and explicit animation
+- How to craft natural-feeling spring animations
+- How to chain animation modifiers for complex effects
+
+## withAnimation
 
 ## withAnimation
 

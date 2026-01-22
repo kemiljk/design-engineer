@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Compose provides accessibility support through semantics. Enhance TalkBack experience with proper labels and roles.
 
-In this lesson, you will learn how Jetpack Compose handles **built-in accessibility** and how to enhance it. We will cover using **semantic properties** to describe your UI to accessibility services, effective methods for **testing with TalkBack**, and how to provide meaningful **content descriptions** for visual elements.
+## What You'll Learn
+
+- How Jetpack Compose handles built-in accessibility and how to enhance it
+- Using semantic properties to describe your UI to accessibility services
+- Effective methods for testing with TalkBack
+- How to provide meaningful content descriptions for visual elements
 
 ## Built-in Accessibility
 

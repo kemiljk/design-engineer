@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will master the setup of Android design files and learn how to effectively use the official Material Design kits. We'll examine standard device frames and dimensions, alongside the correct configuration of components and design tokens to ensure a professional workflow.
+- Setup of Android design files in Figma
+- How to effectively use official Material Design kits
+- Standard device frames and dimensions
+- Correct configuration of components and design tokens
 
 ## File Setup
 

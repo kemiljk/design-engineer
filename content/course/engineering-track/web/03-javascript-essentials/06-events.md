@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover the essential techniques for adding and removing event listeners to make your interfaces interactive. You will explore a wide range of common event types, understand how to leverage the event object and its properties, and learn the powerful concepts of event delegation and bubbling to manage complex interactions efficiently.
+- Essential techniques for adding and removing event listeners
+- Wide range of common event types
+- How to leverage the event object and its properties
+- Event delegation and bubbling for managing complex interactions
 
 ## What Are Events?
 

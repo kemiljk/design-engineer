@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will walk through the process of setting up a new React project using modern tooling. You will learn the key differences between JSX and standard HTML, understand how to create and compose your own components, and develop a strong mental model for thinking about React applications.
+- Setting up a new React project using modern tooling
+- Key differences between JSX and standard HTML
+- How to create and compose your own components
+- Developing a strong mental model for React applications
 
 ## Setting Up React
 

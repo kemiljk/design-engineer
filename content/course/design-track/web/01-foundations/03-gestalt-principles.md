@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Your users don't see pixels; they see patterns. Gestalt psychology explains the predictable ways human brains group and interpret visual information. Leveraging these principles makes your interface feel intuitive; fighting them makes it feel broken.
 
+## What You'll Learn
+
+- The seven core Gestalt principles (proximity, similarity, closure, continuity, figure/ground, common fate, symmetry)
+- How the brain groups and interprets visual information
+- How to leverage Gestalt principles in your designs
+- Practical applications of each principle
+
 ## The Brain as a Pattern Matching Machine
 
 In the early 20th century, a group of German psychologists observed something fascinating: the human brain is lazy. It constantly tries to simplify complex visual data into simple, organized wholes. This is **Gestalt** (German for "form" or "shape").

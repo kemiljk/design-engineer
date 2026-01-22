@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-During this lesson, you will explore the core concepts of Material Theming and learn how to effectively customise the colour, typography, and shape system of your application. We'll examine strategies for balancing unique brand expression with the platform's established usability standards.
+- Core concepts of Material Theming
+- How to effectively customise colour, typography, and shape systems
+- Strategies for balancing brand expression with usability standards
 
 ## Material Theming
 

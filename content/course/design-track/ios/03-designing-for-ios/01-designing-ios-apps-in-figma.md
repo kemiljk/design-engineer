@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, you will master the essential setup for iOS design files in Figma, including frame sizes, grid systems, and efficient page organisation. We'll explore exactly how to leverage official Apple UI kits and SF Symbols to maintain platform consistency and dive into the specific typography and colour styles required to create professional-grade, developer-friendly interfaces.
+- Essential setup for iOS design files in Figma (frame sizes, grids, organisation)
+- How to leverage official Apple UI kits and SF Symbols
+- Maintaining platform consistency in your designs
+- Typography and colour styles for professional, developer-friendly interfaces
 
 ## File Setup
 

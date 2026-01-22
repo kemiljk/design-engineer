@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand what design tokens are and why they are essential for modern design systems. You will also learn about token naming conventions and hierarchies, explore the differences between semantic and primitive tokens, and master the techniques for implementing tokens across both design tools and codebases.
+- What design tokens are and why they're essential for modern design systems
+- Token naming conventions and hierarchies
+- Differences between semantic and primitive tokens
+- Techniques for implementing tokens across design tools and codebases
 
 ## What Are Design Tokens?
 

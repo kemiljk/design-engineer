@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, you will learn exactly how elevation works as a functional tool within the Android ecosystem. We'll explore the standard elevation levels and their appropriate use cases, distinguish between shadows and surface tints, and master the art of designing with intentional depth.
+- How elevation works as a functional tool in Android
+- Standard elevation levels and their appropriate use cases
+- Distinguishing between shadows and surface tints
+- Designing with intentional depth
 
 ## Understanding Elevation
 

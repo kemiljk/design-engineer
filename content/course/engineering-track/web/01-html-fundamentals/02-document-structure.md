@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn the essential components of a standard HTML document and examine the critical differences between the `<head>` and `<body>` sections. We'll explore indispensable metadata elements and walk through how modern browsers interpret and render HTML structures for an optimal user experience.
+- Essential components of a standard HTML document
+- Critical differences between `<head>` and `<body>` sections
+- Indispensable metadata elements
+- How modern browsers interpret and render HTML structures
 
 ## The HTML Document Template
 

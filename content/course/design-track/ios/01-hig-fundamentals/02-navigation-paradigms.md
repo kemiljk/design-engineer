@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will explore the primary navigation structures used in iOS, including tab bars for lateral movement, navigation stacks for depth, and modal presentations for focused tasks. We will identify exactly when to use each pattern and how to combine them effectively to create a clear, intuitive app hierarchy that respects user expectations and platform conventions.
+- Primary navigation structures in iOS (tab bars, navigation stacks, modals)
+- When to use each navigation pattern
+- How to combine navigation patterns effectively
+- Creating clear, intuitive app hierarchies that respect platform conventions
 
 ## Tab Bar Navigation
 

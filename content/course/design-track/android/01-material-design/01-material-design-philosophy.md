@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will explore the foundational principles of Material Design and the core material metaphor that defines the platform. We'll identify exactly what makes an Android app feel native and dive into the latest expressive design features of Material Design 3 and Material You.
+- Foundational principles of Material Design
+- The core material metaphor that defines the platform
+- What makes an Android app feel native
+- Latest expressive design features of Material Design 3 and Material You
 
 ## The Material Metaphor
 

@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy Android app with Material 3 components, adaptive layouts, dynamic colour support, and an interactive prototype.
 
+## What You'll Learn
+
+- How to apply Material 3 design principles to a complete app
+- Creating Material 3 component libraries
+- Designing adaptive layouts for phones, tablets, and foldables
+- Implementing dynamic colour (Material You)
+- Building interactive prototypes with Material motion
+
 ## Why This Project?
 
 By building this project, you will demonstrate your fluency in the latest Material 3 design system and show a deep understanding of dynamic colour within the Material You framework. Your portfolio will showcase your ability to create adaptive designs for phones, tablets, and foldables, while mastering the Material motion system and sophisticated component architecture.

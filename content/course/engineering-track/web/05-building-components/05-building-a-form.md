@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover accessible form structure, input styling and states, client-side validation, and error handling and display techniques.
+- Accessible form structure
+- Input styling and states
+- Client-side validation
+- Error handling and display techniques
 
 ## Form Structure
 

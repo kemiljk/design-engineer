@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will explore the psychology behind effective notification design and dissect the anatomy of both standard and custom notification surfaces. We'll learn how to build versatile Home Screen widgets and how to give users granular control over their experience using Notification Channels.
+- Psychology behind effective notification design
+- Anatomy of standard and custom notification surfaces
+- How to build versatile Home Screen widgets
+- Giving users granular control using Notification Channels
 
 ## The Art of the Notification
 

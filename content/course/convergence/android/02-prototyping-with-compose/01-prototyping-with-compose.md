@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Compose's preview system and hot reload enable rapid prototyping. Build interactive prototypes that feel like real apps.
 
-This lesson focuses on **preview-driven prototyping**. You will learn to use **interactive previews** to test logic without deploying, how to achieve **rapid iteration** loops, and effective methods for **sharing prototypes** with stakeholders.
+## What You'll Learn
+
+- Preview-driven prototyping techniques
+- Using interactive previews to test logic without deploying
+- How to achieve rapid iteration loops
+- Effective methods for sharing prototypes with stakeholders
 
 ## Preview System
 

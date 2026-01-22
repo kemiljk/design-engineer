@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this final lesson, you will discover how your design components map directly to SwiftUI views and core layout concepts like vertical, horizontal, and depth stacks. We'll explore the specific design decisions—such as consistent spacing and semantic naming—that help developers build more robust interfaces and dive into the best practices for preparing your Figma files for a seamless handoff process.
+- How design components map to SwiftUI views
+- Core layout concepts (vertical, horizontal, depth stacks)
+- Design decisions that help developers (consistent spacing, semantic naming)
+- Best practices for preparing Figma files for seamless handoff
 
 ## SwiftUI Fundamentals
 

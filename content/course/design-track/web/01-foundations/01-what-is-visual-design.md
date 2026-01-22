@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand the fundamental difference between visual design and graphic design, explore its critical role in digital products, and learn why engineers benefit from visual literacy. You will also identify the core elements—hierarchy, contrast, balance, repetition, alignment, and proximity—that you will master throughout this module.
+- The fundamental difference between visual design and graphic design
+- Visual design's critical role in digital products
+- Why engineers benefit from visual literacy
+- Core elements: hierarchy, contrast, balance, repetition, alignment, and proximity
 
 ## Beyond "Making Things Pretty"
 

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover the core conditional statements such as `if`, `else`, and `switch` which allow your code to make decisions. You will learn how to use comparison and logical operators to build complex conditions, explore different types of loops for iterating over data, and understand how to handle errors gracefully using `try`/`catch` blocks.
+- Core conditional statements (`if`, `else`, `switch`)
+- Using comparison and logical operators to build complex conditions
+- Different types of loops for iterating over data
+- Handling errors gracefully using `try`/`catch` blocks
 
 ## Conditional Statements
 

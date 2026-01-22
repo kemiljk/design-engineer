@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Apply everything you've learned to build a production-ready component library with a token system, full accessibility, interactive documentation, and deployment to npm or a CDN.
 
+## What You'll Learn
+
+- How to build a production-ready component library
+- Creating a comprehensive token system with theme support
+- Building accessible, semantic components
+- Writing interactive documentation
+- Deploying to npm or a CDN with versioning
+
 ## Why This Project?
 
 Component libraries are exceptional portfolio pieces because they showcase the full breadth of frontend engineering skills, including deep HTML and CSS knowledge through the creation of semantic and accessible markup, JavaScript proficiency in building interactive behaviours, and strong systems thinking for consistent APIs and tokens. They also demonstrate your documentation skills and developer experience awareness, as well as DevOps knowledge regarding deployment and versioning.

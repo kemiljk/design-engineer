@@ -8,6 +8,13 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
+## What You'll Learn
+
+- How to optimise for VoiceOver for blind users
+- Supporting Dynamic Type with adaptive layouts
+- Creating reduced motion alternatives for complex animations
+- Making helpful screen reader announcements for status changes
+
 This lesson focuses on **optimising for VoiceOver** to ensure a great experience for blind users. You will learn to support **Dynamic Type** with adaptive layouts that scale gracefully, create **reduced motion alternatives** for complex animations, and make helpful **screen reader announcements** for status changes.
 
 ## VoiceOver Optimisation

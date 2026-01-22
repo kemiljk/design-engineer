@@ -8,7 +8,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-In this lesson, we will explore the fundamental nature of CSS and how it connects to your HTML documents. You will learn about the cascade and how it resolves style conflicts, alongside the rules and calculations used to determine selector specificity. We'll also examine how inheritance allows styles to pass down through your document structure, simplifying your overall design workflow.
+- The fundamental nature of CSS and how it connects to HTML
+- The cascade and how it resolves style conflicts
+- Rules and calculations for selector specificity
+- How inheritance allows styles to pass down through document structure
 
 ## What is CSS?
 

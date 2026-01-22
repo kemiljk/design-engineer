@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn how to use heading elements to create a logical document hierarchy and examine the various elements available for paragraph and text formatting. We'll explore the different types of lists and when to apply them, whilst also walking through the anatomy of a link and the best practices for connecting your web content effectively.
+- How to use heading elements to create logical document hierarchy
+- Elements available for paragraph and text formatting
+- Different types of lists and when to apply them
+- Anatomy of a link and best practices for connecting content
 
 ## Headings
 

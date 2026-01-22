@@ -2,6 +2,14 @@
 
 > **Quick Summary:** The "happy path" is a myth. In reality, users encounter errors, weak connections, empty databases, and extreme inputs constantly. A robust design anticipates these failures and handles them with grace.
 
+## What You'll Learn
+
+- Why edge cases matter and how to identify them
+- Designing effective empty states
+- Handling errors and loading states gracefully
+- Managing content extremes and permission states
+- Building resilient, robust interfaces
+
 ## The Edge Case Problem
 
 It's easy to design a perfect interface when you assume the user has a short name, a fast internet connection, and perfect data. But reality is messy.

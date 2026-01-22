@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will introduce the component mental model and show you how to break designs into individual components. You will learn the anatomy and structure of a component, and how to plan effectively before you start building.
+- The component mental model
+- How to break designs into individual components
+- The anatomy and structure of a component
+- How to plan effectively before building
 
 ## The Component Model
 

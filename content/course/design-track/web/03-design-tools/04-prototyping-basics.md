@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand why prototyping is a vital skill for Design Engineers and explore the various fidelity levels required for different testing phases. You will also learn to create interactive prototypes using triggers and actions within your design tools and develop effective methods for presenting and sharing your work with stakeholders.
+- Why prototyping is a vital skill for Design Engineers
+- Various fidelity levels required for different testing phases
+- How to create interactive prototypes using triggers and actions
+- Effective methods for presenting and sharing work with stakeholders
 
 ## Why Prototype?
 

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will explore the three enduring themes that form the foundation of Apple's design philosophy: Clarity, Deference, and Depth. We'll examine exactly how these principles guide the iOS experience and dive into the revolutionary Liquid Glass design language introduced in iOS 26. You'll also learn how system-wide materials, typography, and colour work together to create a premium, native feel.
+- The three enduring themes of Apple's design philosophy (Clarity, Deference, Depth)
+- How these principles guide the iOS experience
+- The revolutionary Liquid Glass design language introduced in iOS 26
+- How system-wide materials, typography, and colour create a premium, native feel
 
 ## The Three Themes
 

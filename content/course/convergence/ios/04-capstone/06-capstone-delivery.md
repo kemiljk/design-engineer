@@ -8,6 +8,13 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
+## What You'll Learn
+
+- How to record demonstrations that effectively showcase your work
+- Writing a compelling case study that explains design decisions
+- Preparing a professional repository that stands out
+- Best practices for presenting your capstone project
+
 This final lesson covers **recording demonstrations** that effectively showcase your work to recruiters. You will learn the art of **writing a compelling case study** that explains your design decisions, and how to **prepare a professional repository** that stands out.
 
 ## Step 1: Screen Recordings

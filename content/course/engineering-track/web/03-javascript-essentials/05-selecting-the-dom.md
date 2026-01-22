@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this lesson, we will define what the DOM is and how it functions as a bridge between your HTML and JavaScript. You will learn the most effective methods for selecting single and multiple elements, how to read their text content and attributes, and the techniques needed to traverse the DOM tree with precision.
+- What the DOM is and how it bridges HTML and JavaScript
+- Most effective methods for selecting single and multiple elements
+- How to read text content and attributes
+- Techniques for traversing the DOM tree with precision
 
 ## What is the DOM?
 

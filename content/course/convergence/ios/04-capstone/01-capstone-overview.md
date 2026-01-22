@@ -6,6 +6,13 @@ estimatedTime: 5
 
 > **Quick Summary:** Synthesise everything from the iOS Convergence Track into a polished, portfolio-ready iOS app or feature that demonstrates your animation, prototyping, and accessibility skills.
 
+## What You'll Learn
+
+- How to synthesise SwiftUI animation mastery in a complete project
+- Creating accessibility-first implementations with VoiceOver and Dynamic Type
+- Applying attention to detail and craft to achieve professional polish
+- Documenting animation decisions in a comprehensive case study
+
 ## Why This Project?
 
 A polished iOS app demonstrates design engineering excellence by showcasing **SwiftUI animation mastery** through sophisticated, purposeful motion. It requires an **accessibility-first implementation** supporting VoiceOver, Dynamic Type, and reduced motion. The final result proves your **attention to detail and craft**, your **ability to ship** production-ready work, and your unique **design engineering sensibility** that bridges the gap between design and code.

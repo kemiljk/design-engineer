@@ -654,8 +654,14 @@ export async function getCourse() {
     convergenceTotal;
 
   // Free lessons: 1 per platform (first lesson only)
-  const designFreeLessons = 3; // web + ios + android
-  const engineeringFreeLessons = 3; // web + ios + android
+  const designFreeLessons =
+    (structure.design.web.freeLessons || 0) +
+    (structure.design.ios.freeLessons || 0) +
+    (structure.design.android.freeLessons || 0);
+  const engineeringFreeLessons =
+    (structure.engineering.web.freeLessons || 0) +
+    (structure.engineering.ios.freeLessons || 0) +
+    (structure.engineering.android.freeLessons || 0);
 
   return {
     totalLessons,

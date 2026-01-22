@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore how to pass data to components using props and how to destructure them for cleaner, more readable code. You will learn about default prop values and common prop patterns, discover the power of the `children` prop for composition, and understand how components communicate with each other.
+- How to pass data to components using props
+- Destructuring props for cleaner, more readable code
+- Default prop values and common prop patterns
+- The power of the `children` prop for composition
+- How components communicate with each other
 
 ## What Are Props?
 

@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn exactly what the terminal is and why it's not as intimidating as it first appears. We'll examine why designers specifically need to master the terminal and clarify the differences between common terms like Command Line, Shell, and CLI. You will also discover how to open and customise your terminal environment and walk through the execution of your very first commands.
+- What the terminal is and why it's not intimidating
+- Why designers need to master the terminal
+- Differences between Command Line, Shell, and CLI
+- How to open and customise your terminal environment
+- Executing your first commands
 
 ## Go Beyond Vibe Coding
 

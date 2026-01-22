@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will explore the foundational system of iOS size classes and learn how to design adaptive interfaces that shift fluidly between compact and regular environments. We'll examine the specific strategies required to bridge the gap between iPhone and iPad experiences, ensuring your app takes full advantage of larger canvases and system-wide multitasking capabilities without compromising on native feel.
+- The foundational system of iOS size classes
+- How to design adaptive interfaces for compact and regular environments
+- Strategies to bridge the gap between iPhone and iPad experiences
+- Taking advantage of larger canvases and multitasking capabilities
 
 ## Size Classes
 

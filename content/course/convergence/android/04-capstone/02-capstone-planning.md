@@ -8,6 +8,13 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
+## What You'll Learn
+
+- How to define a clear project scope to prevent feature creep
+- Creating a comprehensive animation strategy
+- Performing an initial audit for accessibility requirements
+- Setting up your development approach
+
 This phase focuses on defining a clear **project scope** to prevent feature creep. You will create a comprehensive **animation strategy** and perform an initial **audit for accessibility** requirements to guide your development.
 
 ## Step 1: Project Selection

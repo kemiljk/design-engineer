@@ -6,6 +6,13 @@ estimatedTime: 5
 
 > **Quick Summary:** Build a portfolio-ready Android app or feature that demonstrates mastery of motion design, accessibility, and the complete design-to-code workflow.
 
+## What You'll Learn
+
+- How to demonstrate Compose animation mastery and Material motion
+- Creating full TalkBack support for accessibility
+- Optimising for performance and 60fps rendering
+- Executing a seamless design-code convergence workflow
+
 ## Why This Project?
 
 A polished Android experience showcases design engineering excellence by combining **fluid animations** that enhance usability with **full accessibility** support for TalkBack. It demonstrates **performance excellence** through 60fps rendering and proves your ability to execute a seamless **design-code convergence** workflow.

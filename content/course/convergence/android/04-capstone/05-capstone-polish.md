@@ -8,6 +8,13 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
+## What You'll Learn
+
+- How to optimise performance for 60fps rendering
+- Adding haptic feedback for a tactile experience
+- Handling all edge cases gracefully
+- Testing thoroughly on real devices
+
 The final code phase is about elevation. You will focus on **performance optimisation** to ensure 60fps rendering, add **haptic feedback** for a tactile experience, ensure all **edge cases** are handled gracefully, and verify quality by **testing thoroughly** on real devices.
 
 ## Performance Optimisation

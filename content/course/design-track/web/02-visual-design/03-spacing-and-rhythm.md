@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand why spacing is a critical design element and learn to implement the 8-point grid system effectively. You will also develop the skills to create vertical rhythm and apply practical spacing patterns to common UI elements.
+- Why spacing is a critical design element
+- How to implement the 8-point grid system effectively
+- Creating vertical rhythm in your designs
+- Applying practical spacing patterns to common UI elements
 
 ## The Invisible Art
 

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will examine the four distinct parts of the CSS box model and explore the critical differences between the `content-box` and `border-box` sizing methods. We'll also cover the phenomenon of margin collapse and investigate practical box model techniques that you can apply immediately to your layouts.
+- The four distinct parts of the CSS box model
+- Critical differences between `content-box` and `border-box` sizing
+- The phenomenon of margin collapse
+- Practical box model techniques for layouts
 
 ## Every Element is a Box
 

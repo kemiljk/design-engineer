@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the `<img>` element and the techniques used for implementing responsive images. We'll also cover the use of video and audio elements, how to ensure your media remains accessible to all users, and essential performance considerations for a fast, modern web experience.
+- The `<img>` element and responsive image techniques
+- Using video and audio elements
+- Ensuring media accessibility for all users
+- Essential performance considerations for modern web experiences
 
 ## Images
 

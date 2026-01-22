@@ -212,7 +212,14 @@ export async function getDynamicTotalLessonsForAccess(
   switch (accessLevel) {
     case "free":
       // Free users only have access to intro + first lesson of each track
-      return intro + 6; // intro + 6 first lessons (design web/ios/android + eng web/ios/android)
+      const freeLessons =
+        (structure.design.web.freeLessons || 0) +
+        (structure.design.ios.freeLessons || 0) +
+        (structure.design.android.freeLessons || 0) +
+        (structure.engineering.web.freeLessons || 0) +
+        (structure.engineering.ios.freeLessons || 0) +
+        (structure.engineering.android.freeLessons || 0);
+      return intro + freeLessons;
     case "design_web":
       return intro + structure.design.web.lessons;
     case "design_ios":

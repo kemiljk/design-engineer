@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, you will discover the foundational materials and colour systems of iOS, specifically focusing on the new Liquid Glass design language and its various functional layers. We'll examine how semantic system colours adapt to light and dark modes while exploring the critical considerations for building accessible, vibrant, and deeply integrated user interfaces.
+- Foundational materials and colour systems of iOS
+- The new Liquid Glass design language and its functional layers
+- How semantic system colours adapt to light and dark modes
+- Building accessible, vibrant, and deeply integrated user interfaces
 
 ## System Colours
 

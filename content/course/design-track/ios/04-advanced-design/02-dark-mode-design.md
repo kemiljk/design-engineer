@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Dark Mode is a first-class citizen on iOS. It isn't just a theme; it's an environment. Learn how to design interfaces that look stunning and legible in both light and dark appearances.
 
+## What You'll Learn
+
+- Why Dark Mode matters and how users interact with it
+- The semantic colour system and system colours
+- Colour strategy for Dark Mode (beyond simple inversion)
+- Designing effective dark themes that maintain brand identity
+- Testing and refining Dark Mode designs
+
 ## Why Dark Mode Matters
 
 Since iOS 13, users have had the choice. Many use Dark Mode 24/7 for comfort or aesthetic preference. Others use it automatically at sunset to reduce eye strain. Designing for Dark Mode saves battery on OLED screens and prevents your app from being a blinding flashlight in a dark room. Apple requires all new apps to support it.

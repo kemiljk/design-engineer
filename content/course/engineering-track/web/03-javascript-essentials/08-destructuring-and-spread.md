@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this lesson, we will cover the techniques for array and object destructuring to help you extract data more efficiently. You will learn how to apply destructuring within function parameters, use the spread operator to combine and copy collections, and leverage rest parameters to collect multiple values into a single variable.
+- Techniques for array and object destructuring
+- Applying destructuring within function parameters
+- Using the spread operator to combine and copy collections
+- Leveraging rest parameters to collect multiple values
 
 ## Destructuring
 

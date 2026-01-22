@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the differences between function declarations and expressions, and we'll introduce the modern arrow function syntax. You will learn how to effectively use parameters and return values to create flexible functions, and we will delve into the critical concepts of scope and closures to manage your variables and data securely.
+- Differences between function declarations and expressions
+- Modern arrow function syntax
+- Effectively using parameters and return values
+- Critical concepts of scope and closures
 
 ## Why Functions?
 

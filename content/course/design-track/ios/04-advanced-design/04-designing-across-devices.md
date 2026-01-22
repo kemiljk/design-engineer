@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Apple's ecosystem spans from the tiny Watch to the massive TV. Learn how to adapt your designs across iPhone, iPad, and Apple Watch while maintaining a cohesive, native experience.
 
+## What You'll Learn
+
+- The ecosystem mindset and context of use for each device
+- Designing for iPhone (thumb-driven, vertical scrolling)
+- Designing for iPad (two-handed, focus-driven)
+- Designing for Apple Watch (glance-driven, action-focused)
+- Maintaining a cohesive experience across devices
+
 ## The Ecosystem Mindset
 
 Designing for Apple platforms isn't just about resizing a rectangle. It's about understanding the **context of use**.

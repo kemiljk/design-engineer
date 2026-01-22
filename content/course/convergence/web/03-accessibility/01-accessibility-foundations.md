@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Accessibility ensures everyone can use your interface—it's not optional, it's essential. And it often improves the experience for everyone.
 
+## What You'll Learn
+
+- What accessibility means and why it matters
+- The Curb Cut Effect and how accessibility benefits everyone
+- Types of disabilities and how they affect web use
+- Core accessibility principles and standards
+
 ## What Is Accessibility?
 
 > *"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."* — Tim Berners-Lee

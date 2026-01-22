@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover the different ways to declare variables using `const`, `let`, and `var`. You will explore JavaScript's core data types, learn how to work effectively with strings, numbers, booleans, arrays, and objects, and understand the essential techniques for type checking and conversion.
+- Different ways to declare variables (`const`, `let`, `var`)
+- JavaScript's core data types
+- Working effectively with strings, numbers, booleans, arrays, and objects
+- Essential techniques for type checking and conversion
 
 ## Declaring Variables
 

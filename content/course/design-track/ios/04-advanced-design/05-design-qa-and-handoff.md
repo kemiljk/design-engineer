@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Great design doesn't end with the mockup. Learn how to ensure your iOS designs are implemented correctly and how to collaborate effectively with SwiftUI developers to ship pixel-perfect apps.
 
+## What You'll Learn
+
+- Why handoff matters and how to prepare designs for developers
+- Design file organisation and component structure
+- Matching SwiftUI thinking in your designs
+- Writing clear specifications and annotations
+- Conducting QA to ensure pixel-perfect implementation
+
 ## Why Handoff Matters
 
 The transition from design file to production code is the most dangerous moment in the product lifecycle. It is where "what we imagined" often diverges from "what we shipped."

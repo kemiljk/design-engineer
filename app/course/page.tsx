@@ -271,7 +271,7 @@ export default async function CoursePage() {
                   <div className="flex items-center gap-4 text-sm text-neutral-500">
                     <div className="flex items-center gap-1">
                       <BookOpen className="h-4 w-4" />
-                      <span>4 lessons</span>
+                      <span>{course.structure.introduction.lessons} lessons</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="h-4 w-4" />

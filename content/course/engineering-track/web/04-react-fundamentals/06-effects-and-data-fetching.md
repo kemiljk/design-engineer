@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore what effects are and when they are necessary in your React components. You will learn the `useEffect` hook in detail, understand the dependency array and its rules, and see how to fetch data from APIs, write cleanup functions, and apply common effect patterns.
+- What effects are and when they're necessary
+- The `useEffect` hook in detail
+- The dependency array and its rules
+- How to fetch data from APIs
+- Writing cleanup functions and common effect patterns
 
 ## What Are Effects?
 

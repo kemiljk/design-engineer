@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore component composition patterns in React, specifically focusing on the `children` prop and slots. You will learn about compound components and how they share state, understand render props and custom hooks, and discover best practices for designing robust component APIs.
+- Component composition patterns in React
+- The `children` prop and slots
+- Compound components and how they share state
+- Render props and custom hooks
+- Best practices for designing robust component APIs
 
 ## Composition Over Inheritance
 

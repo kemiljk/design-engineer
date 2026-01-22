@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-By progressing through this lesson, you will learn how to audit and polish your designs for maximum impact, adding sophisticated micro-interactions and prototyping to bring your work to life. You will also master the art of documenting your process professionally and preparing your final work for a high-quality portfolio presentation.
+- How to audit and polish designs for maximum impact
+- Adding sophisticated micro-interactions and prototyping
+- Documenting your process professionally
+- Preparing final work for high-quality portfolio presentation
 
 ## Step 1: The Design Audit
 

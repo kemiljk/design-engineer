@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-By progressing through this lesson, you will learn to design impactful hero sections and build a robust, reusable component library. You will also master the assembly of cohesive full-page designs while ensuring your layouts are perfectly adapted for all viewports.
+- How to design impactful hero sections
+- Building a robust, reusable component library
+- Assembling cohesive full-page designs
+- Ensuring layouts are perfectly adapted for all viewports
 
 ## Step 1: The Hero Section
 

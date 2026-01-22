@@ -10,7 +10,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-Throughout this stage, you will plan responsive breakpoints and adapt your navigation for larger screens. We'll explore designing content transformations and creating sophisticated tablet-specific layouts to ensure your app remains functional across all form factors.
+- Planning responsive breakpoints
+- Adapting navigation for larger screens
+- Designing content transformations
+- Creating sophisticated tablet-specific layouts
 
 ## Step 1: Breakpoint Strategy
 

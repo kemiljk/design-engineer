@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this lesson, you will learn to navigate the complexities of device diversity and implement robust adaptive layout patterns. We'll examine specific considerations for foldable devices and how to correctly support multi-window environments on the Android platform.
+- Navigating the complexities of device diversity
+- Implementing robust adaptive layout patterns
+- Specific considerations for foldable devices
+- Supporting multi-window environments on Android
 
 ## The Android Landscape
 

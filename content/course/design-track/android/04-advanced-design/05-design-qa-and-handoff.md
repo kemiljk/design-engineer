@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Bridge the gap between design and implementation. Learn how to prepare your designs for Compose developers, write clear specifications using Material tokens, and ensure pixel-perfect results through a rigorous QA process.
 
+## What You'll Learn
+
+- Why handoff matters and how to prepare designs for developers
+- Naming conventions and organising deliverables
+- Matching Compose thinking in your designs
+- Writing clear specifications using Material tokens
+- Conducting rigorous QA to ensure pixel-perfect results
+
 ## Why Handoff Matters
 
 Design doesn't stop when you finish the mockup. The most critical phase is transferring that vision to engineering. Poor handoff leads to "design debt"—visual inconsistencies, wasted hours, and a frustrated team. Robust handoff acts as a force multiplier, enabling developers to implement features accurately on the first try.

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will master the principles of layout and responsive grid systems unique to the Android ecosystem. We will explore the architecture of the Material colour system, the structured typography scale, and the core design principles for creating functional and expressive iconography.
+- Principles of layout and responsive grid systems for Android
+- Architecture of the Material colour system
+- The structured typography scale
+- Core design principles for functional and expressive iconography
 
 ## Layout Grid
 

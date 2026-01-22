@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore button variants and the various states a button can occupy. You will learn how to implement accessible buttons, style interactive states properly, and design a clean component API.
+- Button variants and the various states a button can occupy
+- How to implement accessible buttons
+- Styling interactive states properly
+- Designing a clean component API
 
 ## Button Fundamentals
 

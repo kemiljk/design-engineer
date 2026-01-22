@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will master the principles of Material motion and explore foundational transition patterns like Container Transform and Shared Axis. We'll examine the importance of choreography and sequencing in your animations while learning how to effectively specify motion requirements for your development team.
+- Principles of Material motion
+- Foundational transition patterns (Container Transform, Shared Axis)
+- Importance of choreography and sequencing in animations
+- How to effectively specify motion requirements for developers
 
 ## Material Motion Principles
 

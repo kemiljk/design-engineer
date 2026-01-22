@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the fundamental concepts of grid containers and grid items. You will learn how to define columns and rows effectively, place items on the grid using various techniques, and implement several practical grid patterns that are common in modern web development.
+- Fundamental concepts of grid containers and grid items
+- How to define columns and rows effectively
+- Placing items on the grid using various techniques
+- Practical grid patterns common in modern web development
 
 ## What is CSS Grid?
 

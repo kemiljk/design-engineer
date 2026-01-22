@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore card structure and composition, flexible layouts within cards, how to handle various content types, and techniques for making cards interactive.
+- Card structure and composition
+- Flexible layouts within cards
+- How to handle various content types
+- Techniques for making cards interactive
 
 ## Card Anatomy
 

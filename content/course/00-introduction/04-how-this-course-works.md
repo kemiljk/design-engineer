@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this lesson, you will learn about the overarching structure of the course's lessons and modules and how to navigate between them effectively. We will also provide practical tips for successful learning and explain how you can accurately track your progress throughout the track.
+- The overarching structure of lessons and modules
+- How to navigate between lessons effectively
+- Practical tips for successful learning
+- How to track your progress throughout the track
 
 ## Course Organization
 
@@ -232,7 +235,10 @@ You should also create a dedicated learning folder for your projects, familiaris
 
 ## Key Takeaways
 
-This course provides three distinct tracks across three platforms, each following a consistent lesson structure that prioritises active practice through exercises. Whether you chooses to progress linearly or jump between topics, you should use the Course Plan document to track your journey as you connect concepts across the disciplines.
+- The course provides three distinct tracks across three platforms
+- Each track follows a consistent lesson structure prioritising active practice
+- You can progress linearly or jump between topics
+- Use the Course Plan document to track your journey and connect concepts
 
 ## Next Steps
 

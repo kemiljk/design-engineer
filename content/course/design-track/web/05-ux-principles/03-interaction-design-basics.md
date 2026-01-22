@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand the core concepts of interaction design (IxD) and explore how affordances, signifiers, and feedback loops create intuitive user experiences. You will also learn to design for various input methods and develop strategies for effectively managing state and task flows.
+- Core concepts of interaction design (IxD)
+- How affordances, signifiers, and feedback loops create intuitive experiences
+- Designing for various input methods
+- Strategies for effectively managing state and task flows
 
 ## The Dialogue of Design
 

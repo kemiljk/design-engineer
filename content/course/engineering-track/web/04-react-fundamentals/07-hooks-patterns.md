@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore additional React hooks including `useRef`, `useContext`, `useMemo`, and `useCallback`. You will learn how to create custom hooks for reusable logic, understand the rules that govern hook usage, discover performance optimisation patterns, and see common mistakes along with how to avoid them.
+- Additional React hooks (`useRef`, `useContext`, `useMemo`, `useCallback`)
+- How to create custom hooks for reusable logic
+- Rules that govern hook usage
+- Performance optimisation patterns
+- Common mistakes and how to avoid them
 
 ## Quick Hooks Reference
 

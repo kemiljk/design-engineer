@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Apply everything you've learned to build a complete, working Android app with Jetpack Compose, custom composables, proper state management, data persistence, and polished user experience.
 
+## What You'll Learn
+
+- How to build a complete working Jetpack Compose app
+- Creating custom reusable composables and modifiers
+- Implementing proper state management with ViewModel
+- Adding data persistence with Room or DataStore
+- Achieving polish and accessibility with Material 3
+
 ## Why This Project?
 
 A working Compose app showcases the full breadth of Android engineering skills:

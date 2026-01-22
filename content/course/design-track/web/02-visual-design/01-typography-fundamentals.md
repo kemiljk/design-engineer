@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will learn the anatomy of typefaces and why it matters for digital interfaces, developing the skills to choose and pair fonts effectively. You will also create robust typographic hierarchies, learn to test and validate your type systems, and explore essential web typography considerations and best practices.
+- The anatomy of typefaces and why it matters for digital interfaces
+- How to choose and pair fonts effectively
+- Creating robust typographic hierarchies
+- Testing and validating your type systems
+- Essential web typography considerations and best practices
 
 ## Start with the Content
 

@@ -2,7 +2,12 @@
 
 > **Quick Summary:** SwiftUI has excellent accessibility support built-in. Learn to enhance it with labels, traits, and VoiceOver testing.
 
-In this lesson, you will learn how iOS handles **built-in accessibility** and how to enhance it. We will cover providing descriptive **custom accessibility labels**, ensuring your app scales correctly with **Dynamic Type**, and how to verify your work using **VoiceOver testing**.
+## What You'll Learn
+
+- How iOS handles built-in accessibility and how to enhance it
+- Providing descriptive custom accessibility labels
+- Ensuring your app scales correctly with Dynamic Type
+- How to verify your work using VoiceOver testing
 
 ## Built-in Accessibility
 

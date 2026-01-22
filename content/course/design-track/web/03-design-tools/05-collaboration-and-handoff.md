@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will learn how to prepare designs for effective developer handoff and identify the specific specifications developers require. You will also explore collaboration workflows that reduce friction and master the tools and techniques needed to bridge the gap between design and development.
+- How to prepare designs for effective developer handoff
+- Specific specifications developers require
+- Collaboration workflows that reduce friction
+- Tools and techniques to bridge the gap between design and development
 
 ## The Handoff Problem
 

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the mobile-first approach to design and how to effectively use media queries and breakpoints to manage different screen sizes. You will learn the principles of fluid layouts and typography, and we'll cover modern responsive techniques that ensure your interfaces are robust and adaptable.
+- Mobile-first approach to design
+- Effectively using media queries and breakpoints
+- Principles of fluid layouts and typography
+- Modern responsive techniques for robust, adaptable interfaces
 
 ## The Responsive Mindset
 

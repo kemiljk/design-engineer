@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Apply everything you've learned to design a complete, portfolio-worthy product landing page. This overview explains what you'll create and how to choose your product.
 
+## What You'll Learn
+
+- How to apply design principles to a complete landing page
+- Creating responsive layouts for desktop, tablet, and mobile
+- Building a mini design system with tokens and components
+- Creating interactive prototypes
+- Documenting your process in a case study
+
 ## Why This Project?
 
 Landing pages are exceptional portfolio pieces because they showcase the full breadth of design skills:

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn about the primary semantic elements and identify the most appropriate scenarios for their use. We'll examine how to structure your page layout semantically and clarify the essential differences between generic `<div>` containers and meaningful semantic elements. You will also walk through the best practices for writing clean, accessible, and semantic HTML for modern web projects.
+- Primary semantic elements and when to use them
+- How to structure page layouts semantically
+- Differences between generic `<div>` containers and semantic elements
+- Best practices for writing clean, accessible, semantic HTML
 
 ## Why Semantic Elements?
 

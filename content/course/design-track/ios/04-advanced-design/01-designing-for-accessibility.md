@@ -2,6 +2,14 @@
 
 > **Quick Summary:** Accessible design isn't optional—it's essential. Learn how to design iOS apps that work beautifully with VoiceOver and other assistive technologies, ensuring your product can be used by everyone.
 
+## What You'll Learn
+
+- Why accessibility matters and who benefits
+- iOS accessibility features (VoiceOver, Dynamic Type, Reduce Motion)
+- How to design for screen readers and assistive technologies
+- Creating accessible touch targets and content descriptions
+- Testing your app for accessibility
+
 ## Why Accessibility Matters
 
 One in four adults has some form of disability. When you design for accessibility, you are not just ticking a legal box. You are reaching over 1 billion people worldwide. You are improving usability for everyone—clear labels and high contrast help tired users just as much as visually impaired ones. And critically, you are following Apple's core values; accessibility is deeply integrated into iOS, and your app should reflect that.

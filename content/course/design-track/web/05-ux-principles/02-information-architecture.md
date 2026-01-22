@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will understand what information architecture (IA) is and why it is fundamental to product success. You will also learn the core principles of organising information, explore various navigation patterns and systems, and master the practical techniques used for planning robust IA.
+- What information architecture (IA) is and why it's fundamental to product success
+- Core principles of organising information
+- Various navigation patterns and systems
+- Practical techniques for planning robust IA
 
 ## The Invisible Structure
 

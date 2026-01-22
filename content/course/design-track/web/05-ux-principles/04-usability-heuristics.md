@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Heuristics are mental shortcuts. In design, they are a checklist of ten principles that, when followed, eliminate 90% of common usability problems. They turn "this feels wrong" into "this violates heuristic #4."
 
+## What You'll Learn
+
+- The ten usability heuristics and how to apply them
+- How heuristics help identify usability problems
+- Practical examples of each heuristic in action
+- Using heuristics as a design evaluation tool
+
 ## The Science of "Good" Design
 
 Why do some interfaces feel intuitive while others feel broken? It's not magic. In 1994, Jakob Nielsen distilled decades of usability research into ten general principles. These aren't laws of physics, but they are incredibly reliable predictors of user success.

@@ -311,11 +311,12 @@ export const JobSubmissionReceivedTemplate: React.FC<
 interface StudentDiscountEmailProps {
   email: string;
   discountCode: string;
+  totalLessons?: number;
 }
 
 export const StudentDiscountEmailTemplate: React.FC<
   Readonly<StudentDiscountEmailProps>
-> = ({ email, discountCode }) => (
+> = ({ email, discountCode, totalLessons = 156 }) => (
   <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '600px', margin: '0 auto' }}>
     <h1 style={{ color: '#000', fontSize: '24px', marginBottom: '16px' }}>
       Your Student Discount Code 🎓
@@ -374,7 +375,7 @@ export const StudentDiscountEmailTemplate: React.FC<
       marginBottom: '24px'
     }}>
       <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#065F46', margin: '0' }}>
-        💡 <strong>Pro Tip:</strong> With the student discount, Convergence All-Access (all 156 lessons across all tracks and platforms) becomes even more affordable. It&apos;s the best way to master Design Engineering!
+        💡 <strong>Pro Tip:</strong> With the student discount, Convergence All-Access (all {totalLessons} lessons across all tracks and platforms) becomes even more affordable. It&apos;s the best way to master Design Engineering!
       </p>
     </div>
     <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#333', marginBottom: '16px' }}>

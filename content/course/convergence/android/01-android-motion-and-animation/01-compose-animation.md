@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Jetpack Compose provides powerful, easy-to-use animation APIs. From simple animateAsState to complex choreography, Compose makes motion accessible.
 
-In this lesson, you will master the fundamental animation APIs in Jetpack Compose. You will learn how to animate single values using `animate*AsState`, create complex enter and exit transitions with `AnimatedVisibility`, manage state changes using `Transition`, and apply realistic motion using **spring physics**.
+## What You'll Learn
+
+- How to animate single values using animate*AsState
+- Creating complex enter and exit transitions with AnimatedVisibility
+- Managing state changes using Transition
+- Applying realistic motion using spring physics
 
 ## animate*AsState
 

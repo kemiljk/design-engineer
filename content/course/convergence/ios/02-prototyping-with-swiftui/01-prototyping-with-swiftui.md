@@ -2,7 +2,12 @@
 
 > **Quick Summary:** SwiftUI's preview system and rapid iteration make it perfect for prototyping. Build interactive prototypes that feel like the real thing.
 
-In this lesson, you will learn **preview-driven prototyping** to visualise changes instantly. We will cover **rapid iteration techniques** to refine your designs quickly, how to create **realistic interactions** using gestures and animations, and efficient methods for **sharing prototypes** for feedback.
+## What You'll Learn
+
+- Preview-driven prototyping to visualise changes instantly
+- Rapid iteration techniques to refine your designs quickly
+- How to create realistic interactions using gestures and animations
+- Efficient methods for sharing prototypes for feedback
 
 ## Preview-Driven Development
 

@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-By exploring this lesson, you will learn how to accurately assess your current skill level and distinguish between the focus of the Design and Engineering tracks. We'll guide you through choosing the right platform—whether Web, iOS, or Android—and explain the ideal time to pursue the advanced Convergence track.
+- How to accurately assess your current skill level
+- The difference between Design and Engineering tracks
+- How to choose the right platform (Web, iOS, or Android)
+- When to pursue the advanced Convergence track
 
 ## The Course Structure
 
@@ -231,7 +234,10 @@ Your choices aren't permanent. You can switch if another path suits you better. 
 
 ## Key Takeaways
 
-Before selecting a path, you should assess your skills honestly and decide whether you need to go beyond AI-generated code or develop a more refined design taste. Whether you start with design or engineering, focus on mastering one platform first to learn portable fundamentals before merging your abilities in the Convergence track. Remember that your path isn't permanent, and you can always adjust your journey as you continue to learn and grow.
+- Assess your skills honestly before selecting a path
+- Focus on mastering one platform first to learn portable fundamentals
+- Merge your abilities in the Convergence track after building foundations
+- Your path isn't permanent—adjust as you learn and grow
 
 ## Next Steps
 

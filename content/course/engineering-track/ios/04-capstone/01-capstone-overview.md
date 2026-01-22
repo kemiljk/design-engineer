@@ -6,6 +6,14 @@ estimatedTime: 5
 
 > **Quick Summary:** Apply everything you've learned to build a complete, working SwiftUI app with custom components, proper state management, data persistence, and polished user experience.
 
+## What You'll Learn
+
+- How to build a complete working SwiftUI app
+- Creating custom reusable components and modifiers
+- Implementing proper state management architecture
+- Adding data persistence to your app
+- Achieving polish and accessibility in your UI
+
 ## Why This Project?
 
 A working SwiftUI app showcases the full breadth of iOS engineering skills:

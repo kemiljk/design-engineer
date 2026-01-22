@@ -2,7 +2,12 @@
 
 > **Quick Summary:** Material motion patterns guide Android transitions. Learn container transforms, shared elements, and custom enter/exit animations.
 
-In this lesson, you will learn how to implement standard **Material motion patterns** in Compose. We will explore complex **shared element transitions** between screens, creating custom **AnimatedVisibility** enter/exit effects, and applying polished transitions to your **Navigation** graph.
+## What You'll Learn
+
+- How to implement standard Material motion patterns in Compose
+- Complex shared element transitions between screens
+- Creating custom AnimatedVisibility enter/exit effects
+- Applying polished transitions to your Navigation graph
 
 ## Material Motion Patterns
 

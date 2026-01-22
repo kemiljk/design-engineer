@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will dive deep into all major selector types and explore how to use combinators to target related elements within your document. We'll examine pseudo-classes for managing states and patterns, and cover how to use pseudo-elements for generating content directly through CSS.
+- All major selector types
+- How to use combinators to target related elements
+- Pseudo-classes for managing states and patterns
+- Pseudo-elements for generating content through CSS
 
 ## Basic Selectors
 

@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-Throughout this design phase, you will learn how to map out a clear information architecture and choose the navigation patterns that best suit your app's content hierarchy. We'll dive into the specific requirements for designing core iOS screens—from dashboards to detail views—and explore exactly how to leverage standard system components to create a recognizable and user-friendly experience.
+- How to map out clear information architecture
+- Choosing navigation patterns that suit your app's content hierarchy
+- Designing core iOS screens (dashboards, detail views)
+- Leveraging standard system components for a recognizable experience
 
 ## Step 1: Information Architecture
 

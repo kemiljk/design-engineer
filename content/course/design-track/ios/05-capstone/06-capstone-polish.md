@@ -10,7 +10,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this final phase, you will discover the nuances of designing a cohesive app icon and crafting compelling App Store assets that effectively communicate your app's value. We'll explore the process of conducting a thorough design audit to ensure platform consistency and learn how to write a detailed case study that documents your decision-making and problem-solving process for your portfolio.
+- Designing a cohesive app icon
+- Crafting compelling App Store assets
+- Conducting a thorough design audit for platform consistency
+- Writing a detailed case study documenting your process
 
 ## Step 1: App Icon
 

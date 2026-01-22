@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-During this phase, you will learn to plan a robust information architecture and select the most appropriate Material 3 navigation patterns for your app. We'll examine the design of core screens while applying Material 3 components correctly to ensure a professional and functional user interface.
+- Planning robust information architecture
+- Selecting appropriate Material 3 navigation patterns
+- Designing core screens
+- Applying Material 3 components correctly
 
 ## Step 1: Information Architecture
 

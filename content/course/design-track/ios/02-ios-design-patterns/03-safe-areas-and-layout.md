@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this module, you will discover why the concept of a perfectly rectangular screen no longer applies to modern iOS devices and learn how to use safe areas to protect your interactive content. We'll explore strategies for achieving immersive "full-bleed" designs while managing system-reserved zones like the Dynamic Island, Home Indicator, and rounded display corners to ensure your app remains functional and elegant in all orientations.
+- Why the rectangular screen concept no longer applies to modern iOS devices
+- How to use safe areas to protect interactive content
+- Strategies for achieving immersive "full-bleed" designs
+- Managing system-reserved zones (Dynamic Island, Home Indicator, rounded corners)
 
 ## The Death of the Rectangle
 

@@ -2,6 +2,13 @@
 
 > **Quick Summary:** Android powers over 2 billion active devices, ranging from 4-inch phones to 14-inch tablets, foldables, and watches. Learn how to create adaptive designs that flow like water into any container.
 
+## What You'll Learn
+
+- Understanding the Android device landscape and variety
+- Window Size Classes and responsive breakpoints
+- Designing for different screen sizes (compact, medium, expanded)
+- Creating adaptive layouts for phones, tablets, and foldables
+
 ## The Android Device Landscape
 
 For a designer, Android's variety is both a challenge and an opportunity. You cannot simply design a "mobile" screen and a "desktop" screen. You must design a responsive system.

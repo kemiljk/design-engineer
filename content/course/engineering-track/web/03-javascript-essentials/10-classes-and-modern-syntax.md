@@ -8,7 +8,10 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-In this lesson, we will explore the syntax and benefits of using JavaScript classes, including inheritance, getters, and setters. You will learn how to use optional chaining for safe property access and nullish coalescing to provide reliable default values. Furthermore, we will cover modern object and array methods that allow you to process data more expressively and write more robust code.
+- Syntax and benefits of JavaScript classes (inheritance, getters, setters)
+- Using optional chaining for safe property access
+- Nullish coalescing to provide reliable default values
+- Modern object and array methods for expressive, robust code
 
 ## Classes
 

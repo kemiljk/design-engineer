@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-By progressing through this lesson, you will learn the core principles of good component architecture and explore how to build robust variants and states. You will also master composition patterns for handling complex UI structures and develop strategies for planning long-term flexibility and evolution within your design system.
+- Core principles of good component architecture
+- How to build robust variants and states
+- Composition patterns for handling complex UI structures
+- Strategies for planning long-term flexibility and evolution
 
 ## Principles of Component Architecture
 

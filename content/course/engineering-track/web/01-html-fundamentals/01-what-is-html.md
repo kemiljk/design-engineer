@@ -8,7 +8,10 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-During this module, you will learn exactly what HTML is and why it remains the essential foundation of the web. We'll examine how HTML provides semantic structure to your content and explore the critical relationship between HTML, CSS, and JavaScript. You will also discover why mastering semantic HTML is particularly important for Design Engineers in creating accessible and performant interfaces.
+- What HTML is and why it's the essential foundation of the web
+- How HTML provides semantic structure to content
+- The critical relationship between HTML, CSS, and JavaScript
+- Why semantic HTML is important for Design Engineers
 
 ## The Foundation of the Web
 

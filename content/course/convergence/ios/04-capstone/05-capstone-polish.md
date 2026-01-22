@@ -8,6 +8,13 @@ estimatedTime: 15
 
 **Time Estimate:** 2-3 hours
 
+## What You'll Learn
+
+- How to design loading states that keep users engaged
+- Creating helpful empty states for missing content
+- Handling errors gracefully with clear recovery paths
+- Adding tactile haptic feedback to key interactions
+
 The final code phase is about resilience and delight. You will learn to **design loading states** that keep users engaged, create helpful **empty states** for when content is missing, handle **errors gracefully** with clear recovery paths, and add tactile **haptic feedback** to key interactions.
 
 ## Loading States

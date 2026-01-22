@@ -8,7 +8,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this lesson, we will examine the mechanics of how CSS transitions work and explore the various transition properties and shorthand notations available to you. You will also learn how to use timing functions and easing curves to refine your animations, and we'll identify which properties can and cannot be transitioned to help you build more predictable interfaces.
+- Mechanics of how CSS transitions work
+- Various transition properties and shorthand notations
+- Using timing functions and easing curves to refine animations
+- Which properties can and cannot be transitioned
 
 ## What Are Transitions?
 

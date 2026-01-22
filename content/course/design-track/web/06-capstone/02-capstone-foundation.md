@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-Throughout this phase, you will learn how to gather and organise design inspiration into a cohesive resource, define a distinct brand personality and voice, and create a comprehensive design token system that provides a robust foundation for your landing page project.
+- How to gather and organise design inspiration into a cohesive resource
+- Defining a distinct brand personality and voice
+- Creating a comprehensive design token system
+- Building a robust foundation for your landing page project
 
 ## Step 1: Research and Moodboard
 

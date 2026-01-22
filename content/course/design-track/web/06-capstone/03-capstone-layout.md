@@ -10,7 +10,9 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-By progressing through this lesson, you will master content strategy and information hierarchy to structure your page effectively. You will also learn low-fidelity wireframing techniques for rapid layout exploration and develop a strategy for planning responsive breakpoints across different devices.
+- Content strategy and information hierarchy for effective page structure
+- Low-fidelity wireframing techniques for rapid layout exploration
+- Strategy for planning responsive breakpoints across devices
 
 ## Step 1: Content Strategy
 

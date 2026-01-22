@@ -16,7 +16,11 @@ This course is tested with the following versions (January 2026). Newer versions
 
 ## What You'll Learn
 
-During this module, you will learn exactly what package managers are and why they are essential for modern development workflows. We'll examine how to install Homebrew on Mac or Chocolatey on Windows and walk through the setup of Node.js and npm. You will also explore the differences between global and local packages and successfully install your very first development tools.
+- What package managers are and why they're essential
+- How to install Homebrew on Mac or Chocolatey on Windows
+- Setup of Node.js and npm
+- Differences between global and local packages
+- Installing your first development tools
 
 ## The Package Manager Concept
 
