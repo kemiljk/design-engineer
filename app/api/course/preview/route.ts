@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
   const { token } = body;
 
   const envToken = process.env.COURSE_PREVIEW_TOKEN;
-  
+
   // Debug info for troubleshooting
   const debugInfo = {
     tokenProvided: !!token,
@@ -24,10 +24,10 @@ export async function POST(request: NextRequest) {
     tokensMatch: token === envToken,
   };
 
-  if (!isValidPreviewToken(token)) {
+  if (!(await isValidPreviewToken(token))) {
     return NextResponse.json(
       { error: "Invalid preview token", debug: debugInfo },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -71,11 +71,11 @@ export async function DELETE() {
 export async function GET(request: NextRequest) {
   const cookieStore = await cookies();
   const previewCookie = cookieStore.get(PREVIEW_COOKIE_NAME);
-  const hasAccess = isValidPreviewToken(previewCookie?.value ?? null);
-  
+  const hasAccess = await isValidPreviewToken(previewCookie?.value ?? null);
+
   // Include debug info if requested (useful for troubleshooting)
   const debug = request.nextUrl.searchParams.get("debug") === "true";
-  
+
   if (debug) {
     return NextResponse.json({
       hasPreviewAccess: hasAccess,
