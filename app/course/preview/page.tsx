@@ -131,11 +131,11 @@ function PreviewContent() {
                   placeholder="Enter access code"
                   className="w-full border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-900 transition-colors outline-none placeholder:text-neutral-400 focus:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-700"
                   autoFocus
-                  disabled={status === "loading"}
+                  disabled={false}
                 />
                 <button
                   type="submit"
-                  disabled={!inputToken.trim() || status === "loading"}
+                  disabled={!inputToken.trim()}
                   className="absolute top-1 right-1 bottom-1 flex items-center justify-center bg-neutral-900 px-4 text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-30 dark:bg-neutral-50 dark:text-black"
                 >
                   <ArrowRight className="h-4 w-4" />
