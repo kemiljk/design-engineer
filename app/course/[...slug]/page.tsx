@@ -4,10 +4,15 @@ import Link from "next/link";
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { NavArrowLeft as ArrowLeft, NavArrowRight as ArrowRight, Lock, Clock } from "iconoir-react";
-import { 
-  getUserEnrollment, 
-  canAccessLesson, 
+import {
+  NavArrowLeft as ArrowLeft,
+  NavArrowRight as ArrowRight,
+  Lock,
+  Clock,
+} from "iconoir-react";
+import {
+  getUserEnrollment,
+  canAccessLesson,
   isFreeTierLesson,
   getAdjacentLessonsAcrossModules,
   formatModuleName,
@@ -32,9 +37,9 @@ import type { ProductKey } from "@/lib/types";
 import { TrackPlatformSelector } from "../components/track-platform-selector";
 import { LessonContent } from "./lesson-content";
 import { LessonKeyboardNav } from "../components/lesson-keyboard-nav";
-import { 
-  watermarkContent, 
-  checkRateLimit, 
+import {
+  watermarkContent,
+  checkRateLimit,
   logSuspiciousActivity,
   sendSuspiciousActivityAlert,
   RATE_LIMIT_CONFIG,
@@ -46,33 +51,40 @@ function getRequiredAccess(lessonPath: string): ProductKey {
   if (lessonPath.startsWith("design-track/android")) return "design_android";
   if (lessonPath.startsWith("engineering-track/web")) return "engineering_web";
   if (lessonPath.startsWith("engineering-track/ios")) return "engineering_ios";
-  if (lessonPath.startsWith("engineering-track/android")) return "engineering_android";
+  if (lessonPath.startsWith("engineering-track/android"))
+    return "engineering_android";
   return "full";
 }
 
 function getBackLink(lessonPath: string): { href: string; label: string } {
   const parts = lessonPath.split("/");
   const track = parts[0];
-  
+
   // If we're at the track root (design-track, engineering-track, convergence), go back to the main course page
-  if (parts.length === 1 && ["design-track", "engineering-track", "convergence"].includes(track)) {
+  if (
+    parts.length === 1 &&
+    ["design-track", "engineering-track", "convergence"].includes(track)
+  ) {
     return {
       href: "/course",
       label: "Back to Courses",
     };
   }
-  
+
   // If we're deeper in a track (design-track, engineering-track, convergence), go back to the track index
   if (["design-track", "engineering-track", "convergence"].includes(track)) {
-    const trackName = track === "design-track" ? "Design Track" 
-      : track === "engineering-track" ? "Engineering Track" 
-      : "Convergence";
+    const trackName =
+      track === "design-track"
+        ? "Design Track"
+        : track === "engineering-track"
+          ? "Engineering Track"
+          : "Convergence";
     return {
       href: `/course/${track}`,
       label: `Back to ${trackName}`,
     };
   }
-  
+
   // Introduction or unknown - go to main course page
   return {
     href: "/course",
@@ -86,36 +98,36 @@ interface LessonPageProps {
 
 async function getFirstLessonPath(slugPath: string[]): Promise<string | null> {
   const contentPath = path.join(process.cwd(), "content/course", ...slugPath);
-  
+
   try {
     const stats = await fs.stat(contentPath);
     if (!stats.isDirectory()) return null;
-    
+
     const entries = await fs.readdir(contentPath, { withFileTypes: true });
-    
+
     // Check if this directory has only subdirectories (no .md files)
-    const mdFiles = entries.filter(e => e.isFile() && e.name.endsWith(".md"));
+    const mdFiles = entries.filter((e) => e.isFile() && e.name.endsWith(".md"));
     if (mdFiles.length > 0) return null; // Has content, no redirect needed
-    
+
     // Find first module directory (e.g., "00-environment-setup" or "01-foundations")
     const moduleDirs = entries
-      .filter(e => e.isDirectory() && !e.name.startsWith('.'))
-      .map(e => e.name)
+      .filter((e) => e.isDirectory() && !e.name.startsWith("."))
+      .map((e) => e.name)
       .sort();
-    
+
     if (moduleDirs.length === 0) return null;
-    
+
     const firstModulePath = path.join(contentPath, moduleDirs[0]);
     const moduleFiles = await fs.readdir(firstModulePath);
     const lessonFiles = moduleFiles
-      .filter(f => f.endsWith('.md') && f !== 'index.md')
+      .filter((f) => f.endsWith(".md") && f !== "index.md")
       .sort();
-    
+
     if (lessonFiles.length === 0) return null;
-    
+
     // Return the full lesson path
-    const lessonSlug = lessonFiles[0].replace('.md', '');
-    return [...slugPath, moduleDirs[0], lessonSlug].join('/');
+    const lessonSlug = lessonFiles[0].replace(".md", "");
+    return [...slugPath, moduleDirs[0], lessonSlug].join("/");
   } catch {
     return null;
   }
@@ -137,7 +149,7 @@ async function getLessonContent(slugPath: string[]) {
       // Look for index.md first, then first lesson
       const files = await fs.readdir(contentPath);
       const mdFiles = files.filter((f) => f.endsWith(".md")).sort();
-      
+
       // Prioritize index.md if it exists
       if (mdFiles.includes("index.md")) {
         filePath = path.join(contentPath, "index.md");
@@ -157,7 +169,6 @@ async function getLessonContent(slugPath: string[]) {
     return null;
   }
 }
-
 
 export default async function LessonPage({ params }: LessonPageProps) {
   const { slug } = await params;
@@ -184,10 +195,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   // Check for preview access (secret token for friends/reviewers)
   const previewAccess = await hasPreviewAccess();
-  
+
   // Development mode grants full access
   const isDevelopment = process.env.NODE_ENV === "development";
-  
+
   // Check if this user should always use their real enrollment (owner/enrolled users testing)
   const useRealEnrollment = userId && shouldUseRealEnrollment(userId);
 
@@ -197,21 +208,31 @@ export default async function LessonPage({ params }: LessonPageProps) {
   if (isDevelopment) {
     // Development mode grants full access for local testing
     hasAccess = true;
+  } else if (previewAccess) {
+    // Preview token grants full access (for friends/reviewers/admins with token)
+    hasAccess = true;
+
+    // Still fetch enrollment for owners/admins to allow testing notes/progress
+    if (useRealEnrollment) {
+      enrollment = await getUserEnrollment(userId);
+    }
   } else if (useRealEnrollment) {
     // Bypass user - always load and use their real enrollment
-    // This allows them to test notes, progress, etc. even if preview cookie is set
+    // This allows them to test notes, progress, etc.
     enrollment = await getUserEnrollment(userId);
-    const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
+    const accessLevel =
+      normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
     hasAccess = canAccessLesson(accessLevel, lessonPath);
-  } else if (previewAccess) {
-    // Preview token grants full access (for friends/reviewers without real enrollment)
-    hasAccess = true;
   } else if (testMode && testAccessLevel && testAccessLevel !== "free") {
     // Test mode override - grant access based on test access level
-    hasAccess = canAccessLesson(testAccessLevel as Parameters<typeof canAccessLesson>[0], lessonPath);
+    hasAccess = canAccessLesson(
+      testAccessLevel as Parameters<typeof canAccessLesson>[0],
+      lessonPath,
+    );
   } else if (userId) {
     enrollment = await getUserEnrollment(userId);
-    const accessLevel = normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
+    const accessLevel =
+      normalizeAccessLevel(enrollment?.metadata.access_level) || "free";
     hasAccess = canAccessLesson(accessLevel, lessonPath);
   }
 
@@ -235,10 +256,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
           </Link>
 
           <div className="rounded-none border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-none bg-neutral-100 dark:bg-neutral-800">
-              <Lock className="h-6 w-6 text-neutral-500" />
-            </div>
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-none bg-neutral-100 dark:bg-neutral-800">
+                <Lock className="h-6 w-6 text-neutral-500" />
+              </div>
               <div>
                 <h1 className="text-xl font-bold">Premium Content</h1>
                 <p className="text-sm text-neutral-500">
@@ -247,8 +268,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
               </div>
             </div>
 
-            <UpgradePrompt 
-              currentLessonPath={lessonPath} 
+            <UpgradePrompt
+              currentLessonPath={lessonPath}
               requiredAccess={requiredAccess}
               trackProduct={trackProduct}
               fullProduct={fullProduct}
@@ -262,7 +283,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   // Rate limiting check for authenticated users accessing paid content
   if (userId && !isFree) {
     const rateLimit = checkRateLimit(userId, lessonPath);
-    
+
     // Log and alert on suspicious activity
     if (rateLimit.suspicious) {
       const alertMetadata = {
@@ -270,26 +291,31 @@ export default async function LessonPage({ params }: LessonPageProps) {
         resetAt: new Date(rateLimit.resetAt).toISOString(),
         accessCount: RATE_LIMIT_CONFIG.suspiciousThreshold,
       };
-      
-      logSuspiciousActivity(userId, lessonPath, 'High lesson access rate', alertMetadata);
-      
+
+      logSuspiciousActivity(
+        userId,
+        lessonPath,
+        "High lesson access rate",
+        alertMetadata,
+      );
+
       // Send email alert (fire-and-forget, don't block page render)
       sendSuspiciousActivityAlert(
-        userId, 
-        lessonPath, 
-        'High lesson access rate', 
-        alertMetadata
+        userId,
+        lessonPath,
+        "High lesson access rate",
+        alertMetadata,
       ).catch(() => {
         // Silently fail - already logged to console
       });
     }
-    
+
     // Show rate limit message if exceeded
     if (!rateLimit.allowed) {
       const now = Date.now();
       const resetTime = new Date(rateLimit.resetAt);
       const minutesRemaining = Math.ceil((rateLimit.resetAt - now) / 60000);
-      
+
       return (
         <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
           <div className="container-readable py-8">
@@ -315,13 +341,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
                   </p>
                 </div>
               </div>
-              
+
               <p className="mb-4 text-amber-800 dark:text-amber-200">
-                To ensure the best learning experience and protect our content, 
-                we limit how quickly you can access lessons. Please take a short 
-                break and return in about {minutesRemaining} minute{minutesRemaining !== 1 ? 's' : ''}.
+                To ensure the best learning experience and protect our content,
+                we limit how quickly you can access lessons. Please take a short
+                break and return in about {minutesRemaining} minute
+                {minutesRemaining !== 1 ? "s" : ""}.
               </p>
-              
+
               <p className="mb-6 text-sm text-amber-600 dark:text-amber-400">
                 Access resets at {resetTime.toLocaleTimeString()}
               </p>
@@ -350,33 +377,41 @@ export default async function LessonPage({ params }: LessonPageProps) {
   }
 
   // Determine if we're in a track/platform path for module navigation
-  const isTrackPlatformPath = slug.length >= 3 && 
+  const isTrackPlatformPath =
+    slug.length >= 3 &&
     ["design-track", "engineering-track", "convergence"].includes(slug[0]);
   const trackSlug = isTrackPlatformPath ? slug[0] : "";
   const platformSlug = isTrackPlatformPath ? slug[1] : "";
 
-  const [adjacentLessons, lessonCompleted, modules, userData] = await Promise.all([
-    getAdjacentLessonsAcrossModules(lessonPath),
-    userId ? isLessonCompleted(userId, lessonPath) : Promise.resolve(false),
-    isTrackPlatformPath ? getModulesForTrack(trackSlug, platformSlug) : Promise.resolve([]),
-    userId ? (async () => {
-      const client = await clerkClient();
-      const user = await client.users.getUser(userId);
-      return {
-        name: user.firstName && user.lastName 
-          ? `${user.firstName} ${user.lastName}`.trim()
-          : user.firstName || "Anonymous",
-        photoUrl: user.imageUrl,
-      };
-    })() : Promise.resolve(null),
-  ]);
-  const { prev, next, currentModule, totalInModule, currentInModule } = adjacentLessons;
+  const [adjacentLessons, lessonCompleted, modules, userData] =
+    await Promise.all([
+      getAdjacentLessonsAcrossModules(lessonPath),
+      userId ? isLessonCompleted(userId, lessonPath) : Promise.resolve(false),
+      isTrackPlatformPath
+        ? getModulesForTrack(trackSlug, platformSlug)
+        : Promise.resolve([]),
+      userId
+        ? (async () => {
+            const client = await clerkClient();
+            const user = await client.users.getUser(userId);
+            return {
+              name:
+                user.firstName && user.lastName
+                  ? `${user.firstName} ${user.lastName}`.trim()
+                  : user.firstName || "Anonymous",
+              photoUrl: user.imageUrl,
+            };
+          })()
+        : Promise.resolve(null),
+    ]);
+  const { prev, next, currentModule, totalInModule, currentInModule } =
+    adjacentLessons;
 
   // Extract title from content (first h1) and remove it from content to avoid duplication
   const titleMatch = lesson.content.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1] : slug[slug.length - 1];
   let contentWithoutTitle = lesson.content.replace(/^#\s+.+\n*/m, "");
-  
+
   // Replace hardcoded lesson count with dynamic count for convergence index page
   const isConvergenceIndex = slug.length === 1 && slug[0] === "convergence";
   if (isConvergenceIndex) {
@@ -385,21 +420,30 @@ export default async function LessonPage({ params }: LessonPageProps) {
     // Pattern matches: "- ✅ **248 total lessons**" or "- ✅ **156 total lessons**"
     contentWithoutTitle = contentWithoutTitle.replace(
       /- ✅ \*\*\d+ total lessons\*\*/g,
-      `- ✅ **${totalLessons} total lessons**`
+      `- ✅ **${totalLessons} total lessons**`,
     );
   }
-  
+
   // Apply watermarking for authenticated users on paid content
   // This embeds invisible user identification for content leak tracing
   if (userId && !isFree) {
-    contentWithoutTitle = watermarkContent(contentWithoutTitle, userId, lessonPath);
+    contentWithoutTitle = watermarkContent(
+      contentWithoutTitle,
+      userId,
+      lessonPath,
+    );
   }
 
-  const isTrackIndex = slug.length === 1 && ["design-track", "engineering-track", "convergence"].includes(slug[0]);
+  const isTrackIndex =
+    slug.length === 1 &&
+    ["design-track", "engineering-track", "convergence"].includes(slug[0]);
 
   return (
     <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
-      <LessonKeyboardNav prevPath={prev?.path || null} nextPath={next?.path || null} />
+      <LessonKeyboardNav
+        prevPath={prev?.path || null}
+        nextPath={next?.path || null}
+      />
       <div className="container-readable pt-8 pb-24 xl:pb-8">
         <div className="mb-8 flex items-center justify-between">
           <Link
@@ -410,11 +454,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
             {backLink.label}
           </Link>
 
-          {isFree && (!enrollment || normalizeAccessLevel(enrollment.metadata.access_level) === "free") && (
-            <span className="rounded-none bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
-              Free Lesson
-            </span>
-          )}
+          {isFree &&
+            (!enrollment ||
+              normalizeAccessLevel(enrollment.metadata.access_level) ===
+                "free") && (
+              <span className="rounded-none bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
+                Free Lesson
+              </span>
+            )}
         </div>
 
         <article>
@@ -430,11 +477,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 />
               </div>
             )}
-            <h1 className="mt-4 heading-section">{title}</h1>
+            <h1 className="heading-section mt-4">{title}</h1>
           </div>
 
           <div className="prose prose-neutral dark:prose-invert max-w-none">
-            <LessonContent content={contentWithoutTitle} lessonPath={lessonPath} />
+            <LessonContent
+              content={contentWithoutTitle}
+              lessonPath={lessonPath}
+            />
             {isTrackIndex && <TrackPlatformSelector trackSlug={slug[0]} />}
           </div>
 
@@ -442,66 +492,74 @@ export default async function LessonPage({ params }: LessonPageProps) {
             {currentModule && totalInModule > 0 && (
               <div className="mb-6 text-center">
                 <span className="text-sm text-neutral-500">
-                  Lesson {currentInModule} of {totalInModule} in {formatModuleName(currentModule)}
+                  Lesson {currentInModule} of {totalInModule} in{" "}
+                  {formatModuleName(currentModule)}
                 </span>
-                <div className="mt-2 mx-auto h-1 w-48 bg-neutral-200 dark:bg-neutral-800 overflow-hidden">
-                  <div 
-                    className="h-full bg-swiss-red transition-all" 
-                    style={{ width: `${(currentInModule / totalInModule) * 100}%` }} 
+                <div className="mx-auto mt-2 h-1 w-48 overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                  <div
+                    className="bg-swiss-red h-full transition-all"
+                    style={{
+                      width: `${(currentInModule / totalInModule) * 100}%`,
+                    }}
                   />
                 </div>
               </div>
             )}
-            
+
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               {userId && (
-                <div className="w-full md:w-auto md:order-2">
-                  <MarkCompleteButton lessonPath={lessonPath} initialCompleted={lessonCompleted} />
+                <div className="w-full md:order-2 md:w-auto">
+                  <MarkCompleteButton
+                    lessonPath={lessonPath}
+                    initialCompleted={lessonCompleted}
+                  />
                 </div>
               )}
-              
+
               <div className="flex items-center justify-between gap-4 md:contents">
                 {prev ? (
                   <Link
                     href={`/course/${prev.path}`}
-                    className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-1 rounded-none bg-neutral-100 p-4 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+                    className="group max-w-[50%] flex-1 rounded-none bg-neutral-100 p-4 transition-colors hover:bg-neutral-200 md:order-1 md:max-w-[45%] dark:bg-neutral-800 dark:hover:bg-neutral-700"
                   >
-                    <div className="flex items-center gap-2 text-xs text-neutral-500 mb-1">
+                    <div className="mb-1 flex items-center gap-2 text-xs text-neutral-500">
                       <ArrowLeft className="h-3 w-3" />
                       <span>Previous</span>
                     </div>
-                    <p className="text-sm font-medium truncate">
+                    <p className="truncate text-sm font-medium">
                       {formatTitle(prev.title)}
                     </p>
                   </Link>
                 ) : (
-                  <div className="flex-1 max-w-[50%] md:max-w-[45%] md:order-1" />
+                  <div className="max-w-[50%] flex-1 md:order-1 md:max-w-[45%]" />
                 )}
 
                 {next ? (
                   next.isNewModule ? (
                     <Link
                       href={`/course/${next.path}`}
-                      className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none border-2 border-swiss-red bg-swiss-red/5 p-4 transition-all hover:bg-swiss-red hover:text-white"
+                      className="group border-swiss-red bg-swiss-red/5 hover:bg-swiss-red max-w-[50%] flex-1 rounded-none border-2 p-4 transition-all hover:text-white md:order-3 md:max-w-[45%]"
                     >
-                      <div className="flex items-center justify-end gap-2 text-xs text-swiss-red group-hover:text-white mb-1">
-                        <span>Next Module: {formatModuleName(next.module)}</span>
+                      <div className="text-swiss-red mb-1 flex items-center justify-end gap-2 text-xs group-hover:text-white">
+                        <span>
+                          Next Module: {formatModuleName(next.module)}
+                        </span>
                         <ArrowRight className="h-3 w-3" />
                       </div>
-                      <p className="text-sm font-medium text-right truncate">
+                      <p className="truncate text-right text-sm font-medium">
                         {formatTitle(next.title)}
                       </p>
                     </Link>
                   ) : (
                     <Link
                       href={`/course/${next.path}`}
-                      className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                      className="group bg-swiss-red max-w-[50%] flex-1 rounded-none p-4 text-white transition-colors hover:bg-neutral-900 md:order-3 md:max-w-[45%] dark:hover:bg-white dark:hover:text-black"
                     >
-                      <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
+                      <div className="mb-1 flex items-center justify-end gap-2 text-xs opacity-80">
                         <span>Next</span>
                         <ArrowRight className="h-3 w-3" />
                       </div>
-                      <p className="text-sm font-medium text-right truncate">
+                      <p className="truncate text-right text-sm font-medium">
                         {formatTitle(next.title)}
                       </p>
                     </Link>
@@ -509,20 +567,20 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 ) : lessonPath.startsWith("00-introduction") ? (
                   <Link
                     href="/course"
-                    className="group flex-1 max-w-[50%] md:max-w-[45%] md:order-3 rounded-none bg-swiss-red p-4 text-white transition-colors hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                    className="group bg-swiss-red max-w-[50%] flex-1 rounded-none p-4 text-white transition-colors hover:bg-neutral-900 md:order-3 md:max-w-[45%] dark:hover:bg-white dark:hover:text-black"
                   >
-                    <div className="flex items-center justify-end gap-2 text-xs opacity-80 mb-1">
+                    <div className="mb-1 flex items-center justify-end gap-2 text-xs opacity-80">
                       <span>You&apos;re ready!</span>
                       <ArrowRight className="h-3 w-3" />
                     </div>
-                    <p className="text-sm font-medium text-right">
+                    <p className="text-right text-sm font-medium">
                       Choose Your Track
                     </p>
                   </Link>
                 ) : (
-                  <TrackCompletionCTA 
-                    lessonPath={lessonPath} 
-                    isLoggedIn={!!userId} 
+                  <TrackCompletionCTA
+                    lessonPath={lessonPath}
+                    isLoggedIn={!!userId}
                     userName={userData?.name}
                     userPhotoUrl={userData?.photoUrl}
                   />
@@ -536,7 +594,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
       {userId && (
         <>
           <FloatingNotesPanel lessonPath={lessonPath} lessonTitle={title} />
-          <LessonTracker lessonPath={lessonPath} initialCompleted={lessonCompleted} />
+          <LessonTracker
+            lessonPath={lessonPath}
+            initialCompleted={lessonCompleted}
+          />
         </>
       )}
     </main>
