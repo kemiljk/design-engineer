@@ -3,6 +3,25 @@
 /* Tailwind v4 CSS-first configuration */
 @plugin "@tailwindcss/typography";
 
+/* Exercise content code block styling - pure white/black backgrounds */
+/* Override code block backgrounds (ScrollContainer) */
+.exercise-content [class*="bg-neutral-100"] {
+  background-color: white !important;
+}
+
+.dark .exercise-content [class*="bg-neutral-800"] {
+  background-color: black !important;
+}
+
+/* Override inline code backgrounds */
+.exercise-content code[class*="bg-neutral-100"] {
+  background-color: white !important;
+}
+
+.dark .exercise-content code[class*="bg-neutral-800"] {
+  background-color: black !important;
+}
+
 /* Custom theme extensions */
 @theme {
   /* Colors */
