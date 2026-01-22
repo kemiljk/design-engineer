@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-In this lesson, you will discover the inherent mathematical and performance limitations of traditional CSS and JavaScript animations, and learn exactly why the GPU's parallel processing power is required for the next generation of visual effects. We'll identify specific use cases where shader-based techniques are superior and explore how mastering this "Design Engineer's creative toolkit" allows you to build interfaces that feel alive in ways standard web technologies cannot achieve.
+- We'll identify specific use cases where shader-based techniques are superior
 
 ## The Animation Spectrum
 
@@ -139,7 +139,10 @@ Try to recreate a flowing noise gradient using only CSS. Notice what's missing�
 
 ## Key Takeaways
 
-While CSS and JavaScript handle the vast majority of interface animation needs effectively, shaders unlock a tier of visual quality—such as organic fluids and per-pixel distortion—that is simply impossible with traditional technologies. The secret lies in the GPU's ability to process millions of pixels in parallel, allowing for complex mathematical visualisation at 60fps. Ultimately, learning to use shaders for that "extra 1%" of polish is a key differentiator for top-tier Design Engineers.
+- per-pixel distortion—that is simply impossible with traditional technologies
+- per-pixel distortion—that is simply impossible with traditional technologies
+- The secret lies in the GPU's ability to process millions of pixels in parallel,
+- Ultimately, learning to use shaders for that "extra 1%" of polish is a key differentiator for top...
 
 ## Next Steps
 

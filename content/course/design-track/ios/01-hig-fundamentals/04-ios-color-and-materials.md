@@ -135,7 +135,14 @@ Sketch a screen layout that uses depth correctly.
 
 ## Key Takeaways
 
-Modern iOS design leverages **Liquid Glass** for navigation and control layers while using **Standard Materials** to organize information within the content layer. By using **Semantic System Colours** and **Vibrancy**, you ensure that interfaces remain beautiful and legible across light and dark modes, provided you always prioritize **Accessibility** through proper contrast and transparency testing.
+- Modern iOS design leverages **Liquid Glass** for navigation and control layers
+- using **Standard Materials** to organize information within the content layer
+- using **Standard Materials** to organize information within the content layer
+- By using **Semantic System Colours** and **Vibrancy**, you ensure that interfaces remain beautiful
+- legible across light legible across light
+- dark modes, provided you always prioritize **Accessibility** through proper contrast
+- dark modes, provided you always prioritize **Accessibility** through proper contrast
+- transparency testing transparency testing
 
 ## Next Steps
 

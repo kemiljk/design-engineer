@@ -785,7 +785,14 @@ Build a mini shopping cart that displays a list of products, each with an "Add t
 
 ## Key Takeaways
 
-To recap, state is the component's memory that persists across renders. The `useState` hook returns a `[value, setValue]` pair that you use to read and update this memory. It is essential to always create new objects and arrays rather than mutating existing state directly. When your new state value depends on the previous one, prefer functional updates. Controlled components tie input values directly to state, and you should always keep your state minimal by deriving computed values where possible. When multiple components need to share state, you should lift it up to their common ancestor.
+- To recap, state is the component's memory that persists across renders
+- The `useState` hook returns a `[value, setValue]` pair that you use to read and update this memory
+- It is essential to always create new objects and arrays rather than mutating existing state directly
+- When your new state value depends on the previous one, prefer functional updates
+- Controlled components tie input values directly to state
+- you should always keep your state minimal by deriving computed values where possible
+- you should always keep your state minimal by deriving computed values where possible
+- When multiple components need to share state, you should lift it up to their common ancestor
 
 ## Next Steps
 

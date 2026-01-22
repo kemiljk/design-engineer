@@ -148,7 +148,12 @@ Build a loading indicator featuring three bouncing dots with staggered timing to
 -->
 
 ## Key Takeaways
-Always use **withAnimation** to wrap explicit state changes. Prefer **springs** over linear curves for more natural motion. Use the **.animation** modifier carefully for implicit effects, and **combine animations** to create complex, multi-layered interactions. Finally, always **test the feel** on a real device.
+
+- Always use **withAnimation** to wrap explicit state changes Prefer **springs** over linear curves...
+- Use the **.animation** modifier carefully for implicit effects
+- **combine animations** to create complex, multi-layered interactions
+- **combine animations** to create complex, multi-layered interactions
+- Finally, always **test the feel** on a real device
 
 ## Next Steps
 

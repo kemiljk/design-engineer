@@ -141,7 +141,11 @@ Take an existing app screen. Compare it to the design. Note every discrepancy. P
 
 ## Key Takeaways
 
-A professional handoff involves **organising** design files with semantically named layers and **specifying** values using points and semantic tokens that align with iOS conventions. By thoroughly **documenting** all interaction states and edge cases, you enable a rigorous **QA** process on real devices, while active **collaboration** ensures the final product speaks the native language of SwiftUI.
+- A professional handoff involves **organising** design files with semantically named layers
+- **specifying** values using points **specifying** values using points
+- semantic tokens that align with iOS conventions semantic tokens that align with iOS conventions
+- active **collaboration** ensures the final product speaks the native language of SwiftUI
+- active **collaboration** ensures the final product speaks the native language of SwiftUI
 
 ## Module Complete! 🎉
 

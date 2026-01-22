@@ -166,7 +166,13 @@ Practise using the console to create variables for your name, age, and professio
 
 ## Key Takeaways
 
-To recap, JavaScript is the primary tool for adding interactivity to web pages, and it runs both in browsers and on servers via Node.js. It interacts with your HTML through the Document Object Model (DOM), and modern ES6+ features provide a powerful toolkit for building complex applications. For Design Engineers, JavaScript is essential for creating high-fidelity prototypes, implementing detailed interactions, and shipping complete products.
+- To recap, JavaScript is the primary tool for adding interactivity to web pages
+- it runs both in browsers and on servers via Node.js
+- it runs both in browsers and on servers via Node.js
+- It interacts with your HTML through the Document Object Model (DOM)
+- modern ES6+ features provide a powerful toolkit for building complex applications
+- modern ES6+ features provide a powerful toolkit for building complex applications
+- shipping complete products
 
 ## Next Steps
 

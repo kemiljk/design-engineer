@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn the criteria for deciding when to further develop a prototype into production-ready code versus when it is better to rebuild from scratch. We'll explore how to structure your experimental code for potential reuse by separating concerns and using semantic HTML, and examine the essential process of refactoring prototype shortcuts and providing a professional handoff for other engineering teammates.
+- Throughout this lesson, you will learn the criteria for deciding when to further develop a protot...
 
 ## When to Productionise
 
@@ -177,7 +177,13 @@ Build a new prototype with production patterns:
 
 ## Key Takeaways
 
-Knowing when to productionise a prototype requires a careful balance between speed and technical debt, as not all experimental code is meant for the final product. By structuring your prototypes thoughtfully—without over-engineering—and documenting your specific design decisions and known issues, you can make the eventual transition to production far more seamless. Ultimately, effective communication and incremental refactoring are the keys to successfully bridging the gap between an interactive experiment and a scalable feature.
+- Knowing when to productionise a prototype requires a careful balance between speed
+- technical debt, as not all experimental code is meant for the final product
+- technical debt, as not all experimental code is meant for the final product
+- known issues, you can make the eventual transition to production far more seamless
+- known issues, you can make the eventual transition to production far more seamless
+- Ultimately, effective communication
+- a scalable feature a scalable feature
 
 ## Next Steps
 

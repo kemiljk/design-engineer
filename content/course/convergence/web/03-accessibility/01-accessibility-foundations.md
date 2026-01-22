@@ -125,7 +125,15 @@ The **Web Content Accessibility Guidelines (WCAG)** are the international standa
 
 ## Key Takeaways
 
-Accessibility is about universality and inclusion, ensuring that the web is open to everyone regardless of specific abilities or constraints. Remember the **Curb Cut Effect**: features designed for people with disabilities often improve the experience for absolutely everyone. As a Design Engineer, you control both the visual aspects (like contrast and hierarchy) and the technical implementation (via HTML and ARIA), so look to **WCAG** as your rulebook and **POUR** (Perceivable, Operable, Understandable, Robust) as your guiding philosophy.
+- Accessibility is about universality
+- inclusion, ensuring that the web is open to everyone regardless of specific abilities or constraints
+- inclusion, ensuring that the web is open to everyone regardless of specific abilities or constraints
+- Remember the **Curb Cut Effect**: features designed for people with disabilities often improve th...
+- As a Design Engineer, you control both the visual aspects (like contrast and hierarchy)
+- the technical implementation (via HTML the technical implementation (via HTML
+- ARIA), so look to **WCAG** as your rulebook ARIA), so look to **WCAG** as your rulebook
+- **POUR** (Perceivable, Operable, Understandable, Robust) as your guiding philosophy
+- **POUR** (Perceivable, Operable, Understandable, Robust) as your guiding philosophy
 
 ## Next Steps
 

@@ -97,7 +97,11 @@ Design a simple dashboard screen by placing a Top App Bar and a Card containing 
 
 ## Key Takeaways
 
-To ensure a successful Android design, you should always start with correct 360x800dp dimensions and leverage the official Material Design 3 Kit to maintain platform consistency. Use the Material Theme Builder to generate accessible colour palettes and create semantic text styles that match the type scale, while always accounting for both light and dark modes from the very beginning of your project.
+- To ensure a successful Android design, you should always start with correct 360x800dp dimensions
+- leverage the official Material Design 3 Kit to maintain platform consistency
+- leverage the official Material Design 3 Kit to maintain platform consistency
+- always accounting for both light and dark modes from the very beginning of your project
+- always accounting for both light and dark modes from the very beginning of your project
 
 ## Next Steps
 

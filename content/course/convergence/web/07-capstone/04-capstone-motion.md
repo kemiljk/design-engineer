@@ -10,7 +10,10 @@ estimatedTime: 25
 
 ## What You'll Learn
 
-This phase focuses on bringing your design to life. You will learn to implement smooth **entrance animations** that welcome users, create immersive **scroll-based reveals** that guide reading flow, build delightful **micro-interactions** for interactive elements, and handle **form interactions** with clear, accessible feedback.
+- Implementing smooth **entrance animations** that welcome users
+- Creating immersive **scroll-based reveals** that guide reading flow
+- Building delightful **micro-interactions** for interactive elements
+- Handling **form interactions** with clear, accessible feedback
 
 ## Step 1: Entrance Animations
 

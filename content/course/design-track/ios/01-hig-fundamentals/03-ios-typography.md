@@ -112,7 +112,9 @@ If you have an iOS device, go to **Settings > Display & Brightness > Text Size**
 
 ## Key Takeaways
 
-Building accessible apps requires using the **San Francisco** typeface—tailored for legibility across all Apple devices—and leveraging **Semantic Text Styles** like Body and Title 1. These building blocks enable **Dynamic Type** support, allowing layouts to adapt fluidly to user font preferences and avoiding the pitfalls of fixed-size text and content truncation.
+- Title 1 Title 1
+- avoiding the pitfalls of fixed-size text avoiding the pitfalls of fixed-size text
+- content truncation content truncation
 
 ## Next Steps
 

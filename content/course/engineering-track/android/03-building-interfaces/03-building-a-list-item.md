@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn to utilize the Material 3 ListItem component for creating consistent list layouts and explore techniques for building fully custom list items. We'll examine how to implement swipe-to-dismiss functionality and manage various selection states to enhance the interactivity of your data displays.
+- explore techniques for building fully custom list items
+- explore techniques for building fully custom list items
+- We'll examine how to implement swipe-to-dismiss functionality
+- manage various selection states to enhance the interactivity of your data displays
+- manage various selection states to enhance the interactivity of your data displays
 
 ## Material 3 ListItem
 
@@ -206,7 +210,8 @@ Further develop your interactive components by creating a task item that include
 
 ## Key Takeaways
 
-To build professional lists in Compose, you must leverage the standard `ListItem` component for Material 3 consistency while utilizing its various content slots for headlines, supporting text, and leading or trailing elements. When you require more control, build custom items from scratch using Row layouts and remember to implement the `SwipeToDismissBox` whenever you need to add intuitive swipe-based actions to your list entries.
+- leading or trailing elements
+- When you require more control, build custom items from scratch using Row layouts
 
 ## Next Steps
 

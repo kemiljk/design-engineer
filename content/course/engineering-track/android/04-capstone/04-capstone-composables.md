@@ -10,7 +10,11 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-During this module, you will learn to create reusable Compose components from scratch and build your own custom modifiers. We'll examine the design of Material 3 styled elements and explore the development of effective empty state composables to handle missing data gracefully.
+- During this module, you will learn to create reusable Compose components from scratch
+- build your own custom modifiers build your own custom modifiers
+- We'll examine the design of Material 3 styled elements
+- explore the development of effective empty state composables to handle missing data gracefully
+- explore the development of effective empty state composables to handle missing data gracefully
 
 ## Custom Card Component
 

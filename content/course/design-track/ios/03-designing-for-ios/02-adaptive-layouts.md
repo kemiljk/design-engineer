@@ -125,7 +125,9 @@ Design a navigation pattern that transforms:
 
 ## Key Takeaways
 
-Responsive iOS design is built on **Size Classes** (Compact and Regular), which allow a single design to adapt fluidly across all devices. iPad layouts require unique treatments like **Sidebars** and multi-column views to feel truly native, and multitasking capabilities mean your app must handle being resized to iPhone widths at any moment. By using **Auto Layout** constraints rather than fixed artboards, you create flexible components that remain functional and elegant on any screen size.
+- multitasking capabilities mean your app must handle being resized to iPhone widths at any moment
+- multitasking capabilities mean your app must handle being resized to iPhone widths at any moment
+- elegant on any screen size elegant on any screen size
 
 ## Next Steps
 

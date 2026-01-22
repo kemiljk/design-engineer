@@ -114,7 +114,14 @@ Find a stock photo for a "Team" page. Now, find a *better* alternative that feel
 
 ## Key Takeaways
 
-Icon and text combinations are almost always superior to standalone icons, as consistency in stroke weight and illustration style creates a sense of high quality. By prioritising authentic imagery over generic stock photos and ensuring that every meaningful visual has a text alternative, you can build a professional and accessible interface.
+- text combinations are almost always superior to standalone icons, as consistency in stroke weight
+- text combinations are almost always superior to standalone icons, as consistency in stroke weight
+- illustration style creates a sense of high quality
+- illustration style creates a sense of high quality
+- By prioritising authentic imagery over generic stock photos
+- ensuring that every meaningful visual has a text alternative, you can build a professional
+- ensuring that every meaningful visual has a text alternative, you can build a professional
+- accessible interface accessible interface
 
 ## Next Steps
 

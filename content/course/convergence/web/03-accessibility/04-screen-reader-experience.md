@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-In this lesson, you will demystify how screen readers interpret your code by parsing the accessibility tree rather than the visual interface. We'll walk through the process of testing your own work with VoiceOver or NVDA, identify common pitfalls like missing labels or redundant text, and master the art of writing effective alternative text for images and dynamic content updates.
+- In this lesson, you will demystify how screen readers interpret your code by parsing the accessib...
+- master the art of writing effective alternative text for images and dynamic content updates
+- master the art of writing effective alternative text for images and dynamic content updates
 
 ## How Screen Readers Work
 
@@ -183,7 +185,8 @@ Using the insights from your testing session, return to your code to fix the ide
 
 ## Key Takeaways
 
-Screen readers rely entirely on the semantic structure of your code (the accessibility tree) rather than your visual design, making semantic HTML the critical foundation of your work. You must ensure all images have appropriate alt text—even if it is empty for decorative elements—and use live regions to announce dynamic content changes. most importantly, the only way to verify your work is to test it with real screen readers like VoiceOver or NVDA.
+- Screen readers rely entirely on the semantic structure of your code (the accessibility tree) rath...
+- You must ensure all images have appropriate alt text—even if it is empty for decorative elements—...
 
 ## Next Steps
 

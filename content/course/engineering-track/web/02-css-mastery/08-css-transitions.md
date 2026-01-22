@@ -268,7 +268,11 @@ Develop a navigation link that includes an underline which grows horizontally fr
 
 ## Key Takeaways
 
-To recap, CSS transitions are a powerful way to animate property changes between different states, making your interface feel more interactive and polished. For the most predictable and performant results, you should target specific properties rather than using the `all` keyword. Remember that `ease-out` typically provides the most responsive feel for hover effects, and keep your transition durations short—ideally between 100ms and 300ms—to ensure the interface remains snappy.
+- polished polished
+- For the most predictable
+- performant results, you should target specific properties rather than using the `all` keyword
+- performant results, you should target specific properties rather than using the `all` keyword
+- Remember that `ease-out` typically provides the most responsive feel for hover effects
 
 ## Next Steps
 

@@ -130,7 +130,11 @@ Perform an audit by converting an existing screen to Dark Mode and checking if c
 
 ## Key Takeaways
 
-Stunning Dark Mode design relies on **Semantic System Colours** for automatic adaptation and using **Lighter greys** to indicate higher elevation. You must carefully adjust **Accent Colours** for legibility, provide specific assets for **illustrations**, and rigorously **test** your designs on real hardware in diverse lighting environments.
+- Stunning Dark Mode design relies on **Semantic System Colours** for automatic adaptation
+- using **Lighter greys** to indicate higher elevation
+- using **Lighter greys** to indicate higher elevation
+- rigorously **test** your designs on real hardware in diverse lighting environments
+- rigorously **test** your designs on real hardware in diverse lighting environments
 
 ## Next Steps
 

@@ -371,7 +371,14 @@ Look at the todo item examples above. For each framework, identify:
 
 ## Key Takeaways
 
-To recap, UI frameworks automate the management of state and DOM updates, freeing you from tedious manual synchronisation. While React, Vue, Svelte, and Angular are the major players, each comes with its own unique philosophy and set of tradeoffs. React dominates the industry primarily due to its enormous job market presence, unparalleled ecosystem, and widespread industry adoption. The core concepts of components, state, and props transfer directly between all frameworks, so learning React provides maximum career flexibility.
+- To recap, UI frameworks automate the management of state
+- DOM updates, freeing you from tedious manual synchronisation
+- DOM updates, freeing you from tedious manual synchronisation
+- While React, Vue, Svelte
+- Angular are the major players, each comes with its own unique philosophy and set of tradeoffs
+- Angular are the major players, each comes with its own unique philosophy and set of tradeoffs
+- widespread industry adoption
+- The core concepts of components, state
 
 ## Next Steps
 

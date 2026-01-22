@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn the fundamentals of Kotlin without being overwhelmed by excessive detail. We'll examine variables, types, and the language's robust null safety features, alongside practical introductions to functions, lambdas, classes, and data classes, focusing specifically on how these concepts appear within Jetpack Compose.
+- Throughout this lesson, you will learn the fundamentals of Kotlin without being overwhelmed by ex...
+- We'll examine variables, types
+- data classes, focusing specifically on how these concepts appear within Jetpack Compose
+- data classes, focusing specifically on how these concepts appear within Jetpack Compose
 
 ## Kotlin for Designers
 
@@ -591,7 +594,14 @@ fun getThemeLabel(theme: Theme): String = when (theme) {
 
 ## Key Takeaways
 
-To master Kotlin for Android, you must use `val` for immutable values and `var` specifically for those that need to change, while leveraging the language's strong null safety through operators like `?`, `?.`, and `?:`. Remember that data classes are ideal for managing UI state and that lambdas are the essential building blocks for Compose. Finally, utilizing named parameters will significantly improve code readability, while `when` expressions provide an elegant way to handle multiple logical conditions.
+- leveraging the language's strong null safety through operators like `?`, `?.`
+- leveraging the language's strong null safety through operators like `?`, `?.`, and `?:`
+- Remember that data classes are ideal for managing UI state
+- that lambdas are the essential building blocks for Compose
+- that lambdas are the essential building blocks for Compose
+- Finally, utilizing named parameters will significantly improve code readability
+- `when` expressions provide an elegant way to handle multiple logical conditions
+- `when` expressions provide an elegant way to handle multiple logical conditions
 
 ## Next Steps
 

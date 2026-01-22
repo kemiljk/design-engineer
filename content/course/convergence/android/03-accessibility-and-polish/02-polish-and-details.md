@@ -207,7 +207,11 @@ Design a polished error state component. Include a friendly illustration to redu
 -->
 
 ## Key Takeaways
-**Haptics** add a valuable tactile dimension to your app. **Micro-interactions** demonstrate attention to detail and craft. You must handle all **edge cases** (like loading and errors) to ensure a robust experience. Use the **polish checklist** before every release, and always test on real devices to ensure the quality matches your design intent.
+
+- You must handle all **edge cases** (like loading and errors) to ensure a robust experience
+- Use the **polish checklist** before every release
+- always test on real devices to ensure the quality matches your design intent
+- always test on real devices to ensure the quality matches your design intent
 
 ## Congratulations!
 

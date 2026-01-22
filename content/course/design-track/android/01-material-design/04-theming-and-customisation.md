@@ -126,7 +126,9 @@ Which one changes the "vibe" of the component the most?
 
 ## Key Takeaways
 
-Material theaming allows you to brand your application without breaking core usability, primarily by pulling three main levers: colour, typography, and shape. Automated tools like the Material Theme Builder handle the complex mathematics of maintaining accessibility, provided you apply your theme tokens consistently and globally throughout your product.
+- Material theming allows you to brand your application without breaking core usability
+- Use three main levers: colour, typography, and shape
+- Automated tools like the Material Theme Builder handle the complex mathematics of maintaining accessibility, provided you apply your theme tokens consistently and globally throughout your product
 
 ## Next Steps
 

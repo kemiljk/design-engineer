@@ -122,7 +122,11 @@ Take a screenshot of your app design. Visualize it with a vibrant red theme (fro
 
 ## Key Takeaways
 
-Android theming is a cohesive system rather than a static choice, where dark mode specifically uses lighter surfaces rather than shadows to express depth. Dynamic colour extracts palettes from user wallpapers using semantic colour roles to ensure total consistency and accessibility. Ultimately, brand identity is maintained through core anchors while allowing the interface to adapt beautifully to the user's personal aesthetic.
+- Android theming is a cohesive system rather than a static choice,
+- accessibility accessibility
+- Ultimately, brand identity is maintained through core anchors
+- allowing the interface to adapt beautifully to the user's personal aesthetic
+- allowing the interface to adapt beautifully to the user's personal aesthetic
 
 ## Next Steps
 

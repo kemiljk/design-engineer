@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn the syntax for class declarations, property definitions, and the various constructor types available in Kotlin. We'll examine the power of data classes for reducing boilerplate code and explore object declarations for implementing singletons and companion members.
+- During this module, you will learn the syntax for class declarations, property definitions
+- the various constructor types available in Kotlin
+- the various constructor types available in Kotlin
+- We'll examine the power of data classes for reducing boilerplate code
+- explore object declarations for implementing singletons
+- explore object declarations for implementing singletons and companion members
 
 ## Basic Classes
 
@@ -167,7 +172,12 @@ Further develop your understanding of class hierarchies by implementing a `Netwo
 
 ## Key Takeaways
 
-To master classes in Kotlin, you must remember that primary constructors are defined directly in the class header and that property mutability is controlled through the use of `val` and `var`. Data classes are essential for automatically generating common boilerplate methods, while the `copy` function allows you to create modified versions of your data objects with ease. Finally, leverage sealed classes to restrict inheritance and use object declarations to implement singletons or companion members for static-like functionality within your codebase.
+- that property mutability is controlled through the use of `val`
+- that property mutability is controlled through the use of `val` and `var`
+- Data classes are essential for automatically generating common boilerplate methods
+- the `copy` function allows you to create modified versions of your data objects with ease
+- the `copy` function allows you to create modified versions of your data objects with ease
+- Finally, leverage sealed classes to restrict inheritance
 
 ## Congratulations!
 

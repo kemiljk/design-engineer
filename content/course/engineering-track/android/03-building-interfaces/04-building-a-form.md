@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn to utilize TextField variants for collecting user input and explore effective techniques for form state management. We'll examine how to implement validation logic and handle form submission to ensure a clean and professional user experience.
+- During this module, you will learn to utilize TextField variants for collecting user input
+- explore effective techniques for form state management
+- explore effective techniques for form state management
+- We'll examine how to implement validation logic and handle form submission to ensure a clean
+- professional user experience professional user experience
 
 ## TextField
 
@@ -210,7 +214,12 @@ Further expand your capabilities by building a comprehensive profile editor. Thi
 
 ## Key Takeaways
 
-To build effective forms in Compose, you must prioritise the use of `OutlinedTextField` for most data entries while configuring appropriate keyboard options to streamline the typing experience. Always validate your input and display specific errors through the `supportingText` property, and lean on focus management to enhance the overall user flow. Finally, remember to keep your form state organized within a dedicated data class for easier management and testing.
+- configuring appropriate keyboard options to streamline the typing experience
+- configuring appropriate keyboard options to streamline the typing experience
+- Always validate your input and display specific errors through the `supportingText` property
+- lean on focus management to enhance the overall user flow
+- lean on focus management to enhance the overall user flow
+- testing testing
 
 ## Next Steps
 

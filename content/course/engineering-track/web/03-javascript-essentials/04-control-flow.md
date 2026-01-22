@@ -218,7 +218,12 @@ Create a `getNestedValue` function that allows you to safely access properties w
 
 ## Key Takeaways
 
-To recap, you can use `if`, `else`, and `switch` statements to manage your programme's conditional logic, but remember to always use strict equality to avoid unexpected type coercion. Mastering logical operators and their short-circuit behaviours will help you write more efficient code, while various loop types provide the tools needed to process iterative data sets. Finally, always account for potential errors with `try...catch` and utilise optional chaining to safely navigate complex objects.
+- To recap, you can use `if`, `else`
+- various loop types provide the tools needed to process iterative data sets
+- various loop types provide the tools needed to process iterative data sets
+- Finally, always account for potential errors with `try...catch`
+- utilise optional chaining to safely navigate complex objects
+- utilise optional chaining to safely navigate complex objects
 
 ## Next Steps
 

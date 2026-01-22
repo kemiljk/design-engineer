@@ -478,7 +478,16 @@ Create a test page with every input type. Test on:
 
 ## Key Takeaways
 
-To build high-quality, accessible forms, you must wrap your inputs in a `<form>` element with the appropriate `action` and `method` attributes and use the most specific input type for each field's semantic meaning. Always prioritise the use of `<label>` elements for accessibility and remember that placeholders should only supplement rather than replace descriptive labels. For more complex forms, group related fields using `<fieldset>` and `<legend>` and leverage attributes like `required` and `autocomplete` to enhance the user experience. By connecting error messages to inputs with `aria-describedby`, you ensure that your forms remain usable and informative for all users.
+- `method` attributes `method` attributes
+- use the most specific input type for each field's semantic meaning
+- use the most specific input type for each field's semantic meaning
+- Always prioritise the use of `<label>` elements for accessibility
+- remember that placeholders should only supplement rather than replace descriptive labels
+- remember that placeholders should only supplement rather than replace descriptive labels
+- For more complex forms, group related fields using `<fieldset>` and `<legend>`
+- leverage attributes like `required` leverage attributes like `required`
+- `autocomplete` to enhance the user experience `autocomplete` to enhance the user experience
+- informative for all users informative for all users
 
 ## Next Steps
 

@@ -203,7 +203,12 @@ Practise naming components. Names should be descriptive, consistent, and follow 
 
 ## Key Takeaways
 
-To recap, components are self-contained, reusable UI pieces. You should break interfaces into atoms, molecules, and organisms, and plan before building by considering data, states, and variations. Good component design enables composition and reuse, and naming matters greatly for maintainability. Vanilla JS teaches you the fundamentals, while React provides declarative, composable patterns—understanding both makes you a more versatile developer.
+- To recap, components are self-contained, reusable UI pieces
+- You should break interfaces into atoms, molecules, and organisms
+- plan before building by considering data, states
+- plan before building by considering data, states, and variations
+- Good component design enables composition and reuse, and naming matters greatly for maintainability
+- Vanilla JS teaches you the fundamentals
 
 ## Next Steps
 

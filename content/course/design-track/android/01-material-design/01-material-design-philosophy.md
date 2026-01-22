@@ -112,7 +112,11 @@ Cut out a few pieces of paper. Write "Header," "Card," and "Button" on them. Arr
 
 ## Key Takeaways
 
-Material Design treats pixels as if they were physical paper with a distinct (1dp) thickness, using elevation along the z-axis as the primary tool for establishes functional hierarchy. With Material You, the entire UI colour scheme can be personalised based on a user's wallpaper, while intentional motion explains where elements originate and where they are going. Designing native Android simply means respecting these system patterns, from the universal back gesture to the tactile ripple effects on touch.
+- Material Design treats pixels as if they were physical paper with a distinct (1dp) thickness, usi...
+- With Material You, the entire UI colour scheme can be personalised based on a user's wallpaper
+- intentional motion explains where elements originate and where they are going
+- intentional motion explains where elements originate and where they are going
+- Designing native Android simply means respecting these system patterns,
 
 ## Next Steps
 

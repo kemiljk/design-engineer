@@ -10,7 +10,9 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-During this module, you will learn how to create a production-ready App Icon and write a comprehensive README that clearly explains your app's architecture. We'll also examine the best practices for structuring a professional GitHub repository to showcase your work effectively.
+- During this module, you will learn how to create a production-ready App Icon
+- write a comprehensive README that clearly explains your app's architecture
+- write a comprehensive README that clearly explains your app's architecture
 
 ## Step 1: The App Icon
 

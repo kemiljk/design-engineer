@@ -277,7 +277,12 @@ Build a dynamic image gallery where individual images span different numbers of 
 
 ## Key Takeaways
 
-To recap, CSS Grid is a powerful tool for managing two-dimensional layouts, allowing you to handle rows and columns simultaneously. You can use the `fr` unit to distribute space proportionally, and leverage functions like `repeat()` and `minmax()` for sophisticated responsive designs. Named layout regions via `grid-template-areas` offer a clear and readable way to structure your pages, while `place-items: centre` remains the simplest method for perfectly centring content within a grid cell.
+- columns simultaneously columns simultaneously
+- You can use the `fr` unit to distribute space proportionally
+- leverage functions like `repeat()` and `minmax()` for sophisticated responsive designs
+- leverage functions like `repeat()` and `minmax()` for sophisticated responsive designs
+- `place-items: centre` remains the simplest method for perfectly centring content within a grid cell
+- `place-items: centre` remains the simplest method for perfectly centring content within a grid cell
 
 ## Next Steps
 

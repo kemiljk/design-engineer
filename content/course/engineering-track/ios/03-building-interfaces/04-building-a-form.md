@@ -4,7 +4,14 @@
 
 ## What You'll Learn
 
-During this module, you will learn to use form containers effectively and explore a variety of input types available in SwiftUI. We'll examine robust validation patterns and walk through the essential techniques for managing focus and keyboard handling to provide a smooth data entry experience.
+- During this module, you will learn to use form containers effectively
+- explore a variety of input types available in SwiftUI
+- explore a variety of input types available in SwiftUI
+- We'll examine robust validation patterns
+- walk through the essential techniques for managing focus
+- walk through the essential techniques for managing focus
+- keyboard handling to provide a smooth data entry experience
+- keyboard handling to provide a smooth data entry experience
 
 ## Basic Form
 
@@ -191,7 +198,11 @@ Create a comprehensive settings form organised into grouped sections and utilizi
 
 ## Key Takeaways
 
-To build high-quality user entry interfaces, you should leverage the `Form` component to provide automatic, platform-appropriate styling and use `Section` to logically group related content. Always specify the correct text content types for each input field and use `@FocusState` to manage keyboard focus efficiently. Finally, ensure you implement thorough validation for all data before allowing submission to maintain data integrity.
+- use `Section` to logically group related content use `Section` to logically group related content
+- Always specify the correct text content types for each input field
+- use `@FocusState` to manage keyboard focus efficiently
+- use `@FocusState` to manage keyboard focus efficiently
+- Finally, ensure you implement thorough validation for all data before allowing submission to main...
 
 ## Next Steps
 

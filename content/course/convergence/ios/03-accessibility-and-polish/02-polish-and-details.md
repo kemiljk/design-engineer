@@ -166,7 +166,12 @@ Build a custom pull-to-refresh control. It should include a unique **loading ind
 -->
 
 ## Key Takeaways
-**Haptics** add a critical tactile dimension to touch interactions. Use **sound** very sparingly, as it can be intrusive. Well-crafted **micro-interactions** demonstrate respect for the user and pride in your craft. Remember that **polish** is simply the accumulation of many small, well-considered details. Always **test on real devices** to verify the feel.
+
+- **Haptics** add a critical tactile dimension to touch interactions
+- Use **sound** very sparingly, as it can be intrusive
+- Well-crafted **micro-interactions** demonstrate respect for the user and pride in your craft
+- **Polish** is simply the accumulation of many small, well-considered details
+- Always **test on real devices** to verify the feel
 
 ## Congratulations!
 

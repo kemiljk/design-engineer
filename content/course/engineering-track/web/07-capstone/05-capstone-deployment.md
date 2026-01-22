@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-In this final lesson, we will focus on setting up a professional build process for your CSS and JavaScript. You will learn how to create a comprehensive README file, understand the steps for publishing to npm or deploying to a CDN, and discover how to manage versioning and releases effectively.
+- In this final lesson, we will focus on setting up a professional build process for your CSS
+- JavaScript JavaScript
+- discover how to manage versioning and releases effectively
+- discover how to manage versioning and releases effectively
 
 ## Step 1: Build Process
 

@@ -403,7 +403,12 @@ Create a basic todo application that stores all tasks in the browser's `localSto
 
 ## Key Takeaways
 
-To recap, asynchronous operations are essential for modern web development, allowing you to perform network requests and other time-consuming tasks without blocking the user interface. By mastering promises and `async`/`await`, you can write clean and readable code that handles data effectively. It is vital to always check the response status when using `fetch()`, manage your application's loading and error states in the UI, and utilise `localStorage` for simple data persistence within the browser.
+- other time-consuming tasks without blocking the user interface
+- other time-consuming tasks without blocking the user interface
+- By mastering promises and `async`/`await`, you can write clean
+- readable code that handles data effectively readable code that handles data effectively
+- utilise `localStorage` for simple data persistence within the browser
+- utilise `localStorage` for simple data persistence within the browser
 
 ## Next Steps
 

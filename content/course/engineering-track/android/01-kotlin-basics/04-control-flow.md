@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-Throughout this module, you will learn to use if and when as powerful expressions that return values directly. We'll examine the various loop syntaxes available in Kotlin alongside comprehensive exception handling techniques to help you build robust and manageable code flows.
+- Throughout this module, you will learn to use if
+- when as powerful expressions that return values directly
+- when as powerful expressions that return values directly
+- manageable code flows manageable code flows
 
 ## If Expressions
 
@@ -174,7 +177,10 @@ Further develop your looping skills by iterating through a list of users to gene
 
 ## Key Takeaways
 
-To master control flow in Kotlin, you must remember that `if` and `when` functions as expressions that return values, and that `when` is particularly powerful when used exhaustively with sealed classes. When working with ranges, use `..` for inclusive bounds and `until` for exclusive ones, applying `step` and `downTo` for more complex variations, and remember that even try-catch blocks can be used as value-returning expressions.
+- that `when` is particularly powerful when used exhaustively with sealed classes
+- that `when` is particularly powerful when used exhaustively with sealed classes
+- remember that even try-catch blocks can be used as value-returning expressions
+- remember that even try-catch blocks can be used as value-returning expressions
 
 ## Next Steps
 

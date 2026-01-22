@@ -373,7 +373,11 @@ Follow the Vite example above. Explore the generated files:
 
 ## Key Takeaways
 
-To manage your web projects effectively, you should always start by initialising a `package.json` file and using npm to install dependencies, making sure to use the `--save-dev` flag for development-only tools. These scripts define your essential project commands, while the `node_modules` directory remains an auto-generated component that should never be edited or committed to version control. By correctly leveraging `npm install` to recreate your development environment, you ensure that your projects remain consistent and portable across different systems.
+- Always start by initialising a `package.json` file
+- Use npm to install dependencies
+- Use the `--save-dev` flag for development-only tools
+- These scripts define your essential project commands, while the `node_modules` directory remains an auto-generated component that should never be edited or committed to version control
+- By correctly leveraging `npm install` to recreate your development environment, you ensure that your projects remain consistent and portable across different systems
 
 ## Environment Complete!
 

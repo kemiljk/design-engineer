@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-During this module, you will learn the fundamental syntax for defining functions and explore the power of default and named parameters. We'll examine lambdas and higher-order functions in depth before introducing extension functions as a way to append new capabilities to existing types.
+- During this module, you will learn the fundamental syntax for defining functions
+- explore the power of default explore the power of default and named parameters
+- We'll examine lambdas
 
 ## Function Basics
 
@@ -176,7 +178,12 @@ Further enhance your skills by adding a practical extension to the String type c
 
 ## Key Takeaways
 
-To write idiomatic Kotlin, you should use default parameters to reduce the need for function overloads and named arguments to make your calls more readable. Remember that the implicit `it` parameter allows for cleaner lambdas and that the trailing lambda syntax is the standard for functional calls. Finally, leverage extension functions to build cleaner APIs and use scope functions like `let`, `apply`, and `run` to simplify your object manipulation patterns.
+- named arguments to make your calls more readable named arguments to make your calls more readable
+- Remember that the implicit `it` parameter allows for cleaner lambdas
+- that the trailing lambda syntax is the standard for functional calls
+- that the trailing lambda syntax is the standard for functional calls
+- `run` to simplify your object manipulation patterns
+- `run` to simplify your object manipulation patterns
 
 ## Next Steps
 

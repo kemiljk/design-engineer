@@ -408,7 +408,10 @@ npm info tailwindcss
 
 ## Key Takeaways
 
-To maintain an efficient web development environment, you should leverage package managers like Homebrew or Chocolatey to simplify the installation of essential tools like Node.js and Git. While global installations have their place, you should generally prefer local packages for better project consistency and keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`. Finally, if you encounter any initial setup issues, remember that most are related to your PATH configuration and can often be resolved by simply restarting your terminal.
+- keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`
+- keep your system tidy by regularly updating your tools with `brew upgrade` or `choco upgrade`
+- can often be resolved by simply restarting your terminal
+- can often be resolved by simply restarting your terminal
 
 ## Next Steps
 

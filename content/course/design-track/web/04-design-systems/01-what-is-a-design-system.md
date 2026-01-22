@@ -120,7 +120,11 @@ Imagine you are building a banking app. Write three design principles that would
 
 ## Key Takeaways
 
-A design system is effectively a product that serves other products, encompassing assets, rules, and governance processes that prevent the system from degrading over time. By scaling visual design decisions through tokens and maintaining clear change processes, organisations can drastically improve consistency, efficiency, and scalability across their entire product suite.
+- A design system is effectively a product that serves other products, encompassing assets, rules
+- governance processes that prevent the system from degrading over time
+- governance processes that prevent the system from degrading over time
+- scalability across their entire product suite
+- scalability across their entire product suite
 
 ## Next Steps
 

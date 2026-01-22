@@ -164,7 +164,14 @@ Examine a component in your current codebase to determine if its prop names are 
 
 ## Key Takeaways
 
-Good components adhere to the single responsibility principle, doing one thing well while leveraging composition to build complex user interfaces. By using variants to handle semantic differences and props for customisation, you can design for every data and interaction state while ensuring APIs remain intuitive and prepared for future evolution through versioning.
+- Good components adhere to the single responsibility principle, doing one thing well
+- leveraging composition to build complex user interfaces
+- leveraging composition to build complex user interfaces
+- By using variants to handle semantic differences
+- props for customisation, you can design for every data
+- props for customisation, you can design for every data and interaction state
+- ensuring APIs remain intuitive ensuring APIs remain intuitive
+- prepared for future evolution through versioning prepared for future evolution through versioning
 
 ## Next Steps
 

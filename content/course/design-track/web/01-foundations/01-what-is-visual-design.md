@@ -160,7 +160,9 @@ Don't worry about using technical terms. Just observe and describe what you see.
 
 ## Key Takeaways
 
-Visual design is a strategic form of communication that differs from graphic design by focusing on interactive, multi-state experiences that improve usability, build trust, and guide attention. Engineers who master these skills gain independence and collaborative efficiency by applying foundational elements such as hierarchy, contrast, balance, repetition, alignment, and proximity to their work.
+- Visual design is strategic communication focused on interactive, multi-state experiences
+- It improves usability, builds trust, and guides attention
+- Engineers who master these skills gain independence and collaborative efficiency by applying foundational elements such as hierarchy, contrast, balance, repetition, alignment, and proximity to their work
 
 ## Next Steps
 

@@ -118,7 +118,12 @@ Try to sign up for a new service you've never used. Write down every single mome
 
 ## Key Takeaways
 
-True user-centred thinking acknowledges that you are not your user and that your intuition is often biased by your own expertise. By actively developing empathy through talking and watching, and validating your assumptions with real-world input, you can design products that work for distracted, impatient, and human users in their actual context.
+- True user-centred thinking acknowledges that you are not your user
+- that your intuition is often biased by your own expertise
+- that your intuition is often biased by your own expertise
+- By actively developing empathy through talking and watching
+- human users in their actual context
+- human users in their actual context
 
 ## Next Steps
 

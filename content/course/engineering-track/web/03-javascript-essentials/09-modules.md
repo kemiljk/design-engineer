@@ -181,7 +181,12 @@ Take a single JavaScript file that contains multiple constants, API functions, a
 
 ## Key Takeaways
 
-To recap, ES6 modules provide a robust way to manage code dependencies by using explicit `import` and `export` statements. While both named and default exports are available, named exports are generally preferred for better refactorability and clearer intent. You can use re-exports to create convenient barrel files and dynamic imports to enable code splitting, both of which are essential techniques for building high-performance, maintainable web applications.
+- To recap, ES6 modules provide a robust way to manage code dependencies by using explicit `import`
+- `export` statements `export` statements
+- default exports are available, named exports are generally preferred for better refactorability
+- default exports are available, named exports are generally preferred for better refactorability
+- clearer intent clearer intent
+- You can use re-exports to create convenient barrel files
 
 ## Next Steps
 

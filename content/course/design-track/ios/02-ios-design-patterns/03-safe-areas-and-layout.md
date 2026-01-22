@@ -113,7 +113,12 @@ Design a screen with a "Confirm" button at the bottom.
 
 ## Key Takeaways
 
-Designing for modern displays means moving beyond the rectangle to respect **safe areas**, ensuring that while backgrounds enjoy a full-bleed effect, interactive content remains visible across various Touch ID and Face ID devices. You must be particularly careful to avoid placing controls in the **Home Indicator zone** and always use layout guides instead of hard-coded values to future-proof your interface.
+- backgrounds enjoy a full-bleed effect, interactive content remains visible across various Touch ID
+- backgrounds enjoy a full-bleed effect, interactive content remains visible across various Touch ID
+- Face ID devices Face ID devices
+- You must be particularly careful to avoid placing controls in the **Home Indicator zone**
+- always use layout guides instead of hard-coded values to future-proof your interface
+- always use layout guides instead of hard-coded values to future-proof your interface
 
 ## Next Steps
 

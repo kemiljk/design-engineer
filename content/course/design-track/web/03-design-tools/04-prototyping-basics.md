@@ -118,7 +118,11 @@ Create a toggle switch.
 
 ## Key Takeaways
 
-Prototypes are essential for simulating the user experience, with low-fidelity versions testing core concepts and high-fidelity versions refining specific details. By building interactivity through connections and triggers, and leveraging tools like Smart Animate and real-device testing, you can validate specific flows and ensure that every transition feels intuitive before moving to production.
+- Prototypes are essential for simulating the user experience
+- Low-fidelity versions test core concepts; high-fidelity versions refine specific details
+- Build interactivity through connections and triggers
+- Leverage tools like Smart Animate and real-device testing
+- Validate specific flows and ensure transitions feel intuitive before production
 
 ## Next Steps
 

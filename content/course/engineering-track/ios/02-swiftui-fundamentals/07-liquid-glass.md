@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn exactly what Liquid Glass is and how it functions as a core design element. We'll examine the process of applying Liquid Glass effects using the `.glassEffect()` modifier and walk through the configuration of shapes, tints, and interactivity. You will also explore how to combine multiple effects with `GlassEffectContainer` and create smooth, morphing transitions between your views.
+- During this module, you will learn exactly what Liquid Glass is
+- how it functions as a core design element how it functions as a core design element
+- You will also explore how to combine multiple effects with `GlassEffectContainer`
+- create smooth, morphing transitions between your views
+- create smooth, morphing transitions between your views
 
 ## Introduction to Liquid Glass
 
@@ -262,7 +266,14 @@ struct FloatingPanel<Content: View>: View {
 
 ## Key Takeaways
 
-To master Liquid Glass in SwiftUI, you must understand how it combines translucency, reflection, and fluid motion to create a unified design language. Use the `.glassEffect()` modifier to apply these effects to custom views and leverage `GlassEffectContainer` alongside `.glassEffectUnion()` for smooth blending and grouped regions. Coordinate your transitions with `.glassEffectID()` to achieve beautiful morphing results, but always remember to apply these powerful effects sparingly to maintain focus on the most important functional elements.
+- To master Liquid Glass in SwiftUI, you must understand how it combines translucency, reflection
+- fluid motion to create a unified design language
+- fluid motion to create a unified design language
+- Use the `.glassEffect()` modifier to apply these effects to custom views
+- leverage `GlassEffectContainer` alongside `.glassEffectUnion()` for smooth blending
+- leverage `GlassEffectContainer` alongside `.glassEffectUnion()` for smooth blending
+- grouped regions grouped regions
+- Coordinate your transitions with `.
 
 ## Next Steps
 

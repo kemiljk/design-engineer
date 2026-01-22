@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-In this lesson, you will learn how to look beyond static design files to identify the 'implied' logic and interaction requirements that define softare behaviour. We'll explore exactly how to make confident decisions regarding motion, feedback states, and choreography when the specifications are incomplete, and master rapid prototyping techniques that allow you to build functional experiences without getting bogged down in visual polish.
+- How to identify implied logic and interaction requirements in static design files
+- Making confident decisions about motion, feedback states, and choreography when specs are incomplete
+- Rapid prototyping techniques for building functional experiences without visual polish
 
 ## The Gap Between Figma and Reality
 
@@ -123,7 +125,9 @@ Find a UI animation on Dribbble or Twitter. Set a timer for 60 minutes. Recreate
 
 ## Key Takeaways
 
-Successful prototyping requires you to recognise that design files are often incomplete and that your role is to proactively fill the gaps with reasonable defaults for motion and feedback. By focusing on a "bones-first" approach—building structure and interaction before visual polish—you can solve problems faster and iterate more effectively. Most importantly, improvise when you hit unknowns and use your prototypes as a primary tool for moving the project forward.
+- Design files are often incomplete—your role is to fill gaps with reasonable defaults
+- Use a "bones-first" approach: build structure and interaction before visual polish
+- Improvise when you hit unknowns and use prototypes to move projects forward
 
 ## Next Steps
 

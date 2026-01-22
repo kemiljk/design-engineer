@@ -17,7 +17,11 @@ This course is tested with the following versions (January 2026). Newer versions
 
 ## What You'll Learn
 
-Throughout this module, you will learn exactly what Android Studio is and why it remains an essential tool for download and installation. We'll examine the first-time setup and configuration process before navigating the primary interface and creating your very first project from scratch.
+- Throughout this module, you will learn exactly what Android Studio is
+- why it remains an essential tool for download why it remains an essential tool for download
+- installation installation
+- We'll examine the first-time setup and configuration process before navigating the primary interface
+- creating your very first project from scratch creating your very first project from scratch
 
 ## Go Beyond Vibe Coding
 
@@ -370,7 +374,12 @@ Slow performance can often be mitigated by allocating more memory through the Sy
 
 ## Key Takeaways
 
-Android Studio is an absolute requirement for modern Android development and can be downloaded directly from the official developer site. While the initial setup requires patience as SDKs are downloaded, the environment provides powerful tools like the Device Manager for emulators and the Find Action shortcut for navigating every possible command. Most importantly, Compose previews offer real-time updates as you write code, ensuring a tight feedback loop during implementation.
+- Android Studio is an absolute requirement for modern Android development
+- can be downloaded directly from the official developer site
+- can be downloaded directly from the official developer site
+- the Find Action shortcut for navigating every possible command
+- the Find Action shortcut for navigating every possible command
+- Most importantly, Compose previews offer real-time updates as you write code,
 
 ## Next Steps
 

@@ -119,7 +119,11 @@ Open the same app (e.g., Spotify or Slack) on iOS and Android side-by-side.
 
 ## Key Takeaways
 
-The core principles of **Clarity, Deference, and Depth** guide every iOS design decision, ensuring content remains the central focus. **Liquid Glass** enhances this by introducing a new layer of physics-based interactivity and reflection, which standard system components adopt automatically. By respecting these established platform conventions, you reduce cognitive load for users and create the premium "iOS feel" that comes from the seamless integration of fluid motion and optical depth.
+- The core principles of **Clarity, Deference
+- By respecting these established platform conventions, you reduce cognitive load for users
+- create the premium "iOS feel" that comes from the seamless integration of fluid motion
+- create the premium "iOS feel" that comes from the seamless integration of fluid motion
+- optical depth optical depth
 
 ## Next Steps
 

@@ -117,7 +117,14 @@ Design a "Recipe View" for a foldable in **Tabletop Mode**.
 
 ## Key Takeaways
 
-To master Android's device variety, you must design for Window Size Classes while ensuring navigation evolves naturally from a Bottom Bar to a Rail or Drawer. By leveraging unique foldable postures like Tabletop and Book modes and adopting a glanceable mindset for Wear OS, you can ensure your interface remains functional and beautiful across all form factors, which should always be validated using resizable emulators.
+- To master Android's device variety, you must design for Window Size Classes
+- ensuring navigation evolves naturally from a Bottom Bar to a Rail or Drawer
+- ensuring navigation evolves naturally from a Bottom Bar to a Rail or Drawer
+- By leveraging unique foldable postures like Tabletop and Book modes
+- adopting a glanceable mindset for Wear OS, you can ensure your interface remains functional
+- adopting a glanceable mindset for Wear OS, you can ensure your interface remains functional
+- beautiful across all form factors, which should always be validated using resizable emulators
+- beautiful across all form factors, which should always be validated using resizable emulators
 
 ## Next Steps
 

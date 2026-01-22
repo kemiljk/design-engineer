@@ -153,7 +153,11 @@ Create a navigation bar with a Logo (left) and a "Sign Up" button (right).
 
 ## Key Takeaways
 
-Auto layout allows you to define functional relationships such as spacing and alignment rather than absolute positions, using hug contents for child-dependent elements and fill container for parent-dependent ones. By combining these behaviours with nested layout structures and constraints that pin elements to screen edges, you can build complex systems that remain responsive across all devices.
+- Auto layout allows you to define functional relationships such as spacing
+- alignment rather than absolute positions, using hug contents for child-dependent elements
+- alignment rather than absolute positions, using hug contents for child-dependent elements
+- fill container for parent-dependent ones fill container for parent-dependent ones
+- By combining these behaviours with nested layout structures
 
 ## Next Steps
 

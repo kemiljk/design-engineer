@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn how to keep the main thread unblocked to ensure your interface remains responsive to user input. We'll examine patterns for debouncing and throttling high-frequency events, explore techniques for batching DOM updates efficiently, and discuss code splitting strategies to load JavaScript only when it's truly needed.
+- Throughout this lesson, you will learn how to keep the main thread unblocked to ensure your inter...
+- discuss code splitting strategies to load JavaScript only when it's truly needed
+- discuss code splitting strategies to load JavaScript only when it's truly needed
 
 ## The Main Thread
 
@@ -190,7 +192,11 @@ Create a scroll listener with throttling and measure the difference without.
 
 ## Key Takeaways
 
-JavaScript executes on the main thread, meaning long-running tasks can freeze the entire interface. To prevent this, use debouncing for actions that should wait for inactivity (like search) and throttling for continuous events (like scroll). Additionally, batch your DOM updates to avoid unnecessary reflows, delegate events to reduce memory usage, and use code splitting to ensure you are not sending unused code to the client.
+- JavaScript executes on the main thread, meaning long-running tasks can freeze the entire interface
+- To prevent this, use debouncing for actions that should wait for inactivity (like search)
+- throttling for continuous events (like scroll) throttling for continuous events (like scroll)
+- use code splitting to ensure you are not sending unused code to the client
+- use code splitting to ensure you are not sending unused code to the client
 
 ## Next Steps
 

@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn to use arrays for managing ordered collections and explore dictionaries for efficient key-value pair storage. We'll examine the benefits of using sets for unique value management and walk through the most common operations for manipulating these standard collection types.
+- During this module, you will learn to use arrays for managing ordered collections
+- explore dictionaries for efficient key-value pair storage
+- explore dictionaries for efficient key-value pair storage
+- We'll examine the benefits of using sets for unique value management
+- walk through the most common operations for manipulating these standard collection types
+- walk through the most common operations for manipulating these standard collection types
 
 ## Arrays
 
@@ -174,7 +179,12 @@ Create a contacts dictionary and populate it with several entries. Once your dat
 
 ## Key Takeaways
 
-To manage data effectively in Swift, you must understand that arrays are ordered and indexed collections that permit duplicates, while dictionaries are ideal for fast key-value lookup. Sets should be utilised for unordered unique values and efficient membership testing. Remember that all Swift collections are strongly typed and that dictionary lookups always return optional values which must be handled safely.
+- dictionaries are ideal for fast key-value lookup
+- dictionaries are ideal for fast key-value lookup
+- Sets should be utilised for unordered unique values and efficient membership testing
+- Remember that all Swift collections are strongly typed
+- that dictionary lookups always return optional values which must be handled safely
+- that dictionary lookups always return optional values which must be handled safely
 
 ## Next Steps
 

@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn the differences between lists, sets, and maps while exploring the fundamental distinction between mutable and immutable collections. We'll examine a wide range of collection operations and transformations that allow you to manipulate data efficiently and concisely.
+- During this module, you will learn the differences between lists, sets
+- maps while exploring the fundamental distinction between mutable and immutable collections
+- maps while exploring the fundamental distinction between mutable and immutable collections
+- We'll examine a wide range of collection operations
+- transformations that allow you to manipulate data efficiently
+- transformations that allow you to manipulate data efficiently and concisely
 
 ## Lists
 
@@ -153,7 +158,13 @@ Further develop your skills by creating a map that associates products with thei
 
 ## Key Takeaways
 
-To manage data effectively in Kotlin, you must use the standard set of immutable collection functions by default and only switch to their mutable counterparts when you strictly need to modify the contents. Mastery of high-order functions like `map`, `filter`, and `reduce` will allow you to chain powerful transformations together, while the implicit `it` parameter ensures your lambda expressions remain clean and readable.
+- only switch to their mutable counterparts when you strictly need to modify the contents
+- only switch to their mutable counterparts when you strictly need to modify the contents
+- Mastery of high-order functions like `map`, `filter`
+- `reduce` will allow you to chain powerful transformations together
+- `reduce` will allow you to chain powerful transformations together
+- the implicit `it` parameter ensures your lambda expressions remain clean and readable
+- the implicit `it` parameter ensures your lambda expressions remain clean and readable
 
 ## Next Steps
 

@@ -323,7 +323,11 @@ Develop a `createMultiplier` function that accepts a factor and returns a new fu
 
 ## Key Takeaways
 
-To recap, functions are a fundamental building block in JavaScript, and you can define them using either the traditional `function` keyword or the concise arrow function syntax. Understanding how to manage function parameters—including defaults and rest syntax—is essential for building flexible programs. Additionally, mastering scope and closures will allow you to manage variable visibility effectively, while leveraging higher-order functions like `map` and `filter` will enable you to process complex data sets with ease.
+- To recap, functions are a fundamental building block in JavaScript
+- Understanding how to manage function parameters—including defaults
+- rest syntax—is essential for building flexible programs
+- rest syntax—is essential for building flexible programs
+- Additionally, mastering scope and closures will allow you to manage variable visibility effectively
 
 ## Next Steps
 

@@ -146,7 +146,15 @@ Visit a university website (they often have complex IAs). Try to find the academ
 
 ## Key Takeaways
 
-Information Architecture serves as the blueprint for your product and should be designed prior to any visual work, using card sorting to discover user groupings and tree testing to validate the proposed structure. By aligning navigation with user mental models and ensuring labels are specific and consistent, you can provide an interface where breadcrumbs and global navigation offer necessary context and safety for exploration.
+- Information Architecture serves as the blueprint for your product
+- should be designed prior to any visual work, using card sorting to discover user groupings
+- should be designed prior to any visual work, using card sorting to discover user groupings
+- tree testing to validate the proposed structure tree testing to validate the proposed structure
+- By aligning navigation with user mental models and ensuring labels are specific
+- consistent, you can provide an interface where breadcrumbs
+- consistent, you can provide an interface where breadcrumbs
+- global navigation offer necessary context global navigation offer necessary context
+- safety for exploration safety for exploration
 
 ## Next Steps
 

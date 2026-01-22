@@ -123,7 +123,12 @@ Redesign a social feed for iPad. Move the bottom tabs to a left sidebar. How doe
 
 ## Key Takeaways
 
-Successful multi-platform design respects the **iPhone's** need for vertical depth and thumb reachability, the **iPad's** expansive sidebar and multi-column utility, and the **Watch's** requirement for 2-second glanceability. By using **Size Classes** to adapt layouts logically and maintaining a **shared visual language**, you ensure your app feels native on every device while remaining cohesive as a brand.
+- the **Watch's** requirement for 2-second glanceability
+- the **Watch's** requirement for 2-second glanceability
+- By using **Size Classes** to adapt layouts logically
+- maintaining a **shared visual language**, you ensure your app feels native on every device
+- maintaining a **shared visual language**, you ensure your app feels native on every device
+- remaining cohesive as a brand remaining cohesive as a brand
 
 ## Next Steps
 

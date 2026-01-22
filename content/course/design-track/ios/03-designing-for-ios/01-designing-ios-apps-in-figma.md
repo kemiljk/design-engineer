@@ -149,7 +149,11 @@ Design a simple "Settings" screen.
 
 ## Key Takeaways
 
-To create professional iOS designs in Figma, you must always work at **1x scale** (points) and leverage **Apple's official UI Kit** to ensure component accuracy and consistency. Integrating **SF Symbols** as your iconography standard and using **Figma Variables** for semantic Light/Dark mode accessibility will further align your work with system standards. Finally, building with **Auto Layout** ensures your designs mimic the behaviour of native SwiftUI stacks, making the transition to development seamless.
+- To create professional iOS designs in Figma, you must always work at **1x scale** (points)
+- leverage **Apple's official UI Kit** to ensure component accuracy
+- leverage **Apple's official UI Kit** to ensure component accuracy and consistency
+- Integrating **SF Symbols** as your iconography standard
+- Finally, building with **Auto Layout** ensures your designs mimic the behaviour of native SwiftUI...
 
 ## Next Steps
 

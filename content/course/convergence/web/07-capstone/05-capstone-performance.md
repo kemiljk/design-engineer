@@ -10,7 +10,9 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-In this phase, you will tackle performance holistically. You will learn techniques for **optimising images** for the web, applying **CSS performance** best practices to avoid layout thrashing, **optimising JavaScript** execution, and measuring your success using **Core Web Vitals**.
+- In this phase, you will tackle performance holistically
+- measuring your success using **Core Web Vitals**
+- measuring your success using **Core Web Vitals**
 
 ## Step 1: Image Optimisation
 

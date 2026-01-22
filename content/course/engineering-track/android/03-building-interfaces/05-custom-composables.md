@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn to extract reusable components from complex UI patterns and master the use of slot-based APIs for ultimate flexibility. We'll examine the benefits of preview-driven development and establish a set of best practices to ensure your custom composables are robust and maintainable.
+- During this module, you will learn to extract reusable components from complex UI patterns
+- master the use of slot-based APIs for ultimate flexibility
+- master the use of slot-based APIs for ultimate flexibility
+- We'll examine the benefits of preview-driven development
+- establish a set of best practices to ensure your custom composables are robust
+- establish a set of best practices to ensure your custom composables are robust and maintainable
 
 ## Extracting Components
 
@@ -230,7 +235,10 @@ Further enhance your design system by building a flexible empty state component.
 
 ## Key Takeaways
 
-To build a scalable and professional interface in Compose, you must extract repeated patterns into dedicated composables and use slots to allow for flexible content injection. Always accept a `Modifier` as your first optional parameter to ensure external calls can control layout, and utilise previews throughout the development process to document and verify your components' visual states. Finally, prioritise keeping your components stateless whenever possible to maximise their reusability across your entire application.
+- professional interface in Compose, you must extract repeated patterns into dedicated composables
+- professional interface in Compose, you must extract repeated patterns into dedicated composables
+- use slots to allow for flexible content injection use slots to allow for flexible content injection
+- Finally, prioritise keeping your components stateless whenever possible to maximise their reusabi...
 
 ## Congratulations!
 

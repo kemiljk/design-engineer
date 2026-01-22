@@ -393,7 +393,13 @@ Always check your location with `pwd` if you're unsure. Running commands in the 
 
 ## Key Takeaways
 
-To become proficient in the terminal, you must master the fundamental navigation commands like `pwd`, `ls`, and `cd`, while also becoming comfortable with file management tools such as `mkdir`, `cp`, and `rm`. Use `find` and `grep` to locate content quickly, and always lean on Tab completion as your primary time-saving mechanism. By consistently checking your location with `pwd` and leveraging viewing tools like `cat` and `less`, you will build the confidence needed to navigate complex project structures with ease.
+- `cd`, while also becoming comfortable with file management tools such as `mkdir`, `cp`, and `rm`
+- Use `find` and `grep` to locate content quickly
+- always lean on Tab completion as your primary time-saving mechanism
+- always lean on Tab completion as your primary time-saving mechanism
+- By consistently checking your location with `pwd` and leveraging viewing tools like `cat`
+- `less`, you will build the confidence needed to navigate complex project structures with ease
+- `less`, you will build the confidence needed to navigate complex project structures with ease
 
 ## Next Steps
 

@@ -8,7 +8,11 @@ estimatedTime: 12
 
 ## What You'll Learn
 
-In this lesson, we will explore the process of creating keyframe animations and investigate the various animation properties and timing options available. You will learn about common animation patterns, performance optimisation techniques to ensure smooth movement, and the critical accessibility considerations for users who may be sensitive to motion.
+- In this lesson, we will explore the process of creating keyframe animations
+- investigate the various animation properties investigate the various animation properties
+- timing options available timing options available
+- the critical accessibility considerations for users who may be sensitive to motion
+- the critical accessibility considerations for users who may be sensitive to motion
 
 ## What Are Keyframe Animations?
 
@@ -240,7 +244,12 @@ Develop a notification component that slides in from the right of the screen. Ad
 
 ## Key Takeaways
 
-To conclude, keyframe animations allow you to define elaborate, multi-stage sequences that go beyond simple state transitions. For the best performance, always prioritise using `transform` and `opacity` as they are less taxing on the browser. Ensure that you use the correct `animation-fill-mode` to manage the element's final state, and always respect user motion preferences to maintain high accessibility standards.
+- To conclude, keyframe animations allow you to define elaborate,
+- For the best performance, always prioritise using `transform`
+- `opacity` as they are less taxing on the browser `opacity` as they are less taxing on the browser
+- Ensure that you use the correct `animation-fill-mode` to manage the element's final state
+- always respect user motion preferences to maintain high accessibility standards
+- always respect user motion preferences to maintain high accessibility standards
 
 ## Next Steps
 

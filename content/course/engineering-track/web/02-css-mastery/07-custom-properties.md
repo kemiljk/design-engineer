@@ -313,7 +313,10 @@ Develop a component that features several customisable properties, such as backg
 
 ## Key Takeaways
 
-To recap, CSS custom properties are defined using the `--name` prefix and accessed through the `var()` function. They support full inheritance across the document, allowing you to define global tokens on `:root` or create locally scoped overrides for specific components. By providing fallback values, you can build more resilient styles, and the ability to integrate with JavaScript makes them a vital tool for dynamic theming and user-driven interface changes.
+- To recap, CSS custom properties are defined using the `--name` prefix
+- accessed through the `var()` function accessed through the `var()` function
+- They support full inheritance across the document,
+- By providing fallback values, you can build more resilient styles
 
 ## Next Steps
 

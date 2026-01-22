@@ -254,7 +254,13 @@ Develop a function that accepts an array of objects and renders them as a struct
 
 ## Key Takeaways
 
-To recap, `textContent` should be your default for safe text updates, while `innerHTML` should only be used when you are certain the HTML content is secure. Use `createElement` alongside insertion methods like `append` or `prepend` to build out your interfaces, and consider using a `DocumentFragment` to batch multiple updates for better performance. Finally, remember that the `classList` API provides a clean and efficient way to manage element states, and always ensure that you sanitise any user-provided input to prevent security vulnerabilities.
+- To recap, `textContent` should be your default for safe text updates
+- `innerHTML` should only be used when you are certain the HTML content is secure
+- `innerHTML` should only be used when you are certain the HTML content is secure
+- consider using a `DocumentFragment` to batch multiple updates for better performance
+- consider using a `DocumentFragment` to batch multiple updates for better performance
+- always ensure that you sanitise any user-provided input to prevent security vulnerabilities
+- always ensure that you sanitise any user-provided input to prevent security vulnerabilities
 
 ## Next Steps
 

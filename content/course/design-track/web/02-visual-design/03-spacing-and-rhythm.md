@@ -338,7 +338,10 @@ Compare how each feels. Which is most appropriate for different contexts?
 
 ## Key Takeaways
 
-Spacing is a critical, invisible element that creates rhythm and communicates relationships; remember that whitespace is a functional feature rather than wasted space. By implementing an 8-point grid and establishing vertical rhythm based on your type scale, you can distinguish related elements through proximity and adapt your spacing responsively while maintaining overall balance.
+- Spacing is a critical, invisible element that creates rhythm and communicates relationships
+- remember that whitespace is a functional feature rather than wasted space
+- By implementing an 8-point grid
+- adapt your spacing responsively adapt your spacing responsively while maintaining overall balance
 
 ## Next Steps
 

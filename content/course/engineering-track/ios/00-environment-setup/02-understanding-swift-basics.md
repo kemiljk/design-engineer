@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-During this module, you will explore the fundamentals of Swift without being overwhelmed by unnecessary detail, covering essential concepts like variables, constants, and types. We'll examine basic structures such as functions and structs, specifically focusing on how these concepts manifest within SwiftUI to give you just enough knowledge to understand the code you'll be writing.
+- We'll examine basic structures such as functions
 
 ## Swift for Designers
 
@@ -508,7 +508,14 @@ func getDiscount(isPremium: Bool, cartTotal: Double) -> Double {
 
 ## Key Takeaways
 
-To build a solid foundation in iOS development, you must use `let` for constants and `var` for values that might change, while mastering Swift's strong types like String, Int, Double, and Bool. Remember that SwiftUI views are themselves structs and use functions to bundle reusable logic effectively. Finally, always handle potentially missing data with optionals and recognise how all these concepts interweave within practical SwiftUI code.
+- mastering Swift's strong types like String, Int, Double
+- mastering Swift's strong types like String, Int, Double, and Bool
+- Remember that SwiftUI views are themselves structs
+- use functions to bundle reusable logic effectively
+- use functions to bundle reusable logic effectively
+- Finally, always handle potentially missing data with optionals
+- recognise how all these concepts interweave within practical SwiftUI code
+- recognise how all these concepts interweave within practical SwiftUI code
 
 ## Next Steps
 

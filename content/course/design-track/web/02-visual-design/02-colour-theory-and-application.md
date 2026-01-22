@@ -219,7 +219,11 @@ Convert an existing interface to dark mode by adjusting background and text tone
 
 ## Key Takeaways
 
-Effective use of colour requires an understanding of hue, saturation, and lightness to build systematic palettes that include primary, secondary, accent, semantic, and neutral shades. By following the 60-30-10 rule and adhering to accessibility standards like the 4.5:1 contrast ratio—while ensuring colour is never the sole carrier of meaning—you can create an intuitive interface that remains functional in both light and dark modes.
+- Effective use of colour requires an understanding of hue, saturation
+- lightness to build systematic palettes that include primary, secondary, accent, semantic
+- lightness to build systematic palettes that include primary, secondary, accent, semantic
+- By following the 60-30-10 rule
+- dark modes dark modes
 
 ## Next Steps
 

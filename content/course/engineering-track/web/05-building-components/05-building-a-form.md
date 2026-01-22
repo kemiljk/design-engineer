@@ -523,7 +523,14 @@ Use controlled components for validation, conditional rendering, and complex for
 
 ## Key Takeaways
 
-To recap, always associate labels with their inputs and use `novalidate` to implement custom validation. Show errors near the relevant field and apply `role="alert"` to error messages. Validate on blur and clear errors on input, providing clear, helpful messages. React controlled components keep state in React, and custom hooks like `useForm` encapsulate validation logic neatly. Reusable `FormField` components reduce repetition, and TypeScript adds type safety to form data.
+- To recap, always associate labels with their inputs
+- use `novalidate` to implement custom validation use `novalidate` to implement custom validation
+- Show errors near the relevant field and apply `role="alert"` to error messages
+- Validate on blur and clear errors on input, providing clear, helpful messages
+- React controlled components keep state in React
+- custom hooks like `useForm` encapsulate validation logic neatly
+- custom hooks like `useForm` encapsulate validation logic neatly
+- Reusable `FormField` components reduce repetition, and TypeScript adds type safety to form data
 
 ## Next Steps
 

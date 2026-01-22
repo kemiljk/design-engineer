@@ -173,7 +173,13 @@ Create a stack of draggable cards. Users should be able to **swipe cards away** 
 -->
 
 ## Key Takeaways
-**Previews** are your most powerful tool for rapid iteration, allowing you to visualize changes instantly. Create **preview variations** to test different data states (loading, error, empty) without running the full app. Use **placeholder data** to make your layouts look realistic, and always **test on a physical device** to ensure gestures feel right. Finally, share your builds via **TestFlight** to get valuable feedback from real users.
+
+- **Previews** are your most powerful tool for rapid iteration,
+- Create **preview variations** to test different data states (loading, error,
+- Use **placeholder data** to make your layouts look realistic
+- always **test on a physical device** to ensure gestures feel right
+- always **test on a physical device** to ensure gestures feel right
+- Finally, share your builds via **TestFlight** to get valuable feedback from real users
 
 ## Next Steps
 

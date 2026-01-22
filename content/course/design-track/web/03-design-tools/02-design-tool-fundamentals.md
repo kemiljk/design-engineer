@@ -130,7 +130,10 @@ Type three different headlines. Manually style them. Now, create a Text Style fr
 
 ## Key Takeaways
 
-By treating the canvas as an infinite desk and using frames to mimic HTML containers, you can build systematic designs that scale effortlessly thanks to vector-based shapes. Always implement styles for colour and typography to ensure consistency, and master essential shortcuts like deep selection to drastically improve your design workflow.
+- By treating the canvas as an infinite desk
+- Always implement styles for colour and typography to ensure consistency
+- master essential shortcuts like deep selection to drastically improve your design workflow
+- master essential shortcuts like deep selection to drastically improve your design workflow
 
 ## Next Steps
 

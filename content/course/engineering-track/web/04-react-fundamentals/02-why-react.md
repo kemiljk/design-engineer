@@ -362,7 +362,14 @@ Compare the communities:
 
 ## Key Takeaways
 
-To recap, React dominates the job market with over 65% of frontend positions requiring it. Its ecosystem is unmatched, offering solutions for every conceivable problem, and your skills will transfer directly to mobile (React Native), desktop (Electron), and beyond. Meta's backing ensures continued development and stability. Learning React is an investment that compounds over time, and as a Design Engineer, you will find it aligns naturally with component-based thinking.
+- To recap, React dominates the job market with over 65% of frontend positions requiring it
+- Its ecosystem is unmatched, offering solutions for every conceivable problem
+- your skills will transfer directly to mobile (React Native), desktop (Electron)
+- your skills will transfer directly to mobile (React Native), desktop (Electron), and beyond
+- Meta's backing ensures continued development and stability
+- Learning React is an investment that compounds over time
+- as a Design Engineer, you will find it aligns naturally with component-based thinking
+- as a Design Engineer, you will find it aligns naturally with component-based thinking
 
 ## Next Steps
 

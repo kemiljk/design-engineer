@@ -117,7 +117,9 @@ Sketch the lifecycle of a Live Activity for a food delivery app.
 
 ## Key Takeaways
 
-Dynamic iOS presence extends through **Home Screen Widgets** for timely snapshots, tiny **Lock Screen Widgets** for status indicators, and **Live Activities** for real-time events in the Dynamic Island. Successful designs focus on providing maximum value through glanceable content that respects the native system aesthetic rather than trying to replicate the full app experience.
+- **Live Activities** for real-time events in the Dynamic Island
+- **Live Activities** for real-time events in the Dynamic Island
+- Successful designs focus on providing maximum value through glanceable content that respects the...
 
 ## Congratulations!
 

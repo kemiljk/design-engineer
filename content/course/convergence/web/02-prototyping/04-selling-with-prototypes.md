@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, you will explore the powerful role of prototypes as persuasive communication tools and learn how to tailor your presentations for different audiences, from engineers to executives. We'll examine practical techniques for building organisational buy-in and dive into the strategic deployment of prototypes to kill flawed ideas early, unlock necessary resources, and build consensus across multidisciplinary teams.
+- In this lesson, you will explore the powerful role of prototypes as persuasive communication tools
+- learn how to tailor your presentations for different audiences, from engineers to executives
+- learn how to tailor your presentations for different audiences, from engineers to executives
+- build consensus across multidisciplinary teams
+- build consensus across multidisciplinary teams
 
 ## The Power of "Show, Don't Tell"
 
@@ -137,7 +141,11 @@ Share a prototype and gather feedback:
 
 ## Key Takeaways
 
-Prototypes are primarily communication tools that must be tailored to their specific audience to effectively demonstrate vision and value. By setting clear expectations about fidelity and focusing on a specific research question, you can use interactive models to build strategic buy-in and alignment. Most importantly, remain open to feedback—especially when it challenges your original assumptions—as the ultimate goal is to uncover the best solution for the user.
+- By setting clear expectations about fidelity
+- focusing on a specific research question, you can use interactive models to build strategic buy-in
+- focusing on a specific research question, you can use interactive models to build strategic buy-in
+- alignment alignment
+- Most importantly, remain open to feedback—especially when it challenges your original assumptions...
 
 ## Next Steps
 

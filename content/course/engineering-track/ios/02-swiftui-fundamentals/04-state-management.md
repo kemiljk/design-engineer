@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn to use `@State` for managing local view properties and explore the role of `@Binding` in connecting child views to their parents. We'll examine the critical "source of truth" concept and walk through the implementation of observable objects for managing complex shared state across your application.
+- During this module, you will learn to use `@State` for managing local view properties
+- explore the role of `@Binding` in connecting child views to their parents
+- explore the role of `@Binding` in connecting child views to their parents
+- We'll examine the critical "source of truth" concept
 
 ## @State
 
@@ -185,7 +188,11 @@ Implement a parent-child relationship where the parent owns a piece of text stat
 
 ## Key Takeaways
 
-To build dynamic and responsive SwiftUI applications, you must effectively use `@State` for local view management and `@Binding` to connect dependencies between parent and child components. Adhering to the single source of truth principle will prevent data inconsistencies, while leveraging `@Observable` classes and the environment will allow you to share complex state across your entire view hierarchy with minimal effort.
+- responsive SwiftUI applications, you must effectively use `@State` for local view management
+- responsive SwiftUI applications, you must effectively use `@State` for local view management
+- `@Binding` to connect dependencies between parent `@Binding` to connect dependencies between parent
+- child components child components
+- Adhering to the single source of truth principle will prevent data inconsistencies
 
 ## Next Steps
 

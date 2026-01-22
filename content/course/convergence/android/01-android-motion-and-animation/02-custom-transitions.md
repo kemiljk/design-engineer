@@ -177,7 +177,11 @@ Create a Master-Detail flow where clicking a card expands it into a full details
 -->
 
 ## Key Takeaways
-Remember that **Material motion patterns** exist to guide your design choices, not just for aesthetics. Use `SharedTransitionLayout` to create seamless hero animations that connect screens. Leverage `AnimatedContent` for smooth state transitions within a single screen. For a truly polished feel, carefully coordinate your enter and exit animations, ensuring they are **direction-aware** to match the user's mental model of navigation.
+
+- **Material motion patterns** guide design choices, not just aesthetics
+- Use `SharedTransitionLayout` to create seamless hero animations that connect screens
+- Leverage `AnimatedContent` for smooth state transitions within a single screen
+- Coordinate enter and exit animations to be **direction-aware** and match the user's mental model
 
 ## Next Steps
 

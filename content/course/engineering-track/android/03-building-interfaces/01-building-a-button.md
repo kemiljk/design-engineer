@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn to navigate the various Material 3 button types and explore techniques for custom button styling. We'll examine how to implement loading and disabled states effectively while ensuring your components adhere to strict accessibility standards.
+- During this module, you will learn to navigate the various Material 3 button types
+- explore techniques for custom button styling explore techniques for custom button styling
+- We'll examine how to implement loading and disabled states effectively
+- ensuring your components adhere to strict accessibility standards
+- ensuring your components adhere to strict accessibility standards
 
 ## Material 3 Buttons
 
@@ -182,7 +186,10 @@ Further develop your interactive elements by building an asynchronous button tha
 
 ## Key Takeaways
 
-To build effective buttons in Compose, you must select the appropriate type to reflect the correct level of functional emphasis and use `ButtonDefaults` to customising colours and shapes. Always handle loading and disabled states to provide a responsive user experience and ensure that every icon button includes an accurate content description for accessibility.
+- use `ButtonDefaults` to customising colours use `ButtonDefaults` to customising colours and shapes
+- Always handle loading and disabled states to provide a responsive user experience
+- ensure that every icon button includes an accurate content description for accessibility
+- ensure that every icon button includes an accurate content description for accessibility
 
 ## Next Steps
 

@@ -336,8 +336,19 @@ Select an existing page featuring multiple images and conduct a performance audi
 
 ## Key Takeaways
 
-To recap, always ensure your images include an `alt` attribute, using an empty value for purely decorative elements. Use responsive image techniques like `srcset`, `sizes`, and the `<picture>` element to improve performance, and select the most efficient format for your needs. Always specify `width` and `height` to prevent layout shifts and apply `loading="lazy"` to images appearing below the fold. For audio and video, include the `controls` attribute for accessibility and provide captions or transcripts to ensure all users can access your content. Finally, remember that all iframes require a `title` attribute for proper accessibility.
+- To recap, always ensure your images include an `alt` attribute,
+- Use responsive image techniques like `srcset`, `sizes`
+- the `<picture>` element to improve performance
+- the `<picture>` element to improve performance, and select the most efficient format for your needs
+- Always specify `width` and `height` to prevent layout shifts
+- apply `loading="lazy"` to images appearing below the fold
+- apply `loading="lazy"` to images appearing below the fold
+- For audio and video, include the `controls` attribute for accessibility
+- provide captions or transcripts to ensure all users can access your content
+- provide captions or transcripts to ensure all users can access your content
+- Finally, remember that all iframes require a `title` attribute for proper accessibility
+- Congratulations on completing the HTML Fundamentals module
+- how to effectively implement text, links, forms
+- how to effectively implement text, links, forms, and media
+- Continue to [CSS Mastery: How CSS Works](../02-css-mastery/01-how-css-works.md) →
 
-Congratulations on completing the HTML Fundamentals module. You have now developed a solid understanding of HTML document structure, the use of semantic elements for better organization, and how to effectively implement text, links, forms, and media.
-
-Continue to [CSS Mastery: How CSS Works](../02-css-mastery/01-how-css-works.md) →

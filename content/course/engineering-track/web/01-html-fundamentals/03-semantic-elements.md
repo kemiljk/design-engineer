@@ -400,7 +400,12 @@ Take a page design (your own or from Dribbble):
 
 ## Key Takeaways
 
-To build high-quality web interfaces, you must use semantic elements to describe the genuine meaning of your content rather than its appearance. Prioritise using structure-defining tags such as `<header>`, `<nav>`, and `<main>` appropriately, and only resort to `<div>` or `<span>` when no semantic alternative exists. By correctly applying these elements and using `aria-label` to distinguish multiple landmarks, you will significantly improve the accessibility, SEO, and long-term maintainability of your web projects.
+- To build high-quality web interfaces,
+- Prioritise using structure-defining tags such as `<header>`, `<nav>`, and `<main>` appropriately
+- only resort to `<div>` or `<span>` when no semantic alternative exists
+- only resort to `<div>` or `<span>` when no semantic alternative exists
+- long-term maintainability of your web projects
+- long-term maintainability of your web projects
 
 ## Next Steps
 

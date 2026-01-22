@@ -103,7 +103,10 @@ Imagine a user lands on a Message Detail screen via a notification and then taps
 
 ## Key Takeaways
 
-For optimal navigation, use the Bottom Bar on mobile devices and the Navigation Rail for tablets while reserving Drawers for secondary destinations outside the primary flow. It is vital to remember that System Back navigates through a user's chronological history while the Up button moves strictly through the app's structural hierarchy, which is essential for handling deep links without stranding the user.
+- For optimal navigation, use the Bottom Bar on mobile devices and the Navigation Rail for tablets
+- reserving Drawers for secondary destinations outside the primary flow
+- reserving Drawers for secondary destinations outside the primary flow
+- It is vital to remember that System Back navigates through a user's chronological history
 
 ## Next Steps
 

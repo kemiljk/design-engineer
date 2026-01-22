@@ -133,7 +133,10 @@ In your design tool, create a square and experiment with high and low damping to
 
 ## Key Takeaways
 
-iOS motion leverage **Spring Physics** to create a natural and physically real feel, provided every animation serves a clear **communication purpose**. By maintaining standard damping ratios and always providing alternatives for **Reduce Motion**, you can deliver a polished experience that remains accessible, provided you **document** your specifications clearly for the engineering team.
+- iOS motion uses **Spring Physics** to create natural, physically real animations
+- Every animation should serve a clear **communication purpose**
+- Maintain standard damping ratios and provide alternatives for **Reduce Motion**
+- **Document** your animation specifications clearly for the engineering team
 
 ## Next Steps
 

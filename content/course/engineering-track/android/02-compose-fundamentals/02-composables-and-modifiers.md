@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn exactly how modifiers work and explore a wide variety of common modifiers used for layout and appearance. We'll examine why modifier order is so significant and learn how to create your own custom modifiers for reusable styling patterns.
+- During this module, you will learn exactly how modifiers work
+- explore a wide variety of common modifiers used for layout
+- explore a wide variety of common modifiers used for layout and appearance
+- We'll examine why modifier order is so significant
+- learn how to create your own custom modifiers for reusable styling patterns
+- learn how to create your own custom modifiers for reusable styling patterns
 
 ## How Modifiers Work
 
@@ -190,7 +195,10 @@ Further expand your capabilities by creating a custom `badge()` modifier that fa
 
 ## Key Takeaways
 
-To build effective interfaces in Compose, you must understand that modifiers are the primary tool for transforming composable behaviour and appearance. Order remains critical to the final visual output, and you should always chain modifiers logically while ensuring your composables accept a `Modifier` parameter for external flexibility. Finally, leverage custom modifiers to encapsulate repeating styles and maintain a clean, reusable codebase.
+- appearance appearance
+- Order remains critical to the final visual output
+- Finally, leverage custom modifiers to encapsulate repeating styles
+- maintain a clean, reusable codebase maintain a clean, reusable codebase
 
 ## Next Steps
 

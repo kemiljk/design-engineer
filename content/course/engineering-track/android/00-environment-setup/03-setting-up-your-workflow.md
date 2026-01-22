@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn to configure Android Studio for maximum productivity and master the effective use of Compose previews. We'll examine how to manage emulators efficiently, establish version control with Git, and explore a selection of recommended tools and plugins to enhance your daily workflow.
+- Throughout this lesson, you will learn to configure Android Studio for maximum productivity
+- master the effective use of Compose previews master the effective use of Compose previews
+- We'll examine how to manage emulators efficiently, establish version control with Git
+- explore a selection of recommended tools and plugins to enhance your daily workflow
+- explore a selection of recommended tools and plugins to enhance your daily workflow
 
 ## Configuring Android Studio
 
@@ -423,7 +427,12 @@ fun LargeFontPreview() {
 
 ## Key Takeaways
 
-Configuring a productive Android environment requires customising your theme and fonts for comfort while established habits like using multiple preview annotations and early Git integration ensure a professional workflow. By mastering keyboard shortcuts—primarily the Find Action command—and maintaining an organised project structure, you can spend less time navigating the tools and more time building high-quality interfaces.
+- Configuring a productive Android environment requires customising your theme and fonts for comfort
+- established habits like using multiple preview annotations
+- established habits like using multiple preview annotations
+- early Git integration ensure a professional workflow
+- early Git integration ensure a professional workflow
+- more time building high-quality interfaces more time building high-quality interfaces
 
 ## Environment Complete!
 

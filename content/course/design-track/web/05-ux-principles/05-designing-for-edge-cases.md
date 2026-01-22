@@ -127,7 +127,11 @@ Does it break? Fix the CSS/Layout to handle these extremes gracefully.
 
 ## Key Takeaways
 
-Designing for the rare "happy path" is insufficient since most users encounter edge cases that require actionable errors to guide them. By treating empty states as onboarding opportunities, using loaders to manage performance perception, and stress-testing designs with diverse data extremes, you can build a more resilient and professional user experience.
+- Designing for the rare "happy path" is insufficient
+- Most users encounter edge cases that require actionable errors to guide them
+- Treat empty states as onboarding opportunities
+- Use loaders to manage performance perception
+- Stress-test designs with diverse data extremes
 
 ## Next Steps
 

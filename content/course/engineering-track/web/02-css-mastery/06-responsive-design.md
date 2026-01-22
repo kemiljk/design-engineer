@@ -315,7 +315,13 @@ Develop a navigation component that displays a hamburger menu on mobile devices 
 
 ## Key Takeaways
 
-To recap, a mobile-first approach involves writing your base styles for smaller screens and using `min-width` media queries to add complexity for larger devices. You should choose your breakpoints based on the content's needs rather than specific devices and leverage modern tools like container queries and the `clamp()` function for fluid, robust designs. Always remember to test your interfaces on real devices to understand the true user experience, including touch interactions and performance constraints.
+- To recap, a mobile-first approach involves writing your base styles for smaller screens
+- using `min-width` media queries to add complexity for larger devices
+- using `min-width` media queries to add complexity for larger devices
+- You should choose your breakpoints based on the content's needs rather than specific devices
+- leverage modern tools like container queries leverage modern tools like container queries
+- the `clamp()` function for fluid, robust designs the `clamp()` function for fluid, robust designs
+- performance constraints performance constraints
 
 ## Next Steps
 

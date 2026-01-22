@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn the fundamental differences between structs and classes and examine how to implement properties and methods within these structures. We'll explore the critical concepts of value versus reference semantics and provide clear guidance on when to choose each approach in your own projects.
+- During this module, you will learn the fundamental differences between structs and classes
+- examine how to implement properties examine how to implement properties
+- methods within these structures methods within these structures
+- We'll explore the critical concepts of value versus reference semantics
+- provide clear guidance on when to choose each approach in your own projects
+- provide clear guidance on when to choose each approach in your own projects
 
 ## Structs
 
@@ -204,7 +209,14 @@ Create practical code examples that demonstrate the distinct differences between
 
 ## Key Takeaways
 
-To build a scalable Swift codebase, you must understand that structs are value types that create independent copies, while classes are reference types that share instances. Prefer structs for the majority of your data modelling and use the `mutating` keyword for any struct methods that modify their own properties. Finally, remember that while classes support inheritance, structs prioritising safety and simplicity—remain the idiomatic choice for most Swift development.
+- classes are reference types that share instances
+- classes are reference types that share instances
+- Prefer structs for the majority of your data modelling
+- use the `mutating` keyword for any struct methods that modify their own properties
+- use the `mutating` keyword for any struct methods that modify their own properties
+- Finally, remember that while classes support inheritance, structs prioritising safety
+- simplicity—remain the idiomatic choice for most Swift development
+- simplicity—remain the idiomatic choice for most Swift development
 
 ## Congratulations!
 

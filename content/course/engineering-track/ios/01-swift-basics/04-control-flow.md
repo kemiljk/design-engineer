@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn to implement core conditionals like `if`, `guard`, and `switch`, and explore the various loop structures including `for` and `while`. We'll examine effective early exit patterns and walk through the process of using advanced pattern matching to handle complex logic with ease.
+- During this module, you will learn to implement core conditionals like `if`, `guard`, and `switch`
+- explore the various loop structures including `for` and `while`
+- explore the various loop structures including `for` and `while`
+- We'll examine effective early exit patterns
+- walk through the process of using advanced pattern matching to handle complex logic with ease
+- walk through the process of using advanced pattern matching to handle complex logic with ease
 
 ## Conditionals
 
@@ -218,7 +223,12 @@ Implement the classic FizzBuzz problem by printing numbers from 1 to 100 with sp
 
 ## Key Takeaways
 
-To build reliable Swift applications, you should utilise `guard` for early exits and clean optional unwrapping, and remember that `switch` statements must be exhaustive to ensure all possibilities are handled. The `for-in` loop is your primary tool for iterating over sequences, while advanced pattern matching within switches provides a powerful way to deconstruct complex data. Finally, use ranges with the inclusive `...` or exclusive `..<` operators to define precise intervals in your logic.
+- remember that `switch` statements must be exhaustive to ensure all possibilities are handled
+- remember that `switch` statements must be exhaustive to ensure all possibilities are handled
+- The `for-in` loop is your primary tool for iterating over sequences
+- advanced pattern matching within switches provides a powerful way to deconstruct complex data
+- advanced pattern matching within switches provides a powerful way to deconstruct complex data
+- Finally, use ranges with the inclusive `...` or exclusive `..
 
 ## Next Steps
 

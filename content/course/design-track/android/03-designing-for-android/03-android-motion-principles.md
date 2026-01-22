@@ -124,7 +124,10 @@ Design a transition for a "Compose" FAB turning into a "New Email" screen using 
 
 ## Key Takeaways
 
-Motion serves as an informative tool rather than mere decoration, with Container Transform and Shared Axis patterns reinforcing navigation and the relationship between structural items. By employing meaningful choreography to sequence elements and physics-based interactions that feel organic, you can create a responsive interface that acknowledges every user gesture naturally.
+- Motion serves as an informative tool rather than mere decoration, with Container Transform
+- Shared Axis patterns reinforcing navigation Shared Axis patterns reinforcing navigation
+- the relationship between structural items the relationship between structural items
+- By employing meaningful choreography to sequence elements
 
 ## Next Steps
 

@@ -8,7 +8,11 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-In this lesson, we will explore the essential navigation bar patterns and card layout strategies used in modern web design. You will learn how to implement robust sidebar layouts, manage complex page structures, and build efficient form layouts using the power of flexbox.
+- In this lesson, we will explore the essential navigation bar patterns
+- card layout strategies used in modern web design card layout strategies used in modern web design
+- You will learn how to implement robust sidebar layouts, manage complex page structures
+- build efficient form layouts using the power of flexbox
+- build efficient form layouts using the power of flexbox
 
 ## Centring
 
@@ -124,7 +128,12 @@ Build a full-page modal overlay with a semi-transparent background. The modal co
 
 ## Key Takeaways
 
-In summary, remember that `margin-left: auto` is an excellent tool for pushing items to the right in a navigation bar, while `flex: 1` ensures that cards maintain equal widths. You can create fixed-width sidebars by defining a specific pixel value in your flex shorthand, and use `flex-direction: column` to reliably pin footers to the bottom of your pages. For responsive grids, `flex-wrap: wrap` remains the most versatile option, providing a fluid layout that adapts to any screen size.
+- `flex: 1` ensures that cards maintain equal widths
+- `flex: 1` ensures that cards maintain equal widths
+- You can create fixed-width sidebars by defining a specific pixel value in your flex shorthand
+- use `flex-direction: column` to reliably pin footers to the bottom of your pages
+- use `flex-direction: column` to reliably pin footers to the bottom of your pages
+- For responsive grids, `flex-wrap: wrap` remains the most versatile option,
 
 ## Next Steps
 

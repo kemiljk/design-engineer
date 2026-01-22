@@ -150,7 +150,12 @@ Enhance a data entry form. Ensure all fields have clear, descriptive **labels**.
 -->
 
 ## Key Takeaways
-SwiftUI provides **solid accessibility defaults**, but you must go further. Always add **accessibility labels** for icon-only buttons and **group related elements** to reduce clutter. Thoroughly **test with VoiceOver** to catch navigation issues, ensure your layout supports **Dynamic Type** for larger text, and respect the **Reduce Motion** setting for users who are sensitive to animation.
+
+- SwiftUI provides **solid accessibility defaults**, but you must go further
+- Always add **accessibility labels** for icon-only buttons
+- **group related elements** to reduce clutter **group related elements** to reduce clutter
+- respect the **Reduce Motion** setting for users who are sensitive to animation
+- respect the **Reduce Motion** setting for users who are sensitive to animation
 
 ## Next Steps
 

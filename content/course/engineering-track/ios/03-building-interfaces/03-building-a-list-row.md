@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn common row composition patterns and examine the principles of efficient row design. We'll explore how to implement swipe actions for quick user tasks and walk through the processes for handling selection and editing within your list interfaces.
+- During this module, you will learn common row composition patterns
+- examine the principles of efficient row design examine the principles of efficient row design
+- We'll explore how to implement swipe actions for quick user tasks
+- walk through the processes for handling selection walk through the processes for handling selection
+- editing within your list interfaces editing within your list interfaces
 
 ## Basic Row
 
@@ -195,7 +199,13 @@ Create a sophisticated message row that displays the sender's avatar, their name
 
 ## Key Takeaways
 
-To build efficient and performant list interfaces, you should always keep your row views lightweight and use `HStack` as your primary horizontal layout container. Leverage the `Spacer` component to push content to the edges and implement swipe actions to provide quick access to common functionalities. Finally, wrap your rows in a `NavigationLink` to provide a seamless transition to more detailed content.
+- To build efficient and performant list interfaces, you should always keep your row views lightweight
+- use `HStack` as your primary horizontal layout container
+- use `HStack` as your primary horizontal layout container
+- Leverage the `Spacer` component to push content to the edges
+- implement swipe actions to provide quick access to common functionalities
+- implement swipe actions to provide quick access to common functionalities
+- Finally, wrap your rows in a `NavigationLink` to provide a seamless transition to more detailed c...
 
 ## Next Steps
 

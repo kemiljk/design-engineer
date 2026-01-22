@@ -121,7 +121,11 @@ Find a technical error message ("Invalid Input"). Rewrite it to follow Heuristic
 
 ## Key Takeaways
 
-Usability heuristics should be treated as diagnostic tools rather than rigid laws, used to identify likely problems before validating them through user testing. By prioritising consistency to reduce learning time and focusing on error prevention and recognition over recall, you can build interfaces that don't force users to memorise information or search for hidden status updates.
+- Usability heuristics are diagnostic tools, not rigid laws
+- Use them to identify likely problems before validating through user testing
+- Prioritise consistency to reduce learning time
+- Focus on error prevention and recognition over recall
+- Build interfaces that don't force users to memorise information
 
 ## Next Steps
 

@@ -208,7 +208,9 @@ Create a `mergeObjects` function that can accept any number of objects as argume
 
 ## Key Takeaways
 
-To recap, destructuring allows you to extract values from both arrays and objects with a clean and expressive syntax, and you should use default values to handle potentially undefined data gracefully. The spread operator provides a powerful way to expand collections for copying or merging, while rest parameters enable you to collect any remaining elements into a single array for further processing.
+- you should use default values to handle potentially undefined data gracefully
+- you should use default values to handle potentially undefined data gracefully
+- The spread operator provides a powerful way to expand collections for copying or merging
 
 ## Next Steps
 

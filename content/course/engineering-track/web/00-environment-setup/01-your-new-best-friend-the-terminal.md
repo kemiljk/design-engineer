@@ -299,7 +299,11 @@ Now open Finder and navigate to your Desktop. You'll see the `design-engineer-pr
 
 ## Key Takeaways
 
-To build a strong foundation in design engineering, you must embrace the terminal as an essential tool for managing development servers, installing software, and handling version control. While it may seem daunting at first, you only need to master a handful of core commands like `pwd`, `ls`, and `cd` to navigate your file system effectively. By taking the time to customise your terminal's appearance and keeping it as a ready reference rather than a memorisation task, you will significantly accelerate your development workflow and build more complex projects with confidence.
+- handling version control
+- `cd` to navigate your file system effectively
+- `cd` to navigate your file system effectively
+- By taking the time to customise your terminal's appearance
+- build more complex projects with confidence build more complex projects with confidence
 
 ## Next Steps
 

@@ -151,7 +151,12 @@ Prepare a screen for handoff. Annotate every margin, font style, and colour name
 
 ## Key Takeaways
 
-Modern handoff focuses on mapping **SwiftUI Views** and core layout tools like **VStack and HStack** directly to their Figma counterparts. By using **consistent spacing** and **semantic naming**, you help developers build responsive components that adapt to content length rather than remaining static rectangles. Ultimately, **clear annotation** of margins, styles, and interaction states saves hours of back-and-forth during the implementation phase.
+- Modern handoff focuses on mapping **SwiftUI Views** and core layout tools like **VStack
+- HStack** directly to their Figma counterparts HStack** directly to their Figma counterparts
+- By using **consistent spacing**
+- Ultimately, **clear annotation** of margins, styles
+- interaction states saves hours of back-and-forth during the implementation phase
+- interaction states saves hours of back-and-forth during the implementation phase
 
 ## Congratulations!
 

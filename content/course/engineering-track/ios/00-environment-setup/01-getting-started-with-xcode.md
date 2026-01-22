@@ -19,7 +19,9 @@ This course is tested with the following versions (January 2026):
 
 ## What You'll Learn
 
-During this module, you will learn exactly what Xcode is and why it remains a mandatory requirement for Apple platform development. We'll examine the various methods for downloading and installing the IDE, walk through the first-time setup and configuration, and explore the core areas of the interface so you can navigate with confidence while creating your first project.
+- During this module, you will learn exactly what Xcode is
+- why it remains a mandatory requirement for Apple platform development
+- why it remains a mandatory requirement for Apple platform development
 
 ## Go Beyond Vibe Coding
 
@@ -344,7 +346,12 @@ For running on simulators, you don't need a team. For physical devices:
 
 ## Key Takeaways
 
-To build successful iOS apps, you must remember that Xcode is a mandatory requirement for development, and downloading it from the App Store provides the most straightforward setup experience. The interface is cleverly divided into navigators on the left, an editor in the centre, and inspectors on the right to keep your tools organised. By leveraging SwiftUI previews, you can see your changes instantly without the need for a full app build, but when you are ready to test on a device, use ⌘ + R to run your project and ⌘ + . to stop it.
+- downloading it from the App Store provides the most straightforward setup experience
+- downloading it from the App Store provides the most straightforward setup experience
+- The interface is cleverly divided into navigators on the left, an editor in the centre
+- inspectors on the right to keep your tools organised
+- inspectors on the right to keep your tools organised
+- ⌘ + . to stop it ⌘ + . to stop it
 
 ## Next Steps
 

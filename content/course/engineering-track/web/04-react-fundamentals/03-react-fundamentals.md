@@ -591,7 +591,13 @@ const features = [
 
 ## Key Takeaways
 
-To recap, React components are simply functions that return JSX, a syntax that looks like HTML but has key differences such as `className` for classes, camelCase for attributes, and curly braces for JavaScript expressions. Components must return a single root element, so you should use Fragments when you do not want to add extra nodes to the DOM. Composition is the key pattern, allowing you to build complex UIs from simple, reusable pieces. When rendering lists, always provide unique `key` props to enable efficient updates, and organise your project with one component per file.
+- curly braces for JavaScript expressions
+- curly braces for JavaScript expressions
+- Components must return a single root element,
+- Composition is the key pattern, allowing you to build complex UIs from simple, reusable pieces
+- When rendering lists, always provide unique `key` props to enable efficient updates
+- organise your project with one component per file
+- organise your project with one component per file
 
 ## Next Steps
 

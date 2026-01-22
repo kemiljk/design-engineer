@@ -87,7 +87,10 @@ Look at your navigation hierarchy. Are you using a custom opaque navigation bar?
 
 ## Key Takeaways
 
-Adopting Liquid Glass creates a clear z-axis hierarchy where **navigation** floats above the **content** layer. While system components update automatically, custom elements require refinement through rounder, tactile **controls** and layered, dynamic **icons**. Success depends on thorough **accessibility testing** to maintain legibility even when transparency is disabled.
+- Liquid Glass creates a clear z-axis hierarchy where **navigation** floats above **content**
+- System components update automatically
+- Custom elements require refinement: rounder, tactile **controls** and layered, dynamic **icons**
+- Success depends on thorough **accessibility testing** to maintain legibility even when transparency is disabled
 
 ## Next Steps
 

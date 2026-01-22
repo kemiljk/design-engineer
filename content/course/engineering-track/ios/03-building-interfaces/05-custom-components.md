@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn the best practices for component extraction and explore the power of using generics to build flexible UI containers. We'll examine robust methods for view configuration and walk through the benefits of preview-driven development to ensure your components work perfectly across all possible states.
+- During this module, you will learn the best practices for component extraction
+- explore the power of using generics to build flexible UI containers
+- explore the power of using generics to build flexible UI containers
+- We'll examine robust methods for view configuration
 
 ## Extracting Components
 
@@ -213,7 +216,16 @@ Develop an EmptyState component that effectively communicates a lack of content 
 
 ## Key Takeaways
 
-To build a maintainable and scalable SwiftUI application, you should always extract repeated patterns into dedicated components and use generics to create flexible view containers. Configure your components efficiently through initialisers or the environment and prioritise writing comprehensive previews to account for different states. By keeping your components focused and composable, you can ensure a consistent and high-quality user experience across your entire codebase.
+- To build a maintainable
+- scalable SwiftUI application, you should always extract repeated patterns into dedicated components
+- scalable SwiftUI application, you should always extract repeated patterns into dedicated components
+- use generics to create flexible view containers use generics to create flexible view containers
+- Configure your components efficiently through initialisers or the environment
+- prioritise writing comprehensive previews to account for different states
+- prioritise writing comprehensive previews to account for different states
+- By keeping your components focused and composable, you can ensure a consistent
+- high-quality user experience across your entire codebase
+- high-quality user experience across your entire codebase
 
 ## Congratulations!
 

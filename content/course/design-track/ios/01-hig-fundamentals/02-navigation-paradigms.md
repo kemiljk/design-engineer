@@ -130,7 +130,10 @@ Plan the navigation for a simple app idea. Decide which three or four features d
 
 ## Key Takeaways
 
-A fluid iOS experience is built by combining these patterns: **Tab Bars** organise parallel, top-level sections, **Navigation Stacks** allow for hierarchical drilling into content, and **Modals** manage focused, self-contained tasks that interrupt the main flow. Effective app architecture usually integrates all three to create a cohesive and orientation-friendly structure.
+- **Modals** manage focused, self-contained tasks that interrupt the main flow
+- **Modals** manage focused, self-contained tasks that interrupt the main flow
+- Effective app architecture usually integrates all three to create a cohesive
+- orientation-friendly structure orientation-friendly structure
 
 ## Next Steps
 

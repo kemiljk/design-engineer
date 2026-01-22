@@ -185,7 +185,11 @@ Create a simple table mapping your core design tokens to hypothetical CSS variab
 
 ## Key Takeaways
 
-Effective handoff is a continuous communication process that requires explicit details such as measurements, tokens, states, and responsive rules. By organising your files, applying design tokens, and leveraging inspect tools alongside direct conversation, you can map design components directly to code and streamline the entire implementation lifecycle.
+- Effective handoff is a continuous communication process
+- Provide explicit details: measurements, tokens, states, and responsive rules
+- Organise your files and apply design tokens consistently
+- Leverage inspect tools alongside direct conversation
+- Map design components directly to code to streamline implementation
 
 ## Next Steps
 

@@ -113,7 +113,14 @@ Pick a primary seed colour for a fictional brand and use it to generate a full M
 
 ## Key Takeaways
 
-The 8dp grid acts as a fundamental guide that significantly simplifies spacing and sizing decisions across any interface. By separating hue from luminance into tonal palettes, Material ensures total accessibility, while the dynamic colour system allows your app to adapt seamlessly to a user's personal style. Finally, the type scale provides a robust semantic hierarchy for all text, and iconography is divided between simple system functional and expressive product graphics.
+- The 8dp grid acts as a fundamental guide that significantly simplifies spacing
+- sizing decisions across any interface sizing decisions across any interface
+- By separating hue from luminance into tonal palettes, Material ensures total accessibility
+- the dynamic colour system allows your app to adapt seamlessly to a user's personal style
+- the dynamic colour system allows your app to adapt seamlessly to a user's personal style
+- Finally, the type scale provides a robust semantic hierarchy for all text
+- iconography is divided between simple system functional and expressive product graphics
+- iconography is divided between simple system functional and expressive product graphics
 
 ## Next Steps
 

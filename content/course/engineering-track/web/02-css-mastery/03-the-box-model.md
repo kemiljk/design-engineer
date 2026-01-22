@@ -352,7 +352,11 @@ Set up a few different scenarios to demonstrate margin collapse, including both 
 
 ## Key Takeaways
 
-To recap, the CSS box model consists of four layers: content, padding, border, and margin. For a more intuitive and predictable design experience, you should apply `box-sizing: border-box` to all elements in your project. Be mindful that vertical margins can collapse in certain contexts, though this behaviour is absent in flexbox and grid layouts. Finally, remember that the `display` property significantly alters box behaviour, and you can use the `overflow` property to manage any content that exceeds its container's dimensions.
+- To recap, the CSS box model consists of four layers: content, padding, border, and margin
+- grid layouts grid layouts
+- Finally, remember that the `display` property significantly alters box behaviour
+- you can use the `overflow` property to manage any content that exceeds its container's dimensions
+- you can use the `overflow` property to manage any content that exceeds its container's dimensions
 
 ## Next Steps
 

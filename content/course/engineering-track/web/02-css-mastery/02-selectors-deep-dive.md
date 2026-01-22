@@ -346,7 +346,12 @@ Develop a navigation component where all links share a consistent base style, bu
 
 ## Key Takeaways
 
-To master CSS selectors, remember to use basic type, class, and ID selectors appropriately while leveraging attribute selectors for more specific targeting based on metadata. Use combinators to express the relationships between descendants, children, and siblings, and apply pseudo-classes to manage interaction states and structural patterns. You can also use pseudo-elements to generate content and style specific parts of your text. With the introduction of native CSS nesting and the powerful `:has()` parent selector, you have all the tools necessary to maintain simple, low-specificity stylesheets that are easy to manage and scale.
+- To master CSS selectors, remember to use basic type, class
+- Use combinators to express the relationships between descendants, children, and siblings
+- apply pseudo-classes to manage interaction states and structural patterns
+- apply pseudo-classes to manage interaction states and structural patterns
+- You can also use pseudo-elements to generate content and style specific parts of your text
+- With the introduction of native CSS nesting
 
 ## Next Steps
 

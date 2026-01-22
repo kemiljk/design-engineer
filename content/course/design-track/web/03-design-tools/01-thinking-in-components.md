@@ -137,7 +137,9 @@ Rename the layers in your current design file to match a strict component naming
 
 ## Key Takeaways
 
-Components should be treated as the fundamental units of design, structured through Atomic Design principles into atoms, molecules, and organisms. By identifying reusable functionality and defining props rather than unique copies, you can align naming conventions with engineering to create a shared, systematic language.
+- Components are the fundamental units of design
+- Structure them through Atomic Design principles: atoms, molecules, and organisms
+- By identifying reusable functionality and defining props rather than unique copies, you can align naming conventions with engineering to create a shared, systematic language
 
 ## Next Steps
 

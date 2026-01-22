@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-In this lesson, you will demystify the core concepts of shader programming, shifting your mental model from sequential CPU logic to parallel GPU processing. We'll define the distinct roles of vertex and fragment shaders, explain key terminology like uniforms and varyings, and walk through the practical setup of your very first GLSL shading program.
+- In this lesson, you will demystify the core concepts of shader programming,
+- walk through the practical setup of your very first GLSL shading program
+- walk through the practical setup of your very first GLSL shading program
 
 ## What Is a Shader?
 
@@ -310,7 +312,10 @@ Take the circular gradient you just created and make it feel alive. Multiply the
 
 ## Key Takeaways
 
-Shaders are massively parallel GPU programs where you write a single mathematical formula that determines the colour of every pixel simultaneously. While vertex shaders handle geometry, as a UI engineer you will focus primarily on fragment shaders using GLSL, a C-like language. Remember that you must use "uniforms" to pass constant data (like time or mouse position) from your JavaScript application to the shader, and always think in terms of mathematical relationships rather than sequential loops.
+- Shaders are massively parallel GPU programs where you write a single mathematical formula that de...
+- While vertex shaders handle geometry,
+- always think in terms of mathematical relationships rather than sequential loops
+- always think in terms of mathematical relationships rather than sequential loops
 
 ## Next Steps
 

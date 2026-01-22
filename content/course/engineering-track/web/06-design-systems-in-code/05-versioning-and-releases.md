@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-In this lesson, we will cover the principles of semantic versioning (SemVer) and how to write clear, effective changelogs. You will learn strategies for managing breaking changes and understand the steps involved in a professional release process.
+- In this lesson, we will cover the principles of semantic versioning (SemVer)
+- how to write clear, effective changelogs how to write clear, effective changelogs
+- You will learn strategies for managing breaking changes
+- understand the steps involved in a professional release process
+- understand the steps involved in a professional release process
 
 ## Semantic Versioning
 
@@ -134,7 +138,11 @@ The typical release process involves a series of structured steps. First, you mu
 
 ## Key Takeaways
 
-To recap, you should use semantic versioning consistently to communicate the nature of your changes. Ensure all updates are documented in a clear changelog and always deprecate features before removing them entirely. Providing migration guides for breaking changes is essential for helping your users upgrade, and clear communication remains a vital part of every release.
+- Use semantic versioning consistently to communicate the nature of changes
+- Document all updates in a clear changelog
+- Always deprecate features before removing them entirely
+- Provide migration guides for breaking changes
+- Clear communication is vital for every release
 
 ## Congratulations!
 

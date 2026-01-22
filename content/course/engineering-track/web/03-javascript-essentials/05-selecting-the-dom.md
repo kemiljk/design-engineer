@@ -227,7 +227,15 @@ Create a function that takes a DOM element as its starting point and returns an 
 
 ## Key Takeaways
 
-To recap, the DOM is a powerful tree-based representation of your HTML that enables JavaScript to process and interact with web content dynamically. You should leverage `querySelector` and `querySelectorAll` for flexible and robust element selection, and use `dataset` to easily manage custom data stored in your HTML. Finally, remember that mastering DOM traversal and understanding the differences between `textContent` and `innerHTML` are essential for building secure and efficient web interfaces.
+- interact with web content dynamically interact with web content dynamically
+- You should leverage `querySelector` and `querySelectorAll` for flexible and robust element selection
+- use `dataset` to easily manage custom data stored in your HTML
+- use `dataset` to easily manage custom data stored in your HTML
+- Finally, remember that mastering DOM traversal
+- understanding the differences between `textContent`
+- understanding the differences between `textContent`
+- `innerHTML` are essential for building secure `innerHTML` are essential for building secure
+- efficient web interfaces efficient web interfaces
 
 ## Next Steps
 

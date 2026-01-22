@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn how to configure Xcode for maximum productivity and explore the most effective ways to use SwiftUI previews. We'll examine robust methods for managing simulators and establish a solid version control workflow with Git, while also introducing a selection of recommended tools and extensions to enhance your development process.
+- During this module, you will learn how to configure Xcode for maximum productivity
+- explore the most effective ways to use SwiftUI previews
+- explore the most effective ways to use SwiftUI previews
+- also introducing a selection of recommended tools and extensions to enhance your development process
+- also introducing a selection of recommended tools and extensions to enhance your development process
 
 ## Configuring Xcode
 
@@ -409,7 +413,16 @@ struct MyView: View {
 
 ## Key Takeaways
 
-To build an efficient development environment, you should begin by customising Xcode's theme and settings for your own comfort and making use of multiple previews to observe different interface states simultaneously. Master the essential simulator shortcuts for rapid testing and always set up Git from the very start to ensure proper version control. Finally, maintain an organised project folder structure and leverage the Quick Open shortcut to navigate your growing codebase with ease.
+- To build an efficient development environment, you should begin by customising Xcode's theme
+- settings for your own comfort settings for your own comfort
+- making use of multiple previews to observe different interface states simultaneously
+- making use of multiple previews to observe different interface states simultaneously
+- Master the essential simulator shortcuts for rapid testing
+- always set up Git from the very start to ensure proper version control
+- always set up Git from the very start to ensure proper version control
+- Finally, maintain an organised project folder structure
+- leverage the Quick Open shortcut to navigate your growing codebase with ease
+- leverage the Quick Open shortcut to navigate your growing codebase with ease
 
 ## Environment Complete!
 

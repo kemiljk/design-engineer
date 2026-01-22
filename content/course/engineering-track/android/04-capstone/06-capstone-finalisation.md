@@ -10,7 +10,10 @@ estimatedTime: 10
 
 ## What You'll Learn
 
-During this module, you will learn to create a proper Adaptive Icon that functions across all launchers and configure the modern Splash Screen API for a professional launch experience. We'll also examine how to write a compelling README that clearly explains your technical decisions and showcases the final product effectively.
+- configure the modern Splash Screen API for a professional launch experience
+- configure the modern Splash Screen API for a professional launch experience
+- We'll also examine how to write a compelling README that clearly explains your technical decisions
+- showcases the final product effectively showcases the final product effectively
 
 ## Step 1: The Adaptive Icon
 

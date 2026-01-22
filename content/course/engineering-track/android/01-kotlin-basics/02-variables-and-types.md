@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn about Kotlin's basic numerical and boolean types before diving into the essential concept of nullable types. Let's examine how to use safe calls and the Elvis operator effectively, while also covering type conversion and smart casting to ensure your code is both robust and concise.
+- During this module, you will learn about Kotlin's basic numerical
+- boolean types before diving into the essential concept of nullable types
+- boolean types before diving into the essential concept of nullable types
+- Let's examine how to use safe calls and the Elvis operator effectively
+- also covering type conversion and smart casting to ensure your code is both robust and concise
+- also covering type conversion and smart casting to ensure your code is both robust and concise
 
 ## Basic Types
 
@@ -157,7 +162,12 @@ Further develop your skills by creating a function that takes a string input tha
 
 ## Key Takeaways
 
-To master variables and types in Kotlin, you must understand that appending a question mark to a type name makes it nullable and that the safe call operator allows for error-free property access. You should use the Elvis operator to provide sensible default values and rely on smart casts to simplify your null-checking logic, while always avoiding the not-null assertion operator to maintain the integrity of your code.
+- types in Kotlin, you must understand that appending a question mark to a type name makes it nullable
+- types in Kotlin, you must understand that appending a question mark to a type name makes it nullable
+- that the safe call operator allows for error-free property access
+- that the safe call operator allows for error-free property access
+- always avoiding the not-null assertion operator to maintain the integrity of your code
+- always avoiding the not-null assertion operator to maintain the integrity of your code
 
 ## Next Steps
 

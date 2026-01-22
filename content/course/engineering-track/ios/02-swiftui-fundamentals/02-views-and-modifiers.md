@@ -4,7 +4,12 @@
 
 ## What You'll Learn
 
-During this module, you will learn how modifiers function within the SwiftUI framework and explore a wide range of common modifiers used in daily development. We'll examine why the order of modifiers is critical for achieving the desired interface results and walk through the process of creating your own custom modifiers for better code reuse.
+- During this module, you will learn how modifiers function within the SwiftUI framework
+- explore a wide range of common modifiers used in daily development
+- explore a wide range of common modifiers used in daily development
+- We'll examine why the order of modifiers is critical for achieving the desired interface results
+- walk through the process of creating your own custom modifiers for better code reuse
+- walk through the process of creating your own custom modifiers for better code reuse
 
 ## How Modifiers Work
 
@@ -183,7 +188,13 @@ Develop a custom `tagStyle()` modifier that adds horizontal padding to a view wh
 
 ## Key Takeaways
 
-To build sophisticated interfaces, you must remember that modifiers always return new views and that their specific order of application is significant. Chain modifiers together for complex styling and leverage environment modifiers to apply consistent properties to entire view hierarchies. Finally, use custom modifiers to encapsulate repeated styling logic, ensuring your codebase remains clean and maintainable.
+- To build sophisticated interfaces, you must remember that modifiers always return new views
+- that their specific order of application is significant
+- that their specific order of application is significant
+- Chain modifiers together for complex styling
+- leverage environment modifiers to apply consistent properties to entire view hierarchies
+- leverage environment modifiers to apply consistent properties to entire view hierarchies
+- maintainable maintainable
 
 ## Next Steps
 

@@ -227,7 +227,12 @@ Look at a UI you've built or designed. Identify three elements you could remove.
 
 ## Key Takeaways
 
-Every design decision must have an articulable purpose that ties aesthetics to function, using the "Why?" test to validate choices and considering tradeoffs before committing. By aligning with existing patterns and rigorously removing unnecessary elements, you can defend your work through specific principles and user goals, ensuring that every visual detail serves as intentional communication.
+- considering tradeoffs before committing considering tradeoffs before committing
+- By aligning with existing patterns
+- rigorously removing unnecessary elements, you can defend your work through specific principles
+- rigorously removing unnecessary elements, you can defend your work through specific principles
+- user goals, ensuring that every visual detail serves as intentional communication
+- user goals, ensuring that every visual detail serves as intentional communication
 
 ## Next Steps
 

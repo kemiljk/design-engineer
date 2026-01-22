@@ -140,7 +140,10 @@ Compare them. Which feels easier to scan? Which feels friendlier?
 
 ## Key Takeaways
 
-Material 3 Expressive is a research-backed system that helps users find elements faster by effectively equalising age-based differences in usability. Through the use of variable fonts, shape morphing, and dynamic interaction patterns, you can create living interfaces that adapt to their context—using full expression for consumer apps while exercising necessary restraint for more critical, safety-sensitive tools.
+- Material 3 Expressive is a research-backed system that helps users find elements faster
+- It effectively equalises age-based differences in usability
+- Use variable fonts, shape morphing, and dynamic interaction patterns to create living interfaces
+- Adapt expression to context: full expression for consumer apps, restraint for safety-sensitive tools
 
 ## Next Steps
 

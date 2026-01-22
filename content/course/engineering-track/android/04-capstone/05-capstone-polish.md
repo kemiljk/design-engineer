@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-During this module, you will learn to add comprehensive TalkBack accessibility semantics to your application and ensure support for dynamic text sizes. We'll examine the implementation of Material motion to create smooth transitions and explore robust techniques for handling errors gracefully within your UI.
+- ensure support for dynamic text sizes ensure support for dynamic text sizes
+- We'll examine the implementation of Material motion to create smooth transitions
+- explore robust techniques for handling errors gracefully within your UI
+- explore robust techniques for handling errors gracefully within your UI
 
 ## Step 1: Accessibility Semantics
 

@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-During this module, you will learn to implement Material 3 theming within your Compose applications, covering essential colour schemes and typography. We'll examine exactly how to integrate dynamic colour for Android 12 and above, ensuring your interface remains consistent and visually appealing across different system settings.
+- typography typography
+- We'll examine exactly how to integrate dynamic colour for Android 12
+- above, ensuring your interface remains consistent above, ensuring your interface remains consistent
+- visually appealing across different system settings
+- visually appealing across different system settings
 
 ## MaterialTheme
 
@@ -252,7 +256,8 @@ Further enhance the user experience by building a theme switcher toggle. This co
 
 ## Key Takeaways
 
-To master the visual identity of your app, you must use the `MaterialTheme` object to manage your colours, typography, and shapes effectively. By implementing a comprehensive `ColorScheme`, you can ensure your UI adapts seamlessly to both light and dark modes, while leveraging dynamic colour allows your app to harmonize with the user's wallpaper on supported devices. Finally, remember to access these values through `MaterialTheme.colorScheme` and use `CompositionLocal` whenever you need to provide custom theme properties throughout your component tree.
+- shapes effectively
+- Finally, remember to access these values through `MaterialTheme.colorScheme`
 
 ## Congratulations!
 

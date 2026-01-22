@@ -104,7 +104,9 @@ To calculate the column width for a card on a standard 360dp wide phone screen, 
 
 ## Key Takeaways
 
-When designing for Android, you must prioritise density-independent pixels over standard pixels and create layouts that target Window Size Classes rather than specific devices. This means ensuring your navigation transitions from a Bottom Bar to a Navigation Rail or Drawer as width increases, while treating foldables as unique hardware with specific Tabletop and Book postures that require their own architectural considerations.
+- When designing for Android, you must prioritise density-independent pixels over standard pixels
+- create layouts that target Window Size Classes rather than specific devices
+- create layouts that target Window Size Classes rather than specific devices
 
 ## Next Steps
 

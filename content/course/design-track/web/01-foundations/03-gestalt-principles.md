@@ -4,7 +4,7 @@
 
 ## What You'll Learn
 
-- The seven core Gestalt principles (proximity, similarity, closure, continuity, figure/ground, common fate, symmetry)
+- The seven core Gestalt principles: proximity, similarity, closure, continuity, figure/ground, common fate, symmetry
 - How the brain groups and interprets visual information
 - How to leverage Gestalt principles in your designs
 - Practical applications of each principle
@@ -100,7 +100,10 @@ Design a pricing tier component for Basic, Pro, and Enterprise levels without us
 
 ## Key Takeaways
 
-By leverages Gestalt principles, you can do the cognitive heavy lifting for your users, using proximity to improve designs immediately and alignment to create a smooth, guided flow. Maintaining consistency in visual treatment ensures that if an element looks the same, it acts the same, creating a meaningful and intuitive experience.
+- Gestalt principles help you do the cognitive heavy lifting for your users
+- Use proximity to improve designs immediately
+- Alignment creates a smooth, guided flow
+- Consistent visual treatment ensures elements that look the same act the same
 
 ## Next Steps
 

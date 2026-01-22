@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore the practical implementation of design tokens using CSS custom properties. You will learn about token naming conventions and organisation strategies, and discover how to effectively connect your design tokens to various design tools.
+- In this lesson, we will explore the practical implementation of design tokens using CSS custom pr...
+- You will learn about token naming conventions and organisation strategies
+- discover how to effectively connect your design tokens to various design tools
+- discover how to effectively connect your design tokens to various design tools
 
 ## CSS Custom Properties as Tokens
 
@@ -138,7 +141,13 @@ Layer meaning on top of primitives:
 
 ## Key Takeaways
 
-To recap, CSS custom properties serve as a native way to implement design tokens in your code. It is best practice to organise these tokens from primitives to semantic tokens, and finally to specific component tokens. Semantic tokens are particularly powerful as they enable easy theming, and you should aim to use tokens throughout your styles to eliminate hardcoded values in your components.
+- To recap, CSS custom properties serve as a native way to implement design tokens in your code
+- It is best practice to organise these tokens from primitives to semantic tokens
+- finally to specific component tokens
+- finally to specific component tokens
+- Semantic tokens are particularly powerful as they enable easy theming
+- you should aim to use tokens throughout your styles to eliminate hardcoded values in your components
+- you should aim to use tokens throughout your styles to eliminate hardcoded values in your components
 
 ## Next Steps
 

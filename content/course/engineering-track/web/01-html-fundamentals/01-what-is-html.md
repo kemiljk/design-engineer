@@ -239,7 +239,10 @@ Take a design you've created (or a page you like). List:
 
 ## Key Takeaways
 
-To build high-quality web interfaces, you must remember that HTML is the structural foundation of every page and uses tags to mark up content with genuine meaning. Prioritising semantic HTML ensures that your work is accessible, searchable, and maintainable, whilst also helping you make more informed design decisions that are easier to implement in code.
+- HTML is the structural foundation of every web page
+- Tags mark up content with genuine meaning
+- Semantic HTML improves accessibility, SEO, and maintainability
+- Understanding HTML leads to more implementable design decisions
 
 ## Next Steps
 

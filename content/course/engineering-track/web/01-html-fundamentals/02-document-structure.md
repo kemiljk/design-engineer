@@ -322,7 +322,9 @@ Validate your HTML files by visiting validator.w3.org and either uploading or pa
 
 ## Key Takeaways
 
-To build robust and standard-compliant web pages, you must include the DOCTYPE declaration along with correctly structured html, head, and body elements. Ensure that your `<head>` contains all essential metadata, including character encoding, viewport settings, and descriptive titles, whilst also leveraging Open Graph tags to control how your content appears when shared socially. By using `defer` for your scripts to prevent render blocking and consistently validating your HTML, you can maintain a high-quality codebase that performs reliably across all devices.
+- also leveraging Open Graph tags to control how your content appears when shared socially
+- also leveraging Open Graph tags to control how your content appears when shared socially
+- By using `defer` for your scripts to prevent render blocking
 
 ## Next Steps
 

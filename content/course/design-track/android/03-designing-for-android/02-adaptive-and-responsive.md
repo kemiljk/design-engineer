@@ -107,7 +107,12 @@ Create an email inbox interface where the compact version uses a simple list tha
 
 ## Key Takeaways
 
-To successfully design for the diverse Android ecosystem, you must target Window Size Classes rather than specific devices, ensuring navigation adapts from a Bottom Bar to a Rail or Drawer as width increases. The List-Detail pattern remains the gold standard for large screens, while foldable hardware requires careful consideration of physical hinges and new tabletop postures. Ultimately, supporting multi-window environments ensures your app remains functional and beautiful at any size.
+- To successfully design for the diverse Android ecosystem,
+- The List-Detail pattern remains the gold standard for large screens
+- foldable hardware requires careful consideration of physical hinges and new tabletop postures
+- foldable hardware requires careful consideration of physical hinges and new tabletop postures
+- Ultimately, supporting multi-window environments ensures your app remains functional
+- beautiful at any size beautiful at any size
 
 ## Next Steps
 

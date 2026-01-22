@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this lesson, we will explore what should be documented for each component, including code examples and common usage patterns. You will learn about interactive documentation using Storybook and discover strategies for keeping your documentation accurate and up to date as your codebase evolves.
+- common usage patterns common usage patterns
+- You will learn about interactive documentation using Storybook
+- discover strategies for keeping your documentation accurate
+- discover strategies for keeping your documentation accurate and up to date as your codebase evolves
 
 ## Component Documentation Structure
 
@@ -130,7 +133,11 @@ Avoid using multiple primary buttons in close proximity, as this can confuse the
 
 ## Key Takeaways
 
-To recap, your documentation should clearly state what each component is, when it should be used, and how to implement it correctly. Providing copy-and-paste code examples and using tools like Storybook for interactive documentation can significantly improve the developer experience. Finally, remember to include clear guidelines on usage and ensure that your documentation is always kept in sync with the underlying code.
+- Documentation should clearly state what each component is, when to use it, and how to implement it
+- Provide copy-and-paste code examples
+- Use tools like Storybook for interactive documentation
+- Include clear usage guidelines
+- Keep documentation in sync with the underlying code
 
 ## Next Steps
 

@@ -4,7 +4,11 @@
 
 ## What You'll Learn
 
-Throughout this lesson, you will learn why page transitions are essential for maintaining user context and explore multiple implementation strategies ranging from CSS-only transitions to the modern View Transitions API. We'll examine framework-specific approaches for Next.js and React and dive into the specific patterns—such as cross-fades and shared element morphing—that create a sophisticated, app-like navigation experience on the web.
+- We'll examine framework-specific approaches for Next.js and React
+- dive into the specific patterns—such as cross-fades
+- dive into the specific patterns—such as cross-fades
+- shared element morphing—that create a sophisticated, app-like navigation experience on the web
+- shared element morphing—that create a sophisticated, app-like navigation experience on the web
 
 ## The Problem with Instant Navigation
 
@@ -231,7 +235,11 @@ Create a card grid where clicking a card transitions the card image smoothly to 
 
 ## Key Takeaways
 
-Page transitions are a powerful tool for maintaining user context and creating spatial continuity during navigation, especially when leveraging the native View Transitions API. By keeping your transitions brief, purposeful, and aligned with navigation direction, you can create seamless connections between different views. Always prioritise accessibility by simplifying or skipping animations for users with reduced motion preferences to ensure a robust experience for everyone.
+- Page transitions are a powerful tool for maintaining user context
+- By keeping your transitions brief, purposeful
+- aligned with navigation direction, you can create seamless connections between different views
+- aligned with navigation direction, you can create seamless connections between different views
+- Always prioritise accessibility by simplifying or skipping animations for users with reduced moti...
 
 ## Next Steps
 

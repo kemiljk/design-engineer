@@ -10,7 +10,11 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-During this module, you will learn to build complex list screens using LazyColumn and master the implementation of type-safe navigation patterns. We'll examine how to create functional form-based screens with Material 3 components and integrate persistent settings using DataStore.
+- During this module, you will learn to build complex list screens using LazyColumn
+- master the implementation of type-safe navigation patterns
+- master the implementation of type-safe navigation patterns
+- We'll examine how to create functional form-based screens with Material 3 components
+- integrate persistent settings using DataStore integrate persistent settings using DataStore
 
 ## Screen 1: Main List View
 

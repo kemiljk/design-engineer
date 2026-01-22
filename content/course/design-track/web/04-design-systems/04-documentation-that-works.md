@@ -162,7 +162,11 @@ For a **Modal** component, write three "Do" rules and three "Don't" rules regard
 
 ## Key Takeaways
 
-Effective documentation bridges the gap between a design system and its users by addressing the specific needs of designers, developers, and managers. By automating technical details and treating incoming questions as opportunities to refine the docs, you can ensure that your system remains a living, trusted source of truth.
+- Effective documentation bridges the gap between a design system and its users
+- Address the specific needs of designers, developers, and managers
+- Automate technical details where possible
+- Treat incoming questions as opportunities to refine the docs
+- Keep your system as a living, trusted source of truth
 
 ## Next Steps
 

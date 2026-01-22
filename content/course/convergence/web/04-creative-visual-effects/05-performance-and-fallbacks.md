@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-During this final lesson of the module, you will learn to identify and prevent the performance bottlenecks that can turn beautiful shaders into battery-draining liabilities. We'll examine specific optimisation techniques like reducing complexity and throttling updates, implement graceful degradation strategies for older browsers, and ensure your effects respect user accessibility preferences for reduced motion across all devices.
+- During this final lesson of the module, you will learn to identify
+- ensure your effects respect user accessibility preferences for reduced motion across all devices
+- ensure your effects respect user accessibility preferences for reduced motion across all devices
 
 ## The Performance Paradox
 
@@ -390,7 +392,9 @@ Create two versions of a shader effect:
 
 ## Key Takeaways
 
-Never assume shaders are performant by default; you must actively measure and optimise them by reducing complexity, resolution, and update frequency. It is critical to provide solid CSS fallbacks for environments without WebGL and to strictly respect the `prefers-reduced-motion` preference, as animation can cause physical harm to some users. Finally, always test your effects on real mobile devices to ensure they deliver a smooth experience under constrained resources.
+- update frequency
+- It is critical to provide solid CSS fallbacks for environments without WebGL
+- Finally, always test your effects on real mobile devices to ensure they deliver a smooth experien...
 
 ## Congratulations
 

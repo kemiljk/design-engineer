@@ -387,7 +387,17 @@ function Form() {
 
 ## Key Takeaways
 
-In summary, you should prefer composition over specialised components and use `children` along with named props to create flexible content slots. Compound components are excellent for sharing state through React Context, while custom hooks have largely replaced render props for logic sharing. Aim to design minimal APIs with sensible defaults and use the spread operator (`...props`) to forward native attributes. Finally, leverage TypeScript for self-documenting APIs and use `forwardRef` when wrapping native elements.
+- In summary, you should prefer composition over specialised components
+- use `children` along with named props to create flexible content slots
+- use `children` along with named props to create flexible content slots
+- Compound components are excellent for sharing state through React Context
+- custom hooks have largely replaced render props for logic sharing
+- custom hooks have largely replaced render props for logic sharing
+- Aim to design minimal APIs with sensible defaults
+- use the spread operator (`...props`) to forward native attributes
+- use the spread operator (`...props`) to forward native attributes
+- Finally, leverage TypeScript for self-documenting APIs
+- use `forwardRef` when wrapping native elements use `forwardRef` when wrapping native elements
 
 ## Next Steps
 

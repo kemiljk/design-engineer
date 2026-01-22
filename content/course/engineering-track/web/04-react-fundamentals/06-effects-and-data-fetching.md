@@ -605,7 +605,15 @@ Develop a scroll tracking hook that adds a scroll event listener inside an effec
 
 ## Key Takeaways
 
-To recap, `useEffect` runs after render and is used for side effects like data fetching, subscriptions, and DOM mutations. The dependency array controls exactly when the effect runs: an empty array means it runs only once, while no array means it runs after every render. Cleanup functions are essential for preventing memory leaks and race conditions, and you should always include all dependencies used within the effect. Avoid using effects for values that can simply be calculated during render, and always handle both loading and error states when fetching data.
+- The dependency array controls exactly when the effect runs: an empty array means it runs only once
+- no array means it runs after every render
+- no array means it runs after every render
+- Cleanup functions are essential for preventing memory leaks and race conditions
+- you should always include all dependencies used within the effect
+- you should always include all dependencies used within the effect
+- Avoid using effects for values that can simply be calculated during render
+- always handle both loading and error states when fetching data
+- always handle both loading and error states when fetching data
 
 ## Next Steps
 

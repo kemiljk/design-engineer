@@ -144,7 +144,13 @@ Find a task you do often (like paying a bill). Map out the steps. Where is the f
 
 ## Key Takeaways
 
-Interaction design defines the functional conversation between the user and the product, where affordances represent capabilities and signifiers provide the necessary clues for their use. By providing immediate and clear feedback to close the interaction loop and designing for the specific constraints of diverse input methods, you can create robust interfaces that gracefully handle every state and use friction intentionally to prevent errors.
+- Interaction design defines the functional conversation between the user
+- the product, where affordances represent capabilities
+- the product, where affordances represent capabilities
+- signifiers provide the necessary clues for their use
+- signifiers provide the necessary clues for their use
+- By providing immediate and clear feedback to close the interaction loop
+- use friction intentionally to prevent errors use friction intentionally to prevent errors
 
 ## Next Steps
 

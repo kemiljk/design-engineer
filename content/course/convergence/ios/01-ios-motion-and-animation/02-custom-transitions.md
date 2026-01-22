@@ -181,7 +181,12 @@ Build a photo grid where tapping a photo expands it to full screen. The photo sh
 -->
 
 ## Key Takeaways
-**Transitions** control how views enter and leave the hierarchy. You can **combine** them (e.g., fade + scale) for complex effects. Use **matchedGeometryEffect** with a unique **@Namespace** identity to create hero animations that morph one view into another. Always **test transitions** at different speeds to ensure robustness.
+
+- **Transitions** control how views enter
+- leave the hierarchy You can **combine** them (e.g., fade + scale) for complex effects
+- leave the hierarchy You can **combine** them (e.g., fade + scale) for complex effects
+- Use **matchedGeometryEffect** with a unique **@Namespace** identity to create hero animations tha...
+- Always **test transitions** at different speeds to ensure robustness
 
 ## Next Steps
 

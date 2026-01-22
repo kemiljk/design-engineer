@@ -105,7 +105,8 @@ Sketch a "Notes" widget that adapts across three distinct states. At its smalles
 
 ## Key Takeaways
 
-Treat notifications as a privilege by ensuring every alert delivers genuine value to the user and is correctly categorised through system channels. By including powerful inline actions, you can transform notifications into productive micro-interfaces, while designing interactive and scrollable widgets that adapt to variable home screen sizes provides another layer of utility and re-engagement.
+- Treat notifications as a privilege by ensuring every alert delivers genuine value to the user
+- is correctly categorised through system channels is correctly categorised through system channels
 
 ## Congratulations!
 

@@ -387,7 +387,12 @@ Take a recipe and mark it up with:
 
 ## Key Takeaways
 
-To build high-quality web content, you must master the use of headings to create a clear document hierarchy and consistently use `<em>` and `<strong>` to convey genuine emphasis and importance. Leverage the three primary list types to organise your data logically and ensure that all links use descriptive text rather than generic phrases. Finally, remember to apply `rel="noopener noreferrer"` to any external links that open in a new tab to maintain the security and performance of your application.
+- consistently use `<em>` consistently use `<em>` and `<strong>` to convey genuine emphasis
+- importance importance
+- Leverage the three primary list types to organise your data logically
+- ensure that all links use descriptive text rather than generic phrases
+- ensure that all links use descriptive text rather than generic phrases
+- performance of your application performance of your application
 
 ## Next Steps
 

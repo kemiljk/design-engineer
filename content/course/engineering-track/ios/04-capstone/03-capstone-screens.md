@@ -10,7 +10,10 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-During this module, you will learn to build efficient list views with SwiftUI and implement robust navigation patterns using `NavigationStack`. We'll examine how to create form-based views for data entry and walk through the implementation of settings screens that leverage `AppStorage` for persistent user preferences.
+- During this module, you will learn to build efficient list views with SwiftUI
+- implement robust navigation patterns using `NavigationStack`
+- implement robust navigation patterns using `NavigationStack`
+- We'll examine how to create form-based views for data entry
 
 ## Screen 1: Main List View
 

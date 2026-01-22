@@ -211,7 +211,12 @@ Build a prototype of a swipeable card. Implement a drag gesture that reveals act
 -->
 
 ## Key Takeaways
-Compose **Previews** are your primary tool for rapid iteration—use them liberally. Enable **Interactive Mode** to test gestures and state logic instantly. Maintain a `PreviewData` object to keep your example data consistent across the project. Always visualize all possible states (loading, error, empty) in your previews to catch edge cases early. For final verification, share **APKs** to test the "feel" on a real device.
+
+- Compose **Previews** are your primary tool for rapid iteration—use them liberally
+- Enable **Interactive Mode** to test gestures and state logic instantly
+- Maintain a `PreviewData` object to keep your example data consistent across the project
+- Always visualize all possible states (loading, error, empty) in your previews to catch edge cases early
+- For final verification, share **APKs** to test the "feel" on a real device
 
 ## Next Steps
 

@@ -99,7 +99,9 @@ Design a simple card component and define its appearance across two distinct sta
 
 ## Key Takeaways
 
-Elevation establishes a clear visual hierarchy by combining shadows with surface tints, particularly through tonal elevation which is critical for maintaining depth within Dark Mode. By adhering to standard elevation levels from 0dp to 12dp, you can ensure your interface remains consistent and dynamic, where elements rise and fall naturally based on user interaction.
+- Elevation establishes a clear visual hierarchy by combining shadows with surface tints, particula...
+- dynamic, where elements rise dynamic, where elements rise
+- fall naturally based on user interaction fall naturally based on user interaction
 
 ## Next Steps
 

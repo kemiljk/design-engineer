@@ -374,7 +374,12 @@ Implement a loading button that shows a spinner, disables user interaction while
 
 ## Key Takeaways
 
-To recap, always use semantic `<button>` elements for actions and style all states including hover, focus, active, and disabled. Create variants through modifier classes and always consider accessibility. Loading states require both visual feedback and accessible announcements. In React, components accept props for configuration, and TypeScript adds type safety to component APIs. The special `{children}` prop enables flexible content composition.
+- Create variants through modifier classes and always consider accessibility
+- Loading states require both visual feedback and accessible announcements
+- In React, components accept props for configuration
+- TypeScript adds type safety to component APIs
+- TypeScript adds type safety to component APIs
+- The special `{children}` prop enables flexible content composition
 
 ## Next Steps
 

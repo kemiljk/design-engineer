@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-In this opening lesson, you will explore the essential purpose of motion in modern user interfaces and learn how to use animation as a powerful tool for communication rather than simple decoration. We'll identify the specific scenarios where animation adds value (and where it doesn't) and examine the unique role of the Design Engineer in bridging the gap between motion specifications and functional code.
+- The essential purpose of motion in modern user interfaces
+- How to use animation as a tool for communication, not decoration
+- Scenarios where animation adds value (and where it doesn't)
+- The role of the Design Engineer in bridging motion specifications and functional code
 
 ## Motion Is Communication
 
@@ -135,7 +138,9 @@ Find animations that seem purely decorative. Ask:
 
 ## Key Takeaways
 
-To use motion effectively, you must ensure that every animation serves a clear functional purpose, whether that be providing feedback, showing relationships, or guiding user attention. By keeping interactions brief—typically under 300ms—and strictly respecting reduced motion preferences, you can create a polished experience where animation feels like a natural extension of the brand. Ultimately, as a Design Engineer, you are uniquely positioned to translate high-level motion intent into performant, accessible code.
+- To use motion effectively, you must ensure that every animation serves a clear functional purpose...
+- By keeping interactions brief—typically under 300ms—and strictly respecting reduced motion prefer...
+- Ultimately, as a Design Engineer,
 
 ## Next Steps
 

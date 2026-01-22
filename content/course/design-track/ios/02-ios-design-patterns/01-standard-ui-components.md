@@ -133,7 +133,10 @@ Sketch a "Profile" screen for an app. Decide which list style (Plain or Inset Gr
 
 ## Key Takeaways
 
-Effective iOS interfaces prioritise hierarchy by using **Filled** buttons for primary actions and **Inset Grouped** lists for settings and forms, while reserving **Plain** lists for general content. By leveraging native input behaviours like **Switches** and correct keyboard types, you gain accessibility and future-proof platform updates for free, whereas custom components require manual implementation of these critical features.
+- reserving **Plain** lists for general content
+- reserving **Plain** lists for general content
+- By leveraging native input behaviours like **Switches**
+- correct keyboard types, you gain accessibility correct keyboard types, you gain accessibility
 
 ## Next Steps
 

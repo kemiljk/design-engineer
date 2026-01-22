@@ -10,7 +10,9 @@ estimatedTime: 20
 
 ## What You'll Learn
 
-In this foundation phase, you will structure your document using **semantic HTML** landmarks. You will set up a robust **CSS architecture** based on design tokens, and build essential **JavaScript utilities** that handle animations and accessibility requirements efficiently.
+- How to structure your document using **semantic HTML** landmarks
+- Setting up a robust **CSS architecture** based on design tokens
+- Building essential **JavaScript utilities** for animations and accessibility
 
 ## Step 1: Semantic HTML Structure
 

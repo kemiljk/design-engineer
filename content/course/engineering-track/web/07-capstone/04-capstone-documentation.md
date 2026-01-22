@@ -10,7 +10,10 @@ estimatedTime: 15
 
 ## What You'll Learn
 
-In this lesson, we will focus on structuring documentation to provide an excellent developer experience and creating live component examples. You will learn how to write clear API documentation and discover techniques for adding interactive features such as theme switching.
+- creating live component examples creating live component examples
+- You will learn how to write clear API documentation
+- discover techniques for adding interactive features such as theme switching
+- discover techniques for adding interactive features such as theme switching
 
 ## Step 1: Documentation Site Structure
 

@@ -4,7 +4,9 @@
 
 ## What You'll Learn
 
-In this lesson, you will dive into the browser rendering pipeline to understand how style changes affect layout, paint, and composite stages. We'll identify how to avoid expensive layout thrashing, create smooth 60fps animations by restricting changes to transform and opacity, and implement critical CSS strategies to optimize the rendering path.
+- composite stages
+- implement critical CSS strategies to optimize the rendering path
+- implement critical CSS strategies to optimize the rendering path
 
 ## The Rendering Pipeline
 
@@ -163,7 +165,15 @@ Enable "Paint flashing" in DevTools. Navigate your site and note unexpected pain
 
 ## Key Takeaways
 
-To achieve smooth 60fps animations, you should restrict your transitions to `transform` and `opacity` properties, which run on the compositor thread. Be mindful of layout thrashing by batching your DOM reads and writes, and keep your selectors simple to reduce calculation costs. Finally, consider inlining critical CSS for above-the-fold content and using the `contain` property to isolate complex components from the rest of the page layout.
+- To achieve smooth 60fps animations, you should restrict your transitions to `transform`
+- `opacity` properties, which run on the compositor thread
+- `opacity` properties, which run on the compositor thread
+- Be mindful of layout thrashing by batching your DOM reads and writes
+- keep your selectors simple to reduce calculation costs
+- keep your selectors simple to reduce calculation costs
+- Finally, consider inlining critical CSS for above-the-fold content
+- using the `contain` property to isolate complex components from the rest of the page layout
+- using the `contain` property to isolate complex components from the rest of the page layout
 
 ## Next Steps
 

@@ -4,7 +4,10 @@
 
 ## What You'll Learn
 
-During this module, you will learn exactly what Swift is and why it remains the premier language for Apple platform development. We'll examine the use of Swift Playgrounds for interactive learning and provide a comprehensive overview of basic syntax to help you write your first lines of modern Swift code.
+- During this module, you will learn exactly what Swift is
+- why it remains the premier language for Apple platform development
+- why it remains the premier language for Apple platform development
+- We'll examine the use of Swift Playgrounds for interactive learning
 
 ## What Is Swift?
 
@@ -150,7 +153,14 @@ Print a formatted receipt line.
 
 ## Key Takeaways
 
-To build a strong foundation in Apple platform development, you must embrace Swift's safe, fast, and modern architecture. Use `let` for constants to ensure immutability and `var` for variables that require change, while leveraging type inference to keep your code clean and readable. Master the use of string interpolation for dynamic text and utilise playgrounds as your primary environment for continuous learning and experimentation.
+- To build a strong foundation in Apple platform development, you must embrace Swift's safe, fast
+- modern architecture
+- Use `let` for constants to ensure immutability and `var` for variables that require change
+- leveraging type inference to keep your code clean and readable
+- leveraging type inference to keep your code clean and readable
+- Master the use of string interpolation for dynamic text
+- utilise playgrounds as your primary environment for continuous learning
+- utilise playgrounds as your primary environment for continuous learning and experimentation
 
 ## Next Steps
 
