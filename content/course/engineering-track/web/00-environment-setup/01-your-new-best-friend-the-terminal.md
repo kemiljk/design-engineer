@@ -49,15 +49,19 @@ The name comes from the early days of computing when people used physical termin
 You'll hear several terms used interchangeably. Here's what they mean:
 
 ### Terminal
+
 The application that displays the text interface. On Mac, it's called Terminal.app. On Windows, there's Windows Terminal or Command Prompt.
 
 ### Command Line
+
 The actual line where you type commands. When someone says "do this on the command line", they mean "type this in the terminal".
 
 ### Shell
+
 The program that interprets your commands and executes them. Different shells have slightly different features. On Mac, the default is called **zsh** (pronounced "zee-shell"). On Windows, it's **PowerShell** or **cmd**.
 
 ### CLI (Command Line Interface)
+
 A general term for any tool you interact with by typing commands. When a developer says "use the npm CLI", they mean "type npm commands in your terminal".
 
 For practical purposes, these terms all refer to the same experience: typing text commands to control your computer.
@@ -88,6 +92,7 @@ karl@macbook ~ %
 ```
 
 This is called the **prompt**. It tells you:
+
 - Your username (`karl`)
 - Your computer name (`macbook`)
 - Your current location (`~` means your home folder)
@@ -143,29 +148,17 @@ Here's why the terminal becomes essential:
 
 ### 1. Running Development Servers
 
-When you build websites with modern tools (React, Next.js, Vue, etc.), you need to run a local server. This is always done through the terminal:
-
-```bash
-npm run dev
-```
+When you build websites with modern tools (React, Next.js, Vue, etc.), you need to run a local server. This is always done through the terminal: `npm run dev`
 
 There's no GUI alternative for this.
 
 ### 2. Installing Tools
 
-Design and development tools are often installed via the terminal:
-
-```bash
-npm install figma-tokens
-```
+Design and development tools are often installed via the terminal: `npm install figma-tokens`
 
 ### 3. Version Control
 
-Git (the system that lets you save, track, and collaborate on code) is primarily used through the terminal:
-
-```bash
-git commit -m "Updated the header design"
-```
+Git (the system that lets you save, track, and collaborate on code) is primarily used through the terminal: `git commit -m "Updated the header design"`
 
 ### 4. Automation
 
@@ -182,6 +175,7 @@ Once you're comfortable, the terminal is faster than clicking through menus. Pow
 The default terminal looks stark. Make it friendlier:
 
 **On Mac Terminal:**
+
 1. Open Terminal
 2. Go to **Terminal → Settings** (or press **⌘ + ,**)
 3. Choose a profile you like (Pro, Ocean, or Homebrew are popular)
@@ -220,31 +214,37 @@ Let's do a practical exercise. Follow along:
 1. **Open your terminal**
 
 2. **Check where you are:**
+
    ```bash
    pwd
    ```
 
 3. **Go to your Desktop:**
+
    ```bash
    cd ~/Desktop
    ```
 
 4. **Create a new folder:**
+
    ```bash
    mkdir design-engineer-practice
    ```
 
 5. **Go into that folder:**
+
    ```bash
    cd design-engineer-practice
    ```
 
 6. **Verify you're there:**
+
    ```bash
    pwd
    ```
 
 7. **Create an empty file:**
+
    ```bash
    touch hello.txt
    ```
