@@ -16,7 +16,16 @@ import { cn } from "@/lib/utils";
 import { useBanner } from "./banner-context";
 import { Logo } from "@/app/components/logo";
 import { LogoContextMenu } from "@/app/components/logo-context-menu";
-import { Menu, MoreHoriz as MoreHorizontal, Xmark, ViewGrid as LayoutDashboard, Notes as StickyNote, Medal as Award, Folder as FolderKanban, OpenNewWindow as ExternalLink } from "iconoir-react";
+import {
+  Menu,
+  MoreHoriz as MoreHorizontal,
+  Xmark,
+  ViewGrid as LayoutDashboard,
+  Notes as StickyNote,
+  Medal as Award,
+  Folder as FolderKanban,
+  OpenNewWindow as ExternalLink,
+} from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
 
@@ -47,6 +56,8 @@ type NavLink = {
   target?: string;
 };
 
+import { Menu as BaseMenu } from "@base-ui-components/react/menu";
+
 function DesktopOverflowMenu({
   items,
   isActive,
@@ -54,102 +65,126 @@ function DesktopOverflowMenu({
   items: NavLink[];
   isActive: (href: string) => boolean;
 }) {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!open) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-
-    const onPointerDown = (event: PointerEvent) => {
-      const target = event.target;
-      if (!(target instanceof Node)) return;
-      if (!containerRef.current?.contains(target)) setOpen(false);
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-    };
-  }, [open]);
-
   if (items.length === 0) return null;
 
   return (
-    <div ref={containerRef} className="relative">
-      <button
-        type="button"
-        aria-label="More pages"
-        aria-haspopup="menu"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-        className="focus-ring flex size-9 items-center justify-center text-neutral-500 transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-white"
-      >
+    <BaseMenu.Root>
+      <BaseMenu.Trigger className="focus-ring flex size-9 items-center justify-center text-neutral-500 transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:text-neutral-400 dark:hover:text-white">
         <MoreHorizontal className="h-5 w-5" />
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            role="menu"
-            initial={{ opacity: 0, y: -8, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -4, scale: 0.98 }}
-            transition={{ duration: duration.fast, ease: ease.out }}
-            className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden border border-neutral-200 bg-white shadow-lg dark:border-neutral-800 dark:bg-black"
-          >
-            {items.map((item, index) =>
-              isExternalLink(item.href) ? (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  role="menuitem"
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: duration.fast, delay: index * 0.03 }}
-                  className="focus-ring flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black motion-reduce:transition-none dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white"
-                >
-                  {item.title}
-                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
-                </motion.a>
-              ) : (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: duration.fast, delay: index * 0.03 }}
-                >
-                  <NextLink
-                    href={item.href}
-                    prefetch={true}
-                    role="menuitem"
-                    aria-current={isActive(item.href) ? "page" : undefined}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black motion-reduce:transition-none dark:hover:bg-neutral-900 dark:hover:text-white",
-                      isActive(item.href)
-                        ? "text-swiss-red"
-                        : "text-neutral-700 dark:text-neutral-200",
-                    )}
-                  >
-                    {item.title}
-                  </NextLink>
-                </motion.div>
-              ),
+      </BaseMenu.Trigger>
+      <BaseMenu.Portal>
+        <BaseMenu.Positioner align="end" side="bottom" sideOffset={8}>
+          <BaseMenu.Popup
+            render={({
+              className,
+              onDrag,
+              onDragCapture,
+              onDragEnd,
+              onDragEndCapture,
+              onDragStart,
+              onDragStartCapture,
+              onDragOver,
+              onDragEnter,
+              onDragLeave,
+              onAnimationStart,
+              onAnimationEnd,
+              ...props
+            }) => (
+              <motion.div
+                {...props}
+                initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -4, scale: 0.98 }}
+                transition={{ duration: duration.fast, ease: ease.out }}
+                className="z-50 min-w-56 overflow-hidden border border-neutral-200 bg-white shadow-lg focus:outline-none dark:border-neutral-800 dark:bg-black"
+              >
+                {items.map((item, index) =>
+                  isExternalLink(item.href) ? (
+                    <BaseMenu.Item
+                      key={item.href}
+                      render={({
+                        className,
+                        onDrag,
+                        onDragCapture,
+                        onDragEnd,
+                        onDragEndCapture,
+                        onDragStart,
+                        onDragStartCapture,
+                        onAnimationStart,
+                        onAnimationEnd,
+                        ...props
+                      }) => (
+                        <motion.a
+                          {...props}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: duration.fast,
+                            delay: index * 0.03,
+                          }}
+                          className="focus-ring flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black focus:bg-neutral-50 focus:text-black focus:outline-none motion-reduce:transition-none dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:text-white dark:focus:bg-neutral-900 dark:focus:text-white"
+                        >
+                          {item.title}
+                          <ExternalLink
+                            className="h-3 w-3"
+                            aria-hidden="true"
+                          />
+                        </motion.a>
+                      )}
+                    />
+                  ) : (
+                    <BaseMenu.Item
+                      key={item.href}
+                      render={({
+                        className,
+                        onDrag,
+                        onDragCapture,
+                        onDragEnd,
+                        onDragEndCapture,
+                        onDragStart,
+                        onDragStartCapture,
+                        onAnimationStart,
+                        onAnimationEnd,
+                        ...props
+                      }) => (
+                        <motion.div
+                          {...props}
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: duration.fast,
+                            delay: index * 0.03,
+                          }}
+                        >
+                          <NextLink
+                            href={item.href}
+                            prefetch={true}
+                            aria-current={
+                              isActive(item.href) ? "page" : undefined
+                            }
+                            className={cn(
+                              "focus-ring block px-3 py-2 text-sm font-medium transition-colors hover:bg-neutral-50 hover:text-black focus:bg-neutral-50 focus:text-black focus:outline-none motion-reduce:transition-none dark:hover:bg-neutral-900 dark:hover:text-white dark:focus:bg-neutral-900 dark:focus:text-white",
+                              isActive(item.href)
+                                ? "text-swiss-red"
+                                : "text-neutral-700 dark:text-neutral-200",
+                            )}
+                          >
+                            {item.title}
+                          </NextLink>
+                        </motion.div>
+                      )}
+                    />
+                  ),
+                )}
+              </motion.div>
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          />
+        </BaseMenu.Positioner>
+      </BaseMenu.Portal>
+    </BaseMenu.Root>
   );
 }
 
@@ -342,7 +377,9 @@ export default function Nav({
         <div className="flex shrink-0 items-center">
           <LogoContextMenu
             logoName="d×e Logo"
-            getSvgElement={() => navLogoRef.current?.querySelector("svg") as SVGElement | null}
+            getSvgElement={() =>
+              navLogoRef.current?.querySelector("svg") as SVGElement | null
+            }
           >
             <NextLink
               href="/"
@@ -350,9 +387,9 @@ export default function Nav({
               className="focus-ring text-foreground group"
             >
               <div ref={navLogoRef}>
-                <Logo 
-                  size={32} 
-                  className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transition-none" 
+                <Logo
+                  size={32}
+                  className="text-foreground transition-transform duration-300 ease-out group-hover:scale-105 motion-reduce:transition-none"
                 />
               </div>
             </NextLink>
@@ -465,8 +502,11 @@ export default function Nav({
                     rel="noopener noreferrer"
                     onClick={() => setIsMenuOpen(false)}
                     variants={menuItemVariants}
-                    transition={{ duration: duration.normal, ease: ease.outQuint }}
-                    className="focus-ring text-foreground flex items-center gap-2 w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
+                    transition={{
+                      duration: duration.normal,
+                      ease: ease.outQuint,
+                    }}
+                    className="focus-ring text-foreground flex w-full items-center gap-2 text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white"
                   >
                     {item.title}
                     <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -475,7 +515,10 @@ export default function Nav({
                   <motion.div
                     key={`menu-${item.title}-${index}`}
                     variants={menuItemVariants}
-                    transition={{ duration: duration.normal, ease: ease.outQuint }}
+                    transition={{
+                      duration: duration.normal,
+                      ease: ease.outQuint,
+                    }}
                   >
                     <NextLink
                       href={item.href}
@@ -484,7 +527,9 @@ export default function Nav({
                       onClick={() => setIsMenuOpen(false)}
                       className={cn(
                         "focus-ring block w-full text-2xl font-medium tracking-tight uppercase transition-[color,transform] duration-150 ease-out hover:text-black active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:text-white",
-                        isActive(item.href) ? "text-swiss-red" : "text-foreground",
+                        isActive(item.href)
+                          ? "text-swiss-red"
+                          : "text-foreground",
                       )}
                     >
                       {item.title}

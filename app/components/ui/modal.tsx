@@ -12,12 +12,10 @@ import { cn } from "@/lib/utils";
 import { Xmark } from "iconoir-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ease, duration } from "@/lib/motion";
+import { Dialog } from "@base-ui-components/react/dialog";
 
 interface ModalContextValue {
-  isOpen: boolean;
-  onOpen: () => void;
   onClose: () => void;
-  onOpenChange: (open: boolean) => void;
 }
 
 const ModalContext = createContext<ModalContextValue | null>(null);
@@ -47,29 +45,6 @@ function Modal({
   backdrop = "opaque",
   size = "md",
 }: ModalProps) {
-  const onClose = useCallback(() => onOpenChange(false), [onOpenChange]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isOpen, onClose]);
-
   const backdropClasses = {
     blur: "bg-black/50 backdrop-blur-sm",
     opaque: "bg-black/50",
@@ -86,36 +61,84 @@ function Modal({
   };
 
   return (
-    <ModalContext.Provider
-      value={{ isOpen, onOpen: () => onOpenChange(true), onClose, onOpenChange }}
-    >
-      <AnimatePresence>
-        {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center overscroll-contain">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: duration.fast }}
-              className={cn("fixed inset-0", backdropClasses[backdrop])}
-              onClick={onClose}
-              aria-hidden="true"
-            />
-            <motion.div
-              role="dialog"
-              aria-modal="true"
-              initial={{ opacity: 0, scale: 0.96, y: 8 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.98, y: 4 }}
-              transition={{ duration: duration.normal, ease: ease.outQuint }}
-              className={cn("relative z-50 w-full", sizeClasses[size])}
-            >
-              {children}
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-    </ModalContext.Provider>
+    <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
+      <ModalContext.Provider value={{ onClose: () => onOpenChange(false) }}>
+        <AnimatePresence>
+          {isOpen && (
+            <Dialog.Portal>
+              <Dialog.Backdrop
+                render={({
+                  className,
+                  onDrag,
+                  onDragCapture,
+                  onDragEnd,
+                  onDragEndCapture,
+                  onDragStart,
+                  onDragStartCapture,
+                  onDragOver,
+                  onDragEnter,
+                  onDragLeave,
+                  onAnimationStart,
+                  onAnimationEnd,
+                  ...props
+                }) => (
+                  <motion.div
+                    {...props}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: duration.fast }}
+                    className={cn(
+                      "fixed inset-0 z-50 flex items-center justify-center overscroll-contain",
+                      backdropClasses[backdrop],
+                      className,
+                    )}
+                  />
+                )}
+              />
+              <Dialog.Popup
+                render={({
+                  className,
+                  onDrag,
+                  onDragCapture,
+                  onDragEnd,
+                  onDragEndCapture,
+                  onDragStart,
+                  onDragStartCapture,
+                  onAnimationStart,
+                  onAnimationEnd,
+                  ...props
+                }) => (
+                  <div
+                    {...props}
+                    className={cn(
+                      "pointer-events-none fixed inset-0 z-50 flex items-center justify-center",
+                      className,
+                    )}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.96, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.98, y: 4 }}
+                      transition={{
+                        duration: duration.normal,
+                        ease: ease.outQuint,
+                      }}
+                      className={cn(
+                        "pointer-events-auto relative w-full",
+                        sizeClasses[size],
+                      )}
+                    >
+                      {children}
+                    </motion.div>
+                  </div>
+                )}
+              />
+            </Dialog.Portal>
+          )}
+        </AnimatePresence>
+      </ModalContext.Provider>
+    </Dialog.Root>
   );
 }
 
@@ -130,17 +153,21 @@ const ModalContent = forwardRef<
       ref={ref}
       className={cn(
         "relative max-h-[90vh] overflow-auto border border-neutral-200 bg-white dark:border-neutral-800 dark:bg-black",
-        className
+        className,
       )}
       {...props}
     >
-      <button
-        onClick={context?.onClose}
-        className="focus-ring absolute right-4 top-4 p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 motion-reduce:transition-none dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
-        aria-label="Close modal"
-      >
-        <Xmark className="h-4 w-4" />
-      </button>
+      <Dialog.Close
+        render={(props) => (
+          <button
+            {...props}
+            className="focus-ring absolute top-4 right-4 p-1 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600 motion-reduce:transition-none dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+            aria-label="Close modal"
+          >
+            <Xmark className="h-4 w-4" />
+          </button>
+        )}
+      />
       {children}
     </div>
   );
@@ -151,7 +178,7 @@ const ModalHeader = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pb-2 pr-12", className)} {...props} />
+  <div ref={ref} className={cn("p-6 pr-12 pb-2", className)} {...props} />
 ));
 ModalHeader.displayName = "ModalHeader";
 

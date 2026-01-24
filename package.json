@@ -29,6 +29,7 @@
     "@ai-sdk/anthropic": "^3.0.18",
     "@ai-sdk/rsc": "^2.0.45",
     "@anthropic-ai/sdk": "^0.71.2",
+    "@base-ui-components/react": "^1.0.0-rc.0",
     "@clerk/nextjs": "^6.36.9",
     "@clerk/themes": "^2.4.49",
     "@dnd-kit/core": "^6.3.1",
