@@ -157,7 +157,7 @@ async function SponsorsSection({
                   render={
                     <Link
                       href={sponsor.metadata.url}
-                      className="flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
+                      className="transition-saturate flex items-center gap-2 saturate-0 hover:saturate-100"
                     >
                       <Image
                         src={`${sponsor.metadata.logo.imgix_url}?w=200&auto=format`}
