@@ -79,8 +79,9 @@ export const CourseWaitlistConfirmationTemplate: React.FC<
         }}
       >
         Thanks for signing up to be notified about the Design Engineer Course.
-        We&apos;ll let you know at <strong style={{ color: "#171717" }}>{email}</strong> as
-        soon as there&apos;s news.
+        We&apos;ll let you know at{" "}
+        <strong style={{ color: "#171717" }}>{email}</strong> as soon as
+        there&apos;s news.
       </p>
     </div>
 
@@ -249,8 +250,9 @@ export const CourseWaitlistConfirmationTemplate: React.FC<
           marginRight: "auto",
         }}
       >
-        You&apos;re receiving this email because you signed up to be notified about the
-        Design Engineer Course at designengineer.xyz. Didn&apos;t sign up?{" "}
+        You&apos;re receiving this email because you signed up to be notified
+        about the Design Engineer Course at designengineer.xyz. Didn&apos;t sign
+        up?{" "}
         <a
           href={`https://designengineer.xyz/api/unsubscribe?email=${encodeURIComponent(email)}`}
           style={{
@@ -314,83 +316,329 @@ interface StudentDiscountEmailProps {
   totalLessons?: number;
 }
 
+export const CourseWelcomeEmail: React.FC<Readonly<EmailTemplateProps>> = ({
+  email,
+}) => (
+  <div
+    style={{
+      fontFamily:
+        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      maxWidth: "600px",
+      margin: "0 auto",
+      backgroundColor: "#ffffff",
+    }}
+  >
+    {/* Header with brand accent */}
+    <div
+      style={{
+        borderTop: "4px solid #ff4400",
+        padding: "32px 24px 24px",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "12px",
+          fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+          color: "#ff4400",
+          margin: "0 0 16px 0",
+        }}
+      >
+        Design Engineer Course
+      </p>
+      <h1
+        style={{
+          fontSize: "28px",
+          fontWeight: 700,
+          color: "#171717",
+          margin: "0 0 16px 0",
+          lineHeight: 1.1,
+          letterSpacing: "-0.02em",
+        }}
+      >
+        Welcome to the course!
+      </h1>
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: 1.6,
+          color: "#525252",
+          margin: "0 0 16px 0",
+        }}
+      >
+        I genuinely want to say a huge thank you for investing your money in me
+        and this course. It means the world to have you here.
+      </p>
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: 1.6,
+          color: "#525252",
+          margin: "0",
+        }}
+      >
+        I&apos;ve poured everything I know into this curriculum, and I
+        can&apos;t wait to see what you build with these new skills.
+      </p>
+    </div>
+
+    {/* CTA Section */}
+    <div style={{ padding: "0 24px 24px" }}>
+      <a
+        href="https://designengineer.xyz/course/dashboard"
+        style={{
+          display: "inline-block",
+          backgroundColor: "#ff4400",
+          color: "#ffffff",
+          fontSize: "14px",
+          fontWeight: 600,
+          textDecoration: "none",
+          padding: "12px 24px",
+          letterSpacing: "0.02em",
+          borderRadius: "4px",
+        }}
+      >
+        Go to Dashboard →
+      </a>
+    </div>
+
+    {/* Footer */}
+    <div
+      style={{
+        padding: "24px",
+        borderTop: "1px solid #e5e5e5",
+        textAlign: "center",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: 1.6,
+          color: "#525252",
+          margin: "0 0 8px 0",
+        }}
+      >
+        If you need anything at all, just reply to this email.
+      </p>
+      <p
+        style={{
+          fontSize: "16px",
+          lineHeight: 1.6,
+          color: "#525252",
+          margin: "0 0 24px 0",
+        }}
+      >
+        Happy learning!
+      </p>
+      <p
+        style={{
+          fontSize: "13px",
+          color: "#a3a3a3",
+          margin: "0 0 8px 0",
+          lineHeight: 1.5,
+        }}
+      >
+        d×e · Design Engineer Course
+      </p>
+      <a
+        href="https://designengineer.xyz"
+        style={{
+          fontSize: "13px",
+          color: "#a3a3a3",
+          textDecoration: "none",
+        }}
+      >
+        designengineer.xyz
+      </a>
+    </div>
+  </div>
+);
+
 export const StudentDiscountEmailTemplate: React.FC<
   Readonly<StudentDiscountEmailProps>
 > = ({ email, discountCode, totalLessons = 156 }) => (
-  <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '600px', margin: '0 auto' }}>
-    <h1 style={{ color: '#000', fontSize: '24px', marginBottom: '16px' }}>
+  <div
+    style={{
+      fontFamily: "Arial, sans-serif",
+      maxWidth: "600px",
+      margin: "0 auto",
+    }}
+  >
+    <h1 style={{ color: "#000", fontSize: "24px", marginBottom: "16px" }}>
       Your Student Discount Code 🎓
     </h1>
-    <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#333', marginBottom: '16px' }}>
+    <p
+      style={{
+        fontSize: "16px",
+        lineHeight: "1.6",
+        color: "#333",
+        marginBottom: "16px",
+      }}
+    >
       Hi there,
     </p>
-    <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#333', marginBottom: '16px' }}>
-      Thanks for verifying your student status with {email}. Here&apos;s your exclusive 30% discount code for the Design Engineer Course:
+    <p
+      style={{
+        fontSize: "16px",
+        lineHeight: "1.6",
+        color: "#333",
+        marginBottom: "16px",
+      }}
+    >
+      Thanks for verifying your student status with {email}. Here&apos;s your
+      exclusive 30% discount code for the Design Engineer Course:
     </p>
-    <div style={{ 
-      backgroundColor: '#f5f5f5', 
-      padding: '20px', 
-      textAlign: 'center',
-      border: '2px dashed #d4d4d4',
-      marginBottom: '24px'
-    }}>
-      <p style={{ fontSize: '14px', color: '#666', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+    <div
+      style={{
+        backgroundColor: "#f5f5f5",
+        padding: "20px",
+        textAlign: "center",
+        border: "2px dashed #d4d4d4",
+        marginBottom: "24px",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "14px",
+          color: "#666",
+          marginBottom: "8px",
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+        }}
+      >
         Your Discount Code
       </p>
-      <p style={{ 
-        fontSize: '28px', 
-        fontWeight: 'bold', 
-        color: '#000',
-        letterSpacing: '2px',
-        margin: '0',
-        fontFamily: 'monospace'
-      }}>
+      <p
+        style={{
+          fontSize: "28px",
+          fontWeight: "bold",
+          color: "#000",
+          letterSpacing: "2px",
+          margin: "0",
+          fontFamily: "monospace",
+        }}
+      >
         {discountCode}
       </p>
     </div>
-    <div style={{ 
-      backgroundColor: '#FEF3C7', 
-      padding: '16px', 
-      borderLeft: '4px solid #F59E0B',
-      marginBottom: '24px'
-    }}>
-      <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#92400E', margin: '0' }}>
-        <strong>Important:</strong> This code is unique to you and can only be used once. Please don&apos;t share it with others.
+    <div
+      style={{
+        backgroundColor: "#FEF3C7",
+        padding: "16px",
+        borderLeft: "4px solid #F59E0B",
+        marginBottom: "24px",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "14px",
+          lineHeight: "1.6",
+          color: "#92400E",
+          margin: "0",
+        }}
+      >
+        <strong>Important:</strong> This code is unique to you and can only be
+        used once. Please don&apos;t share it with others.
       </p>
     </div>
-    <h2 style={{ fontSize: '18px', color: '#000', marginBottom: '12px' }}>
+    <h2 style={{ fontSize: "18px", color: "#000", marginBottom: "12px" }}>
       How to Use Your Code:
     </h2>
-    <ol style={{ fontSize: '16px', lineHeight: '1.8', color: '#333', paddingLeft: '20px', marginBottom: '24px' }}>
-      <li>Visit the <a href="https://designengineer.xyz/course/pricing" style={{ color: '#DC2626', textDecoration: 'none' }}>pricing page</a></li>
-      <li>Choose your course (we recommend Convergence All-Access for the best value!)</li>
+    <ol
+      style={{
+        fontSize: "16px",
+        lineHeight: "1.8",
+        color: "#333",
+        paddingLeft: "20px",
+        marginBottom: "24px",
+      }}
+    >
+      <li>
+        Visit the{" "}
+        <a
+          href="https://designengineer.xyz/course/pricing"
+          style={{ color: "#DC2626", textDecoration: "none" }}
+        >
+          pricing page
+        </a>
+      </li>
+      <li>
+        Choose your course (we recommend Convergence All-Access for the best
+        value!)
+      </li>
       <li>Click &quot;Get Access&quot; to proceed to checkout</li>
       <li>Enter your discount code at checkout</li>
       <li>Your 30% discount will be applied automatically</li>
     </ol>
-    <div style={{ 
-      backgroundColor: '#ECFDF5', 
-      padding: '16px', 
-      borderRadius: '8px',
-      marginBottom: '24px'
-    }}>
-      <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#065F46', margin: '0' }}>
-        💡 <strong>Pro Tip:</strong> With the student discount, Convergence All-Access (all {totalLessons} lessons across all tracks and platforms) becomes even more affordable. It&apos;s the best way to master Design Engineering!
+    <div
+      style={{
+        backgroundColor: "#ECFDF5",
+        padding: "16px",
+        borderRadius: "8px",
+        marginBottom: "24px",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "14px",
+          lineHeight: "1.6",
+          color: "#065F46",
+          margin: "0",
+        }}
+      >
+        💡 <strong>Pro Tip:</strong> With the student discount, Convergence
+        All-Access (all {totalLessons} lessons across all tracks and platforms)
+        becomes even more affordable. It&apos;s the best way to master Design
+        Engineering!
       </p>
     </div>
-    <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#333', marginBottom: '16px' }}>
+    <p
+      style={{
+        fontSize: "16px",
+        lineHeight: "1.6",
+        color: "#333",
+        marginBottom: "16px",
+      }}
+    >
       If you have any questions or need help, just reply to this email.
     </p>
-    <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#333', marginBottom: '8px' }}>
+    <p
+      style={{
+        fontSize: "16px",
+        lineHeight: "1.6",
+        color: "#333",
+        marginBottom: "8px",
+      }}
+    >
       Happy learning!
     </p>
-    <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#333', margin: '0' }}>
+    <p
+      style={{
+        fontSize: "16px",
+        lineHeight: "1.6",
+        color: "#333",
+        margin: "0",
+      }}
+    >
       The d×e Team
     </p>
-    <hr style={{ border: 'none', borderTop: '1px solid #e5e5e5', margin: '32px 0' }} />
-    <p style={{ fontSize: '12px', color: '#999', lineHeight: '1.6' }}>
-      Design Engineer Course<br />
-      <a href="https://designengineer.xyz" style={{ color: '#999', textDecoration: 'none' }}>designengineer.xyz</a>
+    <hr
+      style={{
+        border: "none",
+        borderTop: "1px solid #e5e5e5",
+        margin: "32px 0",
+      }}
+    />
+    <p style={{ fontSize: "12px", color: "#999", lineHeight: "1.6" }}>
+      Design Engineer Course
+      <br />
+      <a
+        href="https://designengineer.xyz"
+        style={{ color: "#999", textDecoration: "none" }}
+      >
+        designengineer.xyz
+      </a>
     </p>
   </div>
 );
