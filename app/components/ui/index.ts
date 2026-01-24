@@ -25,3 +25,9 @@ export {
   TableRow,
   TableCell,
 } from "./table";
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "./tooltip";

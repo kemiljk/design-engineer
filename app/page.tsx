@@ -11,7 +11,13 @@ import * as Type from "@/lib/types";
 import { RandomisedPosts } from "@/app/components/randomised-posts";
 import { cn } from "@/lib/utils";
 import SectionTitle from "./components/section-title";
-import { Button } from "@/app/components/ui";
+import {
+  Button,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/app/components/ui";
 import { TrackLogo } from "@/app/components/track-logo";
 import NextLink from "next/link";
 import {
@@ -39,8 +45,13 @@ import { HeroIllustrationWrapper } from "./components/hero-illustration-wrapper"
 import { FAQAccordion } from "./course/faq/faq-accordion";
 import { AnimatedSection } from "./components/animated-section";
 import { AnimatedGrid } from "./components/animated-grid";
+import Link from "next/link";
 
-async function HeroSection({ homePromise }: { homePromise: ReturnType<typeof getHome> }) {
+async function HeroSection({
+  homePromise,
+}: {
+  homePromise: ReturnType<typeof getHome>;
+}) {
   const home = await homePromise;
 
   return (
@@ -99,7 +110,11 @@ function HeroSkeleton() {
   );
 }
 
-async function PostsSection({ postsPromise }: { postsPromise: ReturnType<typeof getPosts> }) {
+async function PostsSection({
+  postsPromise,
+}: {
+  postsPromise: ReturnType<typeof getPosts>;
+}) {
   const posts = await postsPromise;
 
   return <RandomisedPosts posts={posts} count={3} />;
@@ -118,7 +133,11 @@ function PostsSkeleton() {
   );
 }
 
-async function SponsorsSection({ sponsorsPromise }: { sponsorsPromise: Promise<Awaited<ReturnType<typeof getSponsors>>> }) {
+async function SponsorsSection({
+  sponsorsPromise,
+}: {
+  sponsorsPromise: Promise<Awaited<ReturnType<typeof getSponsors>>>;
+}) {
   const sponsors = await sponsorsPromise;
 
   return (
@@ -131,20 +150,31 @@ async function SponsorsSection({ sponsorsPromise }: { sponsorsPromise: Promise<A
           Supported by
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-          {sponsors.map((sponsor) => (
-            <div
-              key={sponsor.id}
-              className="flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
-            >
-              <Image
-                src={`${sponsor.metadata.logo.imgix_url}?w=200&auto=format`}
-                alt={sponsor.title}
-                width={200}
-                height={48}
-                className="h-8 w-auto md:h-10"
-              />
-            </div>
-          ))}
+          <TooltipProvider>
+            {sponsors.map((sponsor) => (
+              <Tooltip key={sponsor.id}>
+                <TooltipTrigger
+                  render={
+                    <Link
+                      href={sponsor.metadata.url}
+                      className="flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
+                    >
+                      <Image
+                        src={`${sponsor.metadata.logo.imgix_url}?w=200&auto=format`}
+                        alt={sponsor.title}
+                        width={200}
+                        height={48}
+                        className="h-8 w-auto md:h-10"
+                      />
+                    </Link>
+                  }
+                />
+                <TooltipContent>
+                  <p>{sponsor.title}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </TooltipProvider>
         </div>
       </div>
     </AnimatedSection>
@@ -384,7 +414,13 @@ function DesignEngineeringSection() {
   );
 }
 
-async function CourseSection({ coursePromise }: { coursePromise: Promise<[{ is_available: boolean }, Awaited<ReturnType<typeof getCourse>>]> }) {
+async function CourseSection({
+  coursePromise,
+}: {
+  coursePromise: Promise<
+    [{ is_available: boolean }, Awaited<ReturnType<typeof getCourse>>]
+  >;
+}) {
   const [{ is_available: isCourseAvailable }, course] = await coursePromise;
 
   const tracks = [
