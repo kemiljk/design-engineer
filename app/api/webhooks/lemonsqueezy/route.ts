@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     if (userEmail) {
       try {
         await resend.emails.send({
-          from: "dxe <hello@designengineer.xyz>",
+          from: "d×e <hello@designengineer.xyz>",
           to: [userEmail],
           subject: "Welcome to the Course!",
           react: CourseWelcomeEmail({ email: userEmail }) as React.ReactElement,

@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   try {
     const res = await request.json();
     const data = await resend.emails.send({
-      from: "dxe <hello@designengineer.xyz>",
+      from: "d×e <hello@designengineer.xyz>",
       to: [res.email],
       subject: "Thanks for joining the d×e waitlist",
       react: EmailTemplate({ email: res.email }) as React.ReactElement<any>,

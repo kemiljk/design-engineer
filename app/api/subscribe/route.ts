@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
       // Notify admin about new subscriber
       await resend.emails.send({
-        from: "dxe <hello@designengineer.xyz>",
+        from: "d×e <hello@designengineer.xyz>",
         to: ["hello@designengineer.xyz"],
         subject: "New course waitlist subscriber",
         react: EmailWaitlistTemplate({
