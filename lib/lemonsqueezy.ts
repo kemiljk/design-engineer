@@ -1,7 +1,10 @@
 import "server-only";
 import crypto from "crypto";
-import { nanoid } from "nanoid";
+import { customAlphabet } from "nanoid";
 import type { ProductKey, ProductWithPrice } from "./types";
+
+// LemonSqueezy only allows alphanumeric characters in discount codes
+const alphanumericNanoid = customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', 10);
 
 const LEMONSQUEEZY_API_KEY = process.env.LEMONSQUEEZY_API_KEY;
 const LEMONSQUEEZY_STORE_ID = process.env.LEMONSQUEEZY_STORE_ID;
@@ -414,8 +417,7 @@ export async function createDiscount(
   }
 
   try {
-    // LemonSqueezy only allows alphanumeric characters in discount codes (no hyphens)
-    const uniqueCode = `${prefix}${nanoid(10).toUpperCase()}`;
+    const uniqueCode = `${prefix}${alphanumericNanoid()}`;
     
     const response = await lemonFetch<CreateDiscountResponse>("/discounts", {
       method: "POST",

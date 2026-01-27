@@ -13,8 +13,8 @@ async function verifyDdgDiscountOwnership(
   discountCode: string,
   userEmail: string
 ): Promise<string | null> {
-  // Only verify DDG discount codes (they start with "DDG-")
-  if (!discountCode.startsWith("DDG-")) {
+  // Only verify DDG discount codes (they start with "DDG" followed by alphanumeric)
+  if (!discountCode.startsWith("DDG")) {
     return null; // Not a DDG code, no verification needed
   }
 

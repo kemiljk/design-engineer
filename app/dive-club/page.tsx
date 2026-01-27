@@ -104,7 +104,8 @@ export default function DiveClubPage() {
       />
 
       <main className="flex-1 flex flex-col items-center justify-center p-8 relative z-10">
-        <div className="w-[448px] max-w-full">
+        {/* Narrow container for form, wide for product cards */}
+        <div className={discountCode ? "w-full max-w-4xl" : "w-[448px] max-w-full"}>
           
           {/* Header */}
           <div className="mb-8 text-center max-w-md mx-auto">
@@ -171,16 +172,17 @@ export default function DiveClubPage() {
                   (Automatically applied below)
                 </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* 3 cards × 320px (10 grid columns) + 2 gaps × 32px = 1024px = 32 grid units */}
+              <div className="flex flex-col md:flex-row justify-center gap-8">
                 {PRODUCTS.map((product) => (
                   <div 
                     key={product.key}
+                    style={{ width: 320 }}
                     className={cn(
-                      "flex flex-col bg-white dark:bg-neutral-900 border p-6 relative",
+                      "flex flex-col bg-white dark:bg-neutral-900 border p-6 relative shrink-0",
                       product.popular 
-                        ? "border-swiss-red shadow-lg scale-105 z-10" 
-                        : "border-neutral-200 dark:border-neutral-800 opacity-90 hover:opacity-100 transition-opacity"
+                        ? "border-swiss-red shadow-lg" 
+                        : "border-neutral-200 dark:border-neutral-800"
                     )}
                   >
                     {product.popular && (
