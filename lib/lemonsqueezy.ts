@@ -401,14 +401,20 @@ interface CreateDiscountResponse {
   };
 }
 
-export async function createStudentDiscount(studentEmail: string): Promise<string | null> {
+export async function createDiscount(
+  prefix: string,
+  name: string,
+  amount: number,
+  amountType: "percent" | "fixed" = "percent",
+  maxRedemptions: number = 1
+): Promise<string | null> {
   if (!LEMONSQUEEZY_API_KEY || !LEMONSQUEEZY_STORE_ID) {
     console.error("Missing LemonSqueezy credentials");
     return null;
   }
 
   try {
-    const uniqueCode = `STUDENT-${nanoid(10).toUpperCase()}`;
+    const uniqueCode = `${prefix}-${nanoid(10).toUpperCase()}`;
     
     const response = await lemonFetch<CreateDiscountResponse>("/discounts", {
       method: "POST",
@@ -416,12 +422,12 @@ export async function createStudentDiscount(studentEmail: string): Promise<strin
         data: {
           type: "discounts",
           attributes: {
-            name: `Student Discount - ${studentEmail}`,
+            name: `${name}`,
             code: uniqueCode,
-            amount: 30,
-            amount_type: "percent",
+            amount: amount,
+            amount_type: amountType,
             is_limited_redemptions: true,
-            max_redemptions: 1,
+            max_redemptions: maxRedemptions,
             starts_at: new Date().toISOString(),
           },
           relationships: {
@@ -438,7 +444,11 @@ export async function createStudentDiscount(studentEmail: string): Promise<strin
 
     return response.data.attributes.code;
   } catch (error) {
-    console.error("Error creating student discount:", error);
+    console.error("Error creating discount:", error);
     return null;
   }
+}
+
+export async function createStudentDiscount(studentEmail: string): Promise<string | null> {
+  return createDiscount("STUDENT", `Student Discount - ${studentEmail}`, 30);
 }
