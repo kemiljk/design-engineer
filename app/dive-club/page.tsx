@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { claimDiveClubDiscount } from "./actions";
-import { Sparks, ArrowRight, Check } from "iconoir-react";
+import { ArrowRight, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 // Hardcoded for display purposes, matching the main pricing page logic roughly
@@ -66,18 +66,25 @@ export default function DiveClubPage() {
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-black font-sans text-neutral-900 dark:text-white flex flex-col relative overflow-y-auto">
       
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none fixed" />
+      {/* Vertical grid lines - positioned so a line falls at viewport center */}
+      <div 
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right, #80808012 1px, transparent 1px)',
+          backgroundSize: '32px 100%',
+          backgroundPosition: 'calc(50% - 16px) 0'
+        }}
+      />
 
-      <main className="flex-1 flex flex-col items-center justify-start p-6 relative z-10 pt-20 pb-20">
-        <div className="max-w-4xl w-full">
+      <main className="flex-1 flex flex-col items-center justify-center p-8 relative z-10">
+        <div className="w-[448px] max-w-full">
           
           {/* Header */}
-          <div className="mb-12 text-center max-w-md mx-auto">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-swiss-red text-white mb-6">
-              <Sparks className="w-6 h-6" />
+          <div className="mb-8 text-center max-w-md mx-auto">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-swiss-red text-white mb-8">
+              <img src="/dive-logo.svg" alt="Dive Club" className="w-8 h-8" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+            <h1 className="text-4xl font-bold tracking-tight mb-4">
               Dive Club Exclusive
             </h1>
             <p className="text-neutral-600 dark:text-neutral-400">
@@ -86,14 +93,14 @@ export default function DiveClubPage() {
           </div>
 
           {!discountCode ? (
-            <div className="max-w-md mx-auto bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 shadow-xl relative">
+            <div className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 shadow-2xl relative">
               {/* Decorative Corner */}
               <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-swiss-red" />
               <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-swiss-red" />
 
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form onSubmit={onSubmit} className="space-y-8">
                 <div>
-                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider mb-2 text-neutral-500">
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider h-8 text-neutral-500">
                     Email Address
                   </label>
                   <input
@@ -102,7 +109,7 @@ export default function DiveClubPage() {
                     id="email"
                     required
                     placeholder="you@example.com"
-                    className="w-full bg-neutral-100 dark:bg-neutral-800 border-none px-4 py-3 rounded-none focus:ring-2 focus:ring-swiss-red outline-none transition-all"
+                    className="w-full h-16 bg-neutral-100 dark:bg-neutral-800 border-2 border-transparent px-4 rounded-none focus:border-swiss-red focus:ring-0 outline-none transition-all font-medium"
                   />
                 </div>
 
@@ -115,14 +122,14 @@ export default function DiveClubPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-black dark:bg-white text-white dark:text-black py-4 font-bold uppercase tracking-wide hover:bg-swiss-red dark:hover:bg-swiss-red hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full h-16 bg-black dark:bg-white text-white dark:text-black font-bold uppercase tracking-wide hover:bg-swiss-red dark:hover:bg-swiss-red hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
                 >
                   {isLoading ? "Unlocking..." : "Unlock Discount"}
                   {!isLoading && <ArrowRight className="w-4 h-4" />}
                 </button>
               </form>
               
-              <p className="mt-4 text-xs text-center text-neutral-400">
+              <p className="mt-8 text-xs text-center text-neutral-400 h-8">
                 Discount applies to all course tiers.
               </p>
             </div>

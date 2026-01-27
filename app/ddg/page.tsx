@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { claimDuckDuckGoAccess } from "./actions";
-import { Lock, ArrowRight, Check, Rocket } from "iconoir-react";
+import { Lock, ArrowRight, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 const PRODUCT_VARIANT_ID = process.env.NEXT_PUBLIC_LEMON_PRODUCT_FULL;
@@ -35,31 +35,40 @@ export default function DdgPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#DE5833] font-sans text-white flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-neutral-50 dark:bg-black font-sans text-neutral-900 dark:text-white flex flex-col relative overflow-hidden">
       
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+      {/* Vertical grid lines - positioned so a line falls at viewport center */}
+      <div 
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(to right, #80808012 1px, transparent 1px)',
+          backgroundSize: '32px 100%',
+          backgroundPosition: 'calc(50% - 16px) 0'
+        }}
+      />
 
-      <main className="flex-1 flex flex-col items-center justify-center p-6 relative z-10">
-        <div className="max-w-md w-full">
+      <main className="flex-1 flex flex-col items-center justify-center p-8 relative z-10">
+        <div className="w-[448px] max-w-full">
           
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white text-[#DE5833] rounded-full mb-6 shadow-xl">
-               <Rocket className="w-8 h-8" />
+            <div className="inline-flex items-center justify-center size-16 rounded-full mb-8 shadow-xl">
+               <img src="/ddg-logo.svg" alt="DuckDuckGo" className="size-16" />
             </div>
-            <h1 className="text-4xl font-bold mb-3">Hello, Colleague! 👋</h1>
-            <p className="text-white/80 text-lg">
+            <h1 className="text-4xl font-bold mb-4">Hello, Colleague! 👋</h1>
+            <p className="text-neutral-900/80 text-lg">
               Unlock free lifetime access to the full Design Engineer course using your DuckDuckGo email.
             </p>
           </div>
 
           {!discountCode ? (
-            <div className="bg-white text-neutral-900 p-8 shadow-2xl rounded-none relative">
-               <div className="absolute top-0 left-0 w-full h-1 bg-black/10" />
+            <div className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 shadow-2xl relative">
+              {/* Decorative Corner */}
+              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-swiss-red" />
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-swiss-red" />
 
-              <form onSubmit={onSubmit} className="space-y-4">
+              <form onSubmit={onSubmit} className="space-y-8">
                 <div>
-                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider mb-2 text-neutral-500">
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider h-8 text-neutral-500">
                     DuckDuckGo Email
                   </label>
                   <input
@@ -68,7 +77,7 @@ export default function DdgPage() {
                     id="email"
                     required
                     placeholder="you@duckduckgo.com"
-                    className="w-full bg-neutral-100 border-2 border-transparent px-4 py-3 focus:border-[#DE5833] focus:ring-0 outline-none transition-all font-medium"
+                    className="w-full h-16 bg-neutral-100 border-2 border-transparent px-4 focus:border-[#DE5833] focus:ring-0 outline-none transition-all font-medium"
                   />
                 </div>
 
@@ -81,7 +90,7 @@ export default function DdgPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-black text-white py-4 font-bold uppercase tracking-wide hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full h-16 bg-black text-white font-bold uppercase tracking-wide hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
                 >
                   {isLoading ? "Verifying..." : "Get Free Access"}
                   {!isLoading && <ArrowRight className="w-4 h-4" />}

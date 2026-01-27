@@ -36,6 +36,10 @@ const isPublicRoute = createRouteMatcher([
   "/course/(.*)",
   "/capture(.*)", // Capture routes for GIF generation
   "/debug-demos(.*)", // Debug demos (dev only)
+  "/dive-club",
+  "/dive-club/(.*)",
+  "/ddg",
+  "/ddg/(.*)",
 ]);
 
 export default clerkMiddleware(async (auth, request) => {
