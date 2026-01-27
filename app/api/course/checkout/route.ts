@@ -3,6 +3,51 @@ import { NextRequest, NextResponse } from "next/server";
 import { createCheckout, PRODUCT_CONFIG } from "@/lib/lemonsqueezy";
 import type { ProductKey } from "@/lib/types";
 import { requireCourseAvailable } from "@/lib/course-availability";
+import { cosmic } from "@/lib/cosmic";
+
+/**
+ * Verify that a DDG discount code is being used by the rightful owner.
+ * Returns null if valid, or an error message if invalid.
+ */
+async function verifyDdgDiscountOwnership(
+  discountCode: string,
+  userEmail: string
+): Promise<string | null> {
+  // Only verify DDG discount codes (they start with "DDG-")
+  if (!discountCode.startsWith("DDG-")) {
+    return null; // Not a DDG code, no verification needed
+  }
+
+  try {
+    // Look up the discount claim in Cosmic
+    const { objects } = await cosmic.objects
+      .find({
+        type: "student-discounts",
+        "metadata.discount_code": discountCode,
+        "metadata.source": "ddg-team",
+      })
+      .props("id,metadata")
+      .depth(1)
+      .limit(1);
+
+    if (!objects || objects.length === 0) {
+      return "This discount code is not valid.";
+    }
+
+    const claimedEmail = objects[0].metadata.email?.toLowerCase();
+    const currentEmail = userEmail.toLowerCase();
+
+    // Check if the Clerk user's email matches the DDG email that claimed the code
+    if (claimedEmail !== currentEmail) {
+      return `This discount code was generated for ${claimedEmail}. Please sign in with that email address, or sign up using your @duckduckgo.com email.`;
+    }
+
+    return null; // Valid!
+  } catch {
+    // If we can't verify, err on the side of caution
+    return "Unable to verify discount code ownership. Please try again.";
+  }
+}
 
 export async function POST(request: NextRequest) {
   const unavailableResponse = await requireCourseAvailable();
@@ -34,6 +79,14 @@ export async function POST(request: NextRequest) {
   const email = user.emailAddresses[0]?.emailAddress;
   if (!email) {
     return NextResponse.json({ error: "No email found" }, { status: 400 });
+  }
+
+  // Verify DDG discount code ownership
+  if (discountCode) {
+    const verificationError = await verifyDdgDiscountOwnership(discountCode, email);
+    if (verificationError) {
+      return NextResponse.json({ error: verificationError }, { status: 403 });
+    }
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";

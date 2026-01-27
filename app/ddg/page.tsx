@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useUser } from "@clerk/nextjs";
 import { claimDuckDuckGoAccess } from "./actions";
-import { Lock, ArrowRight, Check } from "iconoir-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight, Check } from "iconoir-react";
 
 export default function DdgPage() {
-  const { isSignedIn, isLoaded } = useUser();
+  const { isSignedIn } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
+  const [claimedEmail, setClaimedEmail] = useState<string | null>(null);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -19,6 +19,7 @@ export default function DdgPage() {
     setError(null);
 
     const formData = new FormData(event.currentTarget);
+    const email = formData.get("email") as string;
     const result = await claimDuckDuckGoAccess(formData);
 
     if (result.error) {
@@ -26,18 +27,22 @@ export default function DdgPage() {
       setIsLoading(false);
     } else if (result.code) {
       setDiscountCode(result.code);
+      setClaimedEmail(email.trim().toLowerCase());
       setIsLoading(false);
     }
   }
 
   const handleClaim = async () => {
-    if (!discountCode) return;
+    if (!discountCode || !claimedEmail) return;
     setIsRedirecting(true);
+    setError(null);
     
-    // If not signed in, redirect to sign-up with return URL
+    // If not signed in, redirect to sign-up with return URL and email hint
     if (!isSignedIn) {
       const returnUrl = `/course/pricing?discount=${discountCode}&product=full&auto_checkout=true`;
-      window.location.href = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}`;
+      // Pass email as initial value hint for Clerk sign-up
+      const signUpUrl = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}&email_address=${encodeURIComponent(claimedEmail)}`;
+      window.location.href = signUpUrl;
       return;
     }
     
@@ -51,6 +56,10 @@ export default function DdgPage() {
       const data = await response.json();
       if (data.checkoutUrl) {
         window.location.href = data.checkoutUrl;
+      } else if (data.error) {
+        // Show the specific error from the server (e.g., email mismatch)
+        setError(data.error);
+        setIsRedirecting(false);
       } else {
         setError("Failed to start checkout. Please try again.");
         setIsRedirecting(false);

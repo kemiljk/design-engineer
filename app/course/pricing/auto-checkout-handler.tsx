@@ -42,6 +42,10 @@ export function AutoCheckoutHandler() {
         const data = await response.json();
         if (data.checkoutUrl) {
           window.location.href = data.checkoutUrl;
+        } else if (data.error) {
+          // Show specific server error (e.g., email mismatch for DDG codes)
+          setError(data.error);
+          setIsProcessing(false);
         } else {
           setError("Failed to start checkout. Your discount code is: " + discount);
           setIsProcessing(false);
