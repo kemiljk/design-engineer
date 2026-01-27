@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
 import { claimDuckDuckGoAccess } from "./actions";
 import { Lock, ArrowRight, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
 
-const PRODUCT_VARIANT_ID = process.env.NEXT_PUBLIC_LEMON_PRODUCT_FULL;
-
 export default function DdgPage() {
+  const { isSignedIn, isLoaded } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,9 +30,35 @@ export default function DdgPage() {
     }
   }
 
-  const handleClaim = () => {
-    if (!PRODUCT_VARIANT_ID || !discountCode) return;
-    window.location.href = `https://designengineer.lemonsqueezy.com/checkout/buy/${PRODUCT_VARIANT_ID}?discount=${discountCode}`;
+  const handleClaim = async () => {
+    if (!discountCode) return;
+    setIsRedirecting(true);
+    
+    // If not signed in, redirect to sign-up with return URL
+    if (!isSignedIn) {
+      const returnUrl = `/course/pricing?discount=${discountCode}&product=full&auto_checkout=true`;
+      window.location.href = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}`;
+      return;
+    }
+    
+    // If signed in, go directly to checkout API
+    try {
+      const response = await fetch("/api/course/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productKey: "full", discountCode }),
+      });
+      const data = await response.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        setError("Failed to start checkout. Please try again.");
+        setIsRedirecting(false);
+      }
+    } catch {
+      setError("Failed to start checkout. Please try again.");
+      setIsRedirecting(false);
+    }
   };
 
   return (
@@ -114,12 +141,16 @@ export default function DdgPage() {
 
                     <button
                       onClick={handleClaim}
-                      className="w-full bg-[#DE5833] text-white py-4 font-bold uppercase tracking-wide hover:bg-[#c44926] transition-colors shadow-lg flex items-center justify-center gap-2"
+                      disabled={isRedirecting}
+                      className="w-full bg-swiss-red text-white py-4 font-bold uppercase tracking-wide hover:bg-neutral-900 transition-colors shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Activate Enrollment
+                      {isRedirecting ? "Redirecting..." : isSignedIn ? "Go to Checkout" : "Create Account & Enroll"}
+                      {!isRedirecting && <ArrowRight className="w-4 h-4" />}
                     </button>
                     <p className="mt-4 text-xs text-neutral-400">
-                        Clicking above will take you to a free checkout page.
+                        {isSignedIn 
+                          ? "You'll be taken to complete your free enrollment."
+                          : "You'll create a free account to access the course."}
                     </p>
                 </div>
              </div>

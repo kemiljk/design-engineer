@@ -1,45 +1,46 @@
 "use client";
 
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
 import { claimDiveClubDiscount } from "./actions";
 import { ArrowRight, Check } from "iconoir-react";
 import { cn } from "@/lib/utils";
+import type { ProductKey } from "@/lib/types";
 
 // Hardcoded for display purposes, matching the main pricing page logic roughly
 const PRODUCTS = [
   {
-    key: "full",
+    key: "full" as ProductKey,
     name: "Convergence: All-Access",
     description: "Everything included — all tracks, all platforms, plus exclusive content",
     price: 599,
-    variantId: process.env.NEXT_PUBLIC_LEMON_PRODUCT_FULL,
     features: ["✨ ALL 156+ LESSONS", "Complete Design Track", "Complete Engineering Track", "Exclusive Convergence content"],
     popular: true
   },
   {
-    key: "engineering_full",
+    key: "engineering_full" as ProductKey,
     name: "Engineering: Full Access",
     description: "Complete Engineering Track across all platforms",
     price: 349,
-    variantId: process.env.NEXT_PUBLIC_LEMON_PRODUCT_ENGINEERING_FULL,
     features: ["All Engineering lessons", "Web: React & Next.js", "iOS: Swift & SwiftUI", "Android: Kotlin & Compose"],
     popular: false
   },
   {
-    key: "design_full",
+    key: "design_full" as ProductKey,
     name: "Design: Full Access",
     description: "Complete Design Track across all platforms",
     price: 299,
-    variantId: process.env.NEXT_PUBLIC_LEMON_PRODUCT_DESIGN_FULL,
     features: ["All Design lessons", "Visual design fundamentals", "Platform patterns (HIG, Material)", "Design systems"],
     popular: false
   }
 ];
 
 export default function DiveClubPage() {
+  const { isSignedIn } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
+  const [purchasingProduct, setPurchasingProduct] = useState<string | null>(null);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -58,9 +59,35 @@ export default function DiveClubPage() {
     }
   }
 
-  const handlePurchase = (variantId: string | undefined) => {
-    if (!variantId || !discountCode) return;
-    window.location.href = `https://designengineer.lemonsqueezy.com/checkout/buy/${variantId}?discount=${discountCode}`;
+  const handlePurchase = async (productKey: ProductKey) => {
+    if (!discountCode) return;
+    setPurchasingProduct(productKey);
+    
+    // If not signed in, redirect to sign-up with return URL
+    if (!isSignedIn) {
+      const returnUrl = `/course/pricing?discount=${discountCode}&product=${productKey}&auto_checkout=true`;
+      window.location.href = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}`;
+      return;
+    }
+    
+    // If signed in, go directly to checkout API
+    try {
+      const response = await fetch("/api/course/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productKey, discountCode }),
+      });
+      const data = await response.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        setError("Failed to start checkout. Please try again.");
+        setPurchasingProduct(null);
+      }
+    } catch {
+      setError("Failed to start checkout. Please try again.");
+      setPurchasingProduct(null);
+    }
   };
 
   return (
@@ -185,15 +212,21 @@ export default function DiveClubPage() {
                     </ul>
 
                     <button
-                      onClick={() => handlePurchase(product.variantId)}
+                      onClick={() => handlePurchase(product.key)}
+                      disabled={purchasingProduct === product.key}
                       className={cn(
-                        "w-full py-3 font-medium text-sm uppercase tracking-wide transition-colors",
+                        "w-full py-3 font-medium text-sm uppercase tracking-wide transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
                         product.popular
                           ? "bg-swiss-red text-white hover:bg-black dark:hover:bg-white dark:hover:text-black"
                           : "border border-neutral-300 dark:border-neutral-700 hover:border-black dark:hover:border-white"
                       )}
                     >
-                      Get Access
+                      {purchasingProduct === product.key 
+                        ? "Redirecting..." 
+                        : isSignedIn 
+                          ? "Get Access" 
+                          : "Create Account & Get Access"
+                      }
                     </button>
                   </div>
                 ))}

@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { productKey } = body as { productKey: ProductKey };
+  const { productKey, discountCode } = body as { productKey: ProductKey; discountCode?: string };
 
   if (!productKey || !PRODUCT_CONFIG[productKey]) {
     return NextResponse.json({ error: "Invalid product" }, { status: 400 });
@@ -39,12 +39,18 @@ export async function POST(request: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const redirectUrl = `${baseUrl}/course?purchase=success`;
 
-  const { checkoutUrl } = await createCheckout(
+  let { checkoutUrl } = await createCheckout(
     product.variantId,
     userId,
     email,
     redirectUrl
   );
+
+  // Append discount code if provided
+  if (discountCode) {
+    const separator = checkoutUrl.includes("?") ? "&" : "?";
+    checkoutUrl = `${checkoutUrl}${separator}discount=${encodeURIComponent(discountCode)}`;
+  }
 
   return NextResponse.json({ checkoutUrl });
 }

@@ -2,6 +2,7 @@
 
 import { Crown } from "iconoir-react";
 import { PlatformTierCard, BundleCard } from "./pricing-card";
+import { AutoCheckoutHandler } from "./auto-checkout-handler";
 import type { ProductWithPrice } from "@/lib/types";
 
 interface PricingClientWrapperProps {
@@ -101,6 +102,9 @@ export function PricingClientWrapper({
 
   return (
     <>
+      {/* Handle auto-checkout on redirect from Dive Club/DDG */}
+      <AutoCheckoutHandler />
+      
       {/* Value Comparison Banner - only for new users */}
       {showValueBanner && (
         <div className="border-swiss-red bg-swiss-red/2.5 dark:bg-swiss-red/5 mb-12 rounded-none border-2 p-8">
