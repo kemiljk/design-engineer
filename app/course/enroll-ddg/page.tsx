@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
-import { ArrowRight, Loader } from "iconoir-react";
+import { ArrowRight, RefreshDouble } from "iconoir-react";
 import { motion } from "motion/react";
 import { ease } from "@/lib/motion";
 
@@ -83,7 +83,7 @@ export default function EnrollDdgPage() {
               className="space-y-6"
             >
               <div className="inline-flex items-center justify-center size-16 rounded-full bg-neutral-100 dark:bg-neutral-800">
-                <Loader className="size-8 text-swiss-red animate-spin" />
+                <RefreshDouble className="size-8 text-swiss-red animate-spin" />
               </div>
               <h1 className="text-2xl font-bold">Granting Access...</h1>
               <p className="text-neutral-500">
@@ -105,7 +105,7 @@ export default function EnrollDdgPage() {
                    animate={{ scale: 1 }}
                    transition={{ delay: 0.2, type: "spring" }}
                 >
-                  <ArrowRight className="size-8 text-green-600 dark:text-green-400 rotate-[-45deg]" />
+                  <ArrowRight className="size-8 text-green-600 dark:text-green-400 -rotate-45" />
                 </motion.div>
               </div>
               <h1 className="text-2xl font-bold">Welcome Aboard!</h1>
