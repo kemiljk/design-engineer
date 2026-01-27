@@ -414,7 +414,8 @@ export async function createDiscount(
   }
 
   try {
-    const uniqueCode = `${prefix}-${nanoid(10).toUpperCase()}`;
+    // LemonSqueezy only allows alphanumeric characters in discount codes (no hyphens)
+    const uniqueCode = `${prefix}${nanoid(10).toUpperCase()}`;
     
     const response = await lemonFetch<CreateDiscountResponse>("/discounts", {
       method: "POST",
