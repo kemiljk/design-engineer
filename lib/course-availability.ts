@@ -40,6 +40,13 @@ export async function requireCourseAvailable() {
     return null;
   }
 
+  // Allow anyone with a @duckduckgo.com email to bypass availability for testing
+  const user = await (await import("@clerk/nextjs/server")).currentUser();
+  if (user?.emailAddresses.some(e => e.emailAddress.endsWith("@duckduckgo.com"))) {
+    console.log("[Course Availability] Bypassing for DDG account:", user.emailAddresses[0].emailAddress);
+    return null;
+  }
+
   // Test mode bypasses availability check
   const isTestMode = process.env.NEXT_PUBLIC_COURSE_TEST_MODE === "true";
   if (isTestMode) {

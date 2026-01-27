@@ -37,37 +37,16 @@ export default function DdgPage() {
     setIsRedirecting(true);
     setError(null);
     
-    // If not signed in, redirect to sign-up with return URL and email hint
+    // If not signed in, redirect to sign-up with direct enrollment API as redirect_url
     if (!isSignedIn) {
-      const returnUrl = `/course/pricing?discount=${discountCode}&product=full&auto_checkout=true`;
-      // Pass email as initial value hint for Clerk sign-up
+      const returnUrl = `/api/course/enroll-ddg`;
       const signUpUrl = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}&email_address=${encodeURIComponent(claimedEmail)}`;
       window.location.href = signUpUrl;
       return;
     }
     
-    // If signed in, go directly to checkout API
-    try {
-      const response = await fetch("/api/course/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productKey: "full", discountCode }),
-      });
-      const data = await response.json();
-      if (data.checkoutUrl) {
-        window.location.href = data.checkoutUrl;
-      } else if (data.error) {
-        // Show the specific error from the server (e.g., email mismatch)
-        setError(data.error);
-        setIsRedirecting(false);
-      } else {
-        setError("Failed to start checkout. Please try again.");
-        setIsRedirecting(false);
-      }
-    } catch {
-      setError("Failed to start checkout. Please try again.");
-      setIsRedirecting(false);
-    }
+    // If signed in, go directly to enrollment API
+    window.location.href = `/api/course/enroll-ddg`;
   };
 
   return (

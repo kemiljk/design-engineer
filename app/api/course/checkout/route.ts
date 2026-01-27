@@ -50,6 +50,7 @@ async function verifyDdgDiscountOwnership(
 }
 
 export async function POST(request: NextRequest) {
+  console.log("[Checkout API] POST request received");
   const unavailableResponse = await requireCourseAvailable();
   if (unavailableResponse) return unavailableResponse;
 
@@ -92,18 +93,45 @@ export async function POST(request: NextRequest) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const redirectUrl = `${baseUrl}/course?purchase=success`;
 
-  let { checkoutUrl } = await createCheckout(
-    product.variantId,
-    userId,
-    email,
-    redirectUrl
-  );
+  // BYPASS LemonSqueezy for DDG accounts
+  if (email.endsWith("@duckduckgo.com") && discountCode?.startsWith("DDG")) {
+    try {
+      console.log("[Checkout API] Bypassing LemonSqueezy for DDG user:", email);
+      
+      const { createEnrollment } = await import("@/lib/course");
+      await createEnrollment({
+        user_id: userId,
+        product_id: "full",
+        access_level: "full",
+      });
 
-  // Append discount code if provided
-  if (discountCode) {
-    const separator = checkoutUrl.includes("?") ? "&" : "?";
-    checkoutUrl = `${checkoutUrl}${separator}discount=${encodeURIComponent(discountCode)}`;
+      return NextResponse.json({ redirectUrl: "/course?purchase=success" });
+    } catch (error) {
+      console.error("[Checkout API] Direct enrollment failed:", error);
+      // Fallback to normal flow if direct enrollment fails for some reason
+    }
   }
 
-  return NextResponse.json({ checkoutUrl });
+  try {
+    let { checkoutUrl } = await createCheckout(
+      product.variantId,
+      userId,
+      email,
+      redirectUrl
+    );
+
+    // Append discount code if provided
+    if (discountCode) {
+      const separator = checkoutUrl.includes("?") ? "&" : "?";
+      checkoutUrl = `${checkoutUrl}${separator}discount=${encodeURIComponent(discountCode)}`;
+    }
+
+    return NextResponse.json({ checkoutUrl });
+  } catch (error) {
+    console.error("Checkout creation failed:", error);
+    return NextResponse.json(
+      { error: "Failed to create checkout. Please try again or contact support." },
+      { status: 500 }
+    );
+  }
 }
