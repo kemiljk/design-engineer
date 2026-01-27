@@ -3,29 +3,29 @@ import { NextRequest, NextResponse } from "next/server";
 import { createEnrollment, getUserEnrollment } from "@/lib/course";
 
 /**
- * Direct enrollment endpoint for DuckDuckGo users.
- * Automatically creates a full-access enrollment in Cosmic and redirects to /course.
+ * Internal enrollment handler for DuckDuckGo users.
+ * Called by the /course/enroll-ddg client page.
  */
-export async function GET(request: NextRequest) {
+export async function POST(request: NextRequest) {
   const { userId } = await auth();
   const user = await currentUser();
 
   if (!userId || !user) {
-    return NextResponse.redirect(new URL("/sign-in", request.url));
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const email = user.emailAddresses[0]?.emailAddress;
   if (!email || !email.endsWith("@duckduckgo.com")) {
     console.error("[Enroll DDG] Invalid email for bypass:", email);
-    return NextResponse.redirect(new URL("/course/pricing", request.url));
+    return NextResponse.json({ error: "Invalid email for bypass" }, { status: 403 });
   }
 
   try {
     // 1. Check for existing enrollment
     const existing = await getUserEnrollment(userId);
     if (existing) {
-      console.log("[Enroll DDG] User already has enrollment, redirecting to course");
-      return NextResponse.redirect(new URL("/course", request.url));
+      console.log("[Enroll DDG] User already has enrollment");
+      return NextResponse.json({ success: true, alreadyEnrolled: true });
     }
 
     // 2. Create full enrollment in Cosmic
@@ -36,10 +36,9 @@ export async function GET(request: NextRequest) {
       access_level: "full",
     });
 
-    // 3. Redirect to course dashboard
-    return NextResponse.redirect(new URL("/course?purchase=success", request.url));
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("[Enroll DDG] Enrollment failed:", error);
-    return NextResponse.redirect(new URL("/course/pricing?error=enrollment_failed", request.url));
+    return NextResponse.json({ error: "Enrollment failed" }, { status: 500 });
   }
 }

@@ -14,7 +14,7 @@ export async function claimDuckDuckGoAccess(formData: FormData) {
 
   const trimmedEmail = email.trim().toLowerCase();
 
-  // 1. Check if already claimed
+  // 1. Check if already claimed (optional, but good for tracking)
   try {
     const { objects } = await cosmic.objects
       .find({
@@ -26,25 +26,13 @@ export async function claimDuckDuckGoAccess(formData: FormData) {
       .limit(1);
 
     if (objects && objects.length > 0) {
-      const existingCode = objects[0].metadata.discount_code;
-      if (existingCode) {
-         // Return existing code if found
-         return { success: true, code: existingCode };
-      }
-      return { error: "You have already claimed an access code." };
+       return { success: true };
     }
   } catch (error) {
     // Ignore 404
   }
 
-  // 2. Create Discount (100% OFF)
-  const code = await createDiscount("DDG", `DDG Team - ${trimmedEmail}`, 100);
-  
-  if (!code) {
-    return { error: "Failed to generate access code. Please try again." };
-  }
-
-  // 3. Log in Cosmic
+  // 2. Log in Cosmic for tracking
   const slug = `ddg-team-${nanoid(8)}`;
   await cosmic.objects.insertOne({
     type: "student-discounts", 
@@ -52,13 +40,12 @@ export async function claimDuckDuckGoAccess(formData: FormData) {
     slug,
     metadata: {
       email: trimmedEmail,
-      discount_code: code,
       requested_at: new Date().toISOString(),
       status: "unlocked",
       source: "ddg-team"
     },
   });
 
-  // 4. Return Code
-  return { success: true, code };
+  // 3. Return Success
+  return { success: true };
 }

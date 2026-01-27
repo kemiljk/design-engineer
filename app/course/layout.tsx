@@ -4,6 +4,7 @@ import { getCourseAvailability } from "@/lib/cosmic";
 import { ComingSoon } from "./components/coming-soon";
 import { hasPreviewAccess } from "@/lib/preview-access";
 import { headers } from "next/headers";
+import { currentUser } from "@clerk/nextjs/server";
 
 export const metadata: Metadata = {
   // ...
@@ -16,7 +17,8 @@ export default async function CourseLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [{ is_available }, previewAccess, headersList] = await Promise.all([
+  const [user, { is_available }, previewAccess, headersList] = await Promise.all([
+    currentUser(),
     getCourseAvailability(),
     hasPreviewAccess(),
     headers(),
@@ -25,6 +27,9 @@ export default async function CourseLayout({
   const pathname = headersList.get("x-pathname") || "";
   const isPreviewPage = pathname.startsWith("/course/preview");
 
+  // DDG users bypass the pre-launch check
+  const isDdgUser = user?.emailAddresses[0]?.emailAddress?.endsWith("@duckduckgo.com");
+
   // Test mode, preview access, development mode, or preview page bypass the availability check
   const isDevelopment = process.env.NODE_ENV === "development";
   if (
@@ -32,7 +37,8 @@ export default async function CourseLayout({
     !previewAccess &&
     !isTestMode &&
     !isDevelopment &&
-    !isPreviewPage
+    !isPreviewPage &&
+    !isDdgUser
   ) {
     return <ComingSoon />;
   }

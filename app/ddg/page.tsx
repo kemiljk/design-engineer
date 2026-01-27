@@ -9,8 +9,6 @@ export default function DdgPage() {
   const { isSignedIn } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [discountCode, setDiscountCode] = useState<string | null>(null);
-  const [claimedEmail, setClaimedEmail] = useState<string | null>(null);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -19,34 +17,30 @@ export default function DdgPage() {
     setError(null);
 
     const formData = new FormData(event.currentTarget);
-    const email = formData.get("email") as string;
+    const email = (formData.get("email") as string).trim().toLowerCase();
     const result = await claimDuckDuckGoAccess(formData);
 
     if (result.error) {
       setError(result.error);
       setIsLoading(false);
-    } else if (result.code) {
-      setDiscountCode(result.code);
-      setClaimedEmail(email.trim().toLowerCase());
-      setIsLoading(false);
+    } else if (result.success) {
+      handleRedirect(email);
     }
   }
 
-  const handleClaim = async () => {
-    if (!discountCode || !claimedEmail) return;
+  const handleRedirect = (email: string) => {
     setIsRedirecting(true);
-    setError(null);
     
     // If not signed in, redirect to sign-up with direct enrollment API as redirect_url
     if (!isSignedIn) {
-      const returnUrl = `/api/course/enroll-ddg`;
-      const signUpUrl = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}&email_address=${encodeURIComponent(claimedEmail)}`;
+      const returnUrl = `/course/enroll-ddg`;
+      const signUpUrl = `/sign-up?redirect_url=${encodeURIComponent(returnUrl)}&email_address=${encodeURIComponent(email)}`;
       window.location.href = signUpUrl;
       return;
     }
     
-    // If signed in, go directly to enrollment API
-    window.location.href = `/api/course/enroll-ddg`;
+    // If signed in, go directly to enrollment handler
+    window.location.href = `/course/enroll-ddg`;
   };
 
   return (
@@ -75,74 +69,43 @@ export default function DdgPage() {
             </p>
           </div>
 
-          {!discountCode ? (
-            <div className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 shadow-2xl relative">
-              {/* Decorative Corner */}
-              <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-swiss-red" />
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-swiss-red" />
+          <div className="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-8 shadow-2xl relative">
+            {/* Decorative Corner */}
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-swiss-red" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-swiss-red" />
 
-              <form onSubmit={onSubmit} className="space-y-8">
-                <div>
-                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider h-8 text-neutral-500">
-                    DuckDuckGo Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    placeholder="you@duckduckgo.com"
-                    className="w-full h-16 bg-neutral-100 border-2 border-transparent px-4 focus:border-[#DE5833] focus:ring-0 outline-none transition-all font-medium"
-                  />
+            <form onSubmit={onSubmit} className="space-y-8">
+              <div>
+                <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider h-8 text-neutral-500">
+                  DuckDuckGo Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  placeholder="you@duckduckgo.com"
+                  disabled={isLoading || isRedirecting}
+                  className="w-full h-16 bg-neutral-100 border-2 border-transparent px-4 focus:border-[#DE5833] focus:ring-0 outline-none transition-all font-medium"
+                />
+              </div>
+
+              {error && (
+                <div className="p-3 bg-red-50 text-red-600 text-sm font-medium border border-red-100">
+                  {error}
                 </div>
+              )}
 
-                {error && (
-                  <div className="p-3 bg-red-50 text-red-600 text-sm font-medium border border-red-100">
-                    {error}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full h-16 bg-black text-white font-bold uppercase tracking-wide hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
-                >
-                  {isLoading ? "Verifying..." : "Get Free Access"}
-                  {!isLoading && <ArrowRight className="w-4 h-4" />}
-                </button>
-              </form>
-            </div>
-          ) : (
-             <div className="bg-white text-neutral-900 p-8 shadow-2xl rounded-none animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 text-green-600 rounded-full mb-4">
-                        <Check className="w-6 h-6" />
-                    </div>
-                    <h2 className="text-xl font-bold mb-2">Access Granted!</h2>
-                    <p className="text-neutral-500 mb-6 text-sm">
-                        Your 100% off code is ready.
-                    </p>
-
-                    <div className="bg-neutral-100 p-4 mb-6 rounded border border-neutral-200">
-                        <code className="text-xl font-mono font-bold tracking-wider">{discountCode}</code>
-                    </div>
-
-                    <button
-                      onClick={handleClaim}
-                      disabled={isRedirecting}
-                      className="w-full bg-swiss-red text-white py-4 font-bold uppercase tracking-wide hover:bg-neutral-900 transition-colors shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isRedirecting ? "Redirecting..." : isSignedIn ? "Go to Checkout" : "Create Account & Enroll"}
-                      {!isRedirecting && <ArrowRight className="w-4 h-4" />}
-                    </button>
-                    <p className="mt-4 text-xs text-neutral-400">
-                        {isSignedIn 
-                          ? "You'll be taken to complete your free enrollment."
-                          : "You'll create a free account to access the course."}
-                    </p>
-                </div>
-             </div>
-          )}
+              <button
+                type="submit"
+                disabled={isLoading || isRedirecting}
+                className="w-full h-16 bg-black text-white font-bold uppercase tracking-wide hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
+              >
+                {isLoading || isRedirecting ? (isRedirecting ? "Redirecting..." : "Verifying...") : "Get Free Access"}
+                {!(isLoading || isRedirecting) && <ArrowRight className="w-4 h-4" />}
+              </button>
+            </form>
+          </div>
         </div>
       </main>
       
