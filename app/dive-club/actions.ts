@@ -41,7 +41,7 @@ export async function claimDiveClubDiscount(formData: FormData) {
   }
 
   // 2. Create Discount
-  const code = await createDiscount("DIVECLUB", `Dive Club - ${trimmedEmail}`, 20); // 20% OFF
+  const code = await createDiscount("DIVECLUB", `Dive Club - ${trimmedEmail}`, 10); // 10% OFF
   
   if (!code) {
     return { error: "Failed to generate discount code. Please try again." };
@@ -50,21 +50,18 @@ export async function claimDiveClubDiscount(formData: FormData) {
   // 3. Log in Cosmic
   const slug = `dive-club-${nanoid(8)}`;
   await cosmic.objects.insertOne({
-    type: "student-discounts", // Reusing this for simplicity, or create new type
+    type: "student-discounts", 
     title: `Dive Club: ${trimmedEmail}`,
     slug,
     metadata: {
       email: trimmedEmail,
       discount_code: code,
       requested_at: new Date().toISOString(),
-      status: "redirected",
+      status: "unlocked",
       source: "dive-club"
     },
   });
 
-  // 4. Return URL
-  const variantId = PRODUCT_CONFIG.full.variantId;
-  const checkoutUrl = `https://designengineer.lemonsqueezy.com/checkout/buy/${variantId}?discount=${code}`;
-  
-  return { success: true, url: checkoutUrl };
+  // 4. Return Code
+  return { success: true, code };
 }
