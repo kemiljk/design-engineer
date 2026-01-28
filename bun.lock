@@ -1,6 +1,5 @@
 {
   "lockfileVersion": 1,
-  "configVersion": 1,
   "workspaces": {
     "": {
       "name": "design-engineer",
@@ -59,6 +58,7 @@
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "satori": "^0.18.4",
+        "server-only": "^0.0.1",
         "sharp": "^0.34.5",
         "tailwindcss": "^4.1.18",
         "tsx": "^4.21.0",
