@@ -531,24 +531,35 @@ export const getApprovedTestimonials = unstable_cache(
 export const getUserTestimonial = async (
   userId: string
 ): Promise<Type.Testimonial | null> => {
-  try {
-    const { objects } = await cosmic.objects
-      .find({
-        type: "testimonials",
-        "metadata.user_id": userId,
-      })
-      .props("id,slug,title,created_at,modified_at,metadata")
-      .depth(1)
-      .limit(1);
-    
-    return objects?.[0] || null;
-  } catch (error: unknown) {
-    if (error && typeof error === "object" && "status" in error && error.status === 404) {
-      return null;
-    }
-    console.error("Error fetching user testimonial:", error);
-    return null;
-  }
+  return unstable_cache(
+    async () => {
+      try {
+        const { objects } = await cosmic.objects
+          .find({
+            type: "testimonials",
+            "metadata.user_id": userId,
+          })
+          .props("id,slug,title,created_at,modified_at,metadata")
+          .depth(1)
+          .limit(1);
+
+        return objects?.[0] || null;
+      } catch (error: unknown) {
+        if (
+          error &&
+          typeof error === "object" &&
+          "status" in error &&
+          error.status === 404
+        ) {
+          return null;
+        }
+        console.error("Error fetching user testimonial:", error);
+        return null;
+      }
+    },
+    [`user-testimonial-${userId}`],
+    { revalidate: 300, tags: ["testimonials", `user-testimonial-${userId}`] }
+  )();
 };
 
 export const submitTestimonial = async (
