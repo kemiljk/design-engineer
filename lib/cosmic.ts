@@ -393,24 +393,38 @@ export const getFeaturedGalleryProjects = unstable_cache(
 export const getUserGalleryProjects = async (
   userId: string
 ): Promise<Type.GalleryProject[]> => {
-  try {
-    const { objects } = await cosmic.objects
-      .find({
-        type: "gallery-projects",
-        "metadata.user_id": userId,
-      })
-      .props("id,slug,title,created_at,modified_at,metadata")
-      .depth(1)
-      .sort("-created_at");
-    
-    return objects || [];
-  } catch (error: unknown) {
-    if (error && typeof error === "object" && "status" in error && error.status === 404) {
-      return [];
+  return unstable_cache(
+    async () => {
+      try {
+        const { objects } = await cosmic.objects
+          .find({
+            type: "gallery-projects",
+            "metadata.user_id": userId,
+          })
+          .props("id,slug,title,created_at,modified_at,metadata")
+          .depth(1)
+          .sort("-created_at");
+
+        return objects || [];
+      } catch (error: unknown) {
+        if (
+          error &&
+          typeof error === "object" &&
+          "status" in error &&
+          error.status === 404
+        ) {
+          return [];
+        }
+        console.error("Error fetching user gallery projects:", error);
+        return [];
+      }
+    },
+    [`user-gallery-projects-${userId}`],
+    {
+      revalidate: 300,
+      tags: ["gallery-projects", `user-gallery-projects-${userId}`],
     }
-    console.error("Error fetching user gallery projects:", error);
-    return [];
-  }
+  )();
 };
 
 export const getGalleryProject = async (
