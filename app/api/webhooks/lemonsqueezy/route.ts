@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import {
   verifyWebhookSignature,
   getProductKeyFromVariantId,
@@ -113,17 +113,19 @@ export async function POST(request: NextRequest) {
 
     // Send welcome email
     if (userEmail) {
-      try {
-        await resend.emails.send({
-          from: "d×e <hello@designengineer.xyz>",
-          to: [userEmail],
-          subject: "Welcome to the Course!",
-          react: CourseWelcomeEmail({ email: userEmail }) as React.ReactElement,
-        });
-        console.log(`Sent welcome email to ${userEmail}`);
-      } catch (error) {
-        console.error("Error sending welcome email:", error);
-      }
+      after(async () => {
+        try {
+          await resend.emails.send({
+            from: "d×e <hello@designengineer.xyz>",
+            to: [userEmail],
+            subject: "Welcome to the Course!",
+            react: CourseWelcomeEmail({ email: userEmail }) as React.ReactElement,
+          });
+          console.log(`Sent welcome email to ${userEmail}`);
+        } catch (error) {
+          console.error("Error sending welcome email:", error);
+        }
+      });
     }
   }
 
