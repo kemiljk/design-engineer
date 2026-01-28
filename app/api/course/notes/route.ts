@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { lessonPath, noteType, content } = body;
+  const { lessonPath, noteType, content, isPinned } = body;
 
   if (!lessonPath) {
     return NextResponse.json(
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     lesson_path: lessonPath,
     note_type: noteType || "general",
     content: content || "",
-    // is_pinned: isPinned || false,
+    is_pinned: isPinned || false,
   });
 
   return NextResponse.json({ note }, { status: 201 });
@@ -71,7 +71,7 @@ export async function PATCH(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { noteId, content, noteType } = body;
+  const { noteId, content, noteType, isPinned } = body;
 
   if (!noteId) {
     return NextResponse.json({ error: "Missing note ID" }, { status: 400 });
@@ -81,7 +81,7 @@ export async function PATCH(request: NextRequest) {
   // Once added, uncomment is_pinned handling below
   const updateData: Record<string, unknown> = {};
   if (content !== undefined) updateData.content = content;
-  // if (isPinned !== undefined) updateData.is_pinned = isPinned;
+  if (isPinned !== undefined) updateData.is_pinned = isPinned;
   if (noteType !== undefined) updateData.note_type = noteType;
 
   const note = await updateNote(noteId, updateData);
