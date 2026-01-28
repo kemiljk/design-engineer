@@ -1,6 +1,7 @@
 import "server-only";
 
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { cosmic } from "./cosmic";
 import * as Type from "./types";
 import { nanoid } from "nanoid";
@@ -704,43 +705,50 @@ export async function getCourse() {
 }
 
 // Get all lessons in order for a given track and platform
-export async function getOrderedLessons(
-  track: string,
-  platform: string,
-): Promise<{ path: string; title: string }[]> {
-  const basePath = path.join(process.cwd(), "content/course", track, platform);
+export const getOrderedLessons = unstable_cache(
+  async (
+    track: string,
+    platform: string,
+  ): Promise<{ path: string; title: string }[]> => {
+    const basePath = path.join(process.cwd(), "content/course", track, platform);
 
-  try {
-    const entries = await fs.readdir(basePath, { withFileTypes: true });
-    const sortedModules = entries
-      .filter((e) => e.isDirectory() && !e.name.startsWith("."))
-      .map((e) => e.name)
-      .sort();
-
-    const lessons: { path: string; title: string }[] = [];
-
-    for (const moduleDir of sortedModules) {
-      const modulePath = path.join(basePath, moduleDir);
-      const files = await fs.readdir(modulePath);
-      const mdFiles = files
-        .filter((f) => f.endsWith(".md") && f !== "index.md")
+    try {
+      const entries = await fs.readdir(basePath, { withFileTypes: true });
+      const sortedModules = entries
+        .filter((e) => e.isDirectory() && !e.name.startsWith("."))
+        .map((e) => e.name)
         .sort();
 
-      for (const file of mdFiles) {
-        const lessonPath = `${track}/${platform}/${moduleDir}/${file.replace(".md", "")}`;
-        const title = file
-          .replace(".md", "")
-          .replace(/^\d+-/, "")
-          .replace(/-/g, " ");
-        lessons.push({ path: lessonPath, title });
-      }
-    }
+      const modulesData = await Promise.all(
+        sortedModules.map(async (moduleDir) => {
+          const modulePath = path.join(basePath, moduleDir);
+          const files = await fs.readdir(modulePath);
+          const mdFiles = files
+            .filter((f) => f.endsWith(".md") && f !== "index.md")
+            .sort();
 
-    return lessons;
-  } catch {
-    return [];
-  }
-}
+          return mdFiles.map((file) => {
+            const lessonPath = `${track}/${platform}/${moduleDir}/${file.replace(
+              ".md",
+              "",
+            )}`;
+            const title = file
+              .replace(".md", "")
+              .replace(/^\d+-/, "")
+              .replace(/-/g, " ");
+            return { path: lessonPath, title };
+          });
+        }),
+      );
+
+      return modulesData.flat();
+    } catch {
+      return [];
+    }
+  },
+  ["ordered-lessons"],
+  { revalidate: 3600, tags: ["course-content"] },
+);
 
 // Get lessons for introduction section (no platform)
 export async function getIntroductionLessons(): Promise<
