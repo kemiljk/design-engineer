@@ -57,7 +57,7 @@ export default async function DashboardPage() {
   ] = await Promise.all([
     getUserEnrollment(userId),
     getUserProgress(userId),
-    getUserNotes(userId),
+    getUserNotes(userId, undefined, 5),
     getUserCertificates(userId),
     getUserGalleryProjects(userId),
     getLastActivity(userId),

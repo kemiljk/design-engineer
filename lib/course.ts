@@ -311,6 +311,7 @@ export async function createEnrollment(
 export async function getUserNotes(
   userId: string,
   lessonPath?: string,
+  limit: number = 100,
 ): Promise<Type.CourseNote[]> {
   try {
     const query: Record<string, unknown> = {
@@ -326,7 +327,8 @@ export async function getUserNotes(
       .find(query)
       .props("id,slug,title,created_at,modified_at,metadata")
       .depth(1)
-      .sort("-created_at");
+      .sort("-created_at")
+      .limit(limit);
 
     return objects || [];
   } catch (error: unknown) {
