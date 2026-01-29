@@ -5,7 +5,15 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "@/app/components/SyntaxHighlighter";
 import { cn } from "@/lib/utils";
-import { MasterQuote, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/app/components/ui";
+import {
+  MasterQuote,
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/app/components/ui";
 import {
   SummaryCard,
   ObjectivesCard,
@@ -42,24 +50,31 @@ interface ParsedSection {
   checkpointItems?: string[];
 }
 
-function extractSection(content: string, headerPattern: RegExp): { match: string; content: string } | null {
+function extractSection(
+  content: string,
+  headerPattern: RegExp,
+): { match: string; content: string } | null {
   const match = content.match(headerPattern);
   if (!match) return null;
-  
+
   const startIndex = match.index!;
   const afterHeader = startIndex + match[0].length;
-  
+
   // Find the next ## heading or end of string
   const remainingContent = content.slice(afterHeader);
   const nextHeadingMatch = remainingContent.match(/\n##\s/);
-  
-  const sectionContent = nextHeadingMatch 
+
+  const sectionContent = nextHeadingMatch
     ? remainingContent.slice(0, nextHeadingMatch.index)
     : remainingContent;
-  
+
   return {
-    match: content.slice(startIndex, afterHeader + (nextHeadingMatch ? nextHeadingMatch.index! : remainingContent.length)),
-    content: sectionContent.trim()
+    match: content.slice(
+      startIndex,
+      afterHeader +
+        (nextHeadingMatch ? nextHeadingMatch.index! : remainingContent.length),
+    ),
+    content: sectionContent.trim(),
   };
 }
 
@@ -68,7 +83,9 @@ function parseContent(content: string): ParsedSection[] {
   let remaining = content;
 
   // Extract Quick Summary (blockquote format)
-  const summaryMatch = remaining.match(/^>\s*\*\*Quick Summary[:\*]*\*?\*?\s*([\s\S]*?)(?=\n\n|\n##|$)/m);
+  const summaryMatch = remaining.match(
+    /^>\s*\*\*Quick Summary[:\*]*\*?\*?\s*([\s\S]*?)(?=\n\n|\n##|$)/m,
+  );
   if (summaryMatch) {
     const summaryContent = summaryMatch[1]
       .split("\n")
@@ -85,7 +102,10 @@ function parseContent(content: string): ParsedSection[] {
   }
 
   // Extract What You'll Learn
-  const objectivesResult = extractSection(remaining, /##\s*What You['']ll Learn\s*/);
+  const objectivesResult = extractSection(
+    remaining,
+    /##\s*What You['']ll Learn\s*/,
+  );
   if (objectivesResult) {
     sections.push({
       type: "objectives",
@@ -144,11 +164,17 @@ function parseContent(content: string): ParsedSection[] {
   const contentParts: ParsedSection[] = [];
 
   // Combine all special blocks (illustrations, visual examples, and exercises) with their positions
-  const specialBlocks: { type: 'illustration' | 'visual-example' | 'exercise-interactive'; index: number; length: number; content: string; exerciseType?: string }[] = [];
+  const specialBlocks: {
+    type: "illustration" | "visual-example" | "exercise-interactive";
+    index: number;
+    length: number;
+    content: string;
+    exerciseType?: string;
+  }[] = [];
 
   while ((match = illustrationRegex.exec(remaining)) !== null) {
     specialBlocks.push({
-      type: 'illustration',
+      type: "illustration",
       index: match.index,
       length: match[0].length,
       content: match[1],
@@ -157,7 +183,7 @@ function parseContent(content: string): ParsedSection[] {
 
   while ((match = visualExampleRegex.exec(remaining)) !== null) {
     specialBlocks.push({
-      type: 'visual-example',
+      type: "visual-example",
       index: match.index,
       length: match[0].length,
       content: match[1],
@@ -166,7 +192,7 @@ function parseContent(content: string): ParsedSection[] {
 
   while ((match = exerciseRegex.exec(remaining)) !== null) {
     specialBlocks.push({
-      type: 'exercise-interactive',
+      type: "exercise-interactive",
       index: match.index,
       length: match[0].length,
       content: match[2].trim(),
@@ -185,27 +211,40 @@ function parseContent(content: string): ParsedSection[] {
         const h2Pattern = /^##\s+(.+)$/gm;
         let h2Match;
         const headings: { title: string; index: number }[] = [];
-        
+
         while ((h2Match = h2Pattern.exec(textBefore)) !== null) {
           headings.push({ title: h2Match[1], index: h2Match.index });
         }
-        
+
         if (headings.length > 0) {
           // Add any content before the first heading
           if (headings[0].index > 0) {
-            const beforeFirstHeading = textBefore.slice(0, headings[0].index).trim();
+            const beforeFirstHeading = textBefore
+              .slice(0, headings[0].index)
+              .trim();
             if (beforeFirstHeading) {
-              contentParts.push({ type: "content", content: beforeFirstHeading });
+              contentParts.push({
+                type: "content",
+                content: beforeFirstHeading,
+              });
             }
           }
-          
+
           // Create sections for each h2
           for (let i = 0; i < headings.length; i++) {
             const start = headings[i].index;
-            const end = i < headings.length - 1 ? headings[i + 1].index : textBefore.length;
+            const end =
+              i < headings.length - 1
+                ? headings[i + 1].index
+                : textBefore.length;
             const sectionContent = textBefore.slice(start, end).trim();
-            const id = headings[i].title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-            
+            const id =
+              "section-" +
+              headings[i].title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "");
+
             contentParts.push({
               type: "content",
               content: sectionContent,
@@ -219,10 +258,10 @@ function parseContent(content: string): ParsedSection[] {
         }
       }
     }
-    
-    if (block.type === 'illustration') {
+
+    if (block.type === "illustration") {
       contentParts.push({ type: "illustration", content: block.content });
-    } else if (block.type === 'visual-example') {
+    } else if (block.type === "visual-example") {
       contentParts.push({ type: "visual-example", content: block.content });
     } else {
       // Don't add id/label for exercise-interactive blocks - they don't need
@@ -232,7 +271,7 @@ function parseContent(content: string): ParsedSection[] {
         content: block.content,
       });
     }
-    
+
     lastIndex = block.index + block.length;
   }
 
@@ -243,19 +282,25 @@ function parseContent(content: string): ParsedSection[] {
       const h2Pattern = /^##\s+(.+)$/gm;
       let h2Match;
       const headings: { title: string; index: number }[] = [];
-      
+
       while ((h2Match = h2Pattern.exec(textAfter)) !== null) {
         headings.push({ title: h2Match[1], index: h2Match.index });
       }
-      
+
       if (headings.length > 0) {
         // Create sections for each h2
         for (let i = 0; i < headings.length; i++) {
           const start = headings[i].index;
-          const end = i < headings.length - 1 ? headings[i + 1].index : textAfter.length;
+          const end =
+            i < headings.length - 1 ? headings[i + 1].index : textAfter.length;
           const sectionContent = textAfter.slice(start, end).trim();
-          const id = headings[i].title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-          
+          const id =
+            "section-" +
+            headings[i].title
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/(^-|-$)/g, "");
+
           contentParts.push({
             type: "content",
             content: sectionContent,
@@ -263,10 +308,12 @@ function parseContent(content: string): ParsedSection[] {
             label: headings[i].title,
           });
         }
-        
+
         // Add any content before the first heading
         if (headings[0].index > 0) {
-          const beforeFirstHeading = textAfter.slice(0, headings[0].index).trim();
+          const beforeFirstHeading = textAfter
+            .slice(0, headings[0].index)
+            .trim();
           if (beforeFirstHeading) {
             contentParts.unshift({
               type: "content",
@@ -338,27 +385,30 @@ function extractCheckboxItems(content: string): string[] {
 
 function normalizeMarkdown(content: string): string {
   // Remove invisible Unicode characters that can break code fences
-  let normalized = content.replace(/[\u200B\u200C\u200D\u2060\uFEFF\u00AD]/g, "");
-  
+  let normalized = content.replace(
+    /[\u200B\u200C\u200D\u2060\uFEFF\u00AD]/g,
+    "",
+  );
+
   // Ensure blank line between consecutive code fences
   // Split by lines and check for closing fence immediately followed by opening fence
-  const lines = normalized.split('\n');
+  const lines = normalized.split("\n");
   const result: string[] = [];
-  
+
   for (let i = 0; i < lines.length; i++) {
     result.push(lines[i]);
-    
+
     // Check if current line is a closing code fence (``` with optional language)
     const isClosingFence = /^```\s*$/.test(lines[i]);
-    
+
     // Check if next line is an opening code fence (``` with optional language)
     if (isClosingFence && i + 1 < lines.length && /^```/.test(lines[i + 1])) {
       // Insert blank line between them
-      result.push('');
+      result.push("");
     }
   }
-  
-  return result.join('\n');
+
+  return result.join("\n");
 }
 
 function extractCodeContent(node: React.ReactNode): string {
@@ -385,16 +435,22 @@ function extractCodeContent(node: React.ReactNode): string {
 }
 
 // Helper to find checklist blocks in content
-function findChecklistBlocks(content: string): { start: number; end: number; items: string[] }[] {
+function findChecklistBlocks(
+  content: string,
+): { start: number; end: number; items: string[] }[] {
   const blocks: { start: number; end: number; items: string[] }[] = [];
-  const lines = content.split('\n');
-  let currentBlock: { start: number; items: string[]; startLine: number } | null = null;
+  const lines = content.split("\n");
+  let currentBlock: {
+    start: number;
+    items: string[];
+    startLine: number;
+  } | null = null;
   let charIndex = 0;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const checkboxMatch = line.match(/^\s*[-*]\s+\[[\sx]\]\s+(.+)$/i);
-    
+
     if (checkboxMatch) {
       if (!currentBlock) {
         currentBlock = { start: charIndex, items: [], startLine: i };
@@ -411,7 +467,7 @@ function findChecklistBlocks(content: string): { start: number; end: number; ite
         currentBlock = null;
       }
     }
-    
+
     charIndex += line.length + 1; // +1 for newline
   }
 
@@ -441,17 +497,23 @@ function MarkdownWithIllustrations({
 }) {
   // Normalize content to fix back-to-back code fences
   const normalizedContent = normalizeMarkdown(content);
-  
+
   const illustrationRegex = /<!--\s*illustration:\s*([a-z0-9-]+)\s*-->/g;
   const visualExampleRegex = /<!--\s*visual-example:\s*([a-z0-9-]+)\s*-->/g;
 
   // Find all special blocks
-  const blocks: { type: 'text' | 'illustration' | 'visual-example' | 'checklist'; content: string; index: number; length: number; items?: string[] }[] = [];
+  const blocks: {
+    type: "text" | "illustration" | "visual-example" | "checklist";
+    content: string;
+    index: number;
+    length: number;
+    items?: string[];
+  }[] = [];
   let match;
 
   while ((match = illustrationRegex.exec(normalizedContent)) !== null) {
     blocks.push({
-      type: 'illustration',
+      type: "illustration",
       content: match[1],
       index: match.index,
       length: match[0].length,
@@ -460,7 +522,7 @@ function MarkdownWithIllustrations({
 
   while ((match = visualExampleRegex.exec(normalizedContent)) !== null) {
     blocks.push({
-      type: 'visual-example',
+      type: "visual-example",
       content: match[1],
       index: match.index,
       length: match[0].length,
@@ -471,8 +533,8 @@ function MarkdownWithIllustrations({
   const checklistBlocks = findChecklistBlocks(normalizedContent);
   for (const cb of checklistBlocks) {
     blocks.push({
-      type: 'checklist',
-      content: '',
+      type: "checklist",
+      content: "",
       index: cb.start,
       length: cb.end - cb.start,
       items: cb.items,
@@ -501,29 +563,37 @@ function MarkdownWithIllustrations({
       const textBefore = normalizedContent.slice(lastIndex, block.index).trim();
       if (textBefore) {
         parts.push(
-          <ReactMarkdown key={`text-${i}`} components={components} remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown
+            key={`text-${i}`}
+            components={components}
+            remarkPlugins={[remarkGfm]}
+          >
             {textBefore}
-          </ReactMarkdown>
+          </ReactMarkdown>,
         );
       }
     }
 
     // Add the special block
-    if (block.type === 'illustration') {
+    if (block.type === "illustration") {
       parts.push(
         <div key={`ill-${i}`} className="my-6">
           <IllustrationRenderer type={block.content} />
-        </div>
+        </div>,
       );
-    } else if (block.type === 'visual-example') {
+    } else if (block.type === "visual-example") {
       parts.push(
         <div key={`ve-${i}`} className="my-6">
           <VisualExampleRenderer type={block.content} />
-        </div>
+        </div>,
       );
-    } else if (block.type === 'checklist' && block.items && block.items.length > 0) {
+    } else if (
+      block.type === "checklist" &&
+      block.items &&
+      block.items.length > 0
+    ) {
       const storageKey = lessonPath
-        ? `${lessonPath.replace(/\//g, "-")}-${sectionId || 'content'}-checklist-${checklistCounter}`
+        ? `${lessonPath.replace(/\//g, "-")}-${sectionId || "content"}-checklist-${checklistCounter}`
         : `checklist-${i}`;
       checklistCounter++;
       parts.push(
@@ -531,7 +601,7 @@ function MarkdownWithIllustrations({
           key={`checklist-${i}`}
           items={block.items}
           storageKey={storageKey}
-        />
+        />,
       );
     }
 
@@ -543,9 +613,13 @@ function MarkdownWithIllustrations({
     const textAfter = normalizedContent.slice(lastIndex).trim();
     if (textAfter) {
       parts.push(
-        <ReactMarkdown key="text-end" components={components} remarkPlugins={[remarkGfm]}>
+        <ReactMarkdown
+          key="text-end"
+          components={components}
+          remarkPlugins={[remarkGfm]}
+        >
           {textAfter}
-        </ReactMarkdown>
+        </ReactMarkdown>,
       );
     }
   }
@@ -560,8 +634,14 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
   onSectionsDetected,
 }) => {
   // Normalize markdown content before parsing (fixes back-to-back code fences)
-  const normalizedContent = useMemo(() => normalizeMarkdown(content), [content]);
-  const parsedSections = useMemo(() => parseContent(normalizedContent), [normalizedContent]);
+  const normalizedContent = useMemo(
+    () => normalizeMarkdown(content),
+    [content],
+  );
+  const parsedSections = useMemo(
+    () => parseContent(normalizedContent),
+    [normalizedContent],
+  );
   const hasCalledCallback = useRef(false);
 
   useEffect(() => {
@@ -577,123 +657,154 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
     }
   }, [onSectionsDetected, parsedSections]);
 
-  const components = useMemo(() => ({
-    a: (
-      a: React.DetailedHTMLProps<
-        React.AnchorHTMLAttributes<HTMLAnchorElement>,
-        HTMLAnchorElement
-      >
-    ) => {
-      const href = a.href || "";
-      
-      // Transform relative .md links to proper course routes
-      // e.g., "./02-what-is-design-engineering.md" → "02-what-is-design-engineering"
-      if (href.startsWith("./") && href.endsWith(".md")) {
-        const lessonSlug = href.slice(2, -3); // Remove "./" and ".md"
+  const components = useMemo(
+    () => ({
+      a: (
+        a: React.DetailedHTMLProps<
+          React.AnchorHTMLAttributes<HTMLAnchorElement>,
+          HTMLAnchorElement
+        >,
+      ) => {
+        const href = a.href || "";
+
+        // Transform relative .md links to proper course routes
+        // e.g., "./02-what-is-design-engineering.md" → "02-what-is-design-engineering"
+        if (href.startsWith("./") && href.endsWith(".md")) {
+          const lessonSlug = href.slice(2, -3); // Remove "./" and ".md"
+          return (
+            <a
+              href={lessonSlug}
+              className="text-swiss-red my-0 inline-flex items-center hover:underline"
+            >
+              {a.children}
+            </a>
+          );
+        }
+
+        // External links open in new tab
         return (
           <a
-            href={lessonSlug}
-            className="my-0 inline-flex items-center text-swiss-red hover:underline"
+            href={href}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="my-0 inline-flex items-center"
           >
             {a.children}
           </a>
         );
-      }
-      
-      // External links open in new tab
-      return (
-        <a
-          href={href}
-          rel="noopener noreferrer"
-          target="_blank"
-          className="my-0 inline-flex items-center"
-        >
-          {a.children}
-        </a>
-      );
-    },
-    pre: ({ children }: any) => {
-      // react-markdown wraps code blocks in <pre><code>
-      // Handle both direct code element and nested structure
-      let codeElement: React.ReactElement<{ className?: string; children?: React.ReactNode }> | undefined;
-      
-      const childrenArray = React.Children.toArray(children);
-      
-      // First, try to find a code element directly
-      codeElement = childrenArray.find(
-        (child: any) => {
+      },
+      pre: ({ children }: any) => {
+        // react-markdown wraps code blocks in <pre><code>
+        // Handle both direct code element and nested structure
+        let codeElement:
+          | React.ReactElement<{
+              className?: string;
+              children?: React.ReactNode;
+            }>
+          | undefined;
+
+        const childrenArray = React.Children.toArray(children);
+
+        // First, try to find a code element directly
+        codeElement = childrenArray.find((child: any) => {
           if (!child || typeof child !== "object") return false;
           // Check if it's a code element by type
           if (child.type === "code") return true;
           // Or by className containing language-
-          if (typeof child.props?.className === "string" && child.props.className.includes("language-")) return true;
+          if (
+            typeof child.props?.className === "string" &&
+            child.props.className.includes("language-")
+          )
+            return true;
           return false;
+        }) as
+          | React.ReactElement<{
+              className?: string;
+              children?: React.ReactNode;
+            }>
+          | undefined;
+
+        // If not found, check if children itself is a code element
+        if (
+          !codeElement &&
+          childrenArray.length === 1 &&
+          (childrenArray[0] as any)?.type === "code"
+        ) {
+          codeElement = childrenArray[0] as React.ReactElement<{
+            className?: string;
+            children?: React.ReactNode;
+          }>;
         }
-      ) as React.ReactElement<{ className?: string; children?: React.ReactNode }> | undefined;
 
-      // If not found, check if children itself is a code element
-      if (!codeElement && childrenArray.length === 1 && (childrenArray[0] as any)?.type === "code") {
-        codeElement = childrenArray[0] as React.ReactElement<{ className?: string; children?: React.ReactNode }>;
-      }
+        if (codeElement?.props) {
+          const props = codeElement.props as {
+            className?: string;
+            children?: React.ReactNode;
+          };
+          const className = String(props.className || "");
+          const match = /language-(\w+)/.exec(className);
 
-      if (codeElement?.props) {
-        const props = codeElement.props as { className?: string; children?: React.ReactNode };
-        const className = String(props.className || "");
-        const match = /language-(\w+)/.exec(className);
-        
-        // Extract code content
-        const code = extractCodeContent(props.children).replace(/\n$/, "");
+          // Extract code content
+          const code = extractCodeContent(props.children).replace(/\n$/, "");
 
-        if (code) {
-          return (
-            <SyntaxHighlighter
-              language={match ? match[1] : "plain"}
-              code={code}
-              showCopyButton
-            />
-          );
+          if (code) {
+            return (
+              <SyntaxHighlighter
+                language={match ? match[1] : "plain"}
+                code={code}
+                showCopyButton
+              />
+            );
+          }
         }
-      }
 
-      // Fallback: render as-is
-      return <pre>{children}</pre>;
-    },
-    code: ({ className, children, ...props }: any) => {
-      // Inline code only (fenced blocks handled in pre component)
-      return (
-        <code
-          className={cn(
-            "rounded-none border border-neutral-200 bg-neutral-100 px-1 py-px font-mono text-[0.9em] font-normal text-inherit dark:border-neutral-700 dark:bg-neutral-800",
-            className
-          )}
-          {...props}
-        >
-          {children}
-        </code>
-      );
-    },
-    blockquote: (blockquote: React.HTMLAttributes<HTMLElement>) => {
-      return <MasterQuote>{blockquote.children}</MasterQuote>;
-    },
-    table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
-      <Table>{children}</Table>
-    ),
-    thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-      <TableHeader>{children}</TableHeader>
-    ),
-    tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-      <TableBody>{children}</TableBody>
-    ),
-    tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
-      <TableRow>{children}</TableRow>
-    ),
-    th: ({ children, ...props }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
-      <TableHead {...props}>{children}</TableHead>
-    ),
-    td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
-      <TableCell {...props}>{children}</TableCell>
-    ),
-  }), []);
+        // Fallback: render as-is
+        return <pre>{children}</pre>;
+      },
+      code: ({ className, children, ...props }: any) => {
+        // Inline code only (fenced blocks handled in pre component)
+        return (
+          <code
+            className={cn(
+              "rounded-none border border-neutral-200 bg-neutral-100 px-1 py-px font-mono text-[0.9em] font-normal text-inherit dark:border-neutral-700 dark:bg-neutral-800",
+              className,
+            )}
+            {...props}
+          >
+            {children}
+          </code>
+        );
+      },
+      blockquote: (blockquote: React.HTMLAttributes<HTMLElement>) => {
+        return <MasterQuote>{blockquote.children}</MasterQuote>;
+      },
+      table: ({ children }: React.HTMLAttributes<HTMLTableElement>) => (
+        <Table>{children}</Table>
+      ),
+      thead: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+        <TableHeader>{children}</TableHeader>
+      ),
+      tbody: ({ children }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+        <TableBody>{children}</TableBody>
+      ),
+      tr: ({ children }: React.HTMLAttributes<HTMLTableRowElement>) => (
+        <TableRow>{children}</TableRow>
+      ),
+      th: ({
+        children,
+        ...props
+      }: React.ThHTMLAttributes<HTMLTableCellElement>) => (
+        <TableHead {...props}>{children}</TableHead>
+      ),
+      td: ({
+        children,
+        ...props
+      }: React.TdHTMLAttributes<HTMLTableCellElement>) => (
+        <TableCell {...props}>{children}</TableCell>
+      ),
+    }),
+    [],
+  );
 
   return (
     <div className={cn("course-content", className)}>
@@ -716,7 +827,9 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
           case "objectives":
             return (
               <SectionWrapper key={index} id={section.id}>
-                <ObjectivesCard objectives={extractListItems(section.content)} />
+                <ObjectivesCard
+                  objectives={extractListItems(section.content)}
+                />
               </SectionWrapper>
             );
 
@@ -770,7 +883,7 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
               <SectionWrapper key={index} id={section.id}>
                 <div
                   className={cn(
-                    "prose prose-neutral max-w-none text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none"
+                    "prose prose-neutral dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none max-w-none text-pretty",
                   )}
                 >
                   <MarkdownWithIllustrations
@@ -789,7 +902,7 @@ const CourseMarkdown: React.FC<CourseMarkdownProps> = ({
               <SectionWrapper key={index} id={section.id}>
                 <div
                   className={cn(
-                    "prose prose-neutral max-w-none text-pretty dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none"
+                    "prose prose-neutral dark:prose-invert prose-headings:font-sans prose-headings:font-bold prose-h1:text-4xl prose-h1:leading-[0.95] prose-h1:tracking-[-0.035em] prose-h2:mt-12 prose-h2:text-3xl prose-h2:leading-[1] prose-h2:tracking-[-0.025em] prose-h3:mt-10 prose-h3:text-2xl prose-h3:leading-[1.05] prose-h3:tracking-[-0.02em] prose-h4:text-xl prose-h4:leading-[1.1] prose-p:leading-[1.55] prose-p:tracking-[-0.01em] prose-li:list-disc prose-img:rounded-none max-w-none text-pretty",
                   )}
                 >
                   <MarkdownWithIllustrations

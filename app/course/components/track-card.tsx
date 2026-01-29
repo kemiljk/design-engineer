@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Book as BookOpen, Clock, CheckCircle, StarSolid as Star } from "iconoir-react";
+import {
+  Book as BookOpen,
+  Clock,
+  CheckCircle,
+  StarSolid as Star,
+} from "iconoir-react";
 import { cn } from "@/lib/utils";
 
 interface TrackCardProps {
@@ -23,8 +28,13 @@ interface TrackCardProps {
 // Map track IDs to access levels that grant access
 const TRACK_ACCESS_MAP: Record<string, string[]> = {
   "design-track": ["design_web", "design_ios", "design_android", "full"],
-  "engineering-track": ["engineering_web", "engineering_ios", "engineering_android", "full"],
-  "convergence": ["full"],
+  "engineering-track": [
+    "engineering_web",
+    "engineering_ios",
+    "engineering_android",
+    "full",
+  ],
+  convergence: ["full"],
 };
 
 // Map recommendation to track IDs
@@ -79,11 +89,11 @@ export function TrackCard({
   return (
     <Link
       href={`/course/${id}`}
-      className="group relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors hover:border-swiss-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-swiss-red focus-visible:ring-offset-2 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-swiss-red dark:focus-visible:ring-offset-neutral-900"
+      className="group hover:border-swiss-red focus-visible:ring-swiss-red dark:hover:border-swiss-red relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none dark:border-neutral-800 dark:bg-neutral-900 dark:focus-visible:ring-offset-neutral-900"
     >
       {/* Recommended Badge */}
       {isRecommended && (
-        <div className="absolute right-3 top-3 z-10 flex items-center gap-1 rounded-none bg-swiss-red px-2 py-1 text-xs font-medium text-white shadow-sm">
+        <div className="bg-swiss-red absolute top-3 right-3 z-10 flex items-center gap-1 rounded-none px-2 py-1 text-xs font-medium text-white shadow-sm">
           <Star className="h-3 w-3" />
           Recommended
         </div>
@@ -92,16 +102,14 @@ export function TrackCard({
       <div
         className={cn(
           "absolute inset-x-0 top-0 h-1 transition-all group-hover:h-2",
-          color
+          color,
         )}
       />
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 dark:bg-neutral-800">
           {icon}
         </div>
-        <h3 className="mb-2 text-lg font-bold md:text-xl">
-          {title}
-        </h3>
+        <h3 className="mb-2 text-lg font-bold md:text-xl">{title}</h3>
         <p className="mb-6 text-sm text-neutral-500 dark:text-neutral-400">
           {description}
         </p>
@@ -115,8 +123,8 @@ export function TrackCard({
                 {stats.freeLessons} free
               </span>
             )}
-            {hasPaidAccess && (
-              <span className="ml-auto rounded-none bg-swiss-red/10 px-1.5 py-0.5 text-xs font-medium text-swiss-red">
+            {(hasPaidAccess || accessLevel === "full") && (
+              <span className="bg-swiss-red/10 text-swiss-red ml-auto rounded-none px-1.5 py-0.5 text-xs font-medium">
                 Enrolled
               </span>
             )}

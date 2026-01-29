@@ -11,7 +11,7 @@ import { cosmic } from "@/lib/cosmic";
  */
 async function verifyDdgDiscountOwnership(
   discountCode: string,
-  userEmail: string
+  userEmail: string,
 ): Promise<string | null> {
   // Only verify DDG discount codes (they start with "DDG" followed by alphanumeric)
   if (!discountCode.startsWith("DDG")) {
@@ -62,7 +62,10 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { productKey, discountCode } = body as { productKey: ProductKey; discountCode?: string };
+  const { productKey, discountCode } = body as {
+    productKey: ProductKey;
+    discountCode?: string;
+  };
 
   if (!productKey || !PRODUCT_CONFIG[productKey]) {
     return NextResponse.json({ error: "Invalid product" }, { status: 400 });
@@ -73,7 +76,7 @@ export async function POST(request: NextRequest) {
   if (!product.variantId) {
     return NextResponse.json(
       { error: "Product not configured" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -84,7 +87,10 @@ export async function POST(request: NextRequest) {
 
   // Verify DDG discount code ownership
   if (discountCode) {
-    const verificationError = await verifyDdgDiscountOwnership(discountCode, email);
+    const verificationError = await verifyDdgDiscountOwnership(
+      discountCode,
+      email,
+    );
     if (verificationError) {
       return NextResponse.json({ error: verificationError }, { status: 403 });
     }
@@ -97,7 +103,7 @@ export async function POST(request: NextRequest) {
   if (email.endsWith("@duckduckgo.com") && discountCode?.startsWith("DDG")) {
     try {
       console.log("[Checkout API] Bypassing LemonSqueezy for DDG user:", email);
-      
+
       const { createEnrollment } = await import("@/lib/course");
       await createEnrollment({
         user_id: userId,
@@ -113,25 +119,23 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    let { checkoutUrl } = await createCheckout(
+    const { checkoutUrl } = await createCheckout(
       product.variantId,
       userId,
       email,
-      redirectUrl
+      redirectUrl,
+      discountCode,
     );
-
-    // Append discount code if provided
-    if (discountCode) {
-      const separator = checkoutUrl.includes("?") ? "&" : "?";
-      checkoutUrl = `${checkoutUrl}${separator}discount=${encodeURIComponent(discountCode)}`;
-    }
 
     return NextResponse.json({ checkoutUrl });
   } catch (error) {
     console.error("Checkout creation failed:", error);
     return NextResponse.json(
-      { error: "Failed to create checkout. Please try again or contact support." },
-      { status: 500 }
+      {
+        error:
+          "Failed to create checkout. Please try again or contact support.",
+      },
+      { status: 500 },
     );
   }
 }

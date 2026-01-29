@@ -205,10 +205,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   let hasAccess = isFree;
   let enrollment = null;
 
-  if (isDevelopment) {
-    // Development mode grants full access for local testing
-    hasAccess = true;
-  } else if (previewAccess) {
+  if (previewAccess) {
     // Preview token grants full access (for friends/reviewers/admins with token)
     hasAccess = true;
 

@@ -246,7 +246,7 @@ export function BundleCard({
         ) : !userId ? (
           "Sign in to Purchase"
         ) : isConvergence ? (
-          "Get Everything"
+          "Get Convergence: All-Access"
         ) : (
           `Get ${product.name}`
         )}

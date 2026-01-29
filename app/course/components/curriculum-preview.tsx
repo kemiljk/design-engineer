@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { TrackLogo, type Track } from "@/app/components/track-logo";
+import { Sparks as Sparkles, CheckCircle } from "iconoir-react";
 import {
-  Sparks as Sparkles,
-  CheckCircle,
-} from "iconoir-react";
-import { Modal, ModalContent, ModalHeader, ModalBody } from "@/app/components/ui/modal";
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+} from "@/app/components/ui/modal";
 
 type Platform = "web" | "ios" | "android";
 
@@ -129,11 +131,7 @@ const trackPreviews: TrackPreview[] = [
       },
       {
         title: "JavaScript Essentials",
-        topics: [
-          "DOM manipulation",
-          "Event handling",
-          "Modern ES6+ patterns",
-        ],
+        topics: ["DOM manipulation", "Event handling", "Modern ES6+ patterns"],
       },
       {
         title: "Building Components",
@@ -241,7 +239,7 @@ function TrackCard({
           showLayer="track"
           className="shrink-0"
         />
-        <div className="flex-1">
+        <div className="flex flex-col gap-y-2">
           <h3 className="font-bold text-neutral-900 dark:text-white">
             {track.title}
           </h3>
@@ -256,7 +254,7 @@ function TrackCard({
         <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
           {track.highlights.map((highlight) => (
             <li key={highlight} className="flex items-center gap-2">
-              <span className="h-1 w-1 shrink-0 bg-swiss-red" />
+              <span className="bg-swiss-red h-1 w-1 shrink-0" />
               {highlight}
             </li>
           ))}
@@ -267,7 +265,7 @@ function TrackCard({
       <div className="border-t border-neutral-100 px-6 py-4 dark:border-neutral-800">
         <button
           onClick={onViewCurriculum}
-          className="w-full text-sm font-medium text-swiss-red transition-colors hover:underline"
+          className="text-swiss-red w-full text-sm font-medium transition-colors hover:underline"
         >
           View curriculum
         </button>
@@ -288,7 +286,11 @@ function CurriculumModal({
   if (!track) return null;
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={(open) => !open && onClose()} size="2xl">
+    <Modal
+      isOpen={isOpen}
+      onOpenChange={(open) => !open && onClose()}
+      size="2xl"
+    >
       <ModalContent>
         <ModalHeader>
           <div className="flex items-center gap-4">
@@ -306,8 +308,8 @@ function CurriculumModal({
         <ModalBody>
           {/* Convergence extras */}
           {track.convergenceExtras && (
-            <div className="mb-6 border border-swiss-red/20 bg-swiss-red/[0.02] p-4 dark:bg-swiss-red/5">
-              <div className="mb-3 flex items-center gap-2 text-sm font-bold text-swiss-red">
+            <div className="border-swiss-red/20 bg-swiss-red/2 dark:bg-swiss-red/5 mb-6 border p-4">
+              <div className="text-swiss-red mb-3 flex items-center gap-2 text-sm font-bold">
                 <Sparkles className="h-4 w-4" />
                 Everything Included
               </div>
@@ -351,8 +353,38 @@ function CurriculumModal({
   );
 }
 
-export function CurriculumPreview() {
+export function CurriculumPreview({
+  accessLevel,
+}: {
+  accessLevel?: string | null;
+}) {
   const [selectedTrack, setSelectedTrack] = useState<TrackPreview | null>(null);
+
+  // Filter/Modify tracks based on access level
+  const tracks = trackPreviews.map((track) => {
+    // Customise Convergence for full access users
+    if (track.id === "convergence" && accessLevel === "full") {
+      return {
+        ...track,
+        title: "Convergence Track",
+        tagline:
+          "Exclusive advanced content on motion, prototyping, and accessibility",
+        highlights: [
+          "Motion & micro-interactions",
+          "Accessibility & performance",
+          "Creative visual effects",
+          "Portfolio & career guidance",
+        ],
+        convergenceExtras: [
+          "Exclusive Convergence modules",
+          "Capstone projects",
+          "Advanced shader patterns",
+          "Career mentorship content",
+        ],
+      };
+    }
+    return track;
+  });
 
   return (
     <section className="border-t border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50">
@@ -361,7 +393,11 @@ export function CurriculumPreview() {
           {/* Section Header */}
           <div className="mb-10 text-center">
             <p className="heading-eyebrow mb-3">Curriculum Preview</p>
-            <h2 className="heading-subsection mb-3">What You'll Learn</h2>
+            <h2 className="heading-subsection mb-3">
+              {accessLevel && accessLevel !== "free"
+                ? "Course Syllabus"
+                : "What You'll Learn"}
+            </h2>
             <p className="mx-auto max-w-2xl text-neutral-600 dark:text-neutral-400">
               From absolute beginner to advanced techniques. Each track starts
               from fundamentals and builds to professional-level skills.
@@ -370,7 +406,7 @@ export function CurriculumPreview() {
 
           {/* Track Cards */}
           <div className="grid gap-6 md:grid-cols-3">
-            {trackPreviews.map((track) => (
+            {tracks.map((track) => (
               <TrackCard
                 key={track.id}
                 track={track}
@@ -385,7 +421,7 @@ export function CurriculumPreview() {
               Not sure which track is right for you?{" "}
               <a
                 href="/course/00-introduction/03-choosing-your-path"
-                className="font-medium text-swiss-red hover:underline"
+                className="text-swiss-red font-medium hover:underline"
               >
                 Take our quick quiz
               </a>

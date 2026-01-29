@@ -104,7 +104,7 @@ export function PricingClientWrapper({
     <>
       {/* Handle auto-checkout on redirect from Dive Club/DDG */}
       <AutoCheckoutHandler />
-      
+
       {/* Value Comparison Banner - only for new users */}
       {showValueBanner && (
         <div className="border-swiss-red bg-swiss-red/2.5 dark:bg-swiss-red/5 mb-12 rounded-none border-2 p-8">
@@ -136,7 +136,7 @@ export function PricingClientWrapper({
               </div>
               <div className="border-swiss-red rounded-none border-2 bg-white p-6 dark:bg-neutral-900">
                 <p className="text-swiss-red mb-2 text-sm font-medium">
-                  Convergence All-Access Price
+                  Convergence: All-Access Price
                 </p>
                 <p className="text-swiss-red mb-1 text-3xl font-bold">
                   {fullProduct.formattedPrice}

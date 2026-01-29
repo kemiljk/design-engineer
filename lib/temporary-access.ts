@@ -223,11 +223,22 @@ export const getUserTemporaryEnrollment = cache(
 
       return enrollment;
     } catch (error: unknown) {
-      console.error("[Temporary Access] Error fetching user temporary enrollment:", {
-        userId,
-        error: error instanceof Error ? error.message : error,
-        raw: error
-      });
+      if (
+        error &&
+        typeof error === "object" &&
+        "status" in error &&
+        (error as any).status === 404
+      ) {
+        return null;
+      }
+      console.error(
+        "[Temporary Access] Error fetching user temporary enrollment:",
+        {
+          userId,
+          error: error instanceof Error ? error.message : error,
+          raw: error,
+        },
+      );
       return null;
     }
   },

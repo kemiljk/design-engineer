@@ -1,4 +1,4 @@
-import "server-only";
+"use server";
 
 import fs from "fs/promises";
 import path from "path";
@@ -61,7 +61,7 @@ async function countLessonsInDir(dir: string): Promise<number> {
 // Get all modules in a platform directory
 async function getModulesInPlatform(
   platformDir: string,
-  isConvergence: boolean = false
+  isConvergence: boolean = false,
 ): Promise<ModuleInfo[]> {
   const modules: ModuleInfo[] = [];
 
@@ -95,7 +95,7 @@ async function getModulesInPlatform(
 // Scan a track/platform combination
 async function scanPlatform(
   track: string,
-  platform: string
+  platform: string,
 ): Promise<PlatformInfo> {
   const platformDir = path.join(CONTENT_DIR, track, platform);
   const isConvergence = track === "convergence";
@@ -179,14 +179,14 @@ async function scanCourseContent(): Promise<CourseStructure> {
 /**
  * Get the course structure dynamically by scanning content files.
  * Results are cached to avoid repeated filesystem scans.
- * 
+ *
  * In production, the cache is effectively permanent (refreshed on server restart).
  * In development, the cache refreshes every minute to pick up content changes.
  */
 export async function getDynamicCourseStructure(): Promise<CourseStructure> {
   const now = Date.now();
   const isDev = process.env.NODE_ENV === "development";
-  
+
   // Return cached structure if valid
   if (cachedStructure && (now - cacheTimestamp < CACHE_TTL_MS || !isDev)) {
     return cachedStructure;
@@ -195,7 +195,7 @@ export async function getDynamicCourseStructure(): Promise<CourseStructure> {
   // Scan content and cache result
   cachedStructure = await scanCourseContent();
   cacheTimestamp = now;
-  
+
   return cachedStructure;
 }
 
@@ -204,7 +204,7 @@ export async function getDynamicCourseStructure(): Promise<CourseStructure> {
  * Dynamically calculated from actual content.
  */
 export async function getDynamicTotalLessonsForAccess(
-  accessLevel: string
+  accessLevel: string,
 ): Promise<number> {
   const structure = await getDynamicCourseStructure();
   const intro = structure.introduction.lessons;
@@ -281,7 +281,7 @@ export async function getDynamicTotalLessonsForAccess(
  * Invalidate the cached structure.
  * Useful for testing or when content is known to have changed.
  */
-export function invalidateCourseStructureCache(): void {
+export async function invalidateCourseStructureCache(): Promise<void> {
   cachedStructure = null;
   cacheTimestamp = 0;
 }

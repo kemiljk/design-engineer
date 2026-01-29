@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 
 export async function claimDiveClubDiscount(formData: FormData) {
   const email = formData.get("email") as string;
-  
+
   if (!email || !email.includes("@")) {
     return { error: "Please enter a valid email address" };
   }
@@ -31,18 +31,24 @@ export async function claimDiveClubDiscount(formData: FormData) {
       // actually, if they lost it, giving it back is nice.
       const existingCode = objects[0].metadata.discount_code;
       if (existingCode) {
-          const variantId = PRODUCT_CONFIG.full.variantId;
-          return { success: true, url: `https://designengineer.lemonsqueezy.com/checkout/buy/${variantId}?discount=${existingCode}` };
+        return { success: true, code: existingCode };
       }
-      return { error: "You have already claimed a discount code. Check your email or contact support." };
+      return {
+        error:
+          "You have already claimed a discount code. Check your email or contact support.",
+      };
     }
   } catch (error) {
     // Ignore 404
   }
 
   // 2. Create Discount
-  const code = await createDiscount("DIVECLUB", `Dive Club - ${trimmedEmail}`, 10); // 10% OFF
-  
+  const code = await createDiscount(
+    "DIVECLUB",
+    `Dive Club - ${trimmedEmail}`,
+    10,
+  ); // 10% OFF
+
   if (!code) {
     return { error: "Failed to generate discount code. Please try again." };
   }
@@ -50,7 +56,7 @@ export async function claimDiveClubDiscount(formData: FormData) {
   // 3. Log in Cosmic
   const slug = `dive-club-${nanoid(8)}`;
   await cosmic.objects.insertOne({
-    type: "student-discounts", 
+    type: "student-discounts",
     title: `Dive Club: ${trimmedEmail}`,
     slug,
     metadata: {
@@ -58,7 +64,7 @@ export async function claimDiveClubDiscount(formData: FormData) {
       discount_code: code,
       requested_at: new Date().toISOString(),
       status: "unlocked",
-      source: "dive-club"
+      source: "dive-club",
     },
   });
 

@@ -17,24 +17,27 @@ export default async function CourseLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [user, { is_available }, previewAccess, headersList] = await Promise.all([
-    currentUser(),
-    getCourseAvailability(),
-    hasPreviewAccess(),
-    headers(),
-  ]);
+  const [user, { is_available }, previewAccess, headersList] =
+    await Promise.all([
+      currentUser(),
+      getCourseAvailability(),
+      hasPreviewAccess(),
+      headers(),
+    ]);
 
   const pathname = headersList.get("x-pathname") || "";
   const isPreviewPage = pathname.startsWith("/course/preview");
 
   // DDG users bypass the pre-launch check
-  const isDdgUser = user?.emailAddresses[0]?.emailAddress?.endsWith("@duckduckgo.com");
+  const isDdgUser =
+    user?.emailAddresses[0]?.emailAddress?.endsWith("@duckduckgo.com");
 
   // Test mode, preview access, development mode, or preview page bypass the availability check
   const isDevelopment = process.env.NODE_ENV === "development";
   if (
     !is_available &&
     !previewAccess &&
+    !isTestMode &&
     !isTestMode &&
     !isDevelopment &&
     !isPreviewPage &&

@@ -47,7 +47,20 @@ const INTRO_LESSONS = [
   "00-introduction/04-how-this-course-works",
 ];
 
-export default async function CoursePage() {
+// ... imports
+import { PurchaseVerification } from "./components/purchase-verification";
+
+interface CoursePageProps {
+  searchParams?: Promise<{
+    purchase?: string;
+  }>;
+}
+
+export default async function CoursePage({ searchParams }: CoursePageProps) {
+  // Await params correctly for Next.js 15+ (if applicable, best practice anyway)
+  const params = await searchParams;
+  const isPurchaseSuccess = params?.purchase === "success";
+
   const { userId } = await auth();
   const course = await getCourse();
   let progress: { completedLessons: string[]; raw: unknown } | null = null;
@@ -90,6 +103,26 @@ export default async function CoursePage() {
 
   // Check if user has any paid access (not free, not null)
   const hasPaidAccess = accessLevel && accessLevel !== "free";
+
+  // If user just purchased but doesn't have access yet, show verification
+  if (isPurchaseSuccess && !hasPaidAccess && userId) {
+    return (
+      <>
+        <PurchaseVerification />
+        {/* Show skeleton or blurred background behind */}
+        <main className="pointer-events-none min-h-dvh bg-linear-to-b from-neutral-50 to-white opacity-50 dark:from-black dark:to-neutral-900">
+          <PageHeader
+            title={
+              <>
+                Loading <span className="text-swiss-red">Course</span>
+              </>
+            }
+            description="Please wait..."
+          />
+        </main>
+      </>
+    );
+  }
 
   const tracks = [
     {
@@ -136,9 +169,14 @@ export default async function CoursePage() {
     },
     {
       id: "convergence",
-      title: "Convergence: All-Access",
+      title:
+        accessLevel === "full"
+          ? "Convergence Track"
+          : "Convergence: All-Access",
       description:
-        "Starting your career, or want both skillsets? Everything included, plus exclusive content on motion, prototyping, and accessibility.",
+        accessLevel === "full"
+          ? "Exclusive advanced content on motion, prototyping, and accessibility."
+          : "Starting your career, or want both skillsets? Everything included, plus exclusive content on motion, prototyping, and accessibility.",
       icon: (
         <TrackLogo
           track="convergence"
@@ -149,16 +187,23 @@ export default async function CoursePage() {
       ),
       color: "bg-neutral-500",
       stats: {
-        lessons: course.totalLessons,
+        lessons:
+          accessLevel === "full"
+            ? course.tracks.convergence.totalLessons
+            : course.totalLessons,
         freeLessons: 0,
-        duration: getEstimatedDuration(course.totalLessons),
-        level: "Complete Course",
+        duration: getEstimatedDuration(
+          accessLevel === "full"
+            ? course.tracks.convergence.totalLessons
+            : course.totalLessons,
+        ),
+        level: accessLevel === "full" ? "Advanced" : "Complete Course",
       },
     },
   ];
 
   return (
-    <main className="min-h-dvh bg-gradient-to-b from-neutral-50 to-white dark:from-black dark:to-neutral-900">
+    <main className="min-h-dvh bg-linear-to-b from-neutral-50 to-white dark:from-black dark:to-neutral-900">
       {/* Test Mode Banner */}
       {course.testMode && (
         <div className="bg-yellow-500 px-4 py-2 text-center text-sm font-medium text-black">
@@ -271,7 +316,9 @@ export default async function CoursePage() {
                   <div className="flex items-center gap-4 text-sm text-neutral-500">
                     <div className="flex items-center gap-1">
                       <BookOpen className="h-4 w-4" />
-                      <span>{course.structure.introduction.lessons} lessons</span>
+                      <span>
+                        {course.structure.introduction.lessons} lessons
+                      </span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="h-4 w-4" />
@@ -324,7 +371,7 @@ export default async function CoursePage() {
       <CourseApproach />
 
       {/* Curriculum Preview - What You'll Learn */}
-      <CurriculumPreview />
+      <CurriculumPreview accessLevel={accessLevel} />
 
       {/* Free Content Callout - only show for non-enrolled users */}
       {(!accessLevel || accessLevel === "free") && (
@@ -465,7 +512,9 @@ export default async function CoursePage() {
                     </span>
                     <Crown className="text-swiss-red h-3 w-3" />
                   </div>
-                  <h3 className="mb-2 text-lg font-bold">Convergence</h3>
+                  <h3 className="mb-2 text-lg font-bold">
+                    Convergence: All-Access
+                  </h3>
                   <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
                     Everything — Design + Engineering + exclusive content
                   </p>

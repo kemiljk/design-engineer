@@ -8,6 +8,7 @@ import {
 import { createEnrollment } from "@/lib/course";
 import { Resend } from "resend";
 import { CourseWelcomeEmail } from "@/app/components/email-template";
+import { revalidatePath } from "next/cache";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
@@ -111,6 +112,9 @@ export async function POST(request: NextRequest) {
 
     console.log(`Created enrollment for user ${userId}: ${productKey}`);
 
+    revalidatePath("/course");
+    revalidatePath("/course/dashboard");
+
     // Send welcome email
     if (userEmail) {
       after(async () => {
@@ -119,7 +123,9 @@ export async function POST(request: NextRequest) {
             from: "d×e <hello@designengineer.xyz>",
             to: [userEmail],
             subject: "Welcome to the Course!",
-            react: CourseWelcomeEmail({ email: userEmail }) as React.ReactElement,
+            react: CourseWelcomeEmail({
+              email: userEmail,
+            }) as React.ReactElement,
           });
           console.log(`Sent welcome email to ${userEmail}`);
         } catch (error) {

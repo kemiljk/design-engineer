@@ -160,6 +160,7 @@ export function normalizeAccessLevel(
 
   // If it's already a string, return it
   if (typeof accessLevel === "string") {
+    if ((accessLevel as string) === "convergence") return "full";
     return accessLevel;
   }
 

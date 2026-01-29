@@ -85,6 +85,7 @@ export function StudentDiscountForm() {
               placeholder="you@university.edu"
               disabled={status === "loading" || status === "success"}
               className="focus:border-swiss-red focus:ring-swiss-red/20 w-full rounded-none border border-neutral-300 bg-white px-4 py-3 text-neutral-900 placeholder-neutral-500 focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder-neutral-400"
+              suppressHydrationWarning
             />
             <p className="mt-2 text-xs text-neutral-500">
               Must be a valid student email (.edu, .ac.uk, etc.)

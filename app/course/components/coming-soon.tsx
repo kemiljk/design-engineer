@@ -12,6 +12,7 @@ import { NewsletterSignup } from "./newsletter-signup";
 import { FAQAccordion } from "../faq/faq-accordion";
 import { CurriculumPreview } from "./curriculum-preview";
 import { CourseApproach } from "./course-approach";
+import { getDynamicTotalLessonsForAccess } from "@/lib/course-structure";
 
 const faqs = [
   {
@@ -56,6 +57,8 @@ export function ComingSoon() {
     "Learn at your own pace",
     "Built by Design Engineers, for Design Engineers",
   ];
+
+  const totalLessons = getDynamicTotalLessonsForAccess("convergence");
 
   return (
     <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
@@ -194,7 +197,7 @@ export function ComingSoon() {
                 <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="text-swiss-red h-4 w-4" />
-                    ALL 156+ lessons
+                    ALL {totalLessons}+ lessons
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="text-swiss-red h-4 w-4" />
