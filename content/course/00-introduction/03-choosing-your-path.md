@@ -139,11 +139,8 @@ Once you're comfortable on one platform, picking up another is faster. The funda
 
 ## The Convergence Track
 
-The Convergence track is where Design Engineering comes together. It's for people who:
+**The Convergence track** is where Design Engineering comes together. It's designed for those who have completed both the Design and Engineering tracks—or already possess strong skills in both areas—and want to focus specifically on the bridge between them.
 
-The Convergence track is designed for those who have completed both the Design and Engineering tracks or already possess strong skills in both areas and want to focus specifically on the bridge between them.
-
-**Convergence covers:**
 Convergence covers motion and animation, advanced prototyping workflows, and a deep dive into accessibility. You'll also focus on implementation performance and polish, while learning how to build a professional design engineering portfolio.
 
 You don't have to complete both tracks before starting Convergence, but you should be comfortable with the fundamentals of both design and engineering for your platform.
@@ -189,7 +186,7 @@ Based on your self-assessment:
 
 1. **Choose your first track:** Design or Engineering
 2. **Choose your platform:** Web, iOS, or Android
-3. **Write down your goal:** "By completing this track, I'll be able to ___________."
+3. **Write down your goal:** "By completing this track, I'll be able to ****\_\_\_****."
 
 Your choices aren't permanent. You can switch if another path suits you better. But committing helps you make progress.
 
