@@ -1,6 +1,7 @@
 import "server-only";
 
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { cosmic } from "./cosmic";
 import * as Type from "./types";
 import { nanoid } from "nanoid";
@@ -160,7 +161,6 @@ export function normalizeAccessLevel(
 
   // If it's already a string, return it
   if (typeof accessLevel === "string") {
-    if ((accessLevel as string) === "convergence") return "full";
     return accessLevel;
   }
 
@@ -312,7 +312,6 @@ export async function createEnrollment(
 export async function getUserNotes(
   userId: string,
   lessonPath?: string,
-  limit: number = 100,
 ): Promise<Type.CourseNote[]> {
   try {
     const query: Record<string, unknown> = {
@@ -328,8 +327,7 @@ export async function getUserNotes(
       .find(query)
       .props("id,slug,title,created_at,modified_at,metadata")
       .depth(1)
-      .sort("-created_at")
-      .limit(limit);
+      .sort("-created_at");
 
     return objects || [];
   } catch (error: unknown) {
@@ -707,43 +705,55 @@ export async function getCourse() {
 }
 
 // Get all lessons in order for a given track and platform
-export async function getOrderedLessons(
-  track: string,
-  platform: string,
-): Promise<{ path: string; title: string }[]> {
-  const basePath = path.join(process.cwd(), "content/course", track, platform);
+export const getOrderedLessons = unstable_cache(
+  async (
+    track: string,
+    platform: string,
+  ): Promise<{ path: string; title: string }[]> => {
+    const basePath = path.join(
+      process.cwd(),
+      "content/course",
+      track,
+      platform,
+    );
 
-  try {
-    const entries = await fs.readdir(basePath, { withFileTypes: true });
-    const sortedModules = entries
-      .filter((e) => e.isDirectory() && !e.name.startsWith("."))
-      .map((e) => e.name)
-      .sort();
-
-    const lessons: { path: string; title: string }[] = [];
-
-    for (const moduleDir of sortedModules) {
-      const modulePath = path.join(basePath, moduleDir);
-      const files = await fs.readdir(modulePath);
-      const mdFiles = files
-        .filter((f) => f.endsWith(".md") && f !== "index.md")
+    try {
+      const entries = await fs.readdir(basePath, { withFileTypes: true });
+      const sortedModules = entries
+        .filter((e) => e.isDirectory() && !e.name.startsWith("."))
+        .map((e) => e.name)
         .sort();
 
-      for (const file of mdFiles) {
-        const lessonPath = `${track}/${platform}/${moduleDir}/${file.replace(".md", "")}`;
-        const title = file
-          .replace(".md", "")
-          .replace(/^\d+-/, "")
-          .replace(/-/g, " ");
-        lessons.push({ path: lessonPath, title });
-      }
-    }
+      const modulesData = await Promise.all(
+        sortedModules.map(async (moduleDir) => {
+          const modulePath = path.join(basePath, moduleDir);
+          const files = await fs.readdir(modulePath);
+          const mdFiles = files
+            .filter((f) => f.endsWith(".md") && f !== "index.md")
+            .sort();
 
-    return lessons;
-  } catch {
-    return [];
-  }
-}
+          return mdFiles.map((file) => {
+            const lessonPath = `${track}/${platform}/${moduleDir}/${file.replace(
+              ".md",
+              "",
+            )}`;
+            const title = file
+              .replace(".md", "")
+              .replace(/^\d+-/, "")
+              .replace(/-/g, " ");
+            return { path: lessonPath, title };
+          });
+        }),
+      );
+
+      return modulesData.flat();
+    } catch {
+      return [];
+    }
+  },
+  ["ordered-lessons"],
+  { revalidate: 3600, tags: ["course-content"] },
+);
 
 // Get lessons for introduction section (no platform)
 export async function getIntroductionLessons(): Promise<
@@ -975,53 +985,53 @@ export async function getLessonProgress(
 }
 
 // Get all modules for a track/platform with their first lesson paths
-export async function getModulesForTrack(
-  track: string,
-  platform: string,
-): Promise<
-  {
-    slug: string;
-    title: string;
-    lessonCount: number;
-    firstLessonPath: string;
-  }[]
-> {
-  const basePath = path.join(process.cwd(), "content/course", track, platform);
+export const getModulesForTrack = unstable_cache(
+  async (track: string, platform: string) => {
+    const basePath = path.join(
+      process.cwd(),
+      "content/course",
+      track,
+      platform,
+    );
 
-  try {
-    const entries = await fs.readdir(basePath, { withFileTypes: true });
-    const sortedModules = entries
-      .filter((e) => e.isDirectory() && !e.name.startsWith("."))
-      .map((e) => e.name)
-      .sort();
-
-    const modules: {
-      slug: string;
-      title: string;
-      lessonCount: number;
-      firstLessonPath: string;
-    }[] = [];
-
-    for (const moduleDir of sortedModules) {
-      const modulePath = path.join(basePath, moduleDir);
-      const files = await fs.readdir(modulePath);
-      const mdFiles = files
-        .filter((f) => f.endsWith(".md") && f !== "index.md")
+    try {
+      const entries = await fs.readdir(basePath, { withFileTypes: true });
+      const sortedModules = entries
+        .filter((e) => e.isDirectory() && !e.name.startsWith("."))
+        .map((e) => e.name)
         .sort();
 
-      if (mdFiles.length > 0) {
-        const firstLesson = mdFiles[0].replace(".md", "");
-        modules.push({
-          slug: moduleDir,
-          title: formatModuleName(moduleDir),
-          lessonCount: mdFiles.length,
-          firstLessonPath: `${track}/${platform}/${moduleDir}/${firstLesson}`,
-        });
-      }
-    }
+      const modules = await Promise.all(
+        sortedModules.map(async (moduleDir) => {
+          const modulePath = path.join(basePath, moduleDir);
+          const files = await fs.readdir(modulePath);
+          const mdFiles = files
+            .filter((f) => f.endsWith(".md") && f !== "index.md")
+            .sort();
 
-    return modules;
-  } catch {
-    return [];
-  }
-}
+          if (mdFiles.length > 0) {
+            const firstLesson = mdFiles[0].replace(".md", "");
+            return {
+              slug: moduleDir,
+              title: formatModuleName(moduleDir),
+              lessonCount: mdFiles.length,
+              firstLessonPath: `${track}/${platform}/${moduleDir}/${firstLesson}`,
+            };
+          }
+          return null;
+        }),
+      );
+
+      return modules.filter((m) => m !== null) as {
+        slug: string;
+        title: string;
+        lessonCount: number;
+        firstLessonPath: string;
+      }[];
+    } catch {
+      return [];
+    }
+  },
+  ["modules"],
+  { tags: ["course-content"] },
+);

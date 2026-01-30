@@ -128,13 +128,10 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json({ checkoutUrl });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Checkout creation failed:", error);
     return NextResponse.json(
-      {
-        error:
-          "Failed to create checkout. Please try again or contact support.",
-      },
+      { error: `Details: ${error?.message || String(error)}` },
       { status: 500 },
     );
   }
