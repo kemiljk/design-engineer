@@ -66,6 +66,11 @@ const ACCESS_MAP: Record<Type.AccessLevel, string[]> = {
     "convergence/android",
     "00-introduction",
   ],
+  convergence_only: [
+    "convergence/web",
+    "convergence/ios",
+    "convergence/android",
+  ],
 };
 
 // ============================================
