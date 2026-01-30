@@ -292,6 +292,7 @@ export type CourseEnrollment = {
       | "engineering_ios"
       | "engineering_android"
       | "engineering_full"
+      | "convergence_only"
       | "full";
     purchased_at?: string;
     expires_at?: string;
