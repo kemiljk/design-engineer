@@ -283,7 +283,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
               <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:text-left">
                 <div>
                   <div className="flex items-center gap-3 md:justify-start justify-center mb-2">
-                    <Badge variant="neutral" className="gap-1.5">
+                    <Badge variant="default" className="gap-1.5">
                       <Gift className="h-3.5 w-3.5" />
                       Start for Free
                     </Badge>
