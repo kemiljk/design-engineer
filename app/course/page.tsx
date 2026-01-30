@@ -18,6 +18,7 @@ import {
   NavArrowRight as ArrowRight,
   Gift,
   Crown,
+  CheckCircle,
 } from "iconoir-react";
 import { Badge, Button } from "@/app/components/ui";
 import { cn } from "@/lib/utils";
