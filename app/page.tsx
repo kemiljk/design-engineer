@@ -536,11 +536,17 @@ async function CourseSection({
           </div>
           <div className="flex gap-4">
             <NextLink
-              href={isCourseAvailable ? "/course/pricing" : "/course"}
+              href={isCourseAvailable ? "/course" : "/course"}
               className="focus-ring group bg-swiss-red inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-semibold text-white transition-[color,background-color,transform] duration-150 ease-out hover:bg-neutral-900 active:translate-y-0.5 dark:hover:bg-white dark:hover:text-black"
             >
-              {isCourseAvailable ? "Unlock Full Course" : "Learn More"}
+              {isCourseAvailable ? "Start Free Lessons" : "Learn More"}
               <ArrowRight className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" />
+            </NextLink>
+            <NextLink
+              href="/course/pricing"
+              className="focus-ring group inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+            >
+              View pricing
             </NextLink>
           </div>
         </div>
