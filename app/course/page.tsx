@@ -293,10 +293,10 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                     <span className="text-sm text-neutral-500">14-day guarantee</span>
                   </div>
                   <h2 className="text-xl font-bold md:text-2xl">
-                    Ready to bridge the gap?
+                    Stop handing over designs. Start building them.
                   </h2>
                   <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                    Join hundreds of design engineers building better products.
+                    Master the end-to-end workflow of top Design Engineers.
                   </p>
                 </div>
                 <Button
@@ -304,7 +304,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                   className="shrink-0 bg-swiss-red px-8 py-4 font-medium text-white shadow-lg shadow-swiss-red/20 transition-all hover:scale-105 hover:bg-neutral-900 hover:shadow-xl dark:hover:bg-white dark:hover:text-black"
                   endContent={<ArrowRight className="h-4 w-4" />}
                 >
-                  Get Access
+                  Unlock Lifetime Access
                 </Button>
               </div>
             )}
