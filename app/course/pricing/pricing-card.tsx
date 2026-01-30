@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check, StarSolid as Star, Crown } from "iconoir-react";
 import { cn } from "@/lib/utils";
 import type { ProductWithPrice } from "@/lib/types";
+import { UpgradeButton } from "./upgrade-button";
 
 interface PricingCardProps {
   product: ProductWithPrice;
@@ -225,10 +226,6 @@ export function BundleCard({
           </li>
         ))}
       </ul>
-
-import { UpgradeButton } from "./upgrade-button";
-
-// ... inside BundleCard ...
 
       <UpgradeButton 
         targetProductKey={product.key} 

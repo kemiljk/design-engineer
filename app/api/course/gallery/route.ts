@@ -7,7 +7,7 @@ import { getUserEnrollment } from "@/lib/course";
 import type { GalleryProjectPlatform, GalleryProjectTrack } from "@/lib/types";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY || "re_dummy");
 
 export async function GET(request: NextRequest) {
   const [unavailableResponse, { userId }] = await Promise.all([

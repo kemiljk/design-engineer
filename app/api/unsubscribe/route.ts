@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY || "re_dummy");
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

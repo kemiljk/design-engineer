@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { headers } from "next/headers";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY || "re_dummy");
 
 // Internal API key for server-to-server calls
 const INTERNAL_API_KEY = process.env.INTERNAL_API_KEY || "internal-protection-key";
