@@ -414,6 +414,14 @@ function DesignEngineeringSection() {
   );
 }
 
+const outcomes = [
+  "Ship production animation systems in React, SwiftUI, and CSS",
+  "Translate design specs into code without losing visual fidelity",
+  "Build and maintain cross-platform design tokens",
+  "Debug layout issues in browser and device inspectors",
+  "Speak fluently to both designers and engineers",
+];
+
 async function CourseSection({
   coursePromise,
 }: {
@@ -462,35 +470,58 @@ async function CourseSection({
           </p>
         </div>
 
-        <AnimatedGrid className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {tracks.map((track) => (
-            <div
-              key={track.title}
-              className="group hover:border-swiss-red dark:hover:border-swiss-red relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors dark:border-neutral-800 dark:bg-neutral-900"
-            >
-              <div
-                className={cn(
-                  "absolute inset-x-0 top-0 h-1 transition-all group-hover:h-2",
-                  track.color,
-                )}
-              />
-              <div className="flex flex-1 flex-col p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 transition-colors group-hover:bg-neutral-100 dark:bg-neutral-800 dark:group-hover:bg-neutral-700">
-                  <TrackLogo
-                    track={track.track}
-                    showLayer="track"
-                    size={28}
-                    className="text-neutral-900 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none dark:text-white"
+        <div className="mb-16 grid gap-12 lg:grid-cols-12">
+          {/* Tracks Grid */}
+          <div className="lg:col-span-7">
+            <AnimatedGrid className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {tracks.map((track) => (
+                <div
+                  key={track.title}
+                  className={cn(
+                    "group hover:border-swiss-red dark:hover:border-swiss-red relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors dark:border-neutral-800 dark:bg-neutral-900",
+                    track.track === "convergence" ? "md:col-span-2" : ""
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "absolute inset-x-0 top-0 h-1 transition-all group-hover:h-2",
+                      track.color,
+                    )}
                   />
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center bg-neutral-50 transition-colors group-hover:bg-neutral-100 dark:bg-neutral-800 dark:group-hover:bg-neutral-700">
+                      <TrackLogo
+                        track={track.track}
+                        showLayer="track"
+                        size={28}
+                        className="text-neutral-900 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:scale-[1.02] motion-reduce:transition-none dark:text-white"
+                      />
+                    </div>
+                    <h3 className="heading-card mb-2">{track.title}</h3>
+                    <p className="flex-1 text-neutral-500 dark:text-neutral-400">
+                      {track.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="heading-card mb-2">{track.title}</h3>
-                <p className="flex-1 text-neutral-500 dark:text-neutral-400">
-                  {track.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </AnimatedGrid>
+              ))}
+            </AnimatedGrid>
+          </div>
+
+          {/* Outcomes List */}
+          <div className="flex flex-col justify-center lg:col-span-5 lg:pl-8">
+            <h3 className="mb-6 text-lg font-bold">After this course, you&apos;ll be able to:</h3>
+            <ul className="space-y-4">
+              {outcomes.map((outcome) => (
+                <li key={outcome} className="flex items-start gap-3">
+                  <div className="bg-swiss-red/10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-swiss-red">
+                    <ArrowRight className="h-3 w-3" />
+                  </div>
+                  <span className="text-neutral-600 dark:text-neutral-400">{outcome}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         <div className="flex flex-col items-center gap-6 border-t border-neutral-200 pt-8 sm:flex-row sm:justify-between dark:border-neutral-800">
           <div className="flex items-center gap-6 text-sm text-neutral-500">
