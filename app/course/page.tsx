@@ -20,6 +20,7 @@ import {
   Crown,
 } from "iconoir-react";
 import { Badge, Button } from "@/app/components/ui";
+import { cn } from "@/lib/utils";
 import { DiamondIcon } from "@/app/components/diamond-icon";
 import { PageHeader } from "@/app/components/page-header";
 import { ProgressTracker } from "./components/progress-tracker";
