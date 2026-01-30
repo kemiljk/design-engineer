@@ -221,37 +221,94 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
         }
         description="Bridge the gap between design and engineering. Master the skills to conceptualise, design, and build world-class digital products."
       >
-        <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-          <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500 md:gap-6">
-            <div className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              <span>{course.totalLessons} lessons</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4" />
-              <span>{getEstimatedDuration(course.totalLessons)}</span>
-            </div>
-            {!hasPaidAccess && (
-              <div className="flex items-center gap-2">
-                <Gift className="text-swiss-red h-4 w-4" />
-                <span>Free intro modules</span>
-              </div>
-            )}
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-neutral-500 md:gap-6">
+          <div className="flex items-center gap-2">
+            <BookOpen className="h-4 w-4" />
+            <span>{course.totalLessons} lessons</span>
           </div>
-          
-          {/* Primary CTA for non-full-access users */}
-          {accessLevel !== "full" && (
-            <Button 
-              href="/course/pricing" 
-              className="bg-swiss-red text-white hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
-              endContent={<ArrowRight className="h-4 w-4" />}
-            >
-              {hasPaidAccess ? "Upgrade Plan" : "Get Access"}
-            </Button>
+          <div className="flex items-center gap-2">
+            <Clock className="h-4 w-4" />
+            <span>{getEstimatedDuration(course.totalLessons)}</span>
+          </div>
+          {!hasPaidAccess && (
+            <div className="flex items-center gap-2">
+              <Gift className="text-swiss-red h-4 w-4" />
+              <span>Free intro modules</span>
+            </div>
           )}
         </div>
         <StudentCompanies />
       </PageHeader>
+
+      {/* Pricing / Upgrade Callout Banner */}
+      <div className="border-b border-neutral-200 bg-neutral-50 py-12 dark:border-neutral-800 dark:bg-neutral-900/50">
+        <div className="container-page">
+          <div className="mx-auto max-w-4xl text-center">
+            {accessLevel === "full" ? (
+              // Full Access State
+              <div className="flex flex-col items-center gap-4">
+                <Badge variant="success" className="gap-2 px-3 py-1.5">
+                  <Crown className="h-4 w-4" />
+                  Full Access Unlocked
+                </Badge>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  You have access to everything. Enjoy your learning journey!
+                </p>
+              </div>
+            ) : hasPaidAccess ? (
+              // Partial Access / Upgrade State
+              <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:text-left">
+                <div>
+                  <h2 className="text-xl font-bold md:text-2xl">
+                    Complete your skillset
+                  </h2>
+                  <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                    Upgrade to Convergence to unlock all tracks and advanced content.
+                    <br />
+                    <span className="text-sm text-neutral-500">
+                      (You only pay the difference)
+                    </span>
+                  </p>
+                </div>
+                <Button
+                  href="/course/pricing"
+                  className="shrink-0 bg-swiss-red px-6 py-3 font-medium text-white hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                  endContent={<ArrowRight className="h-4 w-4" />}
+                >
+                  Upgrade Plan
+                </Button>
+              </div>
+            ) : (
+              // New User State
+              <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:text-left">
+                <div>
+                  <div className="flex items-center gap-3 md:justify-start justify-center mb-2">
+                    <Badge variant="neutral" className="gap-1.5">
+                      <Gift className="h-3.5 w-3.5" />
+                      Start for Free
+                    </Badge>
+                    <span className="text-sm text-neutral-500">•</span>
+                    <span className="text-sm text-neutral-500">14-day guarantee</span>
+                  </div>
+                  <h2 className="text-xl font-bold md:text-2xl">
+                    Ready to bridge the gap?
+                  </h2>
+                  <p className="mt-2 text-neutral-600 dark:text-neutral-400">
+                    Join hundreds of design engineers building better products.
+                  </p>
+                </div>
+                <Button
+                  href="/course/pricing"
+                  className="shrink-0 bg-swiss-red px-8 py-4 font-medium text-white shadow-lg shadow-swiss-red/20 transition-all hover:scale-105 hover:bg-neutral-900 hover:shadow-xl dark:hover:bg-white dark:hover:text-black"
+                  endContent={<ArrowRight className="h-4 w-4" />}
+                >
+                  Get Access
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* Progress Section */}
       {userId && (
