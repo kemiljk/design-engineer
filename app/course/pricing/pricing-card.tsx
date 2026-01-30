@@ -226,9 +226,13 @@ export function BundleCard({
         ))}
       </ul>
 
-      <button
-        onClick={handlePurchase}
-        disabled={isOwned || isLoading}
+import { UpgradeButton } from "./upgrade-button";
+
+// ... inside BundleCard ...
+
+      <UpgradeButton 
+        targetProductKey={product.key} 
+        currentAccess={currentAccess}
         className={cn(
           "w-full rounded-none px-6 py-3 font-medium transition-colors",
           isConvergence
@@ -236,21 +240,28 @@ export function BundleCard({
             : "border-2 border-neutral-900 bg-neutral-900 text-white hover:bg-white hover:text-neutral-900 disabled:opacity-50 dark:border-white dark:bg-white dark:text-black dark:hover:bg-neutral-900 dark:hover:text-white",
         )}
       >
-        {isLoading ? (
-          <span className="inline-flex items-center gap-2">
-            <span className="h-4 w-4 animate-spin border-2 border-current border-t-transparent" />
-            Loading...
-          </span>
-        ) : isOwned ? (
-          "Already Owned"
-        ) : !userId ? (
-          "Sign in to Purchase"
-        ) : isConvergence ? (
-          "Get Convergence: All-Access"
-        ) : (
-          `Get ${product.name}`
-        )}
-      </button>
+        {/* Fallback children for non-upgrade cases */}
+        <button
+          onClick={handlePurchase}
+          disabled={isOwned || isLoading}
+          className="w-full h-full flex items-center justify-center"
+        >
+          {isLoading ? (
+            <span className="inline-flex items-center gap-2">
+              <span className="h-4 w-4 animate-spin border-2 border-current border-t-transparent" />
+              Loading...
+            </span>
+          ) : isOwned ? (
+            "Already Owned"
+          ) : !userId ? (
+            "Sign in to Purchase"
+          ) : isConvergence ? (
+            "Get Everything"
+          ) : (
+            `Get ${product.name}`
+          )}
+        </button>
+      </UpgradeButton>
     </div>
   );
 }
