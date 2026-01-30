@@ -221,20 +221,33 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
         }
         description="Bridge the gap between design and engineering. Master the skills to conceptualise, design, and build world-class digital products."
       >
-        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-neutral-500 md:gap-6">
-          <div className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4" />
-            <span>{course.totalLessons} lessons</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4" />
-            <span>{getEstimatedDuration(course.totalLessons)}</span>
-          </div>
-          {!hasPaidAccess && (
+        <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-500 md:gap-6">
             <div className="flex items-center gap-2">
-              <Gift className="text-swiss-red h-4 w-4" />
-              <span>Free intro modules</span>
+              <BookOpen className="h-4 w-4" />
+              <span>{course.totalLessons} lessons</span>
             </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              <span>{getEstimatedDuration(course.totalLessons)}</span>
+            </div>
+            {!hasPaidAccess && (
+              <div className="flex items-center gap-2">
+                <Gift className="text-swiss-red h-4 w-4" />
+                <span>Free intro modules</span>
+              </div>
+            )}
+          </div>
+          
+          {/* Primary CTA for non-full-access users */}
+          {accessLevel !== "full" && (
+            <Button 
+              href="/course/pricing" 
+              className="bg-swiss-red text-white hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+              endContent={<ArrowRight className="h-4 w-4" />}
+            >
+              {hasPaidAccess ? "Upgrade Plan" : "Get Access"}
+            </Button>
           )}
         </div>
         <StudentCompanies />
@@ -444,34 +457,48 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
         </div>
       )}
 
-      {/* Pricing Preview - only show for non-enrolled users */}
-      {(!accessLevel || accessLevel === "free") && (
-        <div className="border-t border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-neutral-900">
+      {/* Pricing Preview - show for everyone except full access users */}
+      {accessLevel !== "full" && (
+        <div id="pricing" className="border-t border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="container-page">
             <div className="mx-auto max-w-4xl">
               <div className="mb-8 text-center">
                 <h2 className="heading-subsection mb-2">
-                  Simple, Transparent Pricing
+                  {hasPaidAccess ? "Complete Your Skillset" : "Simple, Transparent Pricing"}
                 </h2>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  One-time payment. Lifetime access. No subscriptions.
+                  {hasPaidAccess 
+                    ? "Upgrade to the full Convergence track to unlock advanced content and all platforms." 
+                    : "One-time payment. Lifetime access. No subscriptions."}
                 </p>
               </div>
 
               <div className="grid gap-6 md:grid-cols-3">
                 {/* Design Full */}
-                <div className="rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50">
+                <div className={cn(
+                  "rounded-none border p-6",
+                  accessLevel?.startsWith("design_") ? "border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-900/20" : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-800/50"
+                )}>
                   <div className="text-swiss-red mb-1 text-xs font-medium tracking-wider uppercase">
                     Design Track
                   </div>
                   <h3 className="mb-2 text-lg font-bold">Full Access</h3>
-                  <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    All design content across Web, iOS & Android
-                  </p>
-                  <div className="mb-4">
-                    <span className="text-3xl font-bold">£299</span>
-                    <span className="text-neutral-500"> one-time</span>
-                  </div>
+                  {accessLevel?.startsWith("design_") ? (
+                     <div className="mb-4 flex items-center gap-2 text-green-700 dark:text-green-400">
+                       <CheckCircle className="h-5 w-5" />
+                       <span className="font-medium">You own this</span>
+                     </div>
+                  ) : (
+                    <>
+                      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        All design content across Web, iOS & Android
+                      </p>
+                      <div className="mb-4">
+                        <span className="text-3xl font-bold">£299</span>
+                        <span className="text-neutral-500"> one-time</span>
+                      </div>
+                    </>
+                  )}
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                     <li>
                       ✓ {course.tracks.design.totalLessons}+ design lessons
@@ -482,18 +509,30 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                 </div>
 
                 {/* Engineering Full */}
-                <div className="rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50">
+                <div className={cn(
+                  "rounded-none border p-6",
+                  accessLevel?.startsWith("engineering_") ? "border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-900/20" : "border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-800/50"
+                )}>
                   <div className="mb-1 text-xs font-medium tracking-wider text-neutral-500 uppercase">
                     Engineering Track
                   </div>
                   <h3 className="mb-2 text-lg font-bold">Full Access</h3>
-                  <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
-                    All engineering content across Web, iOS & Android
-                  </p>
-                  <div className="mb-4">
-                    <span className="text-3xl font-bold">£349</span>
-                    <span className="text-neutral-500"> one-time</span>
-                  </div>
+                  {accessLevel?.startsWith("engineering_") ? (
+                     <div className="mb-4 flex items-center gap-2 text-green-700 dark:text-green-400">
+                       <CheckCircle className="h-5 w-5" />
+                       <span className="font-medium">You own this</span>
+                     </div>
+                  ) : (
+                    <>
+                      <p className="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        All engineering content across Web, iOS & Android
+                      </p>
+                      <div className="mb-4">
+                        <span className="text-3xl font-bold">£349</span>
+                        <span className="text-neutral-500"> one-time</span>
+                      </div>
+                    </>
+                  )}
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                     <li>
                       ✓ {course.tracks.engineering.totalLessons}+ engineering
@@ -538,11 +577,12 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                   endContent={<ArrowRight className="h-4 w-4" />}
                   className="px-6 py-3 font-medium"
                 >
-                  View All Pricing Options
+                  {hasPaidAccess ? "View Upgrade Options" : "View All Pricing Options"}
                 </Button>
                 <p className="mt-4 text-sm text-neutral-500">
-                  14-day money-back guarantee • Individual platform tracks from
-                  £99
+                  {hasPaidAccess 
+                    ? "Pay only the difference when you upgrade" 
+                    : "14-day money-back guarantee • Individual platform tracks from £99"}
                 </p>
               </div>
             </div>

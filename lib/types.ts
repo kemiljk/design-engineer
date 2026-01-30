@@ -299,6 +299,8 @@ export type CourseEnrollment = {
     is_temporary?: boolean; // For temporary access codes
     temporary_source?: string; // Source temporary access code
     status: "active" | "expired" | "refunded";
+    review_eligible?: boolean;
+    review_complete?: boolean;
   };
 };
 
