@@ -32,6 +32,7 @@ import { getUserGalleryProjects } from "@/lib/cosmic";
 import { Button } from "@/app/components/ui";
 import { GalleryProjectCard } from "./gallery-project-card";
 import { ContinueLearning } from "../components/continue-learning";
+import { PortfolioReview } from "../components/portfolio-review";
 
 export const metadata = {
   title: "My Dashboard | Design Engineer Course",
@@ -130,6 +131,16 @@ export default async function DashboardPage() {
             </p>
           </div>
         </div>
+
+        {/* Portfolio Review Perk */}
+        {enrollment && enrollment.metadata.review_eligible && (
+          <div className="mb-8">
+            <PortfolioReview
+              reviewEligible={!!enrollment.metadata.review_eligible}
+              reviewComplete={!!enrollment.metadata.review_complete}
+            />
+          </div>
+        )}
 
         {/* Continue Learning Section */}
         {lastActivity && lastActivity.status !== "completed" && (
