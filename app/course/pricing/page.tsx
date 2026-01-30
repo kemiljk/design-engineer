@@ -146,6 +146,7 @@ export default async function PricingPage() {
             <PricingClientWrapper
               bundleTiers={bundleTiers}
               platformTiers={platformTiers}
+              extrasTier={allProducts.find((p) => p.key === "convergence_only")}
               currentAccess={currentAccess}
               userId={userId}
               convergenceSavings={convergenceSavings}

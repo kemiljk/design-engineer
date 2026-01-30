@@ -414,6 +414,7 @@ export type ProductKey =
   | "engineering_ios"
   | "engineering_android"
   | "engineering_full"
+  | "convergence_only"
   | "full";
 
 export type ProductWithPrice = {

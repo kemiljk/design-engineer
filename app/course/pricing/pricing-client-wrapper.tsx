@@ -8,6 +8,7 @@ import type { ProductWithPrice } from "@/lib/types";
 interface PricingClientWrapperProps {
   bundleTiers: ProductWithPrice[];
   platformTiers: ProductWithPrice[];
+  extrasTier: ProductWithPrice | undefined;
   currentAccess: string | null;
   userId: string | null;
   convergenceSavings: number;
@@ -74,6 +75,7 @@ function isBundleRelevant(
 export function PricingClientWrapper({
   bundleTiers,
   platformTiers,
+  extrasTier,
   currentAccess,
   userId,
   convergenceSavings,
@@ -99,6 +101,11 @@ export function PricingClientWrapper({
   // Don't show value comparison banner if user already has significant access
   const showValueBanner =
     convergenceSavings > 0 && fullProduct && !hasPartialAccess;
+
+  const showExtras =
+    extrasTier &&
+    currentAccess !== "full" &&
+    currentAccess !== "convergence_only";
 
   return (
     <>
@@ -204,6 +211,25 @@ export function PricingClientWrapper({
                 userId={userId}
               />
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* Extras / Upgrades */}
+      {showExtras && (
+        <div className="mt-16 mb-16">
+          <div className="mb-6 text-center">
+            <h2 className="text-xl font-bold">Upgrade for Extras</h2>
+            <p className="mt-2 text-sm text-neutral-500">
+              Already have the tracks you need? Just get the Convergence extras.
+            </p>
+          </div>
+          <div className="mx-auto max-w-md">
+            <BundleCard
+              product={extrasTier}
+              currentAccess={currentAccess}
+              userId={userId}
+            />
           </div>
         </div>
       )}

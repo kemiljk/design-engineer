@@ -138,6 +138,21 @@ export const PRODUCT_CONFIG = {
     tier: "track",
   },
 
+  // Convergence Extras Only
+  convergence_only: {
+    name: "Convergence: Extras Only",
+    variantId: process.env.LEMON_PRODUCT_CONVERGENCE_ONLY,
+    description: "Upgrade to get the exclusive Convergence content",
+    features: [
+      "Exclusive Convergence content",
+      "Advanced motion & prototyping",
+      "Accessibility deep-dive",
+      "Career & portfolio guidance",
+      "Lifetime access",
+    ],
+    tier: "extras",
+  },
+
   // Everything bundle
   full: {
     name: "Convergence: All-Access",
@@ -327,6 +342,7 @@ const FALLBACK_PRICES: Record<
   engineering_android: { price: 129, formattedPrice: "£129.00" },
   design_full: { price: 299, formattedPrice: "£299.00" },
   engineering_full: { price: 349, formattedPrice: "£349.00" },
+  convergence_only: { price: 199, formattedPrice: "£199.00" }, // Matches screenshot
   full: { price: 599, formattedPrice: "£599.00" },
 };
 
@@ -342,11 +358,18 @@ export async function getVariantPrice(
     const response = await lemonFetch<VariantResponse>(
       `/variants/${variantId}`,
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 0 }, // Force fresh fetch for debugging
+        cache: "no-store",
       },
     );
 
     const priceInCents = response.data.attributes.price;
+    const variantName = response.data.attributes.name;
+
+    // DEBUG: Log the variant ID and price to debug the £99 issue
+    console.log(
+      `[LemonSqueezy] Fetched variant ${variantId} (${variantName}): ${formatPrice(priceInCents)}`,
+    );
 
     return {
       price: priceInCents / 100,
