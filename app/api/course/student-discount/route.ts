@@ -6,7 +6,7 @@ import { getCourse } from "@/lib/course";
 import { Resend } from "resend";
 import { nanoid } from "nanoid";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY || "re_dummy");
 
 const STUDENT_DOMAINS = [
   ".edu",

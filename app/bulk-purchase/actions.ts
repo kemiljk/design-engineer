@@ -1,6 +1,6 @@
 "use server";
 
-import { createCheckout, createBulkDiscount } from "@/lib/lemonsqueezy";
+import { createCheckout } from "@/lib/lemonsqueezy";
 import { PRODUCT_CONFIG } from "@/lib/lemonsqueezy";
 import { auth } from "@clerk/nextjs/server";
 import { nanoid } from "nanoid";

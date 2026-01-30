@@ -1,494 +1,236 @@
-// Force rebuild for Vercel cache
-import "server-only";
+import { ProductKey, ProductWithPrice } from "@/lib/types";
 import crypto from "crypto";
-import { customAlphabet } from "nanoid";
-import type { ProductKey, ProductWithPrice } from "./types";
-
-// LemonSqueezy only allows alphanumeric characters in discount codes
-const alphanumericNanoid = customAlphabet(
-  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  10,
-);
 
 const LEMONSQUEEZY_API_KEY = process.env.LEMONSQUEEZY_API_KEY;
 const LEMONSQUEEZY_STORE_ID = process.env.LEMONSQUEEZY_STORE_ID;
 const LEMONSQUEEZY_WEBHOOK_SECRET = process.env.LEMONSQUEEZY_WEBHOOK_SECRET;
 
-const API_BASE = "https://api.lemonsqueezy.com/v1";
-
-export const PRODUCT_CONFIG = {
-  // Individual platform tracks
+export const PRODUCT_CONFIG: Record<ProductKey, {
+  variantId: string | undefined;
+  name: string;
+  description: string;
+  features: string[];
+  popular?: boolean;
+}> = {
   design_web: {
-    name: "Design Track (Web)",
-    variantId: process.env.LEMON_PRODUCT_DESIGN_WEB,
-    description: "Master visual design principles for the web",
-    features: [
-      "24 comprehensive lessons",
-      "Visual design fundamentals",
-      "Design tools mastery (Figma)",
-      "Design systems",
-      "UX principles",
-      "Interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "platform",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_DESIGN_WEB,
+    name: "Design for Web",
+    description: "Master visual design for the web.",
+    features: ["Visual Design Foundations", "Web Typography", "Layout & Grid", "Color Theory"]
   },
   design_ios: {
-    name: "Design Track (iOS)",
-    variantId: process.env.LEMON_PRODUCT_DESIGN_IOS,
-    description: "Master visual design principles for iOS",
-    features: [
-      "12 comprehensive lessons",
-      "iOS design patterns",
-      "Human Interface Guidelines",
-      "SF Symbols & typography",
-      "Interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "platform",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_DESIGN_IOS,
+    name: "Design for iOS",
+    description: "Learn Apple's Human Interface Guidelines.",
+    features: ["iOS Design Philosophy", "Apple Design Resources", "SF Symbols", "Native Components"]
   },
   design_android: {
-    name: "Design Track (Android)",
-    variantId: process.env.LEMON_PRODUCT_DESIGN_ANDROID,
-    description: "Master visual design principles for Android",
-    features: [
-      "12 comprehensive lessons",
-      "Material Design system",
-      "Android design patterns",
-      "Typography & iconography",
-      "Interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "platform",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_DESIGN_ANDROID,
+    name: "Design for Android",
+    description: "Master Material Design 3.",
+    features: ["Material Design Philosophy", "Material Theming", "Android UI Components", "Adaptive Layouts"]
+  },
+  design_full: {
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_DESIGN_FULL,
+    name: "Full Design Track",
+    description: "Complete design education across all platforms.",
+    features: ["All 3 Design Platforms", "Web, iOS & Android", "Certificate of Completion", "Lifetime Access"],
+    popular: true
   },
   engineering_web: {
-    name: "Engineering Track (Web)",
-    variantId: process.env.LEMON_PRODUCT_ENGINEERING_WEB,
-    description: "Learn to build beautiful web interfaces",
-    features: [
-      "33 comprehensive lessons",
-      "HTML & CSS fundamentals",
-      "JavaScript essentials",
-      "Building components",
-      "Design systems in code",
-      "Interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "platform",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_ENGINEERING_WEB,
+    name: "Engineering for Web",
+    description: "Build modern web applications.",
+    features: ["React & Next.js", "Tailwind CSS", "TypeScript", "Animation Engineering"]
   },
   engineering_ios: {
-    name: "Engineering Track (iOS)",
-    variantId: process.env.LEMON_PRODUCT_ENGINEERING_IOS,
-    description: "Learn to build beautiful iOS interfaces",
-    features: [
-      "17 comprehensive lessons",
-      "SwiftUI fundamentals",
-      "iOS components",
-      "Design systems in code",
-      "Interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "platform",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_ENGINEERING_IOS,
+    name: "Engineering for iOS",
+    description: "Build native iOS apps with SwiftUI.",
+    features: ["Swift & SwiftUI", "Xcode Mastery", "Data Flow", "Native Animations"]
   },
   engineering_android: {
-    name: "Engineering Track (Android)",
-    variantId: process.env.LEMON_PRODUCT_ENGINEERING_ANDROID,
-    description: "Learn to build beautiful Android interfaces",
-    features: [
-      "17 comprehensive lessons",
-      "Jetpack Compose",
-      "Android components",
-      "Design systems in code",
-      "Interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "platform",
-  },
-
-  // Full track bundles (all platforms within a track)
-  design_full: {
-    name: "Design: Full Access",
-    variantId: process.env.LEMON_PRODUCT_DESIGN_FULL,
-    description: "Complete Design Track across all platforms",
-    features: [
-      "All Design lessons (Web, iOS, Android)",
-      "48+ comprehensive lessons",
-      "Visual design fundamentals",
-      "Platform-specific patterns (HIG, Material)",
-      "Design systems architecture",
-      "UX principles",
-      "All interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "track",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_ENGINEERING_ANDROID,
+    name: "Engineering for Android",
+    description: "Build native Android apps with Kotlin.",
+    features: ["Kotlin & Jetpack Compose", "Android Studio", "State Management", "Material Motion"]
   },
   engineering_full: {
-    name: "Engineering: Full Access",
-    variantId: process.env.LEMON_PRODUCT_ENGINEERING_FULL,
-    description: "Complete Engineering Track across all platforms",
-    features: [
-      "All Engineering lessons (Web, iOS, Android)",
-      "67+ comprehensive lessons",
-      "Web: HTML, CSS, JavaScript, React",
-      "iOS: Swift & SwiftUI",
-      "Android: Kotlin & Compose",
-      "Component architecture",
-      "All interactive exercises",
-      "Lifetime access",
-    ],
-    tier: "track",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_ENGINEERING_FULL,
+    name: "Full Engineering Track",
+    description: "Complete engineering education across all platforms.",
+    features: ["All 3 Engineering Platforms", "Web, iOS & Android", "Certificate of Completion", "Lifetime Access"]
   },
-
-  // Everything bundle
   full: {
-    name: "Convergence: All-Access",
-    variantId: process.env.LEMON_PRODUCT_FULL,
-    description:
-      "Everything included — all tracks, all platforms, plus exclusive content",
-    features: [
-      "✨ ALL LESSONS INCLUDED",
-      "Complete Design Track (all platforms)",
-      "Complete Engineering Track (all platforms)",
-      "Exclusive Convergence content",
-      "Advanced motion & prototyping",
-      "Accessibility deep-dive",
-      "Career & portfolio guidance",
-      "All future updates included",
-      "Priority support",
-    ],
-    popular: true,
-    tier: "bundle",
+    variantId: process.env.LEMONSQUEEZY_VARIANT_ID_FULL,
+    name: "Convergence: All Access",
+    description: "The complete design engineering curriculum.",
+    features: ["Everything in Design", "Everything in Engineering", "Convergence Modules", "Master Certificate"],
+    popular: true
   },
-} as const;
+};
 
-export type { ProductKey, ProductWithPrice } from "./types";
-
-async function lemonFetch<T = unknown>(
-  endpoint: string,
-  options: RequestInit = {},
-): Promise<T> {
-  const response = await fetch(`${API_BASE}${endpoint}`, {
+async function lemonFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
+  if (!LEMONSQUEEZY_API_KEY) {
+    console.warn("Missing LemonSqueezy API key");
+    // Return a rejected promise or throw
+    throw new Error("Missing LemonSqueezy API key");
+  }
+  const res = await fetch(`https://api.lemonsqueezy.com/v1${path}`, {
     ...options,
     headers: {
+      Authorization: `Bearer ${LEMONSQUEEZY_API_KEY}`,
       Accept: "application/vnd.api+json",
       "Content-Type": "application/vnd.api+json",
-      Authorization: `Bearer ${LEMONSQUEEZY_API_KEY}`,
       ...options.headers,
     },
   });
-
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(`LemonSqueezy API error: ${error}`);
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error(`LemonSqueezy API error: ${res.status} ${res.statusText}`, errorText);
+    throw new Error(`LemonSqueezy API error: ${res.status} ${res.statusText}`);
   }
-
-  return response.json() as Promise<T>;
+  return res.json() as Promise<T>;
 }
 
 export async function createCheckout(
-  variantId: string,
+  variantId: string | number | undefined,
   userId: string,
-  email: string,
+  userEmail: string,
   redirectUrl: string,
+  discountCode?: string
 ): Promise<{ checkoutUrl: string }> {
-  const response = (await lemonFetch("/checkouts", {
-    method: "POST",
-    body: JSON.stringify({
-      data: {
-        type: "checkouts",
-        attributes: {
-          checkout_data: {
-            email,
+  if (!LEMONSQUEEZY_STORE_ID) throw new Error("Missing Store ID");
+  if (!variantId) throw new Error("Variant ID is required");
+
+  const payload: any = {
+    data: {
+      type: "checkouts",
+      attributes: {
+        checkout_data: {
+            email: userEmail,
             custom: {
-              user_id: userId,
+                user_id: userId
             },
-          },
-          product_options: {
-            redirect_url: redirectUrl,
-          },
         },
-        relationships: {
-          store: {
-            data: {
-              type: "stores",
-              id: LEMONSQUEEZY_STORE_ID,
-            },
-          },
-          variant: {
-            data: {
-              type: "variants",
-              id: variantId,
-            },
-          },
-        },
+        product_options: {
+            redirect_url: redirectUrl
+        }
       },
-    }),
-  })) as { data: { attributes: { url: string } } };
+      relationships: {
+        store: {
+          data: {
+            type: "stores",
+            id: LEMONSQUEEZY_STORE_ID
+          }
+        },
+        variant: {
+          data: {
+            type: "variants",
+            id: String(variantId)
+          }
+        }
+      }
+    }
+  };
+
+  if (discountCode) {
+      payload.data.attributes.checkout_data.discount_code = discountCode;
+  }
+
+  const response = await lemonFetch<{ data: { attributes: { url: string } } }>(
+      "/checkouts",
+      {
+          method: "POST",
+          body: JSON.stringify(payload)
+      }
+  );
 
   return { checkoutUrl: response.data.attributes.url };
 }
 
-export function verifyWebhookSignature(
-  payload: string,
-  signature: string,
-): boolean {
-  if (!LEMONSQUEEZY_WEBHOOK_SECRET) {
-    console.error("Missing LEMONSQUEEZY_WEBHOOK_SECRET");
-    return false;
-  }
-
-  const hmac = crypto.createHmac("sha256", LEMONSQUEEZY_WEBHOOK_SECRET);
-  const digest = hmac.update(payload).digest("hex");
-
-  return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(digest));
-}
-
-export interface WebhookEvent {
-  meta: {
-    event_name: string;
-    custom_data?: {
-      user_id?: string;
-    };
-  };
-  data: {
-    id: string;
-    type: string;
-    attributes: {
-      status: string;
-      user_email: string;
-      customer_id: number;
-      order_id?: number;
-      variant_id?: number;
-      product_id?: number;
-      created_at: string;
-      first_order_item?: {
-        id: number;
-        variant_id: number;
-        product_id: number;
-        order_id: number;
-        price: number;
-        quantity: number;
-        product_name?: string;
-        variant_name?: string;
-      };
-    };
-    relationships?: {
-      "order-items"?: {
-        data?: Array<{
-          id: string;
-          attributes?: {
-            variant_id?: number;
-          };
-        }>;
-      };
-    };
-  };
-}
-
-export function getProductKeyFromVariantId(
-  variantId: string,
-): ProductKey | null {
-  for (const [key, product] of Object.entries(PRODUCT_CONFIG)) {
-    if (product.variantId === variantId) {
-      return key as ProductKey;
-    }
-  }
-  return null;
-}
-
-interface VariantResponse {
-  data: {
-    id: string;
-    attributes: {
-      name: string;
-      price: number;
-    };
-  };
-}
-
-function formatPrice(priceInCents: number): string {
-  const price = priceInCents / 100;
-  return new Intl.NumberFormat("en-GB", {
-    style: "currency",
-    currency: "GBP",
-  }).format(price);
-}
-
-const FALLBACK_PRICES: Record<
-  ProductKey,
-  { price: number; formattedPrice: string }
-> = {
-  design_web: { price: 129, formattedPrice: "£129.00" },
-  design_ios: { price: 99, formattedPrice: "£99.00" },
-  design_android: { price: 99, formattedPrice: "£99.00" },
-  engineering_web: { price: 149, formattedPrice: "£149.00" },
-  engineering_ios: { price: 129, formattedPrice: "£129.00" },
-  engineering_android: { price: 129, formattedPrice: "£129.00" },
-  design_full: { price: 299, formattedPrice: "£299.00" },
-  engineering_full: { price: 349, formattedPrice: "£349.00" },
-  full: { price: 599, formattedPrice: "£599.00" },
-};
-
-export async function getVariantPrice(
-  variantId: string,
-): Promise<{ price: number; formattedPrice: string } | null> {
-  if (!LEMONSQUEEZY_API_KEY) {
-    console.error("Missing LEMONSQUEEZY_API_KEY environment variable");
-    return null;
-  }
-
-  try {
-    const response = await lemonFetch<VariantResponse>(
-      `/variants/${variantId}`,
-      {
-        next: { revalidate: 3600 },
-      },
-    );
-
-    const priceInCents = response.data.attributes.price;
-
-    return {
-      price: priceInCents / 100,
-      formattedPrice: formatPrice(priceInCents),
-    };
-  } catch (error) {
-    console.error(`Error fetching variant ${variantId}:`, error);
-    return null;
-  }
-}
-
-export async function getProductsWithPrices(): Promise<ProductWithPrice[]> {
-  const products: ProductWithPrice[] = [];
-
-  for (const [key, config] of Object.entries(PRODUCT_CONFIG)) {
-    if (!config.variantId) {
-      console.warn(
-        `No variantId for product ${key} - check LEMON_PRODUCT_* env vars`,
-      );
-      continue;
-    }
-
-    const priceData = await getVariantPrice(config.variantId);
-    const productKey = key as ProductKey;
-    const fallbackPrice = FALLBACK_PRICES[productKey];
-
-    products.push({
-      key: productKey,
-      name: config.name,
-      description: config.description,
-      features: config.features,
-      variantId: config.variantId,
-      price: priceData?.price ?? fallbackPrice.price,
-      formattedPrice: priceData?.formattedPrice ?? fallbackPrice.formattedPrice,
-      popular: "popular" in config ? config.popular : false,
-    });
-  }
-
-  return products;
-}
-
-export async function getProductWithPrice(
-  productKey: ProductKey,
-): Promise<ProductWithPrice | null> {
-  const config = PRODUCT_CONFIG[productKey];
-
-  if (!config.variantId) {
-    return null;
-  }
-
-  const priceData = await getVariantPrice(config.variantId);
-  const fallbackPrice = FALLBACK_PRICES[productKey];
-
-  return {
-    key: productKey,
-    name: config.name,
-    description: config.description,
-    features: config.features,
-    variantId: config.variantId,
-    price: priceData?.price ?? fallbackPrice.price,
-    formattedPrice: priceData?.formattedPrice ?? fallbackPrice.formattedPrice,
-    popular: "popular" in config ? config.popular : false,
-  };
-}
-
-interface CreateDiscountResponse {
-  data: {
-    id: string;
-    type: string;
-    attributes: {
-      code: string;
-      amount: number;
-      amount_type: string;
-    };
-  };
-}
-
 export async function createDiscount(
-  prefix: string,
+  codePrefix: string,
   name: string,
   amount: number,
-  amountType: "percent" | "fixed" = "percent",
-  maxRedemptions: number = 1,
+  type: "percent" | "fixed" = "percent",
+  durationInMonths?: number,
+  maxRedemptions?: number
 ): Promise<string | null> {
-  if (!LEMONSQUEEZY_API_KEY || !LEMONSQUEEZY_STORE_ID) {
-    console.error("Missing LemonSqueezy credentials");
-    return null;
-  }
+    if (!LEMONSQUEEZY_STORE_ID) return null;
 
-  try {
-    const uniqueCode = `${prefix}${alphanumericNanoid()}`;
+    // Generate a somewhat random code
+    const code = `${codePrefix}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    const response = await lemonFetch<CreateDiscountResponse>("/discounts", {
-      method: "POST",
-      body: JSON.stringify({
+    const payload = {
         data: {
-          type: "discounts",
-          attributes: {
-            name: `${name}`,
-            code: uniqueCode,
-            amount: amount,
-            amount_type: amountType,
-            is_limited_redemptions: true,
-            max_redemptions: maxRedemptions,
-            starts_at: new Date().toISOString(),
-          },
-          relationships: {
-            store: {
-              data: {
-                type: "stores",
-                id: LEMONSQUEEZY_STORE_ID,
-              },
+            type: "discounts",
+            attributes: {
+                name: name,
+                code: code,
+                amount: amount,
+                amount_type: type,
+                duration: durationInMonths ? "repeating" : "once",
+                ...(durationInMonths && { duration_in_months: durationInMonths }),
+                is_limited_to_products: false,
+                is_limited_redemptions: !!maxRedemptions,
+                max_redemptions: maxRedemptions || 0,
             },
-          },
-        },
-      }),
-    });
+            relationships: {
+                store: {
+                    data: {
+                        type: "stores",
+                        id: LEMONSQUEEZY_STORE_ID
+                    }
+                }
+            }
+        }
+    };
 
-    return response.data.attributes.code;
-  } catch (error) {
-    console.error("Error creating discount:", error);
-    return null;
-  }
+    try {
+        await lemonFetch("/discounts", {
+            method: "POST",
+            body: JSON.stringify(payload)
+        });
+        return code;
+    } catch (e) {
+        console.error("Failed to create discount", e);
+        return null;
+    }
 }
+
 
 export async function createUpgradeDiscount(
   userId: string,
   targetProductPrice: number,
-  paidAmount: number,
+  paidAmount: number
 ): Promise<string | null> {
-  const discountAmount = Math.min(paidAmount, targetProductPrice); // Discount is whatever they already paid
-
-  // Example: Paid £349 (Eng), Upgrade to £599 (Full)
-  // Discount = £349. They pay £250.
-
+  const discountAmount = Math.min(paidAmount, targetProductPrice);
+  
   return createDiscount(
     "UPGRADE",
     `Upgrade Discount - ${userId}`,
     discountAmount,
-    "fixed", // Fixed amount off in cents
-    1,
+    "fixed",
+    1
   );
 }
+
+export async function createStudentDiscount(email: string): Promise<string | null> {
+    return createDiscount("STUDENT", `Student Discount - ${email}`, 50);
+}
+
+export async function createBulkDiscount(companyName: string, seats: number): Promise<string | null> {
+  return createDiscount(
+      "BULK",
+      `Bulk Access for ${companyName}`,
+      100,
+      "percent",
+      undefined,
+      seats
+  );
+}
+
 
 interface OrderResponse {
   data: Array<{
@@ -528,15 +270,11 @@ export async function getOrders(
   }
 
   try {
-    // Determine today's date minus a small buffer (e.g. 1 hour or 1 day) if we wanted recent only.
-    // For now, let's just fetch last 10 orders for this email.
-    // Filter by email is strictly supported? Lemon api doc says filter[email]
-
     const response = await lemonFetch<OrderResponse>(
       `/orders?filter[user_email]=${encodeURIComponent(userEmail)}&filter[store_id]=${LEMONSQUEEZY_STORE_ID}&page[size]=10&include=order-items`,
       {
-        next: { revalidate: 0 }, // Always fetch fresh
-      },
+        next: { revalidate: 0 },
+      } as any
     );
 
     return response.data;
@@ -546,8 +284,67 @@ export async function getOrders(
   }
 }
 
-export async function createStudentDiscount(
-  studentEmail: string,
-): Promise<string | null> {
-  return createDiscount("STUDENT", `Student Discount - ${studentEmail}`, 30);
+export function verifyWebhookSignature(payload: string, signature: string): boolean {
+    if (!LEMONSQUEEZY_WEBHOOK_SECRET) return false;
+    const hmac = crypto.createHmac("sha256", LEMONSQUEEZY_WEBHOOK_SECRET);
+    const digest = hmac.update(payload).digest("hex");
+    return crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(digest));
+}
+
+export function getProductKeyFromVariantId(variantId: string | number): ProductKey | null {
+    const vId = String(variantId);
+    for (const [key, config] of Object.entries(PRODUCT_CONFIG)) {
+        if (config.variantId && String(config.variantId) === vId) {
+            return key as ProductKey;
+        }
+    }
+    return null;
+}
+
+export async function getProductWithPrice(key: ProductKey): Promise<ProductWithPrice | null> {
+    const config = PRODUCT_CONFIG[key];
+    if (!config.variantId) return null;
+
+    try {
+        const response = await lemonFetch<{ data: { attributes: { price: number; price_formatted: string } } }>(
+            `/variants/${config.variantId}`
+        );
+        return {
+            key,
+            ...config,
+            variantId: config.variantId,
+            price: response.data.attributes.price,
+            formattedPrice: response.data.attributes.price_formatted
+        };
+    } catch (e) {
+        console.error(`Failed to fetch price for ${key}`, e);
+        return {
+            key,
+            ...config,
+             variantId: config.variantId,
+            price: 0,
+            formattedPrice: "N/A"
+        };
+    }
+}
+
+export async function getProductsWithPrices(): Promise<ProductWithPrice[]> {
+    const keys = Object.keys(PRODUCT_CONFIG) as ProductKey[];
+    const products = await Promise.all(keys.map(getProductWithPrice));
+    return products.filter((p): p is ProductWithPrice => p !== null);
+}
+
+export interface WebhookEvent {
+    meta: {
+        event_name: string;
+        custom_data?: {
+            user_id: string;
+        };
+    };
+    data: {
+        id: string;
+        type: string;
+        attributes: any;
+        relationships: any;
+    };
 }

@@ -10,7 +10,7 @@ import { Resend } from "resend";
 import { CourseWelcomeEmail } from "@/app/components/email-template";
 import { revalidatePath } from "next/cache";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY || "re_dummy");
 
 export async function POST(request: NextRequest) {
   const signature = request.headers.get("x-signature");

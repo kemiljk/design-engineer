@@ -2,7 +2,7 @@
 
 import { createCheckout } from "@/lib/lemonsqueezy";
 import { PRODUCT_CONFIG } from "@/lib/lemonsqueezy";
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { createUpgradeDiscount, getProductWithPrice } from "@/lib/lemonsqueezy";
 import { getUserEnrollment } from "@/lib/course";
 
@@ -15,7 +15,8 @@ const PRICES = {
 
 export async function createUpgradeCheckout(targetProductKey: string) {
   const { userId } = await auth();
-  if (!userId) return { error: "Please sign in to upgrade" };
+  const user = await currentUser();
+  if (!userId || !user) return { error: "Please sign in to upgrade" };
 
   const enrollment = await getUserEnrollment(userId);
   const currentAccess = enrollment?.metadata.access_level;
@@ -70,11 +71,14 @@ export async function createUpgradeCheckout(targetProductKey: string) {
     return { error: "Failed to generate upgrade discount." };
   }
 
+  const email = user.emailAddresses[0]?.emailAddress;
+  if (!email) return { error: "No email found on your account." };
+
   // Create Checkout with this discount applied
   const checkout = await createCheckout(
     targetProduct.variantId,
     userId,
-    enrollment.metadata.email, // Use enrollment email
+    email,
     `${process.env.NEXT_PUBLIC_APP_URL}/course/purchase-success`
   );
   
