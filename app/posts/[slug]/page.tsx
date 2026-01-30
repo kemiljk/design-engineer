@@ -100,6 +100,8 @@ export default async function Post(props: {
 
   const readingTime = getReadingTime(post.metadata?.content || "");
 
+import { ArticleCourseFooter } from "@/app/components/article-course-footer";
+
   return (
     <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">
       <PageHeader
@@ -151,6 +153,8 @@ export default async function Post(props: {
         <div className="flex w-full items-center justify-center space-x-2 py-8">
           <CopyButton />
         </div>
+
+        <ArticleCourseFooter categories={post.metadata.categories} />
 
         <Divider className="my-4" />
 
