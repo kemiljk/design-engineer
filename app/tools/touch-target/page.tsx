@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import TouchTargetCalculator from "./calculator";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Touch Target Calculator | Design Engineer",
@@ -16,6 +17,12 @@ export default function TouchTargetPage() {
       />
       <div className="container-page py-12">
         <TouchTargetCalculator />
+        <div className="mx-auto max-w-2xl">
+          <ToolCourseCTA href="/course/engineering-track">
+            Accessibility is just the start. The Engineering Track covers building
+            production-ready mobile interfaces.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

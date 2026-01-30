@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import TokenNamingBuilder from "./builder";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Semantic Token Naming Tool | Design Engineer",
@@ -17,6 +18,12 @@ export default function TokenNamingPage() {
       />
       <div className="container-page py-12">
         <TokenNamingBuilder />
+        <div className="mx-auto max-w-4xl">
+          <ToolCourseCTA href="/course/design-track">
+            Build complete design systems from scratch. The Design Track teaches
+            semantic naming at scale.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

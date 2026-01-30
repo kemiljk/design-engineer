@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import SpringPhysicsPlayground from "./playground";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Spring Physics Playground | Design Engineer",
@@ -16,6 +17,12 @@ export default function SpringPhysicsPage() {
       />
       <div className="container-page py-12">
         <SpringPhysicsPlayground />
+        <div className="mx-auto max-w-3xl">
+          <ToolCourseCTA href="/course/engineering-track">
+            Want to master animation physics? The Engineering Track covers spring
+            dynamics and platform-native implementations.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );
