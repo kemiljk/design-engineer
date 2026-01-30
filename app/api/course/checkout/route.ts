@@ -130,6 +130,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ checkoutUrl });
   } catch (error: any) {
     console.error("Checkout creation failed:", error);
+    // Temporary debug response
     return NextResponse.json(
       { error: `Details: ${error?.message || String(error)}` },
       { status: 500 },
