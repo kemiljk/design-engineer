@@ -422,7 +422,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
               endContent={<ArrowRight className="h-4 w-4" />}
               className="ml-auto px-4 py-2 text-sm font-medium"
             >
-              Sign in to track progress
+              Track progress
             </Button>
           )}
         </div>
