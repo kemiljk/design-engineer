@@ -224,11 +224,7 @@ const homepageFaqs = [
 
 function FAQSection() {
   return (
-    <AnimatedSection
-      as="div"
-      variant="secondary"
-      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
-    >
+    <AnimatedSection as="div" variant="secondary">
       <div className="container-readable">
         <div className="mb-8 text-center">
           <p className="heading-eyebrow mb-2">About the course</p>
@@ -383,10 +379,7 @@ function ToolsSection() {
 
 function DesignEngineeringSection() {
   return (
-    <AnimatedSection
-      as="div"
-      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
-    >
+    <AnimatedSection as="div" variant="primary">
       <div className="container-page">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <p className="heading-eyebrow mb-4">The discipline</p>
@@ -461,7 +454,6 @@ async function CourseSection({
     <AnimatedSection
       as="div"
       variant="secondary"
-      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
     >
       <div className="container-page">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">

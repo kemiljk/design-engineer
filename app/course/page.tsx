@@ -266,7 +266,8 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                     Complete your skillset
                   </h2>
                   <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-                    Upgrade to Convergence to unlock all tracks and advanced content.
+                    Upgrade to Convergence to unlock all tracks and advanced
+                    content.
                     <br />
                     <span className="text-sm text-neutral-500">
                       (You only pay the difference)
@@ -275,7 +276,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                 </div>
                 <Button
                   href="/course/pricing"
-                  className="shrink-0 bg-swiss-red px-6 py-3 font-medium text-white hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
+                  className="bg-swiss-red shrink-0 px-6 py-3 font-medium text-white hover:bg-neutral-900 dark:hover:bg-white dark:hover:text-black"
                   endContent={<ArrowRight className="h-4 w-4" />}
                 >
                   Upgrade Plan
@@ -285,13 +286,15 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
               // New User State
               <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:text-left">
                 <div>
-                  <div className="flex items-center gap-3 md:justify-start justify-center mb-2">
+                  <div className="mb-2 flex items-center justify-center gap-3 md:justify-start">
                     <Badge variant="default" className="gap-1.5">
                       <Gift className="h-3.5 w-3.5" />
                       Start for Free
                     </Badge>
                     <span className="text-sm text-neutral-500">•</span>
-                    <span className="text-sm text-neutral-500">14-day guarantee</span>
+                    <span className="text-sm text-neutral-500">
+                      14-day guarantee
+                    </span>
                   </div>
                   <h2 className="text-xl font-bold md:text-2xl">
                     Stop handing over designs. Start building them.
@@ -302,7 +305,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                 </div>
                 <Button
                   href="/course/pricing"
-                  className="shrink-0 bg-swiss-red px-8 py-4 font-medium text-white shadow-lg shadow-swiss-red/20 transition-all hover:scale-105 hover:bg-neutral-900 hover:shadow-xl dark:hover:bg-white dark:hover:text-black"
+                  className="bg-swiss-red shadow-swiss-red/20 shrink-0 px-8 py-4 font-medium text-white shadow-lg transition-all hover:scale-105 hover:bg-neutral-900 hover:shadow-xl dark:hover:bg-white dark:hover:text-black"
                   endContent={<ArrowRight className="h-4 w-4" />}
                 >
                   Unlock Lifetime Access
@@ -507,7 +510,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
       )}
 
       {/* Temporary Access Code Redemption - only show for non-enrolled users */}
-      {(!accessLevel || accessLevel === "free") && (
+      {/* {(!accessLevel || accessLevel === "free") && (
         <div className="border-b border-neutral-200 bg-neutral-50 py-16 dark:border-neutral-800 dark:bg-neutral-900/50">
           <div className="container-page">
             <div className="mx-auto max-w-2xl">
@@ -515,7 +518,7 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {(!accessLevel || accessLevel === "free") && (
         <div className="border-t border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-neutral-900">
@@ -532,9 +535,11 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
 
               <div className="grid gap-6 md:grid-cols-3">
                 {/* Design Full */}
-                <div className={cn(
-                  "rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50"
-                )}>
+                <div
+                  className={cn(
+                    "rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50",
+                  )}
+                >
                   <div className="text-swiss-red mb-1 text-xs font-medium tracking-wider uppercase">
                     Design Track
                   </div>
@@ -556,9 +561,11 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                 </div>
 
                 {/* Engineering Full */}
-                <div className={cn(
-                  "rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50"
-                )}>
+                <div
+                  className={cn(
+                    "rounded-none border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-800/50",
+                  )}
+                >
                   <div className="mb-1 text-xs font-medium tracking-wider text-neutral-500 uppercase">
                     Engineering Track
                   </div>

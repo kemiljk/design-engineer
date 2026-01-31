@@ -12,8 +12,10 @@ interface AnimatedSectionProps {
 }
 
 const variantClasses: Record<string, string> = {
-  primary: "",
-  secondary: "bg-neutral-50 dark:bg-neutral-900/50",
+  primary:
+    "w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800",
+  secondary:
+    "w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50",
 };
 
 export function AnimatedSection({
@@ -21,7 +23,7 @@ export function AnimatedSection({
   className,
   delay = 0,
   as = "section",
-  variant = "primary",
+  variant,
 }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -58,7 +60,7 @@ export function AnimatedSection({
         isVisible
           ? "translate-y-0 opacity-100"
           : "translate-y-6 opacity-0",
-        variantClasses[variant],
+        variant && variantClasses[variant],
         className
       )}
       style={{

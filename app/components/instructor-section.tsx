@@ -6,11 +6,7 @@ import Link from "next/link";
 
 export function InstructorSection() {
   return (
-    <AnimatedSection
-      as="div"
-      variant="secondary"
-      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
-    >
+    <AnimatedSection as="div" variant="secondary">
       <div className="container-page">
         <p className="heading-eyebrow mb-8">Your Instructor</p>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">

@@ -29,11 +29,7 @@ const audiences = [
 
 export function WhoThisIsForSection() {
   return (
-    <AnimatedSection
-      as="div"
-      variant="secondary"
-      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
-    >
+    <AnimatedSection as="div" variant="secondary">
       <div className="container-page">
         <div className="mb-10">
           <p className="heading-eyebrow mb-2">Made for you</p>

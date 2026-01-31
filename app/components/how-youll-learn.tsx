@@ -21,10 +21,7 @@ const methods = [
 
 export function HowYoullLearnSection() {
   return (
-    <AnimatedSection
-      as="div"
-      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
-    >
+    <AnimatedSection as="div" variant="primary">
       <div className="container-page">
         <div className="mb-10">
           <p className="heading-eyebrow mb-2">Methodology</p>
