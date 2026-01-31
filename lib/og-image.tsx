@@ -9,21 +9,22 @@ type OGImageProps = {
 
 async function loadFonts() {
   // Fetch TTF fonts - next/og requires TTF or OTF format (not WOFF/WOFF2)
-  // Use a reliable CDN for Host Grotesk TTF files
+  // Host Grotesk from GitHub raw (Google Fonts repo) seems to cause signature issues with @vercel/og
+  // Falling back to Geist Sans from jsdelivr which is known to work perfectly with Vercel OG
   const [fontRegular, fontBold] = await Promise.all([
-    fetch("https://github.com/google/fonts/raw/main/ofl/hostgrotesk/HostGrotesk-Regular.ttf").then((res) => res.arrayBuffer()),
-    fetch("https://github.com/google/fonts/raw/main/ofl/hostgrotesk/HostGrotesk-Bold.ttf").then((res) => res.arrayBuffer()),
+    fetch("https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.ttf").then((res) => res.arrayBuffer()),
+    fetch("https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.ttf").then((res) => res.arrayBuffer()),
   ]);
 
   return [
     {
-      name: "Host Grotesk",
+      name: "Geist Sans",
       data: fontRegular,
       style: "normal" as const,
       weight: 400 as const,
     },
     {
-      name: "Host Grotesk",
+      name: "Geist Sans",
       data: fontBold,
       style: "normal" as const,
       weight: 700 as const,
@@ -49,7 +50,7 @@ function OGImageTemplate({
         flexDirection: "column",
         backgroundColor: "#fafafa",
         padding: "60px",
-        fontFamily: "Host Grotesk",
+        fontFamily: "Geist Sans",
       }}
     >
       {/* Top bar with logo and type badge */}
@@ -153,7 +154,7 @@ function OGImageTemplate({
         <h1
           style={{
             fontSize: isLongTitle ? "56px" : "72px",
-            fontFamily: "Host Grotesk",
+            fontFamily: "Geist Sans",
             fontWeight: 700,
             color: "#171717",
             lineHeight: 1,
