@@ -8,6 +8,7 @@ export function InstructorSection() {
   return (
     <AnimatedSection
       as="div"
+      variant="secondary"
       className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
     >
       <div className="container-page">
@@ -49,10 +50,11 @@ export function InstructorSection() {
               theory.
             </p>
             <NextLink
-              href="/course"
+              target="_blank"
+              href="https://karlkoch.me"
               className="group hover:text-swiss-red dark:hover:text-swiss-red inline-flex items-center gap-2 text-sm font-medium text-neutral-900 transition-colors dark:text-white"
             >
-              Explore the course
+              Learn more about Karl
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </NextLink>
           </div>

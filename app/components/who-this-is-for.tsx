@@ -31,6 +31,7 @@ export function WhoThisIsForSection() {
   return (
     <AnimatedSection
       as="div"
+      variant="secondary"
       className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
     >
       <div className="container-page">

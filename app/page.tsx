@@ -45,7 +45,6 @@ import { HeroIllustrationWrapper } from "./components/hero-illustration-wrapper"
 import { FAQAccordion } from "./course/faq/faq-accordion";
 import { AnimatedSection } from "./components/animated-section";
 import { AnimatedGrid } from "./components/animated-grid";
-import { InstructorSection } from "./components/instructor-section";
 import { HowYoullLearnSection } from "./components/how-youll-learn";
 import { WhoThisIsForSection } from "./components/who-this-is-for";
 import { CurriculumPreviewHome } from "./components/curriculum-preview-home";
@@ -227,7 +226,8 @@ function FAQSection() {
   return (
     <AnimatedSection
       as="div"
-      className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
+      variant="secondary"
+      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
     >
       <div className="container-readable">
         <div className="mb-8 text-center">
@@ -320,7 +320,7 @@ function ToolsSection() {
   return (
     <AnimatedSection
       as="div"
-      className="w-full border-y border-neutral-200 bg-neutral-50 py-16 md:py-20 dark:border-neutral-800 dark:bg-neutral-900/50"
+      className="w-full border-y border-neutral-200 py-16 md:py-20 dark:border-neutral-800"
     >
       <div className="container-page">
         {/* Header */}
@@ -460,7 +460,8 @@ async function CourseSection({
   return (
     <AnimatedSection
       as="div"
-      className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
+      variant="secondary"
+      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
     >
       <div className="container-page">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
@@ -600,8 +601,6 @@ export default function Home() {
       <Suspense fallback={<CourseSectionSkeleton />}>
         <CourseSection coursePromise={coursePromise} />
       </Suspense>
-
-      <InstructorSection />
 
       <HowYoullLearnSection />
 

@@ -8,13 +8,20 @@ interface AnimatedSectionProps {
   className?: string;
   delay?: number;
   as?: "section" | "div" | "article";
+  variant?: "primary" | "secondary";
 }
+
+const variantClasses: Record<string, string> = {
+  primary: "",
+  secondary: "bg-neutral-50 dark:bg-neutral-900/50",
+};
 
 export function AnimatedSection({
   children,
   className,
   delay = 0,
   as = "section",
+  variant = "primary",
 }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -51,6 +58,7 @@ export function AnimatedSection({
         isVisible
           ? "translate-y-0 opacity-100"
           : "translate-y-6 opacity-0",
+        variantClasses[variant],
         className
       )}
       style={{

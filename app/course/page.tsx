@@ -32,6 +32,7 @@ import { TrackLogo } from "@/app/components/track-logo";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { CurriculumPreview } from "./components/curriculum-preview";
 import { CourseApproach } from "./components/course-approach";
+import { InstructorSection } from "@/app/components/instructor-section";
 import { TemporaryAccessRedeem } from "./components/temporary-access-redeem";
 import { TemporaryAccessStatus } from "./components/temporary-access-status";
 
@@ -627,6 +628,9 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
 
       {/* Student Testimonials */}
       <TestimonialsSection />
+
+      {/* Instructor */}
+      <InstructorSection />
 
       {/* Course Footer */}
       <div className="border-t border-neutral-200 bg-white py-12 dark:border-neutral-800 dark:bg-neutral-900">

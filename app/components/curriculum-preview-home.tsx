@@ -61,7 +61,7 @@ export async function CurriculumPreviewHome() {
   return (
     <AnimatedSection
       as="div"
-      className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
+      className="w-full border-b border-neutral-200 py-16 md:py-24 dark:border-neutral-800"
     >
       <div className="container-page">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
