@@ -57,7 +57,7 @@ async function HeroSection({
   const home = await homePromise;
 
   return (
-    <div className="w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
+    <div className="mt-12 w-full border-b border-neutral-200 py-12 md:py-24 lg:py-32 dark:border-neutral-800">
       <div className="container-page">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Illustration - top on mobile, right on desktop */}
@@ -447,10 +447,7 @@ async function CourseSection({
   ];
 
   return (
-    <AnimatedSection
-      as="div"
-      variant="secondary"
-    >
+    <AnimatedSection as="div" variant="secondary">
       <div className="container-page">
         <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
