@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import AspectRatioCalculator from "./calculator";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Aspect Ratio Calculator | Design Engineer",
@@ -16,6 +17,11 @@ export default function AspectRatioPage() {
       />
       <div className="container-page py-12">
         <AspectRatioCalculator />
+        <div className="mx-auto max-w-2xl">
+          <ToolCourseCTA href="/course/design-track">
+            Learn responsive layout principles. The Design Track covers grids, fluid typography, and intrinsic web design.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

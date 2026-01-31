@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import BorderComparison from "./comparison";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Border Comparison | Design Engineer",
@@ -17,6 +18,11 @@ export default function BorderComparisonPage() {
       />
       <div className="container-page py-12">
         <BorderComparison />
+        <div className="mx-auto max-w-4xl">
+          <ToolCourseCTA href="/course/design-track">
+            Subtle details matter. The Design Track covers border techniques, blending modes, and visual polish.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

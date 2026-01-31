@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import SpectrumGenerator from "./generator";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Spectrum Generator | Design Engineer",
@@ -16,6 +17,11 @@ export default function SpectrumGeneratorPage() {
       />
       <div className="container-page py-12">
         <SpectrumGenerator />
+        <div className="mx-auto max-w-4xl">
+          <ToolCourseCTA href="/course/design-track">
+            Stop guessing colours. The Design Track teaches you how to build systematic, accessible colour palettes.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import CornerRadiusCalculator from "./calculator";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Corner Radius Calculator | Design Engineer",
@@ -16,6 +17,11 @@ export default function CornerRadiusPage() {
       />
       <div className="container-page py-12">
         <CornerRadiusCalculator />
+        <div className="mx-auto max-w-4xl">
+          <ToolCourseCTA href="/course/design-track">
+            Learn the math behind beautiful interfaces. The Design Track covers optical adjustments, spacing scales, and layout harmony.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

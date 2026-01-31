@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import IconGenerator from "./generator";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "App Icon Sizes | Design Engineer",
@@ -16,6 +17,11 @@ export default function IconGeneratorPage() {
       />
       <div className="container-page py-12">
         <IconGenerator />
+        <div className="mx-auto max-w-4xl">
+          <ToolCourseCTA href="/course/design-track">
+            Designing for mobile requires precision. The Design Track covers platform guidelines, export workflows, and asset management.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );

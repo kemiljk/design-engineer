@@ -1,6 +1,7 @@
 import React from "react";
 import { PageHeader } from "@/app/components/page-header";
 import BlendModeExplorer from "./explorer";
+import { ToolCourseCTA } from "@/app/components/tool-course-cta";
 
 export const metadata = {
   title: "Blend Mode Explorer | Design Engineer",
@@ -16,6 +17,11 @@ export default function BlendModeExplorerPage() {
       />
       <div className="container-page py-12">
         <BlendModeExplorer />
+        <div className="mx-auto max-w-4xl">
+          <ToolCourseCTA href="/course/design-track">
+            Go beyond standard overlays. The Design Track covers advanced compositing and visual effects in CSS.
+          </ToolCourseCTA>
+        </div>
       </div>
     </main>
   );
