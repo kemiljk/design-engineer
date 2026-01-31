@@ -39,7 +39,6 @@ import {
   ColorPicker,
 } from "iconoir-react";
 import SubmitArticle from "./components/submit-article";
-import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import { HeroIllustrationWrapper } from "./components/hero-illustration-wrapper";
 import { FAQAccordion } from "./course/faq/faq-accordion";
@@ -75,18 +74,15 @@ async function HeroSection({
               {home.metadata.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
-              <SignedOut>
-                <Button href="/sign-up" size="xl">
-                  Sign up
-                </Button>
-              </SignedOut>
               <Button
                 href="/course"
-                variant="outline"
                 size="xl"
                 endContent={<ArrowRight className="h-4 w-4" />}
               >
-                Explore the course
+                Start free lessons
+              </Button>
+              <Button href="/course/pricing" variant="outline" size="xl">
+                View course pricing
               </Button>
             </div>
           </div>
