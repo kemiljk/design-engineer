@@ -118,12 +118,23 @@ interface BundleCardProps {
   product: ProductWithPrice;
   currentAccess: string | null;
   userId: string | null;
+  savings?: { amount: number; percent: number; comparePrice: number };
+}
+
+function formatGBP(amount: number): string {
+  return new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(Math.round(amount));
 }
 
 export function BundleCard({
   product,
   currentAccess,
   userId,
+  savings,
 }: BundleCardProps) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -202,15 +213,22 @@ export function BundleCard({
       </div>
 
       <div className="mb-6">
-        <span
-          className={cn(
-            "text-4xl font-bold",
-            isConvergence && "text-swiss-red",
+        <div className="flex flex-wrap items-center gap-3">
+          <span
+            className={cn(
+              "text-4xl font-bold",
+              isConvergence && "text-swiss-red",
+            )}
+          >
+            {product.formattedPrice}
+          </span>
+          {savings && (
+            <span className="rounded-none bg-green-100 px-2 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/40 dark:text-green-400">
+              {savings.percent}% off · Save {formatGBP(savings.amount)}
+            </span>
           )}
-        >
-          {product.formattedPrice}
-        </span>
-        <p className="mt-1 text-xs text-neutral-500">
+        </div>
+        <p className="mt-2 text-xs text-neutral-500">
           One-time payment · Lifetime access
         </p>
       </div>

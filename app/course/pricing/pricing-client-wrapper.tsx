@@ -14,6 +14,10 @@ interface PricingClientWrapperProps {
   convergenceSavings: number;
   convergenceSavingsPercent: number;
   individualTrackTotal: number;
+  bundleSavings: Record<
+    string,
+    { amount: number; percent: number; comparePrice: number }
+  >;
 }
 
 function formatGBP(amount: number): string {
@@ -81,6 +85,7 @@ export function PricingClientWrapper({
   convergenceSavings,
   convergenceSavingsPercent,
   individualTrackTotal,
+  bundleSavings,
 }: PricingClientWrapperProps) {
   const fullProduct = bundleTiers.find((p) => p.key === "full");
 
@@ -179,6 +184,7 @@ export function PricingClientWrapper({
                 product={product}
                 currentAccess={currentAccess}
                 userId={userId}
+                savings={bundleSavings[product.key]}
               />
             ))}
           </div>

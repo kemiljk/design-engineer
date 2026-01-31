@@ -71,6 +71,62 @@ export default async function PricingPage() {
       ? Math.round((convergenceSavings / individualTrackTotal) * 100)
       : 0;
 
+  // Calculate savings for each bundle tier
+  const designTracks = platformTiers.filter((p) => p.key.startsWith("design_"));
+  const engineeringTracks = platformTiers.filter((p) =>
+    p.key.startsWith("engineering_"),
+  );
+  const designFullProduct = bundleTiers.find((p) => p.key === "design_full");
+  const engineeringFullProduct = bundleTiers.find(
+    (p) => p.key === "engineering_full",
+  );
+
+  const designTracksTotal = designTracks.reduce((sum, p) => sum + p.price, 0);
+  const engineeringTracksTotal = engineeringTracks.reduce(
+    (sum, p) => sum + p.price,
+    0,
+  );
+
+  // Build savings data for each bundle
+  const bundleSavings: Record<
+    string,
+    { amount: number; percent: number; comparePrice: number }
+  > = {};
+
+  if (designFullProduct && designTracksTotal > designFullProduct.price) {
+    bundleSavings["design_full"] = {
+      amount: designTracksTotal - designFullProduct.price,
+      percent: Math.round(
+        ((designTracksTotal - designFullProduct.price) / designTracksTotal) *
+          100,
+      ),
+      comparePrice: designTracksTotal,
+    };
+  }
+
+  if (
+    engineeringFullProduct &&
+    engineeringTracksTotal > engineeringFullProduct.price
+  ) {
+    bundleSavings["engineering_full"] = {
+      amount: engineeringTracksTotal - engineeringFullProduct.price,
+      percent: Math.round(
+        ((engineeringTracksTotal - engineeringFullProduct.price) /
+          engineeringTracksTotal) *
+          100,
+      ),
+      comparePrice: engineeringTracksTotal,
+    };
+  }
+
+  if (fullProduct && individualTrackTotal > fullProduct.price) {
+    bundleSavings["full"] = {
+      amount: convergenceSavings,
+      percent: convergenceSavingsPercent,
+      comparePrice: individualTrackTotal,
+    };
+  }
+
   return (
     <main className="min-h-dvh bg-neutral-50 pt-24 dark:bg-neutral-950">
       <div className="container-page py-12">
@@ -152,6 +208,7 @@ export default async function PricingPage() {
               convergenceSavings={convergenceSavings}
               convergenceSavingsPercent={convergenceSavingsPercent}
               individualTrackTotal={individualTrackTotal}
+              bundleSavings={bundleSavings}
             />
 
             {/* Student Discount Form */}

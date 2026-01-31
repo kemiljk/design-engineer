@@ -548,8 +548,15 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                     All design content across Web, iOS & Android
                   </p>
                   <div className="mb-4">
-                    <span className="text-3xl font-bold">£299</span>
-                    <span className="text-neutral-500"> one-time</span>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="text-3xl font-bold">£299</span>
+                      <span className="rounded-none bg-green-100 px-2 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/40 dark:text-green-400">
+                        8% off · Save £28
+                      </span>
+                    </div>
+                    <span className="mt-1 block text-sm text-neutral-500">
+                      one-time
+                    </span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                     <li>
@@ -574,8 +581,15 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                     All engineering content across Web, iOS & Android
                   </p>
                   <div className="mb-4">
-                    <span className="text-3xl font-bold">£349</span>
-                    <span className="text-neutral-500"> one-time</span>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="text-3xl font-bold">£349</span>
+                      <span className="rounded-none bg-green-100 px-2 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/40 dark:text-green-400">
+                        13% off · Save £52
+                      </span>
+                    </div>
+                    <span className="mt-1 block text-sm text-neutral-500">
+                      one-time
+                    </span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                     <li>
@@ -602,10 +616,17 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                     Everything — Design + Engineering + exclusive content
                   </p>
                   <div className="mb-4">
-                    <span className="text-swiss-red text-3xl font-bold">
-                      £599
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="text-swiss-red text-3xl font-bold">
+                        £599
+                      </span>
+                      <span className="rounded-none bg-green-100 px-2 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/40 dark:text-green-400">
+                        50% off · Save £595
+                      </span>
+                    </div>
+                    <span className="mt-1 block text-sm text-neutral-500">
+                      one-time
                     </span>
-                    <span className="text-neutral-500"> one-time</span>
                   </div>
                   <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                     <li>✓ All {course.totalLessons}+ lessons</li>
