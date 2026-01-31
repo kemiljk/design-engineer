@@ -9,6 +9,7 @@ import { ContentCard } from "@/app/components/content-card";
 import { getReadingTime } from "@/lib/utils";
 import { PageHeader } from "@/app/components/page-header";
 import * as Type from "@/lib/types";
+import { ArticleCourseFooter } from "@/app/components/article-course-footer";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -99,8 +100,6 @@ export default async function Post(props: {
 
 
   const readingTime = getReadingTime(post.metadata?.content || "");
-
-import { ArticleCourseFooter } from "@/app/components/article-course-footer";
 
   return (
     <main className="min-h-dvh bg-neutral-50 dark:bg-neutral-950">

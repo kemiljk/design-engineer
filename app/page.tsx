@@ -542,12 +542,15 @@ async function CourseSection({
               {isCourseAvailable ? "Start Free Lessons" : "Learn More"}
               <ArrowRight className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" />
             </NextLink>
-            <NextLink
-              href="/course/pricing"
-              className="focus-ring group inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-            >
-              View pricing
-            </NextLink>
+            <div className="flex flex-col items-start gap-1">
+              <NextLink
+                href="/course/pricing"
+                className="focus-ring group inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+              >
+                View pricing
+              </NextLink>
+              <p className="ml-6 text-xs text-neutral-500">No sign-up required. Start learning immediately.</p>
+            </div>
           </div>
         </div>
       </div>
