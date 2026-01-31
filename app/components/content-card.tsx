@@ -40,7 +40,11 @@ export function ContentCard({
         className={`group block h-full w-full ${className}`}
         prefetch={!isExternal}
       >
-        <div className="flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red motion-reduce:transition-none dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
+        <div className="relative flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red motion-reduce:transition-none dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
+          {/* Decorative Corners */}
+          <div className="absolute top-0 right-0 h-3 w-3 border-t border-r border-transparent transition-colors group-hover:border-swiss-red" />
+          <div className="absolute bottom-0 left-0 h-3 w-3 border-b border-l border-transparent transition-colors group-hover:border-swiss-red" />
+
           <div className="flex flex-1 flex-col justify-between p-6">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
@@ -55,7 +59,7 @@ export function ContentCard({
                   )}
                 </span>
                 <span className="text-neutral-300 dark:text-neutral-600">/</span>
-                <span>{readingTime} min read</span>
+                <span>{isExternal ? "External" : `${readingTime} min read`}</span>
               </div>
 
               <h2 className="text-lg font-bold text-foreground transition-colors group-hover:text-swiss-red motion-reduce:transition-none md:text-xl">
