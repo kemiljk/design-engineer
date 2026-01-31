@@ -11,7 +11,7 @@ const audiences = [
     icon: PencilIcon,
     title: "Designers",
     description:
-      "You want to go beyond Vibe Coding. You're tired of handing off specs and watching them get lost in translation. Learn to build what you design — properly.",
+      "You want to go beyond Vibe Coding. You're tired of handing off specs and watching them get lost in translation. Learn to build what you design properly.",
   },
   {
     icon: CodeIcon,

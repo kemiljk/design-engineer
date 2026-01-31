@@ -10,12 +10,12 @@ const methods = [
   {
     title: "Build real things.",
     description:
-      "Every module includes hands-on exercises — not just passive video watching. You'll ship components, screens, and interactions you can use in your own projects.",
+      "Every module includes hands-on exercises, not just passive video watching. You'll ship components, screens, and interactions you can use in your own projects.",
   },
   {
     title: "Design and code together.",
     description:
-      "See how design decisions translate directly to implementation, and vice versa. No handoff gap — the same person learns both sides.",
+      "See how design decisions translate directly to implementation, and vice versa. No handoff gap, the same person learns both sides.",
   },
 ];
 
