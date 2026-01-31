@@ -24,7 +24,7 @@ export function ContentCard({
 
   const imageUrl = post.metadata.image?.imgix_url
     ? `${post.metadata.image.imgix_url}?w=800&h=450&fit=crop&auto=format`
-    : `/api/og?title=${encodeURIComponent(post.title)}&type=article`;
+    : null; // Only use image if it exists, otherwise no image section
 
   return (
     <motion.div
@@ -41,13 +41,15 @@ export function ContentCard({
         prefetch={!isExternal}
       >
         <div className="flex h-full w-full flex-col border border-neutral-200 bg-white transition-colors hover:border-swiss-red motion-reduce:transition-none dark:border-neutral-800 dark:bg-black dark:hover:border-swiss-red">
-          <div className="relative aspect-video w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
-            <img
-              alt={post.title}
-              className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 motion-reduce:transition-none"
-              src={imageUrl}
-            />
-          </div>
+          {imageUrl && ( // Conditionally render the image container
+            <div className="relative aspect-video w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
+              <img
+                alt={post.title}
+                className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105 motion-reduce:transition-none"
+                src={imageUrl}
+              />
+            </div>
+          )}
 
           <div className="flex flex-1 flex-col justify-between p-6">
             <div className="flex flex-col gap-4">
