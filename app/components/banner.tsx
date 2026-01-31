@@ -76,18 +76,15 @@ export default function Banner({
   return (
     <div
       ref={bannerRef}
-      className="sticky top-0 z-60 flex w-full items-center justify-between gap-4 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 dark:border-neutral-200 dark:bg-white md:px-8"
+      className="sticky top-0 z-60 flex w-full items-center justify-between gap-1 border-b border-neutral-800 bg-neutral-900 px-4 py-2.5 md:gap-4 md:px-8 dark:border-neutral-200 dark:bg-white"
     >
       <div className="flex flex-1 items-center justify-center gap-4">
-        <NextLink
-          href={link}
-          className="text-sm text-neutral-400 transition-colors hover:text-white motion-reduce:transition-none dark:text-neutral-600 dark:hover:text-black [&_strong]:font-bold [&_strong]:text-white dark:[&_strong]:text-black"
-        >
+        <span className="text-sm text-neutral-400 transition-colors hover:text-white motion-reduce:transition-none dark:text-neutral-600 dark:hover:text-black [&_strong]:font-bold [&_strong]:text-white dark:[&_strong]:text-black">
           <Markdown>{message}</Markdown>
-        </NextLink>
+        </span>
         <NextLink
           href={link}
-          className="group flex items-center gap-2 bg-swiss-red px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white hover:text-black motion-reduce:transition-none dark:hover:bg-neutral-900 dark:hover:text-white"
+          className="group bg-swiss-red flex items-center gap-2 px-4 py-1.5 text-xs font-bold tracking-wider text-white uppercase transition-colors hover:bg-white hover:text-black motion-reduce:transition-none dark:hover:bg-neutral-900 dark:hover:text-white"
         >
           {button_label}
           <NavArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />

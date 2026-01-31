@@ -45,6 +45,10 @@ import { HeroIllustrationWrapper } from "./components/hero-illustration-wrapper"
 import { FAQAccordion } from "./course/faq/faq-accordion";
 import { AnimatedSection } from "./components/animated-section";
 import { AnimatedGrid } from "./components/animated-grid";
+import { InstructorSection } from "./components/instructor-section";
+import { HowYoullLearnSection } from "./components/how-youll-learn";
+import { WhoThisIsForSection } from "./components/who-this-is-for";
+import { CurriculumPreviewHome } from "./components/curriculum-preview-home";
 import Link from "next/link";
 
 async function HeroSection({
@@ -223,12 +227,12 @@ function FAQSection() {
   return (
     <AnimatedSection
       as="div"
-      className="w-full border-t border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
+      className="w-full border-b border-neutral-200 bg-neutral-50 py-16 md:py-24 dark:border-neutral-800 dark:bg-neutral-900/50"
     >
       <div className="container-readable">
         <div className="mb-8 text-center">
-          <p className="heading-eyebrow mb-2">Questions?</p>
-          <h2 className="heading-section">Frequently Asked Questions</h2>
+          <p className="heading-eyebrow mb-2">About the course</p>
+          <h2 className="heading-section">Common Questions</h2>
         </div>
         <FAQAccordion questions={homepageFaqs} />
         <div className="mt-8 text-center">
@@ -479,7 +483,7 @@ async function CourseSection({
                   key={track.title}
                   className={cn(
                     "group hover:border-swiss-red dark:hover:border-swiss-red relative flex h-full flex-col overflow-hidden border border-neutral-200 bg-white transition-colors dark:border-neutral-800 dark:bg-neutral-900",
-                    track.track === "convergence" ? "md:col-span-2" : ""
+                    track.track === "convergence" ? "md:col-span-2" : "",
                   )}
                 >
                   <div
@@ -508,15 +512,19 @@ async function CourseSection({
           </div>
 
           {/* Outcomes List */}
-          <div className="flex flex-col justify-center lg:col-span-5 lg:pl-8">
-            <h3 className="mb-6 text-lg font-bold">After this course, you&apos;ll be able to:</h3>
+          <div className="flex flex-col justify-start lg:col-span-5 lg:pl-8">
+            <h3 className="mb-6 text-lg font-bold">
+              After this course, you&apos;ll be able to:
+            </h3>
             <ul className="space-y-4">
               {outcomes.map((outcome) => (
                 <li key={outcome} className="flex items-start gap-3">
-                  <div className="bg-swiss-red/10 mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-swiss-red">
+                  <div className="bg-swiss-red/10 text-swiss-red mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
                     <ArrowRight className="h-3 w-3" />
                   </div>
-                  <span className="text-neutral-600 dark:text-neutral-400">{outcome}</span>
+                  <span className="text-neutral-600 dark:text-neutral-400">
+                    {outcome}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -543,13 +551,9 @@ async function CourseSection({
               <ArrowRight className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" />
             </NextLink>
             <div className="flex flex-col items-start gap-1">
-              <NextLink
-                href="/course/pricing"
-                className="focus-ring group inline-flex h-10 items-center justify-center gap-2 px-6 text-sm font-semibold text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-              >
+              <Button href="/course/pricing" variant="outline" size="lg">
                 View pricing
-              </NextLink>
-              <p className="ml-6 text-xs text-neutral-500">No sign-up required. Start learning immediately.</p>
+              </Button>
             </div>
           </div>
         </div>
@@ -597,6 +601,18 @@ export default function Home() {
         <CourseSection coursePromise={coursePromise} />
       </Suspense>
 
+      <InstructorSection />
+
+      <HowYoullLearnSection />
+
+      <WhoThisIsForSection />
+
+      <Suspense>
+        <CurriculumPreviewHome />
+      </Suspense>
+
+      <FAQSection />
+
       <ToolsSection />
 
       <div className="container-page py-16 md:py-24">
@@ -632,8 +648,6 @@ export default function Home() {
           <SponsorsSection sponsorsPromise={sponsorsPromise} />
         </Suspense>
       </div>
-
-      <FAQSection />
     </main>
   );
 }

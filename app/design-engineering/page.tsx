@@ -615,14 +615,14 @@ export default function DesignEngineeringPage() {
                 href="/course"
                 className="focus-ring bg-swiss-red flex items-center gap-2 px-8 py-4 text-base font-bold tracking-wider text-white uppercase transition-[background-color,transform] duration-150 ease-out hover:bg-neutral-900 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:hover:bg-white dark:hover:text-black"
               >
-                Explore the Course
+                Start Free Lessons
                 <ArrowRight className="h-5 w-5" />
               </NextLink>
               <NextLink
-                href="/about"
+                href="/course"
                 className="focus-ring flex items-center gap-2 border border-neutral-900 bg-white px-8 py-4 text-base font-medium tracking-wider text-neutral-900 uppercase transition-[background-color,border-color,transform] duration-150 ease-out hover:bg-neutral-50 active:translate-y-px motion-reduce:transform-none motion-reduce:transition-none dark:border-white dark:bg-black dark:text-white dark:hover:bg-neutral-900"
               >
-                Learn More About Us
+                Explore the Full Course
               </NextLink>
             </div>
           </div>
