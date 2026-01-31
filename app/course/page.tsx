@@ -8,7 +8,8 @@ import {
   getUserProgress,
   getProgressStats,
 } from "@/lib/course";
-import type { AccessLevel } from "@/lib/types";
+import { getProductsWithPrices } from "@/lib/lemonsqueezy";
+import type { AccessLevel, ProductWithPrice } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import {
@@ -65,7 +66,30 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
   const isPurchaseSuccess = params?.purchase === "success";
 
   const { userId } = await auth();
-  const course = await getCourse();
+  const [course, allProducts] = await Promise.all([
+    getCourse(),
+    getProductsWithPrices(),
+  ]);
+
+  // Pricing calculations
+  const fullProduct = allProducts.find((p) => p.key === "full");
+  const designFull = allProducts.find((p) => p.key === "design_full");
+  const engineeringFull = allProducts.find((p) => p.key === "engineering_full");
+  const convergenceOnly = allProducts.find((p) => p.key === "convergence_only");
+
+  // Calculate savings vs buying all individual tracks PLUS convergence extras
+  const platformTiers = allProducts.filter((p) => p.tier === "platform");
+  const platformTotal = platformTiers.reduce((sum, p) => sum + p.price, 0);
+  const totalValue = platformTotal + (convergenceOnly?.price || 199);
+  
+  const convergenceSavings = totalValue > 0 && fullProduct 
+    ? totalValue - fullProduct.price 
+    : 0;
+    
+  const convergenceSavingsPercent = totalValue > 0 && fullProduct 
+    ? Math.round((convergenceSavings / totalValue) * 100) 
+    : 0;
+  
   let progress: { completedLessons: string[]; raw: unknown } | null = null;
   let lastActivity = null;
   let introCompleted = false;
@@ -618,10 +642,10 @@ export default async function CoursePage({ searchParams }: CoursePageProps) {
                   <div className="mb-4">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="text-swiss-red text-3xl font-bold">
-                        £599
+                        {fullProduct?.formattedPrice ?? "£599"}
                       </span>
                       <span className="rounded-none bg-green-100 px-2 py-1 text-xs font-semibold text-green-700 dark:bg-green-900/40 dark:text-green-400">
-                        50% off · Save £595
+                        {convergenceSavingsPercent}% off · Save £{convergenceSavings}
                       </span>
                     </div>
                     <span className="mt-1 block text-sm text-neutral-500">
